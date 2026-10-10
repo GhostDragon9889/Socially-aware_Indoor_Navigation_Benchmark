@@ -1,0 +1,28 @@
+{
+  "benchmark": {
+    "wheel": "/home/lfm/Documents/ChatGPT/Social Navigation/project_reorganization_20261010/artifacts/socially_aware_indoor_navigation_benchmark-3.1.0-py3-none-any.whl",
+    "wheel_sha256": "480c0735469a3923057b16fa37adc0111c8bf59d840d698f790e8deada284f08",
+    "wheel_files": 711,
+    "required_files_present": true,
+    "licensed_body_assets_absent": true,
+    "weights_and_amass_not_bundled": true,
+    "sdist": "/home/lfm/Documents/ChatGPT/Social Navigation/project_reorganization_20261010/artifacts/socially_aware_indoor_navigation_benchmark-3.1.0.tar.gz",
+    "sdist_sha256": "fc8d32ab92f6d340a54700262c7730fd4ee4fb73d21bcd2ed360c0c82c41453f",
+    "sdist_files": 2568,
+    "editor_in_sdist": true,
+    "extracted_wheel_import_returncode": 0
+  },
+  "baseline": {
+    "wheel": "/home/lfm/Documents/ChatGPT/Social Navigation/project_reorganization_20261010/artifacts/crowdsim_ppo-0.1.0-py3-none-any.whl",
+    "wheel_sha256": "ace2d8d4d9363291e4e443f22b4cb1ee76c290525abd97076330d61fb14a3b4f",
+    "wheel_files": 15,
+    "required_files_present": true,
+    "licensed_body_assets_absent": true,
+    "weights_and_amass_not_bundled": true,
+    "sdist": "/home/lfm/Documents/ChatGPT/Social Navigation/project_reorganization_20261010/artifacts/crowdsim_ppo-0.1.0.tar.gz",
+    "sdist_sha256": "87de91c51fe2514b84e733c71236047c0715d8653d952579d0d82a3c2e34d3a5",
+    "sdist_files": 25,
+    "editor_in_sdist": false,
+    "extracted_wheel_import_returncode": 0
+  }
+}

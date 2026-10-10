@@ -1,0 +1,70 @@
+{
+  "schema": "crowdsim.trace_pace_reliability.v1",
+  "resources": {
+    "diffusion_checkpoint": {
+      "path": "data/pretrained_models/paper_references/trace/ckpt/trace/orca_mixed/iter40000.ckpt",
+      "sha256": "fd6ba631f4ccaa1a486b7cff192dfc17c5a7dd4a1058dd57830c854eaa7b9257"
+    },
+    "diffusion_config": {
+      "path": "data/pretrained_models/paper_references/trace/ckpt/trace/orca_mixed/config.json",
+      "sha256": "35a5fb329e72c5b2988e90ab58fb443b72303feb0558b4d954b8fb3aecbe3fbd"
+    },
+    "amp_checkpoint": {
+      "path": "data/pretrained_models/local_amass_finetune/anchor_20261008/Humanoid_AMASS.pth",
+      "sha256": "c07805d1ae9ab759fe63828a1379d15a36a127d68a52526d4b3e87007c3dcd73"
+    },
+    "amass_manifest": {
+      "path": "data/diffusion_amp/amass_style_2848/manifest_labeled_v7.json",
+      "sha256": "68d41be28908f28a09c47f7658af39d55fad01b32212bd7c0ced2b1e6b1489ca"
+    }
+  },
+  "replan_controls": 15,
+  "num_samples": 16,
+  "guidance": {
+    "goal_weight": 75.0,
+    "map_weight": 3000.0,
+    "agent_weight": 3000.0,
+    "dynamics_weight": 2.5,
+    "max_speed_m_s": 1.0,
+    "max_acceleration_m_s2": 1.5,
+    "max_yaw_rate_rad_s": 0.8,
+    "clearance_m": 0.15,
+    "agent_buffer_m": 0.2,
+    "guide_clean": true,
+    "reject_unsafe_samples": true
+  },
+  "allow_safety_braking": true,
+  "stationary_route_heading": true,
+  "mixed_safety_brakes": true,
+  "guard_horizon_s": 2.0,
+  "guard_tracking_margin_m": 0.5,
+  "persistent_braking_target": true,
+  "amp_sample_start_s": 0.0,
+  "local_finetune_admission": {
+    "cpu_audit": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/evidence/amass_anchor_full512_cpu_audit.json",
+    "candidate": false,
+    "physical_quality_pending": false,
+    "physical_scenes": [
+      {
+        "run": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/evidence/amass_finetuned_reciprocal_200s",
+        "actual_execution": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/evidence/amass_finetuned_reciprocal_200s_execution.json",
+        "actual_execution_sha256": "f118a9846a2183faf018a86f656e4a6a498fdd5d490f79768f31e3162b3d9b5f",
+        "independent_quality": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/evidence/amass_finetuned_reciprocal_reliability.json",
+        "independent_quality_sha256": "43f307b11bcfec98fdb140c21cec26b5d5c80c089bfe306945bf19e8e6d907c8",
+        "quality_scope": "ten_local_proxy_gates_not_eight_scene_author_protocol"
+      },
+      {
+        "run": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/evidence/amass_finetuned_circulation_60s_v2",
+        "actual_execution": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/evidence/amass_finetuned_circulation_60s_v2_execution.json",
+        "actual_execution_sha256": "a1ccc5339f5569f936efb3ba35ea00b23c5eb40e48b69e98f8f4888d07aa6b12",
+        "independent_quality": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/evidence/amass_finetuned_circulation_v2_reliability.json",
+        "independent_quality_sha256": "d62ee8d46ef6482ef1192a6404fdf2d991b7b4881479d697802b3d4d7b637e47",
+        "quality_scope": "ten_local_proxy_gates_not_eight_scene_author_protocol"
+      }
+    ],
+    "independent_style_improvement_established": false,
+    "pose_and_speed_mmd_both_regress_on_reciprocal": true,
+    "local_scope": "fixed2848_anchor512_two_four_actor_cuboid_scenes_seed7",
+    "realtime_verified": false
+  }
+}

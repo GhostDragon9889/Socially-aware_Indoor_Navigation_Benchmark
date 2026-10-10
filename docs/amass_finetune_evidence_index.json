@@ -1,0 +1,352 @@
+{
+  "schema": "crowdsim.local_amass_finetune_admission.v1",
+  "updated_utc": "2026-10-08T10:36:08.660761+00:00",
+  "status": "passed_local_declared_scope",
+  "paper_reproduction_complete": false,
+  "style_improvement_established": false,
+  "declared_scope": "512 actual fine-tuning updates; two seed7 four-actor cuboid scenes; three recorded-state RTX videos",
+  "training_execution": {
+    "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/evidence/amass_anchor_full512_v2_execution.json",
+    "sha256": "3527e607a9c53b093cddbf45cd824ea5829fd4a0582d616405b44584838000ce",
+    "bytes": 122373
+  },
+  "training_CPU_audit": {
+    "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/evidence/amass_anchor_full512_cpu_audit.json",
+    "sha256": "f01a0d3be34492978fa2ef54a7ffe98961bbdbe8f6d22729085c0a484ea67619",
+    "bytes": 1070
+  },
+  "actual_banks": {
+    "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/evidence/amass_finetune_actual_banks.json",
+    "sha256": "238b3bbdba43c9bac9e0fc638d714ef2d223298f778cd6c12ad1d6e10a538c67",
+    "bytes": 1569
+  },
+  "weight": {
+    "path": "/project/EXP/SangforAndSaut/ProtoMotions/data/pretrained_models/local_amass_finetune/anchor_20261008/Humanoid_AMASS.pth",
+    "sha256": "c07805d1ae9ab759fe63828a1379d15a36a127d68a52526d4b3e87007c3dcd73",
+    "bytes": 39973925
+  },
+  "actual_updates": 512,
+  "actual_physical_transitions": 2097152,
+  "training_motion_IDs_sampled": 2848,
+  "actual_training_falls": 6,
+  "admitted_profile": {
+    "path": "/project/EXP/SangforAndSaut/ProtoMotions/configs/diffusion_amp/trace_pace_amass_finetuned.json",
+    "sha256": "92f1120cd65ca806d9f88f55bda9be558c6c374dfe2e1325822505dd1b834dad",
+    "bytes": 3509
+  },
+  "runtime_configuration_equals_tested_candidate": true,
+  "scenes": [
+    {
+      "run": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/evidence/amass_finetuned_reciprocal_200s",
+      "execution": {
+        "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/evidence/amass_finetuned_reciprocal_200s_execution.json",
+        "sha256": "f118a9846a2183faf018a86f656e4a6a498fdd5d490f79768f31e3162b3d9b5f",
+        "bytes": 16685
+      },
+      "result": {
+        "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/evidence/amass_finetuned_reciprocal_200s/result.json",
+        "sha256": "a23e788709d8f00e43ab326630c61947b923887651ab2205ab9af9244d22a2b1",
+        "bytes": 146366
+      },
+      "quality": {
+        "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/evidence/amass_finetuned_reciprocal_reliability.json",
+        "sha256": "43f307b11bcfec98fdb140c21cec26b5d5c80c089bfe306945bf19e8e6d907c8",
+        "bytes": 3865
+      },
+      "independent_reports": {
+        "style": {
+          "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/evidence/amass_finetuned_reciprocal_style.json",
+          "sha256": "d27d13bf02a5ff9d72921889d6a5701792ea9221c0018afbd35e8851dcbd6548",
+          "bytes": 94994
+        },
+        "gait": {
+          "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/evidence/amass_finetuned_reciprocal_gait.json",
+          "sha256": "6bcd291fb2c46d04e8741841ad33d186a08d6dc222b671b3c949efe0f26aa475",
+          "bytes": 10401
+        },
+        "encounters": {
+          "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/evidence/amass_finetuned_reciprocal_encounters.json",
+          "sha256": "9598a2b1a195546a712e70a26666af660fff60a36919360ba15f1fbe25e6c326",
+          "bytes": 14248
+        }
+      },
+      "actual_exit": 0,
+      "controls": 6000,
+      "physics_substeps": 24000,
+      "actors": 4,
+      "falls": 0,
+      "post_initialization_resets": 0,
+      "routes_per_actor": [
+        12,
+        13,
+        11,
+        11
+      ],
+      "physical_distance_m_per_actor": [
+        149.50522138677363,
+        149.76611076614557,
+        132.37049437658544,
+        137.61340964126532
+      ]
+    },
+    {
+      "run": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/evidence/amass_finetuned_circulation_60s_v2",
+      "execution": {
+        "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/evidence/amass_finetuned_circulation_60s_v2_execution.json",
+        "sha256": "a1ccc5339f5569f936efb3ba35ea00b23c5eb40e48b69e98f8f4888d07aa6b12",
+        "bytes": 16703
+      },
+      "result": {
+        "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/evidence/amass_finetuned_circulation_60s_v2/result.json",
+        "sha256": "0dc24ae981fbdafdadbd330bf4a023d48235804986f34c413a36be08a0834e53",
+        "bytes": 147056
+      },
+      "quality": {
+        "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/evidence/amass_finetuned_circulation_v2_reliability.json",
+        "sha256": "d62ee8d46ef6482ef1192a6404fdf2d991b7b4881479d697802b3d4d7b637e47",
+        "bytes": 3872
+      },
+      "independent_reports": {
+        "style": {
+          "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/evidence/amass_finetuned_circulation_v2_style.json",
+          "sha256": "37652660e1289ade673d0c29f2e554ac3bf777cdd16fdca02df8d9b81f7bb932",
+          "bytes": 85679
+        },
+        "gait": {
+          "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/evidence/amass_finetuned_circulation_v2_gait.json",
+          "sha256": "571346d505263719fdcd92d45ad0a22c28215695a0cce38949f87af6c62e0a19",
+          "bytes": 10207
+        },
+        "encounters": {
+          "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/evidence/amass_finetuned_circulation_v2_encounters.json",
+          "sha256": "5fe04bc9bb09b8e99696452a496710c7d2caee5ba3732ff06a1761c8c576112e",
+          "bytes": 1333
+        }
+      },
+      "actual_exit": 0,
+      "controls": 1800,
+      "physics_substeps": 7200,
+      "actors": 4,
+      "falls": 0,
+      "post_initialization_resets": 0,
+      "routes_per_actor": [
+        2,
+        1,
+        2,
+        1
+      ],
+      "physical_distance_m_per_actor": [
+        27.089492996144926,
+        21.137197743780476,
+        26.01739844164727,
+        23.184713761672906
+      ]
+    }
+  ],
+  "videos": [
+    {
+      "execution": {
+        "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/evidence/amass_reciprocal_overview_video_v2_execution.json",
+        "sha256": "a85511923ca59702d51a7048f6d6429c2a6018170f8c6c053ce42390f040e398",
+        "bytes": 2971
+      },
+      "result": {
+        "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/evidence/amass_reciprocal_overview_video_v2/result.json",
+        "sha256": "4b20a3725bc00e814e0363f1b913127b65d409bc84d9ff89785ecf582ba04ae8",
+        "bytes": 425282
+      },
+      "video": {
+        "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/evidence/amass_reciprocal_overview_video_v2/pedestrian_motion.mp4",
+        "sha256": "034e3029d61bf515350a3343008fc155199a4673f8661f067f3f457fbb2b0eab",
+        "bytes": 872378
+      },
+      "actual_exit": 0,
+      "source_physics_interval_s": [
+        0.0,
+        60.0
+      ],
+      "fresh_physics_steps": 0,
+      "ffprobe_actual_exit": 0,
+      "stream": {
+        "codec_name": "h264",
+        "width": 960,
+        "height": 720,
+        "avg_frame_rate": "15/1",
+        "duration": "60.000000",
+        "nb_frames": "900"
+      }
+    },
+    {
+      "execution": {
+        "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/evidence/amass_reciprocal_gait_video_v3_execution.json",
+        "sha256": "59c8c8b643df5bd1fd2a6738a5c41a0667e359cb20cecabe78509c34b87e4193",
+        "bytes": 2969
+      },
+      "result": {
+        "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/evidence/amass_reciprocal_gait_video_v3/result.json",
+        "sha256": "d679b034e3af7c96c14bef4dc69ec3af954b6b3821417bb9301b6d8f134c0871",
+        "bytes": 93613
+      },
+      "video": {
+        "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/evidence/amass_reciprocal_gait_video_v3/pedestrian_motion.mp4",
+        "sha256": "66c7678940cc28570e2372f0079ed839b8741f1571cc34f83815aaa1e64cd8ab",
+        "bytes": 327328
+      },
+      "actual_exit": 0,
+      "source_physics_interval_s": [
+        6.0,
+        18.0
+      ],
+      "fresh_physics_steps": 0,
+      "ffprobe_actual_exit": 0,
+      "stream": {
+        "codec_name": "h264",
+        "width": 960,
+        "height": 720,
+        "avg_frame_rate": "15/1",
+        "duration": "12.000000",
+        "nb_frames": "180"
+      }
+    },
+    {
+      "execution": {
+        "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/evidence/amass_circulation_overview_video_v2_execution.json",
+        "sha256": "2344f2839a2a03ec37cf4b73defbc3cf398a8d31a012b3eddc007a9394e63c28",
+        "bytes": 2979
+      },
+      "result": {
+        "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/evidence/amass_circulation_overview_video_v2/result.json",
+        "sha256": "3ec5ff8744810d9c3b6cee7e133c3e121bd2e4fb0cfdb65f473dfccf42e04c5b",
+        "bytes": 425680
+      },
+      "video": {
+        "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/evidence/amass_circulation_overview_video_v2/pedestrian_motion.mp4",
+        "sha256": "362fbc05d76613dc3b0c0cc2ca64fc05e4cec18c078fa52a7aa3a961886b8d25",
+        "bytes": 808846
+      },
+      "actual_exit": 0,
+      "source_physics_interval_s": [
+        0.0,
+        60.0
+      ],
+      "fresh_physics_steps": 0,
+      "ffprobe_actual_exit": 0,
+      "stream": {
+        "codec_name": "h264",
+        "width": 960,
+        "height": 720,
+        "avg_frame_rate": "15/1",
+        "duration": "60.000000",
+        "nb_frames": "900"
+      }
+    }
+  ],
+  "frozen_video_sources": {
+    "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/evidence/amass_completed_video_sources/index.json",
+    "sha256": "b3c6e221d01eb14eddfeb4efb51a840be2077c6f58951bf6a9d24adbccd974b4",
+    "bytes": 1566
+  },
+  "frozen_training_sources": {
+    "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/evidence/amass_anchor_full512_v2_sources/index.json",
+    "sha256": "bbbcb02d8825779acf9320ff0703848ddd482b25e94eabe8970db0fbca1efb05",
+    "bytes": 18508
+  },
+  "focused_CPU_tests": {
+    "passed": 34,
+    "junit": {
+      "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/evidence/amass_final_focused_tests.xml",
+      "sha256": "38f18f99bc67f5e0ad93433b23e364582416320ddc1a02750593e3a8650f5e24",
+      "bytes": 5249
+    }
+  },
+  "prior_nonzero_or_missing_receipts_retained": [
+    {
+      "receipt": {
+        "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/evidence/amass_anchor_full512_execution.json",
+        "sha256": "1dbbe4dfb67f51c933e86a92f8fed42866a79dc0458591fe19c06ca418a2f702",
+        "bytes": 17474
+      },
+      "actual_Popen_wait_exit": 1,
+      "status": "failed_preserved"
+    },
+    {
+      "receipt": {
+        "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/evidence/amass_finetuned_circulation_60s_execution.json",
+        "sha256": "1a58b68617203d7567eb58a3418f81153b554790a30117d409721a598db9d14d",
+        "bytes": 16694
+      },
+      "actual_Popen_wait_exit": -11,
+      "status": "failed_preserved"
+    },
+    {
+      "receipt": {
+        "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/evidence/amass_reciprocal_overview_video_execution.json",
+        "sha256": "3432f841b4e21591545513d25008c6acdc8931e7f2dc35f1685735506b8367fa",
+        "bytes": 2825
+      },
+      "actual_Popen_wait_exit": -9,
+      "status": "failed_preserved"
+    },
+    {
+      "receipt": {
+        "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/evidence/amass_render_cleanup_smoke_execution.json",
+        "sha256": "e161bc2820614bee7c43b312ed34a0c06377427b720177310b2e71869c0d1c10",
+        "bytes": 2245
+      },
+      "actual_Popen_wait_exit": -9,
+      "status": "failed_preserved"
+    },
+    {
+      "receipt": {
+        "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/evidence/amass_render_cleanup_smoke_v2_execution.json",
+        "sha256": "0dc0f556fb0a13879b305e988d0e1414d44296aef1502833c8374e30b97c1db3",
+        "bytes": 2248
+      },
+      "actual_Popen_wait_exit": -9,
+      "status": "failed_preserved"
+    },
+    {
+      "receipt": {
+        "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/evidence/amass_render_cleanup_smoke_v3_execution.json",
+        "sha256": "fbbe358e25c8a941dda216630fd6ef86aabd8a9d0fed007c2ddeadd3f922d9e7",
+        "bytes": 2247
+      },
+      "actual_Popen_wait_exit": -9,
+      "status": "failed_preserved"
+    },
+    {
+      "receipt": {
+        "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/evidence/amass_render_cleanup_smoke_v4_execution.json",
+        "sha256": "f6521da0a9f5be174d0a51d80889d65c0856ff48a2b38d065b57f690a9a819e1",
+        "bytes": 2248
+      },
+      "actual_Popen_wait_exit": -9,
+      "status": "failed_preserved"
+    },
+    {
+      "receipt": {
+        "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/evidence/amass_render_cleanup_smoke_v5_execution.json",
+        "sha256": "b10b62cfd002e1d4028fcfbe22b5acd0f3649a6ab1ccd86d4f46600fe33dd71e",
+        "bytes": 2818
+      },
+      "actual_Popen_wait_exit": -11,
+      "status": "failed_preserved"
+    },
+    {
+      "receipt": {
+        "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/evidence/amass_render_cleanup_smoke_v6_execution.json",
+        "sha256": "9a8fb7b878fe9ed97f406bfd67537eb489da8a36353f4907e1616ee3561a4ed6",
+        "bytes": 2172
+      },
+      "actual_Popen_wait_exit": null,
+      "status": "incomplete_receipt"
+    }
+  ],
+  "limitations": [
+    "Private author Nav weights, exact 2848 IDs and eight-scene protocol are unavailable",
+    "All style scores use fixed validation22; public teacher original AMASS IDs are unknown",
+    "Support foot body-origin speed is not friction/contact-patch slip",
+    "Recorded-state RTX rendering is not a fresh physical policy run",
+    "No broad robustness, bitwise GPU determinism, subjective human-realism or realtime certification"
+  ]
+}

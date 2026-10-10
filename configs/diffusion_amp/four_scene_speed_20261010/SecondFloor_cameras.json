@@ -1,0 +1,38 @@
+{
+  "scene": "SecondFloor",
+  "shots": [
+    {
+      "start_step": 0,
+      "eye": [
+        -4.0,
+        -1.75,
+        2.4
+      ],
+      "target": [
+        -1.3,
+        -1.55,
+        0.8
+      ],
+      "focal_mm": 10,
+      "floor_hidden": true,
+      "exposure_ev": 2.0
+    },
+    {
+      "start_step": 900,
+      "eye": [
+        1.4,
+        -1.75,
+        2.4
+      ],
+      "target": [
+        -1.3,
+        -1.55,
+        0.8
+      ],
+      "focal_mm": 10,
+      "floor_hidden": true,
+      "exposure_ev": 2.0
+    }
+  ],
+  "exposure_choice": "Explicit native RTX Film ISO200->800 (+2EV nominal), tone mapping operator6, read back every frame; original scene lighting/geometry and actual poses preserved"
+}

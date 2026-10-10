@@ -1,0 +1,29 @@
+# Prefer actual navigation labels over an arbitrary requested clip count.
+# Numeric takes without supplied official descriptions are excluded.
+# A genuine shortfall remains explicit; no repeated or overlapping padding.
+target_train_clips: 2848
+seed: 7
+minimum_frames: 91
+control_hz: 30
+upright_fraction_minimum: 0.95
+root_height_min_m: 0.65
+root_height_max_m: 1.25
+root_up_z_minimum: 0.75
+maximum_speed_p99_m_s: 4.5
+maximum_acceleration_p99_m_s2: 30.0
+maximum_dof_speed_p99_rad_s: 30.0
+maximum_quaternion_norm_error: 0.005
+standing_speed_threshold_m_s: 0.12
+running_speed_threshold_m_s: 1.8
+standing_fraction_maximum: 0.15
+standing_hand_height_max_m: 0.45
+minimum_moving_extent_m: 0.75
+minimum_moving_path_length_m: 1.5
+fingerprint_resolution: 0.0001
+resample_50hz: true
+dof_velocity_frame: child_joint
+segment_long_clips: true
+segment_frames: 250
+maximum_segments_per_source: 4
+excluded_datasets: [BMLhandball, DanceDB, DFaust_67, MPI_Limits]
+allow_unlabeled_datasets: []

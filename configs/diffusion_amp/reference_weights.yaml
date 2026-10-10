@@ -1,0 +1,12 @@
+mode: public_reference_weights
+navisaaclab_author_weights: false
+pacer:
+  checkpoint: data/pretrained_models/paper_references/pacer/output/release/pacer_no_shape/Humanoid.pth
+  sha256: bc0cb89b4d7ceaeb198339c34f3d736eb7449e7e479a7ee0f80d32563737d615
+  discriminator_input: 10_history_frames_times_195_state_features
+  action_conditioned_discriminator: false
+trace:
+  checkpoint: data/pretrained_models/paper_references/trace/ckpt/trace/orca_mixed/iter40000.ckpt
+  role: public_trajectory_diffusion_reference_and_declared_reconstruction_initialization
+author_2848_clips: unavailable
+author_eight_scene_manifest: unavailable

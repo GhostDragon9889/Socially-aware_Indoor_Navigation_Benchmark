@@ -1,0 +1,275 @@
+"""Additional strict CPU checks; this module never loads a simulator."""
+from __future__ import annotations
+
+import hashlib
+import json
+from pathlib import Path
+import tarfile
+from unittest.mock import patch
+
+PUBLIC_SHA = "bc0cb89b4d7ceaeb198339c34f3d736eb7449e7e479a7ee0f80d32563737d615"
+
+
+def read_committed_metric_prefix(path, count, *, require_closed):
+    """Read only complete committed lines; a live suffix is not evidence."""
+    if type(count) is not int or count <= 0:
+        raise ValueError("A positive integer committed metric count is required")
+    lines = []
+    with Path(path).open() as stream:
+        for _ in range(count):
+            line = stream.readline()
+            if not line.endswith("\n"):
+                raise ValueError("Metric prefix is missing or has an incomplete committed line")
+            lines.append(line.rstrip("\r\n"))
+        if require_closed and stream.read():
+            raise ValueError("Closed metric artifact contains rows beyond its declared update budget")
+    return lines
+
+
+def validate_policy(state, path, loaded, check, prefix):
+    import numpy as np
+    import torch
+    from CrowdSim.humanoid.runtime.amp_inference import ReconstructionAMPInference
+    from CrowdSim.humanoid.training.terrain_statistics import STATE_KEYS
+
+    saved = state["task_terrain_statistics_policy"]
+    check(prefix + "protected_exact_internal_policy_keys", set(saved) == STATE_KEYS)
+    check(prefix + "protected_config_calls_global_count_reference_are_separate",
+          state["config"]["task_terrain_statistics_mode"] == "preserve_declared_suffix"
+          and type(saved["post_update_calls"]) is int
+          and saved["post_update_calls"] == state["update_count"]
+          and saved["reference_count"] == 61931520001.
+          and saved["warm_start_task_count"] == 200000.
+          and float(state["normalizers"]["task_normalizer"]["count"])
+          == saved["warm_start_task_count"] + state["physical_transition_count"])
+    check(prefix + "protected_bound_public_source_provenance",
+          saved["reference_initialization"]["sha256"] == PUBLIC_SHA
+          and saved["reference_initialization"]["mode"] == "transfer_warm_start_public_pacer_actor_critic"
+          and saved["reference_initialization"]["path"] == state["provenance"]["initialization"]["path"])
+    digest = hashlib.sha256()
+    for name, label in (("suffix_mean", b"mean:f64le:1024\0"),
+                        ("suffix_variance", b"variance:f64le:1024\0")):
+        tensor = saved[name]
+        check(prefix + "protected_suffix_shape_dtype_finite:" + name,
+              tensor.shape == (1024,) and tensor.dtype == torch.float64
+              and tensor.device.type == "cpu" and torch.isfinite(tensor).all())
+        digest.update(label)
+        digest.update(tensor.numpy().astype("<f8", copy=False).tobytes())
+    check(prefix + "protected_independent_array_SHA", saved["reference_statistics_sha256"] == digest.hexdigest())
+    snapshot = Path(__file__).resolve().parents[3] / "docs/style_improvement_20261002/staged_terrain_rms_candidate_v1/public_task_statistics_snapshot.npz"
+    check(prefix + "independent_public_suffix_fixture_immutable",
+          hashlib.sha256(snapshot.read_bytes()).hexdigest()
+          == "fe32378b59ebc11ccae283ff543d6e3f71cd79fc9e9eb8b6be1b85e6a2998d2f")
+    with np.load(snapshot, allow_pickle=False) as public:
+        check(prefix + "protected_suffix_bitwise_actual_public_statistics_fixture",
+              np.array_equal(saved["suffix_mean"].numpy(), public["task_mean"][20:])
+              and np.array_equal(saved["suffix_variance"].numpy(), public["task_variance"][20:])
+              and public["reference_count"].item() == saved["reference_count"])
+    norm = state["normalizers"]["task_normalizer"]
+    check(prefix + "protected_saved_suffix_exact_moments_no_replacement",
+          torch.equal(saved["suffix_mean"], norm["mean"][20:])
+          and torch.equal(saved["suffix_variance"], norm["variance"][20:]))
+    check(prefix + "protected_actual_loader_internal_reference_roundtrip",
+          loaded.terrain_statistics_policy.describe()["reference_statistics_sha256"] == digest.hexdigest()
+          and loaded.terrain_statistics_policy.post_update_calls == state["update_count"])
+    private = torch.Generator(device="cpu").manual_seed(19)
+    own = torch.randn(3, 357, generator=private)
+    task = torch.randn(3, 1044, generator=private)
+    before_rng = torch.get_rng_state().clone()
+    original_load = torch.load
+    loads = []
+
+    def audited_load(input_path, *args, **kwargs):
+        if not isinstance(input_path, (str, Path)) or Path(input_path).resolve() != path.resolve():
+            raise AssertionError("Inference attempted to load a different/external model file")
+        loads.append(str(Path(input_path).resolve()))
+        return original_load(input_path, *args, **kwargs)
+
+    with patch.object(torch, "load", audited_load), patch.object(np, "load", side_effect=AssertionError("External statistics NPZ load forbidden")):
+        inference = ReconstructionAMPInference.from_checkpoint(path)
+        inference_before = {key: value.clone() for key, value in inference.task_normalizer.state_dict().items()}
+        actual = inference.act(own, task)
+    expected = loaded.act(own, task, deterministic=True)
+    check(prefix + "protected_inference_sole_checkpoint_load_no_external_statistics", loads == [str(path.resolve())])
+    check(prefix + "protected_inference_actual_synthetic_forward_raw_applied_bitwise",
+          torch.equal(expected["actions"], actual["actions"])
+          and torch.equal(expected["applied_actions"], actual["applied_actions"]))
+    check(prefix + "protected_inference_caller_CPU_RNG_unchanged", torch.equal(before_rng, torch.get_rng_state()))
+    check(prefix + "protected_inference_task_moments_frozen",
+          all(torch.equal(value, inference_before[key]) for key, value in inference.task_normalizer.state_dict().items()))
+    check(prefix + "inference_preserves_complete_trained_state_D_validates_discards_AMP_moments",
+          torch.equal(inference.model.discriminator[0].weight, state["model"]["discriminator.0.weight"])
+          and not hasattr(inference, "amp_normalizer") and not hasattr(inference, "value_normalizer"))
+    check(prefix + "isolated_old_inference_full_network_truthfully_retained",
+          set(inference.model._modules) == {"task_encoder", "actor", "critic", "discriminator"}
+          and inference.model.log_std.shape == (69,) and not hasattr(inference, "optimizer")
+          and not hasattr(inference, "policy_replay"))
+    return {"policy": loaded.terrain_statistics_policy.describe(), "inference_model": "original full PaperAMPNetwork; not modern actor-only pruning",
+            "inference_probe_inputs": "3 explicitly synthetic CPU self357/task1044 inputs from private seed19; not saved pre-action observations/GPU parity",
+            "external_statistics_or_public_checkpoint_loaded_by_inference": False,
+            "CPU_caller_RNG_preserved_by_inference": True, "CUDA_RNG_executed": False}
+
+
+def validate_actual_result(result, phase, selected_updates, check):
+    maximum = max(selected_updates)
+    check("actual_closed_terminal_result_budget_and_profile", result["status"] == "passed"
+          and result.get("error") is None and result["update_count"] == maximum
+          and result["physical_transition_count"] == maximum * 8192
+          and result["training_config"]["task_terrain_statistics_mode"] == "preserve_declared_suffix")
+    args = result["arguments"]
+    expected = {"num_envs": 256, "rollout_steps": 32, "replan_steps": 15, "episode_steps": 300,
+                "terrain_extent_m": 192., "spawn_margin_m": 48., "trajectory_source": "mixed_amass_procedural",
+                "curriculum_mode": "smooth", "curriculum_speed_max_mps": 2., "curriculum_accel_max_mps2": 1.5,
+                "synchronized_replanning": True, "physics_only": True, "seed": 7, "from_scratch": False}
+    check("actual_exact_registered_training_recipe", all(type(args[key]) is type(value) and args[key] == value for key, value in expected.items()))
+    check("actual_segment_update_request_and_resume_phase", args["updates"] == (2000 if phase == "terminal2000" else 4)
+          and (args["resume"] is None if phase != "pilot8" else Path(args["resume"]).name == "step_4.pt"))
+    check("actual_group_exposure_terminal", result["group_transition_exposure"]["amass_actor_transitions"]
+          == result["group_transition_exposure"]["procedural_actor_transitions"] == maximum * 4096)
+    return {"result_status_execution_only": result["status"], "fall_resets_segment_or_fresh": result["fall_resets"],
+            "time_limit_resets_segment_or_fresh": result["time_limit_resets"], "convergence_claim": False,
+            "closed_result_args": args, "updates_cumulative": maximum, "transitions_cumulative": maximum * 8192}
+
+
+STRATEGY = "public_pacer_state_only"
+PUBLIC_COUNTS = {"self_normalizer": 61931520001., "task_normalizer": 61931520001.,
+                 "amp_normalizer": 15482880001., "value_normalizer": 6881280001.}
+EXTENSION = {"schema": "navisaaclab.action_state_prior_initialization.v1",
+             "history_columns": 1950, "action_columns": 69,
+             "action_column_initialization": "zeros",
+             "public_prior_training_data_overlap_with_current_amass": "unknown"}
+PLAN_SHA = "b5422877f513952ea3d98e613a82cd6e3dae8074a2e01ade35ce6c1be19d770b"
+ARCHIVE_SHA = "a05a328b3e49212277821d7cf002b037831e3ff8cd327b4d2b81ccdbde78c305"
+
+
+def validate_state_prior(state, check, prefix=""):
+    """Independent saved-payload check; public files are never opened here."""
+    import torch
+    config, initialization = state["config"], state["provenance"]["initialization"]
+    check(prefix + "state1950_direct_public_D_and_history_RMS_config",
+          config.get("warm_start_action_discriminator_from_state_prior") is False
+          and config["warm_start_discriminator"] is True
+          and config["discriminator_input"] == "state"
+          and config["amp_normalization"] == "per_history_coordinate"
+          and config["history_frames"] == 10 and config["amp_frame_dim"] == 195
+          and tuple(config["discriminator_layers"]) == (1024, 512)
+          and config["normalize_observations"] is True and config["normalize_values"] is True
+          and config["normalization_clip"] == 5. and config["warm_start_normalizer_count_cap"] == 200000.)
+    expected = {"mode": "transfer_warm_start_public_pacer_actor_critic", "sha256": PUBLIC_SHA,
+                "actor_critic_task_transferred": True, "observation_value_moments_transferred": True,
+                "discriminator_initialization": STRATEGY, "action_conditioned_discriminator_initialization": "not_applicable",
+                "discriminator_input": "state", "amp_normalization": "per_history_coordinate",
+                "published_state_only_discriminator_transferred": True,
+                "published_amp_history_moments_transferred": True, "author_navisaaclab_weights": False}
+    check(prefix + "public_state_prior_initialization_provenance_exact",
+          all(type(initialization.get(key)) is type(value) and initialization[key] == value
+              for key, value in expected.items())
+          and "state_prior_action_extension" not in initialization
+          and state["provenance"]["amp_reward_timestamp"] == "pre-step h[t..]; state-only discriminator ignores applied a[t]"
+          and state["provenance"]["expert_action_semantics"] == "not consumed by the explicit classic-AMP state-only discriminator"
+          and initialization.get("normalizer_counts_before_cap") == PUBLIC_COUNTS
+          and all(type(initialization["normalizer_counts_before_cap"].get(key)) is float for key in PUBLIC_COUNTS)
+          and initialization.get("normalizer_count_cap") == 200000.
+          and type(initialization.get("path")) is str
+          and Path(initialization["path"]).is_absolute() and "://" not in initialization["path"])
+    shapes = {"discriminator.0.weight": (1024, 1950), "discriminator.0.bias": (1024,),
+              "discriminator.2.weight": (512, 1024), "discriminator.2.bias": (512,),
+              "discriminator.4.weight": (1, 512), "discriminator.4.bias": (1,)}
+    check(prefix + "state_prior_D_shapes_dtype_and_finite",
+          all(state["model"][name].shape == shape and state["model"][name].dtype == torch.float32
+              and torch.isfinite(state["model"][name]).all() for name, shape in shapes.items()))
+    norm = state["normalizers"]["amp_normalizer"]
+    check(prefix + "state_prior_history_RMS1950_nonnegative_finite",
+          norm["mean"].shape == norm["variance"].shape == (1950,)
+          and norm["mean"].dtype == norm["variance"].dtype == torch.float64
+          and torch.isfinite(norm["mean"]).all() and torch.isfinite(norm["variance"]).all()
+          and (norm["variance"] >= 0).all())
+    check(prefix + "state_prior_AMP_count_capped_public_plus_actual_updates",
+          type(state["update_count"]) is int and state["update_count"] > 0
+          and float(norm["count"]) == 200000. + state["update_count"] * 12288)
+    mask = torch.tensor(config["action_mask"])
+    check(prefix + "policy57_action_contract_without_any_D_action_columns",
+          mask.shape == (69,) and mask.count_nonzero() == 57 and state["update_count"] > 0
+          and state["model"]["discriminator.0.weight"].shape[-1] == 1950)
+    return {"explicit_flag": True, "strategy": STRATEGY, "public_D_transferred": True, "public_AMP_RMS_transferred": True,
+            "published_state_only_discriminator_transferred": True,
+            "published_amp_history_moments_transferred": True,
+            "public_AMP_count": 15482880001., "current_AMP_count": float(norm["count"]), "count_cap": 200000.,
+            "action_extension_explicit_flag": False, "D_history_columns": 1950, "D_action_columns": 0,
+            "policy_active_columns": 57, "policy_frozen_columns": 12, "public_AMP_count_before_cap": 15482880001.,
+            "warm_AMP_count": 200000., "public_training_data_overlap": "unknown",
+            "author_checkpoint_compatibility_claim": False}
+
+
+def _verify_launch(bundle, phase, source_sha, ledger_path, record, check, *, closed):
+    root = Path(__file__).resolve().parents[3]
+    trial = {"pilot4": "pilot4", "pilot8": "resume4to8", "milestone": "fullfresh2000", "terminal2000": "fullfresh2000"}[phase]
+    plan_path = root / "docs/style_improvement_20261003/state_only_matched_q_training_preparation_v1/root_GPU_launch_commands.json"
+    path = root / "docs/style_improvement_20261003/state_only_matched_q_actual_runs_v1" / (trial + "_actual_launch.json")
+    plan, launch = json.loads(plan_path.read_text()), json.loads(path.read_text())
+    check("actual_root_launch_plan_SHA_and_command_exact", record(plan_path)["sha256"] == PLAN_SHA
+          and launch["schema"] == "state_only_matched_q.actual_launch.v1" and launch["name"] == trial
+          and launch["launch_plan_sha256"] == PLAN_SHA
+          and launch["command"] == plan["commands"][trial] and launch["cwd"] == plan["cwd"]
+          and launch["env"] == plan["env"] and launch["no_parallel_GPU_at_launch"] is True
+          and launch["command"][launch["command"].index("--import-report") + 1] == str(ledger_path)
+          and record(bundle / "source_manifest.json")["sha256"] == source_sha)
+    check("actual_root_process_closed_or_live_milestone_truthful",
+          type(launch["child_pid"]) is int and launch["child_pid"] > 0 and bool(launch["start_utc"])
+          and ((launch["status"] == "closed" and launch["exit_code"] == 0 and bool(launch["end_utc"]))
+               if closed else launch["status"] in {"running", "closed"}))
+    return launch, record(path)
+
+
+def verify_launch_registration(bundle, phase, source_sha, ledger_path, result, record, check):
+    launch, proof = _verify_launch(bundle, phase, source_sha, ledger_path, record, check, closed=True)
+    driver = launch["command"][launch["command"].index("--") + 1:]
+    check("actual_closed_result_matches_root_launch_profile_output_budget",
+          driver[driver.index("--config") + 1] == result["arguments"]["config"]
+          and driver[driver.index("--output") + 1] == result["arguments"]["output"]
+          and int(driver[driver.index("--updates") + 1]) == result["arguments"]["updates"])
+    return proof
+
+
+def verify_milestone_launch_registration(bundle, source_sha, ledger_path, record, check):
+    _, proof = _verify_launch(bundle, "milestone", source_sha, ledger_path, record, check, closed=False)
+    return proof
+
+
+def verify_source_archive(bundle, source, record, check):
+    archive_path = Path(__file__).resolve().parent.parent / "state_only_matched_q_training_preparation_v1/actual_source.tar.gz"
+    archive = record(archive_path)
+    check("actual936_full_source_archive_independent_SHA", archive["sha256"] == ARCHIVE_SHA)
+    declared = {row["path"]: row for row in source["files"]}
+    metadata = {"source_manifest.json", "launch_isolated.py", "commands.json", "watch_snapshots.py"}
+    with tarfile.open(archive_path, "r:gz") as tar:
+        members = tar.getmembers()
+        names = {row.name for row in members}
+        check("source_archive940_unique_regular_nontraversal_members", len(members) == len(names) == 940
+              and all(row.isfile() and not Path(row.name).is_absolute() and ".." not in Path(row.name).parts for row in members)
+              and names == set(declared) | metadata)
+        for name, row in declared.items():
+            data = tar.extractfile(name).read()
+            check("archive_code_member_exact:" + name, len(data) == row["bytes"] and hashlib.sha256(data).hexdigest() == row["sha256"])
+        for name in metadata:
+            check("archive_prelaunch_metadata_exact:" + name, tar.extractfile(name).read() == (bundle / name).read_bytes())
+    previous = source["previous_source_manifest"]
+    check("previous_q935_source_manifest_immutable", record(previous["path"]) == previous
+          and previous["sha256"] == "2e14550a64a5c6d091d64312e2799eb3854e88e9dacdeffacd9990297ced8359")
+    old = {row["path"]: row for row in json.loads(Path(previous["path"]).read_text())["files"]}
+    changed = {name for name in old if declared[name]["sha256"] != old[name]["sha256"]}
+    added = set(declared) - set(old)
+    delta_path = Path(__file__).resolve().parent.parent / "state_only_matched_q_preparation_v1/source_delta.json"
+    delta = json.loads(delta_path.read_text())
+    check("approved_exact_three_runner_fragments_source_delta", record(delta_path)["sha256"] == "b6fce5510148db57c23003c8aa79eeeea886303decd4c3706b473d3068e5581b"
+          and delta["reverse_entire_runner_bytes_exact"] is True and delta["reverse_entire_runner_AST_exact"] is True
+          and (old["code/scripts/train_paper_amp.py"]["bytes"], old["code/scripts/train_paper_amp.py"]["sha256"])
+          == (delta["parent_runner"]["bytes"], delta["parent_runner"]["sha256"])
+          and (declared["code/scripts/train_paper_amp.py"]["bytes"], declared["code/scripts/train_paper_amp.py"]["sha256"])
+          == (delta["staged_runner"]["bytes"], delta["staged_runner"]["sha256"]))
+    check("exact_q935_parent_one_runner_delta_one_state_recipe", len(old) == 935 and len(declared) == 936
+          and changed == {"code/scripts/train_paper_amp.py"} and set(old) <= set(declared)
+          and added == {"code/configs/diffusion_amp/isolated_state_only_matched_q_absolute.yaml"})
+    return {"archive": archive, "regular_members": 940, "code_files": 936,
+            "unchanged_parent_files": 934, "modified_parent_paths": sorted(changed), "added_only": sorted(added),
+            "approved_source_delta": record(delta_path)}

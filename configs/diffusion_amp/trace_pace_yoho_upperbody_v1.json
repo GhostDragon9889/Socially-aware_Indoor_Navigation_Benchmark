@@ -1,0 +1,63 @@
+{
+  "schema": "crowdsim.trace_pace_reliability.v1",
+  "resources": {
+    "diffusion_checkpoint": {
+      "path": "data/pretrained_models/paper_references/trace/ckpt/trace/orca_mixed/iter40000.ckpt",
+      "sha256": "fd6ba631f4ccaa1a486b7cff192dfc17c5a7dd4a1058dd57830c854eaa7b9257"
+    },
+    "diffusion_config": {
+      "path": "data/pretrained_models/paper_references/trace/ckpt/trace/orca_mixed/config.json",
+      "sha256": "35a5fb329e72c5b2988e90ab58fb443b72303feb0558b4d954b8fb3aecbe3fbd"
+    },
+    "amp_checkpoint": {
+      "path": "data/pretrained_models/local_amass_finetune/upperbody_20261009/Humanoid_AMASS.pth",
+      "sha256": "8ee87e284551b474548502c52f4b4857a8435bc5551b1590c876e6d18fa26caa"
+    },
+    "amass_manifest": {
+      "path": "data/diffusion_amp/amass_style_2848/manifest_labeled_v7.json",
+      "sha256": "68d41be28908f28a09c47f7658af39d55fad01b32212bd7c0ced2b1e6b1489ca"
+    }
+  },
+  "replan_controls": 15,
+  "num_samples": 16,
+  "guidance": {
+    "goal_weight": 100.0,
+    "map_weight": 3000.0,
+    "agent_weight": 3000.0,
+    "dynamics_weight": 5.0,
+    "max_speed_m_s": 0.9,
+    "max_acceleration_m_s2": 4.0,
+    "max_yaw_rate_rad_s": 1.2,
+    "clearance_m": 0.25,
+    "agent_buffer_m": 0.2,
+    "guide_clean": true,
+    "reject_unsafe_samples": true,
+    "target_speed_weight": 8.0,
+    "target_speed_m_s": 0.65,
+    "turn_speed_decay_s": 0.5,
+    "speed_ramp_time_s": 1.2,
+    "clean_guidance_step_size": 0.005,
+    "final_refinement_steps": 96,
+    "final_refinement_learning_rate": 0.15,
+    "final_refinement_anchor_weight": 0.02,
+    "bounded_guidance_gradient": 0.1,
+    "yaw_smoothness_weight": 0.25,
+    "speed_smoothness_weight": 0.02
+  },
+  "allow_safety_braking": true,
+  "stationary_route_heading": true,
+  "mixed_safety_brakes": true,
+  "guard_horizon_s": 1.0,
+  "guard_tracking_margin_m": 0.15,
+  "persistent_braking_target": true,
+  "amp_sample_start_s": 0.0,
+  "local_finetune_admission": {
+    "candidate": false,
+    "physical_quality_pending": false,
+    "purpose": "YOHO stable upperbody and walking, local fixed2848AMASS128update fine tune",
+    "actual_run": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/yoho_optimization/yoho_candidate_200s_v6",
+    "physical_result_sha256": "ac6a422ad5d1f11f19e57c97bf83a4fc9576920195ecdfbfbfccb74fcf37b099",
+    "quality_sha256": "692fd77990313899aad87dc51f4685e0659be33f16b18b6a345185c90cc153c1",
+    "author_experiment_reproduction": false
+  }
+}

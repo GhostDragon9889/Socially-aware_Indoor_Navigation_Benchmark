@@ -1,0 +1,13 @@
+schema: navisaaclab.reconstruction_scene.v1
+name: four_actor_bounded_flat_fixture
+author_benchmark_scene: false
+bounds_xy: [2, 2, 22, 22]
+origins_xy: [[6, 6], [6, 18], [18, 6], [18, 18]]
+routes_xy:
+  - [[18, 18], [6, 18], [18, 6], [6, 6]]
+  - [[18, 6], [18, 18], [6, 6], [6, 18]]
+  - [[6, 18], [6, 6], [18, 18], [18, 6]]
+  - [[6, 6], [18, 6], [6, 18], [18, 18]]
+arrival_radius_m: 0.75
+goal_lookahead_m: 5.0
+cuboids: []

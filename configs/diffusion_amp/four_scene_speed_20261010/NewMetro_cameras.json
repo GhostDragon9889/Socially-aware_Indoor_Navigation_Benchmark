@@ -1,0 +1,37 @@
+{
+  "scene": "NewMetro",
+  "shots": [
+    {
+      "start_step": 0,
+      "eye": [
+        -14.0,
+        -1.65,
+        2.3
+      ],
+      "target": [
+        -10.4,
+        -1.65,
+        0.4
+      ],
+      "focal_mm": 10.0,
+      "floor_hidden": true
+    },
+    {
+      "start_step": 900,
+      "eye": [
+        6.5,
+        -0.85,
+        2.4
+      ],
+      "target": [
+        3.1,
+        -1.45,
+        0.8
+      ],
+      "focal_mm": 10.0,
+      "floor_hidden": true
+    }
+  ],
+  "camera_choice": "Two separate source rooms, source-contiguous first and second30s intervals",
+  "camera_status": "Lowered left gaze for8 clipped skin frames344..347/734..737 in complete native-pose projection; closest-interval native review pending"
+}

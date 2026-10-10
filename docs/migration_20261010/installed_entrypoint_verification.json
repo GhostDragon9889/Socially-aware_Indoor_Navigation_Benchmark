@@ -1,0 +1,25 @@
+{
+  "social-navigation": {
+    "actual_returncode": 0
+  },
+  "protomotions": {
+    "actual_returncode": 0
+  },
+  "protomotions-train-agent": {
+    "actual_returncode": 0
+  },
+  "protomotions-inference-agent": {
+    "actual_returncode": 0
+  },
+  "crowdsim-ppo-train": {
+    "actual_returncode": 0
+  },
+  "crowdsim-ppo-eval": {
+    "actual_returncode": 0
+  },
+  "distribution": {
+    "name": "socially-aware-indoor-navigation-benchmark",
+    "version": "3.1.0"
+  },
+  "old_distribution_present": false
+}

@@ -1,0 +1,166 @@
+# Explicit single-variable PACER reward-ratio experiment; default model is unchanged.
+# Source: https://github.com/nv-tlabs/pacer/blob/baeb6241f03fc9d78370a64e3c2dcef9d830d97f/pacer/data/cfg/train/rlg/amp_humanoid_smpl_sept_task.yaml
+# This does not establish the unpublished NavIsaacLab training recipe.
+mode: paper_method_reconstruction
+author_experiment_reproduction: false
+data_manifest: data/diffusion_amp/amass_style_2848/manifest_labeled_v7.json
+initialization:
+  default: transfer_warm_start_public_pacer_actor_critic
+  checkpoint: data/pretrained_models/paper_references/pacer/output/release/pacer_no_shape/Humanoid.pth
+  checkpoint_sha256: bc0cb89b4d7ceaeb198339c34f3d736eb7449e7e479a7ee0f80d32563737d615
+  discriminator: public_pacer_state_prior_zero_action_extension
+  amp_history_moments: same_verified_public_state_prior
+  from_scratch_supported: false
+training:
+  self_dim: 357
+  task_dim: 1044
+  amp_frame_dim: 195
+  history_frames: 10
+  task_layers:
+  - 512
+  - 256
+  policy_layers:
+  - 2048
+  - 1024
+  discriminator_layers:
+  - 1024
+  - 512
+  learning_rate: 2.0e-05
+  discriminator_learning_rate: 1.0e-05
+  gamma: 0.99
+  gae_lambda: 0.95
+  clip_ratio: 0.2
+  update_epochs: 6
+  minibatch_size: 4096
+  discriminator_batch_size: 4096
+  critic_coefficient: 5.0
+  entropy_coefficient: 0.0
+  bounds_coefficient: 10.0
+  max_grad_norm: 50.0
+  log_std: -2.9
+  discriminator_coefficient: 5.0
+  discriminator_gradient_penalty: 5.0
+  discriminator_logit_regularization: 0.01
+  discriminator_weight_decay: 0.0001
+  amp_reward_scale: 2.0
+  amp_probability_epsilon: 0.0001
+  normalize_observations: true
+  normalize_values: true
+  normalization_clip: 5.0
+  direction_mode: backwards_penalty
+  control_dt: 0.03333333333333333
+  target_horizon_s: 5.0
+  mode: paper_method_reconstruction
+  expert_action_semantics: inverse_pd_target_from_mocap_pose
+  expert_dof_velocity_frame: child_joint
+  freeze_toes: true
+  action_mask: null
+  seed: 7
+  discriminator_input: state_action
+  amp_normalization: per_history_coordinate
+  warm_start_discriminator: false
+  warm_start_action_discriminator_from_state_prior: true
+  discriminator_replay_capacity: 65536
+  discriminator_replay_keep_probability: 0.01
+  discriminator_replay_fraction: 0.5
+  discriminator_updates_per_update: 2
+  warm_start_normalizer_count_cap: 200000.0
+  amp_reward_weight: 0.5
+  task_reward_weight: 0.5
+  effective_action_likelihood: true
+  target_kl: 0.02
+  motion_symmetry_coefficient: 50.0
+  expert_sampling: null
+  task_terrain_statistics_mode: preserve_declared_suffix
+reward:
+  amp_weight: 0.5
+  task_weight: 0.5
+  alpha_position: 2.0
+  alpha_energy: 0.0005
+  alpha_direction: 1.8
+  energy: signed_projected_active_joint_effort_times_synchronized_substep_joint_velocity
+  direction: backwards_penalty_explicitly_changes_published_equation
+  direction_alternative: paper_equation_preserved_in_original_profile
+assumptions:
+- Engineering fixed-slot mixed command curriculum, not the unpublished NavIsaacLab command dataset and
+  not a context-conditioned discriminator or CMP reproduction. First half of the isolated actor slots
+  uses real AMASS root XY, second half uses the original negative-baseline smooth procedural2m/s and1.5m/s2
+  commands. Every control step contributes exactly half its transitions to each group; differing reset
+  frequency cannot silently redistribute exposure.
+- All PPO, PD, reward, replay, expert sampling, data and mixed command settings retain the fixed-half
+  negative-direction baseline. Relative to the completed state-prior2000 trial only the outer AMP reward
+  weight changes from2.0 to0.5 (internal scale2.0, base softplus coefficient1.0). Coupled public D/history-RMS
+  initialization is retained. The actor receives no branch ID or future reference3D poses.
+- AMASS reset history10/future31 uses a private CPU generator seeded seed+1 and shares the immutable bank.
+  Procedural resets and experts retain the original corpus stream. These grouped draws do not reproduce
+  the old fullbatch RNG sequence. All streams and fixed assignments are preserved in complete resume.
+- AMASS real-prefix commands use native30Hz source XY plus a fixed episode world translation. Only clip-outside
+  future commands use the declared linear endpoint velocity estimate. This continuation is not AMASS groundtruth.
+  Real-source end truncates only AMASS slots; procedural slots retain falls and300-step cap.
+- AMASS consumed plans use151 native30Hz knots; procedural canonical51 knots keep their original10Hz interpolation
+  for rewards and future task targets. Replans retain procedural live-root anchors. No physical state
+  is changed by commands.
+- Fresh2000updates with256actors and32rolloutsteps gives16.384M total transitions, exactly8.192M per group.
+  Total budget is twice the older1000update runs, so the comparison is not a matched-total-budget causal
+  proof of mixing alone.
+- Fresh training transfers the same complete public PACER actor/critic/task, Gaussian sigma and observation/value
+  moments. The2019-input history+action discriminator copies the public1950 history columns, first bias,
+  later layers and head, and initializes all69 additional action columns to zero. The same public1950
+  AMP history mean/variance/count are copied before the existing count cap. This is one coupled initialization
+  strategy, not a claim that only input dimensions changed. Public prior AMASS overlap is unknown, and
+  these are not author NavIsaacLab weights. An old state-only or random-action checkpoint is not valid
+  resume.
+- NavIsaacLab Eq2 prints a history-and-action discriminator. This profile matches that input form, while
+  keeping the engineering10-frame newest-first convention and the existing negative-direction reward and0.5
+  outer AMP weight (internal scale2.0). It is not a paper-exact profile.
+- AMASS supplies no measured expert commands. Expert actions are next-frame mocap joint positions divided
+  by the existing physical PD scale, clamped and with the12 frozen hand/toe coordinates zero. This is
+  a normalized PD target proxy, not expert torque or inverse dynamics.
+- AMP normalization remains per_history_coordinate with1950 entries to avoid a further change to the normalization
+  representation. Public AMP mean/variance/count are transferred as part of the new coupled initialization;
+  action coordinates are already normalized and receive no learned action RMS.
+- The seed7 recipe and complete RNG checkpointing are retained. The extra69 discriminator inputs change
+  the constructor random draw budget, so this profile does not promise bitwise paired stochastic draws
+  across discriminator variants.
+- 'Independent fresh engineering ablation: preserve the exact public PACER terrain mean/variance at task[20:1044]
+  after each existing observation-statistics update; task[0:20] and the shared global task count retain
+  the original moment-update math. The independent original reference_count61931520001 and warm-start
+  task-count cap200000 are saved separately. This does not convert any old model, change discriminator/replay/expert
+  actions, or establish a paper-exact method or quality gain. Fresh complete public actor/critic warm
+  start is required; from-scratch is rejected.'
+evaluation:
+  requested_paper_scenes: 8
+  author_scene_manifest: null
+  paper_exact_metrics_claim: false
+  deployment_source: diffusion
+profile: fixed_slots_amass_procedural_xy_state_action_terrain_public_state_prior_pacer_reward
+trajectory_training:
+  source: mixed_amass_procedural
+  deployment_source: diffusion
+  fixed_amass_fraction: 0.5
+  assignment: first_half_amass_second_half_procedural
+  minimum_real_future_frames: 31
+  history_frames: 10
+  horizon_s: 5.0
+  canonical_knot_hz: 10
+  consumed_reference_hz: 30
+  control_hz: 30
+  tail_policy: linear_velocity
+  end_velocity_formula: (root_xy[-1]-root_xy[-11])/(10/30)
+  extrapolated_future_is_amass_groundtruth: false
+  future_3d_poses_in_policy: false
+  procedural:
+    mode: smooth
+    speed_max_mps: 2.0
+    accel_max_mps2: 1.5
+terrain_statistics:
+  mode: preserve_declared_suffix
+  protected_task_slice:
+  - 20
+  - 1044
+  source_public_sha256: bc0cb89b4d7ceaeb198339c34f3d736eb7449e7e479a7ee0f80d32563737d615
+  reference_count: 61931520001.0
+  warm_start_task_count_cap: 200000.0
+  resume_external_reference_required: false
+  pre_action_observation_evidence_required: true
+  experimental_quality_gain_proven: false

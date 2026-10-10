@@ -1,0 +1,87 @@
+{
+  "fit_split": "train",
+  "train_clip_count": 2848,
+  "manifest_sha256": "68d41be28908f28a09c47f7658af39d55fad01b32212bd7c0ced2b1e6b1489ca",
+  "source_bank_sha256": "46e0241108e200409c08d1115a270205fe0b6ce827e366a06e8a09f6a2cc82c0",
+  "schema": "crowdsim.real_amass_temporal_gait.v1",
+  "target_training_quantiles": {
+    "arm_std_and_rate": 0.6,
+    "knee_std_and_rate": 0.5
+  },
+  "angle_mean_median_rad": [
+    [
+      0.13845126330852509,
+      0.4866161346435547
+    ],
+    [
+      0.13957339525222778,
+      0.5027662515640259
+    ],
+    [
+      0.12245150655508041,
+      0.5435503125190735
+    ],
+    [
+      0.11987762153148651,
+      0.5556619167327881
+    ]
+  ],
+  "window_controls": 60,
+  "control_hz": 30,
+  "speed_edges_m_s": [
+    0.44999998807907104,
+    0.699999988079071,
+    0.949999988079071,
+    1.2000000476837158,
+    1.600000023841858
+  ],
+  "angle_std_target_rad": [
+    [
+      0.14858533442020416,
+      0.2620173394680023
+    ],
+    [
+      0.19033698737621307,
+      0.29644775390625
+    ],
+    [
+      0.2565317451953888,
+      0.32437700033187866
+    ],
+    [
+      0.286689430475235,
+      0.3240083158016205
+    ]
+  ],
+  "angular_rate_rms_target_rad_s": [
+    [
+      0.7346223592758179,
+      1.8021889925003052
+    ],
+    [
+      1.0183367729187012,
+      2.3626062870025635
+    ],
+    [
+      1.455065131187439,
+      2.8390767574310303
+    ],
+    [
+      1.7791824340820312,
+      3.185696601867676
+    ]
+  ],
+  "windows_per_bin": [
+    471,
+    1661,
+    1389,
+    249
+  ],
+  "fit_window_count": 3770,
+  "fit_motion_count": 1398,
+  "shared_sides": true,
+  "no_deployed_pose_override": true,
+  "validation_test_used_for_fit": false,
+  "fit_source_sha256": "a76d256a10051929519a4d333753ff51b7a8865796f86618810be6a87b4b8a1c",
+  "feature_source_sha256": "401f71bf3b5916b075c1dfeef389432c8ff8c30d8ead868f7d9bbaedf66d3a71"
+}

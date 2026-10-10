@@ -1,0 +1,65 @@
+{
+  "schema": "crowdsim.four_scene_speed_final_delivery.v1",
+  "status": "completed",
+  "release_index": {
+    "path": "/project/EXP/SangforAndSaut/ProtoMotions/docs/four_scene_speed_release_index_20261010.json",
+    "sha256": "99aa80af842a091a6d74503e7d966ba64c1ff895922d41b0b1b4b359fb67e0cb"
+  },
+  "reproduction_report": {
+    "path": "/project/EXP/SangforAndSaut/ProtoMotions/docs/FOUR_SCENE_SPEED_20261010_ZH.md",
+    "sha256": "594c08b7c1fcc9016b747bb54f9283eb33e91247563be41ee8fd90213d645f96"
+  },
+  "installed_CPU_verification": {
+    "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/speed_coverage_optimization/published_release_CPU_verification_v1.json",
+    "sha256": "a0f67d05600742e19d6eac502c4fb2c5147831e28a92c68e68da5a0dbadaa5b2"
+  },
+  "representative_video_review": {
+    "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/speed_coverage_optimization/final_video_representative_review_v1.json",
+    "sha256": "319bd38de34f38a037fb180c841fb63caff2914bccb378c598c87cd75257826e"
+  },
+  "full120Hz_speed_audit": {
+    "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/speed_coverage_optimization/four_scene_120Hz_speed_bound_v1.json",
+    "sha256": "97b146f94131e1784fd3907a0aff2ba8b37a7d3a66861d969d18300b523780b1"
+  },
+  "current_verified_status": {
+    "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/speed_coverage_optimization/current_verified_summary.json",
+    "sha256": "f501cc06bda61b26e58c86f34fd8e13a6b4f37f636c5695c9e65bcef1124ac06"
+  },
+  "videos": [
+    {
+      "scene": "YOHO",
+      "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/speed_coverage_optimization/videos_final_20261010_v1/YOHO_60s.mp4",
+      "bytes": 3692253,
+      "sha256": "5eb35d3da43d0f2e020bc5a85206c55b5d95765f6f405007b1cf8145a82dde6f"
+    },
+    {
+      "scene": "NewMetro",
+      "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/speed_coverage_optimization/videos_final_20261010_v1/NewMetro_60s.mp4",
+      "bytes": 4337859,
+      "sha256": "532f060e40f8d6f66693bb25f15fc1fbe97a467dcb6520b43248faeb4658d94c"
+    },
+    {
+      "scene": "SecondFloor",
+      "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/speed_coverage_optimization/videos_final_20261010_v1/SecondFloor_60s.mp4",
+      "bytes": 3517965,
+      "sha256": "9f2a5effd4e08fd62441cd26f84028b7d53b7413b6e820cb22029808fa29b940"
+    },
+    {
+      "scene": "ThirdFloor",
+      "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/speed_coverage_optimization/videos_final_20261010_v1/ThirdFloor_60s.mp4",
+      "bytes": 2800270,
+      "sha256": "4a667eedbd6d417dddbc59cdac0b4d20b9ede4c47e77fa5380a47bed4147baf5"
+    }
+  ],
+  "each_video_duration_s": 60,
+  "each_video_frames": 1800,
+  "video_fps": 30,
+  "all_four_videos_full_decode_exit0": true,
+  "all_four_renderer_outer_actual_exit0_observed": true,
+  "source_physics_complete": true,
+  "published_CPU_overall_actual_exit0_observed": true,
+  "published_CPU_owned_jobs": 22,
+  "robot_added": false,
+  "whole_scene_coverage_claimed": false,
+  "paper_superiority_claimed": false
+}

@@ -1,0 +1,112 @@
+mode: paper_method_reconstruction
+author_experiment_reproduction: false
+data_manifest: data/diffusion_amp/amass_manifest.json
+initialization:
+  default: transfer_warm_start_public_pacer_actor_critic
+  checkpoint: data/pretrained_models/paper_references/pacer/output/release/pacer_no_shape/Humanoid.pth
+  checkpoint_sha256: bc0cb89b4d7ceaeb198339c34f3d736eb7449e7e479a7ee0f80d32563737d615
+  discriminator: independent_random_history_and_action
+  from_scratch_supported: true
+training:
+  self_dim: 357
+  task_dim: 1044
+  amp_frame_dim: 195
+  history_frames: 10
+  task_layers:
+  - 512
+  - 256
+  policy_layers:
+  - 2048
+  - 1024
+  discriminator_layers:
+  - 1024
+  - 512
+  learning_rate: 2.0e-05
+  discriminator_learning_rate: 2.0e-05
+  gamma: 0.99
+  gae_lambda: 0.95
+  clip_ratio: 0.2
+  update_epochs: 6
+  minibatch_size: 16384
+  discriminator_batch_size: 4096
+  critic_coefficient: 5.0
+  entropy_coefficient: 0.0
+  bounds_coefficient: 10.0
+  max_grad_norm: 50.0
+  log_std: -2.9
+  discriminator_coefficient: 5.0
+  discriminator_gradient_penalty: 5.0
+  discriminator_logit_regularization: 0.01
+  discriminator_weight_decay: 0.0001
+  amp_reward_scale: 2.0
+  amp_probability_epsilon: 0.0001
+  normalize_observations: true
+  normalize_values: true
+  normalization_clip: 5.0
+  direction_mode: paper_equation
+  control_dt: 0.03333333333333333
+  target_horizon_s: 5.0
+  mode: paper_method_reconstruction
+  expert_action_semantics: inverse_pd_target_from_mocap_pose
+  freeze_toes: true
+  action_mask: null
+  seed: 7
+  discriminator_input: state_action
+  amp_normalization: per_frame
+  warm_start_discriminator: false
+reward:
+  amp_weight: 1.0
+  task_weight: 0.5
+  alpha_position: 2.0
+  alpha_energy: 0.0005
+  alpha_direction: 1.8
+  energy: signed_projected_active_joint_effort_times_synchronized_substep_joint_velocity
+  direction_alternative: backwards_penalty_explicitly_changes_published_equation
+assumptions:
+- Public PACER architecture and PPO hyperparameters are implementation choices; paper
+  specifies MLP and PPO without sizes.
+- Ten newest-first history frames follow PACER; inclusive h[t-10:t] could mean eleven
+  frames.
+- AMP style reward uses public negative_log_one_minus_sigmoid times two; paper does
+  not specify the D reward mapping.
+- Expert actions are next-frame mocap joint-position normalized PD-target proxies,
+  not measured expert torques or recovered human commands.
+- Label and kinematic filtered AMASS train/validation/test is a derived corpus, not
+  the author 2848 ID list.
+- Position error uses explicitly time-aligned current XY target; paper does not define
+  a horizon reduction.
+- TRACE/PACER are independently trained. This explicitly selected low-level training
+  curriculum supplies procedural commands; the separately trained Diffusion model
+  is consumed during deployment.
+- Smooth curriculum independently samples a target speed per plan, starts from measured
+  velocity, and limits scalar speed, heading rate and vector acceleration. Public
+  PACER sharp turns are not vector-acceleration bounded; this smoothing is a declared
+  implementation adaptation.
+- Use the CLI terrain128m/spawn48m/episode300 configuration; no boundary reflection,
+  analytical trajectory playback or physical teleport is used.
+evaluation:
+  requested_paper_scenes: 8
+  pedestrians_per_scene:
+  - 3
+  - 15
+  duration_seconds_per_scene: 200
+  author_scene_manifest: null
+  paper_exact_metrics_claim: false
+trajectory_training:
+  source: pacer_curriculum
+  mode: smooth
+  deployment_source: diffusion
+  reference: https://arxiv.org/html/2304.01893v1#S3.SS3
+  author_hyperparameters: false
+  speed_range_mps:
+  - 0
+  - 3
+  scalar_acceleration_limit_mps2: 2
+  heading_rate_limit_rad_s: 2
+  vector_acceleration_limit_mps2: 2
+  sharp_turn_probability: 0.02
+  physical_state_modification: false
+  replanning_steps: 15
+  terrain_extent_m: 128
+  spawn_margin_m: 48
+  episode_steps: 300

@@ -1,0 +1,51 @@
+{
+  "scene": "YOHO",
+  "shots": [
+    {
+      "start_step": 0,
+      "eye": [
+        3.9,
+        6.15,
+        2.3
+      ],
+      "target": [
+        3.9,
+        7.75,
+        0.9
+      ],
+      "focal_mm": 10.0,
+      "floor_hidden": true
+    },
+    {
+      "start_step": 600,
+      "eye": [
+        4.45,
+        20.45,
+        2.7
+      ],
+      "target": [
+        4.45,
+        18.85,
+        0.8
+      ],
+      "focal_mm": 10.0,
+      "floor_hidden": true
+    },
+    {
+      "start_step": 1200,
+      "eye": [
+        9.65,
+        3.65,
+        2.3
+      ],
+      "target": [
+        6.0,
+        3.5,
+        0.9
+      ],
+      "focal_mm": 10.0,
+      "floor_hidden": true
+    }
+  ],
+  "camera_status": "Three source-contiguous20s intervals; upper/main source cameras previously viewed; lower camera requires native visual review"
+}

@@ -1,0 +1,110 @@
+{
+  "fit_split": "train",
+  "train_clip_count": 2848,
+  "manifest_sha256": "68d41be28908f28a09c47f7658af39d55fad01b32212bd7c0ced2b1e6b1489ca",
+  "source_bank_sha256": "46e0241108e200409c08d1115a270205fe0b6ce827e366a06e8a09f6a2cc82c0",
+  "schema": "crowdsim.real_amass_gait_regression.v1",
+  "fit_frame_sides": 447895,
+  "condition": "real forward upright train walking .45..1.6m/s; arms below60degrees",
+  "input_mean": [
+    0.8910239452641247,
+    0.03396614963481039,
+    0.040793798553243325,
+    0.31967927824542086,
+    0.05187003700057038,
+    0.2722261628705581,
+    6.942337801556582e-05,
+    0.5582001716444306
+  ],
+  "input_std": [
+    0.24918878470371028,
+    0.22520313255439223,
+    1.2892755083430107,
+    0.45688517376897275,
+    0.05007026089399926,
+    0.41032778307718903,
+    0.13394319375951147,
+    0.9495396395080102
+  ],
+  "coefficients": [
+    [
+      0.02278610682905001,
+      0.5417754940120619,
+      0.11696595141655251
+    ],
+    [
+      0.00015195339469442615,
+      0.04579885486384519,
+      0.016711587132845283
+    ],
+    [
+      -0.0008792165090093026,
+      -0.013907809698667836,
+      0.16400341631039903
+    ],
+    [
+      0.020108404783262132,
+      0.21131019726244507,
+      0.12183887385949241
+    ],
+    [
+      0.008290887220628332,
+      0.15734523345522522,
+      0.036492447390126255
+    ],
+    [
+      0.014170005736110826,
+      -0.022429252406300042,
+      0.008256763514750494
+    ],
+    [
+      -0.0026974135476804323,
+      -0.11795171579839382,
+      -0.04998024928662132
+    ],
+    [
+      -0.006036285963957915,
+      -0.12774838154906973,
+      -0.02629177686314882
+    ],
+    [
+      -0.005709074052420447,
+      -0.01570580068471601,
+      -0.04499372989061895
+    ]
+  ],
+  "target_min": [
+    0,
+    0,
+    -1.0471975511965976
+  ],
+  "target_max": [
+    0.0987153398990631,
+    1.2983938121795653,
+    0.7336313724517821
+  ],
+  "residual_scale": [
+    0.019999999552965164,
+    0.18085709858217927,
+    0.2089213944295205
+  ],
+  "shared_left_right_fit": true,
+  "no_deployment_pose_override": true,
+  "fit_source_sha256": "a76d256a10051929519a4d333753ff51b7a8865796f86618810be6a87b4b8a1c",
+  "feature_source_sha256": "e5c30b3324ea6748fb40c2f16484312afb1146c0edc5eb72790913cef05a7d28",
+  "compact_arms": {
+    "schema": "crowdsim.real_amass_compact_arm_envelope.v1",
+    "fit_split": "train",
+    "source_windows_sha256": "be4b18cc23a0a7e1ffb91cb77fc00aee30c9fd93769ae46a3be957441b80ab21",
+    "walking_windows": 3314,
+    "unique_motion_ids": 1317,
+    "frame_side_samples": 397680,
+    "statistic": "pooled left/right95th percentile of declared real forward-walking windows, overlapping frames retained",
+    "lateral_wrist_limit_m": 0.15365669131278992,
+    "wrist_height_above_shoulder_limit_m": -0.34543147683143616,
+    "elbow_height_above_shoulder_limit_m": -0.206781268119812,
+    "reward_weight": 6.0,
+    "squared_deficit_scale_per_m2": 30.0,
+    "fit_reference_used_at_deployment": false
+  }
+}

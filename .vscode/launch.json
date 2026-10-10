@@ -1,0 +1,70 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "项目状态",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "social_navigation",
+      "args": [
+        "status"
+      ],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "${workspaceFolder}/src:${workspaceFolder}"
+      }
+    },
+    {
+      "name": "场景资源检查",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "social_navigation",
+      "args": [
+        "preflight",
+        "--scene",
+        "${input:scene}"
+      ],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "${workspaceFolder}/src:${workspaceFolder}"
+      }
+    },
+    {
+      "name": "PointGoal PPO 参数",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "social_navigation",
+      "args": [
+        "baseline-train",
+        "--help"
+      ],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "${workspaceFolder}/src:${workspaceFolder}"
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "id": "scene",
+      "type": "pickString",
+      "description": "选择场景",
+      "options": [
+        "YOHO",
+        "NewMetro",
+        "SecondFloor",
+        "ThirdFloor"
+      ],
+      "default": "YOHO"
+    }
+  ]
+}

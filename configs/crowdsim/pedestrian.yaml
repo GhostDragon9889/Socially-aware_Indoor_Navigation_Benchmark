@@ -1,0 +1,72 @@
+# Isaac Sim 6 / pinned IsaacLab 3: independent, local pedestrian simulation.
+scene: pedestrian_open
+humanoid:
+  human_mesh: true
+  hide_humanoid: true
+  compile_components: false  # Small interactive crowds do not need Inductor warmup.
+  checkpoint: data/pretrained_models/masked_mimic/smpl/last.ckpt
+  motion_file: ../Assets/motion/amass_smpl_validation.pt
+  # This validation library also contains jumps, kicks and jiggles. Navigation
+  # resets use named forward walking clips, validated before the first reset.
+  reset_motion_patterns:
+    - "*/HumanEva/*/Walking_*_poses.motion"
+    - "*/SFU/*/*_Walking[0-9][0-9][0-9]_poses.motion"
+  reset_motion_max_vertical_speed: 0.15
+  reset_motion_max_tilt_degrees: 15.0
+  # Ground-relative control target, not the current (possibly falling) height.
+  pelvis_height_above_ground: 0.93
+  smpl_model_dir: data/smpl
+  appearance_seed: 42
+  shape_std: 0.35
+  shape_clip: 1.0
+car:
+  usd: null
+  rl_policy: false
+sensors:
+  camera:
+    enabled: false
+  lidar:
+    enabled: false
+navigation:
+  num_humanoids: 4
+  num_robots: 0
+  update_hz: 30.0
+  goal_tolerance: 0.6
+  waypoint_tolerance: 0.35
+  collision_distance: 0.6
+  path:
+    seed: 7
+    planning_step_size: 0.25
+    planning_clearance: 0.35
+    min_start_goal_distance: 5.0
+    max_start_goal_distance: 8.0
+    min_spawn_spacing: 1.5
+  local:
+    target_timestep: 8.333333
+    max_speed: 0.8
+    agent_radius: 0.35
+    safe_distance: 1.0
+    neighbor_radius: 4.0
+    interaction_radius: 5.0
+    velocity_smoothing: 0.3
+    max_acceleration: 1.5
+    max_yaw_rate: 1.5
+    prediction_horizon: 2.0
+    ttc_threshold: 1.5
+    ttc_gain: 12.0
+  recording:
+    enabled: false
+  rl:
+    depth_enabled: false
+    rgb_enabled: false
+    goal_curriculum:
+      enabled: false
+markers:
+  enabled: false
+viewer:
+  camera_mode: free
+  camera_eye: [12.0, -15.0, 20.0]
+  camera_target: [0.0, 0.0, 0.8]
+runtime:
+  enable_rendering: false
+  shared_world: true

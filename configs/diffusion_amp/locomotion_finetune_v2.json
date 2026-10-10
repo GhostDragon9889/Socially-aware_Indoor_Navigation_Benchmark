@@ -1,0 +1,17 @@
+{
+  "schema": "crowdsim.locomotion_finetune.v2",
+  "policy_learning_rate": 6e-06,
+  "discriminator_learning_rate": 2e-06,
+  "anchor_coefficient": 0.2,
+  "posture_weight": 0.25,
+  "velocity_weight": 0.25,
+  "action_change_weight": 0.03,
+  "amp_weight": 1.5,
+  "task_weight": 0.5,
+  "upperbody_pose_weight": 0.8,
+  "upperbody_velocity_weight": 0.1,
+  "trunk_twist_weight": 0.2,
+  "trunk_rate_weight": 0.1,
+  "pelvis_stability_weight": 0.4,
+  "pelvis_rate_weight": 0.15
+}

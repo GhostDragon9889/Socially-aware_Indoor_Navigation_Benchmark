@@ -1,0 +1,790 @@
+{
+  "schema": "navisaaclab.resource_complete_cpu_maps.v1",
+  "timestamp_utc": "2026-10-01T10:32:04.879191+00:00",
+  "maps": [
+    {
+      "name": "Full_Warehouse",
+      "status": "prototype_ready_for_physx_review",
+      "source_usd": "/project/EXP/SangforAndSaut/Assets/DynBench/isaacsim_scene/Full_Warehouse/full_warehouse.usd",
+      "source_sha256": "81898ea7284276130af37645a31888b3a9a2e9b8d4490518484829e15813f85d",
+      "composition_layer_count": 1851,
+      "composition_arc_count": 3553,
+      "missing_geometry": [],
+      "remote_composition_arcs": [],
+      "invalid_layers": [],
+      "meters_per_unit": 1.0,
+      "up_axis": "Z",
+      "gprim_count": 3473,
+      "authored_collision_schema_count": 3473,
+      "physx_collider_verified": false,
+      "floor_height_m": 0.0,
+      "bounds_xy_m": [
+        [
+          -28.6,
+          -24.0
+        ],
+        [
+          8.6,
+          31.1
+        ]
+      ],
+      "image_dimensions_xy": [
+        372,
+        551
+      ],
+      "metadata": {
+        "image": "occupancy.png",
+        "resolution": 0.1,
+        "origin": [
+          -28.6,
+          -24.0,
+          0.0
+        ],
+        "negate": 0,
+        "occupied_thresh": 0.65,
+        "free_thresh": 0.196
+      },
+      "statistics": {
+        "projected_obstacle_gprims": 1623,
+        "skipped_obstacles": {
+          "below_pedestrian_height_band": 143,
+          "above_pedestrian_height_band": 1707
+        },
+        "occupied_cells": 45569,
+        "free_cells": 152956,
+        "unknown_cells": 6447,
+        "preview_free_candidates": 152956
+      },
+      "free_origin_candidate": {
+        "pixel_row_column": [
+          304,
+          181
+        ],
+        "world_xy_m": [
+          -10.45,
+          0.6500000000000021
+        ],
+        "projection_clearance_m": 7.409453421137082,
+        "omap_origin_world_map_frame_m": [
+          -10.45,
+          0.6500000000000021,
+          0.75
+        ],
+        "omap_relative_min_bound_map_m": [
+          -18.150000000000002,
+          -24.650000000000002,
+          -0.6
+        ],
+        "omap_relative_max_bound_map_m": [
+          19.049999999999997,
+          30.45,
+          1.05
+        ],
+        "physx_origin_not_yet_verified_free": true
+      },
+      "coordinate_check": {
+        "pixel_centers_world_grid_roundtrip": true,
+        "image_row0": "max world map Y",
+        "image_column0": "min world map X",
+        "ros_origin": "bottom-left cell lower corner, map meters, yaw0",
+        "examples": {
+          "pixels_row_column": [
+            [
+              0,
+              0
+            ],
+            [
+              550,
+              371
+            ],
+            [
+              275,
+              186
+            ]
+          ],
+          "world_centers_xy_m": [
+            [
+              -28.55,
+              31.050000000000004
+            ],
+            [
+              8.549999999999997,
+              -23.95
+            ],
+            [
+              -9.95,
+              3.5500000000000007
+            ]
+          ]
+        }
+      },
+      "history_comparison": {
+        "scene": "Full_Warehouse",
+        "old_files_verified": true,
+        "source_hash_unchanged": true,
+        "bounds_origin_metadata_unchanged": true,
+        "same_output": {
+          "occupancy.png": false,
+          "occupancy.yaml": true,
+          "projection_preview.png": false
+        }
+      },
+      "visual_dependency_audit": {
+        "authored_asset_records_scanned": 7737,
+        "existing_local_asset_count": 182,
+        "installed_MDL_source_closure_count": 6,
+        "missing_local_assets": [],
+        "remote_authored_asset_URIs": [],
+        "invalid_assets": [],
+        "authored_local_visual_dependency_closure_complete": true,
+        "existing_texture_bytes_all_decoded": false,
+        "MDL_compiler_or_runtime_resolver_verified": false
+      },
+      "output_directory": "data/diffusion_amp/maps_resource_complete/Full_Warehouse",
+      "files": {
+        "composition.json": {
+          "path": "data/diffusion_amp/maps_resource_complete/Full_Warehouse/composition.json",
+          "bytes": 607577,
+          "sha256": "04cad54a6e7a7e4b0044fece235e7871545e3dabff89b7aa239ba9e754c00012"
+        },
+        "generation.stderr.log": {
+          "path": "data/diffusion_amp/maps_resource_complete/Full_Warehouse/generation.stderr.log",
+          "bytes": 201,
+          "sha256": "9f90cb062792ed8db8e7227f1ecd2c496b16b91ac59fa5bd649c1804744da825"
+        },
+        "occupancy.png": {
+          "path": "data/diffusion_amp/maps_resource_complete/Full_Warehouse/occupancy.png",
+          "bytes": 1954,
+          "sha256": "490e2412777171d69fbc90f606ea2192585817a0be4a6ae3d39c1eaa0f6c69ee"
+        },
+        "occupancy.yaml": {
+          "path": "data/diffusion_amp/maps_resource_complete/Full_Warehouse/occupancy.yaml",
+          "bytes": 118,
+          "sha256": "736989756baded3e9ecdf1501f3dfda34ee13f1376d529d07dd83ede54b8fed8"
+        },
+        "projection_preview.png": {
+          "path": "data/diffusion_amp/maps_resource_complete/Full_Warehouse/projection_preview.png",
+          "bytes": 1954,
+          "sha256": "490e2412777171d69fbc90f606ea2192585817a0be4a6ae3d39c1eaa0f6c69ee"
+        },
+        "provenance.json": {
+          "path": "data/diffusion_amp/maps_resource_complete/Full_Warehouse/provenance.json",
+          "bytes": 1376842,
+          "sha256": "ebad95e1c769d255bc62e1b73d513a42af42e35fec6a02550aed5a0569c58c90"
+        },
+        "visual_dependency_audit.json": {
+          "path": "data/diffusion_amp/maps_resource_complete/Full_Warehouse/visual_dependency_audit.json",
+          "bytes": 44848,
+          "sha256": "687f54c34eff4da4f98b174fd13baa156b7276d40af0daecb01f8d4a8e7c0044"
+        },
+        "visual_dependency_audit.stderr.log": {
+          "path": "data/diffusion_amp/maps_resource_complete/Full_Warehouse/visual_dependency_audit.stderr.log",
+          "bytes": 201,
+          "sha256": "9f90cb062792ed8db8e7227f1ecd2c496b16b91ac59fa5bd649c1804744da825"
+        }
+      }
+    },
+    {
+      "name": "Warehouse",
+      "status": "prototype_ready_for_physx_review",
+      "source_usd": "/project/EXP/SangforAndSaut/Assets/DynBench/isaacsim_scene/Warehouse/warehouse.usd",
+      "source_sha256": "fde4be69816f7f20e0cd1f4b517134e6bb5964fbaed0d8887983e9e8a64fc8ed",
+      "composition_layer_count": 53,
+      "composition_arc_count": 52,
+      "missing_geometry": [],
+      "remote_composition_arcs": [],
+      "invalid_layers": [],
+      "meters_per_unit": 1.0,
+      "up_axis": "Z",
+      "gprim_count": 785,
+      "authored_collision_schema_count": 781,
+      "physx_collider_verified": false,
+      "floor_height_m": 0.0,
+      "bounds_xy_m": [
+        [
+          -12.5,
+          -18.5
+        ],
+        [
+          12.600000000000001,
+          18.5
+        ]
+      ],
+      "image_dimensions_xy": [
+        251,
+        370
+      ],
+      "metadata": {
+        "image": "occupancy.png",
+        "resolution": 0.1,
+        "origin": [
+          -12.5,
+          -18.5,
+          0.0
+        ],
+        "negate": 0,
+        "occupied_thresh": 0.65,
+        "free_thresh": 0.196
+      },
+      "statistics": {
+        "projected_obstacle_gprims": 493,
+        "skipped_obstacles": {
+          "above_pedestrian_height_band": 257,
+          "below_pedestrian_height_band": 35
+        },
+        "occupied_cells": 27314,
+        "free_cells": 59521,
+        "unknown_cells": 6035,
+        "preview_free_candidates": 59521
+      },
+      "free_origin_candidate": {
+        "pixel_row_column": [
+          65,
+          118
+        ],
+        "world_xy_m": [
+          -0.6499999999999986,
+          11.950000000000003
+        ],
+        "projection_clearance_m": 2.8861739379323623,
+        "omap_origin_world_map_frame_m": [
+          -0.6499999999999986,
+          11.950000000000003,
+          0.75
+        ],
+        "omap_relative_min_bound_map_m": [
+          -11.850000000000001,
+          -30.450000000000003,
+          -0.6
+        ],
+        "omap_relative_max_bound_map_m": [
+          13.25,
+          6.549999999999997,
+          1.05
+        ],
+        "physx_origin_not_yet_verified_free": true
+      },
+      "coordinate_check": {
+        "pixel_centers_world_grid_roundtrip": true,
+        "image_row0": "max world map Y",
+        "image_column0": "min world map X",
+        "ros_origin": "bottom-left cell lower corner, map meters, yaw0",
+        "examples": {
+          "pixels_row_column": [
+            [
+              0,
+              0
+            ],
+            [
+              369,
+              250
+            ],
+            [
+              185,
+              125
+            ]
+          ],
+          "world_centers_xy_m": [
+            [
+              -12.45,
+              18.450000000000003
+            ],
+            [
+              12.55,
+              -18.45
+            ],
+            [
+              0.05000000000000071,
+              -0.05000000000000071
+            ]
+          ]
+        }
+      },
+      "history_comparison": {
+        "scene": "Warehouse",
+        "old_files_verified": true,
+        "source_hash_unchanged": true,
+        "bounds_origin_metadata_unchanged": true,
+        "same_output": {
+          "occupancy.png": false,
+          "occupancy.yaml": true,
+          "projection_preview.png": true
+        }
+      },
+      "visual_dependency_audit": {
+        "authored_asset_records_scanned": 358,
+        "existing_local_asset_count": 101,
+        "installed_MDL_source_closure_count": 6,
+        "missing_local_assets": [],
+        "remote_authored_asset_URIs": [],
+        "invalid_assets": [],
+        "authored_local_visual_dependency_closure_complete": true,
+        "existing_texture_bytes_all_decoded": false,
+        "MDL_compiler_or_runtime_resolver_verified": false
+      },
+      "output_directory": "data/diffusion_amp/maps_resource_complete/Warehouse",
+      "files": {
+        "composition.json": {
+          "path": "data/diffusion_amp/maps_resource_complete/Warehouse/composition.json",
+          "bytes": 15560,
+          "sha256": "0f9feb48fddfa95ffe7b10cf410156cff5d4fdb0aae2cd886e7c90fd3e338d06"
+        },
+        "generation.stderr.log": {
+          "path": "data/diffusion_amp/maps_resource_complete/Warehouse/generation.stderr.log",
+          "bytes": 201,
+          "sha256": "9f90cb062792ed8db8e7227f1ecd2c496b16b91ac59fa5bd649c1804744da825"
+        },
+        "occupancy.png": {
+          "path": "data/diffusion_amp/maps_resource_complete/Warehouse/occupancy.png",
+          "bytes": 827,
+          "sha256": "afe3391d3f3056a63edaa4bc28e29fa7cbdfdc6156b0bdcd20b33b4a494aa996"
+        },
+        "occupancy.yaml": {
+          "path": "data/diffusion_amp/maps_resource_complete/Warehouse/occupancy.yaml",
+          "bytes": 118,
+          "sha256": "f3558be39155fd82285580c645dfc031bee9715557ad29aefdbb3593a88a1f7e"
+        },
+        "projection_preview.png": {
+          "path": "data/diffusion_amp/maps_resource_complete/Warehouse/projection_preview.png",
+          "bytes": 827,
+          "sha256": "afe3391d3f3056a63edaa4bc28e29fa7cbdfdc6156b0bdcd20b33b4a494aa996"
+        },
+        "provenance.json": {
+          "path": "data/diffusion_amp/maps_resource_complete/Warehouse/provenance.json",
+          "bytes": 399592,
+          "sha256": "5f79a2603957bf66cb77fc97a48b887cb1652780bd85eee8fa3f40bd4a80df06"
+        },
+        "visual_dependency_audit.json": {
+          "path": "data/diffusion_amp/maps_resource_complete/Warehouse/visual_dependency_audit.json",
+          "bytes": 27811,
+          "sha256": "95ec8f9c584ab58bb534be6f5a815ee924c20d98fc9c581efda412bf7c6e3d44"
+        },
+        "visual_dependency_audit.stderr.log": {
+          "path": "data/diffusion_amp/maps_resource_complete/Warehouse/visual_dependency_audit.stderr.log",
+          "bytes": 201,
+          "sha256": "9f90cb062792ed8db8e7227f1ecd2c496b16b91ac59fa5bd649c1804744da825"
+        }
+      }
+    },
+    {
+      "name": "Office",
+      "status": "prototype_ready_for_physx_review",
+      "source_usd": "/project/EXP/SangforAndSaut/Assets/DynBench/isaacsim_scene/Office/office_partnav.usd",
+      "source_sha256": "916ca34894785b7ed911fc374b29c67d51a59cc74073cb78b7b95646f72ca34a",
+      "composition_layer_count": 543,
+      "composition_arc_count": 615,
+      "missing_geometry": [],
+      "remote_composition_arcs": [],
+      "invalid_layers": [],
+      "meters_per_unit": 1.0,
+      "up_axis": "Z",
+      "gprim_count": 3784,
+      "authored_collision_schema_count": 3646,
+      "physx_collider_verified": false,
+      "floor_height_m": 0.0,
+      "bounds_xy_m": [
+        [
+          -24.6,
+          -27.6
+        ],
+        [
+          6.5,
+          60.6
+        ]
+      ],
+      "image_dimensions_xy": [
+        311,
+        882
+      ],
+      "metadata": {
+        "image": "occupancy.png",
+        "resolution": 0.1,
+        "origin": [
+          -24.6,
+          -27.6,
+          0.0
+        ],
+        "negate": 0,
+        "occupied_thresh": 0.65,
+        "free_thresh": 0.196
+      },
+      "statistics": {
+        "projected_obstacle_gprims": 2083,
+        "skipped_obstacles": {
+          "below_pedestrian_height_band": 797,
+          "above_pedestrian_height_band": 748,
+          "outside_selected_world_bounds": 156
+        },
+        "occupied_cells": 75644,
+        "free_cells": 156025,
+        "unknown_cells": 42633,
+        "preview_free_candidates": 156025
+      },
+      "free_origin_candidate": {
+        "pixel_row_column": [
+          301,
+          69
+        ],
+        "world_xy_m": [
+          -17.650000000000002,
+          30.450000000000003
+        ],
+        "projection_clearance_m": 4.800000000000001,
+        "omap_origin_world_map_frame_m": [
+          -17.650000000000002,
+          30.450000000000003,
+          0.75
+        ],
+        "omap_relative_min_bound_map_m": [
+          -6.949999999999999,
+          -58.050000000000004,
+          -0.6
+        ],
+        "omap_relative_max_bound_map_m": [
+          24.150000000000002,
+          30.15,
+          1.05
+        ],
+        "physx_origin_not_yet_verified_free": true
+      },
+      "coordinate_check": {
+        "pixel_centers_world_grid_roundtrip": true,
+        "image_row0": "max world map Y",
+        "image_column0": "min world map X",
+        "ros_origin": "bottom-left cell lower corner, map meters, yaw0",
+        "examples": {
+          "pixels_row_column": [
+            [
+              0,
+              0
+            ],
+            [
+              881,
+              310
+            ],
+            [
+              441,
+              155
+            ]
+          ],
+          "world_centers_xy_m": [
+            [
+              -24.55,
+              60.550000000000004
+            ],
+            [
+              6.449999999999999,
+              -27.55
+            ],
+            [
+              -9.05,
+              16.450000000000003
+            ]
+          ]
+        }
+      },
+      "history_comparison": {
+        "scene": "Office",
+        "old_files_verified": true,
+        "source_hash_unchanged": true,
+        "bounds_origin_metadata_unchanged": true,
+        "same_output": {
+          "occupancy.png": true,
+          "occupancy.yaml": true,
+          "projection_preview.png": true
+        }
+      },
+      "visual_dependency_audit": {
+        "authored_asset_records_scanned": 2350,
+        "existing_local_asset_count": 362,
+        "installed_MDL_source_closure_count": 5,
+        "missing_local_assets": [],
+        "remote_authored_asset_URIs": [],
+        "invalid_assets": [],
+        "authored_local_visual_dependency_closure_complete": true,
+        "existing_texture_bytes_all_decoded": false,
+        "MDL_compiler_or_runtime_resolver_verified": false
+      },
+      "output_directory": "data/diffusion_amp/maps_resource_complete/Office",
+      "files": {
+        "composition.json": {
+          "path": "data/diffusion_amp/maps_resource_complete/Office/composition.json",
+          "bytes": 154692,
+          "sha256": "f8bda35cf86e7d0f95f3741eacfdd06789f0d54e39f9515e5a5729b3c9d54dc2"
+        },
+        "generation.stderr.log": {
+          "path": "data/diffusion_amp/maps_resource_complete/Office/generation.stderr.log",
+          "bytes": 201,
+          "sha256": "9f90cb062792ed8db8e7227f1ecd2c496b16b91ac59fa5bd649c1804744da825"
+        },
+        "occupancy.png": {
+          "path": "data/diffusion_amp/maps_resource_complete/Office/occupancy.png",
+          "bytes": 4385,
+          "sha256": "cd844c73b9c0c264f8f135f3b8b93593141e2a4dca21340cee927317c6e01719"
+        },
+        "occupancy.yaml": {
+          "path": "data/diffusion_amp/maps_resource_complete/Office/occupancy.yaml",
+          "bytes": 118,
+          "sha256": "98c6b89b3d47858c2c3da49425f732bcc3b4984f272e4b75dbfd2b5a6bb95365"
+        },
+        "projection_preview.png": {
+          "path": "data/diffusion_amp/maps_resource_complete/Office/projection_preview.png",
+          "bytes": 4385,
+          "sha256": "cd844c73b9c0c264f8f135f3b8b93593141e2a4dca21340cee927317c6e01719"
+        },
+        "provenance.json": {
+          "path": "data/diffusion_amp/maps_resource_complete/Office/provenance.json",
+          "bytes": 1619247,
+          "sha256": "10de63b2810445bef8a8d11d1554a04251369624d1f32d44387aa9b5775590f1"
+        },
+        "visual_dependency_audit.json": {
+          "path": "data/diffusion_amp/maps_resource_complete/Office/visual_dependency_audit.json",
+          "bytes": 74067,
+          "sha256": "31df74e54de79eb7e50544b2041fe5def4fc4ae7dc546a35d2e8e81203c731ea"
+        },
+        "visual_dependency_audit.stderr.log": {
+          "path": "data/diffusion_amp/maps_resource_complete/Office/visual_dependency_audit.stderr.log",
+          "bytes": 201,
+          "sha256": "9f90cb062792ed8db8e7227f1ecd2c496b16b91ac59fa5bd649c1804744da825"
+        }
+      }
+    },
+    {
+      "name": "Hospital",
+      "status": "prototype_ready_for_physx_review",
+      "source_usd": "/project/EXP/SangforAndSaut/Assets/DynBench/isaacsim_scene/Hospital/hospital_partnav.usd",
+      "source_sha256": "daf1e856ca2b83657332d14c4856153f14f237b3f73681f44f81600533f52575",
+      "composition_layer_count": 293,
+      "composition_arc_count": 323,
+      "missing_geometry": [],
+      "remote_composition_arcs": [],
+      "invalid_layers": [],
+      "meters_per_unit": 1.0,
+      "up_axis": "Z",
+      "gprim_count": 2057,
+      "authored_collision_schema_count": 2161,
+      "physx_collider_verified": false,
+      "floor_height_m": 0.0,
+      "bounds_xy_m": [
+        [
+          -48.800000000000004,
+          -4.9
+        ],
+        [
+          27.400000000000002,
+          37.4
+        ]
+      ],
+      "image_dimensions_xy": [
+        762,
+        423
+      ],
+      "metadata": {
+        "image": "occupancy.png",
+        "resolution": 0.1,
+        "origin": [
+          -48.800000000000004,
+          -4.9,
+          0.0
+        ],
+        "negate": 0,
+        "occupied_thresh": 0.65,
+        "free_thresh": 0.196
+      },
+      "statistics": {
+        "projected_obstacle_gprims": 1632,
+        "skipped_obstacles": {
+          "below_pedestrian_height_band": 136,
+          "above_pedestrian_height_band": 289
+        },
+        "occupied_cells": 50294,
+        "free_cells": 141415,
+        "unknown_cells": 130617,
+        "preview_free_candidates": 141415
+      },
+      "free_origin_candidate": {
+        "pixel_row_column": [
+          304,
+          569
+        ],
+        "world_xy_m": [
+          8.149999999999999,
+          6.950000000000001
+        ],
+        "projection_clearance_m": 4.036087214122113,
+        "omap_origin_world_map_frame_m": [
+          8.149999999999999,
+          6.950000000000001,
+          0.75
+        ],
+        "omap_relative_min_bound_map_m": [
+          -56.95,
+          -11.850000000000001,
+          -0.6
+        ],
+        "omap_relative_max_bound_map_m": [
+          19.250000000000004,
+          30.449999999999996,
+          1.05
+        ],
+        "physx_origin_not_yet_verified_free": true
+      },
+      "coordinate_check": {
+        "pixel_centers_world_grid_roundtrip": true,
+        "image_row0": "max world map Y",
+        "image_column0": "min world map X",
+        "ros_origin": "bottom-left cell lower corner, map meters, yaw0",
+        "examples": {
+          "pixels_row_column": [
+            [
+              0,
+              0
+            ],
+            [
+              422,
+              761
+            ],
+            [
+              211,
+              381
+            ]
+          ],
+          "world_centers_xy_m": [
+            [
+              -48.75000000000001,
+              37.35
+            ],
+            [
+              27.35,
+              -4.8500000000000005
+            ],
+            [
+              -10.650000000000006,
+              16.25
+            ]
+          ]
+        }
+      },
+      "history_comparison": {
+        "scene": "Hospital",
+        "old_files_verified": true,
+        "source_hash_unchanged": true,
+        "bounds_origin_metadata_unchanged": true,
+        "same_output": {
+          "occupancy.png": true,
+          "occupancy.yaml": true,
+          "projection_preview.png": true
+        }
+      },
+      "visual_dependency_audit": {
+        "authored_asset_records_scanned": 1209,
+        "existing_local_asset_count": 324,
+        "installed_MDL_source_closure_count": 5,
+        "missing_local_assets": [],
+        "remote_authored_asset_URIs": [],
+        "invalid_assets": [],
+        "authored_local_visual_dependency_closure_complete": true,
+        "existing_texture_bytes_all_decoded": false,
+        "MDL_compiler_or_runtime_resolver_verified": false
+      },
+      "output_directory": "data/diffusion_amp/maps_resource_complete/Hospital",
+      "files": {
+        "composition.json": {
+          "path": "data/diffusion_amp/maps_resource_complete/Hospital/composition.json",
+          "bytes": 86210,
+          "sha256": "f49abeb328774c801eb59a69db93bc488321053ae29fb7080858419e4cc45c8d"
+        },
+        "generation.stderr.log": {
+          "path": "data/diffusion_amp/maps_resource_complete/Hospital/generation.stderr.log",
+          "bytes": 201,
+          "sha256": "9f90cb062792ed8db8e7227f1ecd2c496b16b91ac59fa5bd649c1804744da825"
+        },
+        "occupancy.png": {
+          "path": "data/diffusion_amp/maps_resource_complete/Hospital/occupancy.png",
+          "bytes": 3388,
+          "sha256": "172e40577921cc0dbb0674a07e029ae6b5ae451c222469cb3a2d040a88857ec5"
+        },
+        "occupancy.yaml": {
+          "path": "data/diffusion_amp/maps_resource_complete/Hospital/occupancy.yaml",
+          "bytes": 131,
+          "sha256": "18fcd37828b287f5587dc66e2bd38b3513710ab376b43a3e82f0f7791dbb7d8c"
+        },
+        "projection_preview.png": {
+          "path": "data/diffusion_amp/maps_resource_complete/Hospital/projection_preview.png",
+          "bytes": 3388,
+          "sha256": "172e40577921cc0dbb0674a07e029ae6b5ae451c222469cb3a2d040a88857ec5"
+        },
+        "provenance.json": {
+          "path": "data/diffusion_amp/maps_resource_complete/Hospital/provenance.json",
+          "bytes": 1259777,
+          "sha256": "a6e6fd05bc3c1a843e8f524b339868a0da75b3408fcc04d3738b55b6d54d0566"
+        },
+        "visual_dependency_audit.json": {
+          "path": "data/diffusion_amp/maps_resource_complete/Hospital/visual_dependency_audit.json",
+          "bytes": 67942,
+          "sha256": "326d0cc71b8c040610a7fa26e2fdb9e27a21e7b7ba2785c24700af420ba9ab1e"
+        },
+        "visual_dependency_audit.stderr.log": {
+          "path": "data/diffusion_amp/maps_resource_complete/Hospital/visual_dependency_audit.stderr.log",
+          "bytes": 201,
+          "sha256": "9f90cb062792ed8db8e7227f1ecd2c496b16b91ac59fa5bd649c1804744da825"
+        }
+      }
+    }
+  ],
+  "external_links_verified": [
+    {
+      "destination": "/project/EXP/SangforAndSaut/Assets/DynBench/Props/KLT_Bin",
+      "source": "/project/EXP/SangforAndSaut/ProtoMotions/data/scene_resources/dynbench_missing/Isaac/Props/KLT_Bin",
+      "relative_target": "../../../ProtoMotions/data/scene_resources/dynbench_missing/Isaac/Props/KLT_Bin",
+      "status": "created",
+      "root_usd_sha256": "2e6172432c1b5ee2b7ea047229e070ccf1d49b69d01b4796c0445531af392bb9",
+      "actual_symlink_verified": true,
+      "current_root_sha256_verified": true,
+      "write_actor": "parent",
+      "agent_external_write": false
+    },
+    {
+      "destination": "/project/EXP/SangforAndSaut/Assets/DynBench/Props/Forklift",
+      "source": "/project/EXP/SangforAndSaut/ProtoMotions/data/scene_resources/dynbench_missing/Isaac/Props/Forklift",
+      "relative_target": "../../../ProtoMotions/data/scene_resources/dynbench_missing/Isaac/Props/Forklift",
+      "status": "created",
+      "root_usd_sha256": "12765bfe269089369fe5541993cfd2768de0d70163a5aa03874073e767ad1feb",
+      "actual_symlink_verified": true,
+      "current_root_sha256_verified": true,
+      "write_actor": "parent",
+      "agent_external_write": false
+    }
+  ],
+  "frozen_history": {
+    "inventory_path": "docs/maps_projection_inventory.json",
+    "inventory_sha256": "0fa953700b047bf92f4ef022862c1f64eb099687d90ac413e9ec07892989a7f0",
+    "all_recorded_original_output_hashes_verified_unchanged": true,
+    "original_scene_root_USD_hashes_unchanged": true,
+    "original_maps_directory_preserved": "data/diffusion_amp/maps"
+  },
+  "new_output": "data/diffusion_amp/maps_resource_complete",
+  "generation_manifest_sha256": "d82a0636a786eef72d3310f89bcc52f33c30ef18e91e96583d9f1e733a63cbb3",
+  "historical_comparison_sha256": "90e656964a120c3040f4acf0bf0874162207d6b563e6b38565c840d1a211fb82",
+  "overview": {
+    "path": "docs/maps_projection_resource_complete_overview.png",
+    "sha256": "8f8e7b75ef967d2050ab84847e8b302794ead3d46d4070613a6a796b89ff520a",
+    "is_actual_map_image_not_3D_scene_capture": true,
+    "manually_viewed": true
+  },
+  "sources": {
+    "scripts/generate_pedestrian_maps.py": "69b8c39917ad514edc2552cc497af6c0d9737e605749c09432baf4793e88f8e3",
+    "docs/maps_projection_resource_complete_texture_audit.py": "f4678c965f8bc6a1278b4ebc79e6f95794919229a30733198aece41e5e757701"
+  },
+  "original_scene_or_business_configs_changed_by_agent": false,
+  "new_Kit_or_GPU_started": false,
+  "physx_collider_or_omap_verified": false,
+  "author_eight_scene_protocol_or_maps_reproduced": false,
+  "original_scene_configs_automatically_repointed_to_new_maps": false,
+  "limitations": [
+    "Conservative world AABB projection within floor+.15..1.8m; rotated/concave obstacles and nonrectangular floor support require PhysX review",
+    "All four authored local visual dependency paths/source closure available; existing scene textures are not all decoded; no MDL/RTX runtime claim",
+    "Local Forklift normal comes from original scene bundle, not a verified official6 download; original remote failure evidence remains",
+    "Four existing local scene roots do not establish eight author scenes or version/hash identity"
+  ]
+}

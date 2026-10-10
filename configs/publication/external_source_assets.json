@@ -1,0 +1,289 @@
+{
+  "upstream": "https://github.com/NVlabs/ProtoMotions.git",
+  "upstream_commit": "7a8417a9f55b1586b0d6e8f46578c5bc9d7ce1f1",
+  "note": "These permissive source assets were already LFS pointers locally. No AMASS/SMPL payloads are included.",
+  "assets": [
+    {
+      "path": "src/protomotions/data/assets/usd/strike_target.usd",
+      "oid": "cb34078b350f1d5e48a5c16ba2060d77167f6ea2daed1feadc4c8b3b72b0e923",
+      "size": 23432,
+      "upstream_path": "protomotions/data/assets/usd/strike_target.usd"
+    },
+    {
+      "path": "src/protomotions/data/assets/usd/amp_humanoid_sword_shield.usda",
+      "oid": "d80208d7ff8afbff265aaefc196d90fbd1cf5e4db298f88a576550c26a5f727f",
+      "size": 79184,
+      "upstream_path": "protomotions/data/assets/usd/amp_humanoid_sword_shield.usda"
+    },
+    {
+      "path": "src/protomotions/data/assets/usd/room.usd",
+      "oid": "e4d8fccd175b00afbdb487a8551f2d13116a54ef8dad79f811a58600c05687fe",
+      "size": 5817,
+      "upstream_path": "protomotions/data/assets/usd/room.usd"
+    },
+    {
+      "path": "src/protomotions/data/assets/usd/terrain_material.usda",
+      "oid": "d27ccb8396709d22dcbcf9cc3c430a9df61d6c34e0caf2a9f8fc2fd1f1f7cadf",
+      "size": 5908,
+      "upstream_path": "protomotions/data/assets/usd/terrain_material.usda"
+    },
+    {
+      "path": "src/protomotions/data/assets/usd/direction_marker.usd",
+      "oid": "ce38de60bf8c14f6ec1a143846da363d23a06c6ac8d3df5a29ae072a13fb7df7",
+      "size": 4816,
+      "upstream_path": "protomotions/data/assets/usd/direction_marker.usd"
+    },
+    {
+      "path": "src/protomotions/data/assets/usd/strike_target_box_instanceable.usd",
+      "oid": "cb34078b350f1d5e48a5c16ba2060d77167f6ea2daed1feadc4c8b3b72b0e923",
+      "size": 23432,
+      "upstream_path": "protomotions/data/assets/usd/strike_target_box_instanceable.usd"
+    },
+    {
+      "path": "src/protomotions/data/assets/usd/facing_direction_marker.usd",
+      "oid": "b4fbbe113b8c6a65d457b8318a3da686f37d9fccd0c677ea044cdbf8e3538690",
+      "size": 5573,
+      "upstream_path": "protomotions/data/assets/usd/facing_direction_marker.usd"
+    },
+    {
+      "path": "src/protomotions/data/assets/usd/rigv1_humanoid.usda",
+      "oid": "c67f705f35076fc8f73ed3e6432afd5ce344c917b91ac56cc2327aee32039265",
+      "size": 113514,
+      "upstream_path": "protomotions/data/assets/usd/rigv1_humanoid.usda"
+    },
+    {
+      "path": "src/protomotions/data/assets/usd/perturb_box_instanceable.usd",
+      "oid": "59649f127016a87f54494e96e8ec2dfc186d4a223612b3050244cddca001ed45",
+      "size": 28892,
+      "upstream_path": "protomotions/data/assets/usd/perturb_box_instanceable.usd"
+    },
+    {
+      "path": "src/protomotions/data/assets/usd/amp_humanoid.usda",
+      "oid": "2f8043ce972826cb3c60dbd263080d0c09312149cce5da5bca2e0484c53f0a98",
+      "size": 75779,
+      "upstream_path": "protomotions/data/assets/usd/amp_humanoid.usda"
+    },
+    {
+      "path": "src/protomotions/data/assets/usd/ray_crown.usd",
+      "oid": "c17b69e544386d128f760d2d6b422bd2ce64bfaf1512e0917f1c7c250b8c7c04",
+      "size": 3954,
+      "upstream_path": "protomotions/data/assets/usd/ray_crown.usd"
+    },
+    {
+      "path": "src/protomotions/data/assets/usd/perturb_boxes_instanceable.usd",
+      "oid": "0138af16a22dfb238ec475b4dc0aed98fd36f268170c3c78a6a9650d3cf3e458",
+      "size": 27569,
+      "upstream_path": "protomotions/data/assets/usd/perturb_boxes_instanceable.usd"
+    },
+    {
+      "path": "src/protomotions/data/assets/usd/soma23_humanoid_flat/soma23_humanoid_flat.usda",
+      "oid": "b8c7db843e2e2236bdc368b737038f8122eb1a2fce299a1333f04ec8963003b3",
+      "size": 901,
+      "upstream_path": "protomotions/data/assets/usd/soma23_humanoid_flat/soma23_humanoid_flat.usda"
+    },
+    {
+      "path": "src/protomotions/data/assets/usd/g1_holo_compat/g1_holo_compat.usda",
+      "oid": "db3670aee5591a4f6534dfb879b6c9e6a9d277cc3f7248685e5ea0dcd20912c8",
+      "size": 871,
+      "upstream_path": "protomotions/data/assets/usd/g1_holo_compat/g1_holo_compat.usda"
+    },
+    {
+      "path": "src/protomotions/data/assets/usd/g1_bm/g1_bm.usda",
+      "oid": "785b1d35973a649809f7a51418f1764ad8bd49fbd50021a5e99ed4401ebc1aec",
+      "size": 826,
+      "upstream_path": "protomotions/data/assets/usd/g1_bm/g1_bm.usda"
+    },
+    {
+      "path": "src/protomotions/data/assets/usd/h1_2/h1_2.usda",
+      "oid": "390f8efe113946609076eccad10e41b662e3920473e598e6f02663bd079d2bd5",
+      "size": 821,
+      "upstream_path": "protomotions/data/assets/usd/h1_2/h1_2.usda"
+    },
+    {
+      "path": "src/protomotions/data/assets/usd/g1_bm_box_feet/g1_bm_box_feet.usda",
+      "oid": "e8df78b0ed33cfbae4014abb74ee12226f2d23958549294ac3193ec6c687e5f4",
+      "size": 871,
+      "upstream_path": "protomotions/data/assets/usd/g1_bm_box_feet/g1_bm_box_feet.usda"
+    },
+    {
+      "path": "src/protomotions/data/assets/usd/h1_2_box_feet/h1_2_box_feet.usda",
+      "oid": "126dbb1fcd7023bfd5f992eba2137ca3a32b11c2de8ebab113cd56060343c41d",
+      "size": 866,
+      "upstream_path": "protomotions/data/assets/usd/h1_2_box_feet/h1_2_box_feet.usda"
+    },
+    {
+      "path": "src/protomotions/data/assets/usd/g1_holo_compat_box_feet/g1_holo_compat_box_feet.usda",
+      "oid": "2d6a4f1e3d59ea460b6491d1fc5cc6133219a7f87347e9ba568405fdc6c9fc47",
+      "size": 916,
+      "upstream_path": "protomotions/data/assets/usd/g1_holo_compat_box_feet/g1_holo_compat_box_feet.usda"
+    },
+    {
+      "path": "src/protomotions/data/assets/usd/soma23_humanoid_flat/configuration/soma23_humanoid_flat_base.usd",
+      "oid": "b9651ba20138e7afb0ca47c5b15b6a65d4633b027ee31d03c77f1ecd98707733",
+      "size": 10022,
+      "upstream_path": "protomotions/data/assets/usd/soma23_humanoid_flat/configuration/soma23_humanoid_flat_base.usd"
+    },
+    {
+      "path": "src/protomotions/data/assets/usd/soma23_humanoid_flat/configuration/soma23_humanoid_flat_physics.usd",
+      "oid": "7b06f70010765a73d8970ec7982266b201f2a79a07e5c15f9907a04e21e25303",
+      "size": 9759,
+      "upstream_path": "protomotions/data/assets/usd/soma23_humanoid_flat/configuration/soma23_humanoid_flat_physics.usd"
+    },
+    {
+      "path": "src/protomotions/data/assets/usd/soma23_humanoid_flat/configuration/soma23_humanoid_flat_sensor.usd",
+      "oid": "52b6622409259dcc6df4002ca60c6279ae9ce6bd6d93b045c6aabb58ce5daf8d",
+      "size": 668,
+      "upstream_path": "protomotions/data/assets/usd/soma23_humanoid_flat/configuration/soma23_humanoid_flat_sensor.usd"
+    },
+    {
+      "path": "src/protomotions/data/assets/usd/soma23_humanoid_flat/configuration/soma23_humanoid_flat_robot.usd",
+      "oid": "d7e7824c6f33d68e2a07426d8cf3eabbc05f131c681831a835bba4da018500c5",
+      "size": 2533,
+      "upstream_path": "protomotions/data/assets/usd/soma23_humanoid_flat/configuration/soma23_humanoid_flat_robot.usd"
+    },
+    {
+      "path": "src/protomotions/data/assets/usd/g1_holo_compat/configuration/g1_holo_compat_robot.usd",
+      "oid": "7d05683bf7528c487abac31c2898d248a5fb0ec79f2db6b5071ee2770c50f1b3",
+      "size": 2111,
+      "upstream_path": "protomotions/data/assets/usd/g1_holo_compat/configuration/g1_holo_compat_robot.usd"
+    },
+    {
+      "path": "src/protomotions/data/assets/usd/g1_holo_compat/configuration/g1_holo_compat_base.usd",
+      "oid": "f70bfbc443999a25e47b604bf8443ba44a9afca3af1d72a20bd1712acfecec07",
+      "size": 29694159,
+      "upstream_path": "protomotions/data/assets/usd/g1_holo_compat/configuration/g1_holo_compat_base.usd"
+    },
+    {
+      "path": "src/protomotions/data/assets/usd/g1_holo_compat/configuration/g1_holo_compat_physics.usd",
+      "oid": "92b465cf0750f01f818e396a49399a6c0d6a481000a0ccbd3ed9dda6abe7fa16",
+      "size": 12018,
+      "upstream_path": "protomotions/data/assets/usd/g1_holo_compat/configuration/g1_holo_compat_physics.usd"
+    },
+    {
+      "path": "src/protomotions/data/assets/usd/g1_holo_compat/configuration/g1_holo_compat_sensor.usd",
+      "oid": "4c440817512375f03722b770a3049643a449bbc50cf5e03b4e90eadbdf806c39",
+      "size": 662,
+      "upstream_path": "protomotions/data/assets/usd/g1_holo_compat/configuration/g1_holo_compat_sensor.usd"
+    },
+    {
+      "path": "src/protomotions/data/assets/usd/g1_bm/configuration/g1_bm_base.usd",
+      "oid": "a92dc17cc472d00a5f2bbd2e8ada1177e33e49b4319a940f581e7cd20fb60fb2",
+      "size": 28708317,
+      "upstream_path": "protomotions/data/assets/usd/g1_bm/configuration/g1_bm_base.usd"
+    },
+    {
+      "path": "src/protomotions/data/assets/usd/g1_bm/configuration/g1_bm_robot.usd",
+      "oid": "17904c2849aaced3dbf162ba03fa959fb39b32a5973087e77b0e0c96f008e9c2",
+      "size": 2101,
+      "upstream_path": "protomotions/data/assets/usd/g1_bm/configuration/g1_bm_robot.usd"
+    },
+    {
+      "path": "src/protomotions/data/assets/usd/g1_bm/configuration/g1_bm_physics.usd",
+      "oid": "665896b91f17b7614ba1cb255fb494cd3753c31fb3a68296d6bdf00ee668c3c4",
+      "size": 12279,
+      "upstream_path": "protomotions/data/assets/usd/g1_bm/configuration/g1_bm_physics.usd"
+    },
+    {
+      "path": "src/protomotions/data/assets/usd/g1_bm/configuration/g1_bm_sensor.usd",
+      "oid": "017b50b0f87bffc4adf447851e1eace4f79985211a420fe71967f61cecfb3b5b",
+      "size": 653,
+      "upstream_path": "protomotions/data/assets/usd/g1_bm/configuration/g1_bm_sensor.usd"
+    },
+    {
+      "path": "src/protomotions/data/assets/usd/h1_2/configuration/h1_2_sensor.usd",
+      "oid": "626682799af8e67ea2b5783cab219061f88ca02d754e341c3cf4e713f5f90800",
+      "size": 652,
+      "upstream_path": "protomotions/data/assets/usd/h1_2/configuration/h1_2_sensor.usd"
+    },
+    {
+      "path": "src/protomotions/data/assets/usd/h1_2/configuration/h1_2_physics.usd",
+      "oid": "409ec06b567476e981aee1157030a024e45cb8f6ecd828d05e3de80d87a09d1c",
+      "size": 10750,
+      "upstream_path": "protomotions/data/assets/usd/h1_2/configuration/h1_2_physics.usd"
+    },
+    {
+      "path": "src/protomotions/data/assets/usd/h1_2/configuration/h1_2_base.usd",
+      "oid": "8482967ec5d5bfac0efac07f87035168bac43783477d2d1a8b8907ea75962e56",
+      "size": 38875902,
+      "upstream_path": "protomotions/data/assets/usd/h1_2/configuration/h1_2_base.usd"
+    },
+    {
+      "path": "src/protomotions/data/assets/usd/h1_2/configuration/h1_2_robot.usd",
+      "oid": "0986301f1d4ed021bbbd53732e06b1cd6d2fe9df2e7dc2a953c0194f24a084ae",
+      "size": 1978,
+      "upstream_path": "protomotions/data/assets/usd/h1_2/configuration/h1_2_robot.usd"
+    },
+    {
+      "path": "src/protomotions/data/assets/usd/g1_bm_box_feet/configuration/g1_bm_box_feet_sensor.usd",
+      "oid": "2c8ece24169880a50ef0c03c16273fcea8de4bcc561188eb2b3cf0e0b43335f0",
+      "size": 662,
+      "upstream_path": "protomotions/data/assets/usd/g1_bm_box_feet/configuration/g1_bm_box_feet_sensor.usd"
+    },
+    {
+      "path": "src/protomotions/data/assets/usd/g1_bm_box_feet/configuration/g1_bm_box_feet_base.usd",
+      "oid": "da4ef693db8b7978da04d40ff1283e16a2912024c01ba04fc5c90cc79d022711",
+      "size": 28705802,
+      "upstream_path": "protomotions/data/assets/usd/g1_bm_box_feet/configuration/g1_bm_box_feet_base.usd"
+    },
+    {
+      "path": "src/protomotions/data/assets/usd/g1_bm_box_feet/configuration/g1_bm_box_feet_physics.usd",
+      "oid": "3fe5b83b840e2d37a72625cf91b7dfbaf81f70e9beda62e029c31fc91a6cdb87",
+      "size": 11924,
+      "upstream_path": "protomotions/data/assets/usd/g1_bm_box_feet/configuration/g1_bm_box_feet_physics.usd"
+    },
+    {
+      "path": "src/protomotions/data/assets/usd/g1_bm_box_feet/configuration/g1_bm_box_feet_robot.usd",
+      "oid": "23c7b9c9f28de75469d53f2bcfd721ac0e1fcc1de9d86849b85bb6610aa5276d",
+      "size": 2111,
+      "upstream_path": "protomotions/data/assets/usd/g1_bm_box_feet/configuration/g1_bm_box_feet_robot.usd"
+    },
+    {
+      "path": "src/protomotions/data/assets/usd/h1_2_box_feet/configuration/h1_2_box_feet_robot.usd",
+      "oid": "56c298c9b8effbe31ff561b55d811f68d42113120705f66a2764c0f9a68e235b",
+      "size": 1989,
+      "upstream_path": "protomotions/data/assets/usd/h1_2_box_feet/configuration/h1_2_box_feet_robot.usd"
+    },
+    {
+      "path": "src/protomotions/data/assets/usd/h1_2_box_feet/configuration/h1_2_box_feet_base.usd",
+      "oid": "0fef416ef28e9aa126ed3aba48dd859602754b97fe60c32fc93781318c9f3f03",
+      "size": 38873759,
+      "upstream_path": "protomotions/data/assets/usd/h1_2_box_feet/configuration/h1_2_box_feet_base.usd"
+    },
+    {
+      "path": "src/protomotions/data/assets/usd/h1_2_box_feet/configuration/h1_2_box_feet_physics.usd",
+      "oid": "985def793120c04115effd28146ea93a873030f35e4a50116e825151aba9e435",
+      "size": 10319,
+      "upstream_path": "protomotions/data/assets/usd/h1_2_box_feet/configuration/h1_2_box_feet_physics.usd"
+    },
+    {
+      "path": "src/protomotions/data/assets/usd/h1_2_box_feet/configuration/h1_2_box_feet_sensor.usd",
+      "oid": "c72b670c9cdc2d9e44c0860a523c0f8d96e45e6070c7cacdd19787b3de1777f5",
+      "size": 661,
+      "upstream_path": "protomotions/data/assets/usd/h1_2_box_feet/configuration/h1_2_box_feet_sensor.usd"
+    },
+    {
+      "path": "src/protomotions/data/assets/usd/g1_holo_compat_box_feet/configuration/g1_holo_compat_box_feet_base.usd",
+      "oid": "effa232ca18a13e95ebaef67b341f4bdcaf31568f69ba9a73cb6bc489690a3a0",
+      "size": 29691758,
+      "upstream_path": "protomotions/data/assets/usd/g1_holo_compat_box_feet/configuration/g1_holo_compat_box_feet_base.usd"
+    },
+    {
+      "path": "src/protomotions/data/assets/usd/g1_holo_compat_box_feet/configuration/g1_holo_compat_box_feet_sensor.usd",
+      "oid": "501cda40f9b8197d791f04dc880ec01a372feba6cca3905c2e6cca5d6f762d27",
+      "size": 671,
+      "upstream_path": "protomotions/data/assets/usd/g1_holo_compat_box_feet/configuration/g1_holo_compat_box_feet_sensor.usd"
+    },
+    {
+      "path": "src/protomotions/data/assets/usd/g1_holo_compat_box_feet/configuration/g1_holo_compat_box_feet_physics.usd",
+      "oid": "e0a8ffa35114e9984575a2b7dadfe4c1ae05f244b01b85125e001259fd5282c9",
+      "size": 11619,
+      "upstream_path": "protomotions/data/assets/usd/g1_holo_compat_box_feet/configuration/g1_holo_compat_box_feet_physics.usd"
+    },
+    {
+      "path": "src/protomotions/data/assets/usd/g1_holo_compat_box_feet/configuration/g1_holo_compat_box_feet_robot.usd",
+      "oid": "4c45c7753f5fdd50a0f570e983063f1b8635f1e5c6df1730d58fcbbd490e6fc8",
+      "size": 2119,
+      "upstream_path": "protomotions/data/assets/usd/g1_holo_compat_box_feet/configuration/g1_holo_compat_box_feet_robot.usd"
+    }
+  ]
+}

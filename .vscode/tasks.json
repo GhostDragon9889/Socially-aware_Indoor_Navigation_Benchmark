@@ -1,0 +1,186 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "项目：状态",
+      "type": "process",
+      "command": "${workspaceFolder}/.venv/bin/python",
+      "args": [
+        "-m",
+        "social_navigation",
+        "status"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "PYTHONDONTWRITEBYTECODE": "1",
+          "PYTHONPATH": "${workspaceFolder}/src:${workspaceFolder}"
+        }
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      },
+      "runOptions": {
+        "instanceLimit": 1
+      }
+    },
+    {
+      "label": "项目：检查场景资源",
+      "type": "process",
+      "command": "${workspaceFolder}/.venv/bin/python",
+      "args": [
+        "-m",
+        "social_navigation",
+        "preflight",
+        "--scene",
+        "${input:scene}"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "PYTHONDONTWRITEBYTECODE": "1",
+          "PYTHONPATH": "${workspaceFolder}/src:${workspaceFolder}"
+        }
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      },
+      "runOptions": {
+        "instanceLimit": 1
+      }
+    },
+    {
+      "label": "项目：60 秒原生行人模拟",
+      "type": "process",
+      "command": "${workspaceFolder}/.venv/bin/python",
+      "args": [
+        "-m",
+        "social_navigation",
+        "simulate",
+        "--scene",
+        "${input:scene}",
+        "--steps",
+        "1800"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "PYTHONDONTWRITEBYTECODE": "1",
+          "PYTHONPATH": "${workspaceFolder}/src:${workspaceFolder}"
+        }
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      },
+      "runOptions": {
+        "instanceLimit": 1
+      }
+    },
+    {
+      "label": "项目：CPU 迁移测试",
+      "type": "process",
+      "command": "${workspaceFolder}/.venv/bin/python",
+      "args": [
+        "-m",
+        "pytest",
+        "-q",
+        "src/CrowdSim/tests",
+        "src/protomotions/tests/test_packaging.py",
+        "src/protomotions/tests/test_train_agent_helpers.py",
+        "src/protomotions/tests/test_deploy_tracker_inputs.py",
+        "tests/test_project_layout.py",
+        "tests/test_relocated_terminal.py",
+        "tests/test_relocated_owner_sources.py"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "PYTHONDONTWRITEBYTECODE": "1",
+          "PYTHONPATH": "${workspaceFolder}/src:${workspaceFolder}",
+          "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1"
+        }
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      },
+      "runOptions": {
+        "instanceLimit": 1
+      },
+      "group": "test"
+    },
+    {
+      "label": "项目：AMP 微调参数",
+      "type": "process",
+      "command": "${workspaceFolder}/.venv/bin/python",
+      "args": [
+        "-m",
+        "social_navigation",
+        "train-amp",
+        "--help"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "PYTHONDONTWRITEBYTECODE": "1",
+          "PYTHONPATH": "${workspaceFolder}/src:${workspaceFolder}"
+        }
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      },
+      "runOptions": {
+        "instanceLimit": 1
+      }
+    },
+    {
+      "label": "项目：视频录制参数",
+      "type": "process",
+      "command": "${workspaceFolder}/.venv/bin/python",
+      "args": [
+        "-m",
+        "social_navigation",
+        "record",
+        "--help"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "PYTHONDONTWRITEBYTECODE": "1",
+          "PYTHONPATH": "${workspaceFolder}/src:${workspaceFolder}"
+        }
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      },
+      "runOptions": {
+        "instanceLimit": 1
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "id": "scene",
+      "type": "pickString",
+      "description": "选择场景（原生任务逐个运行）",
+      "options": [
+        "YOHO",
+        "NewMetro",
+        "SecondFloor",
+        "ThirdFloor"
+      ],
+      "default": "YOHO"
+    }
+  ]
+}

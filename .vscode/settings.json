@@ -1,0 +1,58 @@
+{
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+  "python.analysis.extraPaths": [
+    "${workspaceFolder}/src",
+    "${workspaceFolder}"
+  ],
+  "python.analysis.exclude": [
+    "**/output/**",
+    "**/data/**",
+    "**/third_party/**",
+    "**/.venv/**",
+    "**/build/**"
+  ],
+  "python.testing.pytestEnabled": true,
+  "python.testing.unittestEnabled": false,
+  "python.testing.pytestArgs": [
+    "tests",
+    "src/CrowdSim/tests",
+    "src/protomotions/tests"
+  ],
+  "python.testing.cwd": "${workspaceFolder}",
+  "terminal.integrated.env.linux": {
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONPATH": "${workspaceFolder}/src:${workspaceFolder}"
+  },
+  "files.exclude": {
+    "protomotions": true,
+    "CrowdSim": true,
+    "deployment": true,
+    "FLUX": true,
+    "NavDP": true,
+    "pyroki": true,
+    "usd_convert": true,
+    "**/*.egg-info": true,
+    "**/__pycache__": true
+  },
+  "files.watcherExclude": {
+    "**/output/**": true,
+    "**/data/**": true,
+    "**/third_party/**": true,
+    "**/.venv/**": true
+  },
+  "search.exclude": {
+    "output/**": true,
+    "data/**": true,
+    "third_party/**": true,
+    ".venv/**": true,
+    "protomotions/**": true,
+    "CrowdSim/**": true,
+    "deployment/**": true,
+    "FLUX/**": true,
+    "NavDP/**": true,
+    "pyroki/**": true,
+    "usd_convert/**": true
+  },
+  "editor.formatOnSave": false,
+  "python.envFile": "${workspaceFolder}/.vscode/test.env"
+}

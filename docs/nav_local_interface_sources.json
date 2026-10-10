@@ -1,0 +1,22 @@
+{
+  "root": "/project/EXP/NavIsaaclab2.0",
+  "review_scope": "current local NavIsaaclab2.0 code; not proof of original author private AMP resources",
+  "files": {
+    "CrowdSim/humanoid/README.md": {
+      "bytes": 828,
+      "sha256": "a78b947b1827e2725cf11665a1c00403dc6431010d704cb27fb4b162d9e8f4fa"
+    },
+    "CrowdSim/nav_manager.py": {
+      "bytes": 129712,
+      "sha256": "34306e95e90eaa52296f7199cb9c24e005f3ddcc19de22b1e26e584a724afc3d"
+    },
+    "protomotions/envs/obs/path.py": {
+      "bytes": 3250,
+      "sha256": "3b89c251e8b39a9c2175d34e7685ca30f123e8dd4e3aa1e7c91280536c110bc0"
+    },
+    "protomotions/envs/control/path_follower_control.py": {
+      "bytes": 10884,
+      "sha256": "6a5f70557d6e3c545e30914e323ef9747d0f41724b8f20470a40702aefefbdec"
+    }
+  }
+}

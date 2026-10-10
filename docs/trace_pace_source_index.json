@@ -1,0 +1,491 @@
+{
+  "schema": "crowdsim.trace_pace_installed_source_index.v1",
+  "root": "/project/EXP/SangforAndSaut/ProtoMotions",
+  "scope": "new TRACE/PACER entry and adapters; not an inventory of all ProtoMotions",
+  "files": {
+    "CrowdSim/humanoid/amass_corpus.py": {
+      "bytes": 12126,
+      "sha256": "2d4e4f7549aa38f5fd6763de4d3924a9cdd969746682c649ab773f033d747cf7"
+    },
+    "CrowdSim/humanoid/amp/__init__.py": {
+      "bytes": 602,
+      "sha256": "64083ff917c1c19c8e8985ca13760f4b6ab168247cd070ac8337882e1bdfd835"
+    },
+    "CrowdSim/humanoid/amp/controller.py": {
+      "bytes": 11295,
+      "sha256": "b1e56c6392e91e023af63437d74feb28d13a29099ad6708d4c742f08f737e3d2"
+    },
+    "CrowdSim/humanoid/amp/network.py": {
+      "bytes": 5376,
+      "sha256": "7e00aeea89b8ab46f28fcdcb8fa9daeeae0f5f7f54519fdb10808b22af735d91"
+    },
+    "CrowdSim/humanoid/amp/observations.py": {
+      "bytes": 10586,
+      "sha256": "000f3980a8f4d3c1fac929c57029dd05a9ce19b1d8ce82423dad273c9315e599"
+    },
+    "CrowdSim/humanoid/amp_world.py": {
+      "bytes": 29500,
+      "sha256": "68e7085d9c1dcce0d18af79a4e47ab75960509f88bac7f7a9f1594e4da2e7e28"
+    },
+    "CrowdSim/humanoid/analysis/trace_pace_capture.py": {
+      "bytes": 999,
+      "sha256": "c9617dfc5180b411d892ec80117e1d93510645e4900e208838a8e8885e0dc015"
+    },
+    "CrowdSim/humanoid/application/resources.py": {
+      "bytes": 15989,
+      "sha256": "3268a10882931cb5ad0e23506b71fd22fb21d975e9aba948e0a08fb427132a5b"
+    },
+    "CrowdSim/humanoid/contact_monitor.py": {
+      "bytes": 9995,
+      "sha256": "a821bc58e03d4f38612b823cfaa198ed831ea3aadf8f87b8b9bf13e04ad1a7fd"
+    },
+    "CrowdSim/humanoid/diffusion/__init__.py": {
+      "bytes": 524,
+      "sha256": "80a89ebb21602af0d5f449f7c3c12aedbf5df1caa2a34451a9428a695c8c29dd"
+    },
+    "CrowdSim/humanoid/diffusion/base_models.py": {
+      "bytes": 17223,
+      "sha256": "67c4c9958d467b41de46eab1a475018e57687d9a72a31793098be607a925124b"
+    },
+    "CrowdSim/humanoid/diffusion/batch_utils.py": {
+      "bytes": 338,
+      "sha256": "f34b4961c5e8ada66fc4a98b4b8f2548ef6a66d4b21e5119fc757461fe49b424"
+    },
+    "CrowdSim/humanoid/diffusion/dynamics.py": {
+      "bytes": 6575,
+      "sha256": "d189a47db56a0aa9c645e11461e0e5d620fab3e48db485a9e09c05c6b4456fa0"
+    },
+    "CrowdSim/humanoid/diffusion/dynamics_base.py": {
+      "bytes": 1903,
+      "sha256": "63d9fbdf723239d56639725e1ff1067fe4e7a4628f943e05c81b0b249ce166c3"
+    },
+    "CrowdSim/humanoid/diffusion/geometry.py": {
+      "bytes": 410,
+      "sha256": "327874863231c1a5a902f302f3ebb15b7e5589585ba9278fb6cdb871bc3ee326"
+    },
+    "CrowdSim/humanoid/diffusion/guidance.py": {
+      "bytes": 20482,
+      "sha256": "b3eb803fe7eb5936cc3470e1140fb7e312a31b31dde68307a0939fbfc9d2445a"
+    },
+    "CrowdSim/humanoid/diffusion/model.py": {
+      "bytes": 28298,
+      "sha256": "37e2f4d41155f730b525d564294f248a9224c8fe976a415e054ba8bd4028130d"
+    },
+    "CrowdSim/humanoid/diffusion/paper.py": {
+      "bytes": 48060,
+      "sha256": "e287e0c0d1b3dcb1c9f4200c3fd233d12996b82c03a19a0cf3d3479b7f3c471f"
+    },
+    "CrowdSim/humanoid/diffusion/planner.py": {
+      "bytes": 25753,
+      "sha256": "46bee0c0385a94445b92ea2ad74c1c6ce2edf535a0f1294b81b0e03fba1fe9d7"
+    },
+    "CrowdSim/humanoid/diffusion/raster.py": {
+      "bytes": 1972,
+      "sha256": "5cd506a783ae3c99b4accf55f15e1d36515453e9db7651e6e6ff35d1480bbbda"
+    },
+    "CrowdSim/humanoid/diffusion/temporal.py": {
+      "bytes": 4634,
+      "sha256": "b6753dccc1676d661ef788320f619947f46ce5f3f7b0a9309c2dd67f5c827b79"
+    },
+    "CrowdSim/humanoid/diffusion/tensor_utils.py": {
+      "bytes": 1061,
+      "sha256": "f8a0094672473cab882e61e9deefdec9f6a4410702f42263444d6b00068f34c6"
+    },
+    "CrowdSim/humanoid/diffusion/trace_helpers.py": {
+      "bytes": 22401,
+      "sha256": "365a0789d5d0518509425041bcfa8fe0915141e5c556368e4ea1a6b44be4bb18"
+    },
+    "CrowdSim/humanoid/foot_capture.py": {
+      "bytes": 17503,
+      "sha256": "89c48fde37c05eaa57f4eacf2fb3eb072b087c0d9a46acff3f7d23729f28d39b"
+    },
+    "CrowdSim/humanoid/foot_support.py": {
+      "bytes": 20607,
+      "sha256": "8c9cb88ddcbe55599ebe79abf80ea7a77a85eedfaa17324b937a862b284267e8"
+    },
+    "CrowdSim/humanoid/ground_support_archive.py": {
+      "bytes": 8155,
+      "sha256": "7cdeaf74e7f17ce859f76bc6cf3378d1a2872ef8801e1a9aa0954601ba328ea3"
+    },
+    "CrowdSim/humanoid/physics_views.py": {
+      "bytes": 1845,
+      "sha256": "1b13d982864a3a2dae6eaebccd15f7ecfdda666c1e1a8dbce4996786a59a0c21"
+    },
+    "CrowdSim/humanoid/reconstruction_scene.py": {
+      "bytes": 18403,
+      "sha256": "d8264b8cf4ead1289a0de25198a4a875e64b115631a5bcbdc7d5c0e4817cf14f"
+    },
+    "CrowdSim/humanoid/runtime/keep_right_planning.py": {
+      "bytes": 5481,
+      "sha256": "1702013d6fdcb008c68cf2772cc1597b1a8f7de29dd3a573997dcb316508dc88"
+    },
+    "CrowdSim/humanoid/runtime/social_evaluation_lifecycle.py": {
+      "bytes": 10059,
+      "sha256": "be868487365352f092128b7a1054ba814a1912e37a1bb211db7219abe2e3654a"
+    },
+    "CrowdSim/humanoid/runtime/social_navigation_lifecycle.py": {
+      "bytes": 8956,
+      "sha256": "e7c283fbdef14d03deeea8748013fb38f413a75a9d78b039114a61991527db96"
+    },
+    "CrowdSim/humanoid/runtime/trace_pace.py": {
+      "bytes": 20252,
+      "sha256": "9b27718f8f579269304c886cb32e10030b03f61fcb95b353d0baedfd215f038f"
+    },
+    "CrowdSim/humanoid/runtime/trace_pace_lifecycle.py": {
+      "bytes": 1719,
+      "sha256": "03586009edb7f876c0aa58ba47bfab56ad908381ebe94e66c9a624f7329e1c6a"
+    },
+    "CrowdSim/humanoid/runtime/trace_pace_measured_lifecycle.py": {
+      "bytes": 10632,
+      "sha256": "af9218969aef666873e57ca40ac6ab8b736c93c0098822203e10535c0568f7fc"
+    },
+    "CrowdSim/humanoid/runtime/trace_pace_native_lifecycle.py": {
+      "bytes": 6545,
+      "sha256": "b97e33b8cff763c1e41ce126b022ebf5ea2fa0b194fce15426c57d13de94345d"
+    },
+    "CrowdSim/humanoid/runtime/trace_pace_scope.py": {
+      "bytes": 1171,
+      "sha256": "cbcf6f8dc8df303bb091c2ae88a8c1a86655c5cbafa693a09aa396316ffa0ad4"
+    },
+    "CrowdSim/humanoid/training/locomotion_objective.py": {
+      "bytes": 4506,
+      "sha256": "cf6f87068ffdc76a59c144023b5bcf3b4002c36cdd4b2417c6e37c8179c5e93f"
+    },
+    "CrowdSim/humanoid/training/pacer_finetune.py": {
+      "bytes": 6022,
+      "sha256": "845c38669815d145da7b16995b2e0e5bde5fcdb65a1ec0487c87450420c1c87b"
+    },
+    "CrowdSim/humanoid/training/trainer.py": {
+      "bytes": 37952,
+      "sha256": "9e0ed3dcc1d866f03c61084defd75c769af60a589bdfc5e9b7fc100c97ad5039"
+    },
+    "CrowdSim/world/planning.py": {
+      "bytes": 9588,
+      "sha256": "27c05f3976d07ed9faf20aa0ff84dc8ce8793383bde784997e7aba5257d9c5d4"
+    },
+    "FULL_PIPELINE.md": {
+      "bytes": 57379,
+      "sha256": "9a31f97bbd5d162680369fc2644bf703845ebf75c643aeb4f68dcf5fccbe2d33"
+    },
+    "configs/diffusion_amp/locomotion_finetune_v1.json": {
+      "bytes": 280,
+      "sha256": "38e86b2fa47eb8c8a22f34ea257e273d2cee5df3112d69521ce45e4c47d7db79"
+    },
+    "configs/diffusion_amp/shared_obstacle_trace_pace_circulation.yaml": {
+      "bytes": 1024,
+      "sha256": "f801add8392565657d2f24dc8ff2ce428974c3016a9e28a43944e05e4633eacc"
+    },
+    "configs/diffusion_amp/shared_obstacle_trace_pace_keep_right.yaml": {
+      "bytes": 1061,
+      "sha256": "9a199040a6a61847c4135088a20c7b6993a7fa432d682ecafe1d04a5915196fa"
+    },
+    "configs/diffusion_amp/shared_obstacle_trace_pace_reciprocal.yaml": {
+      "bytes": 957,
+      "sha256": "f907b5fd45e19cc33e00976c3ed6a0e5caf668fa95a0efb4ae20c9b28d18e6fb"
+    },
+    "configs/diffusion_amp/shared_obstacle_trace_pace_walking.yaml": {
+      "bytes": 929,
+      "sha256": "013f860ce952f84cf6118b3f6a95095abae302a1a3b8b2f35161a2dfc684e739"
+    },
+    "configs/diffusion_amp/shared_obstacle_trace_pace_wide.yaml": {
+      "bytes": 935,
+      "sha256": "3b614a51afaf909a9c637776a9d6c6e5ed04e6e9a63a76fa9539f0dc9e74a983"
+    },
+    "configs/diffusion_amp/trace_pace_amass_finetuned.json": {
+      "bytes": 3509,
+      "sha256": "92f1120cd65ca806d9f88f55bda9be558c6c374dfe2e1325822505dd1b834dad"
+    },
+    "configs/diffusion_amp/trace_pace_crowd.json": {
+      "bytes": 1324,
+      "sha256": "f2d4ba415ba293cc787dfee6ab1440bcfd3f57e029cb836c28369d0f893a7892"
+    },
+    "configs/diffusion_amp/trace_pace_crowd_circulation.json": {
+      "bytes": 1520,
+      "sha256": "f8a9ae6bbaa17a0231a02b40d22fa5642f599bc5573c84ba2cfddc7cb1c7e18f"
+    },
+    "configs/diffusion_amp/trace_pace_crowd_guarded.json": {
+      "bytes": 1392,
+      "sha256": "c686775cfbd686958a95f37a02e45036f4ce64c8e267b7bd1e91f6f1ca99ad38"
+    },
+    "configs/diffusion_amp/trace_pace_crowd_locomotion.json": {
+      "bytes": 1520,
+      "sha256": "f8a9ae6bbaa17a0231a02b40d22fa5642f599bc5573c84ba2cfddc7cb1c7e18f"
+    },
+    "configs/diffusion_amp/trace_pace_crowd_walking.json": {
+      "bytes": 1423,
+      "sha256": "2af39bcb4a0630328c436ee1a1600f1016b5903fada56218170457fc2fc62ad2"
+    },
+    "configs/diffusion_amp/trace_pace_recording.kit": {
+      "bytes": 1769,
+      "sha256": "53d44af2dc720fefb8955f5dce7f0e52a0128242068091283926f34f0de581f6"
+    },
+    "configs/diffusion_amp/trace_pace_reliable.json": {
+      "bytes": 1321,
+      "sha256": "76b9cb443dce2956823f77b2103f80ff3de49c89f997ba56f0c2922ab4cc8c41"
+    },
+    "configs/diffusion_amp/trace_pace_warehouse_locomotion_v1.json": {
+      "bytes": 3168,
+      "sha256": "ed4ee7e9f2ee356f567ad0e10cee838fc20bf1f526f300d2d4f97e8cefd4afa9"
+    },
+    "configs/diffusion_amp/warehouse_trace_pace_speed_v1.yaml": {
+      "bytes": 2183,
+      "sha256": "fbfbf4d2edd4fd65e589a78b913f7aa57552acebcaa3bf0b28697dea1691a0e0"
+    },
+    "configs/diffusion_amp/warehouse_trace_pace_v1.yaml": {
+      "bytes": 2183,
+      "sha256": "c54679f92e87f6de533a9978982836f25d5ce9c6bfa11a8de7ffd9fa3598ae3b"
+    },
+    "docs/AMASS_FINETUNE_ZH.md": {
+      "bytes": 13124,
+      "sha256": "209daf330cb6e1c3d55790835f11c5f5ade2ad7d6e4d7cdf9ffc3836ce429224"
+    },
+    "docs/SHARED_SOCIAL_AMP_CURRENT_ZH.md": {
+      "bytes": 55131,
+      "sha256": "4646030e2ef30f5e91363c9cc3ddcff63a39f76da9f6922b7f906dd762fb1142"
+    },
+    "docs/TRACE_PACE_REPRODUCTION_ZH.md": {
+      "bytes": 31125,
+      "sha256": "44330a07b68dc1e207ef020fbcafd86997b347c7c32df92aefd02a86408cc428"
+    },
+    "docs/WAREHOUSE_DIFFUSION_AMP_ZH.md": {
+      "bytes": 9163,
+      "sha256": "da6cfc3276165a4e6bc4f04608c1d3da525e7374cb0849fc03d66861c769d4b7"
+    },
+    "protomotions/components/scene_lib.py": {
+      "bytes": 109671,
+      "sha256": "344933acec8c9b1bcf1b0229244e2341b3312e8ba8bf4fee19f56299d535e873"
+    },
+    "protomotions/components/terrains/config.py": {
+      "bytes": 5778,
+      "sha256": "498fc6dfe21ef6249bd9dc3fe773e214c519fd2e2c38be97c7f9cce43b649c0e"
+    },
+    "protomotions/components/terrains/terrain.py": {
+      "bytes": 27933,
+      "sha256": "dfe3744364862dbd2375e8fbd55594d095257a823ab8a88eafaa1bd4e2827f94"
+    },
+    "protomotions/robot_configs/smpl.py": {
+      "bytes": 4067,
+      "sha256": "505e6e909f5b36a93e5449c75ee10a87b11ce30a4f2052a965ac65d273ae7b2e"
+    },
+    "protomotions/simulator/base_simulator/config.py": {
+      "bytes": 28605,
+      "sha256": "d63e2190d184d6faf40a8f72d88b9736afd2cd5d373e51ab51c19efc6af8788d"
+    },
+    "protomotions/simulator/base_simulator/simulator.py": {
+      "bytes": 68053,
+      "sha256": "6b080dd1b63885e34fcad523b8468ab6b63e838a3eaac765e7a230a2ca3ac782"
+    },
+    "protomotions/simulator/base_simulator/simulator_state.py": {
+      "bytes": 34638,
+      "sha256": "31cf14fab319151602f43fcf6ad2751b71088cda3a3f4feefadfa61262102731"
+    },
+    "protomotions/simulator/isaaclab/config.py": {
+      "bytes": 2799,
+      "sha256": "67682326c12f9fbc9887c4a87256bb36cac0e46ed77ac04bd3fb7320c3ac6db7"
+    },
+    "protomotions/simulator/isaaclab/simulator.py": {
+      "bytes": 54155,
+      "sha256": "811a5e7e4f6cc60ec8997034f66c47a752eb32aa9965f82c9a10f91e492fce7c"
+    },
+    "protomotions/utils/simulator_imports.py": {
+      "bytes": 3118,
+      "sha256": "7f236c0a5bd071996437ce1298c7911975a1527bea5a33bad61d68f7724918e8"
+    },
+    "scripts/audit_pacer_amass_finetune.py": {
+      "bytes": 5179,
+      "sha256": "59aa9d96c8137d6f553bfbebf262ad122ed374fe5d1a942a2e1b2bbba904c8cc"
+    },
+    "scripts/evaluate_trace_pace_gait.py": {
+      "bytes": 8492,
+      "sha256": "1de75ca326af7818a3ea166fcb0aa152f7433c5067d3599fc3971696e112b1fa"
+    },
+    "scripts/evaluate_trace_pace_reliability.py": {
+      "bytes": 20267,
+      "sha256": "b6e518f479a30b822626e83ac6fdc44433985084b104a531112f60b460b57802"
+    },
+    "scripts/evaluate_trace_pace_style.py": {
+      "bytes": 6717,
+      "sha256": "fdfa6c95ede36fbaeaad4d24b49627b04faad35db5d0cbe5a0404c309af387ba"
+    },
+    "scripts/finetune_pacer_amass.py": {
+      "bytes": 16213,
+      "sha256": "c71f4199b4fccc51b681e68e5f35fb78832529cabe4ed50586e511b6a5625e01"
+    },
+    "scripts/finetune_pacer_amass_verified.py": {
+      "bytes": 4517,
+      "sha256": "705b6f8e3319f7cc87aad38db5f87415fb4f2f120ab7f7a574ba9ed965be8a6a"
+    },
+    "scripts/inspect_trace_pace_encounters.py": {
+      "bytes": 5258,
+      "sha256": "09c739ab9bab5552aa6d64863a39d590392d6572bd234d642be43c4c21e9dbfc"
+    },
+    "scripts/record_trace_pace_verified.py": {
+      "bytes": 6709,
+      "sha256": "7e41dd862986171a48bae026594b57ff0bde6c50502052d7155d1f4ed2fbd1f3"
+    },
+    "scripts/replay_paper_pedestrians.py": {
+      "bytes": 31953,
+      "sha256": "e2b2ec8cd3777b36d35e012638a65523bee49511a6d88f5457af3bc068e52f3a"
+    },
+    "scripts/run_trace_pace.py": {
+      "bytes": 40684,
+      "sha256": "639d4ae07230eace97550b9e72d69d52d156765f8b0b3fe57f1e8498b6e484f0"
+    },
+    "scripts/run_trace_pace_verified.py": {
+      "bytes": 9012,
+      "sha256": "ecd55c85d811a9810ab8b4632c60900ef98312880455d4d09ddb68db1175f253"
+    },
+    "scripts/visualize_trace_pace.py": {
+      "bytes": 7139,
+      "sha256": "19d841b4ba3e4879e034ca1957cccbf40cf55ec44c8414b5b11263fc2d8623d9"
+    },
+    "tests/test_locomotion_optimization.py": {
+      "bytes": 1989,
+      "sha256": "c8a9799ed5187fcb6c01c56f5c7d36e48ea32ea90d105a4387cd0def98a95a0e"
+    },
+    "tests/test_pacer_finetune.py": {
+      "bytes": 3143,
+      "sha256": "04476877e8da9c3f1d42591b79fbd4f38121c4c7fda876518862c7b19db473a9"
+    },
+    "tests/test_recorded_render_cleanup.py": {
+      "bytes": 2182,
+      "sha256": "3f2388b5b85c472dd7a60b2c5dc39684a1c305ff5ffba84621970ea2a56ec92c"
+    },
+    "tests/test_trace_pace_reliability.py": {
+      "bytes": 29298,
+      "sha256": "46e608473bf2d51ca687e0993f67e2406a155a53cf3a4ea86148cd13665d901d"
+    },
+    "CrowdSim/humanoid/diffusion/refinement.py": {
+      "bytes": 3357,
+      "sha256": "ccd332e09078ac5b5a43152e7141be89645c3cbabc488bcd3bacd7cfd596107f"
+    },
+    "CrowdSim/humanoid/initial_reference_pool.py": {
+      "bytes": 3013,
+      "sha256": "455828a04cee094aff3842e2c5992fd85fa48e773cd9d674ba0c5eaa91af2d8a"
+    },
+    "CrowdSim/humanoid/runtime/dynbench_scene.py": {
+      "bytes": 50939,
+      "sha256": "670361b4284c3da78a6e578560617ad5fe95030eba6db87eb954680c1a874c5e"
+    },
+    "CrowdSim/humanoid/runtime/native_contact_report.py": {
+      "bytes": 3756,
+      "sha256": "bbd2e842c9f8f635514f6114abc55bf5b1ead61ef39b368b00243bd85dd7c318"
+    },
+    "CrowdSim/humanoid/runtime/native_framework_shutdown.py": {
+      "bytes": 1343,
+      "sha256": "697cf1801033c8e564781836c014c230418d27b03183413b3c236f8ddf037f8d"
+    },
+    "CrowdSim/humanoid/runtime/native_grid_scene.py": {
+      "bytes": 40426,
+      "sha256": "4b9a47fe929474fa021e5b827ea82b8cc8ccb19beacc6aede24a57c77696d254"
+    },
+    "CrowdSim/humanoid/runtime/native_visual_scene.py": {
+      "bytes": 16453,
+      "sha256": "baf6b746ac7123036aff42ec229a1b64246590159763be84fe5c99fc7f009eca"
+    },
+    "configs/diffusion_amp/locomotion_upperbody_v2.json": {
+      "bytes": 469,
+      "sha256": "ab38c330602d399581c9171707adbd13a2131e0fbd1f73ebdfea590a45d6108e"
+    },
+    "configs/diffusion_amp/trace_pace_yoho_upperbody_v1.json": {
+      "bytes": 2466,
+      "sha256": "07632e6b52453554c4271a4274ce3729e7ab423cd0c67ef2cc5964150b253aca"
+    },
+    "configs/diffusion_amp/yoho_pedestrians_v1.yaml": {
+      "bytes": 4290,
+      "sha256": "8302797996b5f974685056131d34d33ee80046b75c0de469625ec197f6e81563"
+    },
+    "docs/YOHO_DIFFUSION_AMP_ZH.md": {
+      "bytes": 13905,
+      "sha256": "1ab26a54009e7df1112f96e74095de8cd66e69757f7c2b6b2dec0723e105b5e2"
+    },
+    "docs/yoho_diffusion_amp_evidence_index.json": {
+      "bytes": 23821,
+      "sha256": "6324aa1080a29d697a11fb57743d79fed3941651f4f0ce17e3ac0ab6a119a416"
+    },
+    "protomotions/simulator/isaaclab/utils/usd_only_scene.py": {
+      "bytes": 3672,
+      "sha256": "e2310cf9d93230f5362b936adbef478f701436e24e8010269f1a2c1ff3947750"
+    },
+    "scripts/audit_trace_pace_visual_fk.py": {
+      "bytes": 3343,
+      "sha256": "2bf955bb1d5809e2a1f68915fe70d67e6ba3adf5f66da991ea52b59f42558902"
+    },
+    "scripts/evaluate_trace_pace_posture.py": {
+      "bytes": 7186,
+      "sha256": "d3f9012188f9d300996f3c850db394af77c53bed426a340349c8df45c6f5cf5a"
+    },
+    "scripts/generate_pedestrian_maps.py": {
+      "bytes": 28383,
+      "sha256": "d5e0a6a6ace399d643f0b440663234dcf103b721de8f579fe7dc6c4cf04b863f"
+    },
+    "scripts/prepare_yoho_scene.py": {
+      "bytes": 3728,
+      "sha256": "221387d8a02db94e85705c5ed65c1accb8dcc9292361b36fb0c2e40528770ec3"
+    },
+    "scripts/probe_paper_scene_maps.py": {
+      "bytes": 107178,
+      "sha256": "7cb0b1e24e0682c4ba718b47a9e8c6556a356d49310b423435bc489cbfe1182d"
+    },
+    "scripts/record_yoho_pedestrians.py": {
+      "bytes": 8140,
+      "sha256": "0e4726a4abf20f6afee7b56655a0beb3acb9816a2e0e7864cb42fe2d6feed4af"
+    },
+    "scripts/snapshot_collected_scene.py": {
+      "bytes": 3057,
+      "sha256": "0d13831adef200f390567d749cbb13cff957d0b11086e3845382d9a849d2c05d"
+    },
+    "tests/test_bounded_guidance_gradient.py": {
+      "bytes": 1461,
+      "sha256": "90d047cb9fb660ebe1be447c949e646808fc558dfc324fb8340e91efe45babbb"
+    },
+    "tests/test_diffusion_joint_components.py": {
+      "bytes": 1531,
+      "sha256": "4e460c421163d3d0a11af5d566281dde013b98143c68ac5e9d0f0285f3e66e09"
+    },
+    "tests/test_final_refinement.py": {
+      "bytes": 2279,
+      "sha256": "b15d028f6341bd44836b742682b75499a774ed859bfe8f4e71672cfd1c861eb2"
+    },
+    "tests/test_initial_reference_pool.py": {
+      "bytes": 1619,
+      "sha256": "5fe1995f1a6257ce4d9267a97f46d66ed0707dca77ee3b7361d19e0a2dd6fc97"
+    },
+    "tests/test_native_missing_centers.py": {
+      "bytes": 5700,
+      "sha256": "dc06ac10e64f55a30f36f5840069554a50ec7ba6a70c592cd7826fff5bd1b6c0"
+    },
+    "tests/test_native_static_residual.py": {
+      "bytes": 2113,
+      "sha256": "be9cd53ebae60ea2821a9fa42446a15e166713f1ff255000ed587d491333a0a1"
+    },
+    "tests/test_yoho_policy_floor.py": {
+      "bytes": 1336,
+      "sha256": "2e90b7d3e9be88357097fca0bf31538d0900fc770bbc5c309a5935b04478a7e9"
+    }
+  },
+  "updated_utc": "2026-10-08T19:35:00.488929+00:00",
+  "local_AMASS_finetune_evidence": "docs/amass_finetune_evidence_index.json",
+  "completed_training_sources_frozen": true,
+  "completed_videos_sources_frozen": true,
+  "current_Warehouse_evidence": {
+    "path": "/project/EXP/SangforAndSaut/ProtoMotions/docs/warehouse_diffusion_amp_evidence_index.json",
+    "bytes": 10575,
+    "sha256": "70863342d34047c0b33460571bf0ae0d9aea0a04e72ec355404e7596d4b1efb4"
+  },
+  "prior_source_index_snapshot": {
+    "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/yoho_optimization/trace_pace_source_index_before_yoho.json",
+    "bytes": 15339,
+    "sha256": "4edbd71ffd0f9454548fe889d5418b255dc8b6ee8ab9f00de5b8b8aed495e244"
+  },
+  "current_YOHO_evidence": {
+    "path": "/project/EXP/SangforAndSaut/ProtoMotions/docs/yoho_diffusion_amp_evidence_index.json",
+    "bytes": 23821,
+    "sha256": "6324aa1080a29d697a11fb57743d79fed3941651f4f0ce17e3ac0ab6a119a416"
+  },
+  "current_YOHO_document": {
+    "path": "/project/EXP/SangforAndSaut/ProtoMotions/docs/YOHO_DIFFUSION_AMP_ZH.md",
+    "bytes": 13905,
+    "sha256": "1ab26a54009e7df1112f96e74095de8cd66e69757f7c2b6b2dec0723e105b5e2"
+  }
+}

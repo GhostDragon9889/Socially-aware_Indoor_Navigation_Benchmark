@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "crowdsim-ppo"
+version = "0.1.0"
+description = "Simulator-free PointGoal navigation with PPO"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+dependencies = ["numpy>=1.24", "torch>=2.2"]
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+[project.scripts]
+crowdsim-ppo-train = "crowdsim_ppo.train:main"
+crowdsim-ppo-eval = "crowdsim_ppo.evaluate:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["crowdsim_ppo", "crowdsim_ppo.*"]
+namespaces = false
+
+[tool.setuptools.package-data]
+crowdsim_ppo = ["configs/*.json"]

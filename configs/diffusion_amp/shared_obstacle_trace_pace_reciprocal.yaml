@@ -1,0 +1,84 @@
+schema: navisaaclab.reconstruction_scene.v1
+name: four_actor_trace_pace_reciprocal_corridor_fixture
+author_benchmark_scene: false
+route_guidance: timed_path
+start_recovery_radius_m: 2.9
+bounds_xy:
+- 2
+- 2
+- 22
+- 22
+origins_xy:
+- - 6
+  - 6
+- - 6
+  - 18
+- - 18
+  - 6
+- - 18
+  - 18
+routes_xy:
+- - - 6.0
+    - 18.0
+  - - 6.0
+    - 6.0
+- - - 6.0
+    - 6.0
+  - - 6.0
+    - 18.0
+- - - 18.0
+    - 18.0
+  - - 18.0
+    - 6.0
+- - - 18.0
+    - 6.0
+  - - 18.0
+    - 18.0
+arrival_radius_m: 0.75
+goal_lookahead_m: 4.5
+cuboids:
+- center:
+  - 12
+  - 12
+  - 1
+  size:
+  - 4
+  - 4
+  - 2
+- center:
+  - 2.1
+  - 12
+  - 1
+  size:
+  - 0.2
+  - 20
+  - 2
+- center:
+  - 21.9
+  - 12
+  - 1
+  size:
+  - 0.2
+  - 20
+  - 2
+- center:
+  - 12
+  - 2.1
+  - 1
+  size:
+  - 20
+  - 0.2
+  - 2
+- center:
+  - 12
+  - 21.9
+  - 1
+  size:
+  - 20
+  - 0.2
+  - 2
+planning_clearance_m: 2.5
+right_hand_traffic: true
+right_hand_padding_distance_m: 0.5
+right_hand_cost_weight: 2.0
+right_hand_corridor_width_m: 4.0

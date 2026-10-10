@@ -1,0 +1,11 @@
+{
+  "schema": "crowdsim.locomotion_finetune.v1",
+  "policy_learning_rate": 3e-06,
+  "discriminator_learning_rate": 2e-06,
+  "anchor_coefficient": 0.2,
+  "posture_weight": 0.35,
+  "velocity_weight": 0.25,
+  "action_change_weight": 0.01,
+  "amp_weight": 1.5,
+  "task_weight": 0.5
+}

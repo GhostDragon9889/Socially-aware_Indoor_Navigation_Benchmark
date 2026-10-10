@@ -1,0 +1,35 @@
+{
+  "scene": "NewMetro",
+  "shots": [
+    {
+      "start_step": 0,
+      "eye": [
+        -14.0,
+        -1.65,
+        2.3
+      ],
+      "target": [
+        -10.4,
+        -1.65,
+        0.9
+      ],
+      "focal_mm": 10.0,
+      "floor_hidden": true
+    },
+    {
+      "start_step": 900,
+      "eye": [
+        -6.25,
+        -1.65,
+        2.3
+      ],
+      "target": [
+        -10.4,
+        -1.65,
+        0.9
+      ],
+      "focal_mm": 10.0,
+      "floor_hidden": true
+    }
+  ]
+}

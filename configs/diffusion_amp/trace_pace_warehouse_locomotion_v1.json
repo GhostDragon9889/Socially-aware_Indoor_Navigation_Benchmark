@@ -1,0 +1,75 @@
+{
+  "schema": "crowdsim.trace_pace_reliability.v1",
+  "resources": {
+    "diffusion_checkpoint": {
+      "path": "data/pretrained_models/paper_references/trace/ckpt/trace/orca_mixed/iter40000.ckpt",
+      "sha256": "fd6ba631f4ccaa1a486b7cff192dfc17c5a7dd4a1058dd57830c854eaa7b9257"
+    },
+    "diffusion_config": {
+      "path": "data/pretrained_models/paper_references/trace/ckpt/trace/orca_mixed/config.json",
+      "sha256": "35a5fb329e72c5b2988e90ab58fb443b72303feb0558b4d954b8fb3aecbe3fbd"
+    },
+    "amp_checkpoint": {
+      "path": "data/pretrained_models/local_amass_finetune/locomotion_20261008/Humanoid_AMASS.pth",
+      "sha256": "97843fa170cc55c0348194d0bb0a182612ad9f95919690a8fc70ef2dde1fde83"
+    },
+    "amass_manifest": {
+      "path": "data/diffusion_amp/amass_style_2848/manifest_labeled_v7.json",
+      "sha256": "68d41be28908f28a09c47f7658af39d55fad01b32212bd7c0ced2b1e6b1489ca"
+    }
+  },
+  "replan_controls": 15,
+  "num_samples": 16,
+  "guidance": {
+    "goal_weight": 75.0,
+    "map_weight": 3000.0,
+    "agent_weight": 3000.0,
+    "dynamics_weight": 2.5,
+    "max_speed_m_s": 1.2,
+    "max_acceleration_m_s2": 1.5,
+    "max_yaw_rate_rad_s": 0.7,
+    "clearance_m": 0.15,
+    "agent_buffer_m": 0.2,
+    "guide_clean": true,
+    "reject_unsafe_samples": true,
+    "target_speed_weight": 20.0,
+    "target_speed_m_s": 1.0,
+    "turn_speed_decay_s": 1.0,
+    "speed_ramp_time_s": 0.75
+  },
+  "allow_safety_braking": true,
+  "stationary_route_heading": true,
+  "mixed_safety_brakes": true,
+  "guard_horizon_s": 2.0,
+  "guard_tracking_margin_m": 0.5,
+  "persistent_braking_target": true,
+  "amp_sample_start_s": 0.0,
+  "local_finetune_admission": {
+    "candidate": false,
+    "physical_quality_pending": false,
+    "training_result_sha256": "8b6763c81c56073a316098df92224fde2800a3787e49cba4e932d82a1374aea1",
+    "purpose": "Warehouse posture and walking speed optimization",
+    "author_experiment_reproduction": false,
+    "physical_scope": "one original Warehouse, four pedestrians, seed7, full200s",
+    "training_execution": {
+      "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/warehouse_optimization/locomotion_train512_v1_execution.json",
+      "bytes": 131646,
+      "sha256": "371c05b80f00783015db7b7e35795969840a1e9b5deb990a8500a3547b0a584f"
+    },
+    "physical_execution": {
+      "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/warehouse_optimization/warehouse_optimized_200s_v1_execution.json",
+      "bytes": 23311,
+      "sha256": "dc493579c76092eb0ad8e92a5eb2f1f480b1aa88f8e1739363a963cf5da9f1bf"
+    },
+    "quality": {
+      "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/warehouse_optimization/warehouse_optimized_200s_v1_quality.json",
+      "bytes": 3877,
+      "sha256": "9c66bf0cbc5b4848c637eb26cfe6eb017ba23f8e2bd17ea7c9ba8ec04f4e05bd"
+    },
+    "pose_stability_observed_in_local60s_comparison": true,
+    "unconditional_pose_MMD_improves_in_common60s_speed_recipe": true,
+    "speed_conditioned_MMD_and_coverage_improved": false,
+    "paper_reproduction_complete": false,
+    "real_time_rendering_established": false
+  }
+}

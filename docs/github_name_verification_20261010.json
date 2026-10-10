@@ -1,0 +1,62 @@
+{
+  "project": "Socially-aware_Indoor_Navigation_Benchmark",
+  "root": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark",
+  "compatibility_paths": [
+    "/project/EXP/SangforAndSaut/Socially-aware indoor navigation benchmark",
+    "/project/EXP/SangforAndSaut/ProtoMotions"
+  ],
+  "changed_files": [
+    "README.md",
+    "FULL_PIPELINE.md",
+    ".social-navigation-root",
+    "pyproject.toml",
+    "src/social_navigation/cli.py",
+    "src/social_navigation/__init__.py",
+    "tests/test_project_layout.py",
+    "docs/PROJECT_STRUCTURE_ZH.md",
+    "docs/SHARED_SOCIAL_AMP_CURRENT_ZH.md",
+    "env/isaaclab3_sim6/README.md",
+    "env/isaaclab3_sim6/pyproject.toml",
+    "env/isaaclab3_sim6/uv.lock",
+    "env/isaaclab3_sim6/profile.json",
+    "Socially-aware indoor navigation benchmark.code-workspace"
+  ],
+  "upstream_local_head": "7a8417a9f55b1586b0d6e8f46578c5bc9d7ce1f1",
+  "locked_packages": 273,
+  "package_versions_unchanged": true,
+  "resources_unchanged": {
+    "docs/four_scene_speed_final_delivery_20261010.json": "f2d7cf12ace5887ea230d8fabe96b79f6ebab372034c35b0b9c3249e1e291a72",
+    "docs/style_improvement_20261004/social_native_overlay_entry_revision_v10/smoke_group_physics.py": "0e6b2ef97cc2f32612317df162ebba6107b1e276083f9912995badd5f416685e",
+    "output/native_sdk_overlay/simulation_manager_shutdown_v1/build_copy_manifest.json": "713c477db243b9c72081beec906fc30d67143cfd61ec4ca3eb61f95c0489c980",
+    "data/pretrained_models/local_amass_finetune/speed_conservative_20261010/Humanoid_AMASS.pth": "cb2783690a683cbfbbf14e0788d99a2a49d0da0513d11399682db776deb3553c"
+  },
+  "native_attempts": [
+    {
+      "attempt": 1,
+      "actual_returncode": -11,
+      "returncode_source": "subprocess.Popen.wait",
+      "actual_controls": 360,
+      "falls": 0,
+      "resets": 0,
+      "cleanup_succeeded": true,
+      "sources_unchanged": true,
+      "execution_file": "/home/lfm/Documents/ChatGPT/Social Navigation/project_github_publish_20261010/native_rename_smoke_v1_execution.json"
+    },
+    {
+      "attempt": 2,
+      "actual_returncode": 0,
+      "returncode_source": "subprocess.Popen.wait",
+      "actual_controls": 360,
+      "falls": 0,
+      "resets": 0,
+      "cleanup_succeeded": true,
+      "sources_unchanged": true,
+      "execution_file": "/home/lfm/Documents/ChatGPT/Social Navigation/project_github_publish_20261010/native_rename_smoke_v2_execution.json"
+    }
+  ],
+  "local_rename_tests_passed": 12,
+  "clean_clone_layout_tests_passed": 5,
+  "first_source_commit_credential_findings": 0,
+  "native_exit_reliability": "One SIGSEGV followed by one actual exit 0; not proof of stable shutdown.",
+  "github_status": "pending_authentication"
+}

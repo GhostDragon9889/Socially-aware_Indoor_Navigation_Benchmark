@@ -1,0 +1,39 @@
+{
+  "schema": "crowdsim.trace_pace_reliability.v1",
+  "resources": {
+    "diffusion_checkpoint": {
+      "path": "data/pretrained_models/paper_references/trace/ckpt/trace/orca_mixed/iter40000.ckpt",
+      "sha256": "fd6ba631f4ccaa1a486b7cff192dfc17c5a7dd4a1058dd57830c854eaa7b9257"
+    },
+    "diffusion_config": {
+      "path": "data/pretrained_models/paper_references/trace/ckpt/trace/orca_mixed/config.json",
+      "sha256": "35a5fb329e72c5b2988e90ab58fb443b72303feb0558b4d954b8fb3aecbe3fbd"
+    },
+    "amp_checkpoint": {
+      "path": "data/pretrained_models/paper_references/pacer/output/release/pacer_no_shape/Humanoid.pth",
+      "sha256": "bc0cb89b4d7ceaeb198339c34f3d736eb7449e7e479a7ee0f80d32563737d615"
+    },
+    "amass_manifest": {
+      "path": "data/diffusion_amp/amass_style_2848/manifest_labeled_v7.json",
+      "sha256": "68d41be28908f28a09c47f7658af39d55fad01b32212bd7c0ced2b1e6b1489ca"
+    }
+  },
+  "replan_controls": 15,
+  "num_samples": 16,
+  "guidance": {
+    "goal_weight": 75.0,
+    "map_weight": 3000.0,
+    "agent_weight": 3000.0,
+    "dynamics_weight": 2.5,
+    "max_speed_m_s": 1.4,
+    "max_acceleration_m_s2": 2.0,
+    "max_yaw_rate_rad_s": 0.8,
+    "clearance_m": 0.15,
+    "agent_buffer_m": 0.2,
+    "guide_clean": true,
+    "reject_unsafe_samples": true
+  },
+  "allow_safety_braking": true,
+  "stationary_route_heading": true,
+  "amp_sample_start_s": 0.0
+}

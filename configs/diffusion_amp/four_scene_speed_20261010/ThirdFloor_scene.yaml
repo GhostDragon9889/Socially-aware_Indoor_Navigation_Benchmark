@@ -1,0 +1,49 @@
+{
+  "schema": "crowdsim.native_pedestrian_scene.v1",
+  "scene": "ThirdFloor",
+  "scene_physics_replication": false,
+  "preflight": {
+    "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/preflight.json",
+    "sha256": "f1a44952538ac078004a56faf393fd05f4c0f9c179dc30b0ed1ebe80897964a0"
+  },
+  "native_map": {
+    "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/result.json",
+    "sha256": "d6a2acab9e3e24dde60fbfed5638c3e9b807699bf0f4efea3cdcd9b03c8df478"
+  },
+  "probe_script_snapshot": {
+    "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/gait_four_scene_optimization/probe_collected_cell_queries_v1.py",
+    "sha256": "cc840ae625948150792de4aaf5dd8bb9ea796312f50a30c848cebacb73693d10"
+  },
+  "amp_policy_height_mode": "reference_floor",
+  "initialize_at_rest": true,
+  "initialization_warmup_controls": 0,
+  "initial_reference_arm_cone_deg": 25.0,
+  "initial_reference_max_speed_m_s": 0.25,
+  "align_spawn_heading_to_route": true,
+  "start_recovery_radius_m": 0.0,
+  "start_recovery_clearance_m": 0.355,
+  "cyclic_route_lookahead": false,
+  "clearance_m": 0.25,
+  "arrival_radius_m": 1.0,
+  "goal_lookahead_m": 3.5,
+  "origins_xy": [
+    [
+      -1.05,
+      0.65
+    ]
+  ],
+  "routes_xy": [
+    [
+      [
+        2.65,
+        0.65
+      ],
+      [
+        -1.05,
+        0.65
+      ]
+    ]
+  ],
+  "route_clearance_weight": 0.5,
+  "route_comfort_clearance_m": 0.6
+}

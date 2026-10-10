@@ -1,0 +1,6 @@
+# Local ground and lighting are supplied by ProtoMotions SceneCfg.
+builtin: true
+terrain_xy_offset: [-40.0, -40.0]
+scene_map: CrowdSim/maps/pedestrian_open.yaml
+static_obstacles: true
+objects: {}

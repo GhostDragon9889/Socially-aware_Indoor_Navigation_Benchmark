@@ -1,0 +1,36 @@
+{
+  "scene": "ThirdFloor",
+  "shots": [
+    {
+      "start_step": 0,
+      "eye": [
+        -1.65,
+        0.65,
+        2.4
+      ],
+      "target": [
+        0.85,
+        0.65,
+        0.8
+      ],
+      "focal_mm": 10,
+      "floor_hidden": true
+    },
+    {
+      "start_step": 900,
+      "eye": [
+        2.85,
+        0.65,
+        2.4
+      ],
+      "target": [
+        0.85,
+        0.65,
+        0.8
+      ],
+      "focal_mm": 10,
+      "floor_hidden": true
+    }
+  ],
+  "camera_choice": "Camera inside source right wall and below 2.785m ceiling; no scene or pose edits"
+}

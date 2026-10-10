@@ -1,0 +1,22 @@
+mode: strict_author_experiment
+status: blocked_missing_author_experiment_resources
+data_manifest: null
+author_clip_count: 2848
+author_evaluation_scene_count: 8
+author_trajectory_diffusion_checkpoint: null
+author_smpl_navigation_amp_checkpoint: null
+author_training_configuration: null
+author_scene_manifest: null
+direction_mode: paper_equation
+reward:
+  amp_weight: 1.0
+  task_weight: 0.5
+  alpha_position: 2.0
+  alpha_energy: 0.0005
+  alpha_direction: 1.8
+requires:
+  - Actual author clip identities, labels, segment ranges and preprocessing recipe.
+  - Actual author eight scene identities, configurations, seeds and success/fall/collision aggregation definitions.
+  - Full training architecture, feature definitions, optimization schedule and discriminator semantics.
+  - Explicit author resolution of equation6/prose contradiction and history window/action representation.
+  - Checksummed matching resources; public PACER/TRACE weights cannot stand in for author checkpoints.

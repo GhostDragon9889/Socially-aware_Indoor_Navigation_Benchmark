@@ -1,0 +1,564 @@
+{
+  "schema": "navisaaclab.dynbench_asset_download_result.v1",
+  "timestamp_utc": "2026-10-01T10:18:00.720689+00:00",
+  "request_sha256": "f3bd99aa8abd9ecbd4f7788468191c115aa3b2e61423692a8299489adab3eaf6",
+  "download_manifest_sha256": "f5449db06489c8b169c9aa9f40a021679cb0e89eefd84d904f1dbadc6e71e8f9",
+  "assets": [
+    {
+      "name": "Forklift",
+      "status": "mixed_source_local_dependencies_verified",
+      "bytes_total": 60302676,
+      "files": [
+        {
+          "path": "data/scene_resources/dynbench_missing/Isaac/Props/Forklift/forklift.usd",
+          "bytes": 19356891,
+          "sha256": "12765bfe269089369fe5541993cfd2768de0d70163a5aa03874073e767ad1feb",
+          "magic": "PXR-USDC",
+          "source_kind": "official_live_API_download",
+          "http_status": 200
+        },
+        {
+          "path": "data/scene_resources/dynbench_missing/Isaac/Props/Forklift/S_ForkliftFork.usd",
+          "bytes": 274817,
+          "sha256": "87da4205d07c20ae408650575a87cf45b5e06acf7db1ce486c3ff1f61e35c749",
+          "magic": "PXR-USDC",
+          "source_kind": "official_live_API_download",
+          "http_status": 200
+        },
+        {
+          "path": "data/scene_resources/dynbench_missing/Isaac/Props/Forklift/Materials/Materials.usd",
+          "bytes": 2745,
+          "sha256": "dd11bea8cfb9bbe3fc880d48bf23921c2ec10f495f629ca51a6ab5734cf85442",
+          "magic": "PXR-USDC",
+          "source_kind": "official_live_API_download",
+          "http_status": 200
+        },
+        {
+          "path": "data/scene_resources/dynbench_missing/Isaac/Props/Forklift/Materials/Textures/T_Forklift_N.png",
+          "bytes": 18120694,
+          "sha256": "22044c7b9ce49e1d8aaa34f36839c9953eabd8872dffdef3caaad7f673586266",
+          "image": {
+            "format": "PNG",
+            "size": [
+              4096,
+              4096
+            ],
+            "mode": "RGBA",
+            "PIL_verify": true
+          },
+          "source_kind": "local_original_scene_bundle",
+          "http_status": null
+        },
+        {
+          "path": "data/scene_resources/dynbench_missing/Isaac/Props/Forklift/Materials/Textures/T_Forklift_ORM.png",
+          "bytes": 16329327,
+          "sha256": "86b4dce4f21ab79c8d2d5c47a40197d8bb68602659365d4c98d623c10c2f1d63",
+          "image": {
+            "format": "PNG",
+            "size": [
+              4096,
+              4096
+            ],
+            "mode": "RGBA",
+            "PIL_verify": true
+          },
+          "source_kind": "official_live_API_download",
+          "http_status": 200
+        },
+        {
+          "path": "data/scene_resources/dynbench_missing/Isaac/Props/Forklift/Materials/Textures/T_Forklift_D.png",
+          "bytes": 6218202,
+          "sha256": "c306ff37d23b9b8beb4c18f4babe4cb6523134dbf4113d4951436e27862fc756",
+          "image": {
+            "format": "PNG",
+            "size": [
+              4096,
+              4096
+            ],
+            "mode": "RGBA",
+            "PIL_verify": true
+          },
+          "source_kind": "official_live_API_download",
+          "http_status": 200
+        }
+      ],
+      "unresolved": [],
+      "installed_material_source_modules": [
+        {
+          "asset": "OmniPBR.mdl",
+          "source_closure_verified": true,
+          "mdl_compiler_verified": false,
+          "files": [
+            {
+              "installed_path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/kit/mdl/core/Base/OmniPBR.mdl",
+              "bytes": 13989,
+              "sha256": "d384fc800f120e3cad1b7ca8837f9c554f9c34343d194813fca27caa493001f2"
+            },
+            {
+              "installed_path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/kit/mdl/core/Base/OmniPBR_ClearCoat.mdl",
+              "bytes": 27453,
+              "sha256": "687fce3f0693146b91495f04407a7c38c78f6b9262b63621f44b4b1f09110469"
+            },
+            {
+              "installed_path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/kit/mdl/core/Base/OmniPBRBase.mdl",
+              "bytes": 17274,
+              "sha256": "701f37299b44106842bdbe025de52eedec391e35b038f61c4ed4d25bd98e7db1"
+            },
+            {
+              "installed_path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/kit/mdl/core/mdl/anno.mdl",
+              "bytes": 194,
+              "sha256": "07bf574388a834a53a31fd2e5b16083985362499eb3312e5828f9594ec60cf4e"
+            },
+            {
+              "installed_path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/kit/mdl/core/mdl/tex.mdl",
+              "bytes": 193,
+              "sha256": "cd562992e99c60b3c1ec94aca726bba879e5d602c0719a31e8c79663f134c2d5"
+            },
+            {
+              "installed_path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/kit/mdl/core/mdl/base.mdl",
+              "bytes": 194,
+              "sha256": "4a36cdb5f362674c92f8b438cd86b1e14f875f09b457fb4d16f189113c1261c0"
+            },
+            {
+              "installed_path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/kit/mdl/core/mdl/math.mdl",
+              "bytes": 194,
+              "sha256": "4e77a17111211a5f1b1b7d20a154fab8d0b5357085bb26014cf39c0a9ea91e4d"
+            },
+            {
+              "installed_path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/kit/mdl/core/mdl/state.mdl",
+              "bytes": 195,
+              "sha256": "3abf629c9d33151c1b9899dd7e9b1991713bed7789977964c8f9cc83cb4b4504"
+            },
+            {
+              "installed_path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/kit/mdl/core/mdl/df.mdl",
+              "bytes": 192,
+              "sha256": "9c1af125e60e80641ec56aa58c1c3f42a4828cdc3137fe7c7af241d0008105d1"
+            },
+            {
+              "installed_path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/kit/mdl/core/mdl/nvidia/core_definitions.mdl",
+              "bytes": 201537,
+              "sha256": "052aec260e8dfef5d671545fc2fc28c0c478a5b043041c65a833b2a6d81bf950"
+            },
+            {
+              "installed_path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/kit/mdl/core/mdl/nvidia/support_definitions.mdl",
+              "bytes": 147454,
+              "sha256": "bb372f21b6e81d293b99fea6819a8309e2c33c732c7151752b4b33dade177f2e"
+            },
+            {
+              "installed_path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/kit/mdl/core/mdl/scene.mdl",
+              "bytes": 195,
+              "sha256": "8ebe572f0d49077472ba5918eb2f344498e5b7fc544ca3316eeb414f0d59ea50"
+            },
+            {
+              "installed_path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/kit/mdl/core/mdl/nvidia/aux_definitions.mdl",
+              "bytes": 101769,
+              "sha256": "ebb81c8977aeb30790399ec7aaa7f2f76cb23afb434f56201ef152aba45a6e81"
+            },
+            {
+              "installed_path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/kit/mdl/core/mdl/limits.mdl",
+              "bytes": 196,
+              "sha256": "c2103dde8d2cb306f9ac28006137452ecf23e15d28f1ee49d93f8a6ad5f6e815"
+            },
+            {
+              "installed_path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/kit/mdl/core/mdl/debug.mdl",
+              "bytes": 195,
+              "sha256": "eefc4e8d82c969972edbfbbaefb5971bb09bd412af1c2cfb9deaea9ff53de44e"
+            }
+          ]
+        }
+      ],
+      "offline_model_validation": {
+        "gprim_count": 3,
+        "default_prim": "/Root",
+        "meters_per_unit": 1.0,
+        "up_axis": "Z",
+        "bbox_stage_units": [
+          [
+            -0.6069034059292804,
+            -1.7473400488345305,
+            -0.0019066845944519795
+          ],
+          [
+            0.6069034440762522,
+            1.7473400488345305,
+            2.1530379767781938
+          ]
+        ],
+        "usd_version": [
+          0,
+          26,
+          8
+        ]
+      },
+      "author_asset_release_or_hash_known": false,
+      "exact_author_bytes_claim": false,
+      "physx_verified": false,
+      "external_link_plan": {
+        "link": "/project/EXP/SangforAndSaut/Assets/DynBench/Props/Forklift",
+        "target": "/project/EXP/SangforAndSaut/ProtoMotions/data/scene_resources/dynbench_missing/Isaac/Props/Forklift",
+        "relative_target": "../../../ProtoMotions/data/scene_resources/dynbench_missing/Isaac/Props/Forklift",
+        "destination_exists": true,
+        "destination_is_symlink": true,
+        "download_gate_passed": true,
+        "approval_required": "Parent require_escalated outside writable workspace; no replacement permitted",
+        "status": "created_and_verified_by_parent",
+        "external_write_performed_by_parent": true,
+        "external_write_performed_by_agent": false
+      },
+      "remote_transport_unresolved": [
+        {
+          "file": "T_Forklift_N.png",
+          "kind": "attribute_asset",
+          "reason": "RuntimeError: curl failed: curl: (28) Connection timed out after 10002 milliseconds\ncurl: (28) Connection timed out after 10002 milliseconds",
+          "http_result": "000",
+          "meaning": "no HTTP response; not evidence of 404/object absent"
+        }
+      ],
+      "local_dependency_count": 6,
+      "local_texture_completion": "data/scene_resources/dynbench_missing/local_texture_completion.json",
+      "local_normal_official_6_bytes_identity_known": false,
+      "mdl_compiler_verified": false
+    },
+    {
+      "name": "KLT_Bin",
+      "status": "downloaded_local_dependencies_verified",
+      "bytes_total": 22217132,
+      "files": [
+        {
+          "path": "data/scene_resources/dynbench_missing/Isaac/Props/KLT_Bin/small_KLT_visual_collision.usd",
+          "bytes": 226995,
+          "sha256": "2e6172432c1b5ee2b7ea047229e070ccf1d49b69d01b4796c0445531af392bb9",
+          "magic": "PXR-USDC",
+          "source_kind": "official_live_API_download",
+          "http_status": 200
+        },
+        {
+          "path": "data/scene_resources/dynbench_missing/Isaac/Props/KLT_Bin/small_KLT_visual.usd",
+          "bytes": 179929,
+          "sha256": "2810154bdae1532dea35603024a0fefd94eaf3909cecc5edbe09b6cb510e3a2b",
+          "magic": "PXR-USDC",
+          "source_kind": "official_live_API_download",
+          "http_status": 200
+        },
+        {
+          "path": "data/scene_resources/dynbench_missing/Isaac/Props/KLT_Bin/Materials/Textures/FOF_Map_Magenta_Box_D.png",
+          "bytes": 8461312,
+          "sha256": "191e3e8f6b583dc35232f5079d18b421f97dd09d79b374b03b1b1745dd9d8477",
+          "image": {
+            "format": "PNG",
+            "size": [
+              4096,
+              4096
+            ],
+            "mode": "RGB",
+            "PIL_verify": true
+          },
+          "source_kind": "official_live_API_download",
+          "http_status": 200
+        },
+        {
+          "path": "data/scene_resources/dynbench_missing/Isaac/Props/KLT_Bin/Materials/Textures/FOF_Mesh_Labels_D.png",
+          "bytes": 6674448,
+          "sha256": "7ed4642ab31d970e22c7edf62508347c6fbb14bfdf47487696a6a9a681359f22",
+          "image": {
+            "format": "PNG",
+            "size": [
+              4096,
+              4096
+            ],
+            "mode": "RGBA",
+            "PIL_verify": true
+          },
+          "source_kind": "official_live_API_download",
+          "http_status": 200
+        },
+        {
+          "path": "data/scene_resources/dynbench_missing/Isaac/Props/KLT_Bin/Materials/Textures/FOF_Map_Labels_D.png",
+          "bytes": 6674448,
+          "sha256": "7ed4642ab31d970e22c7edf62508347c6fbb14bfdf47487696a6a9a681359f22",
+          "image": {
+            "format": "PNG",
+            "size": [
+              4096,
+              4096
+            ],
+            "mode": "RGBA",
+            "PIL_verify": true
+          },
+          "source_kind": "official_live_API_download",
+          "http_status": 200
+        }
+      ],
+      "unresolved": [],
+      "installed_material_source_modules": [
+        {
+          "asset": "OmniPBR.mdl",
+          "source_closure_verified": true,
+          "mdl_compiler_verified": false,
+          "files": [
+            {
+              "installed_path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/kit/mdl/core/Base/OmniPBR.mdl",
+              "bytes": 13989,
+              "sha256": "d384fc800f120e3cad1b7ca8837f9c554f9c34343d194813fca27caa493001f2"
+            },
+            {
+              "installed_path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/kit/mdl/core/Base/OmniPBR_ClearCoat.mdl",
+              "bytes": 27453,
+              "sha256": "687fce3f0693146b91495f04407a7c38c78f6b9262b63621f44b4b1f09110469"
+            },
+            {
+              "installed_path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/kit/mdl/core/Base/OmniPBRBase.mdl",
+              "bytes": 17274,
+              "sha256": "701f37299b44106842bdbe025de52eedec391e35b038f61c4ed4d25bd98e7db1"
+            },
+            {
+              "installed_path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/kit/mdl/core/mdl/anno.mdl",
+              "bytes": 194,
+              "sha256": "07bf574388a834a53a31fd2e5b16083985362499eb3312e5828f9594ec60cf4e"
+            },
+            {
+              "installed_path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/kit/mdl/core/mdl/tex.mdl",
+              "bytes": 193,
+              "sha256": "cd562992e99c60b3c1ec94aca726bba879e5d602c0719a31e8c79663f134c2d5"
+            },
+            {
+              "installed_path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/kit/mdl/core/mdl/base.mdl",
+              "bytes": 194,
+              "sha256": "4a36cdb5f362674c92f8b438cd86b1e14f875f09b457fb4d16f189113c1261c0"
+            },
+            {
+              "installed_path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/kit/mdl/core/mdl/math.mdl",
+              "bytes": 194,
+              "sha256": "4e77a17111211a5f1b1b7d20a154fab8d0b5357085bb26014cf39c0a9ea91e4d"
+            },
+            {
+              "installed_path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/kit/mdl/core/mdl/state.mdl",
+              "bytes": 195,
+              "sha256": "3abf629c9d33151c1b9899dd7e9b1991713bed7789977964c8f9cc83cb4b4504"
+            },
+            {
+              "installed_path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/kit/mdl/core/mdl/df.mdl",
+              "bytes": 192,
+              "sha256": "9c1af125e60e80641ec56aa58c1c3f42a4828cdc3137fe7c7af241d0008105d1"
+            },
+            {
+              "installed_path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/kit/mdl/core/mdl/nvidia/core_definitions.mdl",
+              "bytes": 201537,
+              "sha256": "052aec260e8dfef5d671545fc2fc28c0c478a5b043041c65a833b2a6d81bf950"
+            },
+            {
+              "installed_path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/kit/mdl/core/mdl/nvidia/support_definitions.mdl",
+              "bytes": 147454,
+              "sha256": "bb372f21b6e81d293b99fea6819a8309e2c33c732c7151752b4b33dade177f2e"
+            },
+            {
+              "installed_path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/kit/mdl/core/mdl/scene.mdl",
+              "bytes": 195,
+              "sha256": "8ebe572f0d49077472ba5918eb2f344498e5b7fc544ca3316eeb414f0d59ea50"
+            },
+            {
+              "installed_path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/kit/mdl/core/mdl/nvidia/aux_definitions.mdl",
+              "bytes": 101769,
+              "sha256": "ebb81c8977aeb30790399ec7aaa7f2f76cb23afb434f56201ef152aba45a6e81"
+            },
+            {
+              "installed_path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/kit/mdl/core/mdl/limits.mdl",
+              "bytes": 196,
+              "sha256": "c2103dde8d2cb306f9ac28006137452ecf23e15d28f1ee49d93f8a6ad5f6e815"
+            },
+            {
+              "installed_path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/kit/mdl/core/mdl/debug.mdl",
+              "bytes": 195,
+              "sha256": "eefc4e8d82c969972edbfbbaefb5971bb09bd412af1c2cfb9deaea9ff53de44e"
+            }
+          ]
+        }
+      ],
+      "offline_model_validation": {
+        "gprim_count": 3,
+        "default_prim": "/Root",
+        "meters_per_unit": 1.0,
+        "up_axis": "Z",
+        "bbox_stage_units": [
+          [
+            -0.09892139003612103,
+            -0.14831733689836318,
+            -0.07317995696526478
+          ],
+          [
+            0.09892139003612103,
+            0.14831735672237298,
+            0.07317996391782755
+          ]
+        ],
+        "usd_version": [
+          0,
+          26,
+          8
+        ]
+      },
+      "author_asset_release_or_hash_known": false,
+      "exact_author_bytes_claim": false,
+      "physx_verified": false,
+      "external_link_plan": {
+        "link": "/project/EXP/SangforAndSaut/Assets/DynBench/Props/KLT_Bin",
+        "target": "/project/EXP/SangforAndSaut/ProtoMotions/data/scene_resources/dynbench_missing/Isaac/Props/KLT_Bin",
+        "relative_target": "../../../ProtoMotions/data/scene_resources/dynbench_missing/Isaac/Props/KLT_Bin",
+        "destination_exists": true,
+        "destination_is_symlink": true,
+        "download_gate_passed": true,
+        "approval_required": "Parent require_escalated outside writable workspace; no replacement permitted",
+        "status": "created_and_verified_by_parent",
+        "external_write_performed_by_parent": true,
+        "external_write_performed_by_agent": false
+      },
+      "remote_transport_unresolved": [],
+      "local_dependency_count": 5,
+      "mdl_compiler_verified": false
+    }
+  ],
+  "transport_attempts": [
+    {
+      "number": 1,
+      "proxy": "http localhost7897",
+      "manifest_path": "data/scene_resources/dynbench_missing/download_attempt_1_manifest.json",
+      "manifest_sha256": "28215b1a16e0cf6169e4113b061e353dc2eb3af30b03ab51dabfd2d741747d15"
+    },
+    {
+      "number": 2,
+      "proxy": "socks5h localhost7897",
+      "manifest_path": "data/scene_resources/dynbench_missing/download_attempt_2_manifest.json",
+      "manifest_sha256": "2cb335cb21ebdd60889786465303bb9766dc2265a736315ac37af193a6efafdf"
+    },
+    {
+      "number": 3,
+      "proxy": "http localhost7897",
+      "manifest_path": "data/scene_resources/dynbench_missing/download_attempt_3_manifest.json",
+      "manifest_sha256": "f7319df381bedfc29c534d01bd226b8af3048769c74c536960c0339a0d0df238"
+    },
+    {
+      "number": 4,
+      "proxy": "explicit direct with ambient proxy bypass",
+      "manifest_path": "data/scene_resources/dynbench_missing/download_manifest.json"
+    }
+  ],
+  "retry_limit": "At most one retry per curl, connect10s/max45s; four bounded dependency passes ended. Only failed files transferred; hashes verified prior files reused. No unbounded retries.",
+  "scripts": {
+    "scripts/download_dynbench_missing.py": "9d73e491b1752deb244d175540bad1caaa1a65ef9b1bdfa704b6d07180f28cd1",
+    "scripts/resolve_paper_scene_assets.py": "cb5717174959640a1cade1860b9fab436427135634b9f729e887dac0e02b18a7"
+  },
+  "new_Kit_or_GPU_process": false,
+  "raw_official_endpoints_recommended": false,
+  "paper_author_eight_scene_protocol_completed": false,
+  "license": "NVIDIA distribution/source notices apply as supplied; no CC0 claim; preserve official sources",
+  "remaining": "PhysX omap/collider and runtime material gate pending; original configs not repointed to new maps; author eight-scene/byte identity still unknown",
+  "local_scene_texture_source": {
+    "schema": "navisaaclab.local_scene_texture_completion.v1",
+    "timestamp_utc": "2026-10-01T10:18:00.235599+00:00",
+    "destination": "data/scene_resources/dynbench_missing/Isaac/Props/Forklift/Materials/Textures/T_Forklift_N.png",
+    "selected_source": {
+      "source_path": "/project/EXP/SangforAndSaut/Assets/DynBench/isaacsim_scene/Full_Warehouse/Materials/Textures/T_Forklift_N.png",
+      "bytes": 18120694,
+      "sha256": "22044c7b9ce49e1d8aaa34f36839c9953eabd8872dffdef3caaad7f673586266",
+      "mtime_ns": 1790683182394097681,
+      "image": {
+        "format": "PNG",
+        "size": [
+          4096,
+          4096
+        ],
+        "mode": "RGBA",
+        "PIL_verify": true
+      }
+    },
+    "all_candidates": [
+      {
+        "source_path": "/project/EXP/SangforAndSaut/Assets/DynBench/isaacsim_scene/Warehouse/Materials/Textures/T_Forklift_N.png",
+        "bytes": 18120694,
+        "sha256": "22044c7b9ce49e1d8aaa34f36839c9953eabd8872dffdef3caaad7f673586266",
+        "mtime_ns": 1790688290842591722,
+        "image": {
+          "format": "PNG",
+          "size": [
+            4096,
+            4096
+          ],
+          "mode": "RGBA",
+          "PIL_verify": true
+        }
+      },
+      {
+        "source_path": "/project/EXP/SangforAndSaut/Assets/DynBench/isaacsim_scene/Warehouse_multiple_shelves/Materials/Textures/T_Forklift_N.png",
+        "bytes": 18120694,
+        "sha256": "22044c7b9ce49e1d8aaa34f36839c9953eabd8872dffdef3caaad7f673586266",
+        "mtime_ns": 1790690457767816819,
+        "image": {
+          "format": "PNG",
+          "size": [
+            4096,
+            4096
+          ],
+          "mode": "RGBA",
+          "PIL_verify": true
+        }
+      },
+      {
+        "source_path": "/project/EXP/SangforAndSaut/Assets/DynBench/isaacsim_scene/Full_Warehouse/Materials/Textures/T_Forklift_N.png",
+        "bytes": 18120694,
+        "sha256": "22044c7b9ce49e1d8aaa34f36839c9953eabd8872dffdef3caaad7f673586266",
+        "mtime_ns": 1790683182394097681,
+        "image": {
+          "format": "PNG",
+          "size": [
+            4096,
+            4096
+          ],
+          "mode": "RGBA",
+          "PIL_verify": true
+        }
+      }
+    ],
+    "all_candidates_identical": true,
+    "copy_source": "Full_Warehouse original local DynBench scene bundle",
+    "sha256": "22044c7b9ce49e1d8aaa34f36839c9953eabd8872dffdef3caaad7f673586266",
+    "bytes": 18120694,
+    "authored_missing_basename_match": true,
+    "http_status": null,
+    "source_kind": "local_original_scene_bundle",
+    "official_6_bytes_identity_known": false,
+    "author_bytes_identity_claim": false,
+    "source_files_modified": false,
+    "remote_transport_manifest_preserved_sha256": "f5449db06489c8b169c9aa9f40a021679cb0e89eefd84d904f1dbadc6e71e8f9",
+    "normal_texture_applied_to_unchanged_authored_path": true
+  },
+  "remote_transport_failure_preserved": true,
+  "remote_transport_manifest_unchanged": true,
+  "local_resource_complete": true,
+  "external_links_created_and_verified_by_parent": [
+    {
+      "destination": "/project/EXP/SangforAndSaut/Assets/DynBench/Props/KLT_Bin",
+      "source": "/project/EXP/SangforAndSaut/ProtoMotions/data/scene_resources/dynbench_missing/Isaac/Props/KLT_Bin",
+      "relative_target": "../../../ProtoMotions/data/scene_resources/dynbench_missing/Isaac/Props/KLT_Bin",
+      "status": "created",
+      "root_usd_sha256": "2e6172432c1b5ee2b7ea047229e070ccf1d49b69d01b4796c0445531af392bb9",
+      "actual_symlink_verified": true,
+      "current_root_sha256_verified": true,
+      "write_actor": "parent",
+      "agent_external_write": false
+    },
+    {
+      "destination": "/project/EXP/SangforAndSaut/Assets/DynBench/Props/Forklift",
+      "source": "/project/EXP/SangforAndSaut/ProtoMotions/data/scene_resources/dynbench_missing/Isaac/Props/Forklift",
+      "relative_target": "../../../ProtoMotions/data/scene_resources/dynbench_missing/Isaac/Props/Forklift",
+      "status": "created",
+      "root_usd_sha256": "12765bfe269089369fe5541993cfd2768de0d70163a5aa03874073e767ad1feb",
+      "actual_symlink_verified": true,
+      "current_root_sha256_verified": true,
+      "write_actor": "parent",
+      "agent_external_write": false
+    }
+  ],
+  "resource_complete_maps": "data/diffusion_amp/maps_resource_complete",
+  "SDK_or_external_assets_changed_by_agent": false,
+  "external_assets_changed_by_parent": true
+}

@@ -1,0 +1,213 @@
+{
+  "schema": "crowdsim.actual_warehouse_diffusion_amp_evidence.v1",
+  "updated_utc": "2026-10-08T12:13:04.377958+00:00",
+  "status": "passed_local_Warehouse_reproduction_with_style_tradeoffs",
+  "paper_reproduction_complete": false,
+  "style_globally_improved": false,
+  "fixed_AMASS_training_clips": 2848,
+  "actual_training_updates": 512,
+  "actual_training_transitions": 2097152,
+  "actual_training_falls": 2,
+  "training_execution": {
+    "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/warehouse_optimization/locomotion_train512_v1_execution.json",
+    "bytes": 131646,
+    "sha256": "371c05b80f00783015db7b7e35795969840a1e9b5deb990a8500a3547b0a584f"
+  },
+  "training_CPU_audit": {
+    "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/warehouse_optimization/locomotion_train512_cpu_audit.json",
+    "bytes": 1065,
+    "sha256": "1f01745fe46eb08b3939a6317d2d60f84f0885e21344be3e77db493f02141308"
+  },
+  "weight": {
+    "path": "/project/EXP/SangforAndSaut/ProtoMotions/data/pretrained_models/local_amass_finetune/locomotion_20261008/Humanoid_AMASS.pth",
+    "bytes": 39974437,
+    "sha256": "97843fa170cc55c0348194d0bb0a182612ad9f95919690a8fc70ef2dde1fde83"
+  },
+  "profile": {
+    "path": "/project/EXP/SangforAndSaut/ProtoMotions/configs/diffusion_amp/trace_pace_warehouse_locomotion_v1.json",
+    "bytes": 3168,
+    "sha256": "ed4ee7e9f2ee356f567ad0e10cee838fc20bf1f526f300d2d4f97e8cefd4afa9"
+  },
+  "numerical_runtime_and_weight_bytes_match_tested_recipe": true,
+  "scenes": {
+    "warehouse_baseline_60s_v1": {
+      "execution": {
+        "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/warehouse_optimization/warehouse_baseline_60s_v1_execution.json",
+        "bytes": 17972,
+        "sha256": "d24364e5a5d6a3c134b0811dba4a04d6dd97adfcb5424716c2f9a105370e8464"
+      },
+      "result": {
+        "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/warehouse_optimization/warehouse_baseline_60s_v1/result.json",
+        "bytes": 408135,
+        "sha256": "0ca26834d4ff922fb2f39b4bba9cad7dc80828bfc968d7ad532ced518e400625"
+      },
+      "quality": {
+        "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/warehouse_optimization/warehouse_baseline_60s_v1_quality.json",
+        "bytes": 3870,
+        "sha256": "e042ae7b4869c3112808f4091c445ecaf6e0beb017fc7d1e4688e2399b3034e1"
+      },
+      "style": {
+        "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/warehouse_optimization/warehouse_baseline_60s_v1_style.json",
+        "bytes": 90403,
+        "sha256": "471ce08d098b4044c526adf62508c17fe0396fa8859cb165a65c21600cb8ca90"
+      },
+      "gait": {
+        "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/warehouse_optimization/warehouse_baseline_60s_v1_gait.json",
+        "bytes": 10163,
+        "sha256": "4a2d5e1663847d1943e7c33c0e91897f64b023681d0a8a9b2b86dd9df4752504"
+      },
+      "actual_controls": 1800,
+      "actual_returncode": 0,
+      "native_original_USD": {
+        "path": "/project/EXP/SangforAndSaut/Assets/DynBench/isaacsim_scene/Warehouse/warehouse.usd",
+        "bytes": 1582833,
+        "sha256": "fde4be69816f7f20e0cd1f4b517134e6bb5964fbaed0d8887983e9e8a64fc8ed"
+      },
+      "all24_bodies_each_actor": true,
+      "actual_static_collider_count": 745
+    },
+    "warehouse_candidate_60s_v1": {
+      "execution": {
+        "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/warehouse_optimization/warehouse_candidate_60s_v1_execution.json",
+        "bytes": 23298,
+        "sha256": "306583cf002a99dcdff3e51ea870739c02584cd3a9193455e2892c3b70fa0e40"
+      },
+      "result": {
+        "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/warehouse_optimization/warehouse_candidate_60s_v1/result.json",
+        "bytes": 408649,
+        "sha256": "c16674817f6527bb4d665de7636367850b10f93b6af089fc77e000354bcc255a"
+      },
+      "quality": {
+        "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/warehouse_optimization/warehouse_candidate_60s_v1_quality.json",
+        "bytes": 3902,
+        "sha256": "d05cb9e6a0f520e0fc16b2fac9f43be928c2a6989446dced1c25970e705e23c7"
+      },
+      "style": {
+        "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/warehouse_optimization/warehouse_candidate_60s_v1_style.json",
+        "bytes": 89991,
+        "sha256": "6174b7e239c7bbbacb45c40f26e408232bedff75c3586c32d8d1512b0a2b825c"
+      },
+      "gait": {
+        "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/warehouse_optimization/warehouse_candidate_60s_v1_gait.json",
+        "bytes": 10036,
+        "sha256": "397a9ea388c304e2d91952bbc7b38f228bd01d94c987d2553ba18d66fa21ec8c"
+      },
+      "actual_controls": 1800,
+      "actual_returncode": 0,
+      "native_original_USD": {
+        "path": "/project/EXP/SangforAndSaut/Assets/DynBench/isaacsim_scene/Warehouse/warehouse.usd",
+        "bytes": 1582833,
+        "sha256": "fde4be69816f7f20e0cd1f4b517134e6bb5964fbaed0d8887983e9e8a64fc8ed"
+      },
+      "all24_bodies_each_actor": true,
+      "actual_static_collider_count": 745
+    },
+    "warehouse_optimized_200s_v1": {
+      "execution": {
+        "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/warehouse_optimization/warehouse_optimized_200s_v1_execution.json",
+        "bytes": 23311,
+        "sha256": "dc493579c76092eb0ad8e92a5eb2f1f480b1aa88f8e1739363a963cf5da9f1bf"
+      },
+      "result": {
+        "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/warehouse_optimization/warehouse_optimized_200s_v1/result.json",
+        "bytes": 408656,
+        "sha256": "8217409165ae0df6371ab5665267ca057588a49fcb83ad8247a7229590e8034d"
+      },
+      "quality": {
+        "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/warehouse_optimization/warehouse_optimized_200s_v1_quality.json",
+        "bytes": 3877,
+        "sha256": "9c66bf0cbc5b4848c637eb26cfe6eb017ba23f8e2bd17ea7c9ba8ec04f4e05bd"
+      },
+      "style": {
+        "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/warehouse_optimization/warehouse_optimized_200s_v1_style.json",
+        "bytes": 105108,
+        "sha256": "5e05077e84049fe6d9be0cb4623f046d4867b62e3bf8f064e7f5fc77bf84425b"
+      },
+      "gait": {
+        "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/warehouse_optimization/warehouse_optimized_200s_v1_gait.json",
+        "bytes": 10406,
+        "sha256": "c6d509b368577c9ed2805d3e56ea0dad3aa035c50fc8309d3b7729acaa5ff12e"
+      },
+      "actual_controls": 6000,
+      "actual_returncode": 0,
+      "native_original_USD": {
+        "path": "/project/EXP/SangforAndSaut/Assets/DynBench/isaacsim_scene/Warehouse/warehouse.usd",
+        "bytes": 1582833,
+        "sha256": "fde4be69816f7f20e0cd1f4b517134e6bb5964fbaed0d8887983e9e8a64fc8ed"
+      },
+      "all24_bodies_each_actor": true,
+      "actual_static_collider_count": 745
+    }
+  },
+  "motion_comparison": {
+    "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/warehouse_optimization/motion_comparison.json",
+    "bytes": 11769,
+    "sha256": "9701f0fdc6d020c81abc2803f26863104590bb81efe932aaa73e09c6c7988ab1"
+  },
+  "equal_duration_optimized_prefix": {
+    "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/warehouse_optimization/optimized_common60s_prefix.json",
+    "bytes": 95705,
+    "sha256": "f7abc789545ad2c2d728d3376cb04f0e43045edeaee898f6238b83f875fc9947"
+  },
+  "video": {
+    "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/warehouse_optimization/warehouse_diffusion_amp_30s_v2.mp4",
+    "bytes": 9159560,
+    "sha256": "39e7bfa62bd16857e98e3402c2ebebd8e7c7e4a264464912ab4ae2ced94680c7"
+  },
+  "video_receipt": {
+    "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/warehouse_optimization/warehouse_video_receipt_v2.json",
+    "bytes": 1810,
+    "sha256": "5553dd6ea4490397a9d7531bc52cc9e52445b5ad0356718838aebb55f27438b3"
+  },
+  "visual_review": {
+    "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/warehouse_optimization/video_visual_review_v2.json",
+    "bytes": 2537,
+    "sha256": "bfc7970a033b420a37a0b8596950efaafc6851a7a0c14703676311fd9ebea77a"
+  },
+  "CPU_tests": [
+    {
+      "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/warehouse_optimization/focused_tests.xml",
+      "bytes": 14321,
+      "sha256": "b4b42d32e88ec11bec94e9566e2139b62226820aa909eb84159343dd333a02e1"
+    },
+    {
+      "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/warehouse_optimization/optimization_tests.xml",
+      "bytes": 833,
+      "sha256": "4e2bd994a4855b47908dfcc797056dfda632fdd1c2302668ec78efa48605d334"
+    },
+    {
+      "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/warehouse_optimization/final_recording_tests.xml",
+      "bytes": 5306,
+      "sha256": "3d019234a3cb4822b7c6dce473461f3f35d40fe6a183048f61b716bd1b6287f4"
+    }
+  ],
+  "rejected_camera_visual_review": {
+    "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/warehouse_optimization/video_visual_review_v1_rejected.json",
+    "bytes": 762,
+    "sha256": "1d5e34a1ce95bb016a271e269d9693c8298a45d4a804a63ad27587c2c5c39414"
+  },
+  "prior_rejected_camera_trials": [
+    {
+      "name": "warehouse_overview_15s_v1",
+      "reason": "roof occlusion; normal exit0 is not human-visibility admission"
+    },
+    {
+      "name": "warehouse_gait_15s_v1",
+      "reason": "exterior wall occlusion; not delivered"
+    },
+    {
+      "name": "warehouse_camera_smoke_v3",
+      "actual_returncode": -11,
+      "reason": "SDK close crash; preserved and rejected"
+    }
+  ],
+  "limits": [
+    "one scene/four actors/one seed is not the author eight-scene benchmark",
+    "public TRACE/PACER architectures differ from private Nav configuration",
+    "34 test motions are not used for this optimization",
+    "foot body-origin speed is a contact-slip proxy, not contact-patch friction",
+    "public PACER pretraining IDs unavailable",
+    "mean walking speed1.086m/s, physical peak1.937m/s; soft planning cap does not bound actual velocity",
+    "speed-conditioned motion MMD and coverage regressed; full-style superiority is not established"
+  ]
+}

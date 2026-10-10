@@ -1,0 +1,32 @@
+{
+  "repositories": [
+    {
+      "name": "trace",
+      "path": "third_party/trace",
+      "url": "https://github.com/nv-tlabs/trace.git",
+      "commit": "594b2af0824c5853e1a1884e167cd5ed097dd81c",
+      "license": "third_party/trace/LICENSE"
+    },
+    {
+      "name": "pacer",
+      "path": "third_party/pacer",
+      "url": "https://github.com/nv-tlabs/pacer.git",
+      "commit": "baeb6241f03fc9d78370a64e3c2dcef9d830d97f",
+      "license": "third_party/pacer/LICENSE"
+    },
+    {
+      "name": "flux",
+      "path": "third_party/flux",
+      "url": "https://github.com/Zeying-Gong/FLUX.git",
+      "commit": "21898204e68d97e06dadfc391acba3effd12847d",
+      "license": null
+    },
+    {
+      "name": "navdp",
+      "path": "third_party/navdp",
+      "url": "https://github.com/InternRobotics/NavDP.git",
+      "commit": "bff5eb8857f50e082243fb455d312409daabc3aa",
+      "license": null
+    }
+  ]
+}

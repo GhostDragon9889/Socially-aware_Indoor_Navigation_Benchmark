@@ -1,0 +1,8 @@
+prim_path: /World/Scene
+z_offset: 0.0
+scene_usd: ../Assets/DynBench/isaacsim_scene/Hospital/hospital_partnav.usd
+# Local CPU geometry projection; PhysX occupancy verification remains pending.
+scene_map: data/diffusion_amp/maps_resource_complete/Hospital/occupancy.yaml
+static_obstacles: true
+remove_prims: []
+objects: {}

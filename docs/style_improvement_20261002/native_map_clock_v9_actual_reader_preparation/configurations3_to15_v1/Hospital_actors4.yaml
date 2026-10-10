@@ -1,0 +1,109 @@
+{
+  "schema": "crowdsim.native_pedestrian_scene.v1",
+  "scene": "Hospital",
+  "preflight": {
+    "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/native_reference_four_scenes_anonymous_root_v9/Hospital/preflight.json",
+    "sha256": "c998e41a143c437756fdf94d7dab09653d8912bdde85fc11d68df32e944acfd6"
+  },
+  "native_map": {
+    "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/native_reference_four_scenes_anonymous_root_v9/Hospital/result.json",
+    "sha256": "15c4602824b437327242f2a819ee04dc38a120a4735740e90a3ed3cc0ad5e002"
+  },
+  "clearance_m": 0.8,
+  "origins_xy": [
+    [
+      8.049999999999997,
+      6.950000000000001
+    ],
+    [
+      -29.35,
+      12.250000000000002
+    ],
+    [
+      17.550000000000004,
+      2.75
+    ],
+    [
+      -29.050000000000004,
+      5.950000000000001
+    ]
+  ],
+  "routes_xy": [
+    [
+      [
+        -29.35,
+        12.250000000000002
+      ],
+      [
+        17.550000000000004,
+        2.75
+      ],
+      [
+        -29.050000000000004,
+        5.950000000000001
+      ],
+      [
+        8.049999999999997,
+        6.950000000000001
+      ]
+    ],
+    [
+      [
+        17.550000000000004,
+        2.75
+      ],
+      [
+        -29.050000000000004,
+        5.950000000000001
+      ],
+      [
+        8.049999999999997,
+        6.950000000000001
+      ],
+      [
+        -29.35,
+        12.250000000000002
+      ]
+    ],
+    [
+      [
+        -29.050000000000004,
+        5.950000000000001
+      ],
+      [
+        8.049999999999997,
+        6.950000000000001
+      ],
+      [
+        -29.35,
+        12.250000000000002
+      ],
+      [
+        17.550000000000004,
+        2.75
+      ]
+    ],
+    [
+      [
+        8.049999999999997,
+        6.950000000000001
+      ],
+      [
+        -29.35,
+        12.250000000000002
+      ],
+      [
+        17.550000000000004,
+        2.75
+      ],
+      [
+        -29.050000000000004,
+        5.950000000000001
+      ]
+    ]
+  ],
+  "probe_script_snapshot": {
+    "path": "/project/EXP/SangforAndSaut/ProtoMotions/docs/style_improvement_20261002/native_map_clock_v9_proposal_v2/proposed/scripts/probe_paper_scene_maps.py",
+    "sha256": "e47cd51d9f40cd0ead27595283fefab95871ea229c7029c5622b57391a01ad82"
+  }
+}

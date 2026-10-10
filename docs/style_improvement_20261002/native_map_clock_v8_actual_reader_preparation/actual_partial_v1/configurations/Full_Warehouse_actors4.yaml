@@ -1,0 +1,109 @@
+{
+  "schema": "crowdsim.native_pedestrian_scene.v1",
+  "scene": "Full_Warehouse",
+  "preflight": {
+    "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/native_reference_four_scenes_session_clock_v8/Full_Warehouse/preflight.json",
+    "sha256": "9e6ffb9915d67b2527134a6d0c1a26001a8752c020e32fdb94713b5ff50d1cda"
+  },
+  "native_map": {
+    "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/native_reference_four_scenes_session_clock_v8/Full_Warehouse/result.json",
+    "sha256": "3dc22739d4e02343aa548628ad704243d8e51f8306ce1e19e82110696ce14ebf"
+  },
+  "clearance_m": 0.8,
+  "origins_xy": [
+    [
+      -10.45,
+      -6.949999999999999
+    ],
+    [
+      1.9499999999999993,
+      -20.15
+    ],
+    [
+      -22.950000000000003,
+      6.150000000000002
+    ],
+    [
+      2.0500000000000007,
+      6.150000000000002
+    ]
+  ],
+  "routes_xy": [
+    [
+      [
+        1.9499999999999993,
+        -20.15
+      ],
+      [
+        -22.950000000000003,
+        6.150000000000002
+      ],
+      [
+        2.0500000000000007,
+        6.150000000000002
+      ],
+      [
+        -10.45,
+        -6.949999999999999
+      ]
+    ],
+    [
+      [
+        -22.950000000000003,
+        6.150000000000002
+      ],
+      [
+        2.0500000000000007,
+        6.150000000000002
+      ],
+      [
+        -10.45,
+        -6.949999999999999
+      ],
+      [
+        1.9499999999999993,
+        -20.15
+      ]
+    ],
+    [
+      [
+        2.0500000000000007,
+        6.150000000000002
+      ],
+      [
+        -10.45,
+        -6.949999999999999
+      ],
+      [
+        1.9499999999999993,
+        -20.15
+      ],
+      [
+        -22.950000000000003,
+        6.150000000000002
+      ]
+    ],
+    [
+      [
+        -10.45,
+        -6.949999999999999
+      ],
+      [
+        1.9499999999999993,
+        -20.15
+      ],
+      [
+        -22.950000000000003,
+        6.150000000000002
+      ],
+      [
+        2.0500000000000007,
+        6.150000000000002
+      ]
+    ]
+  ],
+  "probe_script_snapshot": {
+    "path": "/project/EXP/SangforAndSaut/ProtoMotions/docs/style_improvement_20261002/native_map_clock_v8_proposal_v2/proposed/scripts/probe_paper_scene_maps.py",
+    "sha256": "20173101ada3e5137d962abcdea574497e9624be7659984caa9869e7932d537a"
+  }
+}

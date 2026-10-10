@@ -1,0 +1,20 @@
+{
+  "schema": "crowdsim.trace_pace_shutdown_diagnostic.v1",
+  "failed_run": "trace_amp_crossing_contact_200s_v3",
+  "actual_exit": -11,
+  "actual_controls": 1107,
+  "failure": "cyclic-route stall above20s, followed by native crash after cleanup log",
+  "known_root_cause": false,
+  "core_dump_limit": 0,
+  "coredumpctl_available": false,
+  "simulation_app_source": {
+    "path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/exts/isaacsim.simulation_app/isaacsim/simulation_app/simulation_app.py",
+    "bytes": 47098,
+    "sha256": "e34c8feb0a4d30f19560f9782751677cf4cb8cfe10e13e29d8aa692a727c5842"
+  },
+  "local_close_uses_app_shutdown": true,
+  "official_release_notes": "https://docs.isaacsim.omniverse.nvidia.com/6.0.0/overview/release_notes.html",
+  "skill_scope": "hang/OOM heuristics; current SIGSEGV is not established as the old framework deadlock",
+  "watchdog_or_fast_exit_applied": false,
+  "ordinary_completed_circulation_exit": 0
+}
