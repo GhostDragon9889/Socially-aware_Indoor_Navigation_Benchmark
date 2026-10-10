@@ -32,8 +32,9 @@ GIT_LFS_SKIP_SMUDGE=1 git clone https://github.com/GhostDragon9889/Socially-awar
 cd Socially-aware_Indoor_Navigation_Benchmark
 export NAV_ROOT="$PWD"
 git lfs install --local
-python3 scripts/audit_checkout.py
-python3 scripts/bootstrap_reproduction.py install
+uv python install 3.12.13
+uv run --no-project --python 3.12.13 python scripts/audit_checkout.py
+uv run --no-project --python 3.12.13 python scripts/bootstrap_reproduction.py install
 export NAV_PY="$NAV_ROOT/.runtime/IsaacLab/.venv/bin/python"
 export PYTHONPATH="$NAV_ROOT/src:$NAV_ROOT"
 export PYTHONDONTWRITEBYTECODE=1

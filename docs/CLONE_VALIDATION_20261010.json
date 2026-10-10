@@ -158,8 +158,16 @@
     }
   ],
   "github_clone_validation": {
-    "status": "pending_publication_and_remote_clone",
-    "local_source_commit": "895c308abc9f00115e31e40cd691a1814ff6beb7"
+    "status": "cli_login_reverified_publication_pending",
+    "local_committed_tree": "6f2623df0faae09deeb839c472e7e9f44ba9a816",
+    "initial_canonical_commit": "cb5738b825030c14c148ac88888f4bc883532bd0",
+    "remote_head_last_verified": "dd59d1aaeeab85408be0932d913efcf4516a42f1",
+    "git_push_error": "HTTP 408",
+    "authenticated_cli_api_error": "401 Bad credentials",
+    "github_connector_large_blob_error": "HTTP 500 Internal server error",
+    "new_remote_clone_tested": false,
+    "private_repository_confirmed": true,
+    "cli_username_verified": "GhostDragon9889"
   },
   "limitations": {
     "fresh_sdk_network_install_tested": false,

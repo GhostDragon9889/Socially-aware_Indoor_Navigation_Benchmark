@@ -10,6 +10,7 @@ import json
 from pathlib import Path
 import subprocess
 import sys
+import tomllib
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT/'src'))
@@ -21,9 +22,16 @@ def main():
     a = p.parse_args()
     tracked = set(subprocess.check_output(['git','ls-files'],cwd=ROOT,text=True).splitlines())
     failures, files, aliases = [], [], []
-    for directory in ('src','scripts','configs','env','data/scripts','examples'):
+    directories = ('src','scripts','configs','env','data/scripts','examples')
+    suffixes = ('.py','.json','.yaml','.yml','.toml','.lock','.kit')
+    for rel in sorted(tracked):
+        part = Path(rel)
+        if part.suffix in suffixes and any(rel.startswith(d+'/') for d in directories):
+            if not (ROOT/rel).is_file():
+                failures.append('Missing committed code/config: '+rel)
+    for directory in directories:
         for file in (ROOT/directory).rglob('*'):
-            if not file.is_file() or file.suffix not in ('.py','.json','.yaml','.yml','.toml','.lock','.kit'):
+            if not file.is_file() or file.suffix not in suffixes:
                 continue
             rel = file.relative_to(ROOT).as_posix()
             if '__pycache__' in file.parts or '.egg-info' in str(file) or directory=='env' and 'native_shutdown' in file.parts:
@@ -36,8 +44,19 @@ def main():
                     ast.parse(file.read_bytes(), filename=rel)
                 except SyntaxError as error:
                     failures.append('Invalid Python: '+str(error))
+            if file.suffix=='.json':
+                try:
+                    json.loads(file.read_bytes())
+                except (ValueError, UnicodeError) as error:
+                    failures.append('Invalid JSON: '+rel+': '+str(error))
+            # Kit accepts settings namespace reopening; its grammar is checked by Kit.
+            if file.suffix in ('.toml','.lock'):
+                try:
+                    tomllib.loads(file.read_text())
+                except (ValueError, UnicodeError) as error:
+                    failures.append('Invalid TOML: '+rel+': '+str(error))
             files.append(rel)
-    changed = subprocess.check_output(['git','diff','--name-only','HEAD','--'],cwd=ROOT,text=True).splitlines()
+    changed = subprocess.check_output(['git','diff','--name-only','HEAD','--',*files],cwd=ROOT,text=True).splitlines()
     for rel in changed:
         if rel in files:
             failures.append('Code/config differs from committed HEAD: '+rel)
