@@ -173,23 +173,34 @@
     }
   ],
   "github_clone_validation": {
-    "status": "blocked_by_transport_after_login_restored",
+    "status": "published_remote_clone_not_tested",
     "local_committed_tree": "6f2623df0faae09deeb839c472e7e9f44ba9a816",
     "initial_canonical_commit": "cb5738b825030c14c148ac88888f4bc883532bd0",
-    "remote_head_last_verified": "dd59d1aaeeab85408be0932d913efcf4516a42f1",
-    "git_push_error": "HTTP 408",
-    "authenticated_cli_api_error": "401 Bad credentials",
-    "github_connector_large_blob_error": "HTTP 500 Internal server error",
+    "remote_head_last_verified": "7f795249497aa408d91e676141da2c3e5ce18235",
     "new_remote_clone_tested": false,
     "private_repository_confirmed": true,
     "cli_username_verified": "GhostDragon9889",
-    "canonical_commit": "d669fda6",
-    "canonical_tree": "e56f18f2111b2e0067eda3fdcaa3c5f249a10128",
-    "git_push_after_login_error": "HTTP 408",
-    "git_clone_and_socks_read_after_login_error": "gnutls_handshake: TLS connection non-properly terminated",
-    "authenticated_cli_blob_upload_after_login_error": "HTTP 400 malformed request",
-    "connector_blob_retry_error": "error sending request to chatgpt.com/backend-api/ps/mcp",
-    "remote_publication_confirmed": false
+    "canonical_commit": "7f795249497aa408d91e676141da2c3e5ce18235",
+    "canonical_tree": "9daf6380da6cd60a7108d530819ffb468e9b8c47",
+    "remote_publication_confirmed": true,
+    "previous_transport_failures": {
+      "git_push_error": "HTTP 408",
+      "authenticated_cli_api_error": "401 Bad credentials",
+      "github_connector_large_blob_error": "HTTP 500 Internal server error",
+      "git_push_after_login_error": "HTTP 408",
+      "git_clone_and_socks_read_after_login_error": "gnutls_handshake: TLS connection non-properly terminated",
+      "authenticated_cli_blob_upload_after_login_error": "HTTP 400 malformed request",
+      "connector_blob_retry_error": "error sending request to chatgpt.com/backend-api/ps/mcp"
+    },
+    "git_push_exit_code": 0,
+    "verification": "Git push main -> main succeeded; independently confirmed GitHub commits/main SHA matches local HEAD",
+    "verified_at": "2026-10-10T14:15:44.224093+00:00",
+    "excluded_worktree_change": {
+      "path": "src/protomotions/data/assets/usd/terrain_material.usda",
+      "reason": "Uncommitted LFS pointer; referenced payload is missing locally, so it was preserved without publication",
+      "oid": "sha256:d27ccb8396709d22dcbcf9cc3c430a9df61d6c34e0caf2a9f8fc2fd1f1f7cadf",
+      "size": 5908
+    }
   },
   "limitations": {
     "fresh_sdk_network_install_tested": false,
