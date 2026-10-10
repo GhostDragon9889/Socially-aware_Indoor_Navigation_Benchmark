@@ -1,6 +1,6 @@
 {
   "schema": "social_navigation.github_asset_publication.v1",
-  "status": "prepared_locally_pending_remote_upload",
+  "status": "published_and_independently_verified",
   "repository": "GhostDragon9889/Socially-aware_Indoor_Navigation_Benchmark",
   "private": true,
   "branch": "main",
@@ -74,7 +74,112 @@
       }
     ]
   },
-  "remote_lfs_payload_verified": false,
+  "remote_lfs_payload_verified": true,
   "relocated_physics_rerun": false,
-  "paper_superiority_claimed": false
+  "paper_superiority_claimed": false,
+  "verified_at_utc": "2026-10-10T10:38:37.218646+00:00",
+  "repository_url": "https://github.com/GhostDragon9889/Socially-aware_Indoor_Navigation_Benchmark",
+  "asset_commit": "f8b41c0c12a74323c4a150bf6649b6207906f870",
+  "lfs_upload": {
+    "status": "uploaded",
+    "returncode": 0,
+    "objects": 207,
+    "bytes": 2599090399,
+    "endpoint": "https://github.com/GhostDragon9889/Socially-aware_Indoor_Navigation_Benchmark.git/info/lfs",
+    "activity_timeout_s": 600,
+    "concurrent_transfers": 16
+  },
+  "independent_remote_verification": {
+    "status": "verified",
+    "files": 467,
+    "bytes": 2687256838,
+    "original_usd_snapshots_verified": 14,
+    "physics_rerun": false,
+    "usd_stages": [
+      {
+        "stage": "resources/releases/pedestrians_20261010/robot/EVT-EXP.usd",
+        "local_dependencies": 1,
+        "sdk_mdl_dependencies": [
+          "OmniPBR.mdl"
+        ]
+      },
+      {
+        "stage": "resources/releases/pedestrians_20261010/scenes/YOHO/collected/scene.usdc",
+        "local_dependencies": 74,
+        "sdk_mdl_dependencies": [
+          "OmniSurface.mdl"
+        ]
+      },
+      {
+        "stage": "resources/releases/pedestrians_20261010/scenes/YOHO/tested_static/YOHO_static_v2.usda",
+        "local_dependencies": 73,
+        "sdk_mdl_dependencies": [
+          "OmniSurface.mdl"
+        ]
+      },
+      {
+        "stage": "resources/releases/pedestrians_20261010/scenes/NewMetro/collected/scene.usdc",
+        "local_dependencies": 103,
+        "sdk_mdl_dependencies": []
+      },
+      {
+        "stage": "resources/releases/pedestrians_20261010/scenes/NewMetro/tested_static/NewMetro_static_v2.usda",
+        "local_dependencies": 103,
+        "sdk_mdl_dependencies": []
+      },
+      {
+        "stage": "resources/releases/pedestrians_20261010/scenes/SecondFloor/collected/restroom_v19.usdc",
+        "local_dependencies": 20,
+        "sdk_mdl_dependencies": []
+      },
+      {
+        "stage": "resources/releases/pedestrians_20261010/scenes/SecondFloor/tested_static/SecondFloor_static_v3.usda",
+        "local_dependencies": 21,
+        "sdk_mdl_dependencies": []
+      },
+      {
+        "stage": "resources/releases/pedestrians_20261010/scenes/ThirdFloor/collected/third_floor_optimized.usda",
+        "local_dependencies": 58,
+        "sdk_mdl_dependencies": [
+          "OmniGlass.mdl",
+          "OmniPBR.mdl"
+        ]
+      },
+      {
+        "stage": "resources/releases/pedestrians_20261010/scenes/ThirdFloor/tested_static/ThirdFloor_static_v2.usda",
+        "local_dependencies": 50,
+        "sdk_mdl_dependencies": [
+          "OmniPBR.mdl"
+        ]
+      }
+    ],
+    "remote_commit": "f8b41c0c12a74323c4a150bf6649b6207906f870",
+    "remote": "https://github.com/GhostDragon9889/Socially-aware_Indoor_Navigation_Benchmark.git",
+    "verification_checkout": "/tmp/social_navigation_github_release_20261010",
+    "independent_remote_lfs_download": true,
+    "local_lfs_cache_reused": false,
+    "lfs_objects_downloaded": 207,
+    "lfs_bytes_downloaded": 2599090399
+  },
+  "model_install_verification": {
+    "status": "passed",
+    "different_existing_resource_preserved": true,
+    "fresh_install": {
+      "status": "models_installed",
+      "resources": 7,
+      "new_files": 7,
+      "amass_motion_data_included": false,
+      "native_map_paths_migrated": false
+    },
+    "repeat_install": {
+      "status": "models_installed",
+      "resources": 7,
+      "new_files": 0,
+      "amass_motion_data_included": false,
+      "native_map_paths_migrated": false
+    }
+  },
+  "original_upstream_lfs_payloads_mirrored": false,
+  "robot_in_previous_four_scene_physics_runs": false,
+  "preexisting_terrain_material_edit_included": false
 }
