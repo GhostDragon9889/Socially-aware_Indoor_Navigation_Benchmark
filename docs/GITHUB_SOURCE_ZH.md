@@ -4,6 +4,15 @@
 Python 安装工具将该名称规范化为 `socially-aware-indoor-navigation-benchmark`；二者是同一发行包。
 已有 `protomotions`、`CrowdSim` 导入名及控制台入口继续保留。
 
+## 发布状态
+
+已创建私有仓库 [GhostDragon9889/Socially-aware_Indoor_Navigation_Benchmark](https://github.com/GhostDragon9889/Socially-aware_Indoor_Navigation_Benchmark)，默认分支为 `main`。
+2026-10-10 已通过 GitHub 插件发布源码，首个完整源码提交为
+[`51d58f2`](https://github.com/GhostDragon9889/Socially-aware_Indoor_Navigation_Benchmark/commit/51d58f2e81ac74cc2e3b2a3701e01f88c294d332)。
+插件回读确认 3,779 个文件及完整 Git tree SHA 与本地发布快照一致。
+独立发布副本的 `main` 与远端对齐，准备阶段的本地提交保留在 `codex/local-source-snapshot`。
+原项目保留其原 `origin`，另加 `benchmark` 指向本仓库；发布副本的 `origin` 指向本仓库。
+
 ## 发布内容
 
 GitHub 提供核心算法、运行和评估入口、配置、导航地图、测试、环境锁、VS Code 配置、说明及许可。
@@ -65,7 +74,9 @@ GitHub 的轻量 CPU 检查仅验证源码布局、命令入口，不运行 SDK�
 脚本逐项核对 SHA256 和大小，只写缺失文件或替换原 LFS 指针，不覆盖不同的现有资产。
 确切资源列表及上游提交见 `configs/publication/external_source_assets.json`。
 
-## GitHub 推送
+## 后续 GitHub 推送
+
+本次发布已通过插件完成，不依赖本机 `gh` 登录。以下为以后使用命令行发布的可选方式。
 
 独立发布目录已准备 `main` 源码提交，并保留 `upstream` 远程。
 当前项目的原 `.git`、分支和远程保持；从项目根目录运行下方工具会使用该发布副本。

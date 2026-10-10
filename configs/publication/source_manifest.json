@@ -116,8 +116,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 5123,
-      "sha256": "bd4c69f7fba8c711c3795d515d91768f25beda18b364d012d70678713245d186"
+      "bytes": 5330,
+      "sha256": "83b157d3044bed0ed8221892554e1c2893a393cef8420ba4fd2ffed7561fdd36"
     },
     {
       "path": "Socially-aware_Indoor_Navigation_Benchmark.code-workspace",
@@ -820,8 +820,8 @@
     },
     {
       "path": "docs/GITHUB_SOURCE_ZH.md",
-      "bytes": 4602,
-      "sha256": "e299dba0ace260462f837f799f433dec12b1496ab179114a3d015d0d50958e13"
+      "bytes": 5477,
+      "sha256": "d0dae88eb004834bdd88b984ed9e91d1dcb220d8ec33408ae43c7d430d120060"
     },
     {
       "path": "docs/ISAAC_SIM6_LAB3_MIGRATION_ZH.md",
@@ -18894,7 +18894,7 @@
     }
   ],
   "file_count_excluding_manifest": 3778,
-  "bytes_excluding_manifest": 141773406,
+  "bytes_excluding_manifest": 141774488,
   "original_git_preserved": ".git",
   "publication_checkout": "output/github_publication_20261010/source_checkout/Socially-aware_Indoor_Navigation_Benchmark"
 }
