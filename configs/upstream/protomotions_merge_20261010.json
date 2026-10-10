@@ -153,8 +153,9 @@
       "sha": "3eb18647fc37a2e64089394a98f4c662ebaf55ab",
       "bytes": 13462,
       "merged_mode": "100644",
-      "merged_git_blob": "d5f4923860f976a57119e6290a51ea13d8c5701a",
-      "decision": "retained_local_version"
+      "merged_git_blob": "0bf0eb66f43835028884914b9b6b2866200772e6",
+      "decision": "retained_local_version",
+      "initial_merge_git_blob": "d5f4923860f976a57119e6290a51ea13d8c5701a"
     },
     {
       "upstream_path": "data/__init__.py",
@@ -10631,6 +10632,16 @@
       "merged_mode": "100644",
       "merged_git_blob": "2d6d042e15de244d443b07356d63a8592562de83",
       "decision": "unchanged_upstream_blob"
+    }
+  ],
+  "subsequent_updates": [
+    {
+      "date": "2026-10-10",
+      "base_commit": "23ccdddee7f1d72c08b59f7985a13a1a79084cbe",
+      "target_path": "README.md",
+      "previous_git_blob": "d5f4923860f976a57119e6290a51ea13d8c5701a",
+      "updated_git_blob": "0bf0eb66f43835028884914b9b6b2866200772e6",
+      "reason": "Add bilingual documentation navigation and correct executable paths; retain original upstream and initial merge identities."
     }
   ]
 }

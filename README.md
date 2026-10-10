@@ -1,5 +1,16 @@
 # Socially-aware_Indoor_Navigation_Benchmark
 
+[简体中文](README.md) · [English](README.en.md) · [完整双语文档](docs/guides/README.md)
+
+## 安装与使用文档
+
+| 主题 | 中文 | English |
+| --- | --- | --- |
+| 依赖和兼容性 | [依赖](docs/guides/dependencies.zh-CN.md) | [Dependencies](docs/guides/dependencies.en.md) |
+| 安装与常见问题 | [安装](docs/guides/installation.zh-CN.md) | [Installation](docs/guides/installation.en.md) |
+| 权重、数据与场景配置 | [配置](docs/guides/configuration.zh-CN.md) | [Configuration](docs/guides/configuration.en.md) |
+| 微调、评估与录像 | [使用](docs/guides/usage.zh-CN.md) | [Usage](docs/guides/usage.en.md) |
+
 基于 Isaac Sim 6 / IsaacLab 3、TRACE 轨迹扩散与 PACER/AMP 物理行人的室内社交导航研究项目。
 核心实现使用 `src/` 布局，保留 ProtoMotions、CrowdSim 的导入名及原始项目署名。
 
@@ -62,7 +73,7 @@ export PYTHONPATH="$PWD/src:$PWD${PYTHONPATH:+:$PYTHONPATH}"
 .venv/bin/python -m social_navigation simulate --scene YOHO --steps 1800
 ```
 
-`preflight` 检查本地资源；`simulate` 使用既有父进程启动器执行原生物理模拟，
+`preflight` 检查本地资源与原生场景配置；`simulate` 使用既有父进程启动器执行原生物理模拟，
 输出到自动生成的新目录。1800 个 30 Hz 控制步对应 60 秒模拟时间。
 原生任务须逐个运行，避免多个 Isaac 实例争用 GPU。
 
@@ -70,10 +81,10 @@ export PYTHONPATH="$PWD/src:$PWD${PYTHONPATH:+:$PYTHONPATH}"
 
 ```bash
 uv pip install --python .venv/bin/python --no-deps --no-build-isolation -e .
-social-navigation --help
+.venv/bin/social-navigation --help
 ```
 
-创建新环境请先遵循 [SDK 环境说明](env/isaaclab3_sim6/README.md)；
+创建新环境请先遵循 [中文安装指南](docs/guides/installation.zh-CN.md)；
 环境版本与测试资源不能用未经验证的依赖升级替代。
 
 ## 训练、评估与录制

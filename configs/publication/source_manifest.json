@@ -154,10 +154,16 @@
       "symlink": "third_party/navdp"
     },
     {
+      "path": "README.en.md",
+      "mode": "100644",
+      "bytes": 6272,
+      "sha256": "2354165f76034b60f46a52eaa5af47535ad2cbe7d60cc02358f6026d548a6194"
+    },
+    {
       "path": "README.md",
       "mode": "100644",
-      "bytes": 5494,
-      "sha256": "b35c7358f299310891d8456878f23496f5e5291806b418bd2e17bcca972d458f"
+      "bytes": 6185,
+      "sha256": "b5bd4c0aac6f4699635f4b2699ba4b813f725a982b7caa3fbacaa2f7bcac7825"
     },
     {
       "path": "Socially-aware_Indoor_Navigation_Benchmark.code-workspace",
@@ -714,8 +720,8 @@
     {
       "path": "configs/upstream/protomotions_merge_20261010.json",
       "mode": "100644",
-      "bytes": 442436,
-      "sha256": "9589d7aab479a2a77900e3c48632c861f59f87b36bf7872d02bf78add73879be"
+      "bytes": 442965,
+      "sha256": "baac9b2a7d25b79c9f652e0d1b61873c2b7c2f9082b7c39a46e94be9bd46f153"
     },
     {
       "path": "data/__init__.py",
@@ -2665,6 +2671,66 @@
       "mode": "100644",
       "bytes": 2696,
       "sha256": "432b3445c0607f1a04dbca4f92f08a40bf0ecf73ee80b2b3a1567d8cb87f2796"
+    },
+    {
+      "path": "docs/guides/README.md",
+      "mode": "100644",
+      "bytes": 2388,
+      "sha256": "3e19e5d325fb4769d7d5b1e44e1c25e8e4b8d7f9d8da09f5d0bb521907a27775"
+    },
+    {
+      "path": "docs/guides/configuration.en.md",
+      "mode": "100644",
+      "bytes": 12200,
+      "sha256": "04f068f0d139a64f64d910c8e31ba7fd365f179b067d9fd76d8660261fa8c764"
+    },
+    {
+      "path": "docs/guides/configuration.zh-CN.md",
+      "mode": "100644",
+      "bytes": 11728,
+      "sha256": "8ed028387daac9e661d20ffcee703a42fc0f3baa3d9072818817c3683ea56bfc"
+    },
+    {
+      "path": "docs/guides/dependencies.en.md",
+      "mode": "100644",
+      "bytes": 6802,
+      "sha256": "c19da0b7a29a4aaa217f2710c9bd3ea3cc20b938a95298d03f2896b6024111cf"
+    },
+    {
+      "path": "docs/guides/dependencies.zh-CN.md",
+      "mode": "100644",
+      "bytes": 6569,
+      "sha256": "520e5385306debe91d52f301b5ca0ebf82c520f7ccdb2cddccd80c077ffc4da3"
+    },
+    {
+      "path": "docs/guides/dependency-inventory.json",
+      "mode": "100644",
+      "bytes": 45900,
+      "sha256": "e7e73dfd09f638c7e31768491ec1690f7b32275b2d96cc044c055b7f426e40a9"
+    },
+    {
+      "path": "docs/guides/installation.en.md",
+      "mode": "100644",
+      "bytes": 9646,
+      "sha256": "f6d5a38a2a5856ad9a9f77590bb87b74aaf58f143822d68c3636d0b15e66bbf9"
+    },
+    {
+      "path": "docs/guides/installation.zh-CN.md",
+      "mode": "100644",
+      "bytes": 9027,
+      "sha256": "00615636bf3512ad9a76293cd870f3a529c71913fd0695802ae6f58d89e96e60"
+    },
+    {
+      "path": "docs/guides/usage.en.md",
+      "mode": "100644",
+      "bytes": 11209,
+      "sha256": "e07e16c9efc6feb4532c59ce80f8ac605ad91680ce9fc2b444222ed26c04461a"
+    },
+    {
+      "path": "docs/guides/usage.zh-CN.md",
+      "mode": "100644",
+      "bytes": 10518,
+      "sha256": "eba0595dec3093df53f0fb2130cb8c1350ec39955cdeba9f527796f6e96cdc85"
     },
     {
       "path": "docs/make.bat",
@@ -16625,8 +16691,8 @@
     {
       "path": "env/isaaclab3_sim6/README.md",
       "mode": "100644",
-      "bytes": 4862,
-      "sha256": "85230a102e5d15f19bfd20d52064e050621f1c7f337f7ceacf07b1152b030e97"
+      "bytes": 5108,
+      "sha256": "024149f45e90e55e6bcafbda0c22bc7bd591e89ff04439581f20af98482a8ef7"
     },
     {
       "path": "env/isaaclab3_sim6/profile.json",
@@ -24105,11 +24171,30 @@
       "symlink": "tools/asset_conversion"
     }
   ],
-  "file_count_excluding_manifest": 4017,
-  "bytes_excluding_manifest": 157621713,
+  "file_count_excluding_manifest": 4028,
+  "bytes_excluding_manifest": 157755438,
   "original_git_preserved": ".git",
   "publication_checkout": "output/github_publication_20261010/source_checkout/Socially-aware_Indoor_Navigation_Benchmark",
   "upstream_merge_commit": "7a8417a9f55b1586b0d6e8f46578c5bc9d7ce1f1",
   "includes_original_upstream_lfs_references": true,
-  "hash_scope": "Git blob bytes, including LFS pointer text; downloaded LFS payloads have separate upstream OIDs."
+  "hash_scope": "Git blob bytes, including LFS pointer text; downloaded LFS payloads have separate upstream OIDs.",
+  "latest_documentation_update": {
+    "date": "2026-10-10",
+    "base_commit": "23ccdddee7f1d72c08b59f7985a13a1a79084cbe",
+    "documents": [
+      "README.en.md",
+      "README.md",
+      "docs/guides/README.md",
+      "docs/guides/configuration.en.md",
+      "docs/guides/configuration.zh-CN.md",
+      "docs/guides/dependencies.en.md",
+      "docs/guides/dependencies.zh-CN.md",
+      "docs/guides/dependency-inventory.json",
+      "docs/guides/installation.en.md",
+      "docs/guides/installation.zh-CN.md",
+      "docs/guides/usage.en.md",
+      "docs/guides/usage.zh-CN.md",
+      "env/isaaclab3_sim6/README.md"
+    ]
+  }
 }

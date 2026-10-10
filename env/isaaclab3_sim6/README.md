@@ -1,3 +1,7 @@
+# 环境配置快照 / Environment snapshot
+
+[中文安装指南](../../docs/guides/installation.zh-CN.md) · [English installation guide](../../docs/guides/installation.en.md) · [双语依赖说明 / Dependencies](../../docs/guides/README.md)
+
 > 2026-10-10：editable 项目改名为 `socially-aware-indoor-navigation-benchmark`，路径迁至
 > `../Socially-aware_Indoor_Navigation_Benchmark`。manifest/lock 已同步；273 个锁定包的版本、
 > 外部源码与 wheel 哈希保持不变。历史安装记录中的旧项目名保留作追溯。
