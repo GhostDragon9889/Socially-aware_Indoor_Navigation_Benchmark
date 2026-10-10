@@ -195,11 +195,14 @@
     "git_push_exit_code": 0,
     "verification": "Git push main -> main succeeded; independently confirmed GitHub commits/main SHA matches local HEAD",
     "verified_at": "2026-10-10T14:15:44.224093+00:00",
-    "excluded_worktree_change": {
+    "restored_terrain_material": {
       "path": "src/protomotions/data/assets/usd/terrain_material.usda",
-      "reason": "Uncommitted LFS pointer; referenced payload is missing locally, so it was preserved without publication",
       "oid": "sha256:d27ccb8396709d22dcbcf9cc3c430a9df61d6c34e0caf2a9f8fc2fd1f1f7cadf",
-      "size": 5908
+      "size": 5908,
+      "source": "NVlabs/ProtoMotions upstream Git LFS download",
+      "sha256_verified": true,
+      "size_verified": true,
+      "status": "exact_payload_recovered_for_publication"
     }
   },
   "limitations": {
