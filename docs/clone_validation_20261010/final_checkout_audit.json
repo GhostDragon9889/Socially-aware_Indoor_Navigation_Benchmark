@@ -1,0 +1,202 @@
+{
+  "schema": "social_navigation.checkout_audit.v1",
+  "status": "passed",
+  "root": "/home/lfm/Documents/ChatGPT/Social Navigation/clone_reproduction_20261010/Fresh Clone",
+  "commit": "3e898ec0f589feb09211f592cb25f9e8aeb05b91",
+  "committed_source_config_count": 948,
+  "aliases": [
+    {
+      "path": "CrowdSim",
+      "target": "/home/lfm/Documents/ChatGPT/Social Navigation/clone_reproduction_20261010/Fresh Clone/src/CrowdSim"
+    },
+    {
+      "path": "protomotions",
+      "target": "/home/lfm/Documents/ChatGPT/Social Navigation/clone_reproduction_20261010/Fresh Clone/src/protomotions"
+    },
+    {
+      "path": "deployment",
+      "target": "/home/lfm/Documents/ChatGPT/Social Navigation/clone_reproduction_20261010/Fresh Clone/src/deployment"
+    },
+    {
+      "path": "src/CrowdSim/config",
+      "target": "/home/lfm/Documents/ChatGPT/Social Navigation/clone_reproduction_20261010/Fresh Clone/configs/crowdsim"
+    },
+    {
+      "path": "src/CrowdSim/maps",
+      "target": "/home/lfm/Documents/ChatGPT/Social Navigation/clone_reproduction_20261010/Fresh Clone/data/navigation_maps/crowdsim"
+    }
+  ],
+  "failures": [],
+  "resources": [
+    {
+      "scene": "YOHO",
+      "name": "diffusion_checkpoint",
+      "path": "/home/lfm/Documents/ChatGPT/Social Navigation/clone_reproduction_20261010/Fresh Clone/data/pretrained_models/paper_references/trace/ckpt/trace/orca_mixed/iter40000.ckpt",
+      "available": true
+    },
+    {
+      "scene": "YOHO",
+      "name": "diffusion_config",
+      "path": "/home/lfm/Documents/ChatGPT/Social Navigation/clone_reproduction_20261010/Fresh Clone/data/pretrained_models/paper_references/trace/ckpt/trace/orca_mixed/config.json",
+      "available": true
+    },
+    {
+      "scene": "YOHO",
+      "name": "amp_checkpoint",
+      "path": "/home/lfm/Documents/ChatGPT/Social Navigation/clone_reproduction_20261010/Fresh Clone/data/pretrained_models/local_amass_finetune/speed_conservative_20261010/Humanoid_AMASS.pth",
+      "available": true
+    },
+    {
+      "scene": "YOHO",
+      "name": "amass_manifest",
+      "path": "/home/lfm/Documents/ChatGPT/Social Navigation/clone_reproduction_20261010/Fresh Clone/data/diffusion_amp/amass_style_2848/manifest_labeled_v7.json",
+      "available": true
+    },
+    {
+      "scene": "YOHO",
+      "name": "AMASS_validation",
+      "path": "/home/lfm/Documents/ChatGPT/Social Navigation/clone_reproduction_20261010/Fresh Clone/data/datasets/amass/amass_smpl_validation.pt",
+      "available": true
+    },
+    {
+      "scene": "YOHO",
+      "name": "AMASS_test",
+      "path": "/home/lfm/Documents/ChatGPT/Social Navigation/clone_reproduction_20261010/Fresh Clone/data/datasets/amass/amass_smpl_test.pt",
+      "available": true
+    },
+    {
+      "scene": "YOHO",
+      "name": "AMASS_train",
+      "path": "/home/lfm/Documents/ChatGPT/Social Navigation/clone_reproduction_20261010/Fresh Clone/data/datasets/amass/manifest_labeled_v7_train.pt",
+      "available": true
+    },
+    {
+      "scene": "NewMetro",
+      "name": "diffusion_checkpoint",
+      "path": "/home/lfm/Documents/ChatGPT/Social Navigation/clone_reproduction_20261010/Fresh Clone/data/pretrained_models/paper_references/trace/ckpt/trace/orca_mixed/iter40000.ckpt",
+      "available": true
+    },
+    {
+      "scene": "NewMetro",
+      "name": "diffusion_config",
+      "path": "/home/lfm/Documents/ChatGPT/Social Navigation/clone_reproduction_20261010/Fresh Clone/data/pretrained_models/paper_references/trace/ckpt/trace/orca_mixed/config.json",
+      "available": true
+    },
+    {
+      "scene": "NewMetro",
+      "name": "amp_checkpoint",
+      "path": "/home/lfm/Documents/ChatGPT/Social Navigation/clone_reproduction_20261010/Fresh Clone/data/pretrained_models/local_amass_finetune/speed_conservative_20261010/Humanoid_AMASS.pth",
+      "available": true
+    },
+    {
+      "scene": "NewMetro",
+      "name": "amass_manifest",
+      "path": "/home/lfm/Documents/ChatGPT/Social Navigation/clone_reproduction_20261010/Fresh Clone/data/diffusion_amp/amass_style_2848/manifest_labeled_v7.json",
+      "available": true
+    },
+    {
+      "scene": "NewMetro",
+      "name": "AMASS_validation",
+      "path": "/home/lfm/Documents/ChatGPT/Social Navigation/clone_reproduction_20261010/Fresh Clone/data/datasets/amass/amass_smpl_validation.pt",
+      "available": true
+    },
+    {
+      "scene": "NewMetro",
+      "name": "AMASS_test",
+      "path": "/home/lfm/Documents/ChatGPT/Social Navigation/clone_reproduction_20261010/Fresh Clone/data/datasets/amass/amass_smpl_test.pt",
+      "available": true
+    },
+    {
+      "scene": "NewMetro",
+      "name": "AMASS_train",
+      "path": "/home/lfm/Documents/ChatGPT/Social Navigation/clone_reproduction_20261010/Fresh Clone/data/datasets/amass/manifest_labeled_v7_train.pt",
+      "available": true
+    },
+    {
+      "scene": "SecondFloor",
+      "name": "diffusion_checkpoint",
+      "path": "/home/lfm/Documents/ChatGPT/Social Navigation/clone_reproduction_20261010/Fresh Clone/data/pretrained_models/paper_references/trace/ckpt/trace/orca_mixed/iter40000.ckpt",
+      "available": true
+    },
+    {
+      "scene": "SecondFloor",
+      "name": "diffusion_config",
+      "path": "/home/lfm/Documents/ChatGPT/Social Navigation/clone_reproduction_20261010/Fresh Clone/data/pretrained_models/paper_references/trace/ckpt/trace/orca_mixed/config.json",
+      "available": true
+    },
+    {
+      "scene": "SecondFloor",
+      "name": "amp_checkpoint",
+      "path": "/home/lfm/Documents/ChatGPT/Social Navigation/clone_reproduction_20261010/Fresh Clone/data/pretrained_models/local_amass_finetune/walking_turn_20261009/Humanoid_AMASS.pth",
+      "available": true
+    },
+    {
+      "scene": "SecondFloor",
+      "name": "amass_manifest",
+      "path": "/home/lfm/Documents/ChatGPT/Social Navigation/clone_reproduction_20261010/Fresh Clone/data/diffusion_amp/amass_style_2848/manifest_labeled_v7.json",
+      "available": true
+    },
+    {
+      "scene": "SecondFloor",
+      "name": "AMASS_validation",
+      "path": "/home/lfm/Documents/ChatGPT/Social Navigation/clone_reproduction_20261010/Fresh Clone/data/datasets/amass/amass_smpl_validation.pt",
+      "available": true
+    },
+    {
+      "scene": "SecondFloor",
+      "name": "AMASS_test",
+      "path": "/home/lfm/Documents/ChatGPT/Social Navigation/clone_reproduction_20261010/Fresh Clone/data/datasets/amass/amass_smpl_test.pt",
+      "available": true
+    },
+    {
+      "scene": "SecondFloor",
+      "name": "AMASS_train",
+      "path": "/home/lfm/Documents/ChatGPT/Social Navigation/clone_reproduction_20261010/Fresh Clone/data/datasets/amass/manifest_labeled_v7_train.pt",
+      "available": true
+    },
+    {
+      "scene": "ThirdFloor",
+      "name": "diffusion_checkpoint",
+      "path": "/home/lfm/Documents/ChatGPT/Social Navigation/clone_reproduction_20261010/Fresh Clone/data/pretrained_models/paper_references/trace/ckpt/trace/orca_mixed/iter40000.ckpt",
+      "available": true
+    },
+    {
+      "scene": "ThirdFloor",
+      "name": "diffusion_config",
+      "path": "/home/lfm/Documents/ChatGPT/Social Navigation/clone_reproduction_20261010/Fresh Clone/data/pretrained_models/paper_references/trace/ckpt/trace/orca_mixed/config.json",
+      "available": true
+    },
+    {
+      "scene": "ThirdFloor",
+      "name": "amp_checkpoint",
+      "path": "/home/lfm/Documents/ChatGPT/Social Navigation/clone_reproduction_20261010/Fresh Clone/data/pretrained_models/local_amass_finetune/walking_turn_20261009/Humanoid_AMASS.pth",
+      "available": true
+    },
+    {
+      "scene": "ThirdFloor",
+      "name": "amass_manifest",
+      "path": "/home/lfm/Documents/ChatGPT/Social Navigation/clone_reproduction_20261010/Fresh Clone/data/diffusion_amp/amass_style_2848/manifest_labeled_v7.json",
+      "available": true
+    },
+    {
+      "scene": "ThirdFloor",
+      "name": "AMASS_validation",
+      "path": "/home/lfm/Documents/ChatGPT/Social Navigation/clone_reproduction_20261010/Fresh Clone/data/datasets/amass/amass_smpl_validation.pt",
+      "available": true
+    },
+    {
+      "scene": "ThirdFloor",
+      "name": "AMASS_test",
+      "path": "/home/lfm/Documents/ChatGPT/Social Navigation/clone_reproduction_20261010/Fresh Clone/data/datasets/amass/amass_smpl_test.pt",
+      "available": true
+    },
+    {
+      "scene": "ThirdFloor",
+      "name": "AMASS_train",
+      "path": "/home/lfm/Documents/ChatGPT/Social Navigation/clone_reproduction_20261010/Fresh Clone/data/datasets/amass/manifest_labeled_v7_train.pt",
+      "available": true
+    }
+  ],
+  "physics_executed": false,
+  "scope": "Current four-scene TRACE/PACER flow, training tools and committed source/config tree. Historical experiment receipts are not fresh-run inputs."
+}

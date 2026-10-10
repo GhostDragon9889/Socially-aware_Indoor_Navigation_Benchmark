@@ -49,7 +49,10 @@
     },
     "sdk_profile_dry_run_toml_and_lock_parsed": true,
     "sdk_native_overlay_verified_copied_files": 35,
-    "targeted_regression_tests": 9
+    "targeted_regression_tests": 9,
+    "missing_committed_module_rejected": true,
+    "strict_json_and_toml_checked": true,
+    "kit_configuration_validated_by_actual_renderer": true
   },
   "exact_bank_packages": [
     {
@@ -155,10 +158,22 @@
       "bytes": 60650,
       "sha256": "8410839ac7e3b820001138ec6bdf5b85b73b1866cc3310d5bfea69bc1903352d",
       "historical_receipt_only": true
+    },
+    {
+      "path": "docs/clone_validation_20261010/final_checkout_audit.json",
+      "bytes": 8719,
+      "sha256": "0c60e50512489515261768f6ff8b34cadb6a3de552ec9b3b4a245cb43766fa34",
+      "historical_receipt_only": true
+    },
+    {
+      "path": "docs/clone_validation_20261010/missing_source_rejection.json",
+      "bytes": 8793,
+      "sha256": "b1c3a49aee150977b894e60acc63c890bd7e2a23fd3c7c5acade9b41bc08f798",
+      "historical_receipt_only": true
     }
   ],
   "github_clone_validation": {
-    "status": "cli_login_reverified_publication_pending",
+    "status": "blocked_by_transport_after_login_restored",
     "local_committed_tree": "6f2623df0faae09deeb839c472e7e9f44ba9a816",
     "initial_canonical_commit": "cb5738b825030c14c148ac88888f4bc883532bd0",
     "remote_head_last_verified": "dd59d1aaeeab85408be0932d913efcf4516a42f1",
@@ -167,7 +182,14 @@
     "github_connector_large_blob_error": "HTTP 500 Internal server error",
     "new_remote_clone_tested": false,
     "private_repository_confirmed": true,
-    "cli_username_verified": "GhostDragon9889"
+    "cli_username_verified": "GhostDragon9889",
+    "canonical_commit": "d669fda6",
+    "canonical_tree": "e56f18f2111b2e0067eda3fdcaa3c5f249a10128",
+    "git_push_after_login_error": "HTTP 408",
+    "git_clone_and_socks_read_after_login_error": "gnutls_handshake: TLS connection non-properly terminated",
+    "authenticated_cli_blob_upload_after_login_error": "HTTP 400 malformed request",
+    "connector_blob_retry_error": "error sending request to chatgpt.com/backend-api/ps/mcp",
+    "remote_publication_confirmed": false
   },
   "limitations": {
     "fresh_sdk_network_install_tested": false,
