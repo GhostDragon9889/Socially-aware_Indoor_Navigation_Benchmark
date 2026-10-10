@@ -40,6 +40,9 @@ output/               生成的训练、模拟与录制结果
 
 ## GitHub 源码与资源
 
+上游完整文件树和原始 Git 历史已合并；文件映射、LFS 下载和本地历史说明见
+[上游合并记录](docs/UPSTREAM_MERGE_20261010_ZH.md)。
+
 私有仓库：[GhostDragon9889/Socially-aware_Indoor_Navigation_Benchmark](https://github.com/GhostDragon9889/Socially-aware_Indoor_Navigation_Benchmark)。访问和克隆需要该仓库的授权账号。
 
 源码仓库上传范围、固定上游来源、资源准备和旧 Git 历史保留方式见

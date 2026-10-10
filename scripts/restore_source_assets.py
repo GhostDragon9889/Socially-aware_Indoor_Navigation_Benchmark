@@ -26,6 +26,9 @@ def main():
         if target.is_file() and target.stat().st_size == entry['size'] and sha256(target) == entry['oid']:
             records.append({'path': entry['path'], 'status': 'verified'})
             continue
+        if entry.get('source_kind') == 'unverified_generated_asset':
+            records.append({'path': entry['path'], 'status': 'unverified_conversion_source'})
+            continue
         if args.from_upstream is None:
             records.append({'path': entry['path'], 'status': 'missing_payload'})
             continue
@@ -40,7 +43,7 @@ def main():
         shutil.copyfile(source, target)
         records.append({'path': entry['path'], 'status': 'restored_verified'})
     print(json.dumps(records, indent=2))
-    return int(any(row['status'] == 'missing_payload' for row in records))
+    return int(any(row['status'] not in ('verified', 'restored_verified') for row in records))
 
 if __name__ == '__main__':
     raise SystemExit(main())

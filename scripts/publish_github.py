@@ -1,12 +1,12 @@
 """Create the requested private GitHub repository and verify its main commit."""
 import json
+import os
 from pathlib import Path
 import subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
 NAME = 'Socially-aware_Indoor_Navigation_Benchmark'
-PREPARED = ROOT / 'output/github_publication_20261010/source_checkout' / NAME
-SOURCE_ROOT = PREPARED if (PREPARED / '.git').is_dir() else ROOT
+SOURCE_ROOT = ROOT
 
 def run(*args, **kwargs):
     return subprocess.run(args, cwd=SOURCE_ROOT, text=True, check=True, **kwargs)
@@ -35,17 +35,23 @@ def main():
         raise RuntimeError('Cannot inspect the destination repository: ' + lookup.stderr.strip())
     url = 'https://github.com/' + repository
     remote_url = url + '.git'
-    current = subprocess.run(['git', 'remote', 'get-url', 'origin'], cwd=SOURCE_ROOT, text=True, capture_output=True)
+    origin = subprocess.run(['git', 'remote', 'get-url', 'origin'], cwd=SOURCE_ROOT, text=True, capture_output=True)
+    remote_name = 'origin' if origin.returncode == 0 and origin.stdout.strip() == remote_url else 'benchmark'
+    current = subprocess.run(['git', 'remote', 'get-url', remote_name], cwd=SOURCE_ROOT, text=True, capture_output=True)
     if current.returncode == 0 and current.stdout.strip() != remote_url:
-        raise RuntimeError('An unrelated origin already exists; refusing to replace it.')
+        raise RuntimeError('An unrelated publication remote already exists.')
     if current.returncode != 0:
-        run('git', 'remote', 'add', 'origin', remote_url)
+        run('git', 'remote', 'add', remote_name, remote_url)
     run('gh', 'auth', 'setup-git', '--hostname', 'github.com')
-    remote = output('git', 'ls-remote', 'origin')
-    if remote and any(line.split()[0] != local_head for line in remote.splitlines() if not line.split()[1].startswith('refs/tags/')):
-        raise RuntimeError('Destination contains different commits; refusing to overwrite history.')
-    run('git', 'push', '--set-upstream', 'origin', 'main')
-    remote_main = output('git', 'ls-remote', 'origin', 'refs/heads/main').split()[0]
+    remote = output('git', 'ls-remote', remote_name, 'refs/heads/main')
+    if remote and remote.split()[0] != local_head:
+        run('git', 'fetch', '--no-tags', remote_name, 'refs/heads/main:refs/remotes/' + remote_name + '/main')
+        ancestor = subprocess.run(['git', 'merge-base', '--is-ancestor', remote.split()[0], local_head], cwd=SOURCE_ROOT)
+        if ancestor.returncode != 0:
+            raise RuntimeError('Destination main has diverged; merge it before publishing.')
+    push_env = dict(os.environ, GIT_LFS_SKIP_PUSH='1')
+    run('git', 'push', '--set-upstream', remote_name, 'main', env=push_env)
+    remote_main = output('git', 'ls-remote', remote_name, 'refs/heads/main').split()[0]
     info = json.loads(output('gh', 'repo', 'view', repository, '--json', 'url,nameWithOwner,isPrivate,defaultBranchRef'))
     if remote_main != local_head or not info['isPrivate'] or info['defaultBranchRef']['name'] != 'main':
         raise RuntimeError('GitHub verification failed.')

@@ -16,7 +16,7 @@ Python 安装工具将该名称规范化为 `socially-aware-indoor-navigation-be
 ## 发布内容
 
 GitHub 提供核心算法、运行和评估入口、配置、导航地图、测试、环境锁、VS Code 配置、说明及许可。
-AMASS/SMPL 数据与人体模型、训练权重、外部场景、SDK、参考仓库、视频、原始实验数据和旧 Git/LFS 历史保留在本地。
+AMASS/SMPL 私有数据与人体模型、自训权重、外部场景、SDK、参考仓库、视频和原始实验数据保留在本地。上游公开历史与资源引用已随本次合并纳入。
 GitHub 中的结果索引和报告描述之前的本地实验，资源路径和校验值保持原记录，不能代表克隆后已经具备这些资源。
 
 首个提交由明确的文件清单构建；清单保存在 `configs/publication/source_manifest.json`。
@@ -63,23 +63,22 @@ git log -5 --oneline
 GitHub 的轻量 CPU 检查仅验证源码布局、命令入口，不运行 SDK、训练或视频质量验收。
 本项目仍未证明完成论文全部协议或达到论文宣称指标。
 
-## 上游 LFS 源资产
+## 上游完整合并与 LFS
 
-发布检查发现原工作区有 47 个尚未实体化的上游 USD/USDA LFS 指针，约 195 MB 的真实内容尚未齐备。
-本仓库记录其来源、大小和 SHA256，省略不能加载的指针文件；这不改变本地已验证的 SMPL 行人运行资源。
-这些上游通用机器人/场景资产与 AMASS/SMPL 的获授权资源是分别准备的。
-
-需要上游机器人示例时，先在独立的 ProtoMotions 上游克隆中获取 LFS 实体，
-再执行 `python scripts/restore_source_assets.py --from-upstream /path/to/ProtoMotions`。
-脚本逐项核对 SHA256 和大小，只写缺失文件或替换原 LFS 指针，不覆盖不同的现有资产。
-确切资源列表及上游提交见 `configs/publication/external_source_assets.json`。
+原上游 1,017 个文件和 74 个提交现已合入，之前省略的 235 个文件已补齐。
+此前 47 条 USD/USDA 记录中，8 条路径及 OID 匹配该上游提交，已恢复为原始 LFS 引用；另外 38 条路径不在上游提交中，1 条路径存在但 OID 不同。这 39 条记录的来源尚未核实，不能当作已恢复的上游资源。下载来源由 `.lfsconfig` 固定到原上游。
+普通 `git clone` 安装了 Git LFS 时可能下载全部上游资源；按需下载可使用
+`GIT_LFS_SKIP_SMUDGE=1` 克隆，再执行指定路径的 `git lfs pull`。
+详见 [上游合并记录](UPSTREAM_MERGE_20261010_ZH.md)。
 
 ## 后续 GitHub 推送
 
+合并后的项目根目录 `main` 跟踪 `benchmark/main`，正常提交后使用 `GIT_LFS_SKIP_PUSH=1 git push benchmark main`，按既定方案仅推送源码及上游 LFS 引用。
+
 本次发布已通过插件完成，不依赖本机 `gh` 登录。以下为以后使用命令行发布的可选方式。
 
-独立发布目录已准备 `main` 源码提交，并保留 `upstream` 远程。
-当前项目的原 `.git`、分支和远程保持；从项目根目录运行下方工具会使用该发布副本。
+项目根目录已与私有仓库的 `main` 对齐，保留原 `.git` 和上游 `origin`。
+下方工具从项目根目录推送到 `benchmark`，不会选择旧的发布副本。
 完成 `gh auth login --hostname github.com --git-protocol https --web` 后，可运行：
 
 ```bash
@@ -87,5 +86,5 @@ python scripts/publish_github.py
 ```
 
 工具只创建当前账号下指定名称的私有仓库、推送 `main`，并核对远端提交和私有状态。
-若同名仓库已有不同提交，则停止，不覆盖其历史。实际成功记录写到本地
+工具只允许正常快进推送；若远端 `main` 已分叉则停止。其他分支不影响主分支推送，LFS 实体上传由单独的资源发布流程处理。实际成功记录写到本地
 `output/github_publication_20261010/github_result.json`；缺少该记录不代表已经完成发布。

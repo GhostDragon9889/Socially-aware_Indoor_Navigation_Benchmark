@@ -35,6 +35,8 @@ jobs:
         run: >-
           python -m pytest --import-mode=importlib -p no:cacheprovider -q
           tests/test_project_layout.py
+      - name: Verify complete upstream file mapping
+        run: python scripts/verify_upstream_integration.py
       - name: Parse owned Python source
         run: |
           python - <<'PY'
