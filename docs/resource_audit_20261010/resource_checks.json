@@ -1,0 +1,49 @@
+{
+  "native_scenes": {
+    "YOHO": {
+      "status": "passed",
+      "scene": "YOHO",
+      "actor_count": 4,
+      "source_bound_native_map": true,
+      "route_configuration_verified": true,
+      "sdk_started": false,
+      "live_physx_execution_verified": false
+    },
+    "NewMetro": {
+      "status": "passed",
+      "scene": "NewMetro",
+      "actor_count": 4,
+      "source_bound_native_map": true,
+      "route_configuration_verified": true,
+      "sdk_started": false,
+      "live_physx_execution_verified": false
+    },
+    "SecondFloor": {
+      "status": "passed",
+      "scene": "SecondFloor",
+      "actor_count": 1,
+      "source_bound_native_map": true,
+      "route_configuration_verified": true,
+      "sdk_started": false,
+      "live_physx_execution_verified": false
+    },
+    "ThirdFloor": {
+      "status": "passed",
+      "scene": "ThirdFloor",
+      "actor_count": 1,
+      "source_bound_native_map": true,
+      "route_configuration_verified": true,
+      "sdk_started": false,
+      "live_physx_execution_verified": false
+    }
+  },
+  "kit_started": false,
+  "physics_rerun": false,
+  "release": {
+    "status": "verified",
+    "files": 467,
+    "bytes": 2687256838,
+    "original_usd_snapshots_verified": 14,
+    "physics_rerun": false
+  }
+}

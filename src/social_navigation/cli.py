@@ -54,7 +54,7 @@ def main(argv=None):
     if args.command in ('preflight', 'simulate'):
         if forwarded:
             parser.error('Unexpected arguments: ' + ' '.join(forwarded))
-        config = root / 'configs/diffusion_amp/four_scene_speed_20261010'
+        config = root / 'configs/reproduction/four_scene'
         output = args.output or root / 'output/interactive' / (
             f'{args.command}_{args.scene}_{datetime.now():%Y%m%d_%H%M%S}_{time.time_ns()}'
         )

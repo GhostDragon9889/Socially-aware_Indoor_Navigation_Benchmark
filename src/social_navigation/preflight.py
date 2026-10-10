@@ -8,7 +8,8 @@ def verify_native_scene_config(path):
     from CrowdSim.humanoid.runtime.dynbench_scene import DynBenchSceneProvider
     from CrowdSim.humanoid.runtime.native_grid_scene import NativeGridScene
 
-    scene = yaml.safe_load(Path(path).read_text())
+    from .resource_bindings import scene_locations
+    scene = scene_locations(yaml.safe_load(Path(path).read_text()))
     if scene.get('schema') != 'crowdsim.native_pedestrian_scene.v1':
         raise ValueError('Expected an explicit native pedestrian scene')
     snapshot = scene.get('probe_script_snapshot')

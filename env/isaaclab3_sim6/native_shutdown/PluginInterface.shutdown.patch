@@ -1,0 +1,35 @@
+--- a/source/extensions/isaacsim.core.simulation_manager/plugins/isaacsim.core.simulation_manager/PluginInterface.cpp
++++ b/source/extensions/isaacsim.core.simulation_manager/plugins/isaacsim.core.simulation_manager/PluginInterface.cpp
+@@ -66,6 +66,7 @@
+ omni::physics::SubscriptionId g_simulationRegistrySubscription = omni::physics::kInvalidSubscriptionId;
+ carb::events::ISubscriptionPtr g_physicsEventSubscription;
+ omni::kit::StageUpdatePtr g_stageUpdate = nullptr;
++omni::kit::StageUpdateNode* g_stageUpdateNode = nullptr;
+ omni::kit::IRunLoopRunnerImpl* g_runLoopRunnerInterface = nullptr;
+ 
+ omni::fabric::UsdStageId g_stageId;
+@@ -908,7 +909,7 @@
+         desc.onAttach = onAttach;
+         desc.onDetach = onDetach;
+         desc.onResume = onResume;
+-        g_stageUpdate->createStageUpdateNode(desc);
++        g_stageUpdateNode = g_stageUpdate->createStageUpdateNode(desc);
+ 
+         g_runLoopRunnerInterface = carb::getCachedInterface<omni::kit::IRunLoopRunnerImpl>();
+     }
+@@ -933,6 +934,15 @@
+             g_physicsSimulationInterface->unsubscribePhysicsOnStepEvents(g_physicsOnStepSubscription);
+             g_physicsOnStepSubscription = omni::physics::kInvalidSubscriptionId;
+         }
++
++        // Release this plugin's owners while their providing extensions are alive.
++        if (g_stageUpdate && g_stageUpdateNode)
++        {
++            g_stageUpdate->destroyStageUpdateNode(g_stageUpdateNode);
++        }
++        g_stageUpdateNode = nullptr;
++        g_physicsEventSubscription.reset();
++        g_stageUpdate.reset();
+     }
+ };
+ 

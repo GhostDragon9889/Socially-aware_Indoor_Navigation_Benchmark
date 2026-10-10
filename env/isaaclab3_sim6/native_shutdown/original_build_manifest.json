@@ -1,0 +1,646 @@
+{
+  "schema": "local.isaacsim.native_overlay.copy_and_build.v1",
+  "status": "built_not_runtime_verified",
+  "extension_path": "/project/EXP/SangforAndSaut/ProtoMotions/output/native_sdk_overlay/simulation_manager_shutdown_v1/isaacsim.core.simulation_manager",
+  "installed_extension_path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/exts/isaacsim.core.simulation_manager",
+  "copied_file_records": [
+    {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/native_sdk_overlay/simulation_manager_shutdown_v1/isaacsim.core.simulation_manager/PACKAGE-LICENSES/dependencies/PIP-packages-LICENSES.txt",
+      "bytes": 1726346,
+      "sha256": "2488d79f28bc8630198f61da9e7704c67c198b9198b2cd722d4a83b33c94fff0",
+      "relative_path": "PACKAGE-LICENSES/dependencies/PIP-packages-LICENSES.txt",
+      "installed_source": {
+        "path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/exts/isaacsim.core.simulation_manager/PACKAGE-LICENSES/dependencies/PIP-packages-LICENSES.txt",
+        "bytes": 1726346,
+        "sha256": "2488d79f28bc8630198f61da9e7704c67c198b9198b2cd722d4a83b33c94fff0"
+      }
+    },
+    {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/native_sdk_overlay/simulation_manager_shutdown_v1/isaacsim.core.simulation_manager/PACKAGE-LICENSES/isaacsim.core.simulation_manager-LICENSE.md",
+      "bytes": 412,
+      "sha256": "5e1f0b8dc89f791cb31cccde4193826f8bdb10ce678273db164045f0c3b0957d",
+      "relative_path": "PACKAGE-LICENSES/isaacsim.core.simulation_manager-LICENSE.md",
+      "installed_source": {
+        "path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/exts/isaacsim.core.simulation_manager/PACKAGE-LICENSES/isaacsim.core.simulation_manager-LICENSE.md",
+        "bytes": 412,
+        "sha256": "5e1f0b8dc89f791cb31cccde4193826f8bdb10ce678273db164045f0c3b0957d"
+      }
+    },
+    {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/native_sdk_overlay/simulation_manager_shutdown_v1/isaacsim.core.simulation_manager/bin/libisaacsim.core.simulation_manager.plugin.so",
+      "bytes": 9562016,
+      "sha256": "cc21b76874553f8ca035efdfaa7c57d8879b12df66a06cc6d54c2e6b3fcb208c",
+      "relative_path": "bin/libisaacsim.core.simulation_manager.plugin.so",
+      "installed_source": {
+        "path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/exts/isaacsim.core.simulation_manager/bin/libisaacsim.core.simulation_manager.plugin.so",
+        "bytes": 257840,
+        "sha256": "6abe382b6599c32f2f706651241050ce4032e3d003c8f4663e4d149699838e0e"
+      }
+    },
+    {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/native_sdk_overlay/simulation_manager_shutdown_v1/isaacsim.core.simulation_manager/config/extension.toml",
+      "bytes": 6485,
+      "sha256": "a7e252cc8ff113a3bca246c4636a83ecf3a855507b229a27bb39f4770af33475",
+      "relative_path": "config/extension.toml",
+      "installed_source": {
+        "path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/exts/isaacsim.core.simulation_manager/config/extension.toml",
+        "bytes": 6485,
+        "sha256": "a7e252cc8ff113a3bca246c4636a83ecf3a855507b229a27bb39f4770af33475"
+      }
+    },
+    {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/native_sdk_overlay/simulation_manager_shutdown_v1/isaacsim.core.simulation_manager/config/python_api.md",
+      "bytes": 5975,
+      "sha256": "033718a0209bf70c91a3436cbf07afbe73a4137e7f0683f3bf93733f385d97b5",
+      "relative_path": "config/python_api.md",
+      "installed_source": {
+        "path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/exts/isaacsim.core.simulation_manager/config/python_api.md",
+        "bytes": 5975,
+        "sha256": "033718a0209bf70c91a3436cbf07afbe73a4137e7f0683f3bf93733f385d97b5"
+      }
+    },
+    {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/native_sdk_overlay/simulation_manager_shutdown_v1/isaacsim.core.simulation_manager/data/icon.png",
+      "bytes": 297,
+      "sha256": "4fd5cd16438163ff7699dc3f50fcd8bd4ec4aae883c4faea57ab23b51410e1c3",
+      "relative_path": "data/icon.png",
+      "installed_source": {
+        "path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/exts/isaacsim.core.simulation_manager/data/icon.png",
+        "bytes": 297,
+        "sha256": "4fd5cd16438163ff7699dc3f50fcd8bd4ec4aae883c4faea57ab23b51410e1c3"
+      }
+    },
+    {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/native_sdk_overlay/simulation_manager_shutdown_v1/isaacsim.core.simulation_manager/data/preview.png",
+      "bytes": 297,
+      "sha256": "4fd5cd16438163ff7699dc3f50fcd8bd4ec4aae883c4faea57ab23b51410e1c3",
+      "relative_path": "data/preview.png",
+      "installed_source": {
+        "path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/exts/isaacsim.core.simulation_manager/data/preview.png",
+        "bytes": 297,
+        "sha256": "4fd5cd16438163ff7699dc3f50fcd8bd4ec4aae883c4faea57ab23b51410e1c3"
+      }
+    },
+    {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/native_sdk_overlay/simulation_manager_shutdown_v1/isaacsim.core.simulation_manager/docs/CHANGELOG.md",
+      "bytes": 13122,
+      "sha256": "889949340301452b07e8e78914575a0827614f153f0588d371527b870618c357",
+      "relative_path": "docs/CHANGELOG.md",
+      "installed_source": {
+        "path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/exts/isaacsim.core.simulation_manager/docs/CHANGELOG.md",
+        "bytes": 13122,
+        "sha256": "889949340301452b07e8e78914575a0827614f153f0588d371527b870618c357"
+      }
+    },
+    {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/native_sdk_overlay/simulation_manager_shutdown_v1/isaacsim.core.simulation_manager/docs/Overview.md",
+      "bytes": 7756,
+      "sha256": "2d22044074c0b29ccc031dc7f599f797ab3edca452ff329fba535cb1240c54e4",
+      "relative_path": "docs/Overview.md",
+      "installed_source": {
+        "path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/exts/isaacsim.core.simulation_manager/docs/Overview.md",
+        "bytes": 7756,
+        "sha256": "2d22044074c0b29ccc031dc7f599f797ab3edca452ff329fba535cb1240c54e4"
+      }
+    },
+    {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/native_sdk_overlay/simulation_manager_shutdown_v1/isaacsim.core.simulation_manager/docs/SETTINGS.md",
+      "bytes": 315,
+      "sha256": "6f942ef413748131b35c812e84744e3eceafa63935bb26c84e86b9c431f7c868",
+      "relative_path": "docs/SETTINGS.md",
+      "installed_source": {
+        "path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/exts/isaacsim.core.simulation_manager/docs/SETTINGS.md",
+        "bytes": 315,
+        "sha256": "6f942ef413748131b35c812e84744e3eceafa63935bb26c84e86b9c431f7c868"
+      }
+    },
+    {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/native_sdk_overlay/simulation_manager_shutdown_v1/isaacsim.core.simulation_manager/docs/api.rst",
+      "bytes": 1057,
+      "sha256": "33c2b4a1f0d4d27da7e26bf05469d8fb0212504546fd03674900b2adb9d90d9b",
+      "relative_path": "docs/api.rst",
+      "installed_source": {
+        "path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/exts/isaacsim.core.simulation_manager/docs/api.rst",
+        "bytes": 1057,
+        "sha256": "33c2b4a1f0d4d27da7e26bf05469d8fb0212504546fd03674900b2adb9d90d9b"
+      }
+    },
+    {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/native_sdk_overlay/simulation_manager_shutdown_v1/isaacsim.core.simulation_manager/docs/index.rst",
+      "bytes": 2618,
+      "sha256": "996c647a5fb92881a4a2fc6a3c33a136a5549d1fe9acc956a8c4142e41ac3a50",
+      "relative_path": "docs/index.rst",
+      "installed_source": {
+        "path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/exts/isaacsim.core.simulation_manager/docs/index.rst",
+        "bytes": 2618,
+        "sha256": "996c647a5fb92881a4a2fc6a3c33a136a5549d1fe9acc956a8c4142e41ac3a50"
+      }
+    },
+    {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/native_sdk_overlay/simulation_manager_shutdown_v1/isaacsim.core.simulation_manager/include/isaacsim/core/simulation_manager/ISimulationManager.h",
+      "bytes": 8835,
+      "sha256": "6a912ab971bc83c58faacf96f290abc65b87bb08f149babfc591a05dc6d19c60",
+      "relative_path": "include/isaacsim/core/simulation_manager/ISimulationManager.h",
+      "installed_source": {
+        "path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/exts/isaacsim.core.simulation_manager/include/isaacsim/core/simulation_manager/ISimulationManager.h",
+        "bytes": 8835,
+        "sha256": "6a912ab971bc83c58faacf96f290abc65b87bb08f149babfc591a05dc6d19c60"
+      }
+    },
+    {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/native_sdk_overlay/simulation_manager_shutdown_v1/isaacsim.core.simulation_manager/include/isaacsim/core/simulation_manager/PhysicsScene.h",
+      "bytes": 6044,
+      "sha256": "c71ba3e08ead32eebd63dd6d329ac45f2e45b14dda7ee162ee99f7a0d71163ac",
+      "relative_path": "include/isaacsim/core/simulation_manager/PhysicsScene.h",
+      "installed_source": {
+        "path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/exts/isaacsim.core.simulation_manager/include/isaacsim/core/simulation_manager/PhysicsScene.h",
+        "bytes": 6044,
+        "sha256": "c71ba3e08ead32eebd63dd6d329ac45f2e45b14dda7ee162ee99f7a0d71163ac"
+      }
+    },
+    {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/native_sdk_overlay/simulation_manager_shutdown_v1/isaacsim.core.simulation_manager/include/isaacsim/core/simulation_manager/TimeSampleStorage.h",
+      "bytes": 9502,
+      "sha256": "f8d693f8f03c9534bef780a00901e097d796d538921b489e3db4093ff04371ba",
+      "relative_path": "include/isaacsim/core/simulation_manager/TimeSampleStorage.h",
+      "installed_source": {
+        "path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/exts/isaacsim.core.simulation_manager/include/isaacsim/core/simulation_manager/TimeSampleStorage.h",
+        "bytes": 9502,
+        "sha256": "f8d693f8f03c9534bef780a00901e097d796d538921b489e3db4093ff04371ba"
+      }
+    },
+    {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/native_sdk_overlay/simulation_manager_shutdown_v1/isaacsim.core.simulation_manager/include/isaacsim/core/simulation_manager/UsdNoticeListener.h",
+      "bytes": 3701,
+      "sha256": "65dd456a2161db4d918c11ad37fcd0d285e5dec9ea1703728f95b7dfba9577b4",
+      "relative_path": "include/isaacsim/core/simulation_manager/UsdNoticeListener.h",
+      "installed_source": {
+        "path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/exts/isaacsim.core.simulation_manager/include/isaacsim/core/simulation_manager/UsdNoticeListener.h",
+        "bytes": 3701,
+        "sha256": "65dd456a2161db4d918c11ad37fcd0d285e5dec9ea1703728f95b7dfba9577b4"
+      }
+    },
+    {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/native_sdk_overlay/simulation_manager_shutdown_v1/isaacsim.core.simulation_manager/isaacsim/core/simulation_manager/__init__.py",
+      "bytes": 761,
+      "sha256": "1fb084796ed33b53cd559dde9e7857d091704140c40769d8aedfc2ff1781abd4",
+      "relative_path": "isaacsim/core/simulation_manager/__init__.py",
+      "installed_source": {
+        "path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/exts/isaacsim.core.simulation_manager/isaacsim/core/simulation_manager/__init__.py",
+        "bytes": 761,
+        "sha256": "1fb084796ed33b53cd559dde9e7857d091704140c40769d8aedfc2ff1781abd4"
+      }
+    },
+    {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/native_sdk_overlay/simulation_manager_shutdown_v1/isaacsim.core.simulation_manager/isaacsim/core/simulation_manager/bindings/_simulation_manager.cpython-312-x86_64-linux-gnu.so",
+      "bytes": 286904,
+      "sha256": "97d76619e2dea7ed975e7fdb0ee9fa8e1a1523a884df7fa9eb37da6f9c917230",
+      "relative_path": "isaacsim/core/simulation_manager/bindings/_simulation_manager.cpython-312-x86_64-linux-gnu.so",
+      "installed_source": {
+        "path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/exts/isaacsim.core.simulation_manager/isaacsim/core/simulation_manager/bindings/_simulation_manager.cpython-312-x86_64-linux-gnu.so",
+        "bytes": 286904,
+        "sha256": "97d76619e2dea7ed975e7fdb0ee9fa8e1a1523a884df7fa9eb37da6f9c917230"
+      }
+    },
+    {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/native_sdk_overlay/simulation_manager_shutdown_v1/isaacsim.core.simulation_manager/isaacsim/core/simulation_manager/bindings/_simulation_manager.pyi",
+      "bytes": 11245,
+      "sha256": "4aca57f910c6d3b854a58a70064d4ca28d27ca481a92c923bd024ad9a0350e7d",
+      "relative_path": "isaacsim/core/simulation_manager/bindings/_simulation_manager.pyi",
+      "installed_source": {
+        "path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/exts/isaacsim.core.simulation_manager/isaacsim/core/simulation_manager/bindings/_simulation_manager.pyi",
+        "bytes": 11245,
+        "sha256": "4aca57f910c6d3b854a58a70064d4ca28d27ca481a92c923bd024ad9a0350e7d"
+      }
+    },
+    {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/native_sdk_overlay/simulation_manager_shutdown_v1/isaacsim.core.simulation_manager/isaacsim/core/simulation_manager/impl/__init__.py",
+      "bytes": 710,
+      "sha256": "d55902eadb865940828f0c13fe14d66f44ac777cd8ff71ddcb884dfd29900c43",
+      "relative_path": "isaacsim/core/simulation_manager/impl/__init__.py",
+      "installed_source": {
+        "path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/exts/isaacsim.core.simulation_manager/isaacsim/core/simulation_manager/impl/__init__.py",
+        "bytes": 710,
+        "sha256": "d55902eadb865940828f0c13fe14d66f44ac777cd8ff71ddcb884dfd29900c43"
+      }
+    },
+    {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/native_sdk_overlay/simulation_manager_shutdown_v1/isaacsim.core.simulation_manager/isaacsim/core/simulation_manager/impl/extension.py",
+      "bytes": 3364,
+      "sha256": "8c4ef108ce939ed8a485540e719af2517aba7a2401a1de6d0848a06a457b3ea1",
+      "relative_path": "isaacsim/core/simulation_manager/impl/extension.py",
+      "installed_source": {
+        "path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/exts/isaacsim.core.simulation_manager/isaacsim/core/simulation_manager/impl/extension.py",
+        "bytes": 3364,
+        "sha256": "8c4ef108ce939ed8a485540e719af2517aba7a2401a1de6d0848a06a457b3ea1"
+      }
+    },
+    {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/native_sdk_overlay/simulation_manager_shutdown_v1/isaacsim.core.simulation_manager/isaacsim/core/simulation_manager/impl/isaac_events.py",
+      "bytes": 2770,
+      "sha256": "231d6b767c5ab8b828dca3ea2b6691966c9efeb93930f805426556b551f5e253",
+      "relative_path": "isaacsim/core/simulation_manager/impl/isaac_events.py",
+      "installed_source": {
+        "path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/exts/isaacsim.core.simulation_manager/isaacsim/core/simulation_manager/impl/isaac_events.py",
+        "bytes": 2770,
+        "sha256": "231d6b767c5ab8b828dca3ea2b6691966c9efeb93930f805426556b551f5e253"
+      }
+    },
+    {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/native_sdk_overlay/simulation_manager_shutdown_v1/isaacsim.core.simulation_manager/isaacsim/core/simulation_manager/impl/mjc_scene.py",
+      "bytes": 10963,
+      "sha256": "ec36cda35b6f15d6883306fed8d033eac77533bffdeefe3490a8cf3c81f18e04",
+      "relative_path": "isaacsim/core/simulation_manager/impl/mjc_scene.py",
+      "installed_source": {
+        "path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/exts/isaacsim.core.simulation_manager/isaacsim/core/simulation_manager/impl/mjc_scene.py",
+        "bytes": 10963,
+        "sha256": "ec36cda35b6f15d6883306fed8d033eac77533bffdeefe3490a8cf3c81f18e04"
+      }
+    },
+    {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/native_sdk_overlay/simulation_manager_shutdown_v1/isaacsim.core.simulation_manager/isaacsim/core/simulation_manager/impl/physics_scene.py",
+      "bytes": 9600,
+      "sha256": "f0afc70e63b8c095b640efc414572662d4a33a9e43276b13abda1d08e4f038f9",
+      "relative_path": "isaacsim/core/simulation_manager/impl/physics_scene.py",
+      "installed_source": {
+        "path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/exts/isaacsim.core.simulation_manager/isaacsim/core/simulation_manager/impl/physics_scene.py",
+        "bytes": 9600,
+        "sha256": "f0afc70e63b8c095b640efc414572662d4a33a9e43276b13abda1d08e4f038f9"
+      }
+    },
+    {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/native_sdk_overlay/simulation_manager_shutdown_v1/isaacsim.core.simulation_manager/isaacsim/core/simulation_manager/impl/physx_scene.py",
+      "bytes": 20402,
+      "sha256": "e88f3d79c29b3c7cff01881873c387ac8eeaa4da64688cc7b9b19b7b6fc5b1ec",
+      "relative_path": "isaacsim/core/simulation_manager/impl/physx_scene.py",
+      "installed_source": {
+        "path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/exts/isaacsim.core.simulation_manager/isaacsim/core/simulation_manager/impl/physx_scene.py",
+        "bytes": 20402,
+        "sha256": "e88f3d79c29b3c7cff01881873c387ac8eeaa4da64688cc7b9b19b7b6fc5b1ec"
+      }
+    },
+    {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/native_sdk_overlay/simulation_manager_shutdown_v1/isaacsim.core.simulation_manager/isaacsim/core/simulation_manager/impl/simulation_event.py",
+      "bytes": 2478,
+      "sha256": "5fd5718a1c50dc35a366c244a7c4687940660a2ef7220139bfe0dcb0e8970178",
+      "relative_path": "isaacsim/core/simulation_manager/impl/simulation_event.py",
+      "installed_source": {
+        "path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/exts/isaacsim.core.simulation_manager/isaacsim/core/simulation_manager/impl/simulation_event.py",
+        "bytes": 2478,
+        "sha256": "5fd5718a1c50dc35a366c244a7c4687940660a2ef7220139bfe0dcb0e8970178"
+      }
+    },
+    {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/native_sdk_overlay/simulation_manager_shutdown_v1/isaacsim.core.simulation_manager/isaacsim/core/simulation_manager/impl/simulation_manager.py",
+      "bytes": 79181,
+      "sha256": "f95259051bb494ca1cf85ec3cfebdce61b4ec5f24cad49cf0ea295ccc0024f8e",
+      "relative_path": "isaacsim/core/simulation_manager/impl/simulation_manager.py",
+      "installed_source": {
+        "path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/exts/isaacsim.core.simulation_manager/isaacsim/core/simulation_manager/impl/simulation_manager.py",
+        "bytes": 79181,
+        "sha256": "f95259051bb494ca1cf85ec3cfebdce61b4ec5f24cad49cf0ea295ccc0024f8e"
+      }
+    },
+    {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/native_sdk_overlay/simulation_manager_shutdown_v1/isaacsim.core.simulation_manager/isaacsim/core/simulation_manager/impl/xpbd_scene.py",
+      "bytes": 8206,
+      "sha256": "186456968ab8971c680e6d28bf5b6790c24f3e4f82c5748c8c0a2b0d3df6193f",
+      "relative_path": "isaacsim/core/simulation_manager/impl/xpbd_scene.py",
+      "installed_source": {
+        "path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/exts/isaacsim.core.simulation_manager/isaacsim/core/simulation_manager/impl/xpbd_scene.py",
+        "bytes": 8206,
+        "sha256": "186456968ab8971c680e6d28bf5b6790c24f3e4f82c5748c8c0a2b0d3df6193f"
+      }
+    },
+    {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/native_sdk_overlay/simulation_manager_shutdown_v1/isaacsim.core.simulation_manager/isaacsim/core/simulation_manager/tests/__init__.py",
+      "bytes": 714,
+      "sha256": "085ae1eacfe3c98e8225712baea951aeb8a71d9e0019e4d91265b50b1a7ba0ec",
+      "relative_path": "isaacsim/core/simulation_manager/tests/__init__.py",
+      "installed_source": {
+        "path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/exts/isaacsim.core.simulation_manager/isaacsim/core/simulation_manager/tests/__init__.py",
+        "bytes": 714,
+        "sha256": "085ae1eacfe3c98e8225712baea951aeb8a71d9e0019e4d91265b50b1a7ba0ec"
+      }
+    },
+    {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/native_sdk_overlay/simulation_manager_shutdown_v1/isaacsim.core.simulation_manager/isaacsim/core/simulation_manager/tests/test_docstrings.py",
+      "bytes": 1957,
+      "sha256": "12a0ccdd51630ffa36e69abb48ad1ecd56d389a0e8a3cc98e1077cf43175eeb6",
+      "relative_path": "isaacsim/core/simulation_manager/tests/test_docstrings.py",
+      "installed_source": {
+        "path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/exts/isaacsim.core.simulation_manager/isaacsim/core/simulation_manager/tests/test_docstrings.py",
+        "bytes": 1957,
+        "sha256": "12a0ccdd51630ffa36e69abb48ad1ecd56d389a0e8a3cc98e1077cf43175eeb6"
+      }
+    },
+    {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/native_sdk_overlay/simulation_manager_shutdown_v1/isaacsim.core.simulation_manager/isaacsim/core/simulation_manager/tests/test_extension.py",
+      "bytes": 6455,
+      "sha256": "7229eee834cfbda7bf4cbdf4c7c69ec53032512e4cd48906469354b6de737e88",
+      "relative_path": "isaacsim/core/simulation_manager/tests/test_extension.py",
+      "installed_source": {
+        "path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/exts/isaacsim.core.simulation_manager/isaacsim/core/simulation_manager/tests/test_extension.py",
+        "bytes": 6455,
+        "sha256": "7229eee834cfbda7bf4cbdf4c7c69ec53032512e4cd48906469354b6de737e88"
+      }
+    },
+    {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/native_sdk_overlay/simulation_manager_shutdown_v1/isaacsim.core.simulation_manager/isaacsim/core/simulation_manager/tests/test_physics_scene.py",
+      "bytes": 19646,
+      "sha256": "bd56f6255df9ae890e3cfa60471689885b57bf8288761624ae318972af86e2f8",
+      "relative_path": "isaacsim/core/simulation_manager/tests/test_physics_scene.py",
+      "installed_source": {
+        "path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/exts/isaacsim.core.simulation_manager/isaacsim/core/simulation_manager/tests/test_physics_scene.py",
+        "bytes": 19646,
+        "sha256": "bd56f6255df9ae890e3cfa60471689885b57bf8288761624ae318972af86e2f8"
+      }
+    },
+    {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/native_sdk_overlay/simulation_manager_shutdown_v1/isaacsim.core.simulation_manager/isaacsim/core/simulation_manager/tests/test_simulation_manager.py",
+      "bytes": 48394,
+      "sha256": "f655e96b25cd6161a8c95479cece7a16e7c61cc8a8f7e6502b4e591f6a54237d",
+      "relative_path": "isaacsim/core/simulation_manager/tests/test_simulation_manager.py",
+      "installed_source": {
+        "path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/exts/isaacsim.core.simulation_manager/isaacsim/core/simulation_manager/tests/test_simulation_manager.py",
+        "bytes": 48394,
+        "sha256": "f655e96b25cd6161a8c95479cece7a16e7c61cc8a8f7e6502b4e591f6a54237d"
+      }
+    },
+    {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/native_sdk_overlay/simulation_manager_shutdown_v1/isaacsim.core.simulation_manager/isaacsim/core/simulation_manager/tests/test_simulation_time_drift.py",
+      "bytes": 8148,
+      "sha256": "5c378e77557122e44a3ec4bd8dd3a4ba3a5d249c0d8d9bd90900edbf79279fe4",
+      "relative_path": "isaacsim/core/simulation_manager/tests/test_simulation_time_drift.py",
+      "installed_source": {
+        "path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/exts/isaacsim.core.simulation_manager/isaacsim/core/simulation_manager/tests/test_simulation_time_drift.py",
+        "bytes": 8148,
+        "sha256": "5c378e77557122e44a3ec4bd8dd3a4ba3a5d249c0d8d9bd90900edbf79279fe4"
+      }
+    },
+    {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/native_sdk_overlay/simulation_manager_shutdown_v1/isaacsim.core.simulation_manager/isaacsim/core/simulation_manager/tests/test_time_sample_storage.py",
+      "bytes": 21782,
+      "sha256": "e12a2bc8666ed828e9659faa1eaabb7fddb759e589374965b177d5f88f0f1750",
+      "relative_path": "isaacsim/core/simulation_manager/tests/test_time_sample_storage.py",
+      "installed_source": {
+        "path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/exts/isaacsim.core.simulation_manager/isaacsim/core/simulation_manager/tests/test_time_sample_storage.py",
+        "bytes": 21782,
+        "sha256": "e12a2bc8666ed828e9659faa1eaabb7fddb759e589374965b177d5f88f0f1750"
+      }
+    }
+  ],
+  "different_files": [
+    "bin/libisaacsim.core.simulation_manager.plugin.so"
+  ],
+  "cpp_source_plan": {
+    "path": "/project/EXP/SangforAndSaut/ProtoMotions/docs/style_improvement_20261004/native_simulation_manager_overlay_revision_v1/source_review.json",
+    "bytes": 9654,
+    "sha256": "a6901351e97ce092cd2b328265c2e7b14225188c64892879d8bb87064fd59f5d"
+  },
+  "actual_root_compile_and_link": {
+    "initial_compile": "d4689c/session6362 completion92966c exit1 missingGSLinclude",
+    "corrected_compile": "77b378/session37840 completione6ae20 exit0",
+    "link": "bf284c exit0"
+  },
+  "compile_commands": [
+    [
+      "/usr/bin/g++-11",
+      "-std=c++17",
+      "-O2",
+      "-g",
+      "-fPIC",
+      "-fvisibility=hidden",
+      "-pthread",
+      "-DNDEBUG",
+      "-D_GLIBCXX_USE_CXX11_ABI=1",
+      "-DOMNI_COMPILE_AS_MODULE",
+      "-Dcarb_eventdispatcher_IEventDispatcher=CARB_HEXVERSION(1,4)",
+      "-DISAACSIM_CORE_SIMULATION_MANAGER_EXPORT",
+      "-D__STDC_VERSION__=0",
+      "-DTBB_USE_DEBUG=0",
+      "-DTBB_SUPPRESS_DEPRECATED_MESSAGES=1",
+      "-Wno-deprecated",
+      "-I",
+      "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/kit/dev/include",
+      "-I",
+      "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/kit/dev/fabric/include",
+      "-I",
+      "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/exts/isaacsim.core.includes/include",
+      "-I",
+      "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/exts/isaacsim.core.simulation_manager/include",
+      "-I",
+      "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/exts/omni.kit.loop-isaac/include",
+      "-I",
+      "/tmp/navisaacsim_native_build_deps_v1/usd-release/include",
+      "-I",
+      "/tmp/navisaacsim_native_schema_25_11_v1/include",
+      "-I",
+      "/tmp/navisaacsim_native_build_deps_v1/omni_physics_release/include",
+      "-I",
+      "/usr/include/python3.12",
+      "-c",
+      "/tmp/navisaacsim_native_compile_probe_v1/source/TimeSampleStorage.cpp",
+      "-o",
+      "/tmp/navisaacsim_native_compile_probe_v1/TimeSampleStorage.o"
+    ],
+    [
+      "/usr/bin/g++-11",
+      "-std=c++17",
+      "-O2",
+      "-g",
+      "-fPIC",
+      "-fvisibility=hidden",
+      "-pthread",
+      "-DNDEBUG",
+      "-D_GLIBCXX_USE_CXX11_ABI=1",
+      "-DOMNI_COMPILE_AS_MODULE",
+      "-Dcarb_eventdispatcher_IEventDispatcher=CARB_HEXVERSION(1,4)",
+      "-DISAACSIM_CORE_SIMULATION_MANAGER_EXPORT",
+      "-D__STDC_VERSION__=0",
+      "-DTBB_USE_DEBUG=0",
+      "-DTBB_SUPPRESS_DEPRECATED_MESSAGES=1",
+      "-Wno-deprecated",
+      "-I",
+      "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/kit/dev/include",
+      "-I",
+      "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/kit/dev/fabric/include",
+      "-I",
+      "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/exts/isaacsim.core.includes/include",
+      "-I",
+      "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/exts/isaacsim.core.simulation_manager/include",
+      "-I",
+      "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/exts/omni.kit.loop-isaac/include",
+      "-I",
+      "/tmp/navisaacsim_native_build_deps_v1/usd-release/include",
+      "-I",
+      "/tmp/navisaacsim_native_schema_25_11_v1/include",
+      "-I",
+      "/tmp/navisaacsim_native_build_deps_v1/omni_physics_release/include",
+      "-I",
+      "/usr/include/python3.12",
+      "-c",
+      "/tmp/navisaacsim_native_compile_probe_v1/source/UsdNoticeListener.cpp",
+      "-o",
+      "/tmp/navisaacsim_native_compile_probe_v1/UsdNoticeListener.o"
+    ],
+    [
+      "/usr/bin/g++-11",
+      "-std=c++17",
+      "-O2",
+      "-g",
+      "-fPIC",
+      "-fvisibility=hidden",
+      "-pthread",
+      "-DNDEBUG",
+      "-D_GLIBCXX_USE_CXX11_ABI=1",
+      "-DOMNI_COMPILE_AS_MODULE",
+      "-Dcarb_eventdispatcher_IEventDispatcher=CARB_HEXVERSION(1,4)",
+      "-DISAACSIM_CORE_SIMULATION_MANAGER_EXPORT",
+      "-D__STDC_VERSION__=0",
+      "-DTBB_USE_DEBUG=0",
+      "-DTBB_SUPPRESS_DEPRECATED_MESSAGES=1",
+      "-Wno-deprecated",
+      "-I",
+      "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/kit/dev/include",
+      "-I",
+      "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/kit/dev/fabric/include",
+      "-I",
+      "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/exts/isaacsim.core.includes/include",
+      "-I",
+      "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/exts/isaacsim.core.simulation_manager/include",
+      "-I",
+      "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/exts/omni.kit.loop-isaac/include",
+      "-I",
+      "/tmp/navisaacsim_native_build_deps_v1/usd-release/include",
+      "-I",
+      "/tmp/navisaacsim_native_schema_25_11_v1/include",
+      "-I",
+      "/tmp/navisaacsim_native_build_deps_v1/omni_physics_release/include",
+      "-I",
+      "/usr/include/python3.12",
+      "-c",
+      "/tmp/navisaacsim_native_compile_probe_v1/source/PhysicsScene.cpp",
+      "-o",
+      "/tmp/navisaacsim_native_compile_probe_v1/PhysicsScene.o"
+    ],
+    [
+      "/usr/bin/g++-11",
+      "-std=c++17",
+      "-O2",
+      "-g",
+      "-fPIC",
+      "-fvisibility=hidden",
+      "-pthread",
+      "-DNDEBUG",
+      "-D_GLIBCXX_USE_CXX11_ABI=1",
+      "-DOMNI_COMPILE_AS_MODULE",
+      "-Dcarb_eventdispatcher_IEventDispatcher=CARB_HEXVERSION(1,4)",
+      "-DISAACSIM_CORE_SIMULATION_MANAGER_EXPORT",
+      "-D__STDC_VERSION__=0",
+      "-DTBB_USE_DEBUG=0",
+      "-DTBB_SUPPRESS_DEPRECATED_MESSAGES=1",
+      "-Wno-deprecated",
+      "-I",
+      "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/kit/dev/include",
+      "-I",
+      "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/kit/dev/fabric/include",
+      "-I",
+      "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/exts/isaacsim.core.includes/include",
+      "-I",
+      "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/exts/isaacsim.core.simulation_manager/include",
+      "-I",
+      "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/exts/omni.kit.loop-isaac/include",
+      "-I",
+      "/tmp/navisaacsim_native_build_deps_v1/usd-release/include",
+      "-I",
+      "/tmp/navisaacsim_native_schema_25_11_v1/include",
+      "-I",
+      "/tmp/navisaacsim_native_build_deps_v1/omni_physics_release/include",
+      "-I",
+      "/usr/include/python3.12",
+      "-c",
+      "/tmp/navisaacsim_native_compile_probe_v1/source/PluginInterface.cpp",
+      "-o",
+      "/tmp/navisaacsim_native_compile_probe_v1/PluginInterface.o"
+    ]
+  ],
+  "corrected_plugin_compile": [
+    "/usr/bin/g++-11",
+    "-std=c++17",
+    "-O2",
+    "-g",
+    "-fPIC",
+    "-fvisibility=hidden",
+    "-pthread",
+    "-DNDEBUG",
+    "-D_GLIBCXX_USE_CXX11_ABI=1",
+    "-DOMNI_COMPILE_AS_MODULE",
+    "-Dcarb_eventdispatcher_IEventDispatcher=CARB_HEXVERSION(1,4)",
+    "-DISAACSIM_CORE_SIMULATION_MANAGER_EXPORT",
+    "-D__STDC_VERSION__=0",
+    "-DTBB_USE_DEBUG=0",
+    "-DTBB_SUPPRESS_DEPRECATED_MESSAGES=1",
+    "-Wno-deprecated",
+    "-I",
+    "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/kit/dev/include",
+    "-I",
+    "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/kit/dev/fabric/include",
+    "-I",
+    "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/exts/isaacsim.core.includes/include",
+    "-I",
+    "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/exts/isaacsim.core.simulation_manager/include",
+    "-I",
+    "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/exts/omni.kit.loop-isaac/include",
+    "-I",
+    "/tmp/navisaacsim_native_build_deps_v1/usd-release/include",
+    "-I",
+    "/tmp/navisaacsim_native_schema_25_11_v1/include",
+    "-I",
+    "/tmp/navisaacsim_native_build_deps_v1/omni_physics_release/include",
+    "-I",
+    "/usr/include/python3.12",
+    "-I",
+    "/tmp/navisaacsim_native_build_deps_v1/gsl/include",
+    "-c",
+    "/tmp/navisaacsim_native_compile_probe_v1/source/PluginInterface.cpp",
+    "-o",
+    "/tmp/navisaacsim_native_compile_probe_v2/PluginInterface.o"
+  ],
+  "link_command": [
+    "/usr/bin/g++-11",
+    "-shared",
+    "-Wl,-soname,libisaacsim.core.simulation_manager.plugin.so",
+    "-Wl,-rpath,$ORIGIN",
+    "/tmp/navisaacsim_native_compile_probe_v2/PluginInterface.o",
+    "/tmp/navisaacsim_native_compile_probe_v1/PhysicsScene.o",
+    "/tmp/navisaacsim_native_compile_probe_v1/TimeSampleStorage.o",
+    "/tmp/navisaacsim_native_compile_probe_v1/UsdNoticeListener.o",
+    "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/extscache/omni.usd.schema.physx-110.1.11+110.1.1.lx64.r.cp312.u7f4/bin/libphysxSchema.so",
+    "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/extscache/omni.usd.core-1.8.3+6312fa25.lx64.r/bin/libomni.usd.so",
+    "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/kit/libcarb.so",
+    "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/extscache/omni.usd.libs-1.0.3+6312fa25.lx64.r.cp312/bin/libusd_ar.so",
+    "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/extscache/omni.usd.libs-1.0.3+6312fa25.lx64.r.cp312/bin/libusd_arch.so",
+    "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/extscache/omni.usd.libs-1.0.3+6312fa25.lx64.r.cp312/bin/libusd_gf.so",
+    "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/extscache/omni.usd.libs-1.0.3+6312fa25.lx64.r.cp312/bin/libusd_plug.so",
+    "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/extscache/omni.usd.libs-1.0.3+6312fa25.lx64.r.cp312/bin/libusd_sdf.so",
+    "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/extscache/omni.usd.libs-1.0.3+6312fa25.lx64.r.cp312/bin/libusd_tf.so",
+    "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/extscache/omni.usd.libs-1.0.3+6312fa25.lx64.r.cp312/bin/libusd_usd.so",
+    "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/extscache/omni.usd.libs-1.0.3+6312fa25.lx64.r.cp312/bin/libusd_vt.so",
+    "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/extscache/omni.usd.libs-1.0.3+6312fa25.lx64.r.cp312/bin/libusd_usdGeom.so",
+    "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/extscache/omni.usd.libs-1.0.3+6312fa25.lx64.r.cp312/bin/libusd_usdUtils.so",
+    "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/extscache/omni.usd.libs-1.0.3+6312fa25.lx64.r.cp312/bin/libusd_usdPhysics.so",
+    "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/extscache/omni.usd.libs-1.0.3+6312fa25.lx64.r.cp312/bin/libusd_ts.so",
+    "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/extscache/omni.usd.libs-1.0.3+6312fa25.lx64.r.cp312/bin/libusd_python.so",
+    "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/kit/kernel/plugins/libpython3.12.so.1.0",
+    "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/extscache/omni.usd.libs-1.0.3+6312fa25.lx64.r.cp312/bin/libtbb.so",
+    "-pthread",
+    "-ldl",
+    "-lrt",
+    "-o",
+    "/tmp/navisaacsim_native_link_probe_v1/libisaacsim.core.simulation_manager.plugin.so"
+  ],
+  "native_runtime_exit": null,
+  "NN_training_executed": false,
+  "installed_SDK_changed": false
+}

@@ -31,7 +31,7 @@
     "usd_provider": "https://pypi.org/project/usd-exchange/3.0.0/",
     "uv_exclusion": "https://docs.astral.sh/uv/reference/settings/#exclude-dependencies"
   },
-  "scope": "Supplement an existing IsaacLab checkout + IsaacSim installed .venv; does not launch Kit or accept EULA.",
+  "scope": "Pinned fresh SDK installation or metadata-only descendant with the same clean source tree; native overlay restored from installed SDK plus project plugin.",
   "test_group": "crowdsim-tests",
   "pytest": "9.0.3",
   "kit_usd_version": [
@@ -69,5 +69,6 @@
     "directory": "Socially-aware_Indoor_Navigation_Benchmark",
     "locked_package_versions_changed": false,
     "SDK_source_changed": false
-  }
+  },
+  "isaaclab_source_tree": "4deaa3ceb8fb3fb4d5895b3d7dfb38040fda7677"
 }

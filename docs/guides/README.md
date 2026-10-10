@@ -15,6 +15,9 @@ The Chinese and English guides cover the same scope and use matching command exa
 
 ## 配置与证据 / Configuration and evidence
 
+- [实际资源与依赖全面审查 / Verified resource and dependency audit (Chinese)](../RESOURCE_DEPENDENCY_MAP_20261010_ZH.md)
+- [机器清单 / Machine-readable actual inventory](../resource_audit_20261010/inventory.json)
+- [代码结构与依赖分层 / Codebase map](../codebase/STRUCTURE.md)
 - [273 包依赖快照 / 273-package dependency inventory](dependency-inventory.json)
 - [SDK manifest](../../env/isaaclab3_sim6/pyproject.toml)、[lock](../../env/isaaclab3_sim6/uv.lock)、[profile](../../env/isaaclab3_sim6/profile.json)
 - [四场景配置 / Four-scene configuration](../../configs/diffusion_amp/four_scene_speed_20261010/)
@@ -24,8 +27,10 @@ The Chinese and English guides cover the same scope and use matching command exa
 - [上游合并记录 / Upstream integration record (Chinese)](../UPSTREAM_MERGE_20261010_ZH.md)
 - [原始 ProtoMotions README / Original ProtoMotions README](../reference/PROTOMOTIONS_README.md)
 
-新指南描述当前安装与部署入口；历史报告保留各自日期与失败结果。源码克隆不包含本地授权资源、全部自训模型、场景地图和视频。
-These guides describe current installation and deployment. Historical reports retain their dates and failures. Cloning source does not provide licensed local data, all trained models, native scene maps or videos.
+新指南描述当前安装与部署入口；历史报告保留各自日期与失败结果。克隆源码后按[私有资源发布说明](../../ASSET_RELEASE.md)获取选定权重、训练状态、机器人与四场景；授权 AMASS/SMPL、SDK、视频及搬迁后的地图准入需另行准备。
+These guides describe current installation and deployment. Historical reports retain their dates and failures. After cloning, fetch selected models, training state, robot and four scenes using the [private release instructions](../../ASSET_RELEASE.md#english-instructions). Licensed AMASS/SMPL, SDKs, videos and relocated native-map admission remain separate.
 
 本项目仍未验证作者完整评估协议或达到论文全部指标。
 The complete author evaluation protocol and all reported paper metrics remain unverified.
+
+当前克隆入口与路径迁移说明：[CLONE_REPRODUCTION.md](../../CLONE_REPRODUCTION.md)。

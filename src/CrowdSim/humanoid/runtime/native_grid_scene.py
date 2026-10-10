@@ -9,6 +9,7 @@ from __future__ import annotations
 from copy import deepcopy
 import heapq
 import json
+from social_navigation.resource_bindings import read_json as read_resource_json, resolve_path
 import math
 from pathlib import Path
 import sys
@@ -72,7 +73,7 @@ def _full_height_admission(provider):
     native = provider._native
     _check_record(native["record"])
     data = deepcopy(native["data"])
-    if json.loads(Path(native["record"]["path"]).read_text()) != data:
+    if read_resource_json(native["record"]["path"]) != data:
         raise ValueError("Admitted native evidence differs from its source-bound provider snapshot")
     from .native_map_v7 import is_v7, verify_v7
     from .native_map_v8 import is_v8, verify_v8
@@ -219,7 +220,7 @@ def _full_height_admission(provider):
                 or refinement["height_clear_known5_cells"] != int((~obstacle).sum())):
             raise ValueError("Recorded full-height classification counts disagree with raw hits")
         _check_record(band["clock_artifact"])
-        clock = json.loads(Path(band["clock_artifact"]["path"]).read_text())
+        clock = read_resource_json(band["clock_artifact"]["path"])
         before, after = band["clock_before"], band["clock_after"]
         if (before != after or band["query_time_unchanged"] is not True or band["foreign_hit_paths"] != []
                 or clock != {key: value for key, value in band.items() if key not in {"artifact", "clock_artifact", "queried_cells"}}

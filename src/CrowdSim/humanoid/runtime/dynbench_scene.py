@@ -9,6 +9,7 @@ from __future__ import annotations
 from copy import deepcopy
 import hashlib
 import json
+from social_navigation.resource_bindings import read_json as read_resource_json, resolve_path
 import math
 from pathlib import Path
 import sys
@@ -42,7 +43,7 @@ def _paths(values, label):
 
 
 def file_record(path):
-    path = Path(path).resolve()
+    path = resolve_path(path)
     digest = hashlib.sha256()
     with path.open("rb") as stream:
         for block in iter(lambda: stream.read(1024 * 1024), b""):
@@ -58,7 +59,7 @@ def same_file_record(actual, expected):
     """
     if type(actual) is not dict or type(expected) is not dict or "path" not in actual or "path" not in expected:
         return False
-    return dict(actual, path=str(Path(actual["path"]).resolve())) == dict(expected, path=str(Path(expected["path"]).resolve()))
+    return dict(actual, path=str(resolve_path(actual["path"]))) == dict(expected, path=str(resolve_path(expected["path"])))
 
 
 def _check_record(record):
@@ -78,7 +79,7 @@ def _read_bound_json(path, expected_sha256):
     record = file_record(path)
     if record["sha256"] != expected_sha256:
         raise ValueError("Scene evidence SHA256 differs from the selected source")
-    value = json.loads(Path(record["path"]).read_text())
+    value = read_resource_json(record["path"])
     if type(value) is not dict:
         raise ValueError("Scene evidence must be a JSON object")
     return value, record
@@ -201,7 +202,7 @@ def _verify_native_height_band(data, rays, floor_paths, static_paths, ground):
         if (type(before["submitted_physics_step"]) is not int or before["submitted_physics_step"] < 0
                 or type(before["timeline_s"]) not in (float, int) or not math.isfinite(before["timeline_s"]) or before["timeline_s"] < 0):
             raise ValueError("Full-height queries need actual unchanged counter/timeline")
-        clock = json.loads(Path(band["clock_artifact"]["path"]).read_text())
+        clock = read_resource_json(band["clock_artifact"]["path"])
         if clock != {key: value for key, value in band.items() if key not in {"artifact", "clock_artifact", "queried_cells"}}:
             raise ValueError("Full-height query clock artifact disagrees with result")
         with np.load(band["artifact"]["path"], allow_pickle=False) as hits:
@@ -340,6 +341,12 @@ class DynBenchSceneProvider:
     projection for navigation. Native resource/map admission and a live query
     binding are explicit separate operations; no visual bounding boxes are used.
     """
+
+    def __deepcopy__(self, memo):
+        # IsaacLab copies SceneCfg and its bound spawn callback. The provider
+        # owns one scene/query/layer closure and must retain the same identity.
+        memo[id(self)] = self
+        return self
 
     @classmethod
     def from_preflight(cls, path, *, expected_sha256, probe_script_snapshot=None):
@@ -482,7 +489,10 @@ class DynBenchSceneProvider:
         from pxr import Sdf, Usd, UsdGeom, UsdPhysics
         self.verify_sources()
         source = self._data["source"]["path"]
-        layer = Sdf.Layer.FindOrOpen(source)
+        from social_navigation.portable_usd import relocate_layers
+        layer, self._portable_layers, self._portable_usd_receipt = relocate_layers(self._data["layers"], source)
+        runtime_source = layer.identifier
+        self._runtime_source_layer = layer
         if layer is None or any(stage.GetPrimAtPath(str(root.path)) for root in layer.rootPrims):
             raise ValueError("Source layer roots conflict with the active stage")
         if stage.GetPrimAtPath(FLOOR_PATH) or stage.GetPrimAtPath(SCENE_MARKER_PATH):
@@ -491,9 +501,9 @@ class DynBenchSceneProvider:
         physics_paths = [str(prim.GetPath()) for prim in source_stage.Traverse() if prim.IsA(UsdPhysics.Scene)]
         session = stage.GetSessionLayer()
         stage.SetEditTarget(session)
-        if source in session.subLayerPaths:
+        if runtime_source in session.subLayerPaths:
             raise ValueError("DynBench source already composed")
-        session.subLayerPaths.append(source)
+        session.subLayerPaths.append(runtime_source)
         if stage.GetCompositionErrors():
             raise ValueError("Composed DynBench layer has USD composition errors")
         if str(UsdGeom.GetStageUpAxis(stage)) != "Z" or UsdGeom.GetStageMetersPerUnit(stage) != 1.:
@@ -775,6 +785,7 @@ class DynBenchSceneProvider:
             "static_target_contact_report_threshold_n": 0., "floor_owner": "reference_flat_terrain",
             "probe_script_recorded_epoch": deepcopy(self._data["script"]),
             "probe_script_verified_historical_snapshot": deepcopy(self._probe_script_snapshot_record),
+            "portable_USD_location_derivation": deepcopy(getattr(self,"_portable_usd_receipt",None)),
             "flat_ground_inventory_required": True, "disabled_original_flat_ground_paths": list(self._disabled_flat_ground_paths),
             "floor_paths": list(self.floor_paths), "static_collider_count": len(self.static_paths),
             "floor_static_disjoint": True, "map_bounds_xy_m": self.bounds_xy, "floor_bounds_xy_m": self.floor_bounds_xy,

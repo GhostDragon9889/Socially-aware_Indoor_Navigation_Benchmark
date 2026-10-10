@@ -35,7 +35,9 @@ def require_checkout(lab_root: Path) -> None:
     head = subprocess.check_output(
         ["git", "rev-parse", "HEAD"], cwd=lab_root, text=True
     ).strip()
-    if head != PROFILE["isaaclab_commit"]:
+    source_tree = subprocess.check_output(["git", "rev-parse", "HEAD:source"], cwd=lab_root, text=True).strip()
+    dirty = subprocess.check_output(["git", "status", "--porcelain", "--", "source"], cwd=lab_root, text=True).strip()
+    if dirty or (head != PROFILE["isaaclab_commit"] and source_tree != PROFILE.get("isaaclab_source_tree")):
         raise RuntimeError(f"IsaacLab commit is {head}; expected {PROFILE['isaaclab_commit']}")
     if (lab_root / "VERSION").read_text().strip() != PROFILE["isaaclab_product_version"]:
         raise RuntimeError("IsaacLab product VERSION differs from the profile")
@@ -119,10 +121,10 @@ def check_current() -> dict:
     }
 
 
-def apply_profile(lab_root: Path, sync: bool) -> None:
+def apply_profile(lab_root: Path, sync: bool, *, fresh: bool = False) -> None:
     require_checkout(lab_root)
     python = lab_root / ".venv" / "bin" / "python"
-    if not python.is_file() or installed_sim(python) != PROFILE["isaacsim"]:
+    if not fresh and (not python.is_file() or installed_sim(python) != PROFILE["isaacsim"]):
         raise RuntimeError("This command requires an existing .venv with Isaac Sim 6.0.0.1 installed")
     for name, key in [("pyproject.toml", "manifest_sha256"), ("uv.lock", "lock_sha256")]:
         if sha256(PROFILE_DIR / name) != PROFILE[key]:
@@ -143,7 +145,7 @@ def apply_profile(lab_root: Path, sync: bool) -> None:
     print(f"Profile applied; prior manifest/lock saved to {backup}")
     if sync:
         subprocess.run(
-            ["uv", "sync", "--locked", "--extra", "isaacsim", "--reinstall-package", "usd-exchange"],
+            ["uv", "sync", "--locked", "--python", PROFILE["python_recorded"], "--extra", "isaacsim", "--reinstall-package", "usd-exchange"],
             cwd=lab_root,
             check=True,
         )

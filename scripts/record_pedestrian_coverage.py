@@ -6,7 +6,6 @@ https://docs.omniverse.nvidia.com/kit/docs/kit-manual/latest/carb/carb.Framework
 from pathlib import Path
 import argparse,hashlib,json,os,subprocess,sys,time
 R=Path(__file__).resolve().parents[1]
-if not (R/'CrowdSim').is_dir():R=Path('/project/EXP/SangforAndSaut/ProtoMotions')
 def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
 def put(p,d):Path(p).write_text(json.dumps(d,indent=2,ensure_ascii=False)+'\n')
 def launch(cmd,output):

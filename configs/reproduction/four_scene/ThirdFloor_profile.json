@@ -1,0 +1,80 @@
+{
+  "schema": "crowdsim.trace_pace_reliability.v1",
+  "resources": {
+    "diffusion_checkpoint": {
+      "path": "data/pretrained_models/paper_references/trace/ckpt/trace/orca_mixed/iter40000.ckpt",
+      "sha256": "fd6ba631f4ccaa1a486b7cff192dfc17c5a7dd4a1058dd57830c854eaa7b9257"
+    },
+    "diffusion_config": {
+      "path": "data/pretrained_models/paper_references/trace/ckpt/trace/orca_mixed/config.json",
+      "sha256": "35a5fb329e72c5b2988e90ab58fb443b72303feb0558b4d954b8fb3aecbe3fbd"
+    },
+    "amp_checkpoint": {
+      "path": "data/pretrained_models/local_amass_finetune/walking_turn_20261009/Humanoid_AMASS.pth",
+      "sha256": "0cd961343d9828f95b0fcd6ed38ca8fb391140115c1a8fe808ff4ec1884434a8"
+    },
+    "amass_manifest": {
+      "path": "data/diffusion_amp/amass_style_2848/manifest_labeled_v7.json",
+      "sha256": "68d41be28908f28a09c47f7658af39d55fad01b32212bd7c0ced2b1e6b1489ca"
+    }
+  },
+  "replan_controls": 10,
+  "num_samples": 16,
+  "guidance": {
+    "goal_weight": 200.0,
+    "map_weight": 5000.0,
+    "agent_weight": 3000.0,
+    "dynamics_weight": 5.0,
+    "max_speed_m_s": 0.9,
+    "max_acceleration_m_s2": 4.0,
+    "max_yaw_rate_rad_s": 1.2,
+    "clearance_m": 0.15,
+    "agent_buffer_m": 0.2,
+    "guide_clean": true,
+    "reject_unsafe_samples": true,
+    "target_speed_weight": 8.0,
+    "target_speed_m_s": 0.6,
+    "turn_speed_decay_s": 0.7,
+    "speed_ramp_time_s": 1.2,
+    "clean_guidance_step_size": 0.005,
+    "final_refinement_steps": 96,
+    "final_refinement_learning_rate": 0.15,
+    "final_refinement_anchor_weight": 0.02,
+    "bounded_guidance_gradient": 0.1,
+    "yaw_smoothness_weight": 0.25,
+    "speed_smoothness_weight": 0.02,
+    "map_worst_point_cost": true
+  },
+  "allow_safety_braking": true,
+  "stationary_route_heading": true,
+  "mixed_safety_brakes": true,
+  "guard_horizon_s": 0.7,
+  "guard_tracking_margin_m": 0.025,
+  "persistent_braking_target": true,
+  "amp_sample_start_s": 0.0,
+  "local_finetune_admission": {
+    "candidate": false,
+    "physical_quality_pending": false,
+    "purpose": "Completed local N1/N4 60s physical and posture/speed/contact gates; source-bound video recorded",
+    "author_experiment_reproduction": false,
+    "tested_profile": {
+      "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/speed_coverage_optimization/ThirdFloor_parent_profile_v17.json",
+      "bytes": 2440,
+      "sha256": "679fd1d1ef189003fe59c52b97ffbb0bf78ac0624ffbe401bed547a1613e4272"
+    },
+    "tested_execution": {
+      "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/speed_coverage_optimization/ThirdFloor_speed_coverage60_v17_execution.json",
+      "bytes": 26598,
+      "sha256": "9d70605d14bedf3626f305ace0b22d2d6b0432e5f337de27dea48b3c9e64d01e"
+    }
+  },
+  "pedestrian_extent_m": [
+    0.5,
+    0.5,
+    1.7
+  ],
+  "map_guard_clearance_m": 0.02,
+  "actual_body_map_guard": true,
+  "body_guard_horizon_s": 0.3,
+  "body_guard_gap_m": 0.04
+}

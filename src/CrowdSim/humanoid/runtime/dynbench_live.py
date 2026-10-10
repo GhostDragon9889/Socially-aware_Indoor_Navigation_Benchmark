@@ -50,13 +50,16 @@ def verify_live_runtime(provider, *, origins_xy, simulation_context, free_cell_l
         raise ValueError("Actual submitted-step counter must be a consistent nonnegative integer")
     if str(UsdGeom.GetStageUpAxis(stage)) != "Z" or UsdGeom.GetStageMetersPerUnit(stage) != 1.:
         raise ValueError("Live native world is not source-bound Z-up/metres1")
-    source_path = provider._data["source"]["path"]
+    from social_navigation.portable_usd import verify_owned_layers
+    verify_owned_layers(provider._portable_layers, provider._portable_usd_receipt)
+    source_layer = provider._runtime_source_layer
+    source_path = source_layer.identifier
     session = stage.GetSessionLayer()
     if list(session.subLayerPaths).count(source_path) != 1 or not stage.GetPrimAtPath(SCENE_MARKER_PATH):
         raise ValueError("Live stage requires exactly one source session layer and provider marker")
     if stage.GetCompositionErrors():
         raise ValueError("Live source composition has USD errors")
-    source_stage = Usd.Stage.Open(source_path)
+    source_stage = Usd.Stage.Open(source_layer)
     if source_stage is None:
         raise ValueError("Cannot inspect unchanged authored source stage")
     source_roots = [str(prim.GetPath()) for prim in source_stage.GetPseudoRoot().GetChildren()]

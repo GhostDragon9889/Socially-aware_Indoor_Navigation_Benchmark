@@ -15,9 +15,9 @@ import time
 import traceback
 
 ROOT = Path(__file__).resolve().parents[1]
-if not (ROOT / "CrowdSim").is_dir():
-    ROOT = Path("/project/EXP/SangforAndSaut/ProtoMotions")
+sys.path.insert(0, str(ROOT / "src"))
 sys.path.insert(0, str(ROOT))
+from social_navigation.resource_bindings import scene_locations, resolve_path
 
 
 def sha256(path):
@@ -53,7 +53,7 @@ def main(*, terminal_state=None):
 
         if (
             args.scene is None
-            or len(yaml.safe_load(args.scene.read_text())["origins_xy"]) not in (1,4)
+            or len(scene_locations(yaml.safe_load(args.scene.read_text()))["origins_xy"]) not in (1,4)
         ):
             parser.error(
                 "Measured-contact terminal ownership is verified only for an explicit N1/N4 shared scene"
@@ -64,8 +64,7 @@ def main(*, terminal_state=None):
         raise ValueError("Wrong config schema")
     resources = {}
     for name, item in configuration["resources"].items():
-        path = Path(item["path"])
-        path = path if path.is_absolute() else ROOT / path
+        path = resolve_path(item["path"], root=ROOT)
         digest = sha256(path)
         if digest != item["sha256"]:
             raise ValueError("Resource identity changed: " + name)
@@ -107,6 +106,8 @@ def main(*, terminal_state=None):
         (args.output / "result.json").write_text(json.dumps(report, indent=2) + "\n")
         print(json.dumps({"status": report["status"], "sdk_started": False}))
         return 0
+    from social_navigation.sdk_paths import require_cuda_driver
+    require_cuda_driver()
     from CrowdSim.humanoid.runtime.trace_pace_lifecycle import TracePaceLifecycle
 
     if args.measure_contacts:
@@ -115,7 +116,7 @@ def main(*, terminal_state=None):
         )
 
         import yaml
-        declared_scene = yaml.safe_load(args.scene.read_text())
+        declared_scene = scene_locations(yaml.safe_load(args.scene.read_text()))
         if declared_scene.get('schema') == 'crowdsim.native_pedestrian_scene.v1':
             from CrowdSim.humanoid.runtime.trace_pace_native_lifecycle import TracePaceNativeLifecycle
             lifecycle = TracePaceNativeLifecycle(report)
@@ -296,7 +297,7 @@ def _run_physics(app, args, resources, configuration, report, lifecycle, owner):
 
         random.seed(args.seed)
         np.random.seed(args.seed)
-        scene = None if args.scene is None else yaml.safe_load(args.scene.read_text())
+        scene = None if args.scene is None else scene_locations(yaml.safe_load(args.scene.read_text()))
         count = 1 if scene is None else len(scene["origins_xy"])
         native_scene = None
         if scene is not None and scene.get('schema') == 'crowdsim.native_pedestrian_scene.v1':

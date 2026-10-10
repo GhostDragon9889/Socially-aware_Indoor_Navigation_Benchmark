@@ -28,6 +28,13 @@
 
 该 IsaacLab 提交属于开发线，不等于 `v3.0.0-beta2` tag。官方 [beta2](https://github.com/isaac-sim/IsaacLab/releases/tag/v3.0.0-beta2)支持 Sim 6.0，但安装本项目时仍须使用精确提交。[3.0 EA](https://github.com/isaac-sim/IsaacLab/releases/tag/v3.0.0-EA)要求 Sim 6.1，不能仅依据“3.0”名称替换本环境。
 
+
+### 本机实际状态补充（2026-10-10）
+
+本轮核对 SDK manifest/lock SHA 与存档相同，272 个非 virtual 锁定版本全部匹配；18 项项目 core 约束满足，`uv pip check` 仍报告下述3项覆盖冲突。当前 SDK HEAD 已是 `5951d48dde083986489957a7b108ad48a46822a7`（依赖配置提交），profile 仍记录 `4ecd0b...`；两提交之间只改变 manifest/lock，SDK source 未改变，但 `apply` 的精确 commit 门禁会拒绝当前 HEAD。`check` 的版本、234 个 USD RECORD 文件及 standalone round-trip 验证通过。不要把两种检查混写为同一结论。
+
+`/project/EXP/IsaacLab` 的 Sim6.1/package17.0.2 与此环境不同，其项目 core 尚缺7包并有2项版本越界。迁移问题及实际资源缺口见[全面审查](../RESOURCE_DEPENDENCY_MAP_20261010_ZH.md)和[机器清单](../resource_audit_20261010/inventory.json)。
+
 ### 主要锁定版本
 
 以下值直接来自仓库 lock；不表示已在任意机器安装或验证。

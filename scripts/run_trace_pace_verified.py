@@ -26,8 +26,6 @@ def main():
     parser.add_argument("child_args", nargs=argparse.REMAINDER)
     args = parser.parse_args()
     root = Path(__file__).resolve().parents[1]
-    if not (root / "CrowdSim").is_dir():
-        root = Path("/project/EXP/SangforAndSaut/ProtoMotions")
     output = args.output.resolve()
     output.parent.mkdir(parents=True, exist_ok=True)
     receipt = output.with_name(output.name + "_execution.json")
@@ -85,6 +83,10 @@ def main():
     sources = {root / "scripts/run_trace_pace.py", Path(__file__).resolve(),
                root / "src/protomotions/repository.py"}
     sources.update((root / "src/social_navigation").glob("*.py"))
+    sources.update((root / "configs/reproduction").rglob("*.json"))
+    sources.update((root / "CrowdSim/humanoid/runtime/sealed").glob("*.py"))
+    if (root / "data/external_resources.json").is_file():
+        sources.add(root / "data/external_resources.json")
     for relative in ("CrowdSim/humanoid/diffusion", "CrowdSim/humanoid/amp"):
         sources.update((root / relative).rglob("*.py"))
     sources.update(

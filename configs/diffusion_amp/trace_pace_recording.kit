@@ -1,0 +1,60 @@
+[package]
+title = "Verified pedestrian state recording"
+description = "IsaacSim RTX rendering of separately verified IsaacLab physical states"
+version = "1.0.0"
+
+[dependencies]
+"omni.kit.loop" = {}
+"omni.usd" = {}
+"omni.kit.usd.layers" = {}
+"omni.replicator.core" = {}
+"omni.kit.material.library" = {}
+"omni.kit.viewport.rtx" = {}
+"omni.kit.hydra_texture" = {}
+
+[settings]
+app.name = "IsaacSim Pedestrian Recording"
+app.content.emptyStageOnStart = false
+app.enableStdoutOutput = false
+app.fastShutdown = false
+app.audio.enabled = false
+app.vulkan = true
+app.useFabricSceneDelegate = false
+app.player.playSimulations = false
+app.asyncRendering = false
+app.hydraEngine.waitIdle = true
+app.renderer.waitIdle = true
+app.updateOrder.checkForHydraRenderComplete = 1000
+app.runLoops.main.rateLimitEnabled = false
+renderer.enabled = "rtx"
+renderer.multiGpu.enabled = false
+rtx.hydra.readTransformsFromFabricInRenderDelegate = false
+rtx.rendermode = "RealTimePathTracing"
+rtx.rtpt.maxBounces = 3
+rtx.rtpt.cached.enabled = false
+rtx.rtpt.lightcache.cached.enabled = false
+exts."omni.renderer.core".present.enabled = false
+exts."omni.replicator.core".Orchestrator.enabled = false
+omni.replicator.asyncRendering = false
+metricsAssembler.changeListenerEnabled = false
+app.extensions.excluded = ["omni.kit.pip_archive", "omni.isaac.ml_archive", "isaacsim.pip.newton", "omni.warp.core"]
+
+[settings.app.settings]
+fabricDefaultStageFrameHistoryCount = 3
+persistent = false
+
+[settings.app.extensions]
+registryEnabled = false
+
+[settings.app.python]
+interceptSysStdOutput = false
+logSysStdOutput = false
+
+[settings.app.exts.folders]
+'++' = [
+    "${exe-path}/exts",
+    "${exe-path}/extscore",
+    "${exe-path}/../exts",
+    "${exe-path}/../extscache",
+    "${exe-path}/../extsPhysics",
+]

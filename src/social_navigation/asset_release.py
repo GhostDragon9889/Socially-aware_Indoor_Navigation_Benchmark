@@ -82,12 +82,21 @@ def verify(release: Path, *, check_usd: bool = False) -> dict:
     return result
 
 
-def fetch(root: Path) -> None:
+def fetch(root: Path, remote: str | None = None) -> None:
     # The original upstream files still use the NVlabs download endpoint.
     # Override it only for this explicitly scoped private release download.
+    if remote is None:
+        remotes = subprocess.check_output(['git', '-C', str(root), 'remote'], text=True).splitlines()
+        for candidate in remotes:
+            url = subprocess.check_output(['git', '-C', str(root), 'remote', 'get-url', candidate], text=True).strip()
+            if 'GhostDragon9889/Socially-aware_Indoor_Navigation_Benchmark' in url:
+                remote = candidate
+                break
+        if remote is None:
+            raise ValueError('No project GitHub remote found; specify --remote explicitly')
     subprocess.run(['git', '-C', str(root), '-c', f'lfs.url={LFS_URL}',
-                    '-c', 'lfs.fetchexclude=', 'lfs', 'pull', 'benchmark',
-                    f'--include={RELEASE_PATH.as_posix()}/**', '--exclude='], check=True)
+                    '-c', 'lfs.fetchexclude=', 'lfs', 'pull', remote,
+                    f'--include={RELEASE_PATH.as_posix()}/**,resources/pedestrian_visuals/**', '--exclude='], check=True)
 
 
 def install_models(root: Path, release: Path) -> dict:
@@ -118,20 +127,24 @@ def install_models(root: Path, release: Path) -> dict:
 
 def main(argv=None, *, default_root: Path | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('action', choices=('fetch', 'verify', 'install-models', 'catalog'))
+    parser.add_argument('action', choices=('fetch', 'verify', 'install-models', 'prepare', 'catalog'))
     parser.add_argument('--root', type=Path, default=default_root or Path.cwd())
     parser.add_argument('--check-usd', action='store_true', help='Also check local USD dependency closure (requires pxr)')
+    parser.add_argument('--remote', help='Git remote name; detected from URL by default')
     args = parser.parse_args(argv)
     root = args.root.resolve()
     release = root / RELEASE_PATH
     if args.action == 'fetch':
-        fetch(root)
+        fetch(root, args.remote)
     if args.action == 'catalog':
         print((release / 'catalog.json').read_text(), end='')
         return 0
     result = verify(release, check_usd=args.check_usd)
-    if args.action == 'install-models':
+    if args.action in ('install-models', 'prepare'):
         result['installation'] = install_models(root, release)
+    if args.action == 'prepare':
+        from .reproduction import prepare_resources
+        result['preparation'] = prepare_resources(root, release)
     print(json.dumps(result, indent=2, ensure_ascii=False))
     return 0
 

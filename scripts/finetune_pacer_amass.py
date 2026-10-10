@@ -258,7 +258,7 @@ def train_physics(app, args, owner, report, lifecycle):
         world = None
 
 
-def main():
+def main(*, terminal_state=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--manifest", type=Path, default=ROOT / "data/diffusion_amp/amass_style_2848/manifest_labeled_v7.json")
@@ -281,6 +281,8 @@ def main():
     report = {"status": "starting", "parent_sha256": digest(args.parent_checkpoint),
               "manifest_sha256": digest(args.manifest), "requested_updates": args.updates,
               "requested_physical_transitions": args.updates*args.num_envs*args.rollout_steps}
+    from social_navigation.sdk_paths import require_cuda_driver
+    require_cuda_driver()
     from CrowdSim.humanoid.runtime.trace_pace_lifecycle import TracePaceLifecycle
     lifecycle = TracePaceLifecycle(report)
     from protomotions.utils.simulator_imports import import_simulator_before_torch
@@ -306,8 +308,31 @@ def main():
             report["status"] = "failed_cleanup"
         (args.output / "result.json").write_text(json.dumps(report, indent=2, default=str) + "\n")
         print(json.dumps({key: report.get(key) for key in ("status", "updates", "physical_transitions", "error", "cleanup_succeeded")}), flush=True)
+    if terminal_state is not None:
+        terminal_state.update(report=report, output=args.output)
     return 0 if report["status"] == "passed" else 1
 
 
+def entry():
+    """Unload native plugins while Python is alive, after main owners return."""
+    terminal_state = {}
+    code = main(terminal_state=terminal_state)
+    if terminal_state:
+        import gc
+        gc.collect()
+        report, output = terminal_state['report'], terminal_state['output']
+        from CrowdSim.humanoid.runtime.native_framework_shutdown import unload_native_plugins
+        try:
+            unload_native_plugins(report, full_app_close_returned=report['cleanup_succeeded'])
+            report['native_framework_shutdown']['main_scope_returned'] = True
+        except Exception as error:
+            report['status'] = 'failed_cleanup'
+            report['cleanup_succeeded'] = False
+            report['cleanup_errors'].append('native framework unload after main: '+str(error))
+            code = 1
+        (output/'result.json').write_text(json.dumps(report,indent=2,default=str)+'\n')
+    return code
+
+
 if __name__ == "__main__":
-    sys.exit(main())
+    sys.exit(entry())

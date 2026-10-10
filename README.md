@@ -1,5 +1,7 @@
 # Socially-aware_Indoor_Navigation_Benchmark
 
+**从 Git 克隆复现：** [完整步骤](CLONE_REPRODUCTION.md)（SDK 引导、资源恢复、固定 AMASS 重建、四场景评估和录制）。
+
 [简体中文](README.md) · [English](README.en.md) · [完整双语文档](docs/guides/README.md)
 
 ## 安装与使用文档
@@ -11,6 +13,7 @@
 | 权重、数据与场景配置 | [配置](docs/guides/configuration.zh-CN.md) | [Configuration](docs/guides/configuration.en.md) |
 | 微调、评估与录像 | [使用](docs/guides/usage.zh-CN.md) | [Usage](docs/guides/usage.en.md) |
 | 发布的权重、机器人与四场景 | [资源发布](ASSET_RELEASE.md) | [Asset release](ASSET_RELEASE.md#english-instructions) |
+| 实际资源和依赖审查 | [2026-10-10 全面清单](docs/RESOURCE_DEPENDENCY_MAP_20261010_ZH.md) | [Codebase map](docs/codebase/STACK.md) |
 
 基于 Isaac Sim 6 / IsaacLab 3、TRACE 轨迹扩散与 PACER/AMP 物理行人的室内社交导航研究项目。
 核心实现使用 `src/` 布局，保留 ProtoMotions、CrowdSim 的导入名及原始项目署名。

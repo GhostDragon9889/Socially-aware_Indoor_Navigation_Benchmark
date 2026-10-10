@@ -5,6 +5,7 @@ Each 10cm cell must have recorded native full-height overlap hits and each
 exported free cell must also have declared, measured ground support.
 """
 import json
+from social_navigation.resource_bindings import read_json as read_resource_json, resolve_path
 from pathlib import Path
 import numpy as np
 
@@ -53,7 +54,7 @@ def verify_physx_cell_grid(provider,data,*,admitted=False):
             or grid['clock_before']!=grid['clock_after']):
         raise ValueError('Explicit actual full-cell PhysX mapping protocol required')
     _check_record(grid['artifact']);_check_record(grid['clock_artifact'])
-    clock=json.loads(Path(grid['clock_artifact']['path']).read_text())
+    clock=read_resource_json(grid['clock_artifact']['path'])
     if (clock['clock_before']!=grid['clock_before'] or clock['clock_after']!=grid['clock_after']
             or clock['query_time_unchanged'] is not True or clock['foreign_hit_paths']!=[]
             or type(grid['clock_before']['submitted_physics_step']) is not int
@@ -91,7 +92,7 @@ def verify_physx_cell_grid(provider,data,*,admitted=False):
     if not np.array_equal(image,refined) or (admitted and not np.array_equal(provider._map,refined)):
         raise ValueError('Admitted grid differs from raw native evidence and source support domain')
     coverage=data['native_collider_coverage'];_check_record(coverage['artifact'])
-    observed=json.loads(Path(coverage['artifact']['path']).read_text());rows=observed['rows']
+    observed=read_resource_json(coverage['artifact']['path']);rows=observed['rows']
     expected=set((*provider.floor_paths,*provider.static_paths))
     if (coverage['all_enabled_colliders_registered'] is not True or coverage['count']!=len(rows)
             or observed['all_enabled_colliders_checked'] is not True

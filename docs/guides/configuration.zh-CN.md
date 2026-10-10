@@ -40,10 +40,10 @@ export PROTOMOTIONS_ASSET_ROOT="$NAV_ROOT/src/protomotions/data/assets"
 | 资源 | 路径或入口 | 用途与状态 |
 | --- | --- | --- |
 | 上游模型/示例 | `data/pretrained_models/`、`examples/data/` | 已恢复 Git/LFS 引用，按需从上游下载 |
-| TRACE 权重和模型配置 | `data/pretrained_models/paper_references/trace/ckpt/trace/orca_mixed/{iter40000.ckpt,config.json}` | 四场景使用的公开扩散模型，需另行准备 |
-| PACER 锚定教师 | `data/pretrained_models/paper_references/pacer/output/release/pacer_no_shape/Humanoid.pth` | 本地 AMP 微调教师，下载器支持 |
-| 选定 AMP，YOHO/NewMetro | `data/pretrained_models/local_amass_finetune/speed_conservative_20261010/Humanoid_AMASS.pth` | 本地训练产物，不由上游 LFS 提供 |
-| 选定 AMP，二/三层 | `data/pretrained_models/local_amass_finetune/walking_turn_20261009/Humanoid_AMASS.pth` | 本地父权重，需保留或重新训练 |
+| TRACE 权重和模型配置 | `data/pretrained_models/paper_references/trace/ckpt/trace/orca_mixed/{iter40000.ckpt,config.json}` | 四场景使用的公开扩散模型；已包含在本项目私有 LFS 发布包 |
+| PACER 锚定教师 | `data/pretrained_models/paper_references/pacer/output/release/pacer_no_shape/Humanoid.pth` | 本地 AMP 微调教师；已包含在私有发布包，另有原始下载器 |
+| 选定 AMP，YOHO/NewMetro | `data/pretrained_models/local_amass_finetune/speed_conservative_20261010/Humanoid_AMASS.pth` | 本地微调产物；已包含在本项目私有 LFS 发布包 |
+| 选定 AMP，二/三层 | `data/pretrained_models/local_amass_finetune/walking_turn_20261009/Humanoid_AMASS.pth` | 当前窄场景控制器和微调父权重；已包含在私有发布包 |
 | 固定 AMASS | `data/diffusion_amp/amass_style_2848/manifest_labeled_v7.json` 及对应 train bank | 训练 2,848、验证 22、测试 34 条选定片段 |
 | 通用 AMASS 库 | 相邻 `Assets/motion/` | 原始归档、逐动作转换与 train/test/validation MotionLib |
 | SMPL 与人体资产 | `src/protomotions/data/assets/`、录制器引用的人体模型参数 | 物理骨架、可视皮肤、人体参数是不同资源，按各自许可准备 |
@@ -52,7 +52,17 @@ export PROTOMOTIONS_ASSET_ROOT="$NAV_ROOT/src/protomotions/data/assets"
 
 原始四场景目录分别为 `Rest_Room_HongKong_YOHO`、`Rest_Room_HongKong_NewMetro`、`Rest_Room_Second_Floor`、`Rest_Room_Third_Floor`。CLI 名称分别为 `YOHO`、`NewMetro`、`SecondFloor`、`ThirdFloor`。
 
-源码仓库不包含这些本地训练/许可数据和全部运行归档。旧资产清单的 47 条记录中只有 8 条路径与 OID 匹配固定上游，另 39 条来源未核实；不要把 LFS pull 当作全部生成资产的恢复工具。详见[合并记录](../UPSTREAM_MERGE_20261010_ZH.md)。
+本项目的[私有资源发布包](../../ASSET_RELEASE.md)已包含选定 TRACE/AMP/教师权重、训练参数与恢复状态、EVT 机器人、四场景及材料引用。它不包含原始 AMASS、SMPL 人体参数、SDK 或视频。发布包 467 条文件记录已核对，来源见[发布凭据](../ASSET_PUBLICATION_20261010.json)；旧 47 条资产清单是上游合并时的历史清单，详见[合并记录](../UPSTREAM_MERGE_20261010_ZH.md)。
+
+从仓库根恢复已发布资源：
+
+```bash
+python scripts/manage_release_assets.py fetch
+python scripts/manage_release_assets.py verify
+python scripts/manage_release_assets.py install-models
+```
+
+fetch 使用显式的自有私有 LFS 端点，需授权 GitHub 账号；默认 `.lfsconfig` 下载端点仍为 NVlabs 上游。install-models 恢复 7 项模型/配置/manifest，不恢复 AMASS 动作包或重写 native-map 证据。data/smpl 中三个 pkl 当前是外部 arena_assets 软链接；迁移需独立准备真实参数。发布 USD 依赖闭合已核验，搬迁后的地图准入和物理仍待新实验。当前实际依赖/资源与缺口见[全面清单](../RESOURCE_DEPENDENCY_MAP_20261010_ZH.md)。
 
 ### 公开 PACER 下载
 
@@ -67,9 +77,9 @@ uv pip install --python .venv-download/bin/python gdown==6.2.0 requests
 
 TRACE 从固定[原始仓库](https://github.com/nv-tlabs/trace/tree/594b2af0824c5853e1a1884e167cd5ed097dd81c)的发布说明获取。PACER 下载结果和官方 ProtoMotions SMPL tracker 不能互相替换；用 profile 中的真实 SHA 核对模型。
 
-## 3. AMASS 的两种清单
+## 3. 通用动作库与两种筛选清单
 
-通用 MotionLib 与固定导航风格子集不同。通用库历史数据为 train 11,303 / validation 345 / test 138；固定 v7 只选择 train 2,848 / validation 22 / test 34。验证/测试字段仍引用完整通用 `.pt`，实际选择由 `clips` 列表决定，不能按 `.pt` 的全部动作数解释划分。
+通用 MotionLib 历史记录为 train 11,303 / validation 345 / test 138。早期 `amass_manifest.json` 只筛选 319 / 22 / 34；当前固定 v7 选择 train 2,848 / validation 22 / test 34。训练 2,848 条是从 1,853 个真实父动作文件提取的片段，来源清单与当前包 SHA 已核实。验证/测试字段仍引用完整通用 `.pt`，实际选择由 `clips` 列表决定，不能按 `.pt` 的全部动作数解释划分。
 
 建议目录：
 
@@ -196,3 +206,5 @@ PY
 更新 manifest/lock 时同步更新 `profile.json` 的哈希并运行环境检查；更新被上游映射清单记录的文件时维护对应 Git blob 记录，保留原合并值的追溯字段。生成结果、授权数据、凭据和训练权重保持在源码发布清单之外。
 
 下一步：[训练、场景评估与录像](usage.zh-CN.md)。
+
+当前克隆入口与路径迁移说明：[CLONE_REPRODUCTION.md](../../CLONE_REPRODUCTION.md)。

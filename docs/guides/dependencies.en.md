@@ -28,6 +28,13 @@ The root requirements are version ranges, not a complete environment lock. `requ
 
 The pinned IsaacLab revision is a development commit, not the `v3.0.0-beta2` tag. Official [beta2](https://github.com/isaac-sim/IsaacLab/releases/tag/v3.0.0-beta2) supports Sim 6.0; this project still requires the exact commit. [3.0 EA](https://github.com/isaac-sim/IsaacLab/releases/tag/v3.0.0-EA) requires Sim 6.1, so the shared “3.0” label does not establish compatibility.
 
+
+### Actual local state update (2026-10-10)
+
+The SDK manifest/lock SHAs match the snapshots, all 272 nonvirtual locked versions match, and all 18 project core constraints are satisfied. `uv pip check` still reports the three overrides below. Current SDK HEAD is `5951d48dde083986489957a7b108ad48a46822a7` (dependency configuration commit), while the profile records `4ecd0b...`. Only manifest/lock changed between those commits; SDK source is unchanged, but `apply` still rejects the current HEAD through its exact commit gate. Package versions, 234 USD RECORD files and the standalone round-trip passed `check`. These checks have distinct scopes.
+
+The separate `/project/EXP/IsaacLab` uses Sim6.1/package17.0.2 and lacks seven project core packages, with two further core version conflicts. See the [comprehensive audit (Chinese)](../RESOURCE_DEPENDENCY_MAP_20261010_ZH.md) and [machine-readable inventory](../resource_audit_20261010/inventory.json).
+
 ### Selected locked versions
 
 These values come directly from the repository lock, not from an audit of another machine.

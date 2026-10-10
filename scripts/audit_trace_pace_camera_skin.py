@@ -5,7 +5,6 @@ No pose is edited. This is a framing test, not an occlusion or realism certifica
 from pathlib import Path
 import sys,json,hashlib,argparse,numpy as np,torch
 R=Path(__file__).resolve().parents[1]
-if not (R/'CrowdSim').is_dir():R=Path('/project/EXP/SangforAndSaut/ProtoMotions')
 sys.path.insert(0,str(R));torch.set_num_threads(4)
 from CrowdSim.tools.smpl_mesh_visualizer import HumanMeshConfig,SMPLMeshVisualizer,SMPLRobotPoseMapper,smpl_to_robot_matrix,quat_apply_wxyz
 sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()

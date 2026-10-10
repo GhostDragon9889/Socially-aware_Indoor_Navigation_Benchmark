@@ -8,7 +8,6 @@ import json,hashlib,sys
 import numpy as np
 from scipy.ndimage import label
 R=Path(__file__).resolve().parents[1]
-if not (R/'CrowdSim').is_dir():R=Path('/project/EXP/SangforAndSaut/ProtoMotions')
 sys.path.insert(0,str(R))
 from CrowdSim.humanoid.runtime.dynbench_scene import DynBenchSceneProvider
 from CrowdSim.humanoid.runtime.native_grid_scene import NativeGridScene

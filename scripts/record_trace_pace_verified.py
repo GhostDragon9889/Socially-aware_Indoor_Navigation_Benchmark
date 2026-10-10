@@ -59,6 +59,8 @@ if args.native_scene_visuals:
 if args.native_scene_visuals:
     sources.extend((ROOT/'CrowdSim/humanoid/runtime').glob('*.py'))
     sources.append(ROOT/'CrowdSim/utils/map_metadata.py')
+sources.extend((ROOT/"src/social_navigation").glob("*.py"))
+sources.append(ROOT/"configs/reproduction/resource_bindings.json")
 sources = sorted(set(sources))
 hashes = {str(p): digest(p) for p in sources}
 command = [sys.executable, str(ROOT/'scripts/replay_paper_pedestrians.py'), '--states', str(states),

@@ -2,7 +2,6 @@
 from pathlib import Path
 import sys,json,hashlib,argparse,numpy as np,torch
 R=Path(__file__).resolve().parents[1]
-if not (R/'CrowdSim').is_dir():R=Path('/project/EXP/SangforAndSaut/ProtoMotions')
 sys.path.insert(0,str(R));torch.set_num_threads(4)
 from CrowdSim.tools.smpl_mesh_visualizer import HumanMeshConfig,SMPLMeshVisualizer,SMPLRobotPoseMapper,SMPL_JOINT_NAMES,smpl_to_robot_matrix,quat_apply_wxyz
 p=argparse.ArgumentParser();p.add_argument('--run',type=Path,required=True);p.add_argument('--output',type=Path,required=True);p.add_argument('--steps',type=int,required=True);a=p.parse_args()

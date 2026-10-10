@@ -87,7 +87,7 @@ Then create a new physical source:
 
 ```bash
 export NAV_SCENE=YOHO
-export NAV_CFG="$NAV_ROOT/configs/diffusion_amp/four_scene_speed_20261010"
+export NAV_CFG="$NAV_ROOT/configs/reproduction/four_scene"
 export NAV_RUN="$NAV_ROOT/output/physics/${NAV_SCENE}_new_60s"
 "$NAV_PY" -m social_navigation simulate \
   --scene "$NAV_SCENE" --steps 1800 --seed 7 --output "$NAV_RUN"

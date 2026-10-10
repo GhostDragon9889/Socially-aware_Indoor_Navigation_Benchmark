@@ -139,3 +139,7 @@ src/protomotions/data/assets/usd/smpl*
 
 # Explicit private asset release; global weight/output exclusions still apply elsewhere.
 !/resources/releases/pedestrians_20261010/**
+
+# Managed SDK installation, local licensed resource locations and visual bundle.
+.runtime/
+!/resources/pedestrian_visuals/**

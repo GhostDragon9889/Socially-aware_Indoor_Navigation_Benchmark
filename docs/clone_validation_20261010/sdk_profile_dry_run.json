@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "sync": false,
+  "fresh": true,
+  "sdk_network_install_executed": false,
+  "source_tree": "4deaa3ceb8fb3fb4d5895b3d7dfb38040fda7677",
+  "manifest_toml_valid": true,
+  "lock_toml_valid": true,
+  "project_root_contains_spaces": true,
+  "relative_project_path_present": true,
+  "log": "Profile applied; prior manifest/lock saved to /home/lfm/Documents/ChatGPT/Social Navigation/clone_reproduction_20261010/ProfileTestLab/.crowdsim-environment-backups/20261010T212347+0800\nEnvironment packages have not changed. Use apply --sync to synchronize.\n"
+}

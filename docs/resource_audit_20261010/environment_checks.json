@@ -1,0 +1,90 @@
+{
+  "environment_check": {
+    "status": "passed",
+    "versions": {
+      "isaaclab": "12.0.0",
+      "isaacsim": "6.0.0.1",
+      "torch": "2.11.0+cu128",
+      "usd-exchange": "3.0.0"
+    },
+    "standalone_usd_version": [
+      0,
+      26,
+      8
+    ],
+    "record_files_checked": 234,
+    "usd_round_trip": "PASS",
+    "kit_launched": false
+  },
+  "uv_pip_check": {
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "Using Python 3.12.13 environment at: /project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv\nChecked 272 packages in 4ms\nFound 3 incompatibilities\nThe package `isaacsim-core` requires `newton[sim]==1.2.0`, but `1.4.0.dev0` is installed\nThe package `isaacsim-core` requires `newton-usd-schemas==0.2.0`, but `0.5.0` is installed\nThe package `isaacsim-kernel` requires `coverage==7.4.4`, but `7.6.1` is installed"
+  },
+  "profile_checkout_gate": {
+    "status": "failed",
+    "error": "IsaacLab commit is 5951d48dde083986489957a7b108ad48a46822a7; expected 4ecd0b036da19ff6ad2bb4d621f886b63e9f6db8",
+    "scope": "Read-only require_checkout; apply/sync not executed."
+  },
+  "sdk_snapshot_matches_working_sdk": {
+    "pyproject.toml": {
+      "snapshot": "29f54eddb1f577fcb214875b2cfd011fb821de60ee56143978fb535296c4bd96",
+      "actual": "29f54eddb1f577fcb214875b2cfd011fb821de60ee56143978fb535296c4bd96",
+      "matches": true
+    },
+    "uv.lock": {
+      "snapshot": "5f732db95993c4f770fd01d975b5e517ba3e34333a1a0399477cc6a0ab924c6e",
+      "actual": "5f732db95993c4f770fd01d975b5e517ba3e34333a1a0399477cc6a0ab924c6e",
+      "matches": true
+    }
+  },
+  "working_sdk_source_difference_from_profile_commit": {
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "scope": "Entire source tree between profile commit and HEAD; only pyproject.toml/uv.lock differ in the commit."
+  },
+  "system_tools": {
+    "uv": {
+      "exit_code": 0,
+      "stdout": "uv 0.11.28 (x86_64-unknown-linux-gnu)",
+      "stderr": ""
+    },
+    "git": {
+      "exit_code": 0,
+      "stdout": "git version 2.43.0",
+      "stderr": ""
+    },
+    "git_lfs": {
+      "exit_code": 0,
+      "stdout": "git-lfs/3.4.1 (GitHub; linux amd64; go 1.22.2)",
+      "stderr": ""
+    },
+    "ffmpeg": {
+      "exit_code": 0,
+      "stdout": "ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FFmpeg developers\nbuilt with gcc 13 (Ubuntu 13.2.0-23ubuntu3)\nconfiguration: --prefix=/usr --extra-version=3ubuntu5 --toolchain=hardened --libdir=/usr/lib/x86_64-linux-gnu --incdir=/usr/include/x86_64-linux-gnu --arch=amd64 --enable-gpl --disable-stripping --disable-omx --enable-gnutls --enable-libaom --enable-libass --enable-libbs2b --enable-libcaca --enable-libcdio --enable-libcodec2 --enable-libdav1d --enable-libflite --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libglslang --enable-libgme --enable-libgsm --enable-libharfbuzz --enable-libmp3lame --enable-libmysofa --enable-libopenjpeg --enable-libopenmpt --enable-libopus --enable-librubberband --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libspeex --enable-libtheora --enable-libtwolame --enable-libvidstab --enable-libvorbis --enable-libvpx --enable-libwebp --enable-libx265 --enable-libxml2 --enable-libxvid --enable-libzimg --enable-openal --enable-opencl --enable-opengl --disable-sndio --enable-libvpl --disable-libmfx --enable-libdc1394 --enable-libdrm --enable-libiec61883 --enable-chromaprint --enable-frei0r --enable-ladspa --enable-libbluray --enable-libjack --enable-libpulse --enable-librabbitmq --enable-librist --enable-libsrt --enable-libssh --enable-libsvtav1 --enable-libx264 --enable-libzmq --enable-libzvbi --enable-lv2 --enable-sdl2 --enable-libplacebo --enable-librav1e --enable-pocketsphinx --enable-librsvg --enable-libjxl --enable-shared\nlibavutil      58. 29.100 / 58. 29.100\nlibavcodec     60. 31.102 / 60. 31.102\nlibavformat    60. 16.100 / 60. 16.100\nlibavdevice    60.  3.100 / 60.  3.100\nlibavfilter     9. 12.100 /  9. 12.100\nlibswscale      7.  5.100 /  7.  5.100\nlibswresample   4. 12.100 /  4. 12.100\nlibpostproc    57.  3.100 / 57.  3.100",
+      "stderr": ""
+    },
+    "gpu_driver": {
+      "exit_code": 9,
+      "stdout": "NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver. Make sure that the latest NVIDIA driver is installed and running.",
+      "stderr": ""
+    },
+    "disk": {
+      "exit_code": 0,
+      "stdout": "Filesystem      Size  Used Avail Use% Mounted on\n/dev/sdc1       1.8T  1.2T  534G  70% /\n/dev/sdb2       818G  554G  223G  72% /home/lfm/Documents/ChatGPT/Social Navigation",
+      "stderr": ""
+    },
+    "gpu_driver_outside_sandbox": {
+      "exit_code": 0,
+      "stdout": "NVIDIA GeForce RTX 4080 SUPER, 595.99.02, 16376 MiB",
+      "scope": "Read-only nvidia-smi; no CUDA computation or simulator startup."
+    }
+  },
+  "scope": "Read-only filesystem, SHA256, AST and installed metadata; no downloads, package install, pickle loads, Kit, physics or training.",
+  "sdk_status": {
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

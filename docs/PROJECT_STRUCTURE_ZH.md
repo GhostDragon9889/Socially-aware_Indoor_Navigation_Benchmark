@@ -4,6 +4,8 @@
 规范目录：`/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark`。
 旧目录 `ProtoMotions` 为指向规范目录的兼容链接，已有配置、权重路径和实验记录可继续访问。
 
+最新实际依赖、资源身份、外部路径和恢复缺口见[全面清单](RESOURCE_DEPENDENCY_MAP_20261010_ZH.md)及[代码结构](codebase/STRUCTURE.md)。下方迁移验证保留原实验范围与日期。
+
 ## 模块与数据流
 
 ```text
@@ -28,7 +30,7 @@ social_navigation CLI → scripts 父进程入口 → 实际子进程退出码�
 | `configs/crowdsim` | 原 CrowdSim 配置的统一位置 |
 | `configs/diffusion_amp` | 行人模拟、训练、场景、路线与相机配置 |
 | `data/navigation_maps/crowdsim` | 原 CrowdSim 导航地图 |
-| `data/amass`、`data/pretrained_models` | 动作数据和模型资源 |
+| `data/diffusion_amp/amass_style_2848`、`data/pretrained_models` | 固定动作子集和模型；原始/通用 AMASS 位于外部 `Assets/motion`，当前没有 `data/amass` 目录 |
 | `scripts` | 原生进程所有者、训练/评估/录制命令；保留历史入口 |
 | `tools/{asset_conversion,retargeting}` | USD 资产转换与动作重定向 |
 | `third_party/{trace,pacer,flux,navdp}` | 上游参考实现，保留各自许可与 Git 历史 |
@@ -91,3 +93,5 @@ SDK 环境、权重字节、历史报告与视频不因目录迁移而改写。�
 - [Setuptools：包发现与 package-dir](https://setuptools.pypa.io/en/latest/userguide/package_discovery.html)
 - [VS Code：Python 调试配置](https://code.visualstudio.com/docs/python/debugging)
 - [VS Code：工作区](https://code.visualstudio.com/docs/editing/workspaces/multi-root-workspaces)
+
+当前克隆入口与路径迁移说明：[CLONE_REPRODUCTION.md](../CLONE_REPRODUCTION.md)。

@@ -186,3 +186,10 @@
 /resources/releases/pedestrians_20261010/**/*.npz filter=lfs diff=lfs merge=lfs -text
 /resources/releases/pedestrians_20261010/**/*.png filter=lfs diff=lfs merge=lfs -text
 /resources/releases/pedestrians_20261010/**/*.usda filter=lfs diff=lfs merge=lfs -text
+
+# Byte-bound native/runtime sources and private CC BY visual resources.
+/env/isaaclab3_sim6/native_shutdown/** -text
+/src/CrowdSim/humanoid/runtime/sealed/sdk6_terminal.py -text
+/resources/pedestrian_visuals/** -text
+/resources/pedestrian_visuals/*.npz -filter -diff -merge -text
+/resources/pedestrian_visuals/textures/*.png -filter -diff -merge -text

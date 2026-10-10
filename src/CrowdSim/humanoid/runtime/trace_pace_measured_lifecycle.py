@@ -6,6 +6,7 @@ The simulator/control/contact calculations are not altered by this release.
 from __future__ import annotations
 
 from pathlib import Path
+from social_navigation.sdk_paths import relocate_sdk_path
 import sys
 import weakref
 import gc
@@ -17,7 +18,7 @@ PINS = {
     "CrowdSim.humanoid.foot_support": (ROOT / "CrowdSim/humanoid/foot_support.py", "8c9cb88ddcbe55599ebe79abf80ea7a77a85eedfaa17324b937a862b284267e8"),
     "CrowdSim.humanoid.foot_capture": (ROOT / "CrowdSim/humanoid/foot_capture.py", "89c48fde37c05eaa57f4eacf2fb3eb072b087c0d9a46acff3f7d23729f28d39b"),
     "isaaclab_physx.sensors.contact_sensor.contact_sensor": (
-        Path("/project/EXP/SangforAndSaut/IsaacLab-Protomotions/source/isaaclab_physx/isaaclab_physx/sensors/contact_sensor/contact_sensor.py"),
+        Path(relocate_sdk_path("/project/EXP/SangforAndSaut/IsaacLab-Protomotions/source/isaaclab_physx/isaaclab_physx/sensors/contact_sensor/contact_sensor.py")),
         "d8a7bb388fd1f6d2aae80a81c357f0c9ebaf6124f1cbd9f9564188860c3c3b37"),
 }
 

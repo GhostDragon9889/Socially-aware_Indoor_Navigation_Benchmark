@@ -10,6 +10,7 @@ from .dynbench_scene import same_file_record
 
 from copy import deepcopy
 import json
+from social_navigation.resource_bindings import read_json as read_resource_json, resolve_path
 import hashlib
 import math
 from pathlib import Path
@@ -201,7 +202,7 @@ def verify_v9(provider, data, *, admitted=False):
             provider.require_navigation_map()
             provider.verify_sources()
             _check_record(provider._native["record"])
-            _require(json.loads(Path(provider._native["record"]["path"]).read_text()) == data, "admitted result differs from bound bytes")
+            _require(read_resource_json(provider._native["record"]["path"]) == data, "admitted result differs from bound bytes")
         raw = _archive(data["native_omap"])
         dims, low, high, buffer = raw["dimensions"], raw["min_bound"], raw["max_bound"], raw["buffer"]
         _require(dims.shape == (3,) and dims.dtype.kind in "iu" and np.all(dims[:2] > 0) and dims[2] in (0, 1)
@@ -293,7 +294,7 @@ def verify_v9(provider, data, *, admitted=False):
                  and refinement["height_clear_known5_cells"] == int((~obstacle).sum())
                  and refinement["known_static_nonfloor_near_ground_blocked_known5_cells"] == int(low_obstacle.sum()), "height/low-obstacle counts disagree")
         _check_record(band["clock_artifact"])
-        clock = json.loads(Path(band["clock_artifact"]["path"]).read_text())
+        clock = read_resource_json(band["clock_artifact"]["path"])
         before = band["clock_before"]
         _require(before == band["clock_after"] and band["query_time_unchanged"] is True and band["foreign_hit_paths"] == []
                  and clock == {key: value for key, value in band.items() if key not in {"artifact", "clock_artifact", "queried_cells"}}
@@ -302,7 +303,7 @@ def verify_v9(provider, data, *, admitted=False):
         initial = data["actual_query_clock_initial"]
         _check_record(initial["artifact"])
         observed = initial["observation"]
-        _require(json.loads(Path(initial["artifact"]["path"]).read_text()) == observed
+        _require(read_resource_json(initial["artifact"]["path"]) == observed
                  and type(observed["submitted_physics_step"]) is int
                  and type(observed["timeline_s"]) in (float, int)
                  and observed["submitted_physics_step"] == before["submitted_physics_step"] == data["physics"]["counter_at_query"]

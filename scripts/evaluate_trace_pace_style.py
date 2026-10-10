@@ -12,8 +12,6 @@ import json
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
-if not (ROOT / "CrowdSim").is_dir():
-    ROOT = Path("/project/EXP/SangforAndSaut/ProtoMotions")
 sys.path.insert(0, str(ROOT))
 
 

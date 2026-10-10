@@ -35,6 +35,9 @@ log = args.output.with_name(args.output.name + '.log')
 if any(p.exists() for p in (args.output, receipt, log)):
     parser.error('Fresh output/receipt/log required')
 sources = {ROOT/'scripts/finetune_pacer_amass.py', Path(__file__).resolve()}
+sources.update((ROOT/'src/social_navigation').glob('*.py'))
+sources.update((ROOT/'src/CrowdSim/humanoid/runtime/sealed').glob('*.py'))
+sources.add(ROOT/'configs/reproduction/resource_bindings.json')
 for directory in ('CrowdSim/humanoid/training', 'CrowdSim/humanoid/amp', 'CrowdSim/humanoid/application'):
     sources.update((ROOT/directory).rglob('*.py'))
 for name in ('CrowdSim/humanoid/amp_world.py', 'CrowdSim/humanoid/amass_corpus.py',
@@ -86,7 +89,8 @@ record['source_snapshot_layout'] = layout
 receipt.write_text(json.dumps(record, indent=2)+'\n')
 manifest_path=ROOT/'data/diffusion_amp/amass_style_2848/manifest_labeled_v7.json'
 manifest=json.loads(manifest_path.read_text());entry=manifest['splits']['train']
-bank=Path(entry['path']);bank=bank if bank.is_absolute() else manifest_path.parent/bank
+from CrowdSim.humanoid.application.resources import resolve_local_path
+bank=resolve_local_path(entry['path'],relative_to=manifest_path.parent)
 def bank_fingerprint():
     import hashlib
     h=hashlib.sha256()

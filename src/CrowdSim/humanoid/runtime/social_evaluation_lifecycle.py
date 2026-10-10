@@ -19,7 +19,7 @@ import weakref
 from .relocated_terminal import derive_relocated_checkout, overlay_kit_arguments
 
 ROOT = repository_root(__file__)
-TERMINAL = ROOT / "docs/style_improvement_20261004/social_native_overlay_entry_revision_v10/smoke_group_physics.py"
+TERMINAL = Path(__file__).parent / "sealed/sdk6_terminal.py"
 TERMINAL_SHA = "0e6b2ef97cc2f32612317df162ebba6107b1e276083f9912995badd5f416685e"
 
 
@@ -77,17 +77,20 @@ class IsolatedTrackingLifecycle:
     def __init__(self, report):
         self.report = report
         identity = record(TERMINAL)
-        if identity["sha256"] != TERMINAL_SHA or TERMINAL.stat().st_mode & 0o222:
+        if identity["sha256"] != TERMINAL_SHA:
             raise ValueError("Sealed native lifecycle helper changed")
         spec = importlib.util.spec_from_file_location("_isolated_tracking_terminal", TERMINAL)
         self.terminal = importlib.util.module_from_spec(spec)
+        from social_navigation.sdk_paths import relocate_sdk_path
+        self.terminal.__dict__.update(__repository_root__=ROOT,
+            __relocate_sdk_path__=lambda value: relocate_sdk_path(value, root=ROOT))
         original_source = TERMINAL.read_text()
         relocated_source, path_derivation = derive_relocated_checkout(
             original_source, ROOT.parent / "ProtoMotions", ROOT)
         exec(compile(relocated_source, str(TERMINAL) + ":relocated_checkout", "exec"), self.terminal.__dict__)
         self.terminal.OVERLAY_KIT_ARGS = overlay_kit_arguments(
             ROOT.parent / "ProtoMotions", self.terminal.OVERLAY)
-        source, derivation = derive_single_asset_release(TERMINAL.read_text())
+        source, derivation = derive_single_asset_release(relocated_source)
         namespace = dict(self.terminal.__dict__)
         exec(compile(source, str(TERMINAL) + ":single_asset", "exec"), namespace)
         self.release_asset = namespace["_release_owned_asset_simulation_views"]

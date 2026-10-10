@@ -239,7 +239,8 @@ def configure_recorded_capture(settings, timeline):
 def capture_recorded_frame(app, timeline, settings, annotator, *, width, height, initial_time, warmup=False):
     """Pump a bounded number of app updates, without orchestrator/physics steps."""
     minimum_updates, maximum_updates = (48, 120) if warmup else (3, 24)
-    deadline = time.monotonic() + (120 if warmup else 30)
+    capture_started = time.monotonic()
+    deadline = capture_started + (480 if warmup else 30)
     before = float(timeline.get_current_time())
     if not math.isclose(before, initial_time, rel_tol=0., abs_tol=1e-9):
         raise RuntimeError("Render update advanced timeline time; recorded-only replay contract violated")
@@ -265,7 +266,7 @@ def capture_recorded_frame(app, timeline, settings, annotator, *, width, height,
             continue
         return rgb, {"timeline_before_s": before, "timeline_after_s": after, "app_updates": update + 1,
                      "rgb_mean": float(rgb.mean()), "rgb_max": int(rgb.max())}
-    raise RuntimeError(f"Recorded-pose RGB capture exhausted its bounded app updates: {last_error}")
+    raise RuntimeError(f"Recorded-pose RGB capture exhausted its bounded app updates after {update+1} updates / {time.monotonic()-capture_started:.1f}s: {last_error}")
 
 
 def stamp_recorded_frame(rgb, source_time_s):

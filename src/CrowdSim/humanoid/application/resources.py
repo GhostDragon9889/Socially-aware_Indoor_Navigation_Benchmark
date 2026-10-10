@@ -35,10 +35,8 @@ def resolve_local_path(value, *, relative_to=None):
         raise ResourceError("A local resource needs an explicit nonempty path")
     if "://" in str(value):
         raise ResourceError(f"Preflight requires local resources, not remote URLs: {value}")
-    path = Path(value)
-    if not path.is_absolute() and relative_to is not None:
-        path = Path(relative_to) / path
-    return path.resolve()
+    from social_navigation.resource_bindings import resolve_path
+    return resolve_path(value, relative_to=relative_to or Path.cwd())
 
 
 def file_sha256(path):

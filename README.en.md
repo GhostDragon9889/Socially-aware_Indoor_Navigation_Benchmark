@@ -1,5 +1,7 @@
 # Socially-aware_Indoor_Navigation_Benchmark
 
+**Reproduce from a clone:** [complete instructions](CLONE_REPRODUCTION.en.md) for SDK bootstrap, resource restoration, fixed AMASS rebuild, four-scene evaluation and recording.
+
 [简体中文](README.md) · **English** · [Documentation](docs/guides/README.md)
 
 An indoor social navigation research project using Isaac Sim 6 / IsaacLab 3, TRACE trajectory diffusion and physical PACER/AMP pedestrians. Core code lives under `src/`; ProtoMotions and CrowdSim import names and upstream attribution are retained.
@@ -13,6 +15,7 @@ An indoor social navigation research project using Isaac Sim 6 / IsaacLab 3, TRA
 | Assets, checkpoints and settings | [Configuration](docs/guides/configuration.en.md) | [配置](docs/guides/configuration.zh-CN.md) |
 | Fine-tuning, scene tests and video | [Usage](docs/guides/usage.en.md) | [使用](docs/guides/usage.zh-CN.md) |
 | Published models, robot and four scenes | [Asset release](ASSET_RELEASE.md#english-instructions) | [资源发布](ASSET_RELEASE.md) |
+| Verified local resources and dependencies | [2026-10-10 audit (Chinese)](docs/RESOURCE_DEPENDENCY_MAP_20261010_ZH.md) | [代码结构](docs/codebase/STRUCTURE.md) |
 
 ## Available local results
 

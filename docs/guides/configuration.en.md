@@ -40,10 +40,10 @@ These variables do not rewrite absolute paths in JSON/YAML. Migrate those entrie
 | Resource | Location or entry point | Role and availability |
 | --- | --- | --- |
 | Upstream models/examples | `data/pretrained_models/`, `examples/data/` | Original Git/LFS references restored; download selectively |
-| TRACE model/config | `data/pretrained_models/paper_references/trace/ckpt/trace/orca_mixed/{iter40000.ckpt,config.json}` | Public diffusion model used by the four-scene profiles; separately obtained |
-| PACER anchor teacher | `data/pretrained_models/paper_references/pacer/output/release/pacer_no_shape/Humanoid.pth` | Teacher for local AMP fine-tuning; downloader available |
-| Selected AMP, YOHO/NewMetro | `data/pretrained_models/local_amass_finetune/speed_conservative_20261010/Humanoid_AMASS.pth` | Local training artifact, not supplied by upstream LFS |
-| Selected AMP, upper floors | `data/pretrained_models/local_amass_finetune/walking_turn_20261009/Humanoid_AMASS.pth` | Local parent controller; retain or retrain |
+| TRACE model/config | `data/pretrained_models/paper_references/trace/ckpt/trace/orca_mixed/{iter40000.ckpt,config.json}` | Public diffusion model used by the four-scene profiles; included in this project’s private LFS release |
+| PACER anchor teacher | `data/pretrained_models/paper_references/pacer/output/release/pacer_no_shape/Humanoid.pth` | Teacher for local AMP fine-tuning; included in the private release, with an original downloader available |
+| Selected AMP, YOHO/NewMetro | `data/pretrained_models/local_amass_finetune/speed_conservative_20261010/Humanoid_AMASS.pth` | Local fine-tuned artifact included in this project’s private LFS release |
+| Selected AMP, upper floors | `data/pretrained_models/local_amass_finetune/walking_turn_20261009/Humanoid_AMASS.pth` | Current narrow-scene controller and fine-tuning parent, included in the private release |
 | Fixed AMASS | `data/diffusion_amp/amass_style_2848/manifest_labeled_v7.json` and train bank | 2,848 training, 22 validation and 34 test segments |
 | General AMASS libraries | Adjacent `Assets/motion/` | Authorized archives, per-motion conversions and train/test/validation MotionLib |
 | SMPL/body assets | `src/protomotions/data/assets/` and body parameters referenced by rendering | Physics skeleton, visible skin and body parameters are distinct resources |
@@ -52,7 +52,17 @@ These variables do not rewrite absolute paths in JSON/YAML. Migrate those entrie
 
 Raw scene directory names are `Rest_Room_HongKong_YOHO`, `Rest_Room_HongKong_NewMetro`, `Rest_Room_Second_Floor`, and `Rest_Room_Third_Floor`. CLI names are `YOHO`, `NewMetro`, `SecondFloor`, and `ThirdFloor`.
 
-The source repository does not include local training/licensed data and every execution archive. Of 47 legacy asset records, 8 paths/OIDs match pinned upstream and 39 have unverified origin. LFS pull does not recreate arbitrary generated assets; see the [merge record](../UPSTREAM_MERGE_20261010_ZH.md).
+This project’s [private asset release](../../ASSET_RELEASE.md#english-instructions) contains the selected TRACE/AMP/teacher weights, training parameters and resume checkpoints, EVT robot, four scenes and their material references. Raw AMASS, licensed SMPL parameters, SDKs and videos remain separate. The release’s 467 file records were verified; see the [publication receipt](../ASSET_PUBLICATION_20261010.json). The old 47-item asset ledger describes the earlier upstream merge; see the [merge record](../UPSTREAM_MERGE_20261010_ZH.md).
+
+Restore published resources from the checkout root:
+
+```bash
+python scripts/manage_release_assets.py fetch
+python scripts/manage_release_assets.py verify
+python scripts/manage_release_assets.py install-models
+```
+
+The fetch helper explicitly selects the private project LFS endpoint and requires an authorized GitHub account; the default `.lfsconfig` download endpoint remains NVlabs upstream. install-models restores seven model/config/manifest items, without motion banks or native-map migration. The three data/smpl pkl files are currently symlinks to external arena_assets; prepare their actual parameters separately on a new host. Published USD dependencies were verified, while relocated native-map admission and physics require new validation. See the [comprehensive local audit (Chinese)](../RESOURCE_DEPENDENCY_MAP_20261010_ZH.md).
 
 ### Public PACER download
 
@@ -67,9 +77,9 @@ uv pip install --python .venv-download/bin/python gdown==6.2.0 requests
 
 Obtain TRACE through the release instructions in its [pinned original repository](https://github.com/nv-tlabs/trace/tree/594b2af0824c5853e1a1884e167cd5ed097dd81c). PACER files and ProtoMotions SMPL trackers are not interchangeable. Verify model identity against the profile's actual SHA.
 
-## 3. Two AMASS manifests
+## 3. General motion banks and two curated manifests
 
-General MotionLib and the fixed pedestrian subset differ. The recorded general libraries contain 11,303 train / 345 validation / 138 test motions. Fixed v7 selects 2,848 train / 22 validation / 34 test segments. Validation/test still point to complete general `.pt` banks; selection is defined by `clips`, not by the total number of motions inside those files.
+The recorded general MotionLib banks contain 11,303 train / 345 validation / 138 test motions. The earlier amass_manifest.json selects only 319 / 22 / 34. Current fixed v7 selects 2,848 train / 22 validation / 34 test segments. Its 2,848 training segments come from 1,853 real parent motion files; source availability and current bank SHAs were verified. Validation/test still point to complete general `.pt` banks; selection is defined by `clips`, not by the total number of motions inside those files.
 
 Suggested layout:
 
@@ -196,3 +206,5 @@ Open root `Socially-aware_Indoor_Navigation_Benchmark.code-workspace` and select
 Update `profile.json` hashes with manifest/lock changes, then run the environment checker. When changing a file listed in the upstream mapping, maintain its Git blob record and retain the initial merge value for traceability. Keep generated data, credentials and training weights outside the source publication manifest.
 
 Next: [Training, scene evaluation and video](usage.en.md).
+
+Current clone entry and path migration: [CLONE_REPRODUCTION.en.md](../../CLONE_REPRODUCTION.en.md).

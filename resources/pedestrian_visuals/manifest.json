@@ -1,0 +1,25 @@
+{
+  "schema": "social_navigation.pedestrian_visuals.v1",
+  "parametric_smpl_models_included": false,
+  "license": "SMPL-Body CC BY 4.0; see ATTRIBUTION.md",
+  "files": [
+    {
+      "path": "smpl_uv.npz",
+      "install_path": "data/smpl/smpl_uv.npz",
+      "bytes": 266068,
+      "sha256": "378dfa834b5d20063ff37886ecdfefba9363d25e618bad081f4db31a2c7448d1"
+    },
+    {
+      "path": "textures/m_01_alb.002.png",
+      "install_path": "data/smpl/textures/m_01_alb.002.png",
+      "bytes": 18954277,
+      "sha256": "d1bed88b502b9cf4c9ad8d642bf4adf89d5aa8c090d74046585e2b127b125e3a"
+    },
+    {
+      "path": "textures/f_01_alb.002.png",
+      "install_path": "data/smpl/textures/f_01_alb.002.png",
+      "bytes": 17457804,
+      "sha256": "f21c6c197aee016c56ecbf35f3057953442c5d8b31efb9b9154fb1dd61763640"
+    }
+  ]
+}

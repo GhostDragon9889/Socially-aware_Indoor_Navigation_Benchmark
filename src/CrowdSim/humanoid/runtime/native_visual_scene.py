@@ -88,6 +88,9 @@ def admit_sdk_render_metadata_overlap(stage, source_layer):
 
 def prepare_native_visual_scene(scene, result):
     """CPU-only bind original USD/native map to a completed physical capture."""
+    from social_navigation.resource_bindings import scene_locations
+    if isinstance(scene, dict):
+        scene = scene_locations(scene)
     if (not isinstance(scene, dict) or scene.get("schema") != SCHEMA
             or result.get("status") != "passed" or result.get("evaluation_scene") != scene):
         raise ValueError("Native recorded visuals require the exact completed source evaluation_scene")
@@ -162,13 +165,16 @@ def compose_native_visual_scene(stage, contract, *, reference_floor_visible=True
     if str(UsdGeom.GetStageUpAxis(stage)) != "Z" or UsdGeom.GetStageMetersPerUnit(stage) != 1.:
         raise ValueError("Recorded native visual stage requires Z-up/metres1")
     source = contract["source_USD"]["path"]
-    layer = Sdf.Layer.FindOrOpen(source)
+    from social_navigation.portable_usd import relocate_layers
+    layer, owned_layers, location_receipt = relocate_layers(contract["source_layers"], source)
+    runtime_source = layer.identifier
     if layer is None:
         raise ValueError("Recorded native source USD cannot be opened")
     source_roots = [str(prim.path) for prim in layer.rootPrims]
     overlap = [path for path in source_roots if stage.GetPrimAtPath(path)]
     if not source_roots or stage.GetPrimAtPath(FLOOR_PATH) or any(path != "/Render" for path in overlap):
         raise ValueError("Existing visual stage conflicts with original native source/floor roots")
+    stage._portable_source_layers = owned_layers
     render_admission = admit_sdk_render_metadata_overlap(stage, layer) if overlap else None
     if any(prim.IsA(UsdPhysics.Scene) for prim in stage.Traverse()):
         raise ValueError("Recorded visual replay cannot share an existing active PhysicsScene")
@@ -180,7 +186,7 @@ def compose_native_visual_scene(stage, contract, *, reference_floor_visible=True
     disabled_scenes, disabled_collisions, disabled_bodies = [], [], []
     try:
         stage.SetEditTarget(session)
-        root_layer.subLayerPaths.append(source)
+        root_layer.subLayerPaths.append(runtime_source)
         if stage.GetCompositionErrors():
             raise ValueError("Native recorded visual source has USD composition errors")
         # Source admission requires no animated/dynamic geometry. Deinstance
@@ -223,8 +229,8 @@ def compose_native_visual_scene(stage, contract, *, reference_floor_visible=True
         raise ValueError("Active source physics remains in the recorded-only visual stage")
     verify_native_visual_sources(contract)
     return {"schema": "native_recorded_visual_stage.v1", "source_USD": deepcopy(contract["source_USD"]),
-        "source_root_paths": source_roots, "source_session_occurrences": list(session.subLayerPaths).count(source),
-        "source_root_layer_occurrences": list(root_layer.subLayerPaths).count(source),
+        "source_root_paths": source_roots, "portable_USD_location_derivation":location_receipt, "source_session_occurrences": list(session.subLayerPaths).count(runtime_source),
+        "source_root_layer_occurrences": list(root_layer.subLayerPaths).count(runtime_source),
         "SDK_Render_overlap_admission": render_admission,
         "source_is_weak_root_sublayer_not_session_sublayer": True,
         "stage_root_identifier": str(stage.GetRootLayer().identifier), "disabled_authored_PhysicsScene_paths": disabled_scenes,
