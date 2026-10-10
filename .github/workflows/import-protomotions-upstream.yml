@@ -1,0 +1,43 @@
+name: Import pinned ProtoMotions history
+
+on:
+  push:
+    branches: [codex/import-protomotions-upstream-20261010]
+    paths: [.github/workflows/import-protomotions-upstream.yml]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    env:
+      GIT_LFS_SKIP_SMUDGE: '1'
+      GIT_LFS_SKIP_PUSH: '1'
+      PINNED_UPSTREAM: 7a8417a9f55b1586b0d6e8f46578c5bc9d7ce1f1
+    steps:
+      - name: Check out the authorized private destination
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          lfs: false
+      - name: Import the public upstream Git history
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REPOSITORY" = "GhostDragon9889/Socially-aware_Indoor_Navigation_Benchmark"
+          git fetch --no-tags --no-recurse-submodules https://github.com/NVlabs/ProtoMotions.git +refs/heads/main:refs/remotes/protomotions/main
+          test "$(git rev-parse refs/remotes/protomotions/main)" = "$PINNED_UPSTREAM"
+          destination=refs/heads/upstream/protomotions-main
+          current=$(git ls-remote origin "$destination" | cut -f1)
+          if [ -n "$current" ] && [ "$current" != "$PINNED_UPSTREAM" ]; then
+            echo 'Destination upstream ref differs; refusing to overwrite it.' >&2
+            exit 1
+          fi
+          git push origin "$PINNED_UPSTREAM:$destination"
+          echo "Imported upstream commit: $PINNED_UPSTREAM"
+          git rev-list --count "$PINNED_UPSTREAM"
