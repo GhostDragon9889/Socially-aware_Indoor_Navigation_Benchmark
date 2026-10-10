@@ -1,0 +1,80 @@
+{
+  "schema": "crowdsim.trace_pace_reliability.v1",
+  "resources": {
+    "diffusion_checkpoint": {
+      "path": "resources/releases/pedestrians_20261010/models/trace/iter40000.ckpt",
+      "sha256": "fd6ba631f4ccaa1a486b7cff192dfc17c5a7dd4a1058dd57830c854eaa7b9257"
+    },
+    "diffusion_config": {
+      "path": "resources/releases/pedestrians_20261010/models/trace/config.json",
+      "sha256": "35a5fb329e72c5b2988e90ab58fb443b72303feb0558b4d954b8fb3aecbe3fbd"
+    },
+    "amp_checkpoint": {
+      "path": "resources/releases/pedestrians_20261010/models/amp/speed_conservative_20261010/Humanoid_AMASS.pth",
+      "sha256": "cb2783690a683cbfbbf14e0788d99a2a49d0da0513d11399682db776deb3553c"
+    },
+    "amass_manifest": {
+      "path": "resources/releases/pedestrians_20261010/provenance/amass_manifest_labeled_v7.json",
+      "sha256": "68d41be28908f28a09c47f7658af39d55fad01b32212bd7c0ced2b1e6b1489ca"
+    }
+  },
+  "replan_controls": 15,
+  "num_samples": 16,
+  "guidance": {
+    "goal_weight": 100.0,
+    "map_weight": 3000.0,
+    "agent_weight": 3000.0,
+    "dynamics_weight": 5.0,
+    "max_speed_m_s": 0.9,
+    "max_acceleration_m_s2": 4.0,
+    "max_yaw_rate_rad_s": 1.0,
+    "clearance_m": 0.1,
+    "agent_buffer_m": 0.35,
+    "guide_clean": true,
+    "reject_unsafe_samples": true,
+    "target_speed_weight": 8.0,
+    "target_speed_m_s": 0.65,
+    "turn_speed_decay_s": 0.7,
+    "speed_ramp_time_s": 1.2,
+    "clean_guidance_step_size": 0.005,
+    "final_refinement_steps": 96,
+    "final_refinement_learning_rate": 0.15,
+    "final_refinement_anchor_weight": 0.02,
+    "bounded_guidance_gradient": 0.1,
+    "yaw_smoothness_weight": 0.25,
+    "speed_smoothness_weight": 0.02
+  },
+  "allow_safety_braking": true,
+  "stationary_route_heading": true,
+  "mixed_safety_brakes": true,
+  "guard_horizon_s": 1.0,
+  "guard_tracking_margin_m": 0.1,
+  "persistent_braking_target": true,
+  "amp_sample_start_s": 0.0,
+  "local_finetune_admission": {
+    "candidate": false,
+    "physical_quality_pending": false,
+    "purpose": "Completed local N1/N4 60s physical and posture/speed/contact gates; source-bound video recorded",
+    "author_experiment_reproduction": false,
+    "tested_profile": {
+      "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/speed_coverage_optimization/YOHO_three_regions_profile_v19.json",
+      "bytes": 2406,
+      "sha256": "0975d1bc86f8c49ee6f1217ad4e5adee22c0343a47c38e3bb416a0e4225fcc0c"
+    },
+    "tested_execution": {
+      "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/speed_coverage_optimization/YOHO_speed_coverage60_v19_execution.json",
+      "bytes": 26564,
+      "sha256": "d1536c0aa7e31cc7d9125843319019c06a5b08e92b1be406bd387d73fb1cae95"
+    }
+  },
+  "actual_body_map_guard": true,
+  "pedestrian_extent_m": [
+    0.65,
+    0.65,
+    1.7
+  ],
+  "map_guard_clearance_m": 0.04,
+  "body_guard_horizon_s": 0.3,
+  "body_guard_gap_m": 0.04,
+  "braking_agent_buffer_m": 0.2
+}

@@ -1,0 +1,54 @@
+{
+  "schema": "crowdsim.recorded_camera_skin_projection.v1",
+  "source_result_sha256": "7dc9588d568d771cbf2c468eec9f09904e5bd1bd9c8f75c5110e55a6da3ef5be",
+  "source_states_sha256": "dc21456377b7422ea1f5c2a91a91ce6141bcbc108d340632a3e3ae18222cff8f",
+  "camera_plan_sha256": "89337ac99df87a06811387ff077f69285db12815f9acb4d488f1cf6d6f524827",
+  "evaluator_source_sha256": "ff7d9e27ee57ac4cb4b61b48c8a97c7e8cdf72f3f026fccd328a326167469e85",
+  "native_camera_aperture_mm": [
+    36,
+    27
+  ],
+  "native_camera_source_sha256": "8f9e950bc9d962a5b76847315accec211d982285c7e6230fe6fca62f1fe8ab94",
+  "per_shot": [
+    {
+      "shot": 0,
+      "active_actors": [
+        0
+      ],
+      "source_interval": [
+        0,
+        900
+      ],
+      "actor_frames": 900,
+      "actor_frames_with_any_vertex_outside": 0,
+      "outside_source_steps": [],
+      "minimum_front_depth_m": 1.0972812175750732,
+      "horizontal_abs_ratio_max": 0.5298956036567688,
+      "horizontal_sensor_half_ratio": 1.8,
+      "vertical_abs_ratio_max": 1.0142842531204224,
+      "vertical_sensor_half_ratio": 1.35,
+      "all_neutral_SMPL_vertices_inside": true
+    },
+    {
+      "shot": 1,
+      "active_actors": [
+        0
+      ],
+      "source_interval": [
+        900,
+        1800
+      ],
+      "actor_frames": 900,
+      "actor_frames_with_any_vertex_outside": 0,
+      "outside_source_steps": [],
+      "minimum_front_depth_m": 1.4869533777236938,
+      "horizontal_abs_ratio_max": 0.43173283338546753,
+      "horizontal_sensor_half_ratio": 1.8,
+      "vertical_abs_ratio_max": 0.6567205786705017,
+      "vertical_sensor_half_ratio": 1.35,
+      "all_neutral_SMPL_vertices_inside": true
+    }
+  ],
+  "all_shots_inside": true,
+  "scope": "All actual neutral-SMPL skin vertices. Assigned visible actors only; no changes to actual rendering actor set. Separate native source-geometry occlusion inspection required."
+}

@@ -1,0 +1,4969 @@
+{
+  "schema": "navisaaclab.usd_projection_map.v1",
+  "scene": "ThirdFloor",
+  "status": "prototype_ready_for_physx_review",
+  "timestamp_utc": "2026-10-09T03:10:27.393327+00:00",
+  "source_usd": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/gait_four_scene_optimization/ThirdFloor_static_v2.usda",
+  "source_sha256": "38933c91ab3600b21436e98a8c29564d9850ea8066ad477e25e851805488ed93",
+  "generator": "/project/EXP/SangforAndSaut/ProtoMotions/scripts/generate_pedestrian_maps.py",
+  "generator_sha256": "7dc301687e3b20cff609ee91e38ab05752767c70c54d41e44a67ddcc9d9f5015",
+  "method": "conservative world XY AABB projection of geometry intersecting one height band",
+  "physx_collider_verified": false,
+  "author_eight_scene_map": false,
+  "navigation_ready_claim": false,
+  "composition_complete": true,
+  "missing_geometry": [],
+  "stage": {
+    "usd_version": [
+      0,
+      26,
+      8
+    ],
+    "stage_up_axis": "Z",
+    "stage_meters_per_unit": 1.0,
+    "stage_units_to_map_meters": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "gprim_count": 398,
+    "prim_types": {
+      "Xform": 48,
+      "Scope": 55,
+      "Material": 83,
+      "Shader": 244,
+      "Mesh": 257,
+      "GeomSubset": 343,
+      "PhysicsFixedJoint": 9,
+      "PhysicsJoint": 13,
+      "Cylinder": 38,
+      "Cube": 104,
+      "Camera": 5,
+      "RectLight": 10,
+      "DomeLight": 1,
+      "DistantLight": 1,
+      "NavMeshVolume": 1
+    },
+    "authored_collision_schema_count": 250,
+    "authored_colliders": [
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A63",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A64",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A65",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A68",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A71",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A75",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A76",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A78",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A80",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A87",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A88",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A89",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A92",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A93",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A94",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A95",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A99",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A100",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A103",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A104",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A105",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A106",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A108",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A117",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A118",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A120",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A122",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A152",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A153",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A155",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A200",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A201",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A203",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A205",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A207",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A208",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A210",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A211",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A212",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A213",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A214",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A215",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A216",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A218",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A226",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A227",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A236",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A237",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A238",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A246",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A247",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A248",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A249",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A251",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A252",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A253",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A254",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A255",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A256",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A257",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A258",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A259",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A260",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A263",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A66",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A67",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A69",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A70",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A77",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A81",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A82",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A83",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A84",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A85",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A86",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A90",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A96",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A101",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A107",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A110",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A111",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A112",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A113",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A114",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A115",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A116",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A119",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A123",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A124",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A125",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A126",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A127",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A128",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A129",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A130",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A131",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A132",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A133",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A134",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A135",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A136",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A137",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A138",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A139",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A140",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A141",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A142",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A143",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A144",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A145",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A146",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A147",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A148",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A149",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A150",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A154",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A156",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A157",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A158",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A159",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A160",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A161",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A162",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A163",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A164",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A165",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A166",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A167",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A168",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A169",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A170",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A171",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A172",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A173",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A174",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A175",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A176",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A177",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A178",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A179",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A180",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A181",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A182",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A183",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A184",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A185",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A186",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A187",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A188",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A189",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A190",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A191",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A192",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A193",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A194",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A195",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A196",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A197",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A198",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A199",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A204",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A217",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A219",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A220",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A221",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A222",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A223",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A224",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A229",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A230",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A231",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A232",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A233",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A234",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A235",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A239",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A240",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A245",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A262",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Assets/Door_0000/Geom/Static",
+        "type": "Mesh",
+        "collision_enabled": true
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Assets/Door_0000/Geom/A06865e7a93064541911395c3271e1c34",
+        "type": "Mesh",
+        "collision_enabled": true
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Assets/Edestalurinal_0000/Geom/body",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Assets/Edestalurinal_0001/Geom/body",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Assets/Edestalurinal_0002/Geom/body",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Assets/Edestalurinal_0003/Geom/body",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Assets/Edestalurinal_0004/Geom/body",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Assets/Fpd_0000/Geom/body",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Assets/Fpd_0001/Geom/body",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Assets/Toilet_YREQ6BBVAI7FMPTUJQ888888_KIiuW/Geom/ToiletKnob",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Assets/Toilet_YREQ6BBVAI7FMPTUJQ888888_KIiuW/Geom/ToiletKnob0001",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Assets/Toilet_YREQ6BBVAI7FMPTUJQ888888_KIiuW/Geom/ToiletLid",
+        "type": "Mesh",
+        "collision_enabled": true
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Assets/Toilet_YREQ6BBVAI7FMPTUJQ888888_KIiuW/Geom/ToiletSeat",
+        "type": "Mesh",
+        "collision_enabled": true
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Assets/Toilet_YREQ6BBVAI7FMPTUJQ888888_KIiuW/Geom/ToiletMain",
+        "type": "Mesh",
+        "collision_enabled": true
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Assets/Door_YS2HVXZVALGD2PTUJQ888888_7qcYe/Geom/Door",
+        "type": "Mesh",
+        "collision_enabled": true
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Assets/Door_YS2HVXZVALGD2PTUJQ888888_7qcYe/Geom/Door_Frame",
+        "type": "Mesh",
+        "collision_enabled": true
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Assets/Door_YS3UEUZVAJ2V4PTUKU888888_mdynP/Geom/Door",
+        "type": "Mesh",
+        "collision_enabled": true
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Assets/Door_YS3UEUZVAJ2V4PTUKU888888_mdynP/Geom/DoorFrame",
+        "type": "Mesh",
+        "collision_enabled": true
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Assets/Partition_0000/Geom/Static",
+        "type": "Mesh",
+        "collision_enabled": true
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Assets/Partition_0001/Geom/Static",
+        "type": "Mesh",
+        "collision_enabled": true
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Assets/Partition_0002/Geom/Static",
+        "type": "Mesh",
+        "collision_enabled": true
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Assets/Partition_0003/Geom/Static",
+        "type": "Mesh",
+        "collision_enabled": true
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Assets/Partition_0004/Geom/Static",
+        "type": "Mesh",
+        "collision_enabled": true
+      },
+      {
+        "prim": "/ThirdFloor/Collision/Walls",
+        "type": "Mesh",
+        "collision_enabled": true
+      },
+      {
+        "prim": "/ThirdFloor/Collision/Floor",
+        "type": "Mesh",
+        "collision_enabled": true
+      },
+      {
+        "prim": "/ThirdFloor/Collision/FixtureProxies/Fpd_0000",
+        "type": "Mesh",
+        "collision_enabled": true
+      },
+      {
+        "prim": "/ThirdFloor/Collision/FixtureProxies/Fpd_0001",
+        "type": "Mesh",
+        "collision_enabled": true
+      },
+      {
+        "prim": "/ThirdFloor/Collision/FixtureProxies/Edestalurinal_0000",
+        "type": "Mesh",
+        "collision_enabled": true
+      },
+      {
+        "prim": "/ThirdFloor/Collision/FixtureProxies/Edestalurinal_0001",
+        "type": "Mesh",
+        "collision_enabled": true
+      },
+      {
+        "prim": "/ThirdFloor/Collision/FixtureProxies/Edestalurinal_0002",
+        "type": "Mesh",
+        "collision_enabled": true
+      },
+      {
+        "prim": "/ThirdFloor/Collision/FixtureProxies/Edestalurinal_0003",
+        "type": "Mesh",
+        "collision_enabled": true
+      },
+      {
+        "prim": "/ThirdFloor/Collision/FixtureProxies/Edestalurinal_0004",
+        "type": "Mesh",
+        "collision_enabled": true
+      },
+      {
+        "prim": "/ThirdFloor/Details/WashStation/Basin1/Ceramic",
+        "type": "Mesh",
+        "collision_enabled": true
+      },
+      {
+        "prim": "/ThirdFloor/Details/WashStation/Basin2/Ceramic",
+        "type": "Mesh",
+        "collision_enabled": true
+      },
+      {
+        "prim": "/ThirdFloor/Details/WashStation/Cabinet",
+        "type": "Mesh",
+        "collision_enabled": true
+      },
+      {
+        "prim": "/ThirdFloor/Details/WashStation/Counter",
+        "type": "Mesh",
+        "collision_enabled": true
+      },
+      {
+        "prim": "/ThirdFloor/Details/WashStation/ToeRecess",
+        "type": "Mesh",
+        "collision_enabled": true
+      },
+      {
+        "prim": "/ThirdFloor/Details/Hygiene/Bin",
+        "type": "Mesh",
+        "collision_enabled": true
+      },
+      {
+        "prim": "/ThirdFloor/Details/Hygiene/Soap0",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/Hygiene/Soap1",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/Hygiene/BinLid",
+        "type": "Mesh",
+        "collision_enabled": true
+      },
+      {
+        "prim": "/ThirdFloor/Details/Hygiene/TowelDispenser",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/Ceiling/Main",
+        "type": "Mesh",
+        "collision_enabled": true
+      },
+      {
+        "prim": "/ThirdFloor/Details/Ceiling/Entry",
+        "type": "Mesh",
+        "collision_enabled": true
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Partitions/West",
+        "type": "Mesh",
+        "collision_enabled": true
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Partitions/Shared",
+        "type": "Mesh",
+        "collision_enabled": true
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle01/Architecture/Header",
+        "type": "Mesh",
+        "collision_enabled": true
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle01/Architecture/LeftJamb",
+        "type": "Mesh",
+        "collision_enabled": true
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle01/Architecture/RightJamb",
+        "type": "Mesh",
+        "collision_enabled": true
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle01/Toilet/Geom/ToiletKnob",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle01/Toilet/Geom/ToiletKnob0001",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle01/Toilet/Geom/ToiletLid",
+        "type": "Mesh",
+        "collision_enabled": true
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle01/Toilet/Geom/ToiletSeat",
+        "type": "Mesh",
+        "collision_enabled": true
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle01/Toilet/Geom/ToiletMain",
+        "type": "Mesh",
+        "collision_enabled": true
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle01/Door/Geom/Door",
+        "type": "Mesh",
+        "collision_enabled": true
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle01/Door/Geom/Door_Frame",
+        "type": "Mesh",
+        "collision_enabled": true
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle02/Architecture/Header",
+        "type": "Mesh",
+        "collision_enabled": true
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle02/Architecture/LeftJamb",
+        "type": "Mesh",
+        "collision_enabled": true
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle02/Architecture/RightJamb",
+        "type": "Mesh",
+        "collision_enabled": true
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle02/Toilet/Geom/ToiletKnob",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle02/Toilet/Geom/ToiletKnob0001",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle02/Toilet/Geom/ToiletLid",
+        "type": "Mesh",
+        "collision_enabled": true
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle02/Toilet/Geom/ToiletSeat",
+        "type": "Mesh",
+        "collision_enabled": true
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle02/Toilet/Geom/ToiletMain",
+        "type": "Mesh",
+        "collision_enabled": true
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle02/Door/Geom/Door",
+        "type": "Mesh",
+        "collision_enabled": true
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle02/Door/Geom/Door_Frame",
+        "type": "Mesh",
+        "collision_enabled": true
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle04/Toilet/Geom/ToiletKnob",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle04/Toilet/Geom/ToiletKnob0001",
+        "type": "Mesh",
+        "collision_enabled": false
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle04/Toilet/Geom/ToiletLid",
+        "type": "Mesh",
+        "collision_enabled": true
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle04/Toilet/Geom/ToiletSeat",
+        "type": "Mesh",
+        "collision_enabled": true
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle04/Toilet/Geom/ToiletMain",
+        "type": "Mesh",
+        "collision_enabled": true
+      }
+    ],
+    "skipped_geometry": {
+      "empty_bound": 1
+    }
+  },
+  "composition_errors": [],
+  "global_geometry_world_bbox_m": [
+    [
+      -3.507499933242798,
+      -1.7450000047683716,
+      -0.11999999731779099
+    ],
+    [
+      3.497499942779541,
+      1.7450000047683716,
+      2.8499999993294476
+    ]
+  ],
+  "extent_mode": "floor-support",
+  "floor": {
+    "height_m": 0.0,
+    "inference": "dominant .1m floor-height cluster weighted by XY AABB area; ties choose lower",
+    "candidate_count": 7,
+    "selected_floor_count": 5,
+    "selected_floor_prims": [
+      "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A66",
+      "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A67",
+      "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A77",
+      "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A262",
+      "/ThirdFloor/Collision/Floor"
+    ],
+    "support_geometry": "union of horizontal authored floor AABBs, a prototype approximation"
+  },
+  "pedestrian_height_band_above_floor_m": [
+    0.15,
+    1.8
+  ],
+  "bounds_xy_m": [
+    [
+      -4.0,
+      -2.5
+    ],
+    [
+      4.0,
+      2.5
+    ]
+  ],
+  "image_dimensions_xy": [
+    80,
+    50
+  ],
+  "metadata": {
+    "image": "occupancy.png",
+    "resolution": 0.1,
+    "origin": [
+      -4.0,
+      -2.5,
+      0.0
+    ],
+    "negate": 0,
+    "occupied_thresh": 0.65,
+    "free_thresh": 0.196
+  },
+  "statistics": {
+    "projected_obstacle_gprims": 190,
+    "skipped_obstacles": {
+      "above_pedestrian_height_band": 58,
+      "below_pedestrian_height_band": 150
+    },
+    "occupied_cells": 1701,
+    "free_cells": 952,
+    "unknown_cells": 1347,
+    "preview_free_candidates": 952,
+    "projected_obstacle_bounds": [
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A63",
+        "type": "Mesh",
+        "min_map_m": [
+          2.44350004196167,
+          -1.5449999570846558,
+          0.0
+        ],
+        "max_map_m": [
+          2.44350004196167,
+          0.009999999776482638,
+          2.799999952316284
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A63"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A64",
+        "type": "Mesh",
+        "min_map_m": [
+          2.4054999351501465,
+          -1.5449999570846558,
+          0.0
+        ],
+        "max_map_m": [
+          2.4054999351501465,
+          -0.03400000184774393,
+          2.799999952316284
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A64"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A65",
+        "type": "Mesh",
+        "min_map_m": [
+          2.4054999351501465,
+          0.009999999776482638,
+          0.0
+        ],
+        "max_map_m": [
+          2.44350004196167,
+          0.009999999776482638,
+          2.799999952316284
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A65"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A68",
+        "type": "Mesh",
+        "min_map_m": [
+          2.4054999351501465,
+          -0.03400000184774393,
+          0.0
+        ],
+        "max_map_m": [
+          2.4054999351501465,
+          -0.012000000104308073,
+          2.502000093460083
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A68"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A71",
+        "type": "Mesh",
+        "min_map_m": [
+          1.2244999408721924,
+          -1.5449999570846558,
+          0.0
+        ],
+        "max_map_m": [
+          2.4054999351501465,
+          -1.5449999570846558,
+          2.799999952316284
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A71"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A75",
+        "type": "Mesh",
+        "min_map_m": [
+          1.2044999599456787,
+          -0.012000000104308073,
+          0.0
+        ],
+        "max_map_m": [
+          2.4054999351501465,
+          -0.012000000104308073,
+          2.799999952316284
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A75"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A76",
+        "type": "Mesh",
+        "min_map_m": [
+          -2.682499885559082,
+          -0.3899999856948852,
+          0.0
+        ],
+        "max_map_m": [
+          -2.682499885559082,
+          1.600000023841858,
+          2.799999952316284
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A76"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A78",
+        "type": "Mesh",
+        "min_map_m": [
+          -3.307499885559082,
+          -1.5449999570846558,
+          0.0
+        ],
+        "max_map_m": [
+          -3.307499885559082,
+          -0.3899999856948852,
+          2.799999952316284
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A78"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A80",
+        "type": "Mesh",
+        "min_map_m": [
+          -2.682499885559082,
+          1.600000023841858,
+          0.0
+        ],
+        "max_map_m": [
+          3.297499895095825,
+          1.600000023841858,
+          2.799999952316284
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A80"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A87",
+        "type": "Mesh",
+        "min_map_m": [
+          3.297499895095825,
+          -1.5449999570846558,
+          0.0
+        ],
+        "max_map_m": [
+          3.297499895095825,
+          -1.3799999952316284,
+          1.0679999589920044
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A87"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A88",
+        "type": "Mesh",
+        "min_map_m": [
+          3.297499895095825,
+          -1.5449999570846558,
+          0.0
+        ],
+        "max_map_m": [
+          3.497499942779541,
+          -1.5449999570846558,
+          2.799999952316284
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A88"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A89",
+        "type": "Mesh",
+        "min_map_m": [
+          3.497499942779541,
+          -1.5449999570846558,
+          0.0
+        ],
+        "max_map_m": [
+          3.497499942779541,
+          1.600000023841858,
+          2.799999952316284
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A89"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A92",
+        "type": "Mesh",
+        "min_map_m": [
+          3.297499895095825,
+          1.600000023841858,
+          0.0
+        ],
+        "max_map_m": [
+          3.497499942779541,
+          1.600000023841858,
+          2.799999952316284
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A92"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A93",
+        "type": "Mesh",
+        "min_map_m": [
+          1.2044999599456787,
+          -1.7450000047683716,
+          0.0
+        ],
+        "max_map_m": [
+          1.2044999599456787,
+          -1.5449999570846558,
+          2.799999952316284
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A93"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A94",
+        "type": "Mesh",
+        "min_map_m": [
+          -3.307499885559082,
+          -1.7450000047683716,
+          0.0
+        ],
+        "max_map_m": [
+          -3.307499885559082,
+          -1.5449999570846558,
+          2.799999952316284
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A94"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A95",
+        "type": "Mesh",
+        "min_map_m": [
+          -3.307499885559082,
+          -1.7450000047683716,
+          0.0
+        ],
+        "max_map_m": [
+          1.2044999599456787,
+          -1.7450000047683716,
+          2.799999952316284
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A95"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A99",
+        "type": "Mesh",
+        "min_map_m": [
+          1.2044999599456787,
+          -1.7450000047683716,
+          0.0
+        ],
+        "max_map_m": [
+          1.2044999599456787,
+          -1.5449999570846558,
+          2.799999952316284
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A99"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A100",
+        "type": "Mesh",
+        "min_map_m": [
+          1.2044999599456787,
+          -1.7450000047683716,
+          0.0
+        ],
+        "max_map_m": [
+          1.2244999408721924,
+          -1.7450000047683716,
+          2.799999952316284
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A100"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A103",
+        "type": "Mesh",
+        "min_map_m": [
+          1.2244999408721924,
+          -1.7450000047683716,
+          0.0
+        ],
+        "max_map_m": [
+          1.2244999408721924,
+          -1.5449999570846558,
+          2.799999952316284
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A103"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A104",
+        "type": "Mesh",
+        "min_map_m": [
+          2.4054999351501465,
+          -1.5449999570846558,
+          0.0
+        ],
+        "max_map_m": [
+          3.497499942779541,
+          -1.5449999570846558,
+          2.799999952316284
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A104"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A105",
+        "type": "Mesh",
+        "min_map_m": [
+          2.4054999351501465,
+          -1.7450000047683716,
+          0.0
+        ],
+        "max_map_m": [
+          3.497499942779541,
+          -1.7450000047683716,
+          2.799999952316284
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A105"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A106",
+        "type": "Mesh",
+        "min_map_m": [
+          2.4054999351501465,
+          -1.7450000047683716,
+          0.0
+        ],
+        "max_map_m": [
+          2.4054999351501465,
+          -1.5449999570846558,
+          2.799999952316284
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A106"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A108",
+        "type": "Mesh",
+        "min_map_m": [
+          3.497499942779541,
+          -1.7450000047683716,
+          0.0
+        ],
+        "max_map_m": [
+          3.497499942779541,
+          -1.5449999570846558,
+          2.799999952316284
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A108"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A117",
+        "type": "Mesh",
+        "min_map_m": [
+          3.497499942779541,
+          1.600000023841858,
+          0.0
+        ],
+        "max_map_m": [
+          3.497499942779541,
+          1.7450000047683716,
+          2.799999952316284
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A117"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A118",
+        "type": "Mesh",
+        "min_map_m": [
+          3.297499895095825,
+          1.600000023841858,
+          0.0
+        ],
+        "max_map_m": [
+          3.497499942779541,
+          1.600000023841858,
+          2.799999952316284
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A118"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A120",
+        "type": "Mesh",
+        "min_map_m": [
+          -2.682499885559082,
+          1.7450000047683716,
+          0.0
+        ],
+        "max_map_m": [
+          3.497499942779541,
+          1.7450000047683716,
+          2.799999952316284
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A120"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A122",
+        "type": "Mesh",
+        "min_map_m": [
+          -2.682499885559082,
+          1.600000023841858,
+          0.0
+        ],
+        "max_map_m": [
+          -2.682499885559082,
+          1.7450000047683716,
+          2.799999952316284
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A122"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A152",
+        "type": "Mesh",
+        "min_map_m": [
+          -2.877500057220459,
+          -0.20000000298023218,
+          0.0
+        ],
+        "max_map_m": [
+          -2.877500057220459,
+          1.600000023841858,
+          2.799999952316284
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A152"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A153",
+        "type": "Mesh",
+        "min_map_m": [
+          -2.877500057220459,
+          -0.20000000298023218,
+          0.0
+        ],
+        "max_map_m": [
+          -2.682499885559082,
+          -0.20000000298023218,
+          2.799999952316284
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A153"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A155",
+        "type": "Mesh",
+        "min_map_m": [
+          -2.877500057220459,
+          1.600000023841858,
+          0.0
+        ],
+        "max_map_m": [
+          -2.682499885559082,
+          1.600000023841858,
+          2.799999952316284
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A155"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A200",
+        "type": "Mesh",
+        "min_map_m": [
+          -3.307499885559082,
+          -0.20000000298023218,
+          0.0
+        ],
+        "max_map_m": [
+          -2.877500057220459,
+          -0.20000000298023218,
+          2.799999952316284
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A200"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A201",
+        "type": "Mesh",
+        "min_map_m": [
+          -2.877500057220459,
+          -0.20000000298023218,
+          0.0
+        ],
+        "max_map_m": [
+          -2.682499885559082,
+          -0.20000000298023218,
+          2.799999952316284
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A201"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A203",
+        "type": "Mesh",
+        "min_map_m": [
+          -3.307499885559082,
+          -0.3899999856948852,
+          0.0
+        ],
+        "max_map_m": [
+          -3.307499885559082,
+          -0.20000000298023218,
+          2.799999952316284
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A203"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A205",
+        "type": "Mesh",
+        "min_map_m": [
+          2.4054999351501465,
+          -1.7450000047683716,
+          0.0
+        ],
+        "max_map_m": [
+          2.4054999351501465,
+          -1.5449999570846558,
+          2.799999952316284
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A205"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A207",
+        "type": "Mesh",
+        "min_map_m": [
+          1.2244999408721924,
+          -1.7450000047683716,
+          0.0
+        ],
+        "max_map_m": [
+          2.4054999351501465,
+          -1.7450000047683716,
+          2.799999952316284
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A207"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A208",
+        "type": "Mesh",
+        "min_map_m": [
+          1.2244999408721924,
+          -1.7450000047683716,
+          0.0
+        ],
+        "max_map_m": [
+          1.2244999408721924,
+          -1.5449999570846558,
+          2.799999952316284
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A208"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A210",
+        "type": "Mesh",
+        "min_map_m": [
+          -3.307499885559082,
+          -0.3899999856948852,
+          0.0
+        ],
+        "max_map_m": [
+          -3.307499885559082,
+          -0.20000000298023218,
+          2.799999952316284
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A210"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A211",
+        "type": "Mesh",
+        "min_map_m": [
+          -3.487499952316284,
+          -1.7450000047683716,
+          0.0
+        ],
+        "max_map_m": [
+          -3.487499952316284,
+          -0.20000000298023218,
+          2.799999952316284
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A211"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A212",
+        "type": "Mesh",
+        "min_map_m": [
+          -3.307499885559082,
+          -1.7450000047683716,
+          0.0
+        ],
+        "max_map_m": [
+          -3.307499885559082,
+          -1.5449999570846558,
+          2.799999952316284
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A212"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A213",
+        "type": "Mesh",
+        "min_map_m": [
+          -3.487499952316284,
+          -1.4019999504089355,
+          0.0
+        ],
+        "max_map_m": [
+          -3.307499885559082,
+          -1.4019999504089355,
+          2.3359999656677246
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A213"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A215",
+        "type": "Mesh",
+        "min_map_m": [
+          -3.487499952316284,
+          -0.5075299739837646,
+          0.0
+        ],
+        "max_map_m": [
+          -3.307499885559082,
+          -0.5075299739837646,
+          2.3359999656677246
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A215"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A216",
+        "type": "Mesh",
+        "min_map_m": [
+          -3.487499952316284,
+          -1.7450000047683716,
+          0.0
+        ],
+        "max_map_m": [
+          -3.307499885559082,
+          -1.7450000047683716,
+          2.799999952316284
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A216"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A218",
+        "type": "Mesh",
+        "min_map_m": [
+          -3.487499952316284,
+          -0.20000000298023218,
+          0.0
+        ],
+        "max_map_m": [
+          -3.307499885559082,
+          -0.20000000298023218,
+          2.799999952316284
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A218"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A226",
+        "type": "Mesh",
+        "min_map_m": [
+          2.4054999351501465,
+          -1.5449999570846558,
+          0.0
+        ],
+        "max_map_m": [
+          2.44350004196167,
+          -1.5449999570846558,
+          2.799999952316284
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A226"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A227",
+        "type": "Mesh",
+        "min_map_m": [
+          2.44350004196167,
+          -1.5449999570846558,
+          0.0
+        ],
+        "max_map_m": [
+          2.44350004196167,
+          -1.3799999952316284,
+          1.0679999589920044
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A227"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A236",
+        "type": "Mesh",
+        "min_map_m": [
+          3.297499895095825,
+          -1.5449999570846558,
+          0.0
+        ],
+        "max_map_m": [
+          3.297499895095825,
+          -1.3799999952316284,
+          1.0679999589920044
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A236"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A237",
+        "type": "Mesh",
+        "min_map_m": [
+          2.44350004196167,
+          -1.5449999570846558,
+          0.0
+        ],
+        "max_map_m": [
+          2.44350004196167,
+          -1.3799999952316284,
+          1.0679999589920044
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A237"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A238",
+        "type": "Mesh",
+        "min_map_m": [
+          2.44350004196167,
+          -1.5449999570846558,
+          0.0
+        ],
+        "max_map_m": [
+          3.297499895095825,
+          -1.5449999570846558,
+          1.0679999589920044
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A238"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A246",
+        "type": "Mesh",
+        "min_map_m": [
+          -3.487499952316284,
+          1.600000023841858,
+          0.0
+        ],
+        "max_map_m": [
+          -2.877500057220459,
+          1.600000023841858,
+          2.799999952316284
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A246"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A247",
+        "type": "Mesh",
+        "min_map_m": [
+          -3.487499952316284,
+          1.600000023841858,
+          0.0
+        ],
+        "max_map_m": [
+          -3.487499952316284,
+          1.7450000047683716,
+          2.799999952316284
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A247"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A248",
+        "type": "Mesh",
+        "min_map_m": [
+          -2.682499885559082,
+          1.600000023841858,
+          0.0
+        ],
+        "max_map_m": [
+          -2.682499885559082,
+          1.7450000047683716,
+          2.799999952316284
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A248"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A249",
+        "type": "Mesh",
+        "min_map_m": [
+          -2.877500057220459,
+          1.600000023841858,
+          0.0
+        ],
+        "max_map_m": [
+          -2.682499885559082,
+          1.600000023841858,
+          2.799999952316284
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A249"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A251",
+        "type": "Mesh",
+        "min_map_m": [
+          -3.487499952316284,
+          1.7450000047683716,
+          0.0
+        ],
+        "max_map_m": [
+          -2.682499885559082,
+          1.7450000047683716,
+          2.799999952316284
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A251"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A252",
+        "type": "Mesh",
+        "min_map_m": [
+          2.4054999351501465,
+          -0.012000000104308073,
+          0.0
+        ],
+        "max_map_m": [
+          2.4054999351501465,
+          0.009999999776482638,
+          2.799999952316284
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A252"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A253",
+        "type": "Mesh",
+        "min_map_m": [
+          2.44350004196167,
+          -1.5449999570846558,
+          1.0679999589920044
+        ],
+        "max_map_m": [
+          3.297499895095825,
+          -1.5449999570846558,
+          2.799999952316284
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A253"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A254",
+        "type": "Mesh",
+        "min_map_m": [
+          -3.307499885559082,
+          -1.5449999570846558,
+          0.0
+        ],
+        "max_map_m": [
+          1.2044999599456787,
+          -1.5449999570846558,
+          2.799999952316284
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A254"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A255",
+        "type": "Mesh",
+        "min_map_m": [
+          -3.307499885559082,
+          -0.3899999856948852,
+          0.0
+        ],
+        "max_map_m": [
+          -2.682499885559082,
+          -0.3899999856948852,
+          2.799999952316284
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A255"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A256",
+        "type": "Mesh",
+        "min_map_m": [
+          3.297499895095825,
+          -1.5449999570846558,
+          0.0
+        ],
+        "max_map_m": [
+          3.297499895095825,
+          1.600000023841858,
+          2.799999952316284
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A256"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A257",
+        "type": "Mesh",
+        "min_map_m": [
+          2.44350004196167,
+          -1.5449999570846558,
+          1.0679999589920044
+        ],
+        "max_map_m": [
+          3.297499895095825,
+          -1.3799999952316284,
+          1.0679999589920044
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A257"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A258",
+        "type": "Mesh",
+        "min_map_m": [
+          2.44350004196167,
+          -1.3799999952316284,
+          0.0
+        ],
+        "max_map_m": [
+          3.297499895095825,
+          -1.3799999952316284,
+          1.0679999589920044
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A258"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A259",
+        "type": "Mesh",
+        "min_map_m": [
+          1.2244999408721924,
+          -0.03400000184774393,
+          0.0
+        ],
+        "max_map_m": [
+          1.2244999408721924,
+          -0.012000000104308073,
+          2.502000093460083
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A259"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A260",
+        "type": "Mesh",
+        "min_map_m": [
+          1.2244999408721924,
+          -1.5449999570846558,
+          0.0
+        ],
+        "max_map_m": [
+          1.2244999408721924,
+          -0.03400000184774393,
+          2.799999952316284
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A260"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A263",
+        "type": "Mesh",
+        "min_map_m": [
+          1.2044999599456787,
+          -1.5449999570846558,
+          0.0
+        ],
+        "max_map_m": [
+          1.2044999599456787,
+          -0.012000000104308073,
+          2.799999952316284
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Base/Wall_0000/Geom/A263"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Assets/Door_0000/Geom/Static",
+        "type": "Mesh",
+        "min_map_m": [
+          -3.507499933242798,
+          -1.4190000295639038,
+          0.0
+        ],
+        "max_map_m": [
+          -3.2874999046325684,
+          -0.49053001403808594,
+          2.3529999256134033
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Assets/Door_0000/Geom/Static"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Assets/Door_0000/Geom/A06865e7a93064541911395c3271e1c34/Visual",
+        "type": "Mesh",
+        "min_map_m": [
+          -3.3522318421758164,
+          -1.4023803921351388,
+          0.009000691874720024
+        ],
+        "max_map_m": [
+          -2.5297615857362445,
+          -1.2404401438143788,
+          2.300000706910548
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Assets/Door_0000/Geom/A06865e7a93064541911395c3271e1c34"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Assets/Edestalurinal_0000/Geom/body",
+        "type": "Mesh",
+        "min_map_m": [
+          2.697185686713219,
+          1.2234626788963316,
+          -2.2702217101766564e-06
+        ],
+        "max_map_m": [
+          3.0259263281879427,
+          1.600000121103668,
+          1.1890022702217102
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Assets/Edestalurinal_0000/Geom/body"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Assets/Edestalurinal_0001/Geom/body",
+        "type": "Mesh",
+        "min_map_m": [
+          1.9214999379196693,
+          1.2252597031834473,
+          0.21200007103614948
+        ],
+        "max_map_m": [
+          2.267499676704395,
+          1.5999998968165525,
+          1.0670730197157217
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Assets/Edestalurinal_0001/Geom/body"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Assets/Edestalurinal_0002/Geom/body",
+        "type": "Mesh",
+        "min_map_m": [
+          1.1261261764312747,
+          1.2739388011045454,
+          0.5100001046028138
+        ],
+        "max_map_m": [
+          1.4918139937664034,
+          1.6000001988954542,
+          1.1987679251995087
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Assets/Edestalurinal_0002/Geom/body"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Assets/Edestalurinal_0003/Geom/body",
+        "type": "Mesh",
+        "min_map_m": [
+          0.36916587438488,
+          1.2650770451316833,
+          0.19800008780288691
+        ],
+        "max_map_m": [
+          0.6522821256151199,
+          1.5999999399671554,
+          0.8909359718017578
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Assets/Edestalurinal_0003/Geom/body"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Assets/Edestalurinal_0004/Geom/body",
+        "type": "Mesh",
+        "min_map_m": [
+          -0.4730294143072131,
+          1.3385107745342257,
+          0.1870001771564484
+        ],
+        "max_map_m": [
+          -0.15530378569278747,
+          1.6000002254657748,
+          0.7808487930412293
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Assets/Edestalurinal_0004/Geom/body"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Assets/Fpd_0000/Geom/body",
+        "type": "Mesh",
+        "min_map_m": [
+          2.0649076723903397,
+          1.3712351000000003,
+          6.853730083467013e-11
+        ],
+        "max_map_m": [
+          2.1149076704560983,
+          1.4212351,
+          0.21199999993146268
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Assets/Fpd_0000/Geom/body"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Assets/Fpd_0001/Geom/body",
+        "type": "Mesh",
+        "min_map_m": [
+          -0.3398468576096604,
+          1.5046604000000001,
+          4.716219192957283e-09
+        ],
+        "max_map_m": [
+          -0.289846859543902,
+          1.5546604,
+          0.2079710152837808
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Assets/Fpd_0001/Geom/body"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Assets/Toilet_YREQ6BBVAI7FMPTUJQ888888_KIiuW/Geom/ToiletKnob",
+        "type": "Mesh",
+        "min_map_m": [
+          1.8008898291553312,
+          -1.48391325316625,
+          0.7397728257989347
+        ],
+        "max_map_m": [
+          1.8317096309679235,
+          -1.4404991506981495,
+          0.7426478558396756
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Assets/Toilet_YREQ6BBVAI7FMPTUJQ888888_KIiuW/Geom/ToiletKnob"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Assets/Toilet_YREQ6BBVAI7FMPTUJQ888888_KIiuW/Geom/ToiletKnob0001",
+        "type": "Mesh",
+        "min_map_m": [
+          1.7884175759801595,
+          -1.481436142811663,
+          0.7397728257989347
+        ],
+        "max_map_m": [
+          1.8122855368478845,
+          -1.4404991203035737,
+          0.7426478558396756
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Assets/Toilet_YREQ6BBVAI7FMPTUJQ888888_KIiuW/Geom/ToiletKnob0001"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Assets/Toilet_YREQ6BBVAI7FMPTUJQ888888_KIiuW/Geom/ToiletLid",
+        "type": "Mesh",
+        "min_map_m": [
+          1.621046909334087,
+          -1.3251540899730445,
+          0.43126608787009707
+        ],
+        "max_map_m": [
+          1.9995218682510127,
+          -0.8402148097299691,
+          0.44642128033468714
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Assets/Toilet_YREQ6BBVAI7FMPTUJQ888888_KIiuW/Geom/ToiletLid"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Assets/Toilet_YREQ6BBVAI7FMPTUJQ888888_KIiuW/Geom/ToiletSeat",
+        "type": "Mesh",
+        "min_map_m": [
+          1.6206373367429114,
+          -1.3098779410772006,
+          0.3912612125277519
+        ],
+        "max_map_m": [
+          1.9999313967406651,
+          -0.8428142874784645,
+          0.42565370351076126
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Assets/Toilet_YREQ6BBVAI7FMPTUJQ888888_KIiuW/Geom/ToiletSeat"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Assets/Toilet_YREQ6BBVAI7FMPTUJQ888888_KIiuW/Geom/ToiletMain",
+        "type": "Mesh",
+        "min_map_m": [
+          1.6193579714758837,
+          -1.5451396794382761,
+          -0.0011012554168701172
+        ],
+        "max_map_m": [
+          2.0012107808129342,
+          -0.8391397504742779,
+          0.7427431344985962
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Assets/Toilet_YREQ6BBVAI7FMPTUJQ888888_KIiuW/Geom/ToiletMain"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Assets/Door_YS2HVXZVALGD2PTUJQ888888_7qcYe/Geom/Door",
+        "type": "Mesh",
+        "min_map_m": [
+          2.5914115183454864,
+          -0.676056876860955,
+          0.015307759269133303
+        ],
+        "max_map_m": [
+          2.6624117696443648,
+          -0.07205671730117393,
+          2.3113078091407786
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Assets/Door_YS2HVXZVALGD2PTUJQ888888_7qcYe/Geom/Door"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Assets/Door_YS2HVXZVALGD2PTUJQ888888_7qcYe/Geom/Door_Frame",
+        "type": "Mesh",
+        "min_map_m": [
+          2.4219294471572614,
+          -0.07209928588976544,
+          0.01230764389038086
+        ],
+        "max_map_m": [
+          3.313929468607013,
+          -0.032099242563942317,
+          2.514307737350464
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Assets/Door_YS2HVXZVALGD2PTUJQ888888_7qcYe/Geom/Door_Frame"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Assets/Door_YS3UEUZVAJ2V4PTUKU888888_mdynP/Geom/Door",
+        "type": "Mesh",
+        "min_map_m": [
+          2.195189819863974,
+          -0.6495529680057273,
+          0.02428015695390129
+        ],
+        "max_map_m": [
+          2.2181898315317623,
+          -0.04555279230582152,
+          2.240280228778285
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Assets/Door_YS3UEUZVAJ2V4PTUKU888888_mdynP/Geom/Door"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Assets/Door_YS3UEUZVAJ2V4PTUKU888888_mdynP/Geom/DoorFrame",
+        "type": "Mesh",
+        "min_map_m": [
+          1.2306953663133509,
+          -0.049423818577128104,
+          0.021279811859129305
+        ],
+        "max_map_m": [
+          2.4116953616834755,
+          -0.026423762451810134,
+          2.523279905319212
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Assets/Door_YS3UEUZVAJ2V4PTUKU888888_mdynP/Geom/DoorFrame"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Assets/Partition_0000/Geom/Static",
+        "type": "Mesh",
+        "min_map_m": [
+          0.8855000138282776,
+          1.200000047683716,
+          0.4000000059604645
+        ],
+        "max_map_m": [
+          0.8985000252723694,
+          1.6000000238418581,
+          1.3009999990463257
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Assets/Partition_0000/Geom/Static"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Assets/Partition_0001/Geom/Static",
+        "type": "Mesh",
+        "min_map_m": [
+          1.6764999628067017,
+          1.200000047683716,
+          0.4000000059604645
+        ],
+        "max_map_m": [
+          1.6894999742507935,
+          1.6000000238418581,
+          1.3009999990463257
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Assets/Partition_0001/Geom/Static"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Assets/Partition_0002/Geom/Static",
+        "type": "Mesh",
+        "min_map_m": [
+          -0.7555000185966494,
+          1.200000047683716,
+          0.4000000059604645
+        ],
+        "max_map_m": [
+          -0.7425000071525576,
+          1.6000000238418581,
+          1.3009999990463257
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Assets/Partition_0002/Geom/Static"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Assets/Partition_0003/Geom/Static",
+        "type": "Mesh",
+        "min_map_m": [
+          0.08550000190734841,
+          1.200000047683716,
+          0.4000000059604645
+        ],
+        "max_map_m": [
+          0.09849999845027901,
+          1.6000000238418581,
+          1.3009999990463257
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Assets/Partition_0003/Geom/Static"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Meshes/Assets/Partition_0004/Geom/Static",
+        "type": "Mesh",
+        "min_map_m": [
+          2.4684998989105225,
+          1.200000047683716,
+          0.4000000059604645
+        ],
+        "max_map_m": [
+          2.4814999103546143,
+          1.6000000238418581,
+          1.3009999990463257
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Meshes/Assets/Partition_0004/Geom/Static"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Collision/Walls",
+        "type": "Mesh",
+        "min_map_m": [
+          -3.487499952316284,
+          -1.7450000047683716,
+          0.0
+        ],
+        "max_map_m": [
+          3.497499942779541,
+          1.7450000047683716,
+          2.799999952316284
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Collision/Walls"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Collision/FixtureProxies/Fpd_0000",
+        "type": "Mesh",
+        "min_map_m": [
+          2.064907672913335,
+          1.3712350996274711,
+          1.2516975234078132e-09
+        ],
+        "max_map_m": [
+          2.114907669933103,
+          1.4212351003725292,
+          0.21199999874830244
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Collision/FixtureProxies/Fpd_0000"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Collision/FixtureProxies/Fpd_0001",
+        "type": "Mesh",
+        "min_map_m": [
+          -0.33984685708666507,
+          1.504660399627471,
+          6.684074405072238e-09
+        ],
+        "max_map_m": [
+          -0.2898468600668973,
+          1.554660400372529,
+          0.2079710133159256
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Collision/FixtureProxies/Fpd_0001"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Collision/FixtureProxies/Edestalurinal_0000",
+        "type": "Mesh",
+        "min_map_m": [
+          2.6971856792626383,
+          1.2234626788963316,
+          -2.2702217101766564e-06
+        ],
+        "max_map_m": [
+          3.0259263356385233,
+          1.600000121103668,
+          1.1890022702217102
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Collision/FixtureProxies/Edestalurinal_0000"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Collision/FixtureProxies/Edestalurinal_0001",
+        "type": "Mesh",
+        "min_map_m": [
+          1.9214999335546699,
+          1.225259708323288,
+          0.21200005779658992
+        ],
+        "max_map_m": [
+          2.2674996810693946,
+          1.599999891676712,
+          1.0670730329552813
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Collision/FixtureProxies/Edestalurinal_0001"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Collision/FixtureProxies/Edestalurinal_0002",
+        "type": "Mesh",
+        "min_map_m": [
+          1.1261261764312747,
+          1.2739388011045454,
+          0.510000119503975
+        ],
+        "max_map_m": [
+          1.4918139937664034,
+          1.6000001988954542,
+          1.1987679102983475
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Collision/FixtureProxies/Edestalurinal_0002"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Collision/FixtureProxies/Edestalurinal_0003",
+        "type": "Mesh",
+        "min_map_m": [
+          0.36916587438488,
+          1.2650770376811027,
+          0.19800008780288691
+        ],
+        "max_map_m": [
+          0.6522821256151199,
+          1.599999947417736,
+          0.8909359718017578
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Collision/FixtureProxies/Edestalurinal_0003"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Collision/FixtureProxies/Edestalurinal_0004",
+        "type": "Mesh",
+        "min_map_m": [
+          -0.4730294143072131,
+          1.3385107745342257,
+          0.18700019205760965
+        ],
+        "max_map_m": [
+          -0.15530378569278747,
+          1.6000002254657748,
+          0.7808487781400681
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Collision/FixtureProxies/Edestalurinal_0004"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/Signage/Level",
+        "type": "Mesh",
+        "min_map_m": [
+          -3.265000104904175,
+          -0.4009999930858612,
+          1.6649999618530273
+        ],
+        "max_map_m": [
+          -2.7149999141693115,
+          -0.4009999930858612,
+          1.875
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/WashStation/Basin1/Ceramic",
+        "type": "Mesh",
+        "min_map_m": [
+          -2.509999980926514,
+          0.7899999761581417,
+          0.8650000095367432
+        ],
+        "max_map_m": [
+          -2.100000014305115,
+          1.3500000381469723,
+          1.0049999952316284
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Details/WashStation/Basin1/Ceramic"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/WashStation/Basin1/Waste",
+        "type": "Cylinder",
+        "min_map_m": [
+          -2.3249999995529658,
+          1.0500000004470345,
+          0.8714999999869615
+        ],
+        "max_map_m": [
+          -2.2850000004470354,
+          1.0899999995529648,
+          0.8745000000130385
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/WashStation/Basin1/WasteHole0",
+        "type": "Cylinder",
+        "min_map_m": [
+          -2.3070000000949955,
+          1.0559999999050047,
+          0.8744999999762513
+        ],
+        "max_map_m": [
+          -2.3029999999050057,
+          1.0600000000949945,
+          0.8755000000237487
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/WashStation/Basin1/WasteHole1",
+        "type": "Cylinder",
+        "min_map_m": [
+          -2.295589686568918,
+          1.0642845261483205,
+          0.8744999999762513
+        ],
+        "max_map_m": [
+          -2.291589686378928,
+          1.0682845263383103,
+          0.8755000000237487
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/WashStation/Basin1/WasteHole2",
+        "type": "Cylinder",
+        "min_map_m": [
+          -2.299934213351382,
+          1.0776992090322366,
+          0.8744999999762513
+        ],
+        "max_map_m": [
+          -2.295934213161392,
+          1.0816992092222264,
+          0.8755000000237487
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/WashStation/Basin1/WasteHole3",
+        "type": "Cylinder",
+        "min_map_m": [
+          -2.3140348560850357,
+          1.0777216664904927,
+          0.8744999999762513
+        ],
+        "max_map_m": [
+          -2.310034855895046,
+          1.0817216666804825,
+          0.8755000000237487
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/WashStation/Basin1/WasteHole4",
+        "type": "Cylinder",
+        "min_map_m": [
+          -2.3184220906407838,
+          1.0643208902893757,
+          0.8744999999762513
+        ],
+        "max_map_m": [
+          -2.314422090450794,
+          1.0683208904793655,
+          0.8755000000237487
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/WashStation/Basin2/Ceramic",
+        "type": "Mesh",
+        "min_map_m": [
+          -2.509999980926514,
+          -0.12999998092651407,
+          0.8650000095367432
+        ],
+        "max_map_m": [
+          -2.100000014305115,
+          0.429999961853027,
+          1.0049999952316284
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Details/WashStation/Basin2/Ceramic"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/WashStation/Basin2/Waste",
+        "type": "Cylinder",
+        "min_map_m": [
+          -2.3249999995529653,
+          0.13000000044703452,
+          0.8714999999869615
+        ],
+        "max_map_m": [
+          -2.285000000447035,
+          0.16999999955296485,
+          0.8745000000130385
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/WashStation/Basin2/WasteHole0",
+        "type": "Cylinder",
+        "min_map_m": [
+          -2.307000000094995,
+          0.13599999990500478,
+          0.8744999999762513
+        ],
+        "max_map_m": [
+          -2.3029999999050053,
+          0.14000000009499458,
+          0.8755000000237487
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/WashStation/Basin2/WasteHole1",
+        "type": "Cylinder",
+        "min_map_m": [
+          -2.2955896865689174,
+          0.14428452614832055,
+          0.8744999999762513
+        ],
+        "max_map_m": [
+          -2.2915896863789276,
+          0.14828452633831035,
+          0.8755000000237487
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/WashStation/Basin2/WasteHole2",
+        "type": "Cylinder",
+        "min_map_m": [
+          -2.2999342133513814,
+          0.15769920903223644,
+          0.8744999999762513
+        ],
+        "max_map_m": [
+          -2.2959342131613916,
+          0.16169920922222625,
+          0.8755000000237487
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/WashStation/Basin2/WasteHole3",
+        "type": "Cylinder",
+        "min_map_m": [
+          -2.3140348560850352,
+          0.1577216664904928,
+          0.8744999999762513
+        ],
+        "max_map_m": [
+          -2.3100348558950454,
+          0.1617216666804826,
+          0.8755000000237487
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/WashStation/Basin2/WasteHole4",
+        "type": "Cylinder",
+        "min_map_m": [
+          -2.3184220906407833,
+          0.14432089028937556,
+          0.8744999999762513
+        ],
+        "max_map_m": [
+          -2.3144220904507935,
+          0.14832089047936536,
+          0.8755000000237487
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/WashStation/Mirror",
+        "type": "Cube",
+        "min_map_m": [
+          -2.614000000216067,
+          -0.26500000000000035,
+          1.194999997615814
+        ],
+        "max_map_m": [
+          -2.5999999997839334,
+          1.4849999999999997,
+          2.0650000023841857
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/WashStation/Cabinet",
+        "type": "Mesh",
+        "min_map_m": [
+          -2.6250000011920935,
+          -0.2699999952316288,
+          0.22000000834465028
+        ],
+        "max_map_m": [
+          -2.0649999988079077,
+          1.489999995231628,
+          0.7999999916553497
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Details/WashStation/Cabinet"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/WashStation/Counter",
+        "type": "Mesh",
+        "min_map_m": [
+          -2.6550000023841864,
+          -0.31000001668930094,
+          0.7899999998509883
+        ],
+        "max_map_m": [
+          -2.034999997615815,
+          1.5300000166893002,
+          0.8600000001490116
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Details/WashStation/Counter"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/WashStation/Sensor0",
+        "type": "Cube",
+        "min_map_m": [
+          -2.538499999944121,
+          1.0610000003874298,
+          1.033999999947846
+        ],
+        "max_map_m": [
+          -2.53350000005588,
+          1.0789999996125694,
+          1.046000000052154
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/WashStation/Handle0",
+        "type": "Cylinder",
+        "min_map_m": [
+          -2.06400000037998,
+          0.8699999967459396,
+          0.6819999927743119
+        ],
+        "max_map_m": [
+          -2.047999999620021,
+          1.2700000032540604,
+          0.698000007225688
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/WashStation/Sensor1",
+        "type": "Cube",
+        "min_map_m": [
+          -2.538499999944121,
+          0.14100000038742988,
+          1.033999999947846
+        ],
+        "max_map_m": [
+          -2.53350000005588,
+          0.1589999996125695,
+          1.046000000052154
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/WashStation/Handle1",
+        "type": "Cylinder",
+        "min_map_m": [
+          -2.0640000003799797,
+          -0.05000000325406076,
+          0.6819999927743119
+        ],
+        "max_map_m": [
+          -2.0479999996200204,
+          0.3500000032540601,
+          0.698000007225688
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/WashStation/TapBase0",
+        "type": "Cylinder",
+        "min_map_m": [
+          -2.590000000149012,
+          1.034999999850988,
+          0.8594999998137355
+        ],
+        "max_map_m": [
+          -2.519999999850989,
+          1.1050000001490112,
+          0.8845000001862645
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/WashStation/Aerator0",
+        "type": "Cylinder",
+        "min_map_m": [
+          -2.40100000075996,
+          1.0539999992400404,
+          1.1109999997839333
+        ],
+        "max_map_m": [
+          -2.3689999992400415,
+          1.0860000007599588,
+          1.125000000216067
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/WashStation/TapBase1",
+        "type": "Cylinder",
+        "min_map_m": [
+          -2.5900000001490118,
+          0.11499999985098806,
+          0.8594999998137355
+        ],
+        "max_map_m": [
+          -2.5199999998509885,
+          0.1850000001490113,
+          0.8845000001862645
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/WashStation/Aerator1",
+        "type": "Cylinder",
+        "min_map_m": [
+          -2.4010000007599595,
+          0.13399999924004047,
+          1.1109999997839333
+        ],
+        "max_map_m": [
+          -2.368999999240041,
+          0.1660000007599589,
+          1.125000000216067
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/WashStation/ToeRecess",
+        "type": "Mesh",
+        "min_map_m": [
+          -2.625000005960465,
+          -0.21499998807907142,
+          0.1250000023841858
+        ],
+        "max_map_m": [
+          -2.324999994039536,
+          1.4349999880790707,
+          0.2549999976158142
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Details/WashStation/ToeRecess"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/WashStation/TapSpout0",
+        "type": "Cylinder",
+        "min_map_m": [
+          -2.555000001510184,
+          1.05200000077486,
+          1.1119999978654342
+        ],
+        "max_map_m": [
+          -2.384999998489817,
+          1.0879999992251392,
+          1.1480000021345655
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/WashStation/TapSpout1",
+        "type": "Cylinder",
+        "min_map_m": [
+          -2.5550000015101837,
+          0.13200000077486004,
+          1.1119999978654342
+        ],
+        "max_map_m": [
+          -2.3849999984898167,
+          0.16799999922513933,
+          1.1480000021345655
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/WashStation/TapUpright0",
+        "type": "Cylinder",
+        "min_map_m": [
+          -2.57299999922514,
+          1.05200000077486,
+          0.8799999999999999
+        ],
+        "max_map_m": [
+          -2.537000000774861,
+          1.0879999992251392,
+          1.13
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/WashStation/TapUpright1",
+        "type": "Cylinder",
+        "min_map_m": [
+          -2.5729999992251398,
+          0.13200000077486007,
+          0.8799999999999999
+        ],
+        "max_map_m": [
+          -2.5370000007748605,
+          0.1679999992251393,
+          1.13
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/WashStation/MirrorFrame",
+        "type": "Cube",
+        "min_map_m": [
+          -2.648500000074506,
+          -0.28999997615814266,
+          1.1699999916553496
+        ],
+        "max_map_m": [
+          -2.6134999999254944,
+          1.5099999761581415,
+          2.09000000834465
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/WashStation/CabinetSeam89",
+        "type": "Cube",
+        "min_map_m": [
+          -2.064499999944121,
+          -0.22150000001303882,
+          0.23999998927116395
+        ],
+        "max_map_m": [
+          -2.0595000000558796,
+          -0.2184999999869618,
+          0.7800000107288361
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/WashStation/CabinetSeam254",
+        "type": "Cube",
+        "min_map_m": [
+          -2.064499999944121,
+          1.4384999999869612,
+          0.23999998927116395
+        ],
+        "max_map_m": [
+          -2.0595000000558796,
+          1.4415000000130382,
+          0.7800000107288361
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/WashStation/CabinetSeam172",
+        "type": "Cube",
+        "min_map_m": [
+          -2.064499999944121,
+          0.6084999999869611,
+          0.23999998927116395
+        ],
+        "max_map_m": [
+          -2.0595000000558796,
+          0.6115000000130382,
+          0.7800000107288361
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/Hygiene/Bin",
+        "type": "Mesh",
+        "min_map_m": [
+          -1.7550000011920934,
+          1.2599999988079071,
+          0.015000014305114773
+        ],
+        "max_map_m": [
+          -1.4449999988079076,
+          1.570000001192093,
+          0.5449999856948853
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Details/Hygiene/Bin"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/Hygiene/Soap0",
+        "type": "Mesh",
+        "min_map_m": [
+          -2.6329999976158147,
+          0.09750000163912807,
+          0.9250000005960464
+        ],
+        "max_map_m": [
+          -2.5030000023841863,
+          0.20249999836087265,
+          1.1449999994039535
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Details/Hygiene/Soap0"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/Hygiene/Soap1",
+        "type": "Mesh",
+        "min_map_m": [
+          -2.6329999976158143,
+          1.0175000016391282,
+          0.9250000005960464
+        ],
+        "max_map_m": [
+          -2.503000002384186,
+          1.1224999983608728,
+          1.1449999994039535
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Details/Hygiene/Soap1"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/Hygiene/Paper",
+        "type": "Cube",
+        "min_map_m": [
+          -1.7000000014901167,
+          1.374999999973923,
+          1.269999999254942
+        ],
+        "max_map_m": [
+          -1.4999999985098844,
+          1.3810000000260771,
+          1.3700000007450581
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/Hygiene/BinLid",
+        "type": "Mesh",
+        "min_map_m": [
+          -1.7599999964237218,
+          1.2550000035762787,
+          0.5439999998956919
+        ],
+        "max_map_m": [
+          -1.4400000035762792,
+          1.5749999964237213,
+          0.5680000001043082
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Details/Hygiene/BinLid"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/Hygiene/TowelSlot",
+        "type": "Cube",
+        "min_map_m": [
+          -1.715000002086163,
+          1.38700000038743,
+          1.3674999998137354
+        ],
+        "max_map_m": [
+          -1.484999997913838,
+          1.4049999996125697,
+          1.3925000001862644
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/Hygiene/BinOpening",
+        "type": "Cube",
+        "min_map_m": [
+          -1.7000000014901167,
+          1.340000002384186,
+          0.5679999999525025
+        ],
+        "max_map_m": [
+          -1.4999999985098844,
+          1.4699999976158145,
+          0.5700000000474974
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/Hygiene/SoapWindow0",
+        "type": "Cube",
+        "min_map_m": [
+          -2.5010000000949955,
+          0.13699999973177945,
+          0.9875000011920929
+        ],
+        "max_map_m": [
+          -2.4969999999050057,
+          0.16300000026822126,
+          1.0524999988079071
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/Hygiene/SoapNozzle0",
+        "type": "Cube",
+        "min_map_m": [
+          -2.5030000003725297,
+          0.1300000004470352,
+          0.8984999998137355
+        ],
+        "max_map_m": [
+          -2.4529999996274716,
+          0.16999999955296552,
+          0.9235000001862645
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/Hygiene/SoapWindow1",
+        "type": "Cube",
+        "min_map_m": [
+          -2.501000000094995,
+          1.0569999997317794,
+          0.9875000011920929
+        ],
+        "max_map_m": [
+          -2.496999999905005,
+          1.0830000002682212,
+          1.0524999988079071
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/Hygiene/SoapNozzle1",
+        "type": "Cube",
+        "min_map_m": [
+          -2.5030000003725292,
+          1.0500000004470351,
+          0.8984999998137355
+        ],
+        "max_map_m": [
+          -2.452999999627471,
+          1.0899999995529654,
+          0.9235000001862645
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/Hygiene/TowelDispenser",
+        "type": "Mesh",
+        "min_map_m": [
+          -1.7599999964237218,
+          1.4029999964237212,
+          1.354999993443489
+        ],
+        "max_map_m": [
+          -1.4400000035762792,
+          1.5830000035762786,
+          1.685000006556511
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Details/Hygiene/TowelDispenser"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/CubicleAccessories1/Hook",
+        "type": "Cylinder",
+        "min_map_m": [
+          1.2450000006202415,
+          -0.9580000003799796,
+          1.6219999982508786
+        ],
+        "max_map_m": [
+          1.3249999993797588,
+          -0.9419999996200203,
+          1.6380000017491212
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/CubicleAccessories1/Mount",
+        "type": "Cube",
+        "min_map_m": [
+          1.2324999998137356,
+          -1.0350000008940696,
+          0.7050000023841858
+        ],
+        "max_map_m": [
+          1.2575000001862646,
+          -0.8649999991059303,
+          0.8349999976158142
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/CubicleAccessories1/RollHub",
+        "type": "Cylinder",
+        "min_map_m": [
+          1.2959999995678664,
+          -1.0099999986588954,
+          0.7559999995678663
+        ],
+        "max_map_m": [
+          1.3240000004321337,
+          -0.8900000013411045,
+          0.7840000004321337
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/CubicleAccessories1/HookTip",
+        "type": "Cylinder",
+        "min_map_m": [
+          1.3169999996200206,
+          -0.9580000003799796,
+          1.6299999999254942
+        ],
+        "max_map_m": [
+          1.3330000003799798,
+          -0.9419999996200203,
+          1.6650000000745058
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/CubicleAccessories1/PaperRoll",
+        "type": "Cylinder",
+        "min_map_m": [
+          1.2539999982714654,
+          -1.0024999983608722,
+          0.7139999982714653
+        ],
+        "max_map_m": [
+          1.3660000017285348,
+          -0.8975000016391277,
+          0.8260000017285347
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/CubicleAccessories1/HookMount",
+        "type": "Cube",
+        "min_map_m": [
+          1.2324999998137356,
+          -0.9799999993294477,
+          1.5999999992549419
+        ],
+        "max_map_m": [
+          1.2575000001862646,
+          -0.9200000006705522,
+          1.700000000745058
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/CubicleAccessories2/Hook",
+        "type": "Cylinder",
+        "min_map_m": [
+          2.465000000620241,
+          -0.9680000003799796,
+          1.6219999982508786
+        ],
+        "max_map_m": [
+          2.5449999993797587,
+          -0.9519999996200204,
+          1.6380000017491212
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/CubicleAccessories2/Mount",
+        "type": "Cube",
+        "min_map_m": [
+          2.4524999998137353,
+          -1.0450000008940696,
+          0.7050000023841858
+        ],
+        "max_map_m": [
+          2.4775000001862644,
+          -0.8749999991059303,
+          0.8349999976158142
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/CubicleAccessories2/RollHub",
+        "type": "Cylinder",
+        "min_map_m": [
+          2.515999999567866,
+          -1.0199999986588955,
+          0.7559999995678663
+        ],
+        "max_map_m": [
+          2.5440000004321335,
+          -0.9000000013411045,
+          0.7840000004321337
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/CubicleAccessories2/HookTip",
+        "type": "Cylinder",
+        "min_map_m": [
+          2.5369999996200203,
+          -0.9680000003799796,
+          1.6299999999254942
+        ],
+        "max_map_m": [
+          2.5530000003799795,
+          -0.9519999996200204,
+          1.6650000000745058
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/CubicleAccessories2/PaperRoll",
+        "type": "Cylinder",
+        "min_map_m": [
+          2.473999998271465,
+          -1.0124999983608722,
+          0.7139999982714653
+        ],
+        "max_map_m": [
+          2.5860000017285345,
+          -0.9075000016391277,
+          0.8260000017285347
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Details/CubicleAccessories2/HookMount",
+        "type": "Cube",
+        "min_map_m": [
+          2.4524999998137353,
+          -0.9899999993294477,
+          1.5999999992549419
+        ],
+        "max_map_m": [
+          2.4775000001862644,
+          -0.9300000006705522,
+          1.700000000745058
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Partitions/West",
+        "type": "Mesh",
+        "min_map_m": [
+          -0.9949999998509884,
+          -1.5450000252723695,
+          2.3841857821338408e-08
+        ],
+        "max_map_m": [
+          -0.9400000001490116,
+          0.002000025272369421,
+          2.799999976158142
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Cubicles/Partitions/West"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Partitions/Shared",
+        "type": "Mesh",
+        "min_map_m": [
+          0.08000000014901161,
+          -1.5450000252723695,
+          2.3841857821338408e-08
+        ],
+        "max_map_m": [
+          0.13499999985098837,
+          0.002000025272369421,
+          2.799999976158142
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Cubicles/Partitions/Shared"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle01/Accessories/Hook",
+        "type": "Cylinder",
+        "min_map_m": [
+          -0.9260000017639444,
+          -0.4180000003799796,
+          1.62199999833645
+        ],
+        "max_map_m": [
+          -0.8509999982360555,
+          -0.40199999962002037,
+          1.6380000016635499
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle01/Accessories/RollHub",
+        "type": "Cylinder",
+        "min_map_m": [
+          -0.8730000004321337,
+          -0.9399999986588955,
+          0.7559999995678663
+        ],
+        "max_map_m": [
+          -0.8449999995678663,
+          -0.8200000013411045,
+          0.7840000004321337
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle01/Accessories/HookTip",
+        "type": "Cylinder",
+        "min_map_m": [
+          -0.8590000003799796,
+          -0.4180000003799796,
+          1.6299999999254942
+        ],
+        "max_map_m": [
+          -0.8429999996200204,
+          -0.40199999962002037,
+          1.6650000000745058
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle01/Accessories/PaperRoll",
+        "type": "Cylinder",
+        "min_map_m": [
+          -0.9150000017285347,
+          -0.9324999983608723,
+          0.7139999982714653
+        ],
+        "max_map_m": [
+          -0.8029999982714653,
+          -0.8275000016391277,
+          0.8260000017285347
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle01/Accessories/HookMount",
+        "type": "Cube",
+        "min_map_m": [
+          -0.9385000001862644,
+          -0.4399999993294477,
+          1.5999999992549419
+        ],
+        "max_map_m": [
+          -0.9134999998137354,
+          -0.38000000067055223,
+          1.700000000745058
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle01/Accessories/PaperMount",
+        "type": "Cube",
+        "min_map_m": [
+          -0.9385000001862644,
+          -0.9650000008940697,
+          0.7050000023841858
+        ],
+        "max_map_m": [
+          -0.9134999998137354,
+          -0.7949999991059303,
+          0.8349999976158142
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle01/Architecture/LeftJamb",
+        "type": "Mesh",
+        "min_map_m": [
+          -0.9400000015199184,
+          -0.04850000089406967,
+          2.3841857821338408e-08
+        ],
+        "max_map_m": [
+          -0.8759999984800815,
+          -0.003499999105930327,
+          2.799999976158142
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Cubicles/Cubicle01/Architecture/LeftJamb"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle01/Architecture/RightJamb",
+        "type": "Mesh",
+        "min_map_m": [
+          0.015999998480081566,
+          -0.04850000089406967,
+          2.3841857821338408e-08
+        ],
+        "max_map_m": [
+          0.08000000151991846,
+          -0.003499999105930327,
+          2.799999976158142
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Cubicles/Cubicle01/Architecture/RightJamb"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle01/Toilet/Geom/ToiletKnob",
+        "type": "Mesh",
+        "min_map_m": [
+          -0.43939458131489406,
+          -1.482773558680356,
+          0.7408740818500519
+        ],
+        "max_map_m": [
+          -0.40857477950230164,
+          -1.4393594562122556,
+          0.7437491118907928
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Cubicles/Cubicle01/Toilet/Geom/ToiletKnob"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle01/Toilet/Geom/ToiletKnob0001",
+        "type": "Mesh",
+        "min_map_m": [
+          -0.45186683449006576,
+          -1.4802964483257686,
+          0.7408740818500519
+        ],
+        "max_map_m": [
+          -0.4279988736223408,
+          -1.4393594258176794,
+          0.7437491118907928
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Cubicles/Cubicle01/Toilet/Geom/ToiletKnob0001"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle01/Toilet/Geom/ToiletLid",
+        "type": "Mesh",
+        "min_map_m": [
+          -0.6192374739628774,
+          -1.3240143299556497,
+          0.43236734345555305
+        ],
+        "max_map_m": [
+          -0.240762515045952,
+          -0.8390750497125743,
+          0.4475225359201431
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Cubicles/Cubicle01/Toilet/Geom/ToiletLid"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle01/Toilet/Geom/ToiletSeat",
+        "type": "Mesh",
+        "min_map_m": [
+          -0.6196470465540529,
+          -1.3087381810598058,
+          0.39236246794462204
+        ],
+        "max_map_m": [
+          -0.24035298655629952,
+          -0.8416745274610697,
+          0.4267549589276314
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Cubicles/Cubicle01/Toilet/Geom/ToiletSeat"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle01/Toilet/Geom/ToiletMain",
+        "type": "Mesh",
+        "min_map_m": [
+          -0.6209264118210809,
+          -1.5439999194208813,
+          0.0
+        ],
+        "max_map_m": [
+          -0.23907360248403017,
+          -0.8379999904568831,
+          0.7438443899154663
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Cubicles/Cubicle01/Toilet/Geom/ToiletMain"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle01/Door/Geom/Door",
+        "type": "Mesh",
+        "min_map_m": [
+          -0.7065178182442909,
+          -0.6760568554810036,
+          0.015307759269133303
+        ],
+        "max_map_m": [
+          -0.6355175669454115,
+          -0.07205669592122267,
+          2.3113078091407786
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Cubicles/Cubicle01/Door/Geom/Door"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle01/Door/Geom/Door_Frame",
+        "type": "Mesh",
+        "min_map_m": [
+          -0.8760000186134612,
+          -0.0720992635380236,
+          0.01230764389038086
+        ],
+        "max_map_m": [
+          0.016000002836289967,
+          -0.032099220212200484,
+          2.514307737350464
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Cubicles/Cubicle01/Door/Geom/Door_Frame"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle02/Accessories/Hook",
+        "type": "Cylinder",
+        "min_map_m": [
+          0.1489999982360556,
+          -0.4180000003799796,
+          1.62199999833645
+        ],
+        "max_map_m": [
+          0.22400000176394447,
+          -0.40199999962002037,
+          1.6380000016635499
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle02/Accessories/RollHub",
+        "type": "Cylinder",
+        "min_map_m": [
+          0.20199999956786635,
+          -0.9399999986588955,
+          0.7559999995678663
+        ],
+        "max_map_m": [
+          0.2300000004321337,
+          -0.8200000013411045,
+          0.7840000004321337
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle02/Accessories/HookTip",
+        "type": "Cylinder",
+        "min_map_m": [
+          0.21599999962002042,
+          -0.4180000003799796,
+          1.6299999999254942
+        ],
+        "max_map_m": [
+          0.23200000037997964,
+          -0.40199999962002037,
+          1.6650000000745058
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle02/Accessories/PaperRoll",
+        "type": "Cylinder",
+        "min_map_m": [
+          0.15999999827146533,
+          -0.9324999983608723,
+          0.7139999982714653
+        ],
+        "max_map_m": [
+          0.2720000017285347,
+          -0.8275000016391277,
+          0.8260000017285347
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle02/Accessories/HookMount",
+        "type": "Cube",
+        "min_map_m": [
+          0.1364999998137355,
+          -0.4399999993294477,
+          1.5999999992549419
+        ],
+        "max_map_m": [
+          0.16150000018626454,
+          -0.38000000067055223,
+          1.700000000745058
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle02/Accessories/PaperMount",
+        "type": "Cube",
+        "min_map_m": [
+          0.1364999998137355,
+          -0.9650000008940697,
+          0.7050000023841858
+        ],
+        "max_map_m": [
+          0.16150000018626454,
+          -0.7949999991059303,
+          0.8349999976158142
+        ],
+        "collision_schema_self": false,
+        "collision_schema_ancestors": [],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle02/Architecture/LeftJamb",
+        "type": "Mesh",
+        "min_map_m": [
+          0.1350000013411045,
+          -0.04850000089406967,
+          2.3841857821338408e-08
+        ],
+        "max_map_m": [
+          0.22374999865889547,
+          -0.003499999105930327,
+          2.799999976158142
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Cubicles/Cubicle02/Architecture/LeftJamb"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle02/Architecture/RightJamb",
+        "type": "Mesh",
+        "min_map_m": [
+          1.1157500013411044,
+          -0.04850000089406967,
+          2.3841857821338408e-08
+        ],
+        "max_map_m": [
+          1.2044999986588953,
+          -0.003499999105930327,
+          2.799999976158142
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Cubicles/Cubicle02/Architecture/RightJamb"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle02/Toilet/Geom/ToiletKnob",
+        "type": "Mesh",
+        "min_map_m": [
+          0.6603554186851058,
+          -1.482773558680356,
+          0.7408740818500519
+        ],
+        "max_map_m": [
+          0.6911752204976982,
+          -1.4393594562122556,
+          0.7437491118907928
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Cubicles/Cubicle02/Toilet/Geom/ToiletKnob"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle02/Toilet/Geom/ToiletKnob0001",
+        "type": "Mesh",
+        "min_map_m": [
+          0.6478831655099341,
+          -1.4802964483257686,
+          0.7408740818500519
+        ],
+        "max_map_m": [
+          0.6717511263776591,
+          -1.4393594258176794,
+          0.7437491118907928
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Cubicles/Cubicle02/Toilet/Geom/ToiletKnob0001"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle02/Toilet/Geom/ToiletLid",
+        "type": "Mesh",
+        "min_map_m": [
+          0.48051250839414744,
+          -1.3240143299556506,
+          0.43236734345555305
+        ],
+        "max_map_m": [
+          0.8589874673110729,
+          -0.8390750497125752,
+          0.4475225359201431
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Cubicles/Cubicle02/Toilet/Geom/ToiletLid"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle02/Toilet/Geom/ToiletSeat",
+        "type": "Mesh",
+        "min_map_m": [
+          0.48010293580297203,
+          -1.3087381810598067,
+          0.39236246794462204
+        ],
+        "max_map_m": [
+          0.8593969958007254,
+          -0.8416745274610706,
+          0.4267549589276314
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Cubicles/Cubicle02/Toilet/Geom/ToiletSeat"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle02/Toilet/Geom/ToiletMain",
+        "type": "Mesh",
+        "min_map_m": [
+          0.4788235705359441,
+          -1.5439999194208822,
+          0.0
+        ],
+        "max_map_m": [
+          0.8606763798729947,
+          -0.837999990456884,
+          0.7438443899154663
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Cubicles/Cubicle02/Toilet/Geom/ToiletMain"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle02/Door/Geom/Door",
+        "type": "Mesh",
+        "min_map_m": [
+          0.3932321221510643,
+          -0.6760568554810008,
+          0.015307759269133303
+        ],
+        "max_map_m": [
+          0.46423237344994367,
+          -0.07205669592121984,
+          2.3113078091407786
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Cubicles/Cubicle02/Door/Geom/Door"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle02/Door/Geom/Door_Frame",
+        "type": "Mesh",
+        "min_map_m": [
+          0.2237499637435632,
+          -0.07209926353802361,
+          0.01230764389038086
+        ],
+        "max_map_m": [
+          1.1157499851933144,
+          -0.03209922021220049,
+          2.514307737350464
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Cubicles/Cubicle02/Door/Geom/Door_Frame"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle04/Toilet/Geom/ToiletKnob",
+        "type": "Mesh",
+        "min_map_m": [
+          2.877001118685106,
+          -1.482773558680356,
+          0.7408740818500519
+        ],
+        "max_map_m": [
+          2.9078209204976986,
+          -1.4393594562122556,
+          0.7437491118907928
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Cubicles/Cubicle04/Toilet/Geom/ToiletKnob"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle04/Toilet/Geom/ToiletKnob0001",
+        "type": "Mesh",
+        "min_map_m": [
+          2.8645288655099344,
+          -1.4802964483257686,
+          0.7408740818500519
+        ],
+        "max_map_m": [
+          2.8883968263776594,
+          -1.4393594258176794,
+          0.7437491118907928
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Cubicles/Cubicle04/Toilet/Geom/ToiletKnob0001"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle04/Toilet/Geom/ToiletLid",
+        "type": "Mesh",
+        "min_map_m": [
+          2.697158345224293,
+          -1.32401432995565,
+          0.43236734345555305
+        ],
+        "max_map_m": [
+          3.0756333041412187,
+          -0.8390750497125745,
+          0.4475225359201431
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Cubicles/Cubicle04/Toilet/Geom/ToiletLid"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle04/Toilet/Geom/ToiletSeat",
+        "type": "Mesh",
+        "min_map_m": [
+          2.6967487726331174,
+          -1.308738181059806,
+          0.39236246794462204
+        ],
+        "max_map_m": [
+          3.076042832630871,
+          -0.84167452746107,
+          0.4267549589276314
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Cubicles/Cubicle04/Toilet/Geom/ToiletSeat"
+        ],
+        "time_sampled_transform": false
+      },
+      {
+        "prim": "/ThirdFloor/Cubicles/Cubicle04/Toilet/Geom/ToiletMain",
+        "type": "Mesh",
+        "min_map_m": [
+          2.6954694073660894,
+          -1.5439999194208816,
+          0.0
+        ],
+        "max_map_m": [
+          3.0773222167031404,
+          -0.8379999904568833,
+          0.7438443899154663
+        ],
+        "collision_schema_self": true,
+        "collision_schema_ancestors": [
+          "/ThirdFloor/Cubicles/Cubicle04/Toilet/Geom/ToiletMain"
+        ],
+        "time_sampled_transform": false
+      }
+    ],
+    "clipped_triangle_count": 1541880,
+    "conservative_raster_dilation_cells": 1,
+    "native_verified": false,
+    "projection_geometry": "actual world triangles clipped to pedestrian height band"
+  },
+  "free_origin_candidate": {
+    "pixel_row_column": [
+      19,
+      25
+    ],
+    "world_xy_m": [
+      -1.5,
+      0.5
+    ],
+    "projection_clearance_m": 0.5,
+    "omap_origin_world_map_frame_m": [
+      -1.5,
+      0.5,
+      0.75
+    ],
+    "omap_relative_min_bound_map_m": [
+      -2.5,
+      -3.0,
+      -0.6
+    ],
+    "omap_relative_max_bound_map_m": [
+      5.5,
+      2.0,
+      1.05
+    ],
+    "physx_origin_not_yet_verified_free": true
+  },
+  "coordinate_check": {
+    "pixel_centers_world_grid_roundtrip": true,
+    "image_row0": "max world map Y",
+    "image_column0": "min world map X",
+    "ros_origin": "bottom-left cell lower corner, map meters, yaw0",
+    "examples": {
+      "pixels_row_column": [
+        [
+          0,
+          0
+        ],
+        [
+          49,
+          79
+        ],
+        [
+          25,
+          40
+        ]
+      ],
+      "world_centers_xy_m": [
+        [
+          -3.95,
+          2.45
+        ],
+        [
+          3.95,
+          -2.45
+        ],
+        [
+          0.04999999999999982,
+          -0.04999999999999982
+        ]
+      ]
+    }
+  },
+  "files": {
+    "occupancy.png": {
+      "bytes": 301,
+      "sha256": "9b9639674580592130417020b3c446ad9286dd4159641eeb661a84fb27ae0a8e"
+    },
+    "occupancy.yaml": {
+      "bytes": 116,
+      "sha256": "1b3a538b49ae872ab019d83293956f12d971a7f9d12cb8e99174f4764d77315d"
+    },
+    "projection_preview.png": {
+      "bytes": 301,
+      "sha256": "9b9639674580592130417020b3c446ad9286dd4159641eeb661a84fb27ae0a8e"
+    },
+    "composition.json": {
+      "bytes": 1267,
+      "sha256": "51cd8f5370ec7e7c05deb41ffc85c08cb7f38aeeae6d871933e224e97a89563e"
+    }
+  },
+  "limitations": [
+    "Authored collision schemas are inventoried, not executed or verified by PhysX.",
+    "Axis-aligned geometry/floor projections can overestimate footprints and floor support; doorways and rotated geometry require collider review.",
+    "Default-time snapshot; animated geometry and different floors require separate maps.",
+    "Missing local geometry leaves all otherwise-free cells unknown; preview is not a navigation map.",
+    "No original Assets or scene configuration is modified; workspace exports are not automatically referenced.",
+    "Standalone USD26.8 composition is not a substitute for Kit USD25.11 runtime validation."
+  ],
+  "elapsed_s": 22.042369159000145
+}

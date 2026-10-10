@@ -1,0 +1,2161 @@
+{
+  "seed": 7,
+  "points": [
+    {
+      "pixel_row_column": [
+        47,
+        56
+      ],
+      "world_xy_m": [
+        1.6500000000000004,
+        -2.25
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        16,
+        6
+      ],
+      "world_xy_m": [
+        -3.35,
+        0.8500000000000001
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        25,
+        17
+      ],
+      "world_xy_m": [
+        -2.25,
+        -0.04999999999999982
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/ThirdFloor/Details/WashStation/Basin2/Ceramic",
+          "rigid_body": "/ThirdFloor/Details/WashStation/Basin2/Ceramic"
+        },
+        {
+          "collision": "/ThirdFloor/Details/WashStation/Cabinet",
+          "rigid_body": "/ThirdFloor/Details/WashStation/Cabinet"
+        },
+        {
+          "collision": "/ThirdFloor/Details/WashStation/Counter",
+          "rigid_body": "/ThirdFloor/Details/WashStation/Counter"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        13,
+        7
+      ],
+      "world_xy_m": [
+        -3.25,
+        1.1500000000000004
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        31,
+        69
+      ],
+      "world_xy_m": [
+        2.95,
+        -0.6499999999999999
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        49,
+        10
+      ],
+      "world_xy_m": [
+        -2.95,
+        -2.45
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        5,
+        49
+      ],
+      "world_xy_m": [
+        0.9500000000000002,
+        1.9500000000000002
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        2,
+        6
+      ],
+      "world_xy_m": [
+        -3.35,
+        2.25
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        9,
+        38
+      ],
+      "world_xy_m": [
+        -0.1499999999999999,
+        1.5499999999999998
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/ThirdFloor/Collision/FixtureProxies/Edestalurinal_0004",
+          "rigid_body": "/ThirdFloor/Collision/FixtureProxies/Edestalurinal_0004"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        14,
+        45
+      ],
+      "world_xy_m": [
+        0.5499999999999998,
+        1.0500000000000003
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        38,
+        57
+      ],
+      "world_xy_m": [
+        1.75,
+        -1.3499999999999999
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/ThirdFloor/Meshes/Assets/Toilet_YREQ6BBVAI7FMPTUJQ888888_KIiuW/Geom/ToiletLid",
+          "rigid_body": "/ThirdFloor/Meshes/Assets/Toilet_YREQ6BBVAI7FMPTUJQ888888_KIiuW/Geom/ToiletLid"
+        },
+        {
+          "collision": "/ThirdFloor/Meshes/Assets/Toilet_YREQ6BBVAI7FMPTUJQ888888_KIiuW/Geom/ToiletMain",
+          "rigid_body": "/ThirdFloor/Meshes/Assets/Toilet_YREQ6BBVAI7FMPTUJQ888888_KIiuW/Geom/ToiletMain"
+        },
+        {
+          "collision": "/ThirdFloor/Meshes/Assets/Toilet_YREQ6BBVAI7FMPTUJQ888888_KIiuW/Geom/ToiletSeat",
+          "rigid_body": "/ThirdFloor/Meshes/Assets/Toilet_YREQ6BBVAI7FMPTUJQ888888_KIiuW/Geom/ToiletSeat"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        0,
+        14
+      ],
+      "world_xy_m": [
+        -2.55,
+        2.45
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        18,
+        18
+      ],
+      "world_xy_m": [
+        -2.15,
+        0.6500000000000004
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/ThirdFloor/Details/WashStation/Cabinet",
+          "rigid_body": "/ThirdFloor/Details/WashStation/Cabinet"
+        },
+        {
+          "collision": "/ThirdFloor/Details/WashStation/Counter",
+          "rigid_body": "/ThirdFloor/Details/WashStation/Counter"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        0,
+        46
+      ],
+      "world_xy_m": [
+        0.6500000000000004,
+        2.45
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        4,
+        42
+      ],
+      "world_xy_m": [
+        0.25,
+        2.05
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        7,
+        38
+      ],
+      "world_xy_m": [
+        -0.1499999999999999,
+        1.75
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/ThirdFloor/Collision/Walls",
+          "rigid_body": "/ThirdFloor/Collision/Walls"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        16,
+        53
+      ],
+      "world_xy_m": [
+        1.3500000000000005,
+        0.8500000000000001
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        17,
+        75
+      ],
+      "world_xy_m": [
+        3.5500000000000007,
+        0.75
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        30,
+        34
+      ],
+      "world_xy_m": [
+        -0.5499999999999998,
+        -0.5499999999999998
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        19,
+        78
+      ],
+      "world_xy_m": [
+        3.8500000000000005,
+        0.5500000000000003
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        7,
+        67
+      ],
+      "world_xy_m": [
+        2.75,
+        1.75
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/ThirdFloor/Collision/Walls",
+          "rigid_body": "/ThirdFloor/Collision/Walls"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        41,
+        28
+      ],
+      "world_xy_m": [
+        -1.15,
+        -1.65
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        35,
+        3
+      ],
+      "world_xy_m": [
+        -3.65,
+        -1.0499999999999998
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        38,
+        60
+      ],
+      "world_xy_m": [
+        2.0500000000000007,
+        -1.3499999999999999
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        23,
+        37
+      ],
+      "world_xy_m": [
+        -0.25,
+        0.15000000000000036
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        43,
+        20
+      ],
+      "world_xy_m": [
+        -1.9499999999999997,
+        -1.85
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        19,
+        45
+      ],
+      "world_xy_m": [
+        0.5499999999999998,
+        0.5500000000000003
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        2,
+        55
+      ],
+      "world_xy_m": [
+        1.5500000000000007,
+        2.25
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        31,
+        76
+      ],
+      "world_xy_m": [
+        3.6500000000000004,
+        -0.6499999999999999
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        44,
+        25
+      ],
+      "world_xy_m": [
+        -1.4499999999999997,
+        -1.95
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        13,
+        18
+      ],
+      "world_xy_m": [
+        -2.15,
+        1.1500000000000004
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/ThirdFloor/Details/WashStation/Cabinet",
+          "rigid_body": "/ThirdFloor/Details/WashStation/Cabinet"
+        },
+        {
+          "collision": "/ThirdFloor/Details/WashStation/Counter",
+          "rigid_body": "/ThirdFloor/Details/WashStation/Counter"
+        },
+        {
+          "collision": "/ThirdFloor/Details/WashStation/Basin1/Ceramic",
+          "rigid_body": "/ThirdFloor/Details/WashStation/Basin1/Ceramic"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        33,
+        64
+      ],
+      "world_xy_m": [
+        2.45,
+        -0.8499999999999999
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/ThirdFloor/Collision/Walls",
+          "rigid_body": "/ThirdFloor/Collision/Walls"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        26,
+        30
+      ],
+      "world_xy_m": [
+        -0.9499999999999997,
+        -0.1499999999999999
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/ThirdFloor/Cubicles/Partitions/West",
+          "rigid_body": "/ThirdFloor/Cubicles/Partitions/West"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        25,
+        20
+      ],
+      "world_xy_m": [
+        -1.9499999999999997,
+        -0.04999999999999982
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        48,
+        21
+      ],
+      "world_xy_m": [
+        -1.85,
+        -2.35
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        34,
+        17
+      ],
+      "world_xy_m": [
+        -2.25,
+        -0.95
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        22,
+        61
+      ],
+      "world_xy_m": [
+        2.1500000000000004,
+        0.25
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        48,
+        28
+      ],
+      "world_xy_m": [
+        -1.15,
+        -2.35
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        0,
+        20
+      ],
+      "world_xy_m": [
+        -1.9499999999999997,
+        2.45
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        19,
+        22
+      ],
+      "world_xy_m": [
+        -1.75,
+        0.5500000000000003
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        23,
+        25
+      ],
+      "world_xy_m": [
+        -1.4499999999999997,
+        0.15000000000000036
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        21,
+        74
+      ],
+      "world_xy_m": [
+        3.45,
+        0.3500000000000001
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/ThirdFloor/Collision/Walls",
+          "rigid_body": "/ThirdFloor/Collision/Walls"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        25,
+        21
+      ],
+      "world_xy_m": [
+        -1.85,
+        -0.04999999999999982
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        24,
+        10
+      ],
+      "world_xy_m": [
+        -2.95,
+        0.050000000000000266
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        39,
+        72
+      ],
+      "world_xy_m": [
+        3.25,
+        -1.45
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/ThirdFloor/Collision/Walls",
+          "rigid_body": "/ThirdFloor/Collision/Walls"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        27,
+        0
+      ],
+      "world_xy_m": [
+        -3.95,
+        -0.25
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        10,
+        42
+      ],
+      "world_xy_m": [
+        0.25,
+        1.4500000000000002
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        39,
+        58
+      ],
+      "world_xy_m": [
+        1.8500000000000005,
+        -1.45
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/ThirdFloor/Meshes/Assets/Toilet_YREQ6BBVAI7FMPTUJQ888888_KIiuW/Geom/ToiletMain",
+          "rigid_body": "/ThirdFloor/Meshes/Assets/Toilet_YREQ6BBVAI7FMPTUJQ888888_KIiuW/Geom/ToiletMain"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        28,
+        55
+      ],
+      "world_xy_m": [
+        1.5500000000000007,
+        -0.3500000000000001
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        29,
+        61
+      ],
+      "world_xy_m": [
+        2.1500000000000004,
+        -0.44999999999999973
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/ThirdFloor/Meshes/Assets/Door_YS3UEUZVAJ2V4PTUKU888888_mdynP/Geom/Door",
+          "rigid_body": "/ThirdFloor/Meshes/Assets/Door_YS3UEUZVAJ2V4PTUKU888888_mdynP/Geom/Door"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        4,
+        62
+      ],
+      "world_xy_m": [
+        2.25,
+        2.05
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        47,
+        58
+      ],
+      "world_xy_m": [
+        1.8500000000000005,
+        -2.25
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        39,
+        35
+      ],
+      "world_xy_m": [
+        -0.44999999999999973,
+        -1.45
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/ThirdFloor/Cubicles/Cubicle01/Toilet/Geom/ToiletMain",
+          "rigid_body": "/ThirdFloor/Cubicles/Cubicle01/Toilet/Geom/ToiletMain"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        37,
+        48
+      ],
+      "world_xy_m": [
+        0.8500000000000005,
+        -1.25
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/ThirdFloor/Cubicles/Cubicle02/Toilet/Geom/ToiletSeat",
+          "rigid_body": "/ThirdFloor/Cubicles/Cubicle02/Toilet/Geom/ToiletSeat"
+        },
+        {
+          "collision": "/ThirdFloor/Cubicles/Cubicle02/Toilet/Geom/ToiletLid",
+          "rigid_body": "/ThirdFloor/Cubicles/Cubicle02/Toilet/Geom/ToiletLid"
+        },
+        {
+          "collision": "/ThirdFloor/Cubicles/Cubicle02/Toilet/Geom/ToiletMain",
+          "rigid_body": "/ThirdFloor/Cubicles/Cubicle02/Toilet/Geom/ToiletMain"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        34,
+        7
+      ],
+      "world_xy_m": [
+        -3.25,
+        -0.95
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        13,
+        44
+      ],
+      "world_xy_m": [
+        0.4500000000000002,
+        1.1500000000000004
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        10,
+        73
+      ],
+      "world_xy_m": [
+        3.3500000000000005,
+        1.4500000000000002
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        47,
+        48
+      ],
+      "world_xy_m": [
+        0.8500000000000005,
+        -2.25
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        18,
+        52
+      ],
+      "world_xy_m": [
+        1.25,
+        0.6500000000000004
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        48,
+        70
+      ],
+      "world_xy_m": [
+        3.0500000000000007,
+        -2.35
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        30,
+        16
+      ],
+      "world_xy_m": [
+        -2.3499999999999996,
+        -0.5499999999999998
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        41,
+        78
+      ],
+      "world_xy_m": [
+        3.8500000000000005,
+        -1.65
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        40,
+        53
+      ],
+      "world_xy_m": [
+        1.3500000000000005,
+        -1.5499999999999998
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/ThirdFloor/Collision/Walls",
+          "rigid_body": "/ThirdFloor/Collision/Walls"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        43,
+        37
+      ],
+      "world_xy_m": [
+        -0.25,
+        -1.85
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        29,
+        35
+      ],
+      "world_xy_m": [
+        -0.44999999999999973,
+        -0.44999999999999973
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        27,
+        26
+      ],
+      "world_xy_m": [
+        -1.3499999999999996,
+        -0.25
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        14,
+        60
+      ],
+      "world_xy_m": [
+        2.0500000000000007,
+        1.0500000000000003
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        7,
+        50
+      ],
+      "world_xy_m": [
+        1.0500000000000007,
+        1.75
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/ThirdFloor/Collision/Walls",
+          "rigid_body": "/ThirdFloor/Collision/Walls"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        30,
+        32
+      ],
+      "world_xy_m": [
+        -0.75,
+        -0.5499999999999998
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/ThirdFloor/Cubicles/Cubicle01/Door/Geom/Door",
+          "rigid_body": "/ThirdFloor/Cubicles/Cubicle01/Door/Geom/Door"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        22,
+        70
+      ],
+      "world_xy_m": [
+        3.0500000000000007,
+        0.25
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        41,
+        74
+      ],
+      "world_xy_m": [
+        3.45,
+        -1.65
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/ThirdFloor/Collision/Walls",
+          "rigid_body": "/ThirdFloor/Collision/Walls"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        22,
+        64
+      ],
+      "world_xy_m": [
+        2.45,
+        0.25
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        12,
+        14
+      ],
+      "world_xy_m": [
+        -2.55,
+        1.25
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/ThirdFloor/Details/WashStation/Cabinet",
+          "rigid_body": "/ThirdFloor/Details/WashStation/Cabinet"
+        },
+        {
+          "collision": "/ThirdFloor/Details/WashStation/Counter",
+          "rigid_body": "/ThirdFloor/Details/WashStation/Counter"
+        },
+        {
+          "collision": "/ThirdFloor/Details/WashStation/ToeRecess",
+          "rigid_body": "/ThirdFloor/Details/WashStation/ToeRecess"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        7,
+        43
+      ],
+      "world_xy_m": [
+        0.35000000000000053,
+        1.75
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/ThirdFloor/Collision/Walls",
+          "rigid_body": "/ThirdFloor/Collision/Walls"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        33,
+        11
+      ],
+      "world_xy_m": [
+        -2.8499999999999996,
+        -0.8499999999999999
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        9,
+        16
+      ],
+      "world_xy_m": [
+        -2.3499999999999996,
+        1.5499999999999998
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/ThirdFloor/Details/WashStation/Counter",
+          "rigid_body": "/ThirdFloor/Details/WashStation/Counter"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        12,
+        9
+      ],
+      "world_xy_m": [
+        -3.05,
+        1.25
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        5,
+        30
+      ],
+      "world_xy_m": [
+        -0.9499999999999997,
+        1.9500000000000002
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        24,
+        69
+      ],
+      "world_xy_m": [
+        2.95,
+        0.050000000000000266
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        32,
+        62
+      ],
+      "world_xy_m": [
+        2.25,
+        -0.75
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        28,
+        33
+      ],
+      "world_xy_m": [
+        -0.6499999999999999,
+        -0.3500000000000001
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/ThirdFloor/Cubicles/Cubicle01/Door/Geom/Door",
+          "rigid_body": "/ThirdFloor/Cubicles/Cubicle01/Door/Geom/Door"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        2,
+        75
+      ],
+      "world_xy_m": [
+        3.5500000000000007,
+        2.25
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        2,
+        12
+      ],
+      "world_xy_m": [
+        -2.75,
+        2.25
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        22,
+        20
+      ],
+      "world_xy_m": [
+        -1.9499999999999997,
+        0.25
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        26,
+        67
+      ],
+      "world_xy_m": [
+        2.75,
+        -0.1499999999999999
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        43,
+        42
+      ],
+      "world_xy_m": [
+        0.25,
+        -1.85
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        30,
+        38
+      ],
+      "world_xy_m": [
+        -0.1499999999999999,
+        -0.5499999999999998
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        48,
+        65
+      ],
+      "world_xy_m": [
+        2.5500000000000007,
+        -2.35
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        6,
+        31
+      ],
+      "world_xy_m": [
+        -0.8499999999999996,
+        1.8500000000000005
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        28,
+        2
+      ],
+      "world_xy_m": [
+        -3.75,
+        -0.3500000000000001
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        29,
+        58
+      ],
+      "world_xy_m": [
+        1.8500000000000005,
+        -0.44999999999999973
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        16,
+        50
+      ],
+      "world_xy_m": [
+        1.0500000000000007,
+        0.8500000000000001
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        46,
+        40
+      ],
+      "world_xy_m": [
+        0.04999999999999982,
+        -2.15
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        49,
+        22
+      ],
+      "world_xy_m": [
+        -1.75,
+        -2.45
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        5,
+        63
+      ],
+      "world_xy_m": [
+        2.3500000000000005,
+        1.9500000000000002
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        39,
+        54
+      ],
+      "world_xy_m": [
+        1.4500000000000002,
+        -1.45
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        32,
+        66
+      ],
+      "world_xy_m": [
+        2.6500000000000004,
+        -0.75
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        21,
+        55
+      ],
+      "world_xy_m": [
+        1.5500000000000007,
+        0.3500000000000001
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        40,
+        35
+      ],
+      "world_xy_m": [
+        -0.44999999999999973,
+        -1.5499999999999998
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/ThirdFloor/Collision/Walls",
+          "rigid_body": "/ThirdFloor/Collision/Walls"
+        },
+        {
+          "collision": "/ThirdFloor/Cubicles/Cubicle01/Toilet/Geom/ToiletMain",
+          "rigid_body": "/ThirdFloor/Cubicles/Cubicle01/Toilet/Geom/ToiletMain"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        36,
+        4
+      ],
+      "world_xy_m": [
+        -3.55,
+        -1.15
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        36,
+        60
+      ],
+      "world_xy_m": [
+        2.0500000000000007,
+        -1.15
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/ThirdFloor/Meshes/Assets/Toilet_YREQ6BBVAI7FMPTUJQ888888_KIiuW/Geom/ToiletMain",
+          "rigid_body": "/ThirdFloor/Meshes/Assets/Toilet_YREQ6BBVAI7FMPTUJQ888888_KIiuW/Geom/ToiletMain"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        24,
+        34
+      ],
+      "world_xy_m": [
+        -0.5499999999999998,
+        0.050000000000000266
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        11,
+        18
+      ],
+      "world_xy_m": [
+        -2.15,
+        1.35
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/ThirdFloor/Details/WashStation/Cabinet",
+          "rigid_body": "/ThirdFloor/Details/WashStation/Cabinet"
+        },
+        {
+          "collision": "/ThirdFloor/Details/WashStation/Counter",
+          "rigid_body": "/ThirdFloor/Details/WashStation/Counter"
+        },
+        {
+          "collision": "/ThirdFloor/Details/WashStation/Basin1/Ceramic",
+          "rigid_body": "/ThirdFloor/Details/WashStation/Basin1/Ceramic"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        6,
+        75
+      ],
+      "world_xy_m": [
+        3.5500000000000007,
+        1.8500000000000005
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        35,
+        4
+      ],
+      "world_xy_m": [
+        -3.55,
+        -1.0499999999999998
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        31,
+        54
+      ],
+      "world_xy_m": [
+        1.4500000000000002,
+        -0.6499999999999999
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        24,
+        22
+      ],
+      "world_xy_m": [
+        -1.75,
+        0.050000000000000266
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        30,
+        72
+      ],
+      "world_xy_m": [
+        3.25,
+        -0.5499999999999998
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/ThirdFloor/Collision/Walls",
+          "rigid_body": "/ThirdFloor/Collision/Walls"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        35,
+        44
+      ],
+      "world_xy_m": [
+        0.4500000000000002,
+        -1.0499999999999998
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/ThirdFloor/Cubicles/Cubicle02/Toilet/Geom/ToiletSeat",
+          "rigid_body": "/ThirdFloor/Cubicles/Cubicle02/Toilet/Geom/ToiletSeat"
+        },
+        {
+          "collision": "/ThirdFloor/Cubicles/Cubicle02/Toilet/Geom/ToiletLid",
+          "rigid_body": "/ThirdFloor/Cubicles/Cubicle02/Toilet/Geom/ToiletLid"
+        },
+        {
+          "collision": "/ThirdFloor/Cubicles/Cubicle02/Toilet/Geom/ToiletMain",
+          "rigid_body": "/ThirdFloor/Cubicles/Cubicle02/Toilet/Geom/ToiletMain"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        13,
+        66
+      ],
+      "world_xy_m": [
+        2.6500000000000004,
+        1.1500000000000004
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        25,
+        15
+      ],
+      "world_xy_m": [
+        -2.45,
+        -0.04999999999999982
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/ThirdFloor/Details/WashStation/Basin2/Ceramic",
+          "rigid_body": "/ThirdFloor/Details/WashStation/Basin2/Ceramic"
+        },
+        {
+          "collision": "/ThirdFloor/Details/WashStation/Cabinet",
+          "rigid_body": "/ThirdFloor/Details/WashStation/Cabinet"
+        },
+        {
+          "collision": "/ThirdFloor/Details/WashStation/Counter",
+          "rigid_body": "/ThirdFloor/Details/WashStation/Counter"
+        },
+        {
+          "collision": "/ThirdFloor/Details/WashStation/ToeRecess",
+          "rigid_body": "/ThirdFloor/Details/WashStation/ToeRecess"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        47,
+        66
+      ],
+      "world_xy_m": [
+        2.6500000000000004,
+        -2.25
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        48,
+        48
+      ],
+      "world_xy_m": [
+        0.8500000000000005,
+        -2.35
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        30,
+        21
+      ],
+      "world_xy_m": [
+        -1.85,
+        -0.5499999999999998
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        40,
+        78
+      ],
+      "world_xy_m": [
+        3.8500000000000005,
+        -1.5499999999999998
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        45,
+        59
+      ],
+      "world_xy_m": [
+        1.9500000000000002,
+        -2.05
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        12,
+        33
+      ],
+      "world_xy_m": [
+        -0.6499999999999999,
+        1.25
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        19,
+        0
+      ],
+      "world_xy_m": [
+        -3.95,
+        0.5500000000000003
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        18,
+        73
+      ],
+      "world_xy_m": [
+        3.3500000000000005,
+        0.6500000000000004
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        21,
+        63
+      ],
+      "world_xy_m": [
+        2.3500000000000005,
+        0.3500000000000001
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        42,
+        32
+      ],
+      "world_xy_m": [
+        -0.75,
+        -1.75
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/ThirdFloor/Collision/Walls",
+          "rigid_body": "/ThirdFloor/Collision/Walls"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        34,
+        5
+      ],
+      "world_xy_m": [
+        -3.45,
+        -0.95
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        1,
+        59
+      ],
+      "world_xy_m": [
+        1.9500000000000002,
+        2.3500000000000005
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        40,
+        33
+      ],
+      "world_xy_m": [
+        -0.6499999999999999,
+        -1.5499999999999998
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/ThirdFloor/Collision/Walls",
+          "rigid_body": "/ThirdFloor/Collision/Walls"
+        },
+        {
+          "collision": "/ThirdFloor/Cubicles/Cubicle01/Toilet/Geom/ToiletMain",
+          "rigid_body": "/ThirdFloor/Cubicles/Cubicle01/Toilet/Geom/ToiletMain"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        24,
+        48
+      ],
+      "world_xy_m": [
+        0.8500000000000005,
+        0.050000000000000266
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        29,
+        79
+      ],
+      "world_xy_m": [
+        3.95,
+        -0.44999999999999973
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        45,
+        2
+      ],
+      "world_xy_m": [
+        -3.75,
+        -2.05
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        9,
+        71
+      ],
+      "world_xy_m": [
+        3.1500000000000004,
+        1.5499999999999998
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    }
+  ],
+  "native_probe": "full .1m cell XY box over .15..1.8m band; not a pedestrian footprint"
+}

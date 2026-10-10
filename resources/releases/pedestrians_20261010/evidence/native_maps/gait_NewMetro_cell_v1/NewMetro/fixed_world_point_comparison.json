@@ -1,0 +1,2146 @@
+{
+  "seed": 7,
+  "points": [
+    {
+      "pixel_row_column": [
+        73,
+        43
+      ],
+      "world_xy_m": [
+        -10.649999999999999,
+        -5.95
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        24,
+        138
+      ],
+      "world_xy_m": [
+        -1.1499999999999986,
+        -1.0499999999999998
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        38,
+        173
+      ],
+      "world_xy_m": [
+        2.3500000000000014,
+        -2.45
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        20,
+        44
+      ],
+      "world_xy_m": [
+        -10.55,
+        -0.6499999999999995
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        48,
+        125
+      ],
+      "world_xy_m": [
+        -2.4499999999999993,
+        -3.45
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        33,
+        112
+      ],
+      "world_xy_m": [
+        -3.75,
+        -1.9500000000000002
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        8,
+        178
+      ],
+      "world_xy_m": [
+        2.8500000000000014,
+        0.5499999999999998
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/NewMetro/Environment/Male/Vanity_04/Collision/Glazed_ceramic_shell_261483e/Shape",
+          "rigid_body": "/NewMetro/Environment/Male/Vanity_04/Collision/Glazed_ceramic_shell_261483e/Shape"
+        },
+        {
+          "collision": "/NewMetro/Environment/Male/Male_continuous_vanity/Collision/Continuous_adult_stone_slab_828ce74/Shape",
+          "rigid_body": "/NewMetro/Environment/Male/Male_continuous_vanity/Collision/Continuous_adult_stone_slab_828ce74/Shape"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        3,
+        51
+      ],
+      "world_xy_m": [
+        -9.85,
+        1.0499999999999998
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        14,
+        151
+      ],
+      "world_xy_m": [
+        0.15000000000000036,
+        -0.04999999999999982
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        22,
+        177
+      ],
+      "world_xy_m": [
+        2.75,
+        -0.8499999999999996
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        59,
+        252
+      ],
+      "world_xy_m": [
+        10.25,
+        -4.55
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        0,
+        74
+      ],
+      "world_xy_m": [
+        -7.55,
+        1.3500000000000005
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        28,
+        2
+      ],
+      "world_xy_m": [
+        -14.75,
+        -1.4500000000000002
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        0,
+        234
+      ],
+      "world_xy_m": [
+        8.450000000000003,
+        1.3500000000000005
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        6,
+        246
+      ],
+      "world_xy_m": [
+        9.650000000000002,
+        0.75
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        11,
+        106
+      ],
+      "world_xy_m": [
+        -4.35,
+        0.25
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        25,
+        210
+      ],
+      "world_xy_m": [
+        6.050000000000001,
+        -1.1499999999999995
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        27,
+        110
+      ],
+      "world_xy_m": [
+        -3.9499999999999993,
+        -1.3499999999999996
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/NewMetro/Environment/Female/Female_entrance_jamb_a03918/Collision/Wall_core_cd8c61c/Shape",
+          "rigid_body": "/NewMetro/Environment/Female/Female_entrance_jamb_a03918/Collision/Wall_core_cd8c61c/Shape"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        46,
+        135
+      ],
+      "world_xy_m": [
+        -1.4499999999999993,
+        -3.25
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        30,
+        119
+      ],
+      "world_xy_m": [
+        -3.049999999999999,
+        -1.6500000000000004
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        12,
+        32
+      ],
+      "world_xy_m": [
+        -11.75,
+        0.15000000000000036
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/NewMetro/Environment/Female/Female_continuous_vanity/Collision/Continuous_adult_stone_slab_1f1a891/Shape",
+          "rigid_body": "/NewMetro/Environment/Female/Female_continuous_vanity/Collision/Continuous_adult_stone_slab_1f1a891/Shape"
+        },
+        {
+          "collision": "/NewMetro/Environment/Female/Female_vanity_02/Collision/Cabinet_front_1_879ffdc/Shape",
+          "rigid_body": "/NewMetro/Environment/Female/Female_vanity_02/Collision/Cabinet_front_1_879ffdc/Shape"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        63,
+        249
+      ],
+      "world_xy_m": [
+        9.950000000000003,
+        -4.95
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/NewMetro/Environment/Male/Urinal_rear_enclosure_INFERRED/Collision/Wall_core_5aacbf7/Shape",
+          "rigid_body": "/NewMetro/Environment/Male/Urinal_rear_enclosure_INFERRED/Collision/Wall_core_5aacbf7/Shape"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        54,
+        103
+      ],
+      "world_xy_m": [
+        -4.649999999999999,
+        -4.050000000000001
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        60,
+        63
+      ],
+      "world_xy_m": [
+        -8.649999999999999,
+        -4.65
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        35,
+        242
+      ],
+      "world_xy_m": [
+        9.25,
+        -2.1500000000000004
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        66,
+        33
+      ],
+      "world_xy_m": [
+        -11.65,
+        -5.25
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/NewMetro/Environment/Female/Female_cubicle_02/Motion/Seat_eb77b3/Collision/CollisionWedge_15_10de9f7/Shape",
+          "rigid_body": "/NewMetro/Environment/Female/Female_cubicle_02/Motion/Seat_eb77b3"
+        },
+        {
+          "collision": "/NewMetro/Environment/Female/Female_cubicle_02/Motion/Seat_eb77b3/Collision/CollisionWedge_16_ccfd11d/Shape",
+          "rigid_body": "/NewMetro/Environment/Female/Female_cubicle_02/Motion/Seat_eb77b3"
+        },
+        {
+          "collision": "/NewMetro/Environment/Female/Female_cubicle_02/Motion/Seat_eb77b3/Collision/CollisionWedge_17_3856eca/Shape",
+          "rigid_body": "/NewMetro/Environment/Female/Female_cubicle_02/Motion/Seat_eb77b3"
+        },
+        {
+          "collision": "/NewMetro/Environment/Female/Female_cubicle_02/Collision/Porcelain_bowl_db0acb7/Shape",
+          "rigid_body": "/NewMetro/Environment/Female/Female_cubicle_02/Collision/Porcelain_bowl_db0acb7/Shape"
+        },
+        {
+          "collision": "/NewMetro/Environment/Female/Female_cubicle_02/Motion/Lid_50a655/Collision/Lid_shell_53f7b9a/Shape",
+          "rigid_body": "/NewMetro/Environment/Female/Female_cubicle_02/Motion/Lid_50a655"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        29,
+        208
+      ],
+      "world_xy_m": [
+        5.850000000000001,
+        -1.5499999999999998
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        4,
+        51
+      ],
+      "world_xy_m": [
+        -9.85,
+        0.9500000000000002
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/NewMetro/Environment/Female/Female_vanity_wall/Collision/Wall_core_6679f61/Shape",
+          "rigid_body": "/NewMetro/Environment/Female/Female_vanity_wall/Collision/Wall_core_6679f61/Shape"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        48,
+        216
+      ],
+      "world_xy_m": [
+        6.650000000000002,
+        -3.45
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        68,
+        251
+      ],
+      "world_xy_m": [
+        10.150000000000002,
+        -5.45
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        20,
+        76
+      ],
+      "world_xy_m": [
+        -7.35,
+        -0.6499999999999995
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        51,
+        106
+      ],
+      "world_xy_m": [
+        -4.35,
+        -3.75
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        40,
+        123
+      ],
+      "world_xy_m": [
+        -2.6499999999999986,
+        -2.65
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        38,
+        257
+      ],
+      "world_xy_m": [
+        10.75,
+        -2.45
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        74,
+        233
+      ],
+      "world_xy_m": [
+        8.350000000000001,
+        -6.05
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        52,
+        256
+      ],
+      "world_xy_m": [
+        10.650000000000002,
+        -3.85
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/NewMetro/Environment/Male/East_enclosure/Collision/Wall_core_efddf95/Shape",
+          "rigid_body": "/NewMetro/Environment/Male/East_enclosure/Collision/Wall_core_efddf95/Shape"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        35,
+        96
+      ],
+      "world_xy_m": [
+        -5.35,
+        -2.1500000000000004
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        74,
+        217
+      ],
+      "world_xy_m": [
+        6.75,
+        -6.05
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/NewMetro/Environment/Service/Janitor_room_INFERRED/Collision/Wall_core_2009437/Shape",
+          "rigid_body": "/NewMetro/Environment/Service/Janitor_room_INFERRED/Collision/Wall_core_2009437/Shape"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        0,
+        104
+      ],
+      "world_xy_m": [
+        -4.549999999999999,
+        1.3500000000000005
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        29,
+        112
+      ],
+      "world_xy_m": [
+        -3.75,
+        -1.5499999999999998
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        36,
+        41
+      ],
+      "world_xy_m": [
+        -10.85,
+        -2.25
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        33,
+        101
+      ],
+      "world_xy_m": [
+        -4.85,
+        -1.9500000000000002
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        38,
+        246
+      ],
+      "world_xy_m": [
+        9.650000000000002,
+        -2.45
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        37,
+        17
+      ],
+      "world_xy_m": [
+        -13.25,
+        -2.35
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        62,
+        16
+      ],
+      "world_xy_m": [
+        -13.35,
+        -4.85
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/NewMetro/Environment/Female/Female_cubicle_00/Collision/Partition_3a14d99/Shape",
+          "rigid_body": "/NewMetro/Environment/Female/Female_cubicle_00/Collision/Partition_3a14d99/Shape"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        41,
+        226
+      ],
+      "world_xy_m": [
+        7.650000000000002,
+        -2.75
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        16,
+        76
+      ],
+      "world_xy_m": [
+        -7.35,
+        -0.25
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        61,
+        188
+      ],
+      "world_xy_m": [
+        3.8500000000000014,
+        -4.75
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        43,
+        184
+      ],
+      "world_xy_m": [
+        3.4499999999999993,
+        -2.95
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        45,
+        112
+      ],
+      "world_xy_m": [
+        -3.75,
+        -3.15
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        7,
+        95
+      ],
+      "world_xy_m": [
+        -5.449999999999999,
+        0.6500000000000004
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        73,
+        111
+      ],
+      "world_xy_m": [
+        -3.8499999999999996,
+        -5.95
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        61,
+        25
+      ],
+      "world_xy_m": [
+        -12.45,
+        -4.75
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/NewMetro/Environment/Female/Female_cubicle_01/Collision/Round_case_3b4df60/Shape",
+          "rigid_body": "/NewMetro/Environment/Female/Female_cubicle_01/Collision/Round_case_3b4df60/Shape"
+        },
+        {
+          "collision": "/NewMetro/Environment/Female/Female_cubicle_01/CollisionDetails/D_43e6150fb91f",
+          "rigid_body": "/NewMetro/Environment/Female/Female_cubicle_01/CollisionDetails/D_43e6150fb91f"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        58,
+        154
+      ],
+      "world_xy_m": [
+        0.45000000000000107,
+        -4.45
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        52,
+        115
+      ],
+      "world_xy_m": [
+        -3.4499999999999993,
+        -3.85
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        21,
+        13
+      ],
+      "world_xy_m": [
+        -13.65,
+        -0.75
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        17,
+        3
+      ],
+      "world_xy_m": [
+        -14.65,
+        -0.34999999999999964
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/NewMetro/Environment/Female/Female_west_wall/Collision/Wall_core_5d27f5f/Shape",
+          "rigid_body": "/NewMetro/Environment/Female/Female_west_wall/Collision/Wall_core_5d27f5f/Shape"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        73,
+        121
+      ],
+      "world_xy_m": [
+        -2.8499999999999996,
+        -5.95
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        28,
+        193
+      ],
+      "world_xy_m": [
+        4.350000000000001,
+        -1.4500000000000002
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        75,
+        65
+      ],
+      "world_xy_m": [
+        -8.45,
+        -6.15
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        45,
+        254
+      ],
+      "world_xy_m": [
+        10.450000000000003,
+        -3.15
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/NewMetro/Environment/Male/Urinal_arc_backwall/Collision/Wall_core_39b8066/Shape",
+          "rigid_body": "/NewMetro/Environment/Male/Urinal_arc_backwall/Collision/Wall_core_39b8066/Shape"
+        },
+        {
+          "collision": "/NewMetro/Environment/Male/Urinal_arc_backwall/Collision/Brown_sill_29e81d1/Shape",
+          "rigid_body": "/NewMetro/Environment/Male/Urinal_arc_backwall/Collision/Brown_sill_29e81d1/Shape"
+        },
+        {
+          "collision": "/NewMetro/Environment/Male/Urinal_arc_backwall/Collision/Wall_core_da98cf1/Shape",
+          "rigid_body": "/NewMetro/Environment/Male/Urinal_arc_backwall/Collision/Wall_core_da98cf1/Shape"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        64,
+        234
+      ],
+      "world_xy_m": [
+        8.450000000000003,
+        -5.05
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        61,
+        261
+      ],
+      "world_xy_m": [
+        11.150000000000002,
+        -4.75
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        67,
+        200
+      ],
+      "world_xy_m": [
+        5.050000000000001,
+        -5.35
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        44,
+        215
+      ],
+      "world_xy_m": [
+        6.550000000000001,
+        -3.05
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/NewMetro/Environment/Male/Urinal_entry_upper_closure/Collision/Wall_core_bf7dd6d/Shape",
+          "rigid_body": "/NewMetro/Environment/Male/Urinal_entry_upper_closure/Collision/Wall_core_bf7dd6d/Shape"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        41,
+        151
+      ],
+      "world_xy_m": [
+        0.15000000000000036,
+        -2.75
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/NewMetro/Environment/Male/Cubicle_01_INFERREDCOUNT/Collision/Partition_0260619/Shape",
+          "rigid_body": "/NewMetro/Environment/Male/Cubicle_01_INFERREDCOUNT/Collision/Partition_0260619/Shape"
+        },
+        {
+          "collision": "/NewMetro/Environment/Male/Cubicle_01_INFERREDCOUNT/Collision/Bronze_pier_f0be557/Shape",
+          "rigid_body": "/NewMetro/Environment/Male/Cubicle_01_INFERREDCOUNT/Collision/Bronze_pier_f0be557/Shape"
+        },
+        {
+          "collision": "/NewMetro/Environment/Male/Dryer_niche_wall/Collision/Wall_core_101a429/Shape",
+          "rigid_body": "/NewMetro/Environment/Male/Dryer_niche_wall/Collision/Wall_core_101a429/Shape"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        22,
+        237
+      ],
+      "world_xy_m": [
+        8.75,
+        -0.8499999999999996
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/NewMetro/Environment/Male/Urinal_B1/Collision/Ceramic_body_and_inner_bowl_996b97f/Shape",
+          "rigid_body": "/NewMetro/Environment/Male/Urinal_B1/Collision/Ceramic_body_and_inner_bowl_996b97f/Shape"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        11,
+        186
+      ],
+      "world_xy_m": [
+        3.650000000000002,
+        0.25
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/NewMetro/Environment/Male/Vanity_05/Collision/Cabinet_front__1_80ae91b/Shape",
+          "rigid_body": "/NewMetro/Environment/Male/Vanity_05/Collision/Cabinet_front__1_80ae91b/Shape"
+        },
+        {
+          "collision": "/NewMetro/Environment/Male/Male_continuous_vanity/Collision/Continuous_adult_stone_slab_828ce74/Shape",
+          "rigid_body": "/NewMetro/Environment/Male/Male_continuous_vanity/Collision/Continuous_adult_stone_slab_828ce74/Shape"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        47,
+        18
+      ],
+      "world_xy_m": [
+        -13.15,
+        -3.35
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        35,
+        78
+      ],
+      "world_xy_m": [
+        -7.1499999999999995,
+        -2.1500000000000004
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        64,
+        66
+      ],
+      "world_xy_m": [
+        -8.35,
+        -5.05
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        35,
+        73
+      ],
+      "world_xy_m": [
+        -7.6499999999999995,
+        -2.1500000000000004
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        18,
+        196
+      ],
+      "world_xy_m": [
+        4.650000000000002,
+        -0.4500000000000002
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        11,
+        120
+      ],
+      "world_xy_m": [
+        -2.9499999999999993,
+        0.25
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        51,
+        175
+      ],
+      "world_xy_m": [
+        2.5500000000000007,
+        -3.75
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        14,
+        32
+      ],
+      "world_xy_m": [
+        -11.75,
+        -0.04999999999999982
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        18,
+        144
+      ],
+      "world_xy_m": [
+        -0.5499999999999989,
+        -0.4500000000000002
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        8,
+        56
+      ],
+      "world_xy_m": [
+        -9.35,
+        0.5499999999999998
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/NewMetro/Environment/Female/Female_vanity_05/Collision/Continuous_chrome_arch_a324807/Shape",
+          "rigid_body": "/NewMetro/Environment/Female/Female_vanity_05/Collision/Continuous_chrome_arch_a324807/Shape"
+        },
+        {
+          "collision": "/NewMetro/Environment/Female/Female_vanity_05/Collision/Glazed_ceramic_shell_79f80d7/Shape",
+          "rigid_body": "/NewMetro/Environment/Female/Female_vanity_05/Collision/Glazed_ceramic_shell_79f80d7/Shape"
+        },
+        {
+          "collision": "/NewMetro/Environment/Female/Female_continuous_vanity/Collision/Continuous_adult_stone_slab_1f1a891/Shape",
+          "rigid_body": "/NewMetro/Environment/Female/Female_continuous_vanity/Collision/Continuous_adult_stone_slab_1f1a891/Shape"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        38,
+        139
+      ],
+      "world_xy_m": [
+        -1.049999999999999,
+        -2.45
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        50,
+        82
+      ],
+      "world_xy_m": [
+        -6.75,
+        -3.65
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        44,
+        15
+      ],
+      "world_xy_m": [
+        -13.45,
+        -3.05
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        4,
+        130
+      ],
+      "world_xy_m": [
+        -1.9499999999999993,
+        0.9500000000000002
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/NewMetro/Environment/Male/Entry_north_closure_INFERRED/Collision/Wall_core_f179b2a/Shape",
+          "rigid_body": "/NewMetro/Environment/Male/Entry_north_closure_INFERRED/Collision/Wall_core_f179b2a/Shape"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        3,
+        85
+      ],
+      "world_xy_m": [
+        -6.449999999999999,
+        1.0499999999999998
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        33,
+        226
+      ],
+      "world_xy_m": [
+        7.650000000000002,
+        -1.9500000000000002
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        41,
+        15
+      ],
+      "world_xy_m": [
+        -13.45,
+        -2.75
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        66,
+        198
+      ],
+      "world_xy_m": [
+        4.850000000000001,
+        -5.25
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        46,
+        213
+      ],
+      "world_xy_m": [
+        6.350000000000001,
+        -3.25
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        74,
+        91
+      ],
+      "world_xy_m": [
+        -5.85,
+        -6.05
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        9,
+        244
+      ],
+      "world_xy_m": [
+        9.450000000000003,
+        0.4500000000000002
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        43,
+        177
+      ],
+      "world_xy_m": [
+        2.75,
+        -2.95
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        45,
+        106
+      ],
+      "world_xy_m": [
+        -4.35,
+        -3.15
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        25,
+        216
+      ],
+      "world_xy_m": [
+        6.650000000000002,
+        -1.1499999999999995
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        71,
+        71
+      ],
+      "world_xy_m": [
+        -7.85,
+        -5.75
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        66,
+        217
+      ],
+      "world_xy_m": [
+        6.75,
+        -5.25
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/NewMetro/Environment/Service/Janitor_room_INFERRED/Collision/Wall_core_2009437/Shape",
+          "rigid_body": "/NewMetro/Environment/Service/Janitor_room_INFERRED/Collision/Wall_core_2009437/Shape"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        9,
+        0
+      ],
+      "world_xy_m": [
+        -14.95,
+        0.4500000000000002
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        61,
+        56
+      ],
+      "world_xy_m": [
+        -9.35,
+        -4.75
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/NewMetro/Environment/Female/Female_cubicle_04/CollisionDetails/D_fa799a2bea36",
+          "rigid_body": "/NewMetro/Environment/Female/Female_cubicle_04/CollisionDetails/D_fa799a2bea36"
+        },
+        {
+          "collision": "/NewMetro/Environment/Female/Female_cubicle_04/Collision/Bin_body_aee0335/Shape",
+          "rigid_body": "/NewMetro/Environment/Female/Female_cubicle_04/Collision/Bin_body_aee0335/Shape"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        50,
+        31
+      ],
+      "world_xy_m": [
+        -11.85,
+        -3.65
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        33,
+        171
+      ],
+      "world_xy_m": [
+        2.150000000000002,
+        -1.9500000000000002
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        62,
+        94
+      ],
+      "world_xy_m": [
+        -5.549999999999999,
+        -4.85
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        55,
+        39
+      ],
+      "world_xy_m": [
+        -11.05,
+        -4.15
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        56,
+        71
+      ],
+      "world_xy_m": [
+        -7.85,
+        -4.25
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        37,
+        166
+      ],
+      "world_xy_m": [
+        1.6500000000000021,
+        -2.35
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        17,
+        35
+      ],
+      "world_xy_m": [
+        -11.45,
+        -0.34999999999999964
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        10,
+        187
+      ],
+      "world_xy_m": [
+        3.75,
+        0.35000000000000053
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/NewMetro/Environment/Male/Vanity_05/Collision/Glazed_ceramic_shell_4228669/Shape",
+          "rigid_body": "/NewMetro/Environment/Male/Vanity_05/Collision/Glazed_ceramic_shell_4228669/Shape"
+        },
+        {
+          "collision": "/NewMetro/Environment/Male/Male_continuous_vanity/Collision/Continuous_adult_stone_slab_828ce74/Shape",
+          "rigid_body": "/NewMetro/Environment/Male/Male_continuous_vanity/Collision/Continuous_adult_stone_slab_828ce74/Shape"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        53,
+        182
+      ],
+      "world_xy_m": [
+        3.25,
+        -3.95
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/NewMetro/Environment/Male/Cubicle_03_INFERREDCOUNT/Collision/Round_case_45daf6a/Shape",
+          "rigid_body": "/NewMetro/Environment/Male/Cubicle_03_INFERREDCOUNT/Collision/Round_case_45daf6a/Shape"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        48,
+        137
+      ],
+      "world_xy_m": [
+        -1.25,
+        -3.45
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        37,
+        201
+      ],
+      "world_xy_m": [
+        5.150000000000002,
+        -2.35
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        47,
+        171
+      ],
+      "world_xy_m": [
+        2.150000000000002,
+        -3.35
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        54,
+        168
+      ],
+      "world_xy_m": [
+        1.8500000000000014,
+        -4.050000000000001
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/NewMetro/Environment/Male/Cubicle_02_INFERREDCOUNT/Motion/Seat_e3e010/Collision/CollisionWedge_15_d9c153a/Shape",
+          "rigid_body": "/NewMetro/Environment/Male/Cubicle_02_INFERREDCOUNT/Motion/Seat_e3e010"
+        },
+        {
+          "collision": "/NewMetro/Environment/Male/Cubicle_02_INFERREDCOUNT/Motion/Seat_e3e010/Collision/CollisionWedge_16_d1a5164/Shape",
+          "rigid_body": "/NewMetro/Environment/Male/Cubicle_02_INFERREDCOUNT/Motion/Seat_e3e010"
+        },
+        {
+          "collision": "/NewMetro/Environment/Male/Cubicle_02_INFERREDCOUNT/Motion/Seat_e3e010/Collision/CollisionWedge_17_fc42bff/Shape",
+          "rigid_body": "/NewMetro/Environment/Male/Cubicle_02_INFERREDCOUNT/Motion/Seat_e3e010"
+        },
+        {
+          "collision": "/NewMetro/Environment/Male/Cubicle_02_INFERREDCOUNT/Motion/Seat_e3e010/Collision/CollisionWedge_14_14dbafe/Shape",
+          "rigid_body": "/NewMetro/Environment/Male/Cubicle_02_INFERREDCOUNT/Motion/Seat_e3e010"
+        },
+        {
+          "collision": "/NewMetro/Environment/Male/Cubicle_02_INFERREDCOUNT/Collision/Porcelain_bowl_cc012c4/Shape",
+          "rigid_body": "/NewMetro/Environment/Male/Cubicle_02_INFERREDCOUNT/Collision/Porcelain_bowl_cc012c4/Shape"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        21,
+        140
+      ],
+      "world_xy_m": [
+        -0.9499999999999993,
+        -0.75
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        75,
+        231
+      ],
+      "world_xy_m": [
+        8.150000000000002,
+        -6.15
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        72,
+        186
+      ],
+      "world_xy_m": [
+        3.650000000000002,
+        -5.8500000000000005
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        75,
+        78
+      ],
+      "world_xy_m": [
+        -7.1499999999999995,
+        -6.15
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        47,
+        54
+      ],
+      "world_xy_m": [
+        -9.55,
+        -3.35
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        62,
+        242
+      ],
+      "world_xy_m": [
+        9.25,
+        -4.85
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/NewMetro/Environment/Male/Urinal_rear_enclosure_INFERRED/Collision/Wall_core_5aacbf7/Shape",
+          "rigid_body": "/NewMetro/Environment/Male/Urinal_rear_enclosure_INFERRED/Collision/Wall_core_5aacbf7/Shape"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        71,
+        92
+      ],
+      "world_xy_m": [
+        -5.75,
+        -5.75
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        19,
+        70
+      ],
+      "world_xy_m": [
+        -7.949999999999999,
+        -0.5499999999999998
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        28,
+        256
+      ],
+      "world_xy_m": [
+        10.650000000000002,
+        -1.4500000000000002
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/NewMetro/Environment/Male/East_enclosure/Collision/Wall_core_efddf95/Shape",
+          "rigid_body": "/NewMetro/Environment/Male/East_enclosure/Collision/Wall_core_efddf95/Shape"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        28,
+        214
+      ],
+      "world_xy_m": [
+        6.450000000000003,
+        -1.4500000000000002
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        33,
+        174
+      ],
+      "world_xy_m": [
+        2.4499999999999993,
+        -1.9500000000000002
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        66,
+        0
+      ],
+      "world_xy_m": [
+        -14.95,
+        -5.25
+      ],
+      "CPU_projection_label": 205,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        52,
+        17
+      ],
+      "world_xy_m": [
+        -13.25,
+        -3.85
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/NewMetro/Environment/Female/Female_cubicle_01/Collision/Bronze_pier_d246f77/Shape",
+          "rigid_body": "/NewMetro/Environment/Female/Female_cubicle_01/Collision/Bronze_pier_d246f77/Shape"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        2,
+        183
+      ],
+      "world_xy_m": [
+        3.3500000000000014,
+        1.1500000000000004
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": true
+    },
+    {
+      "pixel_row_column": [
+        62,
+        254
+      ],
+      "world_xy_m": [
+        10.450000000000003,
+        -4.85
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/NewMetro/Environment/Male/Urinal_rear_enclosure_INFERRED/Collision/Wall_core_5aacbf7/Shape",
+          "rigid_body": "/NewMetro/Environment/Male/Urinal_rear_enclosure_INFERRED/Collision/Wall_core_5aacbf7/Shape"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        38,
+        41
+      ],
+      "world_xy_m": [
+        -10.85,
+        -2.45
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        46,
+        94
+      ],
+      "world_xy_m": [
+        -5.549999999999999,
+        -3.25
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        69,
+        118
+      ],
+      "world_xy_m": [
+        -3.1499999999999986,
+        -5.55
+      ],
+      "CPU_projection_label": 0,
+      "native_cell_grid_label": 0,
+      "height_band_refined_label": 0,
+      "native_band_box_overlap_hits": [
+        {
+          "collision": "/NewMetro/Environment/Accessible/Accessible_toilet_INFERRED/Motion/Leaf_259c30/Collision/Accessible_grab_proxy_1_1_bc8c072/Shape",
+          "rigid_body": "/NewMetro/Environment/Accessible/Accessible_toilet_INFERRED/Motion/Leaf_259c30"
+        }
+      ],
+      "projection_native_discrepancy": false
+    },
+    {
+      "pixel_row_column": [
+        15,
+        53
+      ],
+      "world_xy_m": [
+        -9.649999999999999,
+        -0.14999999999999947
+      ],
+      "CPU_projection_label": 254,
+      "native_cell_grid_label": 254,
+      "height_band_refined_label": 254,
+      "native_band_box_overlap_hits": [],
+      "projection_native_discrepancy": false
+    }
+  ],
+  "native_probe": "full .1m cell XY box over .15..1.8m band; not a pedestrian footprint"
+}

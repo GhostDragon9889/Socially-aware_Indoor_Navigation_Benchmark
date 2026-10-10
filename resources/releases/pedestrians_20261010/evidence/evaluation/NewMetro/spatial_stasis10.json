@@ -1,0 +1,41 @@
+{
+  "schema": "crowdsim.actual_spatial_stasis.v2",
+  "result_sha256": "6e81a9da6123b44503a9491f868c7e8330f2185378b8d4832a5a1ef4688e6622",
+  "physical_sha256": "5c959e4169ede7651efc09a05a8ede1f60fe7405784e4c47c0e1925bfb0170fb",
+  "evaluator_sha256": "3be3522a953f4b366b05c93bf17ac82e84e08098279c465ea19fa89a8f487dd1",
+  "definition": "Consecutive complete5s root-position windows with bounding-box diagonal below.25m; union duration includes window width. No velocity-based selection.",
+  "maximum_allowed_spatial_stasis_s": 10.0,
+  "normal_turns_or_short_yields_permitted": true,
+  "per_actor": [
+    {
+      "actor": 0,
+      "maximum_spatial_stasis_s": 0.0,
+      "intervals": [],
+      "full_window_bbox_diagonal_min_m": 1.762492299079895,
+      "passes10s_stasis_limit": true
+    },
+    {
+      "actor": 1,
+      "maximum_spatial_stasis_s": 0.0,
+      "intervals": [],
+      "full_window_bbox_diagonal_min_m": 1.818582534790039,
+      "passes10s_stasis_limit": true
+    },
+    {
+      "actor": 2,
+      "maximum_spatial_stasis_s": 0.0,
+      "intervals": [],
+      "full_window_bbox_diagonal_min_m": 1.993613600730896,
+      "passes10s_stasis_limit": true
+    },
+    {
+      "actor": 3,
+      "maximum_spatial_stasis_s": 0.0,
+      "intervals": [],
+      "full_window_bbox_diagonal_min_m": 1.2293990850448608,
+      "passes10s_stasis_limit": true
+    }
+  ],
+  "zero_spatial_stasis_over10s": true,
+  "scope": "Supplementary operational gate for continuous routes without declared long dwell; not a paper benchmark."
+}

@@ -1,0 +1,26 @@
+{
+  "schema": "crowdsim.recorded_SMPL_foot_surface.v1",
+  "source_result_sha256": "6e81a9da6123b44503a9491f868c7e8330f2185378b8d4832a5a1ef4688e6622",
+  "physical_states_sha256": "ee8a84adf566b7b8daf51a7b5ec1efb6215b78acdbe86306c02658a24608bbbb",
+  "evaluator_source_sha256": "c46b38ddbeafce44fc1f505c73fd9b258740aa387b9d94f888b99c890a61b7ca",
+  "source_control_interval": [
+    0,
+    1800
+  ],
+  "frames": 1800,
+  "actors": 4,
+  "foot_vertex_count": 492,
+  "vertex_selection": "sum neutral-SMPL skinning influence on L/R ankle/toe >=0.6",
+  "floor_height_m": 0.0,
+  "minimum_foot_surface_height_m": -0.0073882341384887695,
+  "foot_penetration_max_m": 0.0073882341384887695,
+  "foot_penetration_p95_m": 0.005050863604992628,
+  "actor_frame_fraction_foot_vertices_below_minus1cm": 0.0,
+  "actor_frame_fraction_foot_vertices_below_minus2mm": 0.8211111111111111,
+  "diagnostic_only": true,
+  "physics_or_pose_modified": false,
+  "limits": [
+    "Neutral SMPL skinning surface compared to analytical reference floor, not exact contact-patch slip.",
+    "Original visual tiles can lie slightly above the analytical support surface; retained geometry is inspected in the video."
+  ]
+}

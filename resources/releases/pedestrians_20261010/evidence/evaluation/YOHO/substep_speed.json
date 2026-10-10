@@ -1,0 +1,49 @@
+{
+  "schema": "crowdsim.actual_substep_speed.v1",
+  "source_result_sha256": "da9665f4f16fd07154d6e037c89d944820964ac07b6dc657388a391b90cc9425",
+  "ground_support_sha256": "ef160524c91104b821d9f536cc7889b24a9e4264991819bcf2fa55cbc91f4c63",
+  "physical_sha256": "ca57a80ba50cf6b11e3f8d0e011dc7c84c785638ac1e71af46811a35a1409b60",
+  "native_execution_sha256": "d1536c0aa7e31cc7d9125843319019c06a5b08e92b1be406bd387d73fb1cae95",
+  "evaluator_source_sha256": "96bf20b19f0a0c64a309c1a815b8647cc53fde885d6eaa351b89da1c82232674",
+  "actual_controls": 1800,
+  "actual_physics_substeps_per_actor": 7200,
+  "control_final_velocity_max_abs_error": 0.0,
+  "upper_speed_m_s": 1.5,
+  "passed_upper1p5_all_substeps": true,
+  "per_actor": [
+    {
+      "actor": 0,
+      "actual_physics_substeps": 7200,
+      "peak_m_s": 1.1690359115600586,
+      "mean_m_s": 0.7262778878211975,
+      "substeps_above1p5": 0,
+      "substeps_below0p5_fraction": 0.06180555555555556
+    },
+    {
+      "actor": 1,
+      "actual_physics_substeps": 7200,
+      "peak_m_s": 1.2489737272262573,
+      "mean_m_s": 0.7803766131401062,
+      "substeps_above1p5": 0,
+      "substeps_below0p5_fraction": 0.005138888888888889
+    },
+    {
+      "actor": 2,
+      "actual_physics_substeps": 7200,
+      "peak_m_s": 1.1980009078979492,
+      "mean_m_s": 0.7346477508544922,
+      "substeps_above1p5": 0,
+      "substeps_below0p5_fraction": 0.05513888888888889
+    },
+    {
+      "actor": 3,
+      "actual_physics_substeps": 7200,
+      "peak_m_s": 1.2310453653335571,
+      "mean_m_s": 0.6466948986053467,
+      "substeps_above1p5": 0,
+      "substeps_below0p5_fraction": 0.1998611111111111
+    }
+  ],
+  "turn_start_stop_low_speed_samples_retained": true,
+  "scope": "Observed actual pelvis planar velocities at every120Hz native substep; no physical state changes and no global bound on future runs."
+}

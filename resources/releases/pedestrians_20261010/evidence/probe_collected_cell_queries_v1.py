@@ -1,0 +1,1682 @@
+#!/usr/bin/env python3
+"""Inspect local DynBench scenes, then optionally run actual PhysX/omap queries.
+
+Default is SDK-free preflight. --execute-physx starts one Kit App for one selected
+scene. Cell mapping uses actual PhysX full-height overlap queries; no omap plugin. Original source layers are never saved. Optional finite reference ground
+and full-height refinement are explicit engineering choices. No projection
+fallback or human-navigation quality claim is made. Limited queries cannot
+admit a full scene-resource map.
+Standalone USD preflight runs in child processes to keep its pxr provider out of
+Kit's process. All source layers are hashed before and after actual execution.
+"""
+from __future__ import annotations
+
+import argparse
+import importlib._bootstrap_external as _stdlib_importer
+_STOCK_PATH_STAT = _stdlib_importer._path_stat
+if _STOCK_PATH_STAT.__code__.co_filename != "<frozen importlib._bootstrap_external>":
+    raise RuntimeError("Require the original saved CPython path-stat function before Kit launch")
+from dataclasses import dataclass
+import hashlib
+import json
+import math
+from pathlib import Path
+import subprocess
+import sys
+import time
+
+import numpy as np
+from PIL import Image
+
+ROOT = Path(__file__).resolve().parents[1]
+if not (ROOT/"CrowdSim").is_dir():ROOT = Path("/project/EXP/SangforAndSaut/ProtoMotions")
+NATIVE_CLOSE_STATE = {}
+SCENES = ("Office", "Warehouse", "Full_Warehouse", "Hospital", "YOHO", "NewMetro", "SecondFloor", "ThirdFloor")
+VALUES = {"occupied": 4, "free": 5, "unknown": 6}
+RESOLUTION = .1
+BAND = (.15, 1.8)
+DT = 1 / 120
+
+
+def digest(path):
+    h = hashlib.sha256()
+    with Path(path).open("rb") as stream:
+        for block in iter(lambda: stream.read(1024 * 1024), b""):
+            h.update(block)
+    return h.hexdigest()
+
+
+def file_record(path):
+    path = Path(path).resolve()
+    return {"path": str(path), "bytes": path.stat().st_size, "sha256": digest(path)}
+
+
+def write_json(path, data):
+    Path(path).write_text(json.dumps(data, indent=2, ensure_ascii=False, allow_nan=False) + "\n")
+
+
+def finite_array(value, shape, label):
+    result = np.asarray(value, dtype=np.float64)
+    if result.shape != shape or not np.isfinite(result).all():
+        raise ValueError(f"{label} must be finite with shape {shape}")
+    return result
+
+
+def validate_projection_metadata(scene, data):
+    """Admit explicit units, floor and the existing projection's transform."""
+    if scene not in SCENES or data.get("scene") != scene:
+        raise ValueError("Unknown or mismatched scene")
+    if data.get("composition_complete") is not True or data.get("composition_errors"):
+        raise ValueError("Projection has incomplete composition")
+    stage = data["stage"]
+    if stage.get("stage_up_axis") != "Z" or stage.get("stage_meters_per_unit") != 1.0:
+        raise ValueError("Only original Z-up, metersPerUnit=1 scenes are admitted")
+    if data["metadata"]["resolution"] != RESOLUTION:
+        raise ValueError("This probe requires the declared .1m projection")
+    if list(data["pedestrian_height_band_above_floor_m"]) != list(BAND):
+        raise ValueError("Height band must be .15..1.8m above selected floor")
+    bounds = finite_array(data["bounds_xy_m"], (2, 2), "bounds")
+    dims_raw = data["image_dimensions_xy"]
+    if len(dims_raw) != 2 or any(type(v) is not int or v <= 0 for v in dims_raw):
+        raise ValueError("Projection dimensions must be positive integers")
+    dims = np.asarray(dims_raw)
+    if not np.allclose(bounds[1] - bounds[0], dims * RESOLUTION, atol=1e-8, rtol=0):
+        raise ValueError("Projection dimensions/bounds disagree")
+    ground = data["floor"]["height_m"]
+    if type(ground) not in (int, float) or not math.isfinite(ground):
+        raise ValueError("Explicit finite floor height required")
+    floors = data["floor"]["selected_floor_prims"]
+    if not floors or len(set(floors)) != len(floors) or any(not p.startswith("/") for p in floors):
+        raise ValueError("Exact authored floor paths required")
+    origin_data = data.get("free_origin_candidate")
+    if not isinstance(origin_data, dict):
+        raise ValueError("No existing free origin candidate; do not invent one")
+    origin = finite_array(origin_data["omap_origin_world_map_frame_m"], (3,), "origin")
+    low = finite_array(origin_data["omap_relative_min_bound_map_m"], (3,), "relative min")
+    high = finite_array(origin_data["omap_relative_max_bound_map_m"], (3,), "relative max")
+    if np.any(low >= high) or not np.allclose((origin + low)[:2], bounds[0], atol=1e-8):
+        raise ValueError("Origin/relative min/bounds disagree")
+    if not np.allclose((origin + high)[:2], bounds[1], atol=1e-8):
+        raise ValueError("Origin/relative max/bounds disagree")
+    if not np.allclose([origin[2] + low[2], origin[2] + high[2]], np.asarray(BAND) + ground, atol=1e-8):
+        raise ValueError("Origin/relative bounds do not express declared height band")
+    if np.any(origin[:2] <= bounds[0]) or np.any(origin[:2] >= bounds[1]):
+        raise ValueError("Origin candidate outside map")
+    return {"bounds": bounds, "dims": dims, "ground": float(ground), "origin": origin,
+            "relative_min": low, "relative_max": high, "floor_prims": floors}
+
+
+def positions_to_pixels(points, minimum, maximum, dims_xy, resolution=RESOLUTION):
+    """Native returned world cell centers -> ROS row0 north; strict round trip."""
+    points = np.asarray(points, dtype=np.float64)
+    if points.size == 0:
+        points = points.reshape(0, 3)
+    if points.ndim != 2 or points.shape[1] != 3:
+        raise ValueError("Native positions must be [N,3]")
+    minimum = finite_array(minimum, (3,), "native minimum")
+    maximum = finite_array(maximum, (3,), "native maximum")
+    dims = np.asarray(dims_xy)
+    if dims.shape != (2,) or dims.dtype.kind not in "iu" or np.any(dims <= 0):
+        raise ValueError("Native XY dimensions must be positive integers")
+    if not np.isfinite(points).all() or resolution <= 0 or not math.isfinite(resolution):
+        raise ValueError("Nonfinite positions or invalid resolution")
+    tolerance = 2e-4  # native Float3 bounds/positions; at most .2mm, not a whole cell
+    if not np.allclose(maximum[:2] - minimum[:2], dims * resolution, atol=tolerance, rtol=0):
+        raise ValueError("Native bounds do not match dimensions times resolution")
+    fractional = (points[:, :2] - minimum[:2]) / resolution - .5
+    indices = np.rint(fractional).astype(np.int64)
+    if np.any(indices < 0) or np.any(indices >= dims):
+        raise ValueError("Returned cell center outside native bounds")
+    reconstructed = minimum[:2] + (indices + .5) * resolution
+    if not np.allclose(reconstructed, points[:, :2], atol=tolerance, rtol=0):
+        raise ValueError("Native positions are not centers on the declared grid")
+    pixels = np.column_stack((dims[1] - 1 - indices[:, 1], indices[:, 0]))
+    if len(np.unique(pixels, axis=0)) != len(pixels):
+        raise ValueError("Duplicate native XY cell centers")
+    return pixels
+
+
+def native_position_buffer_indices(points, minimum, maximum, dimensions):
+    """Fixed installed compute_coordinates layout: row0 south, column0 east."""
+    dimensions = np.asarray(dimensions)
+    pixels = positions_to_pixels(points, minimum, maximum, dimensions[:2])
+    width, height = map(int, dimensions[:2])
+    return (height - 1 - pixels[:, 0]) * width + (width - 1 - pixels[:, 1])
+
+
+def reconstruct_native_map(buffer, occupied, free, minimum, maximum, dimensions, *, known5_position_source="api_verified"):
+    """Validate the fixed official native layout against every world position.
+
+    get_free_positions can include label6 unknown cells. Default admission
+    requires every raw5 world position. The explicit engineering source can
+    reconstruct missing raw5 centers, pending direct native validation of all
+    cells; raw6 never becomes known free.
+    """
+    if known5_position_source not in ("api_verified", "official_buffer_centers"):
+        raise ValueError("Unknown explicit known5 position source")
+    dimensions = np.asarray(dimensions)
+    if dimensions.shape != (3,) or dimensions.dtype.kind not in "iu" or dimensions[2] not in (0, 1):
+        raise ValueError("Expected 2D native Int3 dimensions")
+    w, h = map(int, dimensions[:2])
+    if w <= 0 or h <= 0:
+        raise ValueError("Empty native map")
+    raw = np.asarray(buffer, dtype=np.float64)
+    if raw.shape != (w * h,) or not np.isfinite(raw).all() or not np.isin(raw, list(VALUES.values())).all():
+        raise ValueError("Native buffer size or labels invalid")
+    occupied = np.asarray(occupied, dtype=np.float64).reshape(-1, 3)
+    free = np.asarray(free, dtype=np.float64).reshape(-1, 3)
+    oi = native_position_buffer_indices(occupied, minimum, maximum, dimensions)
+    fi = native_position_buffer_indices(free, minimum, maximum, dimensions)
+    if not np.array_equal(np.sort(oi), np.flatnonzero(raw == VALUES["occupied"])):
+        raise ValueError("Official native layout: occupied world positions must exactly equal buffer4 cells")
+    if np.intersect1d(oi, fi).size or np.any(raw[fi] == VALUES["occupied"]):
+        raise ValueError("Official native layout: free-list positions intersect occupied buffer4 cells")
+    missing5 = np.setdiff1d(np.flatnonzero(raw == VALUES["free"]), fi)
+    if len(missing5) and known5_position_source == "api_verified":
+        raise ValueError("Official native layout: every known buffer5 cell needs a free-list world position")
+    missing = np.setdiff1d(np.arange(w*h), np.r_[oi, fi])
+    unknown_missing = missing[raw[missing] == VALUES["unknown"]]
+    if np.any(~np.isin(raw[missing], [VALUES["unknown"], VALUES["free"]])):
+        raise ValueError("Official native layout: unreported world positions must be buffer6 unknown cells")
+    linear = np.arange(w*h)
+    native_row, native_col = np.divmod(linear, w)
+    ros_row, ros_col = h - 1 - native_row, w - 1 - native_col
+    image = np.empty((h, w), dtype=np.uint8)
+    labels = np.where(raw == VALUES["occupied"], 0, np.where(raw == VALUES["free"], 254, 205)).astype(np.uint8)
+    image[ros_row, ros_col] = labels
+    if np.count_nonzero(image == 205) != np.count_nonzero(raw == VALUES["unknown"]):
+        raise ValueError("Unknown count cannot be reconciled")
+    known = raw[fi] == VALUES["free"]
+    return image, {"raw_value_counts": {k: int(np.count_nonzero(raw == v)) for k, v in VALUES.items()},
+        "positions_roundtrip_verified": True, "all_occupied_world_labels_equal4": True,
+        "all_buffer5_have_free_list_world_position": not len(missing5), "known5_API_complete": not len(missing5),
+        "known5_position_source": known5_position_source, "missing_known5_API_count": len(missing5),
+        "engineering_buffer_center_reconstruction": bool(len(missing5)), "native_direct_cell_validation_required": bool(len(missing5)),
+        "missing_known5_formula": "native row=index//width; eastcol=index%width; x=minX+(width-eastcol-.5)*.1; y=minY+(row+.5)*.1; z=(minZ+maxZ)/2",
+        "free_list_buffer4_count": 0,
+        "API_free_list_count": len(free), "canonical_known_free_count": int(np.count_nonzero(raw == VALUES["free"])),
+        "API_verified_known5_count": int(known.sum()), "API_free_list_unknown_count": int((~known).sum()),
+        "unreported_unknown_count": len(unknown_missing),
+        "unreported_unknown_native_rows": np.unique(unknown_missing//w).tolist(), "duplicate_xy_positions": 0,
+        "unknown_promoted_to_free": False, "unverified_buffer_spatial_layout_assumed": False,
+        "fixed_native_layout": "row-major x-fastest; row0=minY, column0=maxX",
+        "layout_source": "installed isaacsim.asset.gen.omap/utils/utils.py compute_coordinates; MapGenerator.h getBuffer",
+        "layout_fitted_dynamically": False, "row0": "max world Y", "column0": "min world X"}
+
+
+def canonical_known5_positions(buffer, api_free, minimum, maximum, dimensions, *, source="api_verified"):
+    """Keep real API rows; explicitly mark absent5 centers derived from fixed official layout."""
+    if source not in ("api_verified", "official_buffer_centers"):
+        raise ValueError("Unknown explicit known5 position source")
+    raw = np.asarray(buffer)
+    dimensions = np.asarray(dimensions)
+    if dimensions.shape != (3,) or raw.shape != (int(dimensions[0])*int(dimensions[1]),):
+        raise ValueError("Native buffer/dimensions disagree")
+    api_free = np.asarray(api_free)
+    api_indices = native_position_buffer_indices(api_free, minimum, maximum, dimensions)
+    if not np.isin(raw[api_indices], [5, 6]).all():
+        raise ValueError("API free rows must be known5 or unknown6")
+    api_rows = np.flatnonzero(raw[api_indices] == 5)
+    missing = np.setdiff1d(np.flatnonzero(raw == 5), api_indices)
+    if len(missing) and source == "api_verified":
+        raise ValueError("Missing known5 API rows require the explicit engineering buffer-center source")
+    width = int(dimensions[0])
+    row, column = np.divmod(missing, width)
+    derived = np.column_stack((np.asarray(minimum)[0]+(width-column-.5)*RESOLUTION,
+        np.asarray(minimum)[1]+(row+.5)*RESOLUTION, np.full(len(missing), (minimum[2]+maximum[2])/2)))
+    free = np.concatenate((api_free[api_rows], derived)) if len(missing) else api_free[api_rows]
+    canonical_rows = np.r_[api_rows, np.full(len(missing), -1, dtype=np.int64)]
+    canonical_indices = native_position_buffer_indices(free, minimum, maximum, dimensions)
+    if not np.array_equal(np.sort(canonical_indices), np.flatnonzero(raw == 5)):
+        raise ValueError("Canonical centers must cover exactly all native5, never unknown6")
+    return {"positions": free, "API_rows": canonical_rows, "native_buffer_indices": canonical_indices,
+            "missing_known5_buffer_indices": missing, "missing_known5_world_positions": derived,
+            "position_source": np.where(canonical_rows >= 0, "native_API_row", "official_buffer_center")}
+
+
+def projection_grid_window(minimum, maximum, dimensions, bounds, projection_dims, tolerance=1e-5):
+    """Only zero/one-cell lower padding may be cropped, in declared world coordinates."""
+    minimum = finite_array(minimum, (3,), "native minimum")
+    maximum = finite_array(maximum, (3,), "native maximum")
+    bounds = finite_array(bounds, (2, 2), "projection bounds")
+    dimensions, projection_dims = np.asarray(dimensions), np.asarray(projection_dims)
+    if (dimensions.shape != (3,) or projection_dims.shape != (2,) or dimensions.dtype.kind not in "iu"
+            or projection_dims.dtype.kind not in "iu" or np.any(projection_dims <= 0)):
+        raise ValueError("Native/projection integer dimensions required")
+    if not np.allclose(maximum[:2]-minimum[:2], dimensions[:2]*RESOLUTION, atol=tolerance, rtol=0):
+        raise ValueError("Native grid bounds/dimensions cannot form declared .1m cells")
+    padding = np.rint((bounds[0]-minimum[:2])/RESOLUTION).astype(int)
+    if (not np.isin(padding, [0, 1]).all()
+            or not np.allclose(minimum[:2]+padding*RESOLUTION, bounds[0], atol=tolerance, rtol=0)
+            or not np.allclose(maximum[:2], bounds[1], atol=tolerance, rtol=0)
+            or not np.array_equal(dimensions[:2]-padding, projection_dims)
+            or not np.allclose(bounds[1]-bounds[0], projection_dims*RESOLUTION, atol=tolerance, rtol=0)):
+        raise ValueError("Only verified zero/one lower-cell padding may be cropped to projection world bounds")
+    row_stop = int(dimensions[1]-padding[1])
+    column_start = int(padding[0])
+    return {"schema": "dynbench.native_projection_world_crop.v1", "lower_padding_cells_xy": padding.tolist(),
+            "native_window_rows": [0, row_stop], "native_window_columns": [column_start, int(dimensions[0])],
+            "export_bounds_xy_m": bounds.tolist(), "export_dimensions_xy": projection_dims.tolist(),
+            "engineering_native_padding_crop": bool(padding.any()), "world_grid_alignment_tolerance_m": tolerance,
+            "author_projection_files_modified": False, "native_raw_grid_preserved": True}
+
+
+def crop_to_projection_grid(image, window):
+    rows, columns = window["native_window_rows"], window["native_window_columns"]
+    image = np.asarray(image)
+    cropped = image[rows[0]:rows[1], columns[0]:columns[1]]
+    if cropped.shape != tuple(window["export_dimensions_xy"][::-1]):
+        raise ValueError("Native image/window do not match declared projection dimensions")
+    return cropped
+
+
+def supported_floor_hit(hits, floor_paths, ground, height_tolerance=.08):
+    """Only exact selected-floor collider hits with an upward, near-level normal."""
+    valid = []
+    for hit in hits:
+        position = finite_array(hit["position"], (3,), "ray hit position")
+        normal = finite_array(hit["normal"], (3,), "ray hit normal")
+        distance = hit["distance"]
+        if not math.isfinite(distance) or distance < 0 or not np.isclose(np.linalg.norm(normal), 1., atol=1e-3):
+            raise ValueError("Invalid native hit distance")
+        if hit["collision"] in floor_paths and normal[2] >= .9 and abs(position[2] - ground) <= height_tolerance:
+            valid.append(hit)
+    return min(valid, key=lambda hit: hit["distance"]) if valid else None
+
+
+def static_nonfloor_paths(inventory, source_enabled_paths, floor_paths):
+    """Exact source-known static Mesh/Plane shapes proved not flat floor candidates."""
+    return {r["path"] for r in inventory if r.get("enabled") is True and r.get("static") is True
+            and r.get("near_ground_flat_surface") is False and r.get("type_name") in ("Mesh", "Plane")
+            and r.get("reason") in ("Floor mesh is not thin and near selected floor height",
+                                    "Plane is not horizontal at the selected ground height")
+            and r["path"] in source_enabled_paths and r["path"] not in floor_paths}
+
+
+@dataclass(frozen=True, init=False)
+class ValidatedStaticNonfloor:
+    """Validate one immutable path snapshot once, instead of once per native cell."""
+    paths: frozenset
+    enabled_paths: frozenset
+    floor_paths: frozenset
+
+    def __init__(self, paths, enabled_paths, floor_paths):
+        if not isinstance(enabled_paths, frozenset) or not isinstance(floor_paths, frozenset):
+            raise ValueError("Static nonfloor registry requires immutable enabled/floor snapshots")
+        known = frozenset(paths or ())
+        if not known <= enabled_paths or known & floor_paths:
+            raise ValueError("Static nonfloor whitelist must be exact enabled nonfloor source paths")
+        object.__setattr__(self, "paths", known)
+        object.__setattr__(self, "enabled_paths", enabled_paths)
+        object.__setattr__(self, "floor_paths", floor_paths)
+
+
+def classify_floor_ray_hits(hits, floor_paths, enabled_paths, ground, height_tolerance=.08, *, static_nonfloor=None):
+    """Retain every hit; an undeclared level support invalidates floor ownership."""
+    supported_floor_hit(hits, floor_paths, ground, height_tolerance)
+    if isinstance(static_nonfloor, ValidatedStaticNonfloor):
+        if static_nonfloor.enabled_paths is not enabled_paths or static_nonfloor.floor_paths is not floor_paths:
+            raise ValueError("Static nonfloor registry belongs to a different path snapshot")
+        static_nonfloor = static_nonfloor.paths
+    else:
+        static_nonfloor = set() if static_nonfloor is None else set(static_nonfloor)
+        if not static_nonfloor <= set(enabled_paths) or static_nonfloor & set(floor_paths):
+            raise ValueError("Static nonfloor whitelist must be exact enabled nonfloor source paths")
+    categories, undeclared, foreign, low_obstacles = [], set(), set(), set()
+    for hit in hits:
+        path = hit["collision"]
+        near = hit["normal"][2] >= .9 and abs(hit["position"][2] - ground) <= height_tolerance
+        if path not in enabled_paths:
+            category = "foreign_collision_path"
+            foreign.add(path)
+        elif path in floor_paths:
+            category = "selected_floor_support" if near else "selected_floor_other_surface"
+        elif near and path in static_nonfloor:
+            category = "known_static_nonfloor_near_ground_obstacle"
+            low_obstacles.add(path)
+        elif near:
+            category = "undeclared_near_floor_support"
+            undeclared.add(path)
+        else:
+            category = "known_nonfloor_surface"
+        categories.append(category)
+    selected_count = categories.count("selected_floor_support")
+    return {"classification": categories, "undeclared_near_floor_collision_paths": sorted(undeclared),
+            "foreign_ray_collision_paths": sorted(foreign), "all_support_hit_paths_declared": not undeclared and not foreign,
+            "known_static_nonfloor_near_ground_paths": sorted(low_obstacles),
+            "selected_floor_support_hit_count": selected_count, "single_selected_floor_support_verified": selected_count == 1}
+
+
+def query_floor_support(query, positions, selected, ground, floor_paths, enabled_paths, *, scene="", static_nonfloor=None):
+    """Publish complete all-hit CSR rows, rather than only the nearest owner hit."""
+    selected = np.asarray(selected)
+    enabled_paths, floor_paths = frozenset(enabled_paths), frozenset(floor_paths)
+    static_nonfloor = ValidatedStaticNonfloor(static_nonfloor, enabled_paths, floor_paths)
+    supported = np.zeros(len(selected), dtype=bool)
+    hit_position = np.full((len(selected), 3), np.nan, dtype=np.float32)
+    hit_normal = np.full((len(selected), 3), np.nan, dtype=np.float32)
+    collision, rows, categories, offsets = [], [], [], [0]
+    undeclared, foreign, low_obstacles = set(), set(), set()
+    undeclared_mask, foreign_mask = np.zeros(len(selected), dtype=bool), np.zeros(len(selected), dtype=bool)
+    low_obstacle_mask = np.zeros(len(selected), dtype=bool)
+    selected_counts = np.zeros(len(selected), dtype=np.int64)
+    for n, index in enumerate(selected):
+        hits = rays(query, positions[index, :2], ground)
+        classification = classify_floor_ray_hits(hits, floor_paths, enabled_paths, ground, static_nonfloor=static_nonfloor)
+        undeclared.update(classification["undeclared_near_floor_collision_paths"])
+        foreign.update(classification["foreign_ray_collision_paths"])
+        undeclared_mask[n] = bool(classification["undeclared_near_floor_collision_paths"])
+        foreign_mask[n] = bool(classification["foreign_ray_collision_paths"])
+        low_obstacles.update(classification["known_static_nonfloor_near_ground_paths"])
+        low_obstacle_mask[n] = bool(classification["known_static_nonfloor_near_ground_paths"])
+        selected_counts[n] = classification["selected_floor_support_hit_count"]
+        categories.extend(classification["classification"])
+        rows.extend(hits)
+        offsets.append(len(rows))
+        hit = supported_floor_hit(hits, floor_paths, ground)
+        collision.append("" if hit is None else hit["collision"])
+        if hit is not None:
+            supported[n] = True
+            hit_position[n], hit_normal[n] = hit["position"], hit["normal"]
+        if n and n % 20000 == 0:
+            print(f"{scene}: floor rays {n}/{len(selected)}", flush=True)
+    arrays = {"native_free_index": selected, "free_world_positions": positions[selected], "supported": supported,
+        "hit_position": hit_position, "hit_normal": hit_normal, "collision": np.asarray(collision),
+        "all_hit_count": np.diff(offsets), "all_hit_offsets": np.asarray(offsets, dtype=np.int64),
+        "all_hit_collision_paths": np.asarray([r["collision"] for r in rows], dtype=str),
+        "all_hit_rigid_body_paths": np.asarray([r["rigid_body"] for r in rows], dtype=str),
+        "all_hit_positions": np.asarray([r["position"] for r in rows], dtype=np.float64).reshape(-1, 3),
+        "all_hit_normals": np.asarray([r["normal"] for r in rows], dtype=np.float64).reshape(-1, 3),
+        "all_hit_distances": np.asarray([r["distance"] for r in rows], dtype=np.float64),
+        "all_hit_classification": np.asarray(categories, dtype=str), "undeclared_near_floor_hit": undeclared_mask,
+        "foreign_hit": foreign_mask, "known_static_nonfloor_near_ground_obstacle_hit": low_obstacle_mask,
+        "selected_floor_support_hit_count": selected_counts}
+    return {"arrays": arrays, "undeclared_near_floor_collision_paths": sorted(undeclared),
+            "foreign_ray_collision_paths": sorted(foreign), "all_support_hit_paths_declared": not undeclared and not foreign,
+            "known_static_nonfloor_near_ground_paths": sorted(low_obstacles),
+            "single_selected_floor_support_verified": bool(len(selected) and (selected_counts == 1).all())}
+
+
+def fixed_probe_cells(shape, count=256, seed=7):
+    total = math.prod(shape)
+    ids = np.random.default_rng(seed).choice(total, min(count, total), replace=False)
+    return np.column_stack(np.unravel_index(ids, shape))
+
+
+def floor_probe_indices(free_count, limit):
+    if type(limit) is not int or limit < 0 or free_count <= 0:
+        raise ValueError("Floor probe limit must be a nonnegative integer; native free cells required")
+    return np.arange(free_count) if limit == 0 else np.unique(np.linspace(0, free_count - 1, min(limit, free_count), dtype=int))
+
+
+def navigation_admission(*, origin_clear, origin_supported, mapping_valid, full_floor_probe,
+                         support_mask, static_unchanged, sampled_free_overlap_count, source_unchanged,
+                         full_height_probe, height_clear_mask, all_band_hit_paths_classified, floor_ownership_verified):
+    support_mask = np.asarray(support_mask)
+    height_clear_mask = np.asarray(height_clear_mask)
+    if support_mask.ndim != 1 or support_mask.dtype != np.bool_:
+        raise ValueError("Floor support mask must be one-dimensional bool")
+    if height_clear_mask.shape != support_mask.shape or height_clear_mask.dtype != np.bool_:
+        raise ValueError("Height clear mask must be aligned one-dimensional bool")
+    return bool(origin_clear and origin_supported and mapping_valid and full_floor_probe and full_height_probe
+                and len(support_mask) and support_mask.all() and (support_mask & height_clear_mask).any()
+                and all_band_hit_paths_classified and floor_ownership_verified and static_unchanged
+                and sampled_free_overlap_count == 0 and source_unchanged)
+
+
+def height_band_box(xy, ground, resolution=RESOLUTION, band=BAND):
+    """A cell volume, explicitly .1m XY and .15..1.8m above declared ground."""
+    xy = finite_array(xy, (2,), "cell world XY")
+    band = finite_array(band, (2,), "height band")
+    if (isinstance(ground, (bool, np.bool_)) or not math.isfinite(ground)
+            or isinstance(resolution, (bool, np.bool_)) or not math.isfinite(resolution)
+            or resolution != RESOLUTION or not np.array_equal(band, BAND)):
+        raise ValueError("Full-height query requires declared .1m cell and .15..1.8m band, finite ground")
+    center = (float(xy[0]), float(xy[1]), float(ground + band.mean()))
+    half_extent = (resolution/2, resolution/2, float((band[1]-band[0])/2))
+    return center, half_extent
+
+
+def freeze_query_timeline_range_in_session(stage, timeline):
+    """Explicit zero-time static snapshot range; never save/edit source layers.
+
+    Stage time metadata is authored only to its current session EditTarget.
+    Actual query time is still measured after reset/steps and must pass the
+    existing zero-time/counter checks. This setup does not invent that result.
+    """
+    session = stage.GetSessionLayer()
+    if stage.GetEditTarget().GetLayer() != session:
+        raise ValueError("Frozen query timeline edits require the owned session layer")
+    start, end, tcps = stage.GetStartTimeCode(), stage.GetEndTimeCode(), stage.GetTimeCodesPerSecond()
+    if not all(type(value) in (int, float) and math.isfinite(value) for value in (start, end, tcps)) or tcps <= 0:
+        raise ValueError("Source timeline range/rate must be finite with positive timeCodesPerSecond")
+    root_layer = stage.GetRootLayer()
+    root_before = root_layer.ExportToString()
+    runtime_end = max(float(end), float(tcps))
+    stage.SetStartTimeCode(0.)
+    stage.SetEndTimeCode(runtime_end)
+    timeline.set_start_time(0.)
+    timeline.set_end_time(runtime_end / tcps)
+    timeline.set_auto_update(False)
+    timeline.set_current_time(0.)
+    if (stage.GetEditTarget().GetLayer() != session or stage.GetStartTimeCode() != 0.
+            or stage.GetEndTimeCode() != runtime_end or stage.GetTimeCodesPerSecond() != tcps
+            or root_layer.ExportToString() != root_before):
+        raise ValueError("Session timeline setup changed source metadata or failed to compose its explicit range")
+    return {"schema": "dynbench.native_frozen_timeline_session.v8",
+            "original_source_composed_range": {"start_time_code": start, "end_time_code": end,
+                                               "time_codes_per_second": tcps},
+            "requested_runtime_start_time_code": 0., "requested_runtime_end_time_code": runtime_end,
+            "requested_runtime_start_s": 0., "requested_runtime_end_s": runtime_end / tcps,
+            "composed_stage_start_time_code": stage.GetStartTimeCode(),
+            "composed_stage_end_time_code": stage.GetEndTimeCode(),
+            "observed_timeline_start_after_setup_s": float(timeline.get_start_time()),
+            "observed_timeline_end_after_setup_s": float(timeline.get_end_time()),
+            "session_layer_identifier": session.identifier,
+            "source_root_layer_identifier": root_layer.identifier,
+            "source_root_in_memory_unchanged": True,
+            "source_root_in_memory_sha256": hashlib.sha256(root_before.encode()).hexdigest(), "source_layers_saved": False,
+            "runtime_session_time_range_modified": True, "time_codes_per_second_modified": False,
+            "actual_query_clock_pass_claim": False}
+
+
+def compose_owned_anonymous_runtime_stage(source_path, stage_factory):
+    """Use an owned anonymous root; absolute source USD is a weak sublayer.
+
+    Production injects Lab's public create_new_stage after App launch. The
+    source preview is pure USD and never becomes Lab/Omni's current stage.
+    No source layer is saved or authored. CPU callers may inject CreateInMemory.
+    """
+    from pxr import Sdf, Usd, UsdGeom
+    path = str(Path(source_path).resolve())
+    if not Path(path).is_file():
+        raise ValueError("Runtime composition requires an existing local original USD")
+    original = Sdf.Layer.FindOrOpen(path)
+    preview = Usd.Stage.Open(original) if original is not None else None
+    if preview is None or preview.GetCompositionErrors():
+        raise ValueError("Original source USD could not compose before runtime wrapping")
+    source_text = original.ExportToString()
+    source_range = {"start_time_code": preview.GetStartTimeCode(), "end_time_code": preview.GetEndTimeCode(),
+        "time_codes_per_second": preview.GetTimeCodesPerSecond(), "authored_time_range": preview.HasAuthoredTimeCodeRange(),
+        "USD_time_range_modified": False}
+    start, end, tcps = (source_range[key] for key in ("start_time_code", "end_time_code", "time_codes_per_second"))
+    if not all(type(value) in (float, int) and math.isfinite(value) for value in (start, end, tcps)) or tcps <= 0:
+        raise ValueError("Original source range must be finite with positive timeCodesPerSecond")
+    stage = stage_factory()
+    owned = stage.GetRootLayer()
+    if not owned.anonymous or owned.subLayerPaths or owned.identifier == original.identifier:
+        raise ValueError("Runtime factory must return a fresh owned anonymous root")
+    stage.SetEditTarget(owned)
+    owned.subLayerPaths = [path]
+    stage.SetTimeCodesPerSecond(tcps)
+    stage.SetFramesPerSecond(preview.GetFramesPerSecond())
+    default = preview.GetDefaultPrim()
+    if default.IsValid():
+        stage.SetDefaultPrim(stage.GetPrimAtPath(default.GetPath()))
+    stage.SetStartTimeCode(0.)
+    stage.SetEndTimeCode(max(float(end), float(tcps)))
+    UsdGeom.SetStageUpAxis(stage, UsdGeom.GetStageUpAxis(preview))
+    UsdGeom.SetStageMetersPerUnit(stage, UsdGeom.GetStageMetersPerUnit(preview))
+    if stage.GetCompositionErrors() or original.ExportToString() != source_text:
+        raise ValueError("Anonymous runtime wrapping changed the original source RAM or composition")
+    stage.SetEditTarget(stage.GetSessionLayer())
+    info = {"schema": "dynbench.native_anonymous_runtime_root.v9", "absolute_original_source_sublayers": [path],
+        "original_source_layer_identifier": original.identifier, "owned_runtime_root_identifier": owned.identifier,
+        "owned_runtime_root_anonymous": True, "runtime_session_identifier": stage.GetSessionLayer().identifier,
+        "source_stage_metadata": {"up_axis": str(UsdGeom.GetStageUpAxis(preview)), "meters_per_unit": UsdGeom.GetStageMetersPerUnit(preview),
+            "frames_per_second": preview.GetFramesPerSecond(), "default_prim_path": str(default.GetPath()) if default.IsValid() else None},
+        "original_source_time_range": source_range, "original_source_root_in_memory_sha256": hashlib.sha256(source_text.encode()).hexdigest(),
+        "original_source_root_in_memory_unchanged_after_composition": True, "original_source_layers_saved": False,
+        "stage_factory": "injected_public_isaaclab.create_new_stage_after_App", "extra_App_or_Context_created": False,
+        "requested_runtime_start_time_code": 0., "requested_runtime_end_time_code": max(float(end),float(tcps)),
+        "requested_runtime_time_codes_per_second": tcps, "source_prim_paths_relocated": False}
+    return stage, original, info
+
+
+def await_owned_stage_attachment(app, sim, stage, usd_context, *, deadline):
+    """Observe SimulationContext's public context stage; never double-attach.
+
+    App updates service the SDK's async cache attach. The submitted step counter
+    is observed; it is not relabelled as a native-engine timestep observation.
+    """
+    from pxr import UsdUtils
+    cache = UsdUtils.StageCache.Get()
+    expected = cache.GetId(stage).ToLongInt()
+    before = sim.get_physics_step_count()
+    if type(expected) is not int or expected < 0 or type(before) is not int or before < 0:
+        raise ValueError("Owned stage cache and submitted counter must be actual nonnegative integers")
+    sim.set_setting("/app/player/playSimulations", False)
+    updates = 0
+    while True:
+        active = usd_context.get_stage()
+        active_id = cache.GetId(active).ToLongInt() if active is not None else -1
+        if (active is not None and active_id == expected
+                and active.GetRootLayer().identifier == stage.GetRootLayer().identifier
+                and active.GetSessionLayer().identifier == stage.GetSessionLayer().identifier):
+            break
+        if time.monotonic() > deadline:
+            raise TimeoutError("SDK context did not attach the owned anonymous runtime stage before deadline")
+        app.update()
+        updates += 1
+        if sim.get_physics_step_count() != before:
+            raise ValueError("Submitted physics counter advanced while waiting for stage attachment")
+    after = sim.get_physics_step_count()
+    if after != before:
+        raise ValueError("Submitted physics counter advanced during owned stage attachment")
+    stage.SetEditTarget(stage.GetSessionLayer())
+    return {"schema": "dynbench.native_runtime_stage_attachment.v9", "expected_stage_cache_id": expected,
+        "observed_context_stage_cache_id": active_id, "active_context_root_identifier": active.GetRootLayer().identifier,
+        "active_context_session_identifier": active.GetSessionLayer().identifier,
+        "observed_context_owns_exact_runtime_stage": True, "app_updates_waiting_for_async_attachment": updates,
+        "submitted_step_counter_before": before, "submitted_step_counter_after": after,
+        "explicit_physics_steps_issued_by_wait": 0, "native_engine_time_observed": None,
+        "extra_App_or_Context_created": False, "manual_context_or_PhysX_attach_called": False}
+
+
+def freeze_owned_runtime_query_range(stage, timeline, source_layer, composition):
+    """Timeline may edit owned anonRoot; original file-backed source RAM may not."""
+    source_before = hashlib.sha256(source_layer.ExportToString().encode()).hexdigest()
+    if source_before != composition["original_source_root_in_memory_sha256"]:
+        raise ValueError("Original source root RAM changed before runtime timeline setup")
+    runtime = freeze_query_timeline_range_in_session(stage, timeline)
+    if hashlib.sha256(source_layer.ExportToString().encode()).hexdigest() != source_before:
+        raise ValueError("Original source root RAM changed during runtime timeline setup")
+    runtime.update(schema="dynbench.native_frozen_timeline_session.v9",
+        original_source_composed_range={key:composition["original_source_time_range"][key] for key in ("start_time_code","end_time_code","time_codes_per_second")},
+        original_source_layer_identifier=source_layer.identifier,
+        original_source_root_in_memory_sha256=source_before, original_source_root_in_memory_unchanged_after_setup=True,
+        owned_runtime_root_identifier=stage.GetRootLayer().identifier, owned_runtime_root_anonymous=stage.GetRootLayer().anonymous)
+    return runtime
+
+
+def observed_query_clock(counter_getter, time_getter):
+    counter, timestamp = counter_getter(), time_getter()
+    if (type(counter) is not int or counter < 0 or isinstance(timestamp, (bool, np.bool_))
+            or not math.isfinite(timestamp) or timestamp < 0):
+        raise ValueError(f"Query clock needs actual nonnegative submitted counter/finite timeline; "
+                         f"counter={counter!r} ({type(counter).__name__}), timeline={timestamp!r} ({type(timestamp).__name__})")
+    return {"submitted_physics_step": counter, "timeline_s": float(timestamp)}
+
+
+def require_query_clock_unchanged(before, after):
+    if before != after:
+        raise RuntimeError("Physics/timeline advanced during read-only full-height-band queries")
+
+
+def query_full_height_band(query, positions, selected, ground, floor_paths, enabled_paths,
+                           *, counter_getter, time_getter, scene=""):
+    """Record every native overlap hit; only exact authored paths are classified."""
+    positions = np.asarray(positions)
+    selected = np.asarray(selected)
+    if (positions.ndim != 2 or positions.shape[1] != 3 or not np.isfinite(positions).all()
+            or selected.ndim != 1 or selected.dtype.kind not in "iu" or not len(selected)
+            or np.any(selected >= len(positions)) or np.any(selected < 0) or np.any(np.diff(selected) <= 0)):
+        raise ValueError("Full-height query needs finite world points and unique sorted valid indices")
+    floor_paths, enabled_paths = set(floor_paths), set(enabled_paths)
+    if (not floor_paths or not floor_paths <= enabled_paths
+            or not all(isinstance(path, str) and path.startswith("/") for path in enabled_paths)):
+        raise ValueError("Band classification requires exact enabled paths and selected floor subset")
+    before = observed_query_clock(counter_getter, time_getter)
+    offsets, collisions, rigid_bodies, classes = [0], [], [], []
+    obstacle = np.zeros(len(selected), dtype=bool)
+    classified = np.ones(len(selected), dtype=bool)
+    floor_hits = np.zeros(len(selected), dtype=np.int32)
+    foreign = set()
+    for row, index in enumerate(selected):
+        center, extent = height_band_box(positions[index, :2], ground)
+        hits = overlaps(query, center, extent)
+        for hit in hits:
+            collision = hit["collision"]
+            if collision in floor_paths:
+                category = "selected_floor_excluded"
+                floor_hits[row] += 1
+            elif collision in enabled_paths:
+                category = "authored_obstacle"
+                obstacle[row] = True
+            else:
+                category = "foreign_unclassified"
+                classified[row] = False
+                foreign.add(collision)
+            collisions.append(collision)
+            rigid_bodies.append(hit["rigid_body"])
+            classes.append(category)
+        offsets.append(len(collisions))
+        if row and row % 20000 == 0:
+            print(f"{scene}: full-height cells {row}/{len(selected)}", flush=True)
+    after = observed_query_clock(counter_getter, time_getter)
+    return {"arrays": {"native_free_index": selected, "free_world_positions": positions[selected],
+        "full_height_clear": ~obstacle & classified, "authored_obstacle_hit": obstacle,
+        "all_hit_paths_classified": classified, "selected_floor_hit_count": floor_hits,
+        "hit_offsets": np.asarray(offsets, dtype=np.int64), "hit_collision_paths": np.asarray(collisions, dtype=str),
+        "hit_rigid_body_paths": np.asarray(rigid_bodies, dtype=str), "hit_classification": np.asarray(classes, dtype=str)},
+        "clock_before": before, "clock_after": after, "query_time_unchanged": before == after,
+        "foreign_hit_paths": sorted(foreign)}
+
+
+def refine_known_free_map(native_image, free_positions, selected, support_mask, band_arrays,
+                          minimum, maximum, dimensions, *, near_ground_obstacle_mask=None):
+    """Untested/unsupported candidates become unknown; raw6 is never free."""
+    native_image = np.asarray(native_image)
+    selected = np.asarray(selected)
+    support_mask = np.asarray(support_mask)
+    if (native_image.shape != tuple(np.asarray(dimensions)[:2][::-1]) or native_image.dtype != np.uint8
+            or not np.isin(native_image, (0, 205, 254)).all()
+            or selected.ndim != 1 or selected.dtype.kind not in "iu"
+            or support_mask.shape != selected.shape or support_mask.dtype != np.bool_):
+        raise ValueError("Refinement requires exact native labels and aligned support masks")
+    pixels = positions_to_pixels(free_positions, minimum, maximum, np.asarray(dimensions)[:2])
+    if np.any(selected < 0) or np.any(selected >= len(pixels)) or len(np.unique(selected)) != len(selected):
+        raise ValueError("Refinement selected indices are invalid")
+    if not (native_image[pixels[:, 0], pixels[:, 1]] == 254).all():
+        raise ValueError("Only canonical native known5 world points can enter refinement")
+    for key in ("full_height_clear", "authored_obstacle_hit", "all_hit_paths_classified"):
+        value = np.asarray(band_arrays[key])
+        if value.shape != selected.shape or value.dtype != np.bool_:
+            raise ValueError("Refinement band masks must be aligned genuine booleans")
+    if not np.array_equal(band_arrays["native_free_index"], selected):
+        raise ValueError("Band/support queries must refer to identical canonical rows")
+    clear = band_arrays["full_height_clear"]
+    obstacle = band_arrays["authored_obstacle_hit"]
+    classified = band_arrays["all_hit_paths_classified"]
+    if not np.array_equal(clear, ~obstacle & classified):
+        raise ValueError("Clear mask contradicts recorded obstacle/classification masks")
+    near_ground_obstacle_mask = (np.zeros_like(support_mask) if near_ground_obstacle_mask is None
+                                 else np.asarray(near_ground_obstacle_mask))
+    if near_ground_obstacle_mask.shape != selected.shape or near_ground_obstacle_mask.dtype != np.bool_:
+        raise ValueError("Near-ground obstacle mask must be aligned genuine booleans")
+    derived = native_image.copy()
+    derived[pixels[:, 0], pixels[:, 1]] = 205
+    tested = pixels[selected]
+    blocked = (obstacle & classified) | near_ground_obstacle_mask
+    derived[tested[blocked, 0], tested[blocked, 1]] = 0
+    valid_free = clear & support_mask & ~near_ground_obstacle_mask
+    derived[tested[valid_free, 0], tested[valid_free, 1]] = 254
+    if not np.array_equal(derived[native_image == 205], native_image[native_image == 205]):
+        raise ValueError("Native raw6 unknown labels changed")
+    return derived
+
+
+def floor_mesh_geometry_certificate(points, face_counts, face_indices, matrix, ground, orientation="rightHanded"):
+    """Verify real finite static-floor faces; no AABB substitute for mesh topology."""
+    points = np.asarray(points, dtype=np.float64)
+    counts, indices = np.asarray(face_counts), np.asarray(face_indices)
+    matrix = finite_array(matrix, (4, 4), "floor transform")
+    if points.ndim != 2 or points.shape[1] != 3 or not len(points) or not np.isfinite(points).all():
+        raise ValueError("Floor requires actual finite mesh points")
+    if counts.ndim != 1 or indices.ndim != 1 or counts.dtype.kind not in "iu" or indices.dtype.kind not in "iu":
+        raise ValueError("Floor face counts/indices must be integer vectors")
+    if not len(counts) or np.any(counts < 3) or counts.sum() != len(indices) or np.any(indices < 0) or np.any(indices >= len(points)):
+        raise ValueError("Floor mesh face topology invalid")
+    if orientation not in ("rightHanded", "leftHanded") or abs(np.linalg.det(matrix[:3, :3])) < 1e-12:
+        raise ValueError("Unsupported floor orientation or degenerate transform")
+    # Gf Matrix4 transforms row vectors: translation is in row3.
+    homogeneous = np.column_stack((points, np.ones(len(points)))) @ matrix
+    if not np.allclose(homogeneous[:, 3], 1., atol=1e-8):
+        raise ValueError("Non-affine floor transform")
+    world = homogeneous[:, :3]
+    low, high = world.min(0), world.max(0)
+    if high[2] - low[2] > .25 or abs(high[2] - ground) > .1:
+        raise ValueError("Floor mesh is not thin and near selected floor height")
+    top_area, top_triangles, cursor = 0., [], 0
+    for count in counts:
+        face = world[indices[cursor:cursor + count]]
+        cursor += count
+        for i in range(1, int(count) - 1):
+            tri = face[[0, i, i + 1]]
+            normal = np.cross(tri[1] - tri[0], tri[2] - tri[0])
+            if orientation == "leftHanded":
+                normal *= -1
+            norm = np.linalg.norm(normal)
+            if norm > 1e-12 and normal[2] / norm >= .9 and np.max(np.abs(tri[:, 2] - ground)) <= .1:
+                top_area += norm / 2
+                top_triangles.append(tri.tolist())
+    if not top_triangles or top_area < .01:
+        raise ValueError("Floor mesh has no upward near-floor surface")
+    geometry_hash = hashlib.sha256()
+    for name, array in (("points", points), ("counts", counts.astype(np.int64)),
+                        ("indices", indices.astype(np.int64)), ("matrix", matrix)):
+        geometry_hash.update(name.encode())
+        geometry_hash.update(np.ascontiguousarray(array).tobytes())
+    return {"point_count": len(points), "face_count": len(counts), "index_count": len(indices),
+            "world_bounds_m": [low.tolist(), high.tolist()], "upward_top_fan_triangles": len(top_triangles), "top_triangles_world_m": top_triangles,
+            "upward_top_fan_area_m2": float(top_area), "geometry_sha256": geometry_hash.hexdigest(),
+            "orientation": orientation, "area_is_geometric_diagnostic_not_native_support": True}
+
+
+def floor_plane_geometry_certificate(axis, matrix, ground, height_tolerance=.08):
+    """A transformed USD Plane can cook as infinite; its tiny visual extent is irrelevant."""
+    matrix = finite_array(matrix, (4, 4), "plane transform")
+    if axis not in ("X", "Y", "Z") or not math.isfinite(ground) or abs(np.linalg.det(matrix[:3, :3])) < 1e-12:
+        raise ValueError("Plane requires a supported axis and invertible transform")
+    if not np.allclose(matrix[:, 3], [0., 0., 0., 1.], atol=1e-8):
+        raise ValueError("Non-affine plane transform")
+    normal = np.eye(3)[("X", "Y", "Z").index(axis)] @ np.linalg.inv(matrix[:3, :3]).T
+    normal /= np.linalg.norm(normal)
+    if abs(normal[2]) < .9 or abs(matrix[3, 2] - ground) > height_tolerance:
+        raise ValueError("Plane is not horizontal at the selected ground height")
+    return {"axis": axis, "world_origin_m": matrix[3, :3].tolist(), "world_unit_normal": normal.tolist(),
+            "visual_extent_not_used_for_PhysX_plane_coverage": True, "native_cooking_verified": False}
+
+
+def flat_ground_collider_inventory(stage, ground):
+    """Inspect all enabled collider types; recognize actual Plane and Mesh surfaces."""
+    from pxr import Usd, UsdGeom, UsdPhysics
+    cache = UsdGeom.XformCache(Usd.TimeCode.Default())
+    records = []
+    for prim in Usd.PrimRange.Stage(stage, Usd.TraverseInstanceProxies()):
+        if not prim.HasAPI(UsdPhysics.CollisionAPI) or not UsdPhysics.CollisionAPI(prim).GetCollisionEnabledAttr().Get():
+            continue
+        record = {"path": str(prim.GetPath()), "type_name": str(prim.GetTypeName()), "enabled": True,
+                  "near_ground_flat_surface": False, "static": True}
+        ancestor = prim
+        while ancestor and not ancestor.IsPseudoRoot():
+            if ancestor.HasAPI(UsdPhysics.RigidBodyAPI) and UsdPhysics.RigidBodyAPI(ancestor).GetRigidBodyEnabledAttr().Get():
+                record["static"] = False
+            if any(a.GetNumTimeSamples() for a in ancestor.GetAttributes() if a.GetName().startswith("xformOp:")):
+                record["static"] = False
+            ancestor = ancestor.GetParent()
+        try:
+            matrix = np.asarray(cache.GetLocalToWorldTransform(prim))
+            if str(prim.GetTypeName()) == "Plane":
+                record["geometry"] = floor_plane_geometry_certificate(str(prim.GetAttribute("axis").Get() or "Z"), matrix, ground)
+            elif prim.IsA(UsdGeom.Mesh):
+                mesh = UsdGeom.Mesh(prim)
+                attrs = (mesh.GetPointsAttr(), mesh.GetFaceVertexCountsAttr(), mesh.GetFaceVertexIndicesAttr())
+                if any(a.GetNumTimeSamples() for a in attrs):
+                    record["static"] = False
+                record["geometry"] = floor_mesh_geometry_certificate(*(a.Get() for a in attrs), matrix, ground,
+                                                                      str(mesh.GetOrientationAttr().Get()))
+            else:
+                record["reason"] = "Type inventoried; no flat-surface certificate. Native all-hit floor gate still required."
+                records.append(record)
+                continue
+            record["near_ground_flat_surface"] = True
+        except (ValueError, TypeError) as error:
+            record["reason"] = str(error)
+        records.append(record)
+    return records
+
+
+def triangle_xy_intersection_area(first, second):
+    """Convex triangle intersection for coplanar duplicate-surface screening."""
+    subject, clip = np.asarray(first, dtype=float)[:, :2], np.asarray(second, dtype=float)[:, :2]
+    def cross(a, b):
+        return float(a[0] * b[1] - a[1] * b[0])
+    if cross(clip[1] - clip[0], clip[2] - clip[0]) < 0:
+        clip = clip[::-1]
+    polygon = list(subject)
+    for a, b in zip(clip, np.roll(clip, -1, axis=0)):
+        output = []
+        if not polygon:
+            return 0.
+        prev = polygon[-1]
+        prev_side = cross(b - a, prev - a)
+        for point in polygon:
+            side = cross(b - a, point - a)
+            if (side >= -1e-10) != (prev_side >= -1e-10):
+                fraction = prev_side / (prev_side - side)
+                output.append(prev + fraction * (point - prev))
+            if side >= -1e-10:
+                output.append(point)
+            prev, prev_side = point, side
+        polygon = output
+    if len(polygon) < 3:
+        return 0.
+    polygon = np.asarray(polygon)
+    return abs(np.sum(polygon[:, 0] * np.roll(polygon[:, 1], -1)
+                      - polygon[:, 1] * np.roll(polygon[:, 0], -1))) / 2
+
+
+def choose_unique_floor_surfaces(records):
+    """Exclude named decorative layers and exact duplicate surfaces explicitly."""
+    structural, excluded, unresolved = [], [], []
+    for record in sorted(records, key=lambda item: item["path"]):
+        if any(token in record["path"].lower() for token in ("decal", "carpet")):
+            excluded.append({"path": record["path"], "reason": "explicit decorative decal/carpet name exclusion"})
+            continue
+        duplicate = None
+        for other in structural:
+            a, b = np.asarray(record["world_bounds_m"]), np.asarray(other["world_bounds_m"])
+            if np.any(np.minimum(a[1, :2], b[1, :2]) - np.maximum(a[0, :2], b[0, :2]) <= 1e-5):
+                continue
+            overlap = sum(triangle_xy_intersection_area(t, u) for t in record["top_triangles_world_m"]
+                          for u in other["top_triangles_world_m"])
+            if overlap <= 1e-4:
+                continue
+            # Both surfaces near the chosen floor; do not allow stacked contacts.
+            area, other_area = record["upward_top_fan_area_m2"], other["upward_top_fan_area_m2"]
+            if abs(overlap - area) <= 1e-4 and abs(overlap - other_area) <= 1e-4:
+                duplicate = other["path"]
+                break
+            unresolved.append({"first": other["path"], "second": record["path"], "overlap_area_m2": overlap})
+        if duplicate is None:
+            structural.append(record)
+        else:
+            excluded.append({"path": record["path"], "reason": "same whole XY floor surface as retained prim",
+                             "retained": duplicate})
+    return structural, excluded, unresolved
+
+
+def make_session_paths_editable(stage, paths):
+    """Materialize instance roots only in session to edit exact collider paths."""
+    stage.SetEditTarget(stage.GetSessionLayer())
+    changed = []
+    for path in paths:
+        for _ in range(len(path.split("/")) + 1):
+            prim = stage.GetPrimAtPath(path)
+            if not prim:
+                raise ValueError(f"Missing collision edit path: {path}")
+            if not prim.IsInstanceProxy():
+                break
+            ancestor = prim.GetParent()
+            while ancestor and not ancestor.IsPseudoRoot():
+                if ancestor.IsInstance() and not ancestor.IsInstanceProxy():
+                    root = str(ancestor.GetPath())
+                    ancestor.SetInstanceable(False)
+                    changed.append(root)
+                    break
+                ancestor = ancestor.GetParent()
+            else:
+                raise ValueError(f"Cannot resolve editable instance root for {path}")
+        else:
+            raise ValueError(f"Unresolved nested instance path: {path}")
+    return sorted(set(changed))
+
+
+def author_floor_overlay(stage, paths, disabled_paths=()):
+    """Explicit workspace/session recipe; never save or overwrite original USD."""
+    from pxr import Sdf, UsdPhysics
+    stage.SetEditTarget(stage.GetSessionLayer())
+    deinstanced = make_session_paths_editable(stage, list(paths) + list(disabled_paths))
+    for path in disabled_paths:
+        UsdPhysics.CollisionAPI.Apply(stage.GetPrimAtPath(path)).CreateCollisionEnabledAttr(False)
+    for path in paths:
+        prim = stage.GetPrimAtPath(path)
+        collision = UsdPhysics.CollisionAPI.Apply(prim)
+        collision.CreateCollisionEnabledAttr(True)
+        UsdPhysics.MeshCollisionAPI.Apply(prim).CreateApproximationAttr("none")
+        # This exact schema/attribute spelling is validated by Kit at execution.
+        # Standalone USD can author it but cannot prove native PhysX cooking.
+        prim.AddAppliedSchema("PhysxCollisionAPI")
+        prim.CreateAttribute("physxCollision:contactOffset", Sdf.ValueTypeNames.Float).Set(.002)
+        prim.CreateAttribute("physxCollision:restOffset", Sdf.ValueTypeNames.Float).Set(0.)
+    for path in paths:
+        prim = stage.GetPrimAtPath(path)
+        if (not UsdPhysics.CollisionAPI(prim).GetCollisionEnabledAttr().Get()
+                or UsdPhysics.MeshCollisionAPI(prim).GetApproximationAttr().Get() != "none"
+                or "PhysxCollisionAPI" not in prim.GetMetadata("apiSchemas").GetAppliedItems()
+                or not np.isclose(prim.GetAttribute("physxCollision:contactOffset").Get(), .002)
+                or prim.GetAttribute("physxCollision:restOffset").Get() != 0):
+            raise ValueError(f"Floor overlay schema authoring failed: {path}")
+    return {"paths": paths, "deinstanced_roots_in_session": deinstanced, "disabled_collision_paths": list(disabled_paths), "approximation": "none", "static_triangle_mesh": True,
+            "contact_offset_m": .002, "rest_offset_m": 0., "native_cooking_verified": False}
+
+
+def reference_ground_geometry(bounds, ground, margin=.2):
+    """One finite plane from declared map bounds; no hole/stair inference."""
+    bounds = finite_array(bounds, (2, 2), "ground bounds")
+    if np.any(bounds[0] >= bounds[1]) or not math.isfinite(ground) or not math.isfinite(margin) or not .1 <= margin <= 1.:
+        raise ValueError("Reference ground needs valid bounds/height and explicit .1..1m margin")
+    low, high = bounds[0] - margin, bounds[1] + margin
+    points = np.array([[low[0], low[1], ground], [high[0], low[1], ground],
+                       [high[0], high[1], ground], [low[0], high[1], ground]])
+    return points, np.array([3, 3]), np.array([0, 1, 2, 0, 2, 3])
+
+
+def author_reference_ground(stage, bounds, ground, disabled_paths, margin=.2):
+    """Explicit generated reference-plane owner, analogous to reference Terrain."""
+    from pxr import Sdf, UsdGeom, UsdPhysics, UsdShade
+    path = "/__PaperMapProbeReferenceGround"
+    if stage.GetPrimAtPath(path):
+        raise ValueError("Reference ground reserved path already exists; no stacked ground")
+    stage.SetEditTarget(stage.GetSessionLayer())
+    deinstanced = make_session_paths_editable(stage, disabled_paths)
+    for disabled in disabled_paths:
+        UsdPhysics.CollisionAPI.Apply(stage.GetPrimAtPath(disabled)).CreateCollisionEnabledAttr(False)
+    points, counts, indices = reference_ground_geometry(bounds, ground, margin)
+    mesh = UsdGeom.Mesh.Define(stage, path)
+    mesh.CreatePointsAttr(points.tolist())
+    mesh.CreateFaceVertexCountsAttr(counts.tolist())
+    mesh.CreateFaceVertexIndicesAttr(indices.tolist())
+    mesh.CreateSubdivisionSchemeAttr("none")
+    mesh.CreateOrientationAttr("rightHanded")
+    schema = author_floor_overlay(stage, [path])
+    material = UsdShade.Material.Define(stage, path + "/PhysicsMaterial")
+    physics = UsdPhysics.MaterialAPI.Apply(material.GetPrim())
+    physics.CreateStaticFrictionAttr(1.)
+    physics.CreateDynamicFrictionAttr(1.)
+    physics.CreateRestitutionAttr(0.)
+    UsdShade.MaterialBindingAPI.Apply(mesh.GetPrim()).Bind(material, materialPurpose="physics")
+    material.GetPrim().AddAppliedSchema("PhysxMaterialAPI")
+    material.GetPrim().CreateAttribute("physxMaterial:frictionCombineMode", Sdf.ValueTypeNames.Token).Set("average")
+    material.GetPrim().CreateAttribute("physxMaterial:restitutionCombineMode", Sdf.ValueTypeNames.Token).Set("average")
+    return {"path": path, "floor_roots": [path], "finite_world_bounds_xy_m":
+        [(np.asarray(bounds)[0] - margin).tolist(), (np.asarray(bounds)[1] + margin).tolist()],
+        "height_m": ground, "margin_m": margin, "points": points.tolist(),
+        "face_counts": counts.tolist(), "face_indices": indices.tolist(), "schema": schema,
+        "disabled_visual_floor_collision_paths": list(disabled_paths),
+        "disabled_flat_ground_collision_paths": list(disabled_paths), "deinstanced_floor_roots_in_session": deinstanced,
+        "material": {"static_friction": 1., "dynamic_friction": 1., "restitution": 0., "combine_mode": "average"},
+        "floor_owner": "reference_flat_terrain", "engineering_reference_ground_mode": True,
+        "original_USD_floor_collider": False, "paper_private_scene_configuration": False,
+        "holes_steps_and_other_floors_inferred": False, "native_cooking_verified": False}
+
+
+def retain_projection_unknown(native_image, projection):
+    """Unknown projection support must not become free through added plane."""
+    native_image, projection = np.asarray(native_image), np.asarray(projection)
+    if native_image.shape != projection.shape or native_image.ndim != 2:
+        raise ValueError("Native/projection grids differ")
+    if not np.isin(native_image, [0, 205, 254]).all() or not np.isin(projection, [0, 205, 254]).all():
+        raise ValueError("Invalid map label")
+    result = native_image.copy()
+    result[(projection == 205) & (native_image != 0)] = 205
+    return result
+
+
+def preflight_scene(scene, projection_dir, output_dir, max_cells, floor_overlay="none", floor_owner="none", ground_margin=.2):
+    """This function is only executed in a standalone-USD subprocess."""
+    sys.path.insert(0, str(ROOT))
+    from scripts.generate_pedestrian_maps import audit_composition
+    from pxr import Usd, UsdGeom, UsdPhysics
+
+    folder = Path(projection_dir) / scene
+    data = json.loads((folder / "provenance.json").read_text())
+    validated = validate_projection_metadata(scene, data)
+    if math.prod(validated["dims"]) > max_cells:
+        raise ValueError("Map exceeds explicit max-cells cap")
+    source = Path(data["source_usd"]).resolve()
+    if digest(source) != data["source_sha256"]:
+        raise ValueError("Original scene source SHA disagrees with projection")
+    input_files = {"provenance.json": file_record(folder / "provenance.json")}
+    for name, expected in data["files"].items():
+        if Path(name).name != name:
+            raise ValueError("Projection file name contains a path")
+        record = file_record(folder / name)
+        if record["bytes"] != expected["bytes"] or record["sha256"] != expected["sha256"]:
+            raise ValueError(f"Projection artifact hash mismatch: {name}")
+        input_files[name] = record
+    old_composition = json.loads((folder / "composition.json").read_text())
+    if old_composition.get("composition_complete") is not True:
+        raise ValueError("Previously recorded composition is incomplete")
+    composition = audit_composition(source)
+    if not composition["composition_complete"]:
+        raise ValueError("Current scene composition incomplete; no PhysX fallback")
+    layers = [file_record(item["path"]) for item in composition["layers"]]
+    stage = Usd.Stage.Open(str(source), load=Usd.Stage.LoadAll)
+    if stage is None or stage.GetCompositionErrors():
+        raise ValueError("Current fully-loaded stage has composition errors")
+    if str(UsdGeom.GetStageUpAxis(stage)) != "Z" or UsdGeom.GetStageMetersPerUnit(stage) != 1.0:
+        raise ValueError("Actual USD stage is not Z-up/meters=1")
+    colliders, bodies, animated = [], [], []
+    for prim in Usd.PrimRange.Stage(stage, Usd.TraverseInstanceProxies()):
+        path = str(prim.GetPath())
+        if prim.HasAPI(UsdPhysics.CollisionAPI):
+            colliders.append({"path": path, "type_name": str(prim.GetTypeName()),
+                              "enabled": bool(UsdPhysics.CollisionAPI(prim).GetCollisionEnabledAttr().Get())})
+        if prim.HasAPI(UsdPhysics.RigidBodyAPI):
+            api = UsdPhysics.RigidBodyAPI(prim)
+            bodies.append({"path": path, "enabled": bool(api.GetRigidBodyEnabledAttr().Get()),
+                           "kinematic": bool(api.GetKinematicEnabledAttr().Get()),
+                           "velocity": list(api.GetVelocityAttr().Get() or (0., 0., 0.)),
+                           "angular_velocity": list(api.GetAngularVelocityAttr().Get() or (0., 0., 0.))})
+        if any(a.GetNumTimeSamples() for a in prim.GetAttributes() if a.GetName().startswith("xformOp:")):
+            animated.append(path)
+    enabled = {r["path"] for r in colliders if r["enabled"]}
+    ground_inventory = flat_ground_collider_inventory(stage, validated["ground"])
+    floor_paths = set()
+    for path in validated["floor_prims"]:
+        prim = stage.GetPrimAtPath(path)
+        if not prim:
+            raise ValueError(f"Missing selected authored floor: {path}")
+        ancestor = prim
+        while ancestor and not ancestor.IsPseudoRoot():
+            if str(ancestor.GetPath()) in enabled:
+                floor_paths.add(str(ancestor.GetPath()))
+            ancestor = ancestor.GetParent()
+        floor_paths.update(p for p in enabled if p.startswith(path + "/"))
+    if not enabled:
+        raise ValueError("No enabled authored colliders; no fallback")
+    floor_geometry, blocked = [], []
+    xform_cache = UsdGeom.XformCache(Usd.TimeCode.Default())
+    for path in validated["floor_prims"]:
+        prim = stage.GetPrimAtPath(path)
+        try:
+            if not prim.IsA(UsdGeom.Mesh):
+                raise ValueError("Selected visual floor is not a Mesh")
+            ancestor = prim
+            while ancestor and not ancestor.IsPseudoRoot():
+                if ancestor.HasAPI(UsdPhysics.RigidBodyAPI) and UsdPhysics.RigidBodyAPI(ancestor).GetRigidBodyEnabledAttr().Get():
+                    raise ValueError(f"Floor has enabled rigid-body ancestor: {ancestor.GetPath()}")
+                if any(a.GetNumTimeSamples() for a in ancestor.GetAttributes() if a.GetName().startswith("xformOp:")):
+                    raise ValueError(f"Animated floor transform: {ancestor.GetPath()}")
+                ancestor = ancestor.GetParent()
+            mesh = UsdGeom.Mesh(prim)
+            attributes = (mesh.GetPointsAttr(), mesh.GetFaceVertexCountsAttr(), mesh.GetFaceVertexIndicesAttr())
+            if any(a.GetNumTimeSamples() for a in attributes):
+                raise ValueError("Animated floor mesh topology/points")
+            cert = floor_mesh_geometry_certificate(*(a.Get() for a in attributes),
+                np.asarray(xform_cache.GetLocalToWorldTransform(prim)), validated["ground"], str(mesh.GetOrientationAttr().Get()))
+            floor_geometry.append({"path": path, "original_enabled_collision": path in enabled, **cert})
+        except ValueError as error:
+            blocked.append({"path": path, "reason": str(error)})
+    unique, excluded, overlaps_unresolved = choose_unique_floor_surfaces(floor_geometry)
+    # Explicit overlay owns all retained structural floors, including prior native
+    # ones; named decorative/duplicate collision layers are disabled in session.
+    recipe_paths = [r["path"] for r in unique]
+    blocked_structural = [r for r in blocked if not any(t in r["path"].lower() for t in ("decal", "carpet"))]
+    for item in blocked:
+        if item not in blocked_structural:
+            excluded.append({"path": item["path"], "reason": "decorative layer excluded; geometry not admitted: " + item["reason"]})
+    disabled_paths = [r["path"] for r in excluded]
+    original_floor_paths = sorted(floor_paths)
+    recipe = {"schema": "dynbench_confirmed_visual_floor_collision_overlay.v1", "scene": scene,
+              "source": file_record(source), "floor_roots": recipe_paths, "geometry": floor_geometry,
+              "blocked_visual_floor_prims": blocked, "blocked_structural_floor_prims": blocked_structural,
+              "original_floor_collision_paths": original_floor_paths,
+              "excluded_floor_layers": excluded, "disabled_collision_paths": disabled_paths,
+              "unresolved_surface_overlaps": overlaps_unresolved, "additional_Terrain_or_ground_created": False,
+              "floor_owner": "scene_usd_mesh_overlay_engineering_alternative",
+              "original_reference_floor_owner": "generated Terrain mesh; this is not the author default",
+              "original_author_floor_physics_complete": all(p in enabled for p in validated["floor_prims"]),
+              "approximation": "none", "contact_offset_m": .002, "rest_offset_m": 0.,
+              "declared_engineering_completion": True, "native_physx_verified": False}
+    write_json(Path(output_dir) / "floor_overlay_recipe.json", recipe)
+    overlay_authored = None
+    overlay_blocked = False
+    if floor_overlay == "confirmed_visual_meshes":
+        if blocked_structural or overlaps_unresolved or not recipe_paths:
+            overlay_blocked = True
+        else:
+            overlay_authored = author_floor_overlay(stage, recipe_paths, disabled_paths)
+            stage.GetSessionLayer().Export(str(Path(output_dir) / "floor_collision_overlay.usda"))
+            floor_paths = set(recipe_paths)
+    reference_ground = None
+    if floor_owner == "reference_flat_terrain":
+        if any(r["near_ground_flat_surface"] and not r["static"] for r in ground_inventory):
+            raise ValueError("Animated/dynamic authored flat ground cannot be replaced by a static reference floor")
+        disabled_flat = sorted(set(original_floor_paths) | {r["path"] for r in ground_inventory if r["near_ground_flat_surface"]})
+        reference_ground = author_reference_ground(stage, validated["bounds"], validated["ground"], disabled_flat, ground_margin)
+        reference_ground["original_flat_ground_collider_inventory"] = ground_inventory
+        stage.GetSessionLayer().Export(str(Path(output_dir) / "reference_ground_overlay.usda"))
+        reference_ground["overlay_source"] = file_record(Path(output_dir) / "reference_ground_overlay.usda")
+        write_json(Path(output_dir) / "reference_ground_recipe.json", reference_ground)
+        floor_paths = set(reference_ground["floor_roots"])
+    if not source_unchanged({"layers": layers}):
+        raise ValueError("Source layers changed during SDK-free floor inspection")
+    projection = np.asarray(Image.open(folder / "occupancy.png"))
+    if projection.shape != tuple(validated["dims"][::-1]) or projection.ndim != 2 or not np.isin(projection, [0, 205, 254]).all():
+        raise ValueError("Projection image shape/labels invalid")
+    result = {"schema": "dynbench_physx_map_preflight.v1", "scene": scene, "status": "failed" if overlay_blocked else "passed",
+              "floor_overlay_blocked": overlay_blocked, "SDK_started": False, "script": file_record(__file__), "source": file_record(source), "layers": layers,
+              "input_projection": input_files, "up_axis": "Z", "meters_per_unit": 1.0,
+              "authored_colliders": colliders, "exact_floor_collider_paths": sorted(floor_paths),
+              "flat_ground_collider_inventory": ground_inventory,
+              "authored_rigid_bodies": bodies, "time_sampled_xform_paths": animated,
+              "floor_owner": floor_owner, "reference_ground": reference_ground,
+              "reference_ground_recipe": file_record(Path(output_dir) / "reference_ground_recipe.json") if reference_ground else None,
+              "floor_overlay_mode": floor_overlay, "floor_overlay_recipe": file_record(Path(output_dir) / "floor_overlay_recipe.json"),
+              "floor_overlay_schema_gate": overlay_authored, "original_enabled_floor_collision_paths": original_floor_paths,
+              "original_author_floor_physics_complete": recipe["original_author_floor_physics_complete"],
+              "projection_metadata": {k: v.tolist() if isinstance(v, np.ndarray) else v for k, v in validated.items()},
+              "navigation_ready": False, "original_composition_unchanged": True}
+    write_json(Path(output_dir) / "preflight.json", result)
+    return result
+
+
+def native_hit_record(hit):
+    return {"collision": str(hit.collision), "rigid_body": str(hit.rigid_body),
+            "position": list(hit.position), "normal": list(hit.normal), "distance": float(hit.distance)}
+
+
+def rays(query, xy, ground):
+    hits = []
+    def collect(hit):
+        hits.append(native_hit_record(hit))
+        return True
+    any_hit = query.raycast_all((float(xy[0]), float(xy[1]), ground + .3), (0., 0., -1.), .6, collect, False)
+    if bool(any_hit) != bool(hits):
+        raise ValueError("Native ray boolean disagrees with callbacks")
+    return hits
+
+
+def overlaps(query, center, extent):
+    hits = []
+    def collect(hit):
+        hits.append({"collision": str(hit.collision), "rigid_body": str(hit.rigid_body)})
+        return True
+    count = query.overlap_box(tuple(map(float, extent)), tuple(map(float, center)), (0., 0., 0., 1.), collect, False)
+    if int(count) != len(hits):
+        raise ValueError("Native overlap hit count does not match callbacks")
+    return hits
+
+
+def source_unchanged(preflight):
+    return all(Path(r["path"]).stat().st_size == r["bytes"] and digest(r["path"]) == r["sha256"] for r in preflight["layers"])
+
+
+def run_native_scene(app, scene, output_dir, preflight, args, lifecycle, owner):
+    import inspect
+    owner.physics_frame=inspect.currentframe()
+    # Imports are intentionally after AppLauncher; no standalone pxr in this process.
+    import omni.physx
+    import omni.timeline
+    import omni.usd
+    from isaaclab.sim import SimulationCfg, SimulationContext
+    from isaaclab.sim.utils.stage import create_new_stage
+    from isaaclab_physx.physics import PhysxCfg
+    from pxr import Usd, UsdGeom, UsdPhysics
+
+    started = time.monotonic()
+    output_dir = Path(output_dir)
+    metadata = preflight["projection_metadata"]
+    result = {"schema": "dynbench_physx_map_probe.v1", "scene": scene, "status": "failed",
+              "navigation_ready": False, "author_eight_scene_map": False, "human_navigation_validated": False,
+              "source": preflight["source"], "preflight": file_record(output_dir / "preflight.json"),
+              "script": file_record(__file__), "native_started": True, "fallback_used": False,
+              "limits": ["Selected flat floor and one static snapshot only.", "No robot or human clearance/route acceptance.",
+                         "Four local scenes are not the paper's eight-scene benchmark."]}
+    sim = None
+    try:
+        if not source_unchanged(preflight) or file_record(__file__) != preflight["script"]:
+            raise ValueError("Admitted source/script changed before native probe")
+        for record in preflight["input_projection"].values():
+            if file_record(record["path"]) != record:
+                raise ValueError("Admitted projection input changed before native probe")
+        stage, original_source_layer, composition = compose_owned_anonymous_runtime_stage(preflight["source"]["path"], create_new_stage)
+        result["runtime_stage_composition"] = composition
+        if stage.GetCompositionErrors() or str(UsdGeom.GetStageUpAxis(stage)) != "Z" or UsdGeom.GetStageMetersPerUnit(stage) != 1.0:
+            raise ValueError("Kit composition/units differ from admitted standalone stage")
+        stage.SetEditTarget(stage.GetSessionLayer())
+        recipe = json.loads(Path(preflight["floor_overlay_recipe"]["path"]).read_text())
+        if file_record(preflight["floor_overlay_recipe"]["path"]) != preflight["floor_overlay_recipe"]:
+            raise ValueError("Admitted floor overlay recipe changed")
+        if preflight["floor_overlay_mode"] == "confirmed_visual_meshes":
+            from pxr import PhysxSchema
+            author_floor_overlay(stage, recipe["floor_roots"], recipe["disabled_collision_paths"])
+            for path in recipe["floor_roots"]:
+                api = PhysxSchema.PhysxCollisionAPI(stage.GetPrimAtPath(path))
+                if not stage.GetPrimAtPath(path).HasAPI(PhysxSchema.PhysxCollisionAPI) or not api or not np.isclose(api.GetContactOffsetAttr().Get(), .002) or api.GetRestOffsetAttr().Get() != 0:
+                    raise ValueError("Actual Kit PhysxCollisionAPI rejects overlay schema/offsets")
+        ground_recipe = preflight["reference_ground"]
+        if ground_recipe is not None:
+            if file_record(preflight["reference_ground_recipe"]["path"]) != preflight["reference_ground_recipe"]:
+                raise ValueError("Admitted reference ground recipe changed")
+            authored = author_reference_ground(stage, metadata["bounds"], metadata["ground"],
+                ground_recipe["disabled_visual_floor_collision_paths"], ground_recipe["margin_m"])
+            from pxr import PhysxSchema
+            prim = stage.GetPrimAtPath(authored["path"])
+            api = PhysxSchema.PhysxCollisionAPI(prim)
+            if not prim.HasAPI(PhysxSchema.PhysxCollisionAPI) or not np.isclose(api.GetContactOffsetAttr().Get(), .002):
+                raise ValueError("Kit PhysxCollisionAPI rejects finite reference ground")
+            if authored["deinstanced_floor_roots_in_session"] != ground_recipe["deinstanced_floor_roots_in_session"]:
+                raise ValueError("Actual session instance edit paths differ from reference ground recipe")
+            result["reference_ground"] = {**authored, "recipe": preflight["reference_ground_recipe"],
+                                          "overlay_source": ground_recipe["overlay_source"]}
+        result["floor_collision_overlay"] = {"mode": preflight["floor_overlay_mode"],
+            "recipe": preflight["floor_overlay_recipe"], "floor_roots": recipe["floor_roots"],
+            "original_author_floor_physics_complete": preflight["original_author_floor_physics_complete"],
+            "source_USD_modified": False, "native_cooking_verified": False,
+            "excluded_floor_layers": recipe["excluded_floor_layers"], "additional_Terrain_or_ground_created": ground_recipe is not None,
+            "floor_owner": preflight["floor_owner"] if ground_recipe is not None else (recipe["floor_owner"] if preflight["floor_overlay_mode"] != "none" else "scene_usd_only"),
+            "original_reference_floor_owner": recipe["original_reference_floor_owner"]}
+        # Inactive session overrides hide authored PhysicsScenes without removing
+        # their weaker source-layer specs; Lab RemovePrim alone cannot erase those.
+        original_physics_scenes = [p for p in stage.Traverse() if p.IsA(UsdPhysics.Scene)]
+        original_physics_paths = [str(p.GetPath()) for p in original_physics_scenes]
+        for original_scene in original_physics_scenes:
+            original_scene.SetActive(False)
+        result["authored_physics_scenes_disabled_in_session"] = original_physics_paths
+        physics_path = "/__PaperMapProbePhysicsScene"
+        if stage.GetPrimAtPath(physics_path):
+            raise ValueError("Reserved runtime physics path already exists")
+        sim = SimulationContext(SimulationCfg(device="cpu", dt=DT, gravity=(0., 0., 0.), create_stage_in_memory=False,
+            physics_prim_path=physics_path, use_fabric=False, enable_scene_query_support=True,
+            physics=PhysxCfg(), visualizer_cfgs=[]))
+        if stage.GetEditTarget().GetLayer() != stage.GetSessionLayer():
+            raise ValueError("Runtime edits escaped session layer")
+        scene_api = UsdPhysics.Scene(stage.GetPrimAtPath(physics_path))
+        scene_prim = scene_api.GetPrim()
+        if scene_api.GetGravityMagnitudeAttr().Get() != 0 or scene_prim.GetAttribute("physxScene:enableGPUDynamics").Get() is not False:
+            raise ValueError("CPU PhysX / zero gravity configuration not actually applied")
+        if scene_prim.GetAttribute("physxScene:enableSceneQuerySupport").Get() is not True:
+            raise ValueError("Actual PhysX scene queries are not enabled")
+        if scene_prim.GetAttribute("physxScene:timeStepsPerSecond").Get() != 120:
+            raise ValueError("Actual PhysX frequency is not 120Hz")
+        result["runtime_stage_attachment"] = await_owned_stage_attachment(app, sim, stage, omni.usd.get_context(), deadline=started+args.load_timeout_s)
+        timeline = omni.timeline.get_timeline_interface()
+        result["source_time_range"] = dict(composition["original_source_time_range"])
+        result["runtime_time_range_override"] = freeze_owned_runtime_query_range(stage, timeline, original_source_layer, composition)
+        sim.reset()
+        timeline.set_auto_update(False)
+        timeline.set_current_time(0.)
+        sim.set_setting("/app/player/playSimulations", False)
+        while omni.usd.get_context().get_stage_loading_status()[2] > 0:
+            if time.monotonic() - started > args.load_timeout_s:
+                raise TimeoutError("Stage loading deadline exceeded")
+            app.update()
+        enabled = {r["path"] for r in preflight["authored_colliders"] if r["enabled"]}
+        if preflight["floor_overlay_mode"] == "confirmed_visual_meshes":
+            enabled.update(recipe["floor_roots"])
+            enabled.difference_update(recipe["disabled_collision_paths"])
+        if ground_recipe is not None:
+            enabled.difference_update(ground_recipe["disabled_visual_floor_collision_paths"])
+            enabled.add(ground_recipe["path"])
+        actual = {str(p.GetPath()) for p in Usd.PrimRange.Stage(stage, Usd.TraverseInstanceProxies())
+                  if p.HasAPI(UsdPhysics.CollisionAPI) and UsdPhysics.CollisionAPI(p).GetCollisionEnabledAttr().Get()}
+        if actual != enabled:
+            raise ValueError("Kit authored collision paths differ from preflight")
+        paths = [r["path"] for r in preflight["authored_rigid_bodies"] if r["enabled"]]
+        def body_transforms():
+            cache = UsdGeom.XformCache(Usd.TimeCode.Default())
+            return {p: np.asarray(cache.GetLocalToWorldTransform(stage.GetPrimAtPath(p)), dtype=float) for p in paths}
+        before = body_transforms()
+        counter_before = sim.get_physics_step_count()
+        for _ in range(args.snapshot_steps):
+            sim.step(render=False)
+        after = body_transforms()
+        deltas = {p: float(np.max(np.abs(after[p] - before[p]))) for p in paths}
+        query = omni.physx.get_physx_scene_query_interface()
+        # Authoring CollisionAPI is insufficient: stale simulationOwner targets
+        # can leave every wall uncooked. Query each enabled collider's full
+        # world bounding box and require its exact native collision path.
+        bounds_cache = UsdGeom.BBoxCache(Usd.TimeCode.Default(), ["default","proxy","render","guide"], useExtentsHint=False)
+        coverage = []
+        coverage_clock = sim.get_physics_step_count()
+        for path in sorted(enabled):
+            bound = bounds_cache.ComputeWorldBound(stage.GetPrimAtPath(path)).ComputeAlignedRange()
+            low_world, high_world = np.array(bound.GetMin()), np.array(bound.GetMax())
+            if bound.IsEmpty() or not np.isfinite([low_world,high_world]).all():
+                raise ValueError("Enabled collider needs finite world geometry: " + path)
+            hits = overlaps(query, (low_world+high_world)/2, np.maximum((high_world-low_world)/2,.001)+.002)
+            coverage.append({"path":path,"world_bounds_m":[low_world.tolist(),high_world.tolist()],"native_exact_path_observed":any(hit['collision']==path for hit in hits),"native_collision_paths":sorted({hit['collision'] for hit in hits})})
+        write_json(output_dir/'native_collider_coverage.json',{'all_enabled_colliders_checked':True,'rows':coverage,'physics_counter_before':coverage_clock,'physics_counter_after':sim.get_physics_step_count()})
+        result['native_collider_coverage']={'artifact':file_record(output_dir/'native_collider_coverage.json'),'count':len(coverage),'all_enabled_colliders_registered':all(row['native_exact_path_observed'] for row in coverage)}
+        if sim.get_physics_step_count()!=coverage_clock or not result['native_collider_coverage']['all_enabled_colliders_registered']:
+            raise ValueError("Enabled source collider absent from actual native queries, or query clock advanced")
+        ground = metadata["ground"]
+        origin = np.asarray(metadata["origin"])
+        origin_hits = overlaps(query, origin, (.01, .01, .01))
+        floor_paths = set(preflight["exact_floor_collider_paths"])
+        actual_ground_inventory = flat_ground_collider_inventory(stage, ground)
+        actual_flat_paths = {r["path"] for r in actual_ground_inventory if r["near_ground_flat_surface"]}
+        source_enabled = {r["path"] for r in preflight["authored_colliders"] if r["enabled"]}
+        static_nonfloor = static_nonfloor_paths(actual_ground_inventory, source_enabled, floor_paths)
+        origin_rays = rays(query, origin[:2], ground)
+        origin_support = supported_floor_hit(origin_rays, floor_paths, ground)
+        origin_ownership = classify_floor_ray_hits(origin_rays, floor_paths, enabled, ground, static_nonfloor=static_nonfloor)
+        result["origin_verification"] = {"world_origin_m": origin.tolist(), "overlap_hits": origin_hits,
+            "floor_ray_all_hits": origin_rays, "floor_support": origin_support, "floor_ownership": origin_ownership}
+        if origin_hits:
+            raise ValueError("Existing projection origin is occupied; no alternative origin/fallback")
+        query_counter = sim.get_physics_step_count()
+        query_time = timeline.get_current_time()
+        range_record = result["runtime_time_range_override"]
+        root_query_sha = hashlib.sha256(stage.GetRootLayer().ExportToString().encode()).hexdigest()
+        range_record.update(observed_timeline_start_at_query_s=float(timeline.get_start_time()),
+            observed_timeline_end_at_query_s=float(timeline.get_end_time()),
+            composed_stage_start_at_query_time_code=stage.GetStartTimeCode(),
+            composed_stage_end_at_query_time_code=stage.GetEndTimeCode(),
+            composed_stage_time_codes_per_second_at_query=stage.GetTimeCodesPerSecond(),
+            session_edit_target_at_query=stage.GetEditTarget().GetLayer() == stage.GetSessionLayer(),
+            source_root_in_memory_sha256_at_query=root_query_sha,
+            source_root_in_memory_unchanged_at_query=root_query_sha == range_record["source_root_in_memory_sha256"])
+        original_query_sha = hashlib.sha256(original_source_layer.ExportToString().encode()).hexdigest()
+        range_record.update(original_source_root_in_memory_sha256_at_query=original_query_sha,
+            original_source_root_in_memory_unchanged_at_query=original_query_sha==composition["original_source_root_in_memory_sha256"],
+            owned_runtime_root_sublayers_at_query=list(stage.GetRootLayer().subLayerPaths),
+            owned_runtime_root_anonymous_at_query=stage.GetRootLayer().anonymous)
+        result["runtime_stage_composition"]["original_source_root_in_memory_sha256_at_query"] = original_query_sha
+        result["runtime_stage_composition"]["original_source_root_in_memory_unchanged_at_query"] = original_query_sha == composition["original_source_root_in_memory_sha256"]
+        clock_observation = {"submitted_physics_step": query_counter if type(query_counter) is int else repr(query_counter),
+            "counter_python_type": type(query_counter).__name__, "timeline_s": float(query_time) if math.isfinite(query_time) else repr(query_time),
+            "timeline_python_type": type(query_time).__name__, "requested_frozen_timeline_s": 0.}
+        write_json(output_dir / "actual_query_clock_initial.json", clock_observation)
+        result["actual_query_clock_initial"] = {"observation": clock_observation,
+            "artifact": file_record(output_dir / "actual_query_clock_initial.json")}
+        if (not range_record["original_source_root_in_memory_unchanged_at_query"] or not range_record["session_edit_target_at_query"]
+                or not stage.GetRootLayer().anonymous or list(stage.GetRootLayer().subLayerPaths) != composition["absolute_original_source_sublayers"]):
+            raise ValueError("Original source RAM, owned anonymous root or session ownership changed")
+        observed_query_clock(lambda: query_counter, lambda: query_time)
+        if query_time != 0.:
+            raise ValueError("Fixed runtime snapshot timeline must actually be zero")
+        # Explicit PhysX cell mapping protocol. Every cell receives an actual
+        # full-height overlap query; this process never loads the omap plugin.
+        dims = np.r_[metadata['dims'], 1].astype(np.int64)
+        low = np.r_[metadata['bounds'][0], ground+BAND[0]].astype(np.float64)
+        high = np.r_[metadata['bounds'][1], ground+BAND[1]].astype(np.float64)
+        linear = np.arange(int(dims[0]*dims[1]))
+        row, east_column = np.divmod(linear, dims[0])
+        cells = np.column_stack((low[0]+(dims[0]-east_column-.5)*RESOLUTION,
+                                low[1]+(row+.5)*RESOLUTION,
+                                np.full(len(linear), ground+sum(BAND)/2)))
+        all_cell_queries = query_full_height_band(query, cells, linear, ground, floor_paths, enabled,
+            counter_getter=sim.get_physics_step_count, time_getter=timeline.get_current_time, scene=scene)
+        if not all_cell_queries['arrays']['all_hit_paths_classified'].all() or all_cell_queries['foreign_hit_paths']:
+            raise ValueError('Full cell-grid contains unclassified native hit paths')
+        require_query_clock_unchanged(all_cell_queries['clock_before'], all_cell_queries['clock_after'])
+        raw = np.where(all_cell_queries['arrays']['authored_obstacle_hit'],4,5).astype(np.float32)
+        free = cells[raw==5]
+        occupied = cells[raw==4]
+        grid_path = output_dir/'native_cell_grid.npz'
+        np.savez_compressed(grid_path, buffer=raw, dimensions=dims, min_bound=low, max_bound=high,
+                            **all_cell_queries['arrays'])
+        clock_path = output_dir/'native_cell_grid_clock.json'
+        write_json(clock_path,{k:v for k,v in all_cell_queries.items() if k!='arrays'})
+        result['mapping_backend']='physx_cell_queries.v1'
+        result['native_query_grid']={'artifact':file_record(grid_path),'clock_artifact':file_record(clock_path),
+            'all_grid_cells_queried':len(linear),'resolution_m':RESOLUTION,
+            'layout':'row-major x-fastest; row0=minY, column0=maxX',
+            'omap_plugin_loaded':False,'projection_labels_used_to_claim_native_free':False,
+            'clock_before':all_cell_queries['clock_before'],'clock_after':all_cell_queries['clock_after']}
+        image=np.where(raw.reshape(int(dims[1]),int(dims[0]))[::-1,::-1]==4,0,254).astype(np.uint8)
+        mapping={'actual_all_cell_height_queries':True,'known5_API_complete':None,
+                 'backend':'physx_cell_queries.v1','unknown_cells_restored_from_source_support_domain':True}
+        result['coordinate_validation']=mapping
+        origin_column_row = np.floor((origin[:2] - low[:2]) / RESOLUTION).astype(int)
+        if image[image.shape[0] - 1 - origin_column_row[1], origin_column_row[0]] != 254:
+            raise ValueError("Native full-height queries did not mark the verified origin cell free")
+        export_grid = projection_grid_window(low, high, dims, metadata["bounds"], metadata["dims"])
+        result["derived_export_grid"] = export_grid
+        selected = floor_probe_indices(len(free), args.floor_probe_limit)
+        floor_queries = query_floor_support(query, free, selected, ground, floor_paths, enabled,
+            scene=scene, static_nonfloor=static_nonfloor)
+        support_mask = floor_queries["arrays"]["supported"]
+        np.savez_compressed(output_dir / "floor_support_rays.npz", **floor_queries["arrays"])
+        foreign_hit_paths = set(floor_queries["foreign_ray_collision_paths"]) | set(origin_ownership["foreign_ray_collision_paths"])
+        undeclared_floor_paths = sorted(set(floor_queries["undeclared_near_floor_collision_paths"])
+                                        | set(origin_ownership["undeclared_near_floor_collision_paths"]))
+        floor_ownership_verified = (actual_flat_paths == floor_paths
+            and origin_ownership["all_support_hit_paths_declared"] and floor_queries["all_support_hit_paths_declared"]
+            and origin_ownership["single_selected_floor_support_verified"] and floor_queries["single_selected_floor_support_verified"])
+        result["floor_ownership"] = {"schema": "dynbench.native_floor_owner.v1",
+            "actual_enabled_flat_ground_inventory": actual_ground_inventory,
+            "actual_enabled_flat_ground_paths": sorted(actual_flat_paths), "declared_floor_paths": sorted(floor_paths),
+            "undeclared_near_floor_collision_paths": undeclared_floor_paths,
+            "foreign_ray_collision_paths": sorted(foreign_hit_paths),
+            "all_support_hit_paths_declared": origin_ownership["all_support_hit_paths_declared"] and floor_queries["all_support_hit_paths_declared"],
+            "single_declared_floor_owner_verified": ground_recipe is not None and len(floor_paths) == 1 and floor_ownership_verified,
+            "floor_ownership_verified": floor_ownership_verified, "full_grid_floor_rays": args.floor_probe_limit == 0,
+            "all_ray_hits_saved": True, "undeclared_near_floor_hit_rows": int(floor_queries["arrays"]["undeclared_near_floor_hit"].sum()),
+            "foreign_hit_rows": int(floor_queries["arrays"]["foreign_hit"].sum()),
+            "single_selected_floor_support_verified": floor_queries["single_selected_floor_support_verified"] and origin_ownership["single_selected_floor_support_verified"],
+            "known_static_nonfloor_collision_paths": sorted(static_nonfloor),
+            "known_static_nonfloor_near_ground_paths": floor_queries["known_static_nonfloor_near_ground_paths"],
+            "known_static_nonfloor_near_ground_hit_rows": int(floor_queries["arrays"]["known_static_nonfloor_near_ground_obstacle_hit"].sum()),
+            "near_ground_nonfloor_hit_cells_exported_occupied": True,
+            "height_tolerance_m": .08, "normal_z_min": .9, "artifact": file_record(output_dir / "floor_support_rays.npz")}
+        band_queries = query_full_height_band(query, free, selected, ground, floor_paths, enabled,
+            counter_getter=sim.get_physics_step_count, time_getter=timeline.get_current_time, scene=scene)
+        np.savez_compressed(output_dir / "full_height_band_queries.npz", **band_queries["arrays"])
+        band_clock_path = output_dir / "full_height_band_query_clock.json"
+        write_json(band_clock_path, {key: value for key, value in band_queries.items() if key != "arrays"})
+        result["full_height_band_queries"] = {"artifact": file_record(output_dir / "full_height_band_queries.npz"),
+            "clock_artifact": file_record(band_clock_path), "queried_cells": len(selected),
+            "clock_before": band_queries["clock_before"], "clock_after": band_queries["clock_after"],
+            "query_time_unchanged": band_queries["query_time_unchanged"],
+            "foreign_hit_paths": band_queries["foreign_hit_paths"]}
+        require_query_clock_unchanged(band_queries["clock_before"], band_queries["clock_after"])
+        foreign_hit_paths.update(band_queries["foreign_hit_paths"])
+        refined = refine_known_free_map(image, free, selected, support_mask, band_queries["arrays"], low, high, dims,
+            near_ground_obstacle_mask=floor_queries["arrays"]["known_static_nonfloor_near_ground_obstacle_hit"])
+        Image.fromarray(image).save(output_dir / "native_reconstructed.png")
+        Image.fromarray(refined).save(output_dir / "height_band_refined.png")
+        projection_folder = Path(args.projection_dir) / scene
+        projection = np.asarray(Image.open(projection_folder / "occupancy.png"))
+        exported_native = crop_to_projection_grid(image, export_grid)
+        exported_refined = crop_to_projection_grid(refined, export_grid)
+        probes = fixed_probe_cells(exported_native.shape, args.comparison_points, 7)
+        comparisons = []
+        sampled_free_overlap = 0
+        for row, column in probes:
+            xy = np.asarray(export_grid["export_bounds_xy_m"])[0] + np.array(
+                [column + .5, exported_native.shape[0] - row - .5]) * RESOLUTION
+            center = (xy[0], xy[1], ground + sum(BAND) / 2)
+            hits = overlaps(query, center, (RESOLUTION / 2, RESOLUTION / 2, (BAND[1] - BAND[0]) / 2))
+            foreign_hit_paths.update(h["collision"] for h in hits if h["collision"] not in enabled)
+            value = int(exported_native[row, column])
+            refined_value = int(exported_refined[row, column])
+            included_hits = [hit for hit in hits if hit["collision"] not in floor_paths]
+            sampled_free_overlap += int(refined_value == 254 and bool(included_hits))
+            comparisons.append({"pixel_row_column": [int(row), int(column)], "world_xy_m": xy.tolist(),
+                "CPU_projection_label": int(projection[row, column]), "native_cell_grid_label": value,
+                "height_band_refined_label": refined_value, "native_band_box_overlap_hits": hits,
+                "projection_native_discrepancy": int(projection[row, column]) != value})
+        write_json(output_dir / "fixed_world_point_comparison.json", {"seed": 7, "points": comparisons,
+            "native_probe": "full .1m cell XY box over .15..1.8m band; not a pedestrian footprint"})
+        if sim.get_physics_step_count() != query_counter or timeline.get_current_time() != query_time:
+            raise ValueError("Physics/timeline advanced while map and support queries were sampled")
+        unchanged = source_unchanged(preflight)
+        static = (not preflight["time_sampled_xform_paths"]
+                  and not any(r["enabled"] and not r["kinematic"] for r in preflight["authored_rigid_bodies"])
+                  and all(d <= 1e-5 for d in deltas.values()))
+        full = args.floor_probe_limit == 0 and len(selected) == len(free) == int((raw == VALUES["free"]).sum())
+        native_direct_cell_validation = bool(full and support_mask.all()
+            and band_queries["arrays"]["all_hit_paths_classified"].all() and floor_ownership_verified)
+        origin_row = image.shape[0] - 1 - origin_column_row[1]
+        origin_band_clear = refined[origin_row, origin_column_row[0]] == 254
+        ready = navigation_admission(origin_clear=not origin_hits and origin_band_clear,
+            origin_supported=origin_support is not None, mapping_valid=native_direct_cell_validation, full_floor_probe=full,
+            full_height_probe=full, height_clear_mask=band_queries["arrays"]["full_height_clear"],
+            all_band_hit_paths_classified=band_queries["arrays"]["all_hit_paths_classified"].all(),
+            floor_ownership_verified=floor_ownership_verified,
+            support_mask=support_mask, static_unchanged=static,
+            sampled_free_overlap_count=sampled_free_overlap + len(foreign_hit_paths), source_unchanged=unchanged)
+        projection = np.asarray(Image.open(Path(args.projection_dir) / scene / "occupancy.png"))
+        exported = retain_projection_unknown(exported_refined, projection) if ground_recipe is not None else exported_refined
+        Image.fromarray(exported).save(output_dir / "occupancy.png")
+        export_low = export_grid["export_bounds_xy_m"][0]
+        (output_dir / "occupancy.yaml").write_text(f"image: occupancy.png\nresolution: 0.1\norigin: [{export_low[0]}, {export_low[1]}, 0.0]\nnegate: 0\noccupied_thresh: 0.65\nfree_thresh: 0.196\n")
+        stage.GetSessionLayer().Export(str(output_dir / "runtime_session.usda"))
+        stage.GetRootLayer().Export(str(output_dir / "runtime_root.usda"))
+        result.update(status="scene_resource_gate_passed" if ready else "probe_complete_not_navigation_ready",
+            scene_resource_gate_passed=ready, navigation_ready=False, navigation_quality_validated=False,
+            projection_unknown_cells_preserved=ground_recipe is not None, native_probe_completed=True,
+            native_mapping_verified=True, requested_height_band_world_m=[ground + BAND[0], ground + BAND[1]],
+            actual_bounds_world_m=[low.tolist(), high.tolist()], actual_dimensions=dims.tolist(),
+            native_direct_cell_validation=native_direct_cell_validation,
+            known5_API_complete=None, known5_position_source='actual_all_cell_PhysX_queries',
+            selected_floor_height_m=ground, floor_collider_paths=sorted(floor_paths),
+            height_band_refinement={"method": "actual full-grid PhysX overlap queries plus every free-cell floor support",
+                "engineering_refinement": True, "pure_omap2D_full_height_claim": False, "author_map": False,
+                "cell_xy_size_m": RESOLUTION, "band_above_selected_floor_m": list(BAND),
+                "pedestrian_footprint_or_body_clearance": False, "all_native_known5_cells_tested": full,
+                "known5_tested": len(selected), "known5_source": len(free),
+                "height_blocked_known5_cells": int(band_queries["arrays"]["authored_obstacle_hit"].sum()),
+                "height_clear_known5_cells": int(band_queries["arrays"]["full_height_clear"].sum()),
+                "known_static_nonfloor_near_ground_blocked_known5_cells": int(floor_queries["arrays"]["known_static_nonfloor_near_ground_obstacle_hit"].sum()),
+                "unclassified_cells": int((~band_queries["arrays"]["all_hit_paths_classified"]).sum()),
+                "unsupported_tested_cells": int((~support_mask).sum()), "native_unknown_never_promoted": True,
+                "untested_known5_exported_unknown": len(free)-len(selected),
+                "refined_value_counts": {"occupied": int((refined == 0).sum()), "free": int((refined == 254).sum()), "unknown": int((refined == 205).sum())}},
+            floor_support={"full_grid": full, "native_free_cells": len(free), "tested": len(selected),
+                           "supported": int(support_mask.sum()), "unsupported": int((~support_mask).sum()),
+                           "ray_start_above_floor_m": .3, "ray_length_m": .6, "normal_z_min": .9,
+                           "height_tolerance_m": .08, "artifact": file_record(output_dir / "floor_support_rays.npz")},
+            physics={"device": sim.device, "dt_s": DT, "gravity": [0., 0., 0.], "scene_query_support": True,
+                     "counter_before_snapshot": counter_before, "counter_at_query": query_counter,
+                     "snapshot_steps": args.snapshot_steps, "timeline_at_query_s": query_time,
+                     "timeline_after_queries_s": timeline.get_current_time(), "no_query_time_advance": True,
+                     "snapshot_physics_time_increment_s": (query_counter - counter_before) * DT,
+                     "automatic_timeline_update": False, "app_player_playSimulations": False},
+            dynamic_activity={"authored_rigid_bodies": preflight["authored_rigid_bodies"],
+                              "USD_body_transform_max_abs_delta": deltas, "static_snapshot_gate": static,
+                              "time_sampled_xform_paths": preflight["time_sampled_xform_paths"],
+                              "limits": "USD transform diagnostic only; enabled nonkinematic actors/animated transforms reject the static navigation gate"},
+            sampled_free_cells_with_overlap=sampled_free_overlap, foreign_native_hit_paths=sorted(foreign_hit_paths),
+            projection_discrepancy_count=sum(r["projection_native_discrepancy"] for r in comparisons),
+            original_source_layers_unchanged=unchanged, runtime_USD_version=list(Usd.GetVersion()),
+            exports={name: file_record(output_dir / name) for name in ("occupancy.png", "native_reconstructed.png", "height_band_refined.png", "occupancy.yaml", "runtime_session.usda", "runtime_root.usda", "fixed_world_point_comparison.json")})
+        if not unchanged:
+            raise ValueError("Original source layer contents changed")
+        if not floor_ownership_verified:
+            raise ValueError("Native all-hit rays or flat collider inventory reject declared floor ownership")
+    except Exception as error:
+        result.update(status="failed", navigation_ready=False, error=f"{type(error).__name__}: {error}")
+    finally:
+        result["elapsed_s"] = time.monotonic() - started
+        result["native_terminal_lifecycle"] = cleanup = {}
+        try:
+            if sim is not None:
+                sim.stop()
+                cleanup["simulation_stop_returned"] = True
+                lifecycle.terminal._release_terminal_timeline_caches(sim, cleanup, phase="before_clear")
+                SimulationContext.clear_instance()
+                cleanup["simulation_clear_instance_returned"] = True
+                references = lifecycle.terminal._release_terminal_timeline_caches(sim, cleanup, phase="after_clear")
+                import gc
+                gc.collect()
+                cleanup["scene_backend_views_remaining"] = sum(ref() is not None for ref in references)
+                if cleanup["scene_backend_views_remaining"]:
+                    raise RuntimeError("Existing map backend views survived terminal release")
+                cleanup["cleanup_succeeded"] = True
+            else:
+                raise RuntimeError("No complete owned map context available for strict cleanup")
+        except Exception as error:
+            result.update(status="failed",scene_resource_gate_passed=False,error="Terminal cleanup: " + repr(error))
+            cleanup["cleanup_succeeded"] = False
+            raise
+        finally:
+            write_json(output_dir / "result.json", result)
+    return result
+
+
+def parser():
+    p = argparse.ArgumentParser(description=__doc__)
+    p.add_argument("--projection-dir", default=str(ROOT / "data/diffusion_amp/maps_resource_complete"))
+    p.add_argument("--output", required=True, help="Fresh directory; existing output is refused")
+    p.add_argument("--scenes", nargs="+", choices=SCENES, default=list(SCENES))
+    p.add_argument("--execute-physx", action="store_true", help="Starts Kit; default only standalone USD preflight")
+    p.add_argument("--preflight-worker", choices=SCENES, help=argparse.SUPPRESS)
+    p.add_argument("--floor-owner", choices=("none", "reference_flat_terrain"), default="none",
+                   help="Explicit finite generated reference-ground mode; no original-USD or private-paper claim")
+    p.add_argument("--reference-ground-margin-m", type=float, default=.2)
+    p.add_argument("--floor-collision-overlay", choices=("none", "confirmed_visual_meshes"), default="none",
+                   help="Explicit engineering completion of confirmed original visual floor meshes; default preserves missing/disabled floors")
+    p.add_argument("--floor-probe-limit", type=int, default=256, help="0=full-height and floor queries for all canonical known5 cells; limited queries never ready")
+    p.add_argument("--known5-position-source", choices=("api_verified", "official_buffer_centers"), default="api_verified",
+                   help="Explicit engineering missing-native5 centers from fixed official layout; requires all directfloor/fullheight before admission")
+    p.add_argument("--comparison-points", type=int, default=256)
+    p.add_argument("--snapshot-steps", type=int, default=2)
+    p.add_argument("--load-timeout-s", type=float, default=300)
+    p.add_argument("--max-cells", type=int, default=2_000_000)
+    return p
+
+
+def main(argv=None):
+    import inspect
+    NATIVE_CLOSE_STATE["main_frame"]=inspect.currentframe()
+    args = parser().parse_args(argv)
+    if args.floor_probe_limit < 0 or args.comparison_points < 1 or args.snapshot_steps < 1 or args.max_cells < 1:
+        raise ValueError("Probe limits/counts must be positive (floor limit may be zero)")
+    if not math.isfinite(args.load_timeout_s) or args.load_timeout_s <= 0:
+        raise ValueError("Load timeout must be finite and positive")
+    if args.floor_owner != "none" and args.floor_collision_overlay != "none":
+        raise ValueError("Only one explicit ground owner allowed; no stacked floor modes")
+    if not math.isfinite(args.reference_ground_margin_m) or not .1 <= args.reference_ground_margin_m <= 1.:
+        raise ValueError("Reference ground margin must be finite within .1..1m")
+    output = Path(args.output).resolve()
+    if args.preflight_worker:
+        checked = preflight_scene(args.preflight_worker, args.projection_dir, output, args.max_cells, args.floor_collision_overlay, args.floor_owner, args.reference_ground_margin_m)
+        return 0 if checked["status"] == "passed" else 1
+    if len(set(args.scenes)) != len(args.scenes):
+        raise ValueError("Duplicate scene arguments refused")
+    output.mkdir(parents=True, exist_ok=False)
+    reports, failed = [], []
+    for scene in args.scenes:
+        folder = output / scene
+        folder.mkdir()
+        command = [sys.executable, str(Path(__file__).resolve()), "--preflight-worker", scene,
+                   "--projection-dir", str(Path(args.projection_dir).resolve()), "--output", str(folder),
+                   "--max-cells", str(args.max_cells), "--floor-collision-overlay", args.floor_collision_overlay,
+                   "--floor-owner", args.floor_owner, "--reference-ground-margin-m", str(args.reference_ground_margin_m)]
+        try:
+            with (folder / "preflight.log").open("w") as log:
+                subprocess.run(command, stdout=log, stderr=subprocess.STDOUT, check=True, timeout=args.load_timeout_s)
+        except (subprocess.CalledProcessError, subprocess.TimeoutExpired) as error:
+            record = {"scene": scene, "error": str(error), "log": file_record(folder / "preflight.log")}
+            if (folder / "preflight.json").exists():
+                record["preflight"] = json.loads((folder / "preflight.json").read_text())
+            failed.append(record)
+            continue
+        reports.append(json.loads((folder / "preflight.json").read_text()))
+    write_json(output / "manifest.json", {"schema": "dynbench_physx_maps.v1", "status": "preflight_failed" if failed else "preflight_passed",
+        "Kit_started": False, "navigation_ready": False, "failed_scenes": failed,
+        "scene_preflights": reports, "script": file_record(__file__)})
+    if failed:
+        return 1
+    if not args.execute_physx:
+        return 0
+    # This parent never imports standalone pxr. One actual Kit App, all scenes.
+    from isaaclab.app import AppLauncher
+    if len(args.scenes) != 1:
+        raise ValueError("Terminal map owner requires one scene per native process")
+    sys.path.insert(0,str(ROOT))
+    from CrowdSim.humanoid.runtime.social_evaluation_lifecycle import IsolatedTrackingLifecycle
+    lifecycle_report = {}
+    lifecycle = IsolatedTrackingLifecycle(lifecycle_report)
+    launcher = AppLauncher(headless=True, device="cpu", enable_cameras=False, fast_shutdown=False,
+                           kit_args=lifecycle.kit_args)
+    lifecycle.verify_loaded()
+    # Kit can install its cached importer before processing startup settings.
+    # Reset its initial metadata through the existing API, then restore our
+    # saved standard Python importer while explicitly disabling that cache.
+    import carb
+    import omni.ext._impl.stat_cache as stat_cache
+    expected='/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/kit/kernel/py/omni/ext/_impl/stat_cache.py'
+    if file_record(stat_cache.__file__)!={'path':expected,'bytes':2052,'sha256':'fe7e13e58ef766c669f410d6b56acd652e12c6cb59298f01faac746c9d3e6d83'}:
+        raise RuntimeError('Pinned Kit cached-importer source changed')
+    if _stdlib_importer._path_stat is not stat_cache._os_stat_cached:
+        raise RuntimeError('Only the verified Kit override of our saved standard importer may be restored')
+    before_rows=len(stat_cache._stat_cache)
+    stat_cache.reset_stat_cache()
+    if stat_cache._stat_cache:raise RuntimeError('Kit startup metadata reset did not release its cache')
+    carb.settings.get_settings().set_bool('/app/extensions/pathStatCacheEnabled',False)
+    _stdlib_importer._path_stat=_STOCK_PATH_STAT
+    import gc
+    gc.collect()  # Release initial cached-exception cycles while SDK owners are live.
+    lifecycle_report['startup_exception_cycles_released_while_App_active']=True
+    lifecycle_report['metadata_importer_compatibility']={'cached_rows_at_startup':before_rows,'existing_public_Kit_reset_returned':True,'Kit_path_stat_cache_enabled':False,'saved_original_CPython_function_restored':True,'SDK_source_or_methods_modified':False,'source':file_record(expected),'scope':'This native map process only; no physics parameter change'}
+    NATIVE_CLOSE_STATE["output_dir"] = output
+    app = launcher.app
+    try:
+        import torch
+        torch.set_num_threads(4)
+        import omni.kit.app
+        manager = omni.kit.app.get_app().get_extension_manager()
+        if manager.is_extension_enabled("isaacsim.asset.gen.omap"):
+            raise RuntimeError("Direct native cell-map process must not own the omap extension")
+        from types import SimpleNamespace
+        from CrowdSim.humanoid.runtime.trace_pace_scope import clear_completed_physics_frame
+        owner=SimpleNamespace(physics_frame=None)
+        actual = [run_native_scene(app, r["scene"], output / r["scene"], r, args, lifecycle, owner) for r in reports]
+        frame_release=clear_completed_physics_frame(owner,run_native_scene)
+        for result in actual:
+            result['completed_owned_map_frame_release']=frame_release
+            write_json(output/result['scene']/'result.json',result)
+        write_json(output / "manifest.json", {"schema": "dynbench_physx_maps.v1", "Kit_started": True,
+            "status": "passed" if all(r.get("scene_resource_gate_passed", False) for r in actual) else "not_navigation_ready",
+            "navigation_ready": False, "scene_resource_gate_passed": all(r.get("scene_resource_gate_passed", False) for r in actual), "scenes": actual,
+            "script": file_record(__file__), "result_JSON_authoritative": True})
+        return 0 if all(r.get("scene_resource_gate_passed", False) for r in actual) else 1
+    finally:
+        if _stdlib_importer._path_stat is not _STOCK_PATH_STAT or stat_cache._stat_cache:
+            raise RuntimeError('Terminal mapping must retain standard importer with no cached exception chains')
+        app.close()
+        NATIVE_CLOSE_STATE["full_app_close_returned"] = True
+        write_json(output/"map_lifecycle_sources.json", lifecycle_report)
+
+
+if __name__ == "__main__":
+    code = main()
+    if NATIVE_CLOSE_STATE.get('full_app_close_returned') is True:
+        sys.path.insert(0,str(ROOT))
+        from CrowdSim.humanoid.runtime.native_framework_shutdown import unload_native_plugins
+        receipt = {'full_app_close_returned': True, 'main_returncode': code}
+        from types import SimpleNamespace
+        from CrowdSim.humanoid.runtime.trace_pace_scope import clear_completed_physics_frame
+        completed=SimpleNamespace(physics_frame=NATIVE_CLOSE_STATE.pop('main_frame'))
+        receipt['completed_owned_main_frame_release']=clear_completed_physics_frame(completed,main)
+        unload_native_plugins(receipt, full_app_close_returned=True)
+        write_json(NATIVE_CLOSE_STATE['output_dir']/'native_termination.json',receipt)
+    raise SystemExit(code)

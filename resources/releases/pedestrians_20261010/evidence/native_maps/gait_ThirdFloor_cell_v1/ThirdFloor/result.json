@@ -1,0 +1,1619 @@
+{
+  "schema": "dynbench_physx_map_probe.v1",
+  "scene": "ThirdFloor",
+  "status": "scene_resource_gate_passed",
+  "navigation_ready": false,
+  "author_eight_scene_map": false,
+  "human_navigation_validated": false,
+  "source": {
+    "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/gait_four_scene_optimization/ThirdFloor_static_v2.usda",
+    "bytes": 26528,
+    "sha256": "38933c91ab3600b21436e98a8c29564d9850ea8066ad477e25e851805488ed93"
+  },
+  "preflight": {
+    "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/preflight.json",
+    "bytes": 192996,
+    "sha256": "f1a44952538ac078004a56faf393fd05f4c0f9c179dc30b0ed1ebe80897964a0"
+  },
+  "script": {
+    "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/gait_four_scene_optimization/probe_collected_cell_queries_v1.py",
+    "bytes": 114083,
+    "sha256": "cc840ae625948150792de4aaf5dd8bb9ea796312f50a30c848cebacb73693d10"
+  },
+  "native_started": true,
+  "fallback_used": false,
+  "limits": [
+    "Selected flat floor and one static snapshot only.",
+    "No robot or human clearance/route acceptance.",
+    "Four local scenes are not the paper's eight-scene benchmark."
+  ],
+  "runtime_stage_composition": {
+    "schema": "dynbench.native_anonymous_runtime_root.v9",
+    "absolute_original_source_sublayers": [
+      "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/gait_four_scene_optimization/ThirdFloor_static_v2.usda"
+    ],
+    "original_source_layer_identifier": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/gait_four_scene_optimization/ThirdFloor_static_v2.usda",
+    "owned_runtime_root_identifier": "anon:0x3328bee0:tmp.usda",
+    "owned_runtime_root_anonymous": true,
+    "runtime_session_identifier": "anon:0x332921b0:tmp-session.usda",
+    "source_stage_metadata": {
+      "up_axis": "Z",
+      "meters_per_unit": 1.0,
+      "frames_per_second": 24.0,
+      "default_prim_path": "/ThirdFloor"
+    },
+    "original_source_time_range": {
+      "start_time_code": 0.0,
+      "end_time_code": 0.0,
+      "time_codes_per_second": 24.0,
+      "authored_time_range": false,
+      "USD_time_range_modified": false
+    },
+    "original_source_root_in_memory_sha256": "38933c91ab3600b21436e98a8c29564d9850ea8066ad477e25e851805488ed93",
+    "original_source_root_in_memory_unchanged_after_composition": true,
+    "original_source_layers_saved": false,
+    "stage_factory": "injected_public_isaaclab.create_new_stage_after_App",
+    "extra_App_or_Context_created": false,
+    "requested_runtime_start_time_code": 0.0,
+    "requested_runtime_end_time_code": 24.0,
+    "requested_runtime_time_codes_per_second": 24.0,
+    "source_prim_paths_relocated": false,
+    "original_source_root_in_memory_sha256_at_query": "38933c91ab3600b21436e98a8c29564d9850ea8066ad477e25e851805488ed93",
+    "original_source_root_in_memory_unchanged_at_query": true
+  },
+  "reference_ground": {
+    "path": "/__PaperMapProbeReferenceGround",
+    "floor_roots": [
+      "/__PaperMapProbeReferenceGround"
+    ],
+    "finite_world_bounds_xy_m": [
+      [
+        -4.2,
+        -2.7
+      ],
+      [
+        4.2,
+        2.7
+      ]
+    ],
+    "height_m": 0.0,
+    "margin_m": 0.2,
+    "points": [
+      [
+        -4.2,
+        -2.7,
+        0.0
+      ],
+      [
+        4.2,
+        -2.7,
+        0.0
+      ],
+      [
+        4.2,
+        2.7,
+        0.0
+      ],
+      [
+        -4.2,
+        2.7,
+        0.0
+      ]
+    ],
+    "face_counts": [
+      3,
+      3
+    ],
+    "face_indices": [
+      0,
+      1,
+      2,
+      0,
+      2,
+      3
+    ],
+    "schema": {
+      "paths": [
+        "/__PaperMapProbeReferenceGround"
+      ],
+      "deinstanced_roots_in_session": [],
+      "disabled_collision_paths": [],
+      "approximation": "none",
+      "static_triangle_mesh": true,
+      "contact_offset_m": 0.002,
+      "rest_offset_m": 0.0,
+      "native_cooking_verified": false
+    },
+    "disabled_visual_floor_collision_paths": [
+      "/ThirdFloor/Collision/Floor"
+    ],
+    "disabled_flat_ground_collision_paths": [
+      "/ThirdFloor/Collision/Floor"
+    ],
+    "deinstanced_floor_roots_in_session": [],
+    "material": {
+      "static_friction": 1.0,
+      "dynamic_friction": 1.0,
+      "restitution": 0.0,
+      "combine_mode": "average"
+    },
+    "floor_owner": "reference_flat_terrain",
+    "engineering_reference_ground_mode": true,
+    "original_USD_floor_collider": false,
+    "paper_private_scene_configuration": false,
+    "holes_steps_and_other_floors_inferred": false,
+    "native_cooking_verified": false,
+    "recipe": {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/reference_ground_recipe.json",
+      "bytes": 72491,
+      "sha256": "be3a4d083a5d11d79cc03ed13368ee4eef2a9b3aeb2a2305fa6c3ece855bfbe6"
+    },
+    "overlay_source": {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/reference_ground_overlay.usda",
+      "bytes": 1316,
+      "sha256": "c6e88750aba718e3ee0eca55d05a1ba60976447e88c314572732aed13e82a7a2"
+    }
+  },
+  "floor_collision_overlay": {
+    "mode": "none",
+    "recipe": {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/floor_overlay_recipe.json",
+      "bytes": 87261,
+      "sha256": "ac8256b59a5ac47e9ff42fdc65960c3d95d1989b6f0d8e8e2491381cdf33d330"
+    },
+    "floor_roots": [
+      "/ThirdFloor/Collision/Floor",
+      "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A262",
+      "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A66",
+      "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A67",
+      "/ThirdFloor/Meshes/Base/Floor_0000/Geom/A77"
+    ],
+    "original_author_floor_physics_complete": false,
+    "source_USD_modified": false,
+    "native_cooking_verified": false,
+    "excluded_floor_layers": [],
+    "additional_Terrain_or_ground_created": true,
+    "floor_owner": "reference_flat_terrain",
+    "original_reference_floor_owner": "generated Terrain mesh; this is not the author default"
+  },
+  "authored_physics_scenes_disabled_in_session": [],
+  "runtime_stage_attachment": {
+    "schema": "dynbench.native_runtime_stage_attachment.v9",
+    "expected_stage_cache_id": 9223002,
+    "observed_context_stage_cache_id": 9223002,
+    "active_context_root_identifier": "anon:0x3328bee0:tmp.usda",
+    "active_context_session_identifier": "anon:0x332921b0:tmp-session.usda",
+    "observed_context_owns_exact_runtime_stage": true,
+    "app_updates_waiting_for_async_attachment": 0,
+    "submitted_step_counter_before": 0,
+    "submitted_step_counter_after": 0,
+    "explicit_physics_steps_issued_by_wait": 0,
+    "native_engine_time_observed": null,
+    "extra_App_or_Context_created": false,
+    "manual_context_or_PhysX_attach_called": false
+  },
+  "source_time_range": {
+    "start_time_code": 0.0,
+    "end_time_code": 0.0,
+    "time_codes_per_second": 24.0,
+    "authored_time_range": false,
+    "USD_time_range_modified": false
+  },
+  "runtime_time_range_override": {
+    "schema": "dynbench.native_frozen_timeline_session.v9",
+    "original_source_composed_range": {
+      "start_time_code": 0.0,
+      "end_time_code": 0.0,
+      "time_codes_per_second": 24.0
+    },
+    "requested_runtime_start_time_code": 0.0,
+    "requested_runtime_end_time_code": 24.0,
+    "requested_runtime_start_s": 0.0,
+    "requested_runtime_end_s": 1.0,
+    "composed_stage_start_time_code": 0.0,
+    "composed_stage_end_time_code": 24.0,
+    "observed_timeline_start_after_setup_s": 0.0,
+    "observed_timeline_end_after_setup_s": 1.0,
+    "session_layer_identifier": "anon:0x332921b0:tmp-session.usda",
+    "source_root_layer_identifier": "anon:0x3328bee0:tmp.usda",
+    "source_root_in_memory_unchanged": true,
+    "source_root_in_memory_sha256": "1304c3dabc0f3b7b1ad92c7f1257c6ae7b144d46e935d06f86cc6df3c2fea1e9",
+    "source_layers_saved": false,
+    "runtime_session_time_range_modified": true,
+    "time_codes_per_second_modified": false,
+    "actual_query_clock_pass_claim": false,
+    "original_source_layer_identifier": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/gait_four_scene_optimization/ThirdFloor_static_v2.usda",
+    "original_source_root_in_memory_sha256": "38933c91ab3600b21436e98a8c29564d9850ea8066ad477e25e851805488ed93",
+    "original_source_root_in_memory_unchanged_after_setup": true,
+    "owned_runtime_root_identifier": "anon:0x3328bee0:tmp.usda",
+    "owned_runtime_root_anonymous": true,
+    "observed_timeline_start_at_query_s": 0.0,
+    "observed_timeline_end_at_query_s": 1.0,
+    "composed_stage_start_at_query_time_code": 0.0,
+    "composed_stage_end_at_query_time_code": 24.0,
+    "composed_stage_time_codes_per_second_at_query": 24.0,
+    "session_edit_target_at_query": true,
+    "source_root_in_memory_sha256_at_query": "1304c3dabc0f3b7b1ad92c7f1257c6ae7b144d46e935d06f86cc6df3c2fea1e9",
+    "source_root_in_memory_unchanged_at_query": true,
+    "original_source_root_in_memory_sha256_at_query": "38933c91ab3600b21436e98a8c29564d9850ea8066ad477e25e851805488ed93",
+    "original_source_root_in_memory_unchanged_at_query": true,
+    "owned_runtime_root_sublayers_at_query": [
+      "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/gait_four_scene_optimization/ThirdFloor_static_v2.usda"
+    ],
+    "owned_runtime_root_anonymous_at_query": true
+  },
+  "native_collider_coverage": {
+    "artifact": {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/native_collider_coverage.json",
+      "bytes": 36576,
+      "sha256": "14398991cc939e420aee96e1841113e61d7233c5baf405ebbde849dc4ab24c41"
+    },
+    "count": 53,
+    "all_enabled_colliders_registered": true
+  },
+  "origin_verification": {
+    "world_origin_m": [
+      -1.5,
+      0.5,
+      0.75
+    ],
+    "overlap_hits": [],
+    "floor_ray_all_hits": [
+      {
+        "collision": "/__PaperMapProbeReferenceGround",
+        "rigid_body": "/__PaperMapProbeReferenceGround",
+        "position": [
+          -1.500000238418579,
+          0.4999997615814209,
+          0.0
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "distance": 0.29999998211860657
+      }
+    ],
+    "floor_support": {
+      "collision": "/__PaperMapProbeReferenceGround",
+      "rigid_body": "/__PaperMapProbeReferenceGround",
+      "position": [
+        -1.500000238418579,
+        0.4999997615814209,
+        0.0
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "distance": 0.29999998211860657
+    },
+    "floor_ownership": {
+      "classification": [
+        "selected_floor_support"
+      ],
+      "undeclared_near_floor_collision_paths": [],
+      "foreign_ray_collision_paths": [],
+      "all_support_hit_paths_declared": true,
+      "known_static_nonfloor_near_ground_paths": [],
+      "selected_floor_support_hit_count": 1,
+      "single_selected_floor_support_verified": true
+    }
+  },
+  "actual_query_clock_initial": {
+    "observation": {
+      "submitted_physics_step": 2,
+      "counter_python_type": "int",
+      "timeline_s": 0.0,
+      "timeline_python_type": "float",
+      "requested_frozen_timeline_s": 0.0
+    },
+    "artifact": {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/actual_query_clock_initial.json",
+      "bytes": 160,
+      "sha256": "cc91c4c48dde02c248eba1c49ce1f93493383a685f1e42c5cae0fe6616e71a95"
+    }
+  },
+  "mapping_backend": "physx_cell_queries.v1",
+  "native_query_grid": {
+    "artifact": {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/native_cell_grid.npz",
+      "bytes": 34391,
+      "sha256": "8a754cba2fdb461f0f812a91882a777d94028ca248e1d03bc81e7e079b458229"
+    },
+    "clock_artifact": {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/native_cell_grid_clock.json",
+      "bytes": 221,
+      "sha256": "3999a685865282f57d90f8800c4768ec1f5d645b284df247041f7d43dca9098a"
+    },
+    "all_grid_cells_queried": 4000,
+    "resolution_m": 0.1,
+    "layout": "row-major x-fastest; row0=minY, column0=maxX",
+    "omap_plugin_loaded": false,
+    "projection_labels_used_to_claim_native_free": false,
+    "clock_before": {
+      "submitted_physics_step": 2,
+      "timeline_s": 0.0
+    },
+    "clock_after": {
+      "submitted_physics_step": 2,
+      "timeline_s": 0.0
+    }
+  },
+  "coordinate_validation": {
+    "actual_all_cell_height_queries": true,
+    "known5_API_complete": null,
+    "backend": "physx_cell_queries.v1",
+    "unknown_cells_restored_from_source_support_domain": true
+  },
+  "derived_export_grid": {
+    "schema": "dynbench.native_projection_world_crop.v1",
+    "lower_padding_cells_xy": [
+      0,
+      0
+    ],
+    "native_window_rows": [
+      0,
+      50
+    ],
+    "native_window_columns": [
+      0,
+      80
+    ],
+    "export_bounds_xy_m": [
+      [
+        -4.0,
+        -2.5
+      ],
+      [
+        4.0,
+        2.5
+      ]
+    ],
+    "export_dimensions_xy": [
+      80,
+      50
+    ],
+    "engineering_native_padding_crop": false,
+    "world_grid_alignment_tolerance_m": 1e-05,
+    "author_projection_files_modified": false,
+    "native_raw_grid_preserved": true
+  },
+  "floor_ownership": {
+    "schema": "dynbench.native_floor_owner.v1",
+    "actual_enabled_flat_ground_inventory": [
+      {
+        "path": "/ThirdFloor/Meshes/Assets/Door_0000/Geom/Static",
+        "type_name": "Mesh",
+        "enabled": true,
+        "near_ground_flat_surface": false,
+        "static": true,
+        "reason": "Floor mesh is not thin and near selected floor height"
+      },
+      {
+        "path": "/ThirdFloor/Meshes/Assets/Door_0000/Geom/A06865e7a93064541911395c3271e1c34",
+        "type_name": "Mesh",
+        "enabled": true,
+        "near_ground_flat_surface": false,
+        "static": true,
+        "reason": "Floor mesh is not thin and near selected floor height"
+      },
+      {
+        "path": "/ThirdFloor/Meshes/Assets/Toilet_YREQ6BBVAI7FMPTUJQ888888_KIiuW/Geom/ToiletLid",
+        "type_name": "Mesh",
+        "enabled": true,
+        "near_ground_flat_surface": false,
+        "static": true,
+        "reason": "Floor mesh is not thin and near selected floor height"
+      },
+      {
+        "path": "/ThirdFloor/Meshes/Assets/Toilet_YREQ6BBVAI7FMPTUJQ888888_KIiuW/Geom/ToiletSeat",
+        "type_name": "Mesh",
+        "enabled": true,
+        "near_ground_flat_surface": false,
+        "static": true,
+        "reason": "Floor mesh is not thin and near selected floor height"
+      },
+      {
+        "path": "/ThirdFloor/Meshes/Assets/Toilet_YREQ6BBVAI7FMPTUJQ888888_KIiuW/Geom/ToiletMain",
+        "type_name": "Mesh",
+        "enabled": true,
+        "near_ground_flat_surface": false,
+        "static": true,
+        "reason": "Floor mesh is not thin and near selected floor height"
+      },
+      {
+        "path": "/ThirdFloor/Meshes/Assets/Door_YS2HVXZVALGD2PTUJQ888888_7qcYe/Geom/Door",
+        "type_name": "Mesh",
+        "enabled": true,
+        "near_ground_flat_surface": false,
+        "static": true,
+        "reason": "Floor mesh is not thin and near selected floor height"
+      },
+      {
+        "path": "/ThirdFloor/Meshes/Assets/Door_YS2HVXZVALGD2PTUJQ888888_7qcYe/Geom/Door_Frame",
+        "type_name": "Mesh",
+        "enabled": true,
+        "near_ground_flat_surface": false,
+        "static": true,
+        "reason": "Floor mesh is not thin and near selected floor height"
+      },
+      {
+        "path": "/ThirdFloor/Meshes/Assets/Door_YS3UEUZVAJ2V4PTUKU888888_mdynP/Geom/Door",
+        "type_name": "Mesh",
+        "enabled": true,
+        "near_ground_flat_surface": false,
+        "static": true,
+        "reason": "Floor mesh is not thin and near selected floor height"
+      },
+      {
+        "path": "/ThirdFloor/Meshes/Assets/Door_YS3UEUZVAJ2V4PTUKU888888_mdynP/Geom/DoorFrame",
+        "type_name": "Mesh",
+        "enabled": true,
+        "near_ground_flat_surface": false,
+        "static": true,
+        "reason": "Floor mesh is not thin and near selected floor height"
+      },
+      {
+        "path": "/ThirdFloor/Meshes/Assets/Partition_0000/Geom/Static",
+        "type_name": "Mesh",
+        "enabled": true,
+        "near_ground_flat_surface": false,
+        "static": true,
+        "reason": "Floor mesh is not thin and near selected floor height"
+      },
+      {
+        "path": "/ThirdFloor/Meshes/Assets/Partition_0001/Geom/Static",
+        "type_name": "Mesh",
+        "enabled": true,
+        "near_ground_flat_surface": false,
+        "static": true,
+        "reason": "Floor mesh is not thin and near selected floor height"
+      },
+      {
+        "path": "/ThirdFloor/Meshes/Assets/Partition_0002/Geom/Static",
+        "type_name": "Mesh",
+        "enabled": true,
+        "near_ground_flat_surface": false,
+        "static": true,
+        "reason": "Floor mesh is not thin and near selected floor height"
+      },
+      {
+        "path": "/ThirdFloor/Meshes/Assets/Partition_0003/Geom/Static",
+        "type_name": "Mesh",
+        "enabled": true,
+        "near_ground_flat_surface": false,
+        "static": true,
+        "reason": "Floor mesh is not thin and near selected floor height"
+      },
+      {
+        "path": "/ThirdFloor/Meshes/Assets/Partition_0004/Geom/Static",
+        "type_name": "Mesh",
+        "enabled": true,
+        "near_ground_flat_surface": false,
+        "static": true,
+        "reason": "Floor mesh is not thin and near selected floor height"
+      },
+      {
+        "path": "/ThirdFloor/Collision/Walls",
+        "type_name": "Mesh",
+        "enabled": true,
+        "near_ground_flat_surface": false,
+        "static": true,
+        "reason": "Floor mesh is not thin and near selected floor height"
+      },
+      {
+        "path": "/ThirdFloor/Collision/FixtureProxies/Fpd_0000",
+        "type_name": "Mesh",
+        "enabled": true,
+        "near_ground_flat_surface": false,
+        "static": true,
+        "reason": "Floor mesh is not thin and near selected floor height"
+      },
+      {
+        "path": "/ThirdFloor/Collision/FixtureProxies/Fpd_0001",
+        "type_name": "Mesh",
+        "enabled": true,
+        "near_ground_flat_surface": false,
+        "static": true,
+        "reason": "Floor mesh is not thin and near selected floor height"
+      },
+      {
+        "path": "/ThirdFloor/Collision/FixtureProxies/Edestalurinal_0000",
+        "type_name": "Mesh",
+        "enabled": true,
+        "near_ground_flat_surface": false,
+        "static": true,
+        "reason": "Floor mesh is not thin and near selected floor height"
+      },
+      {
+        "path": "/ThirdFloor/Collision/FixtureProxies/Edestalurinal_0001",
+        "type_name": "Mesh",
+        "enabled": true,
+        "near_ground_flat_surface": false,
+        "static": true,
+        "reason": "Floor mesh is not thin and near selected floor height"
+      },
+      {
+        "path": "/ThirdFloor/Collision/FixtureProxies/Edestalurinal_0002",
+        "type_name": "Mesh",
+        "enabled": true,
+        "near_ground_flat_surface": false,
+        "static": true,
+        "reason": "Floor mesh is not thin and near selected floor height"
+      },
+      {
+        "path": "/ThirdFloor/Collision/FixtureProxies/Edestalurinal_0003",
+        "type_name": "Mesh",
+        "enabled": true,
+        "near_ground_flat_surface": false,
+        "static": true,
+        "reason": "Floor mesh is not thin and near selected floor height"
+      },
+      {
+        "path": "/ThirdFloor/Collision/FixtureProxies/Edestalurinal_0004",
+        "type_name": "Mesh",
+        "enabled": true,
+        "near_ground_flat_surface": false,
+        "static": true,
+        "reason": "Floor mesh is not thin and near selected floor height"
+      },
+      {
+        "path": "/ThirdFloor/Details/WashStation/Basin1/Ceramic",
+        "type_name": "Mesh",
+        "enabled": true,
+        "near_ground_flat_surface": false,
+        "static": true,
+        "reason": "Floor mesh is not thin and near selected floor height"
+      },
+      {
+        "path": "/ThirdFloor/Details/WashStation/Basin2/Ceramic",
+        "type_name": "Mesh",
+        "enabled": true,
+        "near_ground_flat_surface": false,
+        "static": true,
+        "reason": "Floor mesh is not thin and near selected floor height"
+      },
+      {
+        "path": "/ThirdFloor/Details/WashStation/Cabinet",
+        "type_name": "Mesh",
+        "enabled": true,
+        "near_ground_flat_surface": false,
+        "static": true,
+        "reason": "Floor mesh is not thin and near selected floor height"
+      },
+      {
+        "path": "/ThirdFloor/Details/WashStation/Counter",
+        "type_name": "Mesh",
+        "enabled": true,
+        "near_ground_flat_surface": false,
+        "static": true,
+        "reason": "Floor mesh is not thin and near selected floor height"
+      },
+      {
+        "path": "/ThirdFloor/Details/WashStation/ToeRecess",
+        "type_name": "Mesh",
+        "enabled": true,
+        "near_ground_flat_surface": false,
+        "static": true,
+        "reason": "Floor mesh is not thin and near selected floor height"
+      },
+      {
+        "path": "/ThirdFloor/Details/Hygiene/Bin",
+        "type_name": "Mesh",
+        "enabled": true,
+        "near_ground_flat_surface": false,
+        "static": true,
+        "reason": "Floor mesh is not thin and near selected floor height"
+      },
+      {
+        "path": "/ThirdFloor/Details/Hygiene/BinLid",
+        "type_name": "Mesh",
+        "enabled": true,
+        "near_ground_flat_surface": false,
+        "static": true,
+        "reason": "Floor mesh is not thin and near selected floor height"
+      },
+      {
+        "path": "/ThirdFloor/Details/Ceiling/Main",
+        "type_name": "Mesh",
+        "enabled": true,
+        "near_ground_flat_surface": false,
+        "static": true,
+        "reason": "Floor mesh is not thin and near selected floor height"
+      },
+      {
+        "path": "/ThirdFloor/Details/Ceiling/Entry",
+        "type_name": "Mesh",
+        "enabled": true,
+        "near_ground_flat_surface": false,
+        "static": true,
+        "reason": "Floor mesh is not thin and near selected floor height"
+      },
+      {
+        "path": "/ThirdFloor/Cubicles/Partitions/West",
+        "type_name": "Mesh",
+        "enabled": true,
+        "near_ground_flat_surface": false,
+        "static": true,
+        "reason": "Floor mesh is not thin and near selected floor height"
+      },
+      {
+        "path": "/ThirdFloor/Cubicles/Partitions/Shared",
+        "type_name": "Mesh",
+        "enabled": true,
+        "near_ground_flat_surface": false,
+        "static": true,
+        "reason": "Floor mesh is not thin and near selected floor height"
+      },
+      {
+        "path": "/ThirdFloor/Cubicles/Cubicle01/Architecture/Header",
+        "type_name": "Mesh",
+        "enabled": true,
+        "near_ground_flat_surface": false,
+        "static": true,
+        "reason": "Floor mesh is not thin and near selected floor height"
+      },
+      {
+        "path": "/ThirdFloor/Cubicles/Cubicle01/Architecture/LeftJamb",
+        "type_name": "Mesh",
+        "enabled": true,
+        "near_ground_flat_surface": false,
+        "static": true,
+        "reason": "Floor mesh is not thin and near selected floor height"
+      },
+      {
+        "path": "/ThirdFloor/Cubicles/Cubicle01/Architecture/RightJamb",
+        "type_name": "Mesh",
+        "enabled": true,
+        "near_ground_flat_surface": false,
+        "static": true,
+        "reason": "Floor mesh is not thin and near selected floor height"
+      },
+      {
+        "path": "/ThirdFloor/Cubicles/Cubicle01/Toilet/Geom/ToiletLid",
+        "type_name": "Mesh",
+        "enabled": true,
+        "near_ground_flat_surface": false,
+        "static": true,
+        "reason": "Floor mesh is not thin and near selected floor height"
+      },
+      {
+        "path": "/ThirdFloor/Cubicles/Cubicle01/Toilet/Geom/ToiletSeat",
+        "type_name": "Mesh",
+        "enabled": true,
+        "near_ground_flat_surface": false,
+        "static": true,
+        "reason": "Floor mesh is not thin and near selected floor height"
+      },
+      {
+        "path": "/ThirdFloor/Cubicles/Cubicle01/Toilet/Geom/ToiletMain",
+        "type_name": "Mesh",
+        "enabled": true,
+        "near_ground_flat_surface": false,
+        "static": true,
+        "reason": "Floor mesh is not thin and near selected floor height"
+      },
+      {
+        "path": "/ThirdFloor/Cubicles/Cubicle01/Door/Geom/Door",
+        "type_name": "Mesh",
+        "enabled": true,
+        "near_ground_flat_surface": false,
+        "static": true,
+        "reason": "Floor mesh is not thin and near selected floor height"
+      },
+      {
+        "path": "/ThirdFloor/Cubicles/Cubicle01/Door/Geom/Door_Frame",
+        "type_name": "Mesh",
+        "enabled": true,
+        "near_ground_flat_surface": false,
+        "static": true,
+        "reason": "Floor mesh is not thin and near selected floor height"
+      },
+      {
+        "path": "/ThirdFloor/Cubicles/Cubicle02/Architecture/Header",
+        "type_name": "Mesh",
+        "enabled": true,
+        "near_ground_flat_surface": false,
+        "static": true,
+        "reason": "Floor mesh is not thin and near selected floor height"
+      },
+      {
+        "path": "/ThirdFloor/Cubicles/Cubicle02/Architecture/LeftJamb",
+        "type_name": "Mesh",
+        "enabled": true,
+        "near_ground_flat_surface": false,
+        "static": true,
+        "reason": "Floor mesh is not thin and near selected floor height"
+      },
+      {
+        "path": "/ThirdFloor/Cubicles/Cubicle02/Architecture/RightJamb",
+        "type_name": "Mesh",
+        "enabled": true,
+        "near_ground_flat_surface": false,
+        "static": true,
+        "reason": "Floor mesh is not thin and near selected floor height"
+      },
+      {
+        "path": "/ThirdFloor/Cubicles/Cubicle02/Toilet/Geom/ToiletLid",
+        "type_name": "Mesh",
+        "enabled": true,
+        "near_ground_flat_surface": false,
+        "static": true,
+        "reason": "Floor mesh is not thin and near selected floor height"
+      },
+      {
+        "path": "/ThirdFloor/Cubicles/Cubicle02/Toilet/Geom/ToiletSeat",
+        "type_name": "Mesh",
+        "enabled": true,
+        "near_ground_flat_surface": false,
+        "static": true,
+        "reason": "Floor mesh is not thin and near selected floor height"
+      },
+      {
+        "path": "/ThirdFloor/Cubicles/Cubicle02/Toilet/Geom/ToiletMain",
+        "type_name": "Mesh",
+        "enabled": true,
+        "near_ground_flat_surface": false,
+        "static": true,
+        "reason": "Floor mesh is not thin and near selected floor height"
+      },
+      {
+        "path": "/ThirdFloor/Cubicles/Cubicle02/Door/Geom/Door",
+        "type_name": "Mesh",
+        "enabled": true,
+        "near_ground_flat_surface": false,
+        "static": true,
+        "reason": "Floor mesh is not thin and near selected floor height"
+      },
+      {
+        "path": "/ThirdFloor/Cubicles/Cubicle02/Door/Geom/Door_Frame",
+        "type_name": "Mesh",
+        "enabled": true,
+        "near_ground_flat_surface": false,
+        "static": true,
+        "reason": "Floor mesh is not thin and near selected floor height"
+      },
+      {
+        "path": "/ThirdFloor/Cubicles/Cubicle04/Toilet/Geom/ToiletLid",
+        "type_name": "Mesh",
+        "enabled": true,
+        "near_ground_flat_surface": false,
+        "static": true,
+        "reason": "Floor mesh is not thin and near selected floor height"
+      },
+      {
+        "path": "/ThirdFloor/Cubicles/Cubicle04/Toilet/Geom/ToiletSeat",
+        "type_name": "Mesh",
+        "enabled": true,
+        "near_ground_flat_surface": false,
+        "static": true,
+        "reason": "Floor mesh is not thin and near selected floor height"
+      },
+      {
+        "path": "/ThirdFloor/Cubicles/Cubicle04/Toilet/Geom/ToiletMain",
+        "type_name": "Mesh",
+        "enabled": true,
+        "near_ground_flat_surface": false,
+        "static": true,
+        "reason": "Floor mesh is not thin and near selected floor height"
+      },
+      {
+        "path": "/__PaperMapProbeReferenceGround",
+        "type_name": "Mesh",
+        "enabled": true,
+        "near_ground_flat_surface": true,
+        "static": true,
+        "geometry": {
+          "point_count": 4,
+          "face_count": 2,
+          "index_count": 6,
+          "world_bounds_m": [
+            [
+              -4.199999809265137,
+              -2.700000047683716,
+              0.0
+            ],
+            [
+              4.199999809265137,
+              2.700000047683716,
+              0.0
+            ]
+          ],
+          "upward_top_fan_triangles": 2,
+          "top_triangles_world_m": [
+            [
+              [
+                -4.199999809265137,
+                -2.700000047683716,
+                0.0
+              ],
+              [
+                4.199999809265137,
+                -2.700000047683716,
+                0.0
+              ],
+              [
+                4.199999809265137,
+                2.700000047683716,
+                0.0
+              ]
+            ],
+            [
+              [
+                -4.199999809265137,
+                -2.700000047683716,
+                0.0
+              ],
+              [
+                4.199999809265137,
+                2.700000047683716,
+                0.0
+              ],
+              [
+                -4.199999809265137,
+                2.700000047683716,
+                0.0
+              ]
+            ]
+          ],
+          "upward_top_fan_area_m2": 45.359998741149866,
+          "geometry_sha256": "37968f65edba572d6b0ebd1818291cac4ad17196a3cbff72f365d1e3e555ba4c",
+          "orientation": "rightHanded",
+          "area_is_geometric_diagnostic_not_native_support": true
+        }
+      }
+    ],
+    "actual_enabled_flat_ground_paths": [
+      "/__PaperMapProbeReferenceGround"
+    ],
+    "declared_floor_paths": [
+      "/__PaperMapProbeReferenceGround"
+    ],
+    "undeclared_near_floor_collision_paths": [],
+    "foreign_ray_collision_paths": [],
+    "all_support_hit_paths_declared": true,
+    "single_declared_floor_owner_verified": true,
+    "floor_ownership_verified": true,
+    "full_grid_floor_rays": true,
+    "all_ray_hits_saved": true,
+    "undeclared_near_floor_hit_rows": 0,
+    "foreign_hit_rows": 0,
+    "single_selected_floor_support_verified": true,
+    "known_static_nonfloor_collision_paths": [
+      "/ThirdFloor/Collision/FixtureProxies/Edestalurinal_0000",
+      "/ThirdFloor/Collision/FixtureProxies/Edestalurinal_0001",
+      "/ThirdFloor/Collision/FixtureProxies/Edestalurinal_0002",
+      "/ThirdFloor/Collision/FixtureProxies/Edestalurinal_0003",
+      "/ThirdFloor/Collision/FixtureProxies/Edestalurinal_0004",
+      "/ThirdFloor/Collision/FixtureProxies/Fpd_0000",
+      "/ThirdFloor/Collision/FixtureProxies/Fpd_0001",
+      "/ThirdFloor/Collision/Walls",
+      "/ThirdFloor/Cubicles/Cubicle01/Architecture/Header",
+      "/ThirdFloor/Cubicles/Cubicle01/Architecture/LeftJamb",
+      "/ThirdFloor/Cubicles/Cubicle01/Architecture/RightJamb",
+      "/ThirdFloor/Cubicles/Cubicle01/Door/Geom/Door",
+      "/ThirdFloor/Cubicles/Cubicle01/Door/Geom/Door_Frame",
+      "/ThirdFloor/Cubicles/Cubicle01/Toilet/Geom/ToiletLid",
+      "/ThirdFloor/Cubicles/Cubicle01/Toilet/Geom/ToiletMain",
+      "/ThirdFloor/Cubicles/Cubicle01/Toilet/Geom/ToiletSeat",
+      "/ThirdFloor/Cubicles/Cubicle02/Architecture/Header",
+      "/ThirdFloor/Cubicles/Cubicle02/Architecture/LeftJamb",
+      "/ThirdFloor/Cubicles/Cubicle02/Architecture/RightJamb",
+      "/ThirdFloor/Cubicles/Cubicle02/Door/Geom/Door",
+      "/ThirdFloor/Cubicles/Cubicle02/Door/Geom/Door_Frame",
+      "/ThirdFloor/Cubicles/Cubicle02/Toilet/Geom/ToiletLid",
+      "/ThirdFloor/Cubicles/Cubicle02/Toilet/Geom/ToiletMain",
+      "/ThirdFloor/Cubicles/Cubicle02/Toilet/Geom/ToiletSeat",
+      "/ThirdFloor/Cubicles/Cubicle04/Toilet/Geom/ToiletLid",
+      "/ThirdFloor/Cubicles/Cubicle04/Toilet/Geom/ToiletMain",
+      "/ThirdFloor/Cubicles/Cubicle04/Toilet/Geom/ToiletSeat",
+      "/ThirdFloor/Cubicles/Partitions/Shared",
+      "/ThirdFloor/Cubicles/Partitions/West",
+      "/ThirdFloor/Details/Ceiling/Entry",
+      "/ThirdFloor/Details/Ceiling/Main",
+      "/ThirdFloor/Details/Hygiene/Bin",
+      "/ThirdFloor/Details/Hygiene/BinLid",
+      "/ThirdFloor/Details/WashStation/Basin1/Ceramic",
+      "/ThirdFloor/Details/WashStation/Basin2/Ceramic",
+      "/ThirdFloor/Details/WashStation/Cabinet",
+      "/ThirdFloor/Details/WashStation/Counter",
+      "/ThirdFloor/Details/WashStation/ToeRecess",
+      "/ThirdFloor/Meshes/Assets/Door_0000/Geom/A06865e7a93064541911395c3271e1c34",
+      "/ThirdFloor/Meshes/Assets/Door_0000/Geom/Static",
+      "/ThirdFloor/Meshes/Assets/Door_YS2HVXZVALGD2PTUJQ888888_7qcYe/Geom/Door",
+      "/ThirdFloor/Meshes/Assets/Door_YS2HVXZVALGD2PTUJQ888888_7qcYe/Geom/Door_Frame",
+      "/ThirdFloor/Meshes/Assets/Door_YS3UEUZVAJ2V4PTUKU888888_mdynP/Geom/Door",
+      "/ThirdFloor/Meshes/Assets/Door_YS3UEUZVAJ2V4PTUKU888888_mdynP/Geom/DoorFrame",
+      "/ThirdFloor/Meshes/Assets/Partition_0000/Geom/Static",
+      "/ThirdFloor/Meshes/Assets/Partition_0001/Geom/Static",
+      "/ThirdFloor/Meshes/Assets/Partition_0002/Geom/Static",
+      "/ThirdFloor/Meshes/Assets/Partition_0003/Geom/Static",
+      "/ThirdFloor/Meshes/Assets/Partition_0004/Geom/Static",
+      "/ThirdFloor/Meshes/Assets/Toilet_YREQ6BBVAI7FMPTUJQ888888_KIiuW/Geom/ToiletLid",
+      "/ThirdFloor/Meshes/Assets/Toilet_YREQ6BBVAI7FMPTUJQ888888_KIiuW/Geom/ToiletMain",
+      "/ThirdFloor/Meshes/Assets/Toilet_YREQ6BBVAI7FMPTUJQ888888_KIiuW/Geom/ToiletSeat"
+    ],
+    "known_static_nonfloor_near_ground_paths": [],
+    "known_static_nonfloor_near_ground_hit_rows": 0,
+    "near_ground_nonfloor_hit_cells_exported_occupied": true,
+    "height_tolerance_m": 0.08,
+    "normal_z_min": 0.9,
+    "artifact": {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/floor_support_rays.npz",
+      "bytes": 50579,
+      "sha256": "bcef51e004d0c1f7a11c0aa166b0b0d65b8f954ee5eca8060154ecf70bc59298"
+    }
+  },
+  "full_height_band_queries": {
+    "artifact": {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/full_height_band_queries.npz",
+      "bytes": 15792,
+      "sha256": "c015bc87dd3b455212d9e946e59704947c98666d189be872d44f9f9ea55af0e2"
+    },
+    "clock_artifact": {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/full_height_band_query_clock.json",
+      "bytes": 221,
+      "sha256": "3999a685865282f57d90f8800c4768ec1f5d645b284df247041f7d43dca9098a"
+    },
+    "queried_cells": 3044,
+    "clock_before": {
+      "submitted_physics_step": 2,
+      "timeline_s": 0.0
+    },
+    "clock_after": {
+      "submitted_physics_step": 2,
+      "timeline_s": 0.0
+    },
+    "query_time_unchanged": true,
+    "foreign_hit_paths": []
+  },
+  "scene_resource_gate_passed": true,
+  "navigation_quality_validated": false,
+  "projection_unknown_cells_preserved": true,
+  "native_probe_completed": true,
+  "native_mapping_verified": true,
+  "requested_height_band_world_m": [
+    0.15,
+    1.8
+  ],
+  "actual_bounds_world_m": [
+    [
+      -4.0,
+      -2.5,
+      0.15
+    ],
+    [
+      4.0,
+      2.5,
+      1.8
+    ]
+  ],
+  "actual_dimensions": [
+    80,
+    50,
+    1
+  ],
+  "native_direct_cell_validation": true,
+  "known5_API_complete": null,
+  "known5_position_source": "actual_all_cell_PhysX_queries",
+  "selected_floor_height_m": 0.0,
+  "floor_collider_paths": [
+    "/__PaperMapProbeReferenceGround"
+  ],
+  "height_band_refinement": {
+    "method": "actual full-grid PhysX overlap queries plus every free-cell floor support",
+    "engineering_refinement": true,
+    "pure_omap2D_full_height_claim": false,
+    "author_map": false,
+    "cell_xy_size_m": 0.1,
+    "band_above_selected_floor_m": [
+      0.15,
+      1.8
+    ],
+    "pedestrian_footprint_or_body_clearance": false,
+    "all_native_known5_cells_tested": true,
+    "known5_tested": 3044,
+    "known5_source": 3044,
+    "height_blocked_known5_cells": 0,
+    "height_clear_known5_cells": 3044,
+    "known_static_nonfloor_near_ground_blocked_known5_cells": 0,
+    "unclassified_cells": 0,
+    "unsupported_tested_cells": 0,
+    "native_unknown_never_promoted": true,
+    "untested_known5_exported_unknown": 0,
+    "refined_value_counts": {
+      "occupied": 956,
+      "free": 3044,
+      "unknown": 0
+    }
+  },
+  "floor_support": {
+    "full_grid": true,
+    "native_free_cells": 3044,
+    "tested": 3044,
+    "supported": 3044,
+    "unsupported": 0,
+    "ray_start_above_floor_m": 0.3,
+    "ray_length_m": 0.6,
+    "normal_z_min": 0.9,
+    "height_tolerance_m": 0.08,
+    "artifact": {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/floor_support_rays.npz",
+      "bytes": 50579,
+      "sha256": "bcef51e004d0c1f7a11c0aa166b0b0d65b8f954ee5eca8060154ecf70bc59298"
+    }
+  },
+  "physics": {
+    "device": "cpu",
+    "dt_s": 0.008333333333333333,
+    "gravity": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scene_query_support": true,
+    "counter_before_snapshot": 0,
+    "counter_at_query": 2,
+    "snapshot_steps": 2,
+    "timeline_at_query_s": 0.0,
+    "timeline_after_queries_s": 0.0,
+    "no_query_time_advance": true,
+    "snapshot_physics_time_increment_s": 0.016666666666666666,
+    "automatic_timeline_update": false,
+    "app_player_playSimulations": false
+  },
+  "dynamic_activity": {
+    "authored_rigid_bodies": [
+      {
+        "path": "/ThirdFloor/Meshes/Assets/Door_0000/Geom/Static",
+        "enabled": false,
+        "kinematic": false,
+        "velocity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "angular_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "path": "/ThirdFloor/Meshes/Assets/Door_0000/Geom/A06865e7a93064541911395c3271e1c34",
+        "enabled": false,
+        "kinematic": false,
+        "velocity": [
+          -6.503008764016695e-17,
+          1.0264570777349818e-15,
+          6.851475318543053e-23
+        ],
+        "angular_velocity": [
+          3.462061864057695e-21,
+          -5.0733487088966886e-21,
+          2.8966318126926327e-21
+        ]
+      },
+      {
+        "path": "/ThirdFloor/Meshes/Assets/Toilet_YREQ6BBVAI7FMPTUJQ888888_KIiuW/Geom/ToiletLid",
+        "enabled": false,
+        "kinematic": false,
+        "velocity": [
+          -1.6055464847452185e-17,
+          -1.000904012449233e-10,
+          1.2545537941832663e-09
+        ],
+        "angular_velocity": [
+          2.504889697072924e-21,
+          5.029176470346293e-14,
+          1.42941673671165e-17
+        ]
+      },
+      {
+        "path": "/ThirdFloor/Meshes/Assets/Toilet_YREQ6BBVAI7FMPTUJQ888888_KIiuW/Geom/ToiletSeat",
+        "enabled": false,
+        "kinematic": false,
+        "velocity": [
+          -3.636631734279157e-18,
+          1.065019739066031e-10,
+          -7.567422244392219e-10
+        ],
+        "angular_velocity": [
+          -2.5678261295070115e-07,
+          1.3389586816137285e-14,
+          -1.4865100453995247e-18
+        ]
+      },
+      {
+        "path": "/ThirdFloor/Meshes/Assets/Toilet_YREQ6BBVAI7FMPTUJQ888888_KIiuW/Geom/ToiletMain",
+        "enabled": false,
+        "kinematic": false,
+        "velocity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "angular_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "path": "/ThirdFloor/Meshes/Assets/Door_YS2HVXZVALGD2PTUJQ888888_7qcYe/Geom/Door",
+        "enabled": false,
+        "kinematic": false,
+        "velocity": [
+          3.2630178758672487e-16,
+          1.7021764004146831e-18,
+          1.360837757414714e-23
+        ],
+        "angular_velocity": [
+          -3.082915269630597e-21,
+          9.555902244529417e-21,
+          1.9138087415911077e-22
+        ]
+      },
+      {
+        "path": "/ThirdFloor/Meshes/Assets/Door_YS2HVXZVALGD2PTUJQ888888_7qcYe/Geom/Door_Frame",
+        "enabled": false,
+        "kinematic": false,
+        "velocity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "angular_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "path": "/ThirdFloor/Meshes/Assets/Door_YS3UEUZVAJ2V4PTUKU888888_mdynP/Geom/Door",
+        "enabled": false,
+        "kinematic": false,
+        "velocity": [
+          1.3078348847772988e-16,
+          -7.367063371877566e-19,
+          -1.2770914159694558e-23
+        ],
+        "angular_velocity": [
+          -2.606382546898291e-22,
+          -9.767841427101988e-21,
+          -2.85239873672771e-27
+        ]
+      },
+      {
+        "path": "/ThirdFloor/Meshes/Assets/Door_YS3UEUZVAJ2V4PTUKU888888_mdynP/Geom/DoorFrame",
+        "enabled": false,
+        "kinematic": false,
+        "velocity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "angular_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "path": "/ThirdFloor/Cubicles/Cubicle01/Toilet/Geom/ToiletLid",
+        "enabled": false,
+        "kinematic": false,
+        "velocity": [
+          -1.6055464847452185e-17,
+          -1.000904012449233e-10,
+          1.2545537941832663e-09
+        ],
+        "angular_velocity": [
+          2.504889697072924e-21,
+          5.029176470346293e-14,
+          1.42941673671165e-17
+        ]
+      },
+      {
+        "path": "/ThirdFloor/Cubicles/Cubicle01/Toilet/Geom/ToiletSeat",
+        "enabled": false,
+        "kinematic": false,
+        "velocity": [
+          -3.636631734279157e-18,
+          1.065019739066031e-10,
+          -7.567422244392219e-10
+        ],
+        "angular_velocity": [
+          -2.5678261295070115e-07,
+          1.3389586816137285e-14,
+          -1.4865100453995247e-18
+        ]
+      },
+      {
+        "path": "/ThirdFloor/Cubicles/Cubicle01/Toilet/Geom/ToiletMain",
+        "enabled": false,
+        "kinematic": false,
+        "velocity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "angular_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "path": "/ThirdFloor/Cubicles/Cubicle01/Door/Geom/Door",
+        "enabled": false,
+        "kinematic": false,
+        "velocity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "angular_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "path": "/ThirdFloor/Cubicles/Cubicle01/Door/Geom/Door_Frame",
+        "enabled": false,
+        "kinematic": false,
+        "velocity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "angular_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "path": "/ThirdFloor/Cubicles/Cubicle02/Toilet/Geom/ToiletLid",
+        "enabled": false,
+        "kinematic": false,
+        "velocity": [
+          -1.6055464847452185e-17,
+          -1.000904012449233e-10,
+          1.2545537941832663e-09
+        ],
+        "angular_velocity": [
+          2.504889697072924e-21,
+          5.029176470346293e-14,
+          1.42941673671165e-17
+        ]
+      },
+      {
+        "path": "/ThirdFloor/Cubicles/Cubicle02/Toilet/Geom/ToiletSeat",
+        "enabled": false,
+        "kinematic": false,
+        "velocity": [
+          -3.636631734279157e-18,
+          1.065019739066031e-10,
+          -7.567422244392219e-10
+        ],
+        "angular_velocity": [
+          -2.5678261295070115e-07,
+          1.3389586816137285e-14,
+          -1.4865100453995247e-18
+        ]
+      },
+      {
+        "path": "/ThirdFloor/Cubicles/Cubicle02/Toilet/Geom/ToiletMain",
+        "enabled": false,
+        "kinematic": false,
+        "velocity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "angular_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "path": "/ThirdFloor/Cubicles/Cubicle02/Door/Geom/Door",
+        "enabled": false,
+        "kinematic": false,
+        "velocity": [
+          3.2630178758672487e-16,
+          1.7021764004146831e-18,
+          1.360837757414714e-23
+        ],
+        "angular_velocity": [
+          -3.082915269630597e-21,
+          9.555902244529417e-21,
+          1.9138087415911077e-22
+        ]
+      },
+      {
+        "path": "/ThirdFloor/Cubicles/Cubicle02/Door/Geom/Door_Frame",
+        "enabled": false,
+        "kinematic": false,
+        "velocity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "angular_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "path": "/ThirdFloor/Cubicles/Cubicle04/Toilet/Geom/ToiletLid",
+        "enabled": false,
+        "kinematic": false,
+        "velocity": [
+          -1.6055464847452185e-17,
+          -1.000904012449233e-10,
+          1.2545537941832663e-09
+        ],
+        "angular_velocity": [
+          2.504889697072924e-21,
+          5.029176470346293e-14,
+          1.42941673671165e-17
+        ]
+      },
+      {
+        "path": "/ThirdFloor/Cubicles/Cubicle04/Toilet/Geom/ToiletSeat",
+        "enabled": false,
+        "kinematic": false,
+        "velocity": [
+          -3.636631734279157e-18,
+          1.065019739066031e-10,
+          -7.567422244392219e-10
+        ],
+        "angular_velocity": [
+          -2.5678261295070115e-07,
+          1.3389586816137285e-14,
+          -1.4865100453995247e-18
+        ]
+      },
+      {
+        "path": "/ThirdFloor/Cubicles/Cubicle04/Toilet/Geom/ToiletMain",
+        "enabled": false,
+        "kinematic": false,
+        "velocity": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "angular_velocity": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    ],
+    "USD_body_transform_max_abs_delta": {},
+    "static_snapshot_gate": true,
+    "time_sampled_xform_paths": [],
+    "limits": "USD transform diagnostic only; enabled nonkinematic actors/animated transforms reject the static navigation gate"
+  },
+  "sampled_free_cells_with_overlap": 0,
+  "foreign_native_hit_paths": [],
+  "projection_discrepancy_count": 62,
+  "original_source_layers_unchanged": true,
+  "runtime_USD_version": [
+    0,
+    25,
+    11
+  ],
+  "exports": {
+    "occupancy.png": {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/occupancy.png",
+      "bytes": 299,
+      "sha256": "0ce18394ccc8e0a5e0587038cef7b9434305b9486b9998278120c6164f5a4ff8"
+    },
+    "native_reconstructed.png": {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/native_reconstructed.png",
+      "bytes": 261,
+      "sha256": "c821f808ac4fcb1135a75b9ab58943681dbcbd226aefc8a79b675457d4758fdd"
+    },
+    "height_band_refined.png": {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/height_band_refined.png",
+      "bytes": 261,
+      "sha256": "c821f808ac4fcb1135a75b9ab58943681dbcbd226aefc8a79b675457d4758fdd"
+    },
+    "occupancy.yaml": {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/occupancy.yaml",
+      "bytes": 114,
+      "sha256": "c48fb4da2554b545d48399a186bbda85a17ed23de275dcf13c671ecc191b004a"
+    },
+    "runtime_session.usda": {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/runtime_session.usda",
+      "bytes": 3455,
+      "sha256": "17999d8a86cb3c4d68a28123806126d5f95f360673a23c75431fbf5ce03ab775"
+    },
+    "runtime_root.usda": {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/runtime_root.usda",
+      "bytes": 340,
+      "sha256": "1304c3dabc0f3b7b1ad92c7f1257c6ae7b144d46e935d06f86cc6df3c2fea1e9"
+    },
+    "fixed_world_point_comparison.json": {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/fixed_world_point_comparison.json",
+      "bytes": 52714,
+      "sha256": "ec855e0edf6b6b45760e70bfe2efff97625bef8dcb20cb12e046077e75161468"
+    }
+  },
+  "elapsed_s": 4.038651873999697,
+  "native_terminal_lifecycle": {
+    "simulation_stop_returned": true,
+    "owned_manager_before_clear_guard": {
+      "phase": "before_clear",
+      "context_type_is_canonical": true,
+      "context_singleton_is_owned": true,
+      "context_singleton_is_none": false,
+      "context_type_module": "isaaclab.sim.simulation_context",
+      "context_type_qualname": "SimulationContext",
+      "context_source": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/source/isaaclab/isaaclab/sim/simulation_context.py",
+      "physics_cfg_type_is_canonical": true,
+      "physics_cfg_is_context_cfg": true,
+      "base_sim_is_owned": true,
+      "base_cfg_is_owned_physics": true,
+      "base_sim_is_none": false,
+      "base_cfg_is_none": false,
+      "base_callbacks_empty": false,
+      "lab_subscriptions_empty": false,
+      "lab_view_is_none": true,
+      "lab_view_warp_is_none": true,
+      "lab_inherited_sim_is_none": false,
+      "manager_raw_is_canonical": false,
+      "manager_raw_is_config_proxy": true,
+      "manager_proxy_type_is_exact": true,
+      "manager_proxy_reference_is_expected": true,
+      "manager_raw_type_module": "isaaclab.utils.string",
+      "manager_raw_type_qualname": "ResolvableString",
+      "manager_proxy_type_module": "isaaclab.utils.string",
+      "manager_proxy_type_qualname": "ResolvableString",
+      "manager_proxy_source": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/source/isaaclab/isaaclab/utils/string.py",
+      "manager_config_source": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/source/isaaclab_physx/isaaclab_physx/physics/physx_manager_cfg.py",
+      "canonical_manager_source": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/source/isaaclab_physx/isaaclab_physx/physics/physx_manager.py",
+      "manager_resolve_is_canonical": true,
+      "normalized_public_manager_is_canonical": true,
+      "original_cfg_proxy_preserved": true,
+      "base_sim_still_owned": true,
+      "base_cfg_still_owned": true
+    },
+    "terminal_timeline_compat_sources": {
+      "lab": {
+        "path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/source/isaaclab_physx/isaaclab_physx/physics/physx_manager.py",
+        "bytes": 34974,
+        "sha256": "d83ef1b3a375dbbdbd538f7e5f552064ee57528ae7b35b9ba58719fd8a4cfda5"
+      },
+      "base": {
+        "path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/source/isaaclab/isaaclab/physics/physics_manager.py",
+        "bytes": 20828,
+        "sha256": "3a88544d96df6dc02a17a611529b5fd8bc58c2e251b4323be9cbc7d0bc7a5b47"
+      },
+      "context": {
+        "path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/source/isaaclab/isaaclab/sim/simulation_context.py",
+        "bytes": 42425,
+        "sha256": "8c5d73af45f82b0d5c36b05a1c293094319c5d17a75f75a2fe679c382334ea89"
+      },
+      "core": {
+        "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/native_sdk_overlay/simulation_manager_shutdown_v1/isaacsim.core.simulation_manager/isaacsim/core/simulation_manager/impl/simulation_manager.py",
+        "bytes": 79181,
+        "sha256": "f95259051bb494ca1cf85ec3cfebdce61b4ec5f24cad49cf0ea295ccc0024f8e"
+      },
+      "extension": {
+        "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/native_sdk_overlay/simulation_manager_shutdown_v1/isaacsim.core.simulation_manager/isaacsim/core/simulation_manager/impl/extension.py",
+        "bytes": 3364,
+        "sha256": "8c4ef108ce939ed8a485540e719af2517aba7a2401a1de6d0848a06a457b3ea1"
+      },
+      "resolver": {
+        "path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/source/isaaclab/isaaclab/utils/string.py",
+        "bytes": 22809,
+        "sha256": "8943b90128542370fbecdfe4de1561722ff85901dc699b6051b50c1b7e43266f"
+      },
+      "configclass": {
+        "path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/source/isaaclab/isaaclab/utils/configclass.py",
+        "bytes": 26964,
+        "sha256": "3d782b38e8a0d9d10d9d8ad3bf8e86bcd3731f1f84be4e296a6dfd4d40e644d4"
+      },
+      "cfg": {
+        "path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/source/isaaclab_physx/isaaclab_physx/physics/physx_manager_cfg.py",
+        "bytes": 9949,
+        "sha256": "a09ae907d6e46cf466e0b764be56753e6e1e554755aa1ea5fa3ac4863d70aed3"
+      },
+      "tensor_API": {
+        "path": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/extscache/omni.physics.tensors-110.1.11+110.1.1.lx64.r.cp312.u7f4/omni/physics/tensors/api.py",
+        "bytes": 382927,
+        "sha256": "b913fdb1a3c0cf04b62aa01d6ceaf7d96cfe577a510d0e02b71485018661c903"
+      }
+    },
+    "owned_manager_normalization_returned": true,
+    "simulation_clear_instance_returned": true,
+    "terminal_owned_context_guard": {
+      "phase": "after_clear",
+      "context_type_is_canonical": true,
+      "context_singleton_is_owned": false,
+      "context_singleton_is_none": true,
+      "context_type_module": "isaaclab.sim.simulation_context",
+      "context_type_qualname": "SimulationContext",
+      "context_source": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/source/isaaclab/isaaclab/sim/simulation_context.py",
+      "physics_cfg_type_is_canonical": true,
+      "physics_cfg_is_context_cfg": true,
+      "base_sim_is_owned": false,
+      "base_cfg_is_owned_physics": false,
+      "base_sim_is_none": true,
+      "base_cfg_is_none": true,
+      "base_callbacks_empty": true,
+      "lab_subscriptions_empty": true,
+      "lab_view_is_none": true,
+      "lab_view_warp_is_none": true,
+      "lab_inherited_sim_is_none": true,
+      "manager_raw_is_canonical": true,
+      "manager_raw_is_config_proxy": false,
+      "manager_proxy_type_is_exact": true,
+      "manager_proxy_reference_is_expected": true,
+      "manager_raw_type_module": "abc",
+      "manager_raw_type_qualname": "ABCMeta",
+      "manager_proxy_type_module": "isaaclab.utils.string",
+      "manager_proxy_type_qualname": "ResolvableString",
+      "manager_proxy_source": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/source/isaaclab/isaaclab/utils/string.py",
+      "manager_config_source": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/source/isaaclab_physx/isaaclab_physx/physics/physx_manager_cfg.py",
+      "canonical_manager_source": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/source/isaaclab_physx/isaaclab_physx/physics/physx_manager.py",
+      "manager_resolve_is_canonical": true
+    },
+    "terminal_scene_backend_before": {
+      "backend_is_exact_class": true,
+      "backend_is_manager_existing_backend": true,
+      "backend_module": "isaaclab_physx.physics.physx_manager",
+      "backend_class": "PhysxSceneDataBackend",
+      "simulation_view_present": true,
+      "rigid_body_view_present": false,
+      "simulation_view_module": "omni.physics.tensors.api",
+      "simulation_view_class": "SimulationView",
+      "rigid_body_view_module": null,
+      "rigid_body_view_class": null,
+      "simulation_view_is_valid": false,
+      "simulation_view_native_backend_module": "omni.physics.tensors.bindings._physicsTensors",
+      "simulation_view_native_backend_class": "SimulationView",
+      "rigid_body_view_native_backend_module": null,
+      "rigid_body_view_native_backend_class": null,
+      "rigid_body_view_is_valid": null,
+      "rigid_body_view_validity_reason": "Pinned RigidBodyView exposes no public is_valid property; not queried"
+    },
+    "terminal_scene_backend_existing_view_count": 1,
+    "terminal_scene_backend_after": {
+      "simulation_view_is_none": true,
+      "rigid_body_view_is_none": true
+    },
+    "terminal_scene_backend_release_returned": true,
+    "terminal_timeline_cache_before": {
+      "Lab": {
+        "native_module": "omni.timeline._timeline",
+        "native_class": "Timeline"
+      },
+      "Core": {
+        "native_module": "omni.timeline._timeline",
+        "native_class": "Timeline"
+      },
+      "same_native_python_object": false,
+      "private_runtime_compatibility": true,
+      "terminal_process_only": true
+    },
+    "core_terminal_shutdown_returned": true,
+    "terminal_timeline_cache_compat_returned": true,
+    "scene_backend_views_remaining": 0,
+    "cleanup_succeeded": true
+  },
+  "completed_owned_map_frame_release": {
+    "function": "run_native_scene",
+    "owned_completed_frame_cleared": true
+  }
+}

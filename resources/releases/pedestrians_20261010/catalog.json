@@ -1,0 +1,55 @@
+{
+  "schema": "social_navigation.resource_catalog.v1",
+  "scenes": {
+    "YOHO": {
+      "current_stage": "resources/releases/pedestrians_20261010/scenes/YOHO/collected/scene.usdc",
+      "tested_static_stage_relocated": "resources/releases/pedestrians_20261010/scenes/YOHO/tested_static/YOHO_static_v2.usda",
+      "original_scene_config": "resources/releases/pedestrians_20261010/configs/original/YOHO_scene.yaml",
+      "portable_model_profile": "resources/releases/pedestrians_20261010/configs/portable_models/YOHO_profile.json",
+      "camera_config": "resources/releases/pedestrians_20261010/configs/original/YOHO_cameras.json",
+      "native_map_paths_migrated": false,
+      "relocated_scene_physics_rerun": false,
+      "sdk_builtin_mdl": [
+        "OmniSurface.mdl"
+      ]
+    },
+    "NewMetro": {
+      "current_stage": "resources/releases/pedestrians_20261010/scenes/NewMetro/collected/scene.usdc",
+      "tested_static_stage_relocated": "resources/releases/pedestrians_20261010/scenes/NewMetro/tested_static/NewMetro_static_v2.usda",
+      "original_scene_config": "resources/releases/pedestrians_20261010/configs/original/NewMetro_scene.yaml",
+      "portable_model_profile": "resources/releases/pedestrians_20261010/configs/portable_models/NewMetro_profile.json",
+      "camera_config": "resources/releases/pedestrians_20261010/configs/original/NewMetro_cameras.json",
+      "native_map_paths_migrated": false,
+      "relocated_scene_physics_rerun": false,
+      "sdk_builtin_mdl": []
+    },
+    "SecondFloor": {
+      "current_stage": "resources/releases/pedestrians_20261010/scenes/SecondFloor/collected/restroom_v19.usdc",
+      "tested_static_stage_relocated": "resources/releases/pedestrians_20261010/scenes/SecondFloor/tested_static/SecondFloor_static_v3.usda",
+      "original_scene_config": "resources/releases/pedestrians_20261010/configs/original/SecondFloor_scene.yaml",
+      "portable_model_profile": "resources/releases/pedestrians_20261010/configs/portable_models/SecondFloor_profile.json",
+      "camera_config": "resources/releases/pedestrians_20261010/configs/original/SecondFloor_cameras.json",
+      "native_map_paths_migrated": false,
+      "relocated_scene_physics_rerun": false,
+      "sdk_builtin_mdl": []
+    },
+    "ThirdFloor": {
+      "current_stage": "resources/releases/pedestrians_20261010/scenes/ThirdFloor/collected/third_floor_optimized.usda",
+      "tested_static_stage_relocated": "resources/releases/pedestrians_20261010/scenes/ThirdFloor/tested_static/ThirdFloor_static_v2.usda",
+      "original_scene_config": "resources/releases/pedestrians_20261010/configs/original/ThirdFloor_scene.yaml",
+      "portable_model_profile": "resources/releases/pedestrians_20261010/configs/portable_models/ThirdFloor_profile.json",
+      "camera_config": "resources/releases/pedestrians_20261010/configs/original/ThirdFloor_cameras.json",
+      "native_map_paths_migrated": false,
+      "relocated_scene_physics_rerun": false,
+      "sdk_builtin_mdl": [
+        "OmniGlass.mdl",
+        "OmniPBR.mdl"
+      ]
+    }
+  },
+  "robot": {
+    "stage": "resources/releases/pedestrians_20261010/robot/EVT-EXP.usd",
+    "source_sha256": "d5e82de58510753ddaf6160a185d7c5c64333f0089eb40b3c98e6f9bd7837ab6",
+    "included_in_selected_four_scene_physics_runs": false
+  }
+}

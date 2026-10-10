@@ -1,0 +1,36 @@
+{
+  "root": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/gait_four_scene_optimization/SecondFloor_static_v3.usda",
+  "root_sha256": "f07e0c9114900130667b89cf79099caebabe1f1ad671cdc187d3eb39f888dbb7",
+  "metadata": {
+    "metersPerUnit": 1.0,
+    "upAxis": "Z",
+    "defaultPrim": "SecondFloor"
+  },
+  "layers": [
+    {
+      "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/gait_four_scene_optimization/SecondFloor_static_v3.usda",
+      "exists": true,
+      "bytes": 218206,
+      "mtime_ns": 1791519579214686972,
+      "composition_dependencies": [
+        "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/gait_four_scene_optimization/SecondFloor_frozen.usda"
+      ]
+    },
+    {
+      "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/gait_four_scene_optimization/SecondFloor_frozen.usda",
+      "exists": true,
+      "bytes": 360059395,
+      "mtime_ns": 1791514724718012406,
+      "composition_dependencies": [
+        ""
+      ]
+    }
+  ],
+  "arc_count": 1,
+  "missing_local_layers": [],
+  "remote_composition_arcs": [],
+  "invalid_layers": [],
+  "composition_complete": true,
+  "texture_or_shader_resolution_checked": false,
+  "dependency_content_hashes_recomputed": false
+}

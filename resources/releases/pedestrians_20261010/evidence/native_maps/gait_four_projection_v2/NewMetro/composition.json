@@ -1,0 +1,34 @@
+{
+  "root": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/gait_four_scene_optimization/NewMetro_static_v2.usda",
+  "root_sha256": "d745b909bc9ec4206cd530f23c93341288a431c8642a48b04e24734aff553a3b",
+  "metadata": {
+    "metersPerUnit": 1.0,
+    "upAxis": "Z",
+    "defaultPrim": "NewMetro"
+  },
+  "layers": [
+    {
+      "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/gait_four_scene_optimization/NewMetro_static_v2.usda",
+      "exists": true,
+      "bytes": 15562,
+      "mtime_ns": 1791514994529991912,
+      "composition_dependencies": [
+        "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/gait_four_scene_optimization/NewMetro_frozen.usda"
+      ]
+    },
+    {
+      "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/gait_four_scene_optimization/NewMetro_frozen.usda",
+      "exists": true,
+      "bytes": 478406985,
+      "mtime_ns": 1791514710754013466,
+      "composition_dependencies": []
+    }
+  ],
+  "arc_count": 1,
+  "missing_local_layers": [],
+  "remote_composition_arcs": [],
+  "invalid_layers": [],
+  "composition_complete": true,
+  "texture_or_shader_resolution_checked": false,
+  "dependency_content_hashes_recomputed": false
+}

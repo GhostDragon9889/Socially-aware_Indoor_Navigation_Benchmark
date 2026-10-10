@@ -1,0 +1,638 @@
+{
+  "schema": "crowdsim.gait_geometry.v1",
+  "result_sha256": "7dc9588d568d771cbf2c468eec9f09904e5bd1bd9c8f75c5110e55a6da3ef5be",
+  "physical_sha256": "2c35e7eab1e307734dce1e6ddd02e7f0b1dcf964407754cc1b6e17f9db807b4d",
+  "actors": [
+    {
+      "total_frames": 1800,
+      "moving_frames": 1522,
+      "straight_moving_frames": 198,
+      "speed_m_s": {
+        "count": 1800,
+        "mean": 0.4981756741408673,
+        "p05": 0.10554987452924251,
+        "p95": 0.8531242728233337,
+        "median": 0.5427588522434235
+      },
+      "moving_speed_m_s": {
+        "count": 1522,
+        "mean": 0.5659495190510455,
+        "p05": 0.23649076297879218,
+        "p95": 0.8684481620788574,
+        "median": 0.6006185710430145
+      },
+      "legs": {
+        "L": {
+          "knee_flexion_deg_moving": {
+            "count": 1522,
+            "mean": 18.471041104170087,
+            "p05": 8.762007141113282,
+            "p95": 30.900882720947266,
+            "median": 17.46198272705078
+          },
+          "toe_forward_offset_m_moving": {
+            "count": 1522,
+            "mean": 0.03544132803605304,
+            "p05": -0.16429974287748336,
+            "p95": 0.22949756234884264,
+            "median": 0.030220706947147846
+          },
+          "cycles": [
+            {
+              "start_s": 0.6,
+              "end_s": 1.6666666666666667,
+              "period_s": 1.0666666666666667,
+              "foot_fore_aft_range_m": 0.4167709946632385,
+              "toe_origin_vertical_excursion_m": 0.03498329594731331,
+              "knee_flexion_range_deg": 22.115676879882812
+            },
+            {
+              "start_s": 1.6666666666666667,
+              "end_s": 2.8666666666666667,
+              "period_s": 1.2,
+              "foot_fore_aft_range_m": 0.418636679649353,
+              "toe_origin_vertical_excursion_m": 0.03787738084793091,
+              "knee_flexion_range_deg": 21.302947998046875
+            },
+            {
+              "start_s": 2.8666666666666667,
+              "end_s": 3.933333333333333,
+              "period_s": 1.0666666666666667,
+              "foot_fore_aft_range_m": 0.3990621566772461,
+              "toe_origin_vertical_excursion_m": 0.022878244519233704,
+              "knee_flexion_range_deg": 17.958343505859375
+            },
+            {
+              "start_s": 5.933333333333334,
+              "end_s": 6.7,
+              "period_s": 0.7666666666666666,
+              "foot_fore_aft_range_m": 0.26181480288505554,
+              "toe_origin_vertical_excursion_m": 0.08191274106502533,
+              "knee_flexion_range_deg": 14.953582763671875
+            },
+            {
+              "start_s": 6.7,
+              "end_s": 7.833333333333333,
+              "period_s": 1.1333333333333333,
+              "foot_fore_aft_range_m": 0.42267727851867676,
+              "toe_origin_vertical_excursion_m": 0.040896184742450714,
+              "knee_flexion_range_deg": 25.721572875976562
+            },
+            {
+              "start_s": 7.833333333333333,
+              "end_s": 9.066666666666666,
+              "period_s": 1.2333333333333334,
+              "foot_fore_aft_range_m": 0.478463351726532,
+              "toe_origin_vertical_excursion_m": 0.030606139451265335,
+              "knee_flexion_range_deg": 20.575775146484375
+            },
+            {
+              "start_s": 11.333333333333334,
+              "end_s": 12.233333333333333,
+              "period_s": 0.9,
+              "foot_fore_aft_range_m": 0.16843435168266296,
+              "toe_origin_vertical_excursion_m": 0.061111561954021454,
+              "knee_flexion_range_deg": 15.1402587890625
+            },
+            {
+              "start_s": 13.799999999999999,
+              "end_s": 14.9,
+              "period_s": 1.1,
+              "foot_fore_aft_range_m": 0.40655070543289185,
+              "toe_origin_vertical_excursion_m": 0.029656806960701942,
+              "knee_flexion_range_deg": 21.652862548828125
+            },
+            {
+              "start_s": 14.9,
+              "end_s": 16.03333333333333,
+              "period_s": 1.1333333333333333,
+              "foot_fore_aft_range_m": 0.46744608879089355,
+              "toe_origin_vertical_excursion_m": 0.03723505884408951,
+              "knee_flexion_range_deg": 23.417678833007812
+            },
+            {
+              "start_s": 17.833333333333332,
+              "end_s": 18.633333333333333,
+              "period_s": 0.8,
+              "foot_fore_aft_range_m": 0.28664326667785645,
+              "toe_origin_vertical_excursion_m": 0.02785833552479744,
+              "knee_flexion_range_deg": 19.886566162109375
+            },
+            {
+              "start_s": 18.633333333333333,
+              "end_s": 19.666666666666668,
+              "period_s": 1.0333333333333332,
+              "foot_fore_aft_range_m": 0.4014052450656891,
+              "toe_origin_vertical_excursion_m": 0.034747086465358734,
+              "knee_flexion_range_deg": 24.616851806640625
+            },
+            {
+              "start_s": 19.666666666666668,
+              "end_s": 20.733333333333334,
+              "period_s": 1.0666666666666667,
+              "foot_fore_aft_range_m": 0.46352440118789673,
+              "toe_origin_vertical_excursion_m": 0.04092838615179062,
+              "knee_flexion_range_deg": 22.4449462890625
+            },
+            {
+              "start_s": 22.0,
+              "end_s": 23.433333333333334,
+              "period_s": 1.4333333333333333,
+              "foot_fore_aft_range_m": 0.47479531168937683,
+              "toe_origin_vertical_excursion_m": 0.06232508644461632,
+              "knee_flexion_range_deg": 26.254608154296875
+            },
+            {
+              "start_s": 23.433333333333334,
+              "end_s": 24.566666666666666,
+              "period_s": 1.1333333333333333,
+              "foot_fore_aft_range_m": 0.4342227578163147,
+              "toe_origin_vertical_excursion_m": 0.02966914512217045,
+              "knee_flexion_range_deg": 21.32965087890625
+            },
+            {
+              "start_s": 26.466666666666665,
+              "end_s": 27.666666666666668,
+              "period_s": 1.2,
+              "foot_fore_aft_range_m": 0.24701490998268127,
+              "toe_origin_vertical_excursion_m": 0.046432167291641235,
+              "knee_flexion_range_deg": 18.65936279296875
+            },
+            {
+              "start_s": 27.666666666666668,
+              "end_s": 28.566666666666666,
+              "period_s": 0.9,
+              "foot_fore_aft_range_m": 0.32070106267929077,
+              "toe_origin_vertical_excursion_m": 0.02340223640203476,
+              "knee_flexion_range_deg": 19.23248291015625
+            },
+            {
+              "start_s": 28.566666666666666,
+              "end_s": 29.7,
+              "period_s": 1.1333333333333333,
+              "foot_fore_aft_range_m": 0.40226858854293823,
+              "toe_origin_vertical_excursion_m": 0.028300223872065544,
+              "knee_flexion_range_deg": 22.822280883789062
+            },
+            {
+              "start_s": 29.7,
+              "end_s": 30.8,
+              "period_s": 1.1,
+              "foot_fore_aft_range_m": 0.4794734716415405,
+              "toe_origin_vertical_excursion_m": 0.037082694470882416,
+              "knee_flexion_range_deg": 21.576766967773438
+            },
+            {
+              "start_s": 32.63333333333333,
+              "end_s": 33.53333333333333,
+              "period_s": 0.9,
+              "foot_fore_aft_range_m": 0.3724077045917511,
+              "toe_origin_vertical_excursion_m": 0.029629021883010864,
+              "knee_flexion_range_deg": 22.878189086914062
+            },
+            {
+              "start_s": 33.53333333333333,
+              "end_s": 34.733333333333334,
+              "period_s": 1.2,
+              "foot_fore_aft_range_m": 0.45638737082481384,
+              "toe_origin_vertical_excursion_m": 0.03390108793973923,
+              "knee_flexion_range_deg": 20.620193481445312
+            },
+            {
+              "start_s": 34.733333333333334,
+              "end_s": 35.9,
+              "period_s": 1.1666666666666667,
+              "foot_fore_aft_range_m": 0.46836090087890625,
+              "toe_origin_vertical_excursion_m": 0.033581867814064026,
+              "knee_flexion_range_deg": 21.644073486328125
+            },
+            {
+              "start_s": 38.93333333333333,
+              "end_s": 39.7,
+              "period_s": 0.7666666666666666,
+              "foot_fore_aft_range_m": 0.21609801054000854,
+              "toe_origin_vertical_excursion_m": 0.040189824998378754,
+              "knee_flexion_range_deg": 11.34344482421875
+            },
+            {
+              "start_s": 39.7,
+              "end_s": 40.86666666666667,
+              "period_s": 1.1666666666666667,
+              "foot_fore_aft_range_m": 0.5073529481887817,
+              "toe_origin_vertical_excursion_m": 0.04757634922862053,
+              "knee_flexion_range_deg": 24.346771240234375
+            },
+            {
+              "start_s": 42.93333333333333,
+              "end_s": 43.9,
+              "period_s": 0.9666666666666667,
+              "foot_fore_aft_range_m": 0.2710559070110321,
+              "toe_origin_vertical_excursion_m": 0.06247904151678085,
+              "knee_flexion_range_deg": 17.660400390625
+            },
+            {
+              "start_s": 43.9,
+              "end_s": 44.86666666666667,
+              "period_s": 0.9666666666666667,
+              "foot_fore_aft_range_m": 0.41931411623954773,
+              "toe_origin_vertical_excursion_m": 0.043459609150886536,
+              "knee_flexion_range_deg": 22.6319580078125
+            },
+            {
+              "start_s": 44.86666666666667,
+              "end_s": 46.03333333333333,
+              "period_s": 1.1666666666666667,
+              "foot_fore_aft_range_m": 0.4500815272331238,
+              "toe_origin_vertical_excursion_m": 0.03277290612459183,
+              "knee_flexion_range_deg": 22.741989135742188
+            },
+            {
+              "start_s": 50.53333333333333,
+              "end_s": 51.86666666666667,
+              "period_s": 1.3333333333333333,
+              "foot_fore_aft_range_m": 0.4056062698364258,
+              "toe_origin_vertical_excursion_m": 0.05352170765399933,
+              "knee_flexion_range_deg": 24.86737060546875
+            },
+            {
+              "start_s": 51.86666666666667,
+              "end_s": 53.0,
+              "period_s": 1.1333333333333333,
+              "foot_fore_aft_range_m": 0.4767838716506958,
+              "toe_origin_vertical_excursion_m": 0.036215536296367645,
+              "knee_flexion_range_deg": 22.8692626953125
+            },
+            {
+              "start_s": 54.8,
+              "end_s": 55.6,
+              "period_s": 0.8,
+              "foot_fore_aft_range_m": 0.28368616104125977,
+              "toe_origin_vertical_excursion_m": 0.0632077157497406,
+              "knee_flexion_range_deg": 27.697189331054688
+            },
+            {
+              "start_s": 57.1,
+              "end_s": 58.199999999999996,
+              "period_s": 1.1,
+              "foot_fore_aft_range_m": 0.4481290876865387,
+              "toe_origin_vertical_excursion_m": 0.03406445309519768,
+              "knee_flexion_range_deg": 24.89862060546875
+            },
+            {
+              "start_s": 58.199999999999996,
+              "end_s": 59.333333333333336,
+              "period_s": 1.1333333333333333,
+              "foot_fore_aft_range_m": 0.4854709506034851,
+              "toe_origin_vertical_excursion_m": 0.037300657480955124,
+              "knee_flexion_range_deg": 22.58258056640625
+            }
+          ],
+          "cycle_period_s": {
+            "count": 31,
+            "mean": 1.070967741935484,
+            "p05": 0.7833333333333333,
+            "p95": 1.2833333333333332,
+            "median": 1.1
+          },
+          "cycle_fore_aft_range_m": {
+            "count": 31,
+            "mean": 0.39389162102053243,
+            "p05": 0.2315564602613449,
+            "p95": 0.4824722111225128,
+            "median": 0.418636679649353
+          },
+          "cycle_toe_vertical_excursion_m": {
+            "count": 31,
+            "mean": 0.040509759839023315,
+            "p05": 0.0256302859634161,
+            "p95": 0.06284337863326073,
+            "median": 0.037082694470882416
+          },
+          "cycle_knee_range_deg": {
+            "count": 31,
+            "mean": 21.498201923985636,
+            "p05": 15.046920776367188,
+            "p95": 25.98809051513672,
+            "median": 22.115676879882812
+          }
+        },
+        "R": {
+          "knee_flexion_deg_moving": {
+            "count": 1522,
+            "mean": 22.492611938957786,
+            "p05": 9.055007171630859,
+            "p95": 38.48396987915039,
+            "median": 21.676528930664062
+          },
+          "toe_forward_offset_m_moving": {
+            "count": 1522,
+            "mean": 0.045729405205830215,
+            "p05": -0.1563380740582943,
+            "p95": 0.25603744983673093,
+            "median": 0.04113435558974743
+          },
+          "cycles": [
+            {
+              "start_s": 1.1,
+              "end_s": 2.3,
+              "period_s": 1.2,
+              "foot_fore_aft_range_m": 0.4015263319015503,
+              "toe_origin_vertical_excursion_m": 0.02881384640932083,
+              "knee_flexion_range_deg": 26.464996337890625
+            },
+            {
+              "start_s": 2.3,
+              "end_s": 3.433333333333333,
+              "period_s": 1.1333333333333333,
+              "foot_fore_aft_range_m": 0.42988431453704834,
+              "toe_origin_vertical_excursion_m": 0.0378890186548233,
+              "knee_flexion_range_deg": 30.698837280273438
+            },
+            {
+              "start_s": 3.433333333333333,
+              "end_s": 4.5,
+              "period_s": 1.0666666666666667,
+              "foot_fore_aft_range_m": 0.3800143897533417,
+              "toe_origin_vertical_excursion_m": 0.03001745045185089,
+              "knee_flexion_range_deg": 26.528793334960938
+            },
+            {
+              "start_s": 5.8,
+              "end_s": 6.633333333333333,
+              "period_s": 0.8333333333333334,
+              "foot_fore_aft_range_m": 0.1459609866142273,
+              "toe_origin_vertical_excursion_m": 0.08762962371110916,
+              "knee_flexion_range_deg": 21.242233276367188
+            },
+            {
+              "start_s": 6.633333333333333,
+              "end_s": 8.466666666666667,
+              "period_s": 1.8333333333333333,
+              "foot_fore_aft_range_m": 0.5233172178268433,
+              "toe_origin_vertical_excursion_m": 0.0452587753534317,
+              "knee_flexion_range_deg": 33.42140197753906
+            },
+            {
+              "start_s": 8.466666666666667,
+              "end_s": 9.666666666666666,
+              "period_s": 1.2,
+              "foot_fore_aft_range_m": 0.4604153037071228,
+              "toe_origin_vertical_excursion_m": 0.03521960228681564,
+              "knee_flexion_range_deg": 29.479934692382812
+            },
+            {
+              "start_s": 10.966666666666667,
+              "end_s": 12.133333333333333,
+              "period_s": 1.1666666666666667,
+              "foot_fore_aft_range_m": 0.24939098954200745,
+              "toe_origin_vertical_excursion_m": 0.07757074385881424,
+              "knee_flexion_range_deg": 31.617034912109375
+            },
+            {
+              "start_s": 12.133333333333333,
+              "end_s": 14.4,
+              "period_s": 2.2666666666666666,
+              "foot_fore_aft_range_m": 0.43379974365234375,
+              "toe_origin_vertical_excursion_m": 0.03187344968318939,
+              "knee_flexion_range_deg": 30.373794555664062
+            },
+            {
+              "start_s": 14.4,
+              "end_s": 15.5,
+              "period_s": 1.1,
+              "foot_fore_aft_range_m": 0.39240312576293945,
+              "toe_origin_vertical_excursion_m": 0.032956503331661224,
+              "knee_flexion_range_deg": 28.2313232421875
+            },
+            {
+              "start_s": 17.666666666666668,
+              "end_s": 18.266666666666666,
+              "period_s": 0.6,
+              "foot_fore_aft_range_m": 0.20859141647815704,
+              "toe_origin_vertical_excursion_m": 0.01306850090622902,
+              "knee_flexion_range_deg": 15.479522705078125
+            },
+            {
+              "start_s": 18.266666666666666,
+              "end_s": 19.2,
+              "period_s": 0.9333333333333333,
+              "foot_fore_aft_range_m": 0.35342076420783997,
+              "toe_origin_vertical_excursion_m": 0.02643395960330963,
+              "knee_flexion_range_deg": 28.265472412109375
+            },
+            {
+              "start_s": 19.2,
+              "end_s": 20.266666666666666,
+              "period_s": 1.0666666666666667,
+              "foot_fore_aft_range_m": 0.41196268796920776,
+              "toe_origin_vertical_excursion_m": 0.03126406669616699,
+              "knee_flexion_range_deg": 31.052581787109375
+            },
+            {
+              "start_s": 21.6,
+              "end_s": 22.266666666666666,
+              "period_s": 0.6666666666666666,
+              "foot_fore_aft_range_m": 0.12571926414966583,
+              "toe_origin_vertical_excursion_m": 0.069094218313694,
+              "knee_flexion_range_deg": 37.44554901123047
+            },
+            {
+              "start_s": 22.266666666666666,
+              "end_s": 23.03333333333333,
+              "period_s": 0.7666666666666666,
+              "foot_fore_aft_range_m": 0.19338595867156982,
+              "toe_origin_vertical_excursion_m": 0.012452932074666023,
+              "knee_flexion_range_deg": 19.48260498046875
+            },
+            {
+              "start_s": 23.03333333333333,
+              "end_s": 24.03333333333333,
+              "period_s": 1.0,
+              "foot_fore_aft_range_m": 0.42758750915527344,
+              "toe_origin_vertical_excursion_m": 0.030451320111751556,
+              "knee_flexion_range_deg": 29.525222778320312
+            },
+            {
+              "start_s": 24.03333333333333,
+              "end_s": 25.133333333333333,
+              "period_s": 1.1,
+              "foot_fore_aft_range_m": 0.4232651889324188,
+              "toe_origin_vertical_excursion_m": 0.038146838545799255,
+              "knee_flexion_range_deg": 31.219406127929688
+            },
+            {
+              "start_s": 26.3,
+              "end_s": 29.2,
+              "period_s": 2.9,
+              "foot_fore_aft_range_m": 0.46864062547683716,
+              "toe_origin_vertical_excursion_m": 0.03883574903011322,
+              "knee_flexion_range_deg": 30.923919677734375
+            },
+            {
+              "start_s": 29.2,
+              "end_s": 30.266666666666666,
+              "period_s": 1.0666666666666667,
+              "foot_fore_aft_range_m": 0.4395409822463989,
+              "toe_origin_vertical_excursion_m": 0.04034455865621567,
+              "knee_flexion_range_deg": 31.472915649414062
+            },
+            {
+              "start_s": 32.266666666666666,
+              "end_s": 34.2,
+              "period_s": 1.9333333333333333,
+              "foot_fore_aft_range_m": 0.501441240310669,
+              "toe_origin_vertical_excursion_m": 0.04543028026819229,
+              "knee_flexion_range_deg": 35.03083801269531
+            },
+            {
+              "start_s": 34.2,
+              "end_s": 35.333333333333336,
+              "period_s": 1.1333333333333333,
+              "foot_fore_aft_range_m": 0.42031657695770264,
+              "toe_origin_vertical_excursion_m": 0.03705417364835739,
+              "knee_flexion_range_deg": 31.262298583984375
+            },
+            {
+              "start_s": 38.3,
+              "end_s": 40.3,
+              "period_s": 2.0,
+              "foot_fore_aft_range_m": 0.5020241737365723,
+              "toe_origin_vertical_excursion_m": 0.04412895068526268,
+              "knee_flexion_range_deg": 32.6651611328125
+            },
+            {
+              "start_s": 40.3,
+              "end_s": 41.46666666666667,
+              "period_s": 1.1666666666666667,
+              "foot_fore_aft_range_m": 0.49801766872406006,
+              "toe_origin_vertical_excursion_m": 0.045292168855667114,
+              "knee_flexion_range_deg": 31.664443969726562
+            },
+            {
+              "start_s": 42.8,
+              "end_s": 43.666666666666664,
+              "period_s": 0.8666666666666667,
+              "foot_fore_aft_range_m": 0.24472321569919586,
+              "toe_origin_vertical_excursion_m": 0.07548820972442627,
+              "knee_flexion_range_deg": 28.64599609375
+            },
+            {
+              "start_s": 43.666666666666664,
+              "end_s": 45.46666666666667,
+              "period_s": 1.8,
+              "foot_fore_aft_range_m": 0.4850381016731262,
+              "toe_origin_vertical_excursion_m": 0.04021704941987991,
+              "knee_flexion_range_deg": 33.5147705078125
+            },
+            {
+              "start_s": 45.46666666666667,
+              "end_s": 46.63333333333333,
+              "period_s": 1.1666666666666667,
+              "foot_fore_aft_range_m": 0.4471032917499542,
+              "toe_origin_vertical_excursion_m": 0.03992539644241333,
+              "knee_flexion_range_deg": 30.78533935546875
+            },
+            {
+              "start_s": 49.266666666666666,
+              "end_s": 52.46666666666667,
+              "period_s": 3.2,
+              "foot_fore_aft_range_m": 0.5312120914459229,
+              "toe_origin_vertical_excursion_m": 0.09873229265213013,
+              "knee_flexion_range_deg": 36.68182373046875
+            },
+            {
+              "start_s": 54.4,
+              "end_s": 55.43333333333333,
+              "period_s": 1.0333333333333332,
+              "foot_fore_aft_range_m": 0.31454959511756897,
+              "toe_origin_vertical_excursion_m": 0.09725125133991241,
+              "knee_flexion_range_deg": 27.65081787109375
+            },
+            {
+              "start_s": 56.199999999999996,
+              "end_s": 57.666666666666664,
+              "period_s": 1.4666666666666666,
+              "foot_fore_aft_range_m": 0.5207400918006897,
+              "toe_origin_vertical_excursion_m": 0.048790834844112396,
+              "knee_flexion_range_deg": 29.26312255859375
+            },
+            {
+              "start_s": 57.666666666666664,
+              "end_s": 58.8,
+              "period_s": 1.1333333333333333,
+              "foot_fore_aft_range_m": 0.4325122833251953,
+              "toe_origin_vertical_excursion_m": 0.03615356981754303,
+              "knee_flexion_range_deg": 29.064468383789062
+            }
+          ],
+          "cycle_period_s": {
+            "count": 29,
+            "mean": 1.3379310344827586,
+            "p05": 0.7066666666666667,
+            "p95": 2.646666666666665,
+            "median": 1.1333333333333333
+          },
+          "cycle_fore_aft_range_m": {
+            "count": 29,
+            "mean": 0.3919484527974293,
+            "p05": 0.1649309754371643,
+            "p95": 0.5222863674163818,
+            "median": 0.42758750915527344
+          },
+          "cycle_toe_vertical_excursion_m": {
+            "count": 29,
+            "mean": 0.045371908116443406,
+            "p05": 0.018414684385061265,
+            "p95": 0.09340260028839109,
+            "median": 0.03883574903011322
+          },
+          "cycle_knee_range_deg": {
+            "count": 29,
+            "mean": 29.626021549619477,
+            "p05": 20.186456298828126,
+            "p95": 36.021429443359374,
+            "median": 30.698837280273438
+          }
+        }
+      },
+      "arms": {
+        "L": {
+          "sagittal_abs_deg_moving": {
+            "count": 1522,
+            "mean": 11.854113470395824,
+            "p05": 2.160938739776611,
+            "p95": 23.376935958862305,
+            "median": 11.395368099212646
+          },
+          "sagittal_p95_minus_p05_deg": 21.422408318519594,
+          "forward_offset_std_m": 0.055225931107997894,
+          "contralateral_foot_forward_correlation_moving": 0.7428371760349132,
+          "contralateral_correlation_straight": 0.8788481541159289
+        },
+        "R": {
+          "sagittal_abs_deg_moving": {
+            "count": 1522,
+            "mean": 12.252605092123092,
+            "p05": 1.2510001122951506,
+            "p95": 22.92731971740723,
+            "median": 12.536866664886475
+          },
+          "sagittal_p95_minus_p05_deg": 22.44155945181847,
+          "forward_offset_std_m": 0.05533584952354431,
+          "contralateral_foot_forward_correlation_moving": 0.8018996907712876,
+          "contralateral_correlation_straight": 0.9173661726572899
+        }
+      },
+      "symmetry": {
+        "cycle_fore_aft_range_m_relative_difference": 0.021154747463705388,
+        "cycle_toe_vertical_excursion_m_relative_difference": 0.04618257378282035,
+        "cycle_knee_range_deg_relative_difference": 0.32503036473507274
+      }
+    }
+  ],
+  "limitations": [
+    "Body origins, not contact points or skinned sole clearance.",
+    "Cycles detected geometrically; turns/stops can change periods and asymmetry.",
+    "No claim of author gait metrics or human perceptual realism."
+  ]
+}

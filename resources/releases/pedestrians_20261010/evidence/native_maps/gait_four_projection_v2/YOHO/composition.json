@@ -1,0 +1,34 @@
+{
+  "root": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/gait_four_scene_optimization/YOHO_static_v2.usda",
+  "root_sha256": "8a8a16333a2987a99c792fd9e10b0ae923e195e8905522ae3b91e32b4a8ba871",
+  "metadata": {
+    "metersPerUnit": 1.0,
+    "upAxis": "Z",
+    "defaultPrim": "YOHO"
+  },
+  "layers": [
+    {
+      "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/gait_four_scene_optimization/YOHO_static_v2.usda",
+      "exists": true,
+      "bytes": 60113,
+      "mtime_ns": 1791514990442992223,
+      "composition_dependencies": [
+        "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/gait_four_scene_optimization/YOHO_frozen.usda"
+      ]
+    },
+    {
+      "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/gait_four_scene_optimization/YOHO_frozen.usda",
+      "exists": true,
+      "bytes": 334682425,
+      "mtime_ns": 1791514698646014386,
+      "composition_dependencies": []
+    }
+  ],
+  "arc_count": 1,
+  "missing_local_layers": [],
+  "remote_composition_arcs": [],
+  "invalid_layers": [],
+  "composition_complete": true,
+  "texture_or_shader_resolution_checked": false,
+  "dependency_content_hashes_recomputed": false
+}

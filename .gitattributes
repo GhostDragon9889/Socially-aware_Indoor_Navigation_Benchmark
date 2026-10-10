@@ -1,4 +1,4 @@
-# Owned source assets use ordinary Git; restored upstream assets retain Git LFS references.
+# Source text uses ordinary Git; upstream and selected release assets use Git LFS.
 * text=auto
 *.py text eol=lf
 *.md text eol=lf
@@ -172,3 +172,17 @@
 /src/protomotions/data/assets/usd/strike_target.usd filter=lfs diff=lfs merge=lfs -text
 /src/protomotions/data/assets/usd/strike_target_box_instanceable.usd filter=lfs diff=lfs merge=lfs -text
 /src/protomotions/data/assets/usd/terrain_material.usda filter=lfs diff=lfs merge=lfs -text
+
+
+# Private pedestrian/robot/four-scene release. Fetch with manage_release_assets.py.
+# Preserve byte-bound metadata without line-ending normalization.
+/resources/releases/pedestrians_20261010/** -text
+/resources/releases/pedestrians_20261010/scenes/** filter=lfs diff=lfs merge=lfs -text
+/resources/releases/pedestrians_20261010/robot/** filter=lfs diff=lfs merge=lfs -text
+/resources/releases/pedestrians_20261010/source_snapshots/** filter=lfs diff=lfs merge=lfs -text
+/resources/releases/pedestrians_20261010/**/*.pth filter=lfs diff=lfs merge=lfs -text
+/resources/releases/pedestrians_20261010/**/*.pt filter=lfs diff=lfs merge=lfs -text
+/resources/releases/pedestrians_20261010/**/*.ckpt filter=lfs diff=lfs merge=lfs -text
+/resources/releases/pedestrians_20261010/**/*.npz filter=lfs diff=lfs merge=lfs -text
+/resources/releases/pedestrians_20261010/**/*.png filter=lfs diff=lfs merge=lfs -text
+/resources/releases/pedestrians_20261010/**/*.usda filter=lfs diff=lfs merge=lfs -text

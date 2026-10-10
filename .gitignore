@@ -136,3 +136,6 @@ src/protomotions/data/assets/usd/smpl*
 /src/protomotions/data/assets/usd/g1_holo_compat_box_feet/configuration/g1_holo_compat_box_feet_sensor.usd
 /src/protomotions/data/assets/usd/g1_holo_compat_box_feet/configuration/g1_holo_compat_box_feet_physics.usd
 /src/protomotions/data/assets/usd/g1_holo_compat_box_feet/configuration/g1_holo_compat_box_feet_robot.usd
+
+# Explicit private asset release; global weight/output exclusions still apply elsewhere.
+!/resources/releases/pedestrians_20261010/**

@@ -1,0 +1,25 @@
+{
+  "schema": "crowdsim.amass_finetune_CPU_audit.v1",
+  "status": "passed",
+  "training_result_sha256": "be2b9b45b3075b7a5147c8716fbf6d46480b8c0a5bf1e3b3047c5d18e35be5a1",
+  "parent_sha256": "bc0cb89b4d7ceaeb198339c34f3d736eb7449e7e479a7ee0f80d32563737d615",
+  "checkpoint_sha256": "cb2783690a683cbfbbf14e0788d99a2a49d0da0513d11399682db776deb3553c",
+  "manifest_sha256": "68d41be28908f28a09c47f7658af39d55fad01b32212bd7c0ced2b1e6b1489ca",
+  "updates": 128,
+  "physical_transitions": 655360,
+  "all2848_expert_ids_verified": true,
+  "all_four_normalizers_exactly_frozen": true,
+  "export_actor_critic_discriminator_and_normalization_exact": true,
+  "weight_max_abs_deltas": {
+    "_task_mlp": 0.10011004656553268,
+    "actor_mlp": 0.02474653348326683,
+    "critic_mlp": 0.1034071147441864,
+    "mu": 0.014542389661073685,
+    "value": 0.07763083279132843,
+    "_disc_mlp": 0.019405439496040344,
+    "_disc_logits": 0.006556056439876556
+  },
+  "actual_training_falls": 1,
+  "teacher_not_used_at_inference": true,
+  "physical_quality_evaluation_required": true
+}

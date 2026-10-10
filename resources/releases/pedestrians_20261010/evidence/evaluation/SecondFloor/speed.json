@@ -1,0 +1,3496 @@
+{
+  "schema": "crowdsim.actual_speed_coverage.v3",
+  "execution_sha256": "52b5e6a838c089cd35d4d3ec505aadd21a06a411f92eb7842d4426ddc8d69150",
+  "evaluator_sha256": "4a1920c7537206d4d4bec2c7116b3713ae7cdf3f8bed780938036b1862851e00",
+  "scene_bound_to_actual_native_input": true,
+  "result_sha256": "7dc9588d568d771cbf2c468eec9f09904e5bd1bd9c8f75c5110e55a6da3ef5be",
+  "physical_sha256": "2c35e7eab1e307734dce1e6ddd02e7f0b1dcf964407754cc1b6e17f9db807b4d",
+  "planning_sha256": "85b8d1e0d655a7e4788059047ff630fc033973ab9e2fef2837c8f48e319ed01b",
+  "scene_config_sha256": "b0b56d2a1a89320858b219c9451fe8e6d771201b7de2ffb8f2d62c09f9d96da6",
+  "all_frames_included_in_speed_cap": true,
+  "cruise_selection": "planned first0.5s mean speed >=.55m/s, first1s absolute heading increments <=.35rad, pelvis heading within45deg of planned initial direction, selected diffusion sample >=0, after1.2s startup; independent of actual speed",
+  "checks": {
+    "actual_speed_upper1p5_all_frames": true,
+    "each_actor_cruise_at_least5s": true,
+    "each_actor_cruise_rolling_mean_in_band": true,
+    "each_actor_cruise_below0p5_fraction_at_most10pct": true
+  },
+  "speed_band_screen_passed": true,
+  "per_actor": [
+    {
+      "actor": 0,
+      "all_frame_speed_m_s": {
+        "frames": 1800,
+        "mean": 0.4981756741408673,
+        "p05": 0.10554987452924251,
+        "p50": 0.5427588522434235,
+        "p95": 0.8531242728233337,
+        "max": 1.0966770648956299
+      },
+      "cruise_intent_frames": 694,
+      "cruise_actual_speed_m_s": {
+        "frames": 694,
+        "mean": 0.7214713335810202,
+        "p05": 0.5527387082576751,
+        "p50": 0.7099044322967529,
+        "p95": 0.9367490381002426,
+        "max": 1.0966770648956299
+      },
+      "cruise_actual_0p5s_mean_speed_m_s": {
+        "frames": 694,
+        "mean": 0.7136312262812677,
+        "p05": 0.5865704834461212,
+        "p50": 0.7126258313655853,
+        "p95": 0.8257240384817124,
+        "max": 0.8702986836433411
+      },
+      "cruise_rolling_below0p5_fraction": 0.0,
+      "all_frame_above1p5_count": 0,
+      "all_frame_below0p5_fraction": 0.45555555555555555,
+      "path_length_m": 29.644695281982422,
+      "cruise_minimum5s": true
+    }
+  ],
+  "coverage": {
+    "vicinity_radius_m": 0.75,
+    "definition": "union of .75m planar neighborhoods around actual root samples, intersected with native known-free cell centers; exploration vicinity, not body contact footprint",
+    "known_free_area_m2": 33.36,
+    "safe_cell_area_m2": 11.39,
+    "spawn_reachable_safe_area_m2": 9.48,
+    "actual_vicinity_known_free_area_m2": 6.5600000000000005,
+    "actual_vicinity_fraction_known_free": 0.19664268585131894,
+    "actual_vicinity_fraction_safe": 0.3520632133450395,
+    "actual_vicinity_fraction_spawn_reachable_safe": 0.4229957805907173,
+    "spawn_component_ids": [
+      1
+    ],
+    "no_claim_whole_USD_coverage": true
+  },
+  "intent_classification": [
+    {
+      "physical_control": 0,
+      "first1s_mean_intent_speed_m_s": [
+        0.5671146512031555
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.35875195264816284
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.013988012447953224
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.040810614824295044
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 10,
+      "first1s_mean_intent_speed_m_s": [
+        0.6261530518531799
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.5530450344085693
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.26966819167137146
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.30188682675361633
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 20,
+      "first1s_mean_intent_speed_m_s": [
+        0.6026884317398071
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.6943234205245972
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.17350457608699799
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.17663443088531494
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 30,
+      "first1s_mean_intent_speed_m_s": [
+        0.6480745673179626
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.6448317766189575
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.16008323431015015
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.07456707954406738
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 40,
+      "first1s_mean_intent_speed_m_s": [
+        0.6012534499168396
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.6127201914787292
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.31977587938308716
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.12875624001026154
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 50,
+      "first1s_mean_intent_speed_m_s": [
+        0.5921146273612976
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.6056729555130005
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.10027483105659485
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.15700015425682068
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 60,
+      "first1s_mean_intent_speed_m_s": [
+        0.5720034241676331
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.5620704293251038
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.11563712358474731
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.20779040455818176
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 70,
+      "first1s_mean_intent_speed_m_s": [
+        0.6487320065498352
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.6871676445007324
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.384233295917511
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.1018189936876297
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 80,
+      "first1s_mean_intent_speed_m_s": [
+        0.6526109576225281
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.6522182822227478
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.2864566445350647
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.14435553550720215
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 90,
+      "first1s_mean_intent_speed_m_s": [
+        0.6290664672851562
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.6492513418197632
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.2756578326225281
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.4164245128631592
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 100,
+      "first1s_mean_intent_speed_m_s": [
+        0.5413608551025391
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.5528414845466614
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.15485014021396637
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.1611405462026596
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 110,
+      "first1s_mean_intent_speed_m_s": [
+        0.6355957388877869
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.6123558878898621
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.3640667200088501
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.10149883478879929
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 120,
+      "first1s_mean_intent_speed_m_s": [
+        0.6479784250259399
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.6501652002334595
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.09154487401247025
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.35802289843559265
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 130,
+      "first1s_mean_intent_speed_m_s": [
+        0.6017339825630188
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.5989506244659424
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.19562320411205292
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.14777535200119019
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 140,
+      "first1s_mean_intent_speed_m_s": [
+        0.06970007717609406
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.1394001543521881
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.3346656560897827
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.35435160994529724
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 150,
+      "first1s_mean_intent_speed_m_s": [
+        0.008365522138774395
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.01673104427754879
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.08626177906990051
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.045330747961997986
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 160,
+      "first1s_mean_intent_speed_m_s": [
+        0.5216966271400452
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.3503435254096985
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        3.129986047744751
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.02429938316345215
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 170,
+      "first1s_mean_intent_speed_m_s": [
+        0.6312088370323181
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.5439853072166443
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        2.9536304473876953
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.10538321733474731
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 171,
+      "first1s_mean_intent_speed_m_s": [
+        0.015726497396826744
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.03145299479365349
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        3.0207595825195312
+      ],
+      "first1s_heading_change_abs_rad": [
+        3.132322072982788
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 181,
+      "first1s_mean_intent_speed_m_s": [
+        0.5748982429504395
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.4008505940437317
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        3.022980213165283
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.03818225860595703
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 191,
+      "first1s_mean_intent_speed_m_s": [
+        0.5720707178115845
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.5233316421508789
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        1.9867178201675415
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.47025638818740845
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 199,
+      "first1s_mean_intent_speed_m_s": [
+        0.03880055993795395
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.0776011198759079
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        1.4314006567001343
+      ],
+      "first1s_heading_change_abs_rad": [
+        3.0975964069366455
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 209,
+      "first1s_mean_intent_speed_m_s": [
+        0.5927800536155701
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.4729243218898773
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        1.4853651523590088
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.19136649370193481
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 219,
+      "first1s_mean_intent_speed_m_s": [
+        0.6285682320594788
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.5736653804779053
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        1.0123202800750732
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.21526867151260376
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 229,
+      "first1s_mean_intent_speed_m_s": [
+        0.6117791533470154
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.5761340260505676
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.43490344285964966
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.3305822014808655
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 239,
+      "first1s_mean_intent_speed_m_s": [
+        0.661303699016571
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.717415452003479
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.1431581974029541
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.3804965615272522
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 249,
+      "first1s_mean_intent_speed_m_s": [
+        0.5951641798019409
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.6178475022315979
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.09015107154846191
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.23979860544204712
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 259,
+      "first1s_mean_intent_speed_m_s": [
+        0.650302529335022
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.7006841897964478
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.38330966234207153
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.08752894401550293
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 269,
+      "first1s_mean_intent_speed_m_s": [
+        0.6123310327529907
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.5942244529724121
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.06688594818115234
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.17203623056411743
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 279,
+      "first1s_mean_intent_speed_m_s": [
+        0.6422882080078125
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.6478102803230286
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.17658835649490356
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.33321624994277954
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 289,
+      "first1s_mean_intent_speed_m_s": [
+        0.0909993052482605
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.181998610496521
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.28457242250442505
+      ],
+      "first1s_heading_change_abs_rad": [
+        3.0439515113830566
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 299,
+      "first1s_mean_intent_speed_m_s": [
+        0.014580744318664074
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.029161488637328148
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.282125324010849
+      ],
+      "first1s_heading_change_abs_rad": [
+        2.948967218399048
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 309,
+      "first1s_mean_intent_speed_m_s": [
+        0.00536000682041049
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.01072001364082098
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.5225217938423157
+      ],
+      "first1s_heading_change_abs_rad": [
+        2.701678991317749
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 319,
+      "first1s_mean_intent_speed_m_s": [
+        0.5439419746398926
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.37138521671295166
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        3.1150436401367188
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.025565456598997116
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 329,
+      "first1s_mean_intent_speed_m_s": [
+        0.5785075426101685
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.4812258780002594
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        3.0213308334350586
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.17841428518295288
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 335,
+      "first1s_mean_intent_speed_m_s": [
+        0.010927177965641022
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.021854355931282043
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        2.844731092453003
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.4085961878299713
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 345,
+      "first1s_mean_intent_speed_m_s": [
+        0.4431067109107971
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.2734205424785614
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        1.970103144645691
+      ],
+      "first1s_heading_change_abs_rad": [
+        1.0592652559280396
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 355,
+      "first1s_mean_intent_speed_m_s": [
+        0.5939118266105652
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.5115346312522888
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        1.9897687435150146
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.7416670322418213
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 359,
+      "first1s_mean_intent_speed_m_s": [
+        0.05912955850362778
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.11825911700725555
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        1.5301719903945923
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.6462451219558716
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 369,
+      "first1s_mean_intent_speed_m_s": [
+        0.36562618613243103
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.1874258816242218
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.7735086679458618
+      ],
+      "first1s_heading_change_abs_rad": [
+        1.0684394836425781
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 378,
+      "first1s_mean_intent_speed_m_s": [
+        0.009369457140564919
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.018738914281129837
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        1.226205587387085
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.20292499661445618
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 388,
+      "first1s_mean_intent_speed_m_s": [
+        0.5454349517822266
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.3508757948875427
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        1.7760499715805054
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.3926435112953186
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 398,
+      "first1s_mean_intent_speed_m_s": [
+        0.5424351096153259
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.4756680428981781
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        1.117240071296692
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.258476197719574
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 408,
+      "first1s_mean_intent_speed_m_s": [
+        0.5684994459152222
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.525407612323761
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.6692603826522827
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.30076029896736145
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 418,
+      "first1s_mean_intent_speed_m_s": [
+        0.6212709546089172
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.6221160888671875
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.061993859708309174
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.3067461848258972
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 428,
+      "first1s_mean_intent_speed_m_s": [
+        0.6029022336006165
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.5941246747970581
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.21474096179008484
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.08581742644309998
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 438,
+      "first1s_mean_intent_speed_m_s": [
+        0.6153916716575623
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.6112321019172668
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.37174758315086365
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.18168511986732483
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 448,
+      "first1s_mean_intent_speed_m_s": [
+        0.5808582901954651
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.6005223393440247
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.12670549750328064
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.24365107715129852
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 458,
+      "first1s_mean_intent_speed_m_s": [
+        0.5164660215377808
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.5213874578475952
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.010239438153803349
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.20736448466777802
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 468,
+      "first1s_mean_intent_speed_m_s": [
+        0.6581437587738037
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.7019151449203491
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.4318459630012512
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.15951621532440186
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 478,
+      "first1s_mean_intent_speed_m_s": [
+        0.06487689167261124
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.12975378334522247
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.07992615550756454
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.25668632984161377
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 488,
+      "first1s_mean_intent_speed_m_s": [
+        0.01115357968956232
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.02230715937912464
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.2994934022426605
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.032037362456321716
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 498,
+      "first1s_mean_intent_speed_m_s": [
+        0.006393226329237223
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.012786452658474445
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.38861894607543945
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.09863033145666122
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 508,
+      "first1s_mean_intent_speed_m_s": [
+        0.5444644689559937
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.3771386742591858
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        2.708071231842041
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.10077428817749023
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 518,
+      "first1s_mean_intent_speed_m_s": [
+        0.6176708936691284
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.5628530383110046
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        2.0518054962158203
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.018992185592651367
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 528,
+      "first1s_mean_intent_speed_m_s": [
+        0.6965100169181824
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.7730864882469177
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.9569383263587952
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.19101554155349731
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 538,
+      "first1s_mean_intent_speed_m_s": [
+        0.5989956855773926
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.6218494176864624
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.24164198338985443
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.3790596127510071
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 548,
+      "first1s_mean_intent_speed_m_s": [
+        0.6039121150970459
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.606399416923523
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.4795583188533783
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.27422791719436646
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 558,
+      "first1s_mean_intent_speed_m_s": [
+        0.5943744778633118
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.5813552141189575
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.10651707649230957
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.16253024339675903
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 568,
+      "first1s_mean_intent_speed_m_s": [
+        0.5992971658706665
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.5750448107719421
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.031974077224731445
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.11667662858963013
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 578,
+      "first1s_mean_intent_speed_m_s": [
+        0.6283527612686157
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.6901466846466064
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.4017270505428314
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.30952101945877075
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 588,
+      "first1s_mean_intent_speed_m_s": [
+        0.6290084719657898
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.6440831422805786
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.014594554901123047
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.21146661043167114
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 598,
+      "first1s_mean_intent_speed_m_s": [
+        0.6755227446556091
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.6704609990119934
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.15233969688415527
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.16361457109451294
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 608,
+      "first1s_mean_intent_speed_m_s": [
+        0.6539300084114075
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.7389523386955261
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.3316100239753723
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.21414166688919067
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 618,
+      "first1s_mean_intent_speed_m_s": [
+        0.07080305367708206
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.14160610735416412
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.21488887071609497
+      ],
+      "first1s_heading_change_abs_rad": [
+        3.062838077545166
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 628,
+      "first1s_mean_intent_speed_m_s": [
+        0.012927757576107979
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.025855515152215958
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.3361832797527313
+      ],
+      "first1s_heading_change_abs_rad": [
+        3.135709524154663
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 638,
+      "first1s_mean_intent_speed_m_s": [
+        0.611376166343689
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.502021849155426
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        2.9217617511749268
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.08934292197227478
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 648,
+      "first1s_mean_intent_speed_m_s": [
+        0.6431289315223694
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.6052863001823425
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        2.30090069770813
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.1780160516500473
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 657,
+      "first1s_mean_intent_speed_m_s": [
+        0.06601666659116745
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.1320333331823349
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        1.002954125404358
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.00890129804611206
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 667,
+      "first1s_mean_intent_speed_m_s": [
+        0.5304697751998901
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.44132083654403687
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.6269317269325256
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.4898507297039032
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 677,
+      "first1s_mean_intent_speed_m_s": [
+        0.6232185959815979
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.538353443145752
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.15861989557743073
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.19840994477272034
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 687,
+      "first1s_mean_intent_speed_m_s": [
+        0.6492761969566345
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.5826435685157776
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.23952487111091614
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.12457156926393509
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 697,
+      "first1s_mean_intent_speed_m_s": [
+        0.6122914552688599
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.60395747423172
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.21422216296195984
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.1307673454284668
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 707,
+      "first1s_mean_intent_speed_m_s": [
+        0.590997040271759
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.6280353665351868
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.22872504591941833
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.24898849427700043
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 717,
+      "first1s_mean_intent_speed_m_s": [
+        0.5617372393608093
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.578045129776001
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.11641339212656021
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.07738077640533447
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 727,
+      "first1s_mean_intent_speed_m_s": [
+        0.6342803835868835
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.645581066608429
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.29490363597869873
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.0876147598028183
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 737,
+      "first1s_mean_intent_speed_m_s": [
+        0.6649206280708313
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.6713846921920776
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.0952729880809784
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.24566245079040527
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 747,
+      "first1s_mean_intent_speed_m_s": [
+        0.5514973402023315
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.5475523471832275
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.03260643780231476
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.27791261672973633
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 757,
+      "first1s_mean_intent_speed_m_s": [
+        0.10968613624572754
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.21937227249145508
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.46882081031799316
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.6270712614059448
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 767,
+      "first1s_mean_intent_speed_m_s": [
+        0.01465192437171936
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.02930384874343872
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.32966360449790955
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.220079705119133
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 777,
+      "first1s_mean_intent_speed_m_s": [
+        0.5769883990287781
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.3961864411830902
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        3.1351478099823
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.06656026840209961
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 787,
+      "first1s_mean_intent_speed_m_s": [
+        0.6200652718544006
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.5317674875259399
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        3.041386842727661
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.20313483476638794
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 794,
+      "first1s_mean_intent_speed_m_s": [
+        0.03767617419362068
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.07535234838724136
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        2.614875078201294
+      ],
+      "first1s_heading_change_abs_rad": [
+        2.7403249740600586
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 804,
+      "first1s_mean_intent_speed_m_s": [
+        0.5182771682739258
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.3518470227718353
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        2.8480796813964844
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.03282642364501953
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 814,
+      "first1s_mean_intent_speed_m_s": [
+        0.5956605672836304
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.5454424619674683
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        1.6865341663360596
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.5723934769630432
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 821,
+      "first1s_mean_intent_speed_m_s": [
+        0.0316397063434124
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.0632794126868248
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        1.4837043285369873
+      ],
+      "first1s_heading_change_abs_rad": [
+        3.120532989501953
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 831,
+      "first1s_mean_intent_speed_m_s": [
+        0.48914164304733276
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.37109798192977905
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        1.3835241794586182
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.09170818328857422
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 841,
+      "first1s_mean_intent_speed_m_s": [
+        0.6140841245651245
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.5446014404296875
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        1.1490243673324585
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.2069692611694336
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 851,
+      "first1s_mean_intent_speed_m_s": [
+        0.5905500054359436
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.5642253756523132
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.6774514317512512
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.2350817322731018
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 861,
+      "first1s_mean_intent_speed_m_s": [
+        0.5908889770507812
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.5999168157577515
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.007582426071166992
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.2938616871833801
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 871,
+      "first1s_mean_intent_speed_m_s": [
+        0.592988133430481
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.5820062160491943
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.18236686289310455
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.07406884431838989
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 881,
+      "first1s_mean_intent_speed_m_s": [
+        0.6421833038330078
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.5941156148910522
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.3384721875190735
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.11208230257034302
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 891,
+      "first1s_mean_intent_speed_m_s": [
+        0.7019832730293274
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.7170940637588501
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.10802435874938965
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.15442806482315063
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 901,
+      "first1s_mean_intent_speed_m_s": [
+        0.5918219089508057
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.635114312171936
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.09562420845031738
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.30511218309402466
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 911,
+      "first1s_mean_intent_speed_m_s": [
+        0.6757408380508423
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.8128878474235535
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.3849204182624817
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.10208272933959961
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 921,
+      "first1s_mean_intent_speed_m_s": [
+        0.0689658671617508
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.1379317343235016
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.1183665469288826
+      ],
+      "first1s_heading_change_abs_rad": [
+        3.0857927799224854
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 931,
+      "first1s_mean_intent_speed_m_s": [
+        0.011973983608186245
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.02394796721637249
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.37834978103637695
+      ],
+      "first1s_heading_change_abs_rad": [
+        3.0897300243377686
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 941,
+      "first1s_mean_intent_speed_m_s": [
+        0.005530333146452904
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.011060666292905807
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.5347989201545715
+      ],
+      "first1s_heading_change_abs_rad": [
+        2.990605115890503
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 951,
+      "first1s_mean_intent_speed_m_s": [
+        0.530502438545227
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.3552207350730896
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        2.563831090927124
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.19241337478160858
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 961,
+      "first1s_mean_intent_speed_m_s": [
+        0.6045447587966919
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.5550634860992432
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        2.2345399856567383
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.20714706182479858
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 970,
+      "first1s_mean_intent_speed_m_s": [
+        0.03141015022993088
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.06282030045986176
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        1.6406322717666626
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.013439394533634186
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 980,
+      "first1s_mean_intent_speed_m_s": [
+        0.5483628511428833
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.4364851117134094
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        1.303926944732666
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.0808391198515892
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 990,
+      "first1s_mean_intent_speed_m_s": [
+        0.5844818353652954
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.5133365392684937
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.8216825127601624
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.051699038594961166
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1000,
+      "first1s_mean_intent_speed_m_s": [
+        0.5981183052062988
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.5676921010017395
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.48027676343917847
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.17206817865371704
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 1010,
+      "first1s_mean_intent_speed_m_s": [
+        0.6522276997566223
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.6692485213279724
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.1309085339307785
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.3226274251937866
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 1020,
+      "first1s_mean_intent_speed_m_s": [
+        0.6442800760269165
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.646138072013855
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.07099728286266327
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.18160074949264526
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 1030,
+      "first1s_mean_intent_speed_m_s": [
+        0.6202784776687622
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.699017345905304
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.40923407673835754
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.12959009408950806
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 1040,
+      "first1s_mean_intent_speed_m_s": [
+        0.6456460952758789
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.6424415707588196
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.07911117374897003
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.07016729563474655
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 1050,
+      "first1s_mean_intent_speed_m_s": [
+        0.6226338744163513
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.614696741104126
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.13819773495197296
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.33445894718170166
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 1060,
+      "first1s_mean_intent_speed_m_s": [
+        0.6177778244018555
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.6848540902137756
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.36351993680000305
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.06706854701042175
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 1070,
+      "first1s_mean_intent_speed_m_s": [
+        0.6619945764541626
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.6815677881240845
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.34348735213279724
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.16381826996803284
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 1080,
+      "first1s_mean_intent_speed_m_s": [
+        0.09050805121660233
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.18101610243320465
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.23069478571414948
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.6689434051513672
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1090,
+      "first1s_mean_intent_speed_m_s": [
+        0.011031622998416424
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.022063245996832848
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.12201720476150513
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.11204544454813004
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1100,
+      "first1s_mean_intent_speed_m_s": [
+        0.5813379883766174
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.4004937708377838
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        3.0719714164733887
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.0987391471862793
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1110,
+      "first1s_mean_intent_speed_m_s": [
+        0.5735255479812622
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.508446216583252
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        2.9425337314605713
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.019074440002441406
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1111,
+      "first1s_mean_intent_speed_m_s": [
+        0.01923328824341297
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.03846657648682594
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        2.955854654312134
+      ],
+      "first1s_heading_change_abs_rad": [
+        3.1068577766418457
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1121,
+      "first1s_mean_intent_speed_m_s": [
+        0.5729206204414368
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.44869399070739746
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        3.104090452194214
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.012262582778930664
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1122,
+      "first1s_mean_intent_speed_m_s": [
+        0.010868420824408531
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.021736841648817062
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        2.892216205596924
+      ],
+      "first1s_heading_change_abs_rad": [
+        2.912898302078247
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1132,
+      "first1s_mean_intent_speed_m_s": [
+        0.020985137671232224
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.04197027534246445
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        2.2644965648651123
+      ],
+      "first1s_heading_change_abs_rad": [
+        2.506549596786499
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1142,
+      "first1s_mean_intent_speed_m_s": [
+        0.530870795249939
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.3537786602973938
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        2.8443713188171387
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.023276805877685547
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1152,
+      "first1s_mean_intent_speed_m_s": [
+        0.5822082757949829
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.5361982583999634
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        1.747000813484192
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.245714008808136
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1159,
+      "first1s_mean_intent_speed_m_s": [
+        0.03411855176091194
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.06823710352182388
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        1.3893358707427979
+      ],
+      "first1s_heading_change_abs_rad": [
+        2.969451665878296
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1169,
+      "first1s_mean_intent_speed_m_s": [
+        0.5168448686599731
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.3611949384212494
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        1.313966989517212
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.05650830268859863
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1179,
+      "first1s_mean_intent_speed_m_s": [
+        0.5701562166213989
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.5131574869155884
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.8835108876228333
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.12210273742675781
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1189,
+      "first1s_mean_intent_speed_m_s": [
+        0.6374223232269287
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.5714114904403687
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.272104948759079
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.11496288329362869
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 1199,
+      "first1s_mean_intent_speed_m_s": [
+        0.6347223520278931
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.6033874750137329
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.06533217430114746
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.275226891040802
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 1209,
+      "first1s_mean_intent_speed_m_s": [
+        0.7177062630653381
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.7795506715774536
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.41959983110427856
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.20916706323623657
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 1219,
+      "first1s_mean_intent_speed_m_s": [
+        0.684199869632721
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.7200180292129517
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.2888410687446594
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.20791418850421906
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 1229,
+      "first1s_mean_intent_speed_m_s": [
+        0.679501473903656
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.7576252222061157
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.2773455083370209
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.2679041028022766
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 1239,
+      "first1s_mean_intent_speed_m_s": [
+        0.6251651644706726
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.6508427858352661
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.013820886611938477
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.24921613931655884
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 1249,
+      "first1s_mean_intent_speed_m_s": [
+        0.09301789849996567
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.18603579699993134
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.35149794816970825
+      ],
+      "first1s_heading_change_abs_rad": [
+        3.1000192165374756
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1259,
+      "first1s_mean_intent_speed_m_s": [
+        0.011842319741845131
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.023684639483690262
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.18336611986160278
+      ],
+      "first1s_heading_change_abs_rad": [
+        3.0826399326324463
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1269,
+      "first1s_mean_intent_speed_m_s": [
+        0.5127676725387573
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.356638103723526
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        2.946584939956665
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.16559620201587677
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1279,
+      "first1s_mean_intent_speed_m_s": [
+        0.6133227944374084
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.5225567817687988
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        3.082284450531006
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.11623610556125641
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1284,
+      "first1s_mean_intent_speed_m_s": [
+        0.021743400022387505
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.04348680004477501
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        2.8093700408935547
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.3177909851074219
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1294,
+      "first1s_mean_intent_speed_m_s": [
+        0.5364533066749573
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.39608293771743774
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        2.1864001750946045
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.7393105626106262
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1304,
+      "first1s_mean_intent_speed_m_s": [
+        0.5479669570922852
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.5143923759460449
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        1.5586316585540771
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.4518306255340576
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1311,
+      "first1s_mean_intent_speed_m_s": [
+        0.0324455201625824
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.0648910403251648
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        1.1663849353790283
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.057539548724889755
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1321,
+      "first1s_mean_intent_speed_m_s": [
+        0.5481376647949219
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.40293192863464355
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        1.8445450067520142
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.6113872528076172
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1331,
+      "first1s_mean_intent_speed_m_s": [
+        0.6501180529594421
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.6139829754829407
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        1.1320948600769043
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.39720866084098816
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1341,
+      "first1s_mean_intent_speed_m_s": [
+        0.6329164505004883
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.610319197177887
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.41221916675567627
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.21675148606300354
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 1351,
+      "first1s_mean_intent_speed_m_s": [
+        0.6474065780639648
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.6740869879722595
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.11921053379774094
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.3109956383705139
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 1361,
+      "first1s_mean_intent_speed_m_s": [
+        0.6218777298927307
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.6299787759780884
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.17847400903701782
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.14184221625328064
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 1371,
+      "first1s_mean_intent_speed_m_s": [
+        0.6474462747573853
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.6558858752250671
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.35853853821754456
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.1312057077884674
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 1381,
+      "first1s_mean_intent_speed_m_s": [
+        0.6617076992988586
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.6848462820053101
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.11840754747390747
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.24300134181976318
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 1391,
+      "first1s_mean_intent_speed_m_s": [
+        0.5691205263137817
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.6160006523132324
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.09375984221696854
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.3137359917163849
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 1401,
+      "first1s_mean_intent_speed_m_s": [
+        0.12555551528930664
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.2511110305786133
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.45606303215026855
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.6075325012207031
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1411,
+      "first1s_mean_intent_speed_m_s": [
+        0.015135345049202442
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.030270690098404884
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.3802829384803772
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.2222328782081604
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1421,
+      "first1s_mean_intent_speed_m_s": [
+        0.562724769115448
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.38280320167541504
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        3.096959352493286
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.06848645210266113
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1431,
+      "first1s_mean_intent_speed_m_s": [
+        0.5548883676528931
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.47729095816612244
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        3.0576937198638916
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.23425084352493286
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1438,
+      "first1s_mean_intent_speed_m_s": [
+        0.022397639229893684
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.04479527845978737
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        2.6752421855926514
+      ],
+      "first1s_heading_change_abs_rad": [
+        2.6488046646118164
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1448,
+      "first1s_mean_intent_speed_m_s": [
+        0.5758690237998962
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.4013403058052063
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        2.982334852218628
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.13420748710632324
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1452,
+      "first1s_mean_intent_speed_m_s": [
+        0.012533655390143394
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.02506731078028679
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        2.5411553382873535
+      ],
+      "first1s_heading_change_abs_rad": [
+        2.6211535930633545
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1462,
+      "first1s_mean_intent_speed_m_s": [
+        0.5498077273368835
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.36767253279685974
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        3.0345218181610107
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.058622121810913086
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1470,
+      "first1s_mean_intent_speed_m_s": [
+        0.016961533576250076
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.03392306715250015
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        2.7787468433380127
+      ],
+      "first1s_heading_change_abs_rad": [
+        2.9682250022888184
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1480,
+      "first1s_mean_intent_speed_m_s": [
+        0.5251342058181763
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.4000450074672699
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        3.015496015548706
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.2569332718849182
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1481,
+      "first1s_mean_intent_speed_m_s": [
+        0.008743098936975002
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.017486197873950005
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        3.120255947113037
+      ],
+      "first1s_heading_change_abs_rad": [
+        3.081263542175293
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1491,
+      "first1s_mean_intent_speed_m_s": [
+        0.5383856892585754
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.36155271530151367
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        2.3114683628082275
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.6336086392402649
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1501,
+      "first1s_mean_intent_speed_m_s": [
+        0.5841138958930969
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.5555607080459595
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        1.4994642734527588
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.632413923740387
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1507,
+      "first1s_mean_intent_speed_m_s": [
+        0.028404435142874718
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.056808870285749435
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        1.2560946941375732
+      ],
+      "first1s_heading_change_abs_rad": [
+        3.1392273902893066
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1517,
+      "first1s_mean_intent_speed_m_s": [
+        0.5669649839401245
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.4516696035861969
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        1.6310579776763916
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.23005104064941406
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1518,
+      "first1s_mean_intent_speed_m_s": [
+        0.015936193987727165
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.03187238797545433
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        1.8399064540863037
+      ],
+      "first1s_heading_change_abs_rad": [
+        2.659092903137207
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1528,
+      "first1s_mean_intent_speed_m_s": [
+        0.5433689951896667
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.3787619173526764
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        1.5223687887191772
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.21370339393615723
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1538,
+      "first1s_mean_intent_speed_m_s": [
+        0.547874391078949
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.4734513759613037
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.9933923482894897
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.19869732856750488
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1548,
+      "first1s_mean_intent_speed_m_s": [
+        0.6428927183151245
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.6129392981529236
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.6149361729621887
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.28623443841934204
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 1558,
+      "first1s_mean_intent_speed_m_s": [
+        0.7307037115097046
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.757368803024292
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.09655952453613281
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.19806510210037231
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 1568,
+      "first1s_mean_intent_speed_m_s": [
+        0.653072714805603
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.6651650071144104
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.05295419692993164
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.1366596817970276
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 1578,
+      "first1s_mean_intent_speed_m_s": [
+        0.6899293661117554
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.7606984972953796
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.3273318409919739
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.047492265701293945
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 1588,
+      "first1s_mean_intent_speed_m_s": [
+        0.7022947072982788
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.751299262046814
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.01303649041801691
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.08101589232683182
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 1598,
+      "first1s_mean_intent_speed_m_s": [
+        0.0700676366686821
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.1401352733373642
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.21278126537799835
+      ],
+      "first1s_heading_change_abs_rad": [
+        3.2314672470092773
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1608,
+      "first1s_mean_intent_speed_m_s": [
+        0.013341841287910938
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.026683682575821877
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.06763505190610886
+      ],
+      "first1s_heading_change_abs_rad": [
+        3.0862300395965576
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1618,
+      "first1s_mean_intent_speed_m_s": [
+        0.5052666068077087
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.3478529453277588
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        2.9065990447998047
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.2216980755329132
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1628,
+      "first1s_mean_intent_speed_m_s": [
+        0.5662209391593933
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.46647733449935913
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        3.020681619644165
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.12031764537096024
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1637,
+      "first1s_mean_intent_speed_m_s": [
+        0.02003960683941841
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.04007921367883682
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        2.807053327560425
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.35004669427871704
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1647,
+      "first1s_mean_intent_speed_m_s": [
+        0.5816041231155396
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.42984873056411743
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        2.429739236831665
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.6635759472846985
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1657,
+      "first1s_mean_intent_speed_m_s": [
+        0.6416951417922974
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.595079243183136
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        1.8574467897415161
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.29730841517448425
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1664,
+      "first1s_mean_intent_speed_m_s": [
+        0.051014244556427
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.102028489112854
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        1.1727861166000366
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.027141155675053596
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1674,
+      "first1s_mean_intent_speed_m_s": [
+        0.0038739859592169523
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.007747971918433905
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        1.017357349395752
+      ],
+      "first1s_heading_change_abs_rad": [
+        1.6415687799453735
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1684,
+      "first1s_mean_intent_speed_m_s": [
+        0.30390438437461853
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.10733716189861298
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        2.1698641777038574
+      ],
+      "first1s_heading_change_abs_rad": [
+        1.079994559288025
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1694,
+      "first1s_mean_intent_speed_m_s": [
+        0.5449787378311157
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.3812495172023773
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.9591264128684998
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.845953106880188
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1704,
+      "first1s_mean_intent_speed_m_s": [
+        0.6223523616790771
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.535118818283081
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.40479204058647156
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.07422423362731934
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1714,
+      "first1s_mean_intent_speed_m_s": [
+        0.5976892113685608
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.615260124206543
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.13234080374240875
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.16023893654346466
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 1724,
+      "first1s_mean_intent_speed_m_s": [
+        0.6338837742805481
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.6145169138908386
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.03567320853471756
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.1263725608587265
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 1734,
+      "first1s_mean_intent_speed_m_s": [
+        0.6555724143981934
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.7179647088050842
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.36097651720046997
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.16828159987926483
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 1744,
+      "first1s_mean_intent_speed_m_s": [
+        0.622529923915863
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.6502571105957031
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.011250831186771393
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.0673975944519043
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 1754,
+      "first1s_mean_intent_speed_m_s": [
+        0.5890818238258362
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.5977627038955688
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.1933290958404541
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.32969626784324646
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 1764,
+      "first1s_mean_intent_speed_m_s": [
+        0.6831219792366028
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.72844398021698
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.28372737765312195
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.054724328219890594
+      ],
+      "cruise_by_intent": [
+        true
+      ]
+    },
+    {
+      "physical_control": 1774,
+      "first1s_mean_intent_speed_m_s": [
+        0.07092155516147614
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.14184311032295227
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.34064608812332153
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.3935301899909973
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1784,
+      "first1s_mean_intent_speed_m_s": [
+        0.011672873981297016
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.023345747962594032
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        0.3494079113006592
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.04951002448797226
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    },
+    {
+      "physical_control": 1794,
+      "first1s_mean_intent_speed_m_s": [
+        0.5598297715187073
+      ],
+      "first0p5s_mean_intent_speed_m_s": [
+        0.38114437460899353
+      ],
+      "pelvis_to_intent_heading_error_rad": [
+        2.8394503593444824
+      ],
+      "first1s_heading_change_abs_rad": [
+        0.021729707717895508
+      ],
+      "cruise_by_intent": [
+        false
+      ]
+    }
+  ],
+  "limits": [
+    "Stopping and deceleration for turns or safety can fall below .5m/s and are separately reported.",
+    "Measured velocities are physical root instantaneous velocities; .5s smoothing is a diagnostic only and does not change rendered motion.",
+    "These are local operational criteria, not author benchmark metrics."
+  ]
+}

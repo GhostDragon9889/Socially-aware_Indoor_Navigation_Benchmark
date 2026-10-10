@@ -1,0 +1,1200 @@
+{
+  "all_enabled_colliders_checked": true,
+  "rows": [
+    {
+      "path": "/ThirdFloor/Collision/FixtureProxies/Edestalurinal_0000",
+      "world_bounds_m": [
+        [
+          2.6971856792626383,
+          1.2234626788963316,
+          -2.2702217101766564e-06
+        ],
+        [
+          3.0259263356385233,
+          1.600000121103668,
+          1.1890022702217102
+        ]
+      ],
+      "native_exact_path_observed": true,
+      "native_collision_paths": [
+        "/ThirdFloor/Collision/FixtureProxies/Edestalurinal_0000",
+        "/ThirdFloor/Collision/Walls",
+        "/__PaperMapProbeReferenceGround"
+      ]
+    },
+    {
+      "path": "/ThirdFloor/Collision/FixtureProxies/Edestalurinal_0001",
+      "world_bounds_m": [
+        [
+          1.9214999335546699,
+          1.225259708323288,
+          0.21200005779658992
+        ],
+        [
+          2.2674996810693946,
+          1.599999891676712,
+          1.0670730329552813
+        ]
+      ],
+      "native_exact_path_observed": true,
+      "native_collision_paths": [
+        "/ThirdFloor/Collision/FixtureProxies/Edestalurinal_0001",
+        "/ThirdFloor/Collision/FixtureProxies/Fpd_0000",
+        "/ThirdFloor/Collision/Walls"
+      ]
+    },
+    {
+      "path": "/ThirdFloor/Collision/FixtureProxies/Edestalurinal_0002",
+      "world_bounds_m": [
+        [
+          1.1261261764312747,
+          1.2739388011045454,
+          0.510000119503975
+        ],
+        [
+          1.4918139937664034,
+          1.6000001988954542,
+          1.1987679102983475
+        ]
+      ],
+      "native_exact_path_observed": true,
+      "native_collision_paths": [
+        "/ThirdFloor/Collision/FixtureProxies/Edestalurinal_0002",
+        "/ThirdFloor/Collision/Walls"
+      ]
+    },
+    {
+      "path": "/ThirdFloor/Collision/FixtureProxies/Edestalurinal_0003",
+      "world_bounds_m": [
+        [
+          0.36916587438488,
+          1.2650770376811027,
+          0.19800008780288691
+        ],
+        [
+          0.6522821256151199,
+          1.599999947417736,
+          0.8909359718017578
+        ]
+      ],
+      "native_exact_path_observed": true,
+      "native_collision_paths": [
+        "/ThirdFloor/Collision/FixtureProxies/Edestalurinal_0003",
+        "/ThirdFloor/Collision/Walls"
+      ]
+    },
+    {
+      "path": "/ThirdFloor/Collision/FixtureProxies/Edestalurinal_0004",
+      "world_bounds_m": [
+        [
+          -0.4730294143072131,
+          1.3385107745342257,
+          0.18700019205760965
+        ],
+        [
+          -0.15530378569278747,
+          1.6000002254657748,
+          0.7808487781400681
+        ]
+      ],
+      "native_exact_path_observed": true,
+      "native_collision_paths": [
+        "/ThirdFloor/Collision/FixtureProxies/Edestalurinal_0004",
+        "/ThirdFloor/Collision/FixtureProxies/Fpd_0001",
+        "/ThirdFloor/Collision/Walls"
+      ]
+    },
+    {
+      "path": "/ThirdFloor/Collision/FixtureProxies/Fpd_0000",
+      "world_bounds_m": [
+        [
+          2.064907672913335,
+          1.3712350996274711,
+          1.2516975234078132e-09
+        ],
+        [
+          2.114907669933103,
+          1.4212351003725292,
+          0.21199999874830244
+        ]
+      ],
+      "native_exact_path_observed": true,
+      "native_collision_paths": [
+        "/ThirdFloor/Collision/FixtureProxies/Edestalurinal_0001",
+        "/ThirdFloor/Collision/FixtureProxies/Fpd_0000",
+        "/__PaperMapProbeReferenceGround"
+      ]
+    },
+    {
+      "path": "/ThirdFloor/Collision/FixtureProxies/Fpd_0001",
+      "world_bounds_m": [
+        [
+          -0.33984685708666507,
+          1.504660399627471,
+          6.684074405072238e-09
+        ],
+        [
+          -0.2898468600668973,
+          1.554660400372529,
+          0.2079710133159256
+        ]
+      ],
+      "native_exact_path_observed": true,
+      "native_collision_paths": [
+        "/ThirdFloor/Collision/FixtureProxies/Edestalurinal_0004",
+        "/ThirdFloor/Collision/FixtureProxies/Fpd_0001",
+        "/__PaperMapProbeReferenceGround"
+      ]
+    },
+    {
+      "path": "/ThirdFloor/Collision/Walls",
+      "world_bounds_m": [
+        [
+          -3.487499952316284,
+          -1.7450000047683716,
+          0.0
+        ],
+        [
+          3.497499942779541,
+          1.7450000047683716,
+          2.799999952316284
+        ]
+      ],
+      "native_exact_path_observed": true,
+      "native_collision_paths": [
+        "/ThirdFloor/Collision/FixtureProxies/Edestalurinal_0000",
+        "/ThirdFloor/Collision/FixtureProxies/Edestalurinal_0001",
+        "/ThirdFloor/Collision/FixtureProxies/Edestalurinal_0002",
+        "/ThirdFloor/Collision/FixtureProxies/Edestalurinal_0003",
+        "/ThirdFloor/Collision/FixtureProxies/Edestalurinal_0004",
+        "/ThirdFloor/Collision/FixtureProxies/Fpd_0000",
+        "/ThirdFloor/Collision/FixtureProxies/Fpd_0001",
+        "/ThirdFloor/Collision/Walls",
+        "/ThirdFloor/Cubicles/Cubicle01/Architecture/Header",
+        "/ThirdFloor/Cubicles/Cubicle01/Architecture/LeftJamb",
+        "/ThirdFloor/Cubicles/Cubicle01/Architecture/RightJamb",
+        "/ThirdFloor/Cubicles/Cubicle01/Door/Geom/Door",
+        "/ThirdFloor/Cubicles/Cubicle01/Door/Geom/Door_Frame",
+        "/ThirdFloor/Cubicles/Cubicle01/Toilet/Geom/ToiletLid",
+        "/ThirdFloor/Cubicles/Cubicle01/Toilet/Geom/ToiletMain",
+        "/ThirdFloor/Cubicles/Cubicle01/Toilet/Geom/ToiletSeat",
+        "/ThirdFloor/Cubicles/Cubicle02/Architecture/Header",
+        "/ThirdFloor/Cubicles/Cubicle02/Architecture/LeftJamb",
+        "/ThirdFloor/Cubicles/Cubicle02/Architecture/RightJamb",
+        "/ThirdFloor/Cubicles/Cubicle02/Door/Geom/Door",
+        "/ThirdFloor/Cubicles/Cubicle02/Door/Geom/Door_Frame",
+        "/ThirdFloor/Cubicles/Cubicle02/Toilet/Geom/ToiletLid",
+        "/ThirdFloor/Cubicles/Cubicle02/Toilet/Geom/ToiletMain",
+        "/ThirdFloor/Cubicles/Cubicle02/Toilet/Geom/ToiletSeat",
+        "/ThirdFloor/Cubicles/Cubicle04/Toilet/Geom/ToiletLid",
+        "/ThirdFloor/Cubicles/Cubicle04/Toilet/Geom/ToiletMain",
+        "/ThirdFloor/Cubicles/Cubicle04/Toilet/Geom/ToiletSeat",
+        "/ThirdFloor/Cubicles/Partitions/Shared",
+        "/ThirdFloor/Cubicles/Partitions/West",
+        "/ThirdFloor/Details/Ceiling/Entry",
+        "/ThirdFloor/Details/Ceiling/Main",
+        "/ThirdFloor/Details/Hygiene/Bin",
+        "/ThirdFloor/Details/Hygiene/BinLid",
+        "/ThirdFloor/Details/WashStation/Basin1/Ceramic",
+        "/ThirdFloor/Details/WashStation/Basin2/Ceramic",
+        "/ThirdFloor/Details/WashStation/Cabinet",
+        "/ThirdFloor/Details/WashStation/Counter",
+        "/ThirdFloor/Details/WashStation/ToeRecess",
+        "/ThirdFloor/Meshes/Assets/Door_0000/Geom/A06865e7a93064541911395c3271e1c34",
+        "/ThirdFloor/Meshes/Assets/Door_0000/Geom/Static",
+        "/ThirdFloor/Meshes/Assets/Door_YS2HVXZVALGD2PTUJQ888888_7qcYe/Geom/Door",
+        "/ThirdFloor/Meshes/Assets/Door_YS2HVXZVALGD2PTUJQ888888_7qcYe/Geom/Door_Frame",
+        "/ThirdFloor/Meshes/Assets/Door_YS3UEUZVAJ2V4PTUKU888888_mdynP/Geom/Door",
+        "/ThirdFloor/Meshes/Assets/Door_YS3UEUZVAJ2V4PTUKU888888_mdynP/Geom/DoorFrame",
+        "/ThirdFloor/Meshes/Assets/Partition_0000/Geom/Static",
+        "/ThirdFloor/Meshes/Assets/Partition_0001/Geom/Static",
+        "/ThirdFloor/Meshes/Assets/Partition_0002/Geom/Static",
+        "/ThirdFloor/Meshes/Assets/Partition_0003/Geom/Static",
+        "/ThirdFloor/Meshes/Assets/Partition_0004/Geom/Static",
+        "/ThirdFloor/Meshes/Assets/Toilet_YREQ6BBVAI7FMPTUJQ888888_KIiuW/Geom/ToiletLid",
+        "/ThirdFloor/Meshes/Assets/Toilet_YREQ6BBVAI7FMPTUJQ888888_KIiuW/Geom/ToiletMain",
+        "/ThirdFloor/Meshes/Assets/Toilet_YREQ6BBVAI7FMPTUJQ888888_KIiuW/Geom/ToiletSeat",
+        "/__PaperMapProbeReferenceGround"
+      ]
+    },
+    {
+      "path": "/ThirdFloor/Cubicles/Cubicle01/Architecture/Header",
+      "world_bounds_m": [
+        [
+          -0.9399999904632568,
+          -0.04850000089406967,
+          2.5143999967098236
+        ],
+        [
+          0.07999999046325684,
+          -0.003499999105930327,
+          2.8000000032901764
+        ]
+      ],
+      "native_exact_path_observed": true,
+      "native_collision_paths": [
+        "/ThirdFloor/Cubicles/Cubicle01/Architecture/Header",
+        "/ThirdFloor/Cubicles/Cubicle01/Architecture/LeftJamb",
+        "/ThirdFloor/Cubicles/Cubicle01/Architecture/RightJamb",
+        "/ThirdFloor/Cubicles/Cubicle01/Door/Geom/Door_Frame",
+        "/ThirdFloor/Cubicles/Partitions/Shared",
+        "/ThirdFloor/Cubicles/Partitions/West",
+        "/ThirdFloor/Details/Ceiling/Main"
+      ]
+    },
+    {
+      "path": "/ThirdFloor/Cubicles/Cubicle01/Architecture/LeftJamb",
+      "world_bounds_m": [
+        [
+          -0.9400000015199184,
+          -0.04850000089406967,
+          2.3841857821338408e-08
+        ],
+        [
+          -0.8759999984800815,
+          -0.003499999105930327,
+          2.799999976158142
+        ]
+      ],
+      "native_exact_path_observed": true,
+      "native_collision_paths": [
+        "/ThirdFloor/Cubicles/Cubicle01/Architecture/Header",
+        "/ThirdFloor/Cubicles/Cubicle01/Architecture/LeftJamb",
+        "/ThirdFloor/Cubicles/Cubicle01/Door/Geom/Door_Frame",
+        "/ThirdFloor/Cubicles/Partitions/West",
+        "/ThirdFloor/Details/Ceiling/Main",
+        "/__PaperMapProbeReferenceGround"
+      ]
+    },
+    {
+      "path": "/ThirdFloor/Cubicles/Cubicle01/Architecture/RightJamb",
+      "world_bounds_m": [
+        [
+          0.015999998480081566,
+          -0.04850000089406967,
+          2.3841857821338408e-08
+        ],
+        [
+          0.08000000151991846,
+          -0.003499999105930327,
+          2.799999976158142
+        ]
+      ],
+      "native_exact_path_observed": true,
+      "native_collision_paths": [
+        "/ThirdFloor/Cubicles/Cubicle01/Architecture/Header",
+        "/ThirdFloor/Cubicles/Cubicle01/Architecture/RightJamb",
+        "/ThirdFloor/Cubicles/Cubicle01/Door/Geom/Door_Frame",
+        "/ThirdFloor/Cubicles/Partitions/Shared",
+        "/ThirdFloor/Details/Ceiling/Main",
+        "/__PaperMapProbeReferenceGround"
+      ]
+    },
+    {
+      "path": "/ThirdFloor/Cubicles/Cubicle01/Door/Geom/Door",
+      "world_bounds_m": [
+        [
+          -0.7065178182442909,
+          -0.6760568554810036,
+          0.015307759269133303
+        ],
+        [
+          -0.6355175669454115,
+          -0.07205669592122267,
+          2.3113078091407786
+        ]
+      ],
+      "native_exact_path_observed": true,
+      "native_collision_paths": [
+        "/ThirdFloor/Cubicles/Cubicle01/Door/Geom/Door",
+        "/ThirdFloor/Cubicles/Cubicle01/Door/Geom/Door_Frame"
+      ]
+    },
+    {
+      "path": "/ThirdFloor/Cubicles/Cubicle01/Door/Geom/Door_Frame",
+      "world_bounds_m": [
+        [
+          -0.8760000186134612,
+          -0.0720992635380236,
+          0.01230764389038086
+        ],
+        [
+          0.016000002836289967,
+          -0.032099220212200484,
+          2.514307737350464
+        ]
+      ],
+      "native_exact_path_observed": true,
+      "native_collision_paths": [
+        "/ThirdFloor/Cubicles/Cubicle01/Architecture/Header",
+        "/ThirdFloor/Cubicles/Cubicle01/Architecture/LeftJamb",
+        "/ThirdFloor/Cubicles/Cubicle01/Architecture/RightJamb",
+        "/ThirdFloor/Cubicles/Cubicle01/Door/Geom/Door",
+        "/ThirdFloor/Cubicles/Cubicle01/Door/Geom/Door_Frame"
+      ]
+    },
+    {
+      "path": "/ThirdFloor/Cubicles/Cubicle01/Toilet/Geom/ToiletLid",
+      "world_bounds_m": [
+        [
+          -0.6192374739628774,
+          -1.3240143299556497,
+          0.43236734345555305
+        ],
+        [
+          -0.240762515045952,
+          -0.8390750497125743,
+          0.4475225359201431
+        ]
+      ],
+      "native_exact_path_observed": true,
+      "native_collision_paths": [
+        "/ThirdFloor/Cubicles/Cubicle01/Toilet/Geom/ToiletLid"
+      ]
+    },
+    {
+      "path": "/ThirdFloor/Cubicles/Cubicle01/Toilet/Geom/ToiletMain",
+      "world_bounds_m": [
+        [
+          -0.6209264118210809,
+          -1.5439999194208813,
+          0.0
+        ],
+        [
+          -0.23907360248403017,
+          -0.8379999904568831,
+          0.7438443899154663
+        ]
+      ],
+      "native_exact_path_observed": true,
+      "native_collision_paths": [
+        "/ThirdFloor/Collision/Walls",
+        "/ThirdFloor/Cubicles/Cubicle01/Toilet/Geom/ToiletLid",
+        "/ThirdFloor/Cubicles/Cubicle01/Toilet/Geom/ToiletMain",
+        "/ThirdFloor/Cubicles/Cubicle01/Toilet/Geom/ToiletSeat",
+        "/__PaperMapProbeReferenceGround"
+      ]
+    },
+    {
+      "path": "/ThirdFloor/Cubicles/Cubicle01/Toilet/Geom/ToiletSeat",
+      "world_bounds_m": [
+        [
+          -0.6196470465540529,
+          -1.3087381810598058,
+          0.39236246794462204
+        ],
+        [
+          -0.24035298655629952,
+          -0.8416745274610697,
+          0.4267549589276314
+        ]
+      ],
+      "native_exact_path_observed": true,
+      "native_collision_paths": [
+        "/ThirdFloor/Cubicles/Cubicle01/Toilet/Geom/ToiletMain",
+        "/ThirdFloor/Cubicles/Cubicle01/Toilet/Geom/ToiletSeat"
+      ]
+    },
+    {
+      "path": "/ThirdFloor/Cubicles/Cubicle02/Architecture/Header",
+      "world_bounds_m": [
+        [
+          0.13500001525878902,
+          -0.04850000089406967,
+          2.5143999967098236
+        ],
+        [
+          1.204499984741211,
+          -0.003499999105930327,
+          2.8000000032901764
+        ]
+      ],
+      "native_exact_path_observed": true,
+      "native_collision_paths": [
+        "/ThirdFloor/Collision/Walls",
+        "/ThirdFloor/Cubicles/Cubicle02/Architecture/Header",
+        "/ThirdFloor/Cubicles/Cubicle02/Architecture/LeftJamb",
+        "/ThirdFloor/Cubicles/Cubicle02/Architecture/RightJamb",
+        "/ThirdFloor/Cubicles/Cubicle02/Door/Geom/Door_Frame",
+        "/ThirdFloor/Cubicles/Partitions/Shared",
+        "/ThirdFloor/Details/Ceiling/Main",
+        "/ThirdFloor/Meshes/Assets/Door_YS3UEUZVAJ2V4PTUKU888888_mdynP/Geom/DoorFrame"
+      ]
+    },
+    {
+      "path": "/ThirdFloor/Cubicles/Cubicle02/Architecture/LeftJamb",
+      "world_bounds_m": [
+        [
+          0.1350000013411045,
+          -0.04850000089406967,
+          2.3841857821338408e-08
+        ],
+        [
+          0.22374999865889547,
+          -0.003499999105930327,
+          2.799999976158142
+        ]
+      ],
+      "native_exact_path_observed": true,
+      "native_collision_paths": [
+        "/ThirdFloor/Cubicles/Cubicle02/Architecture/Header",
+        "/ThirdFloor/Cubicles/Cubicle02/Architecture/LeftJamb",
+        "/ThirdFloor/Cubicles/Cubicle02/Door/Geom/Door_Frame",
+        "/ThirdFloor/Cubicles/Partitions/Shared",
+        "/ThirdFloor/Details/Ceiling/Main",
+        "/__PaperMapProbeReferenceGround"
+      ]
+    },
+    {
+      "path": "/ThirdFloor/Cubicles/Cubicle02/Architecture/RightJamb",
+      "world_bounds_m": [
+        [
+          1.1157500013411044,
+          -0.04850000089406967,
+          2.3841857821338408e-08
+        ],
+        [
+          1.2044999986588953,
+          -0.003499999105930327,
+          2.799999976158142
+        ]
+      ],
+      "native_exact_path_observed": true,
+      "native_collision_paths": [
+        "/ThirdFloor/Collision/Walls",
+        "/ThirdFloor/Cubicles/Cubicle02/Architecture/Header",
+        "/ThirdFloor/Cubicles/Cubicle02/Architecture/RightJamb",
+        "/ThirdFloor/Cubicles/Cubicle02/Door/Geom/Door_Frame",
+        "/ThirdFloor/Details/Ceiling/Main",
+        "/ThirdFloor/Meshes/Assets/Door_YS3UEUZVAJ2V4PTUKU888888_mdynP/Geom/DoorFrame",
+        "/__PaperMapProbeReferenceGround"
+      ]
+    },
+    {
+      "path": "/ThirdFloor/Cubicles/Cubicle02/Door/Geom/Door",
+      "world_bounds_m": [
+        [
+          0.3932321221510643,
+          -0.6760568554810008,
+          0.015307759269133303
+        ],
+        [
+          0.46423237344994367,
+          -0.07205669592121984,
+          2.3113078091407786
+        ]
+      ],
+      "native_exact_path_observed": true,
+      "native_collision_paths": [
+        "/ThirdFloor/Cubicles/Cubicle02/Door/Geom/Door",
+        "/ThirdFloor/Cubicles/Cubicle02/Door/Geom/Door_Frame"
+      ]
+    },
+    {
+      "path": "/ThirdFloor/Cubicles/Cubicle02/Door/Geom/Door_Frame",
+      "world_bounds_m": [
+        [
+          0.2237499637435632,
+          -0.07209926353802361,
+          0.01230764389038086
+        ],
+        [
+          1.1157499851933144,
+          -0.03209922021220049,
+          2.514307737350464
+        ]
+      ],
+      "native_exact_path_observed": true,
+      "native_collision_paths": [
+        "/ThirdFloor/Cubicles/Cubicle02/Architecture/Header",
+        "/ThirdFloor/Cubicles/Cubicle02/Architecture/LeftJamb",
+        "/ThirdFloor/Cubicles/Cubicle02/Architecture/RightJamb",
+        "/ThirdFloor/Cubicles/Cubicle02/Door/Geom/Door",
+        "/ThirdFloor/Cubicles/Cubicle02/Door/Geom/Door_Frame"
+      ]
+    },
+    {
+      "path": "/ThirdFloor/Cubicles/Cubicle02/Toilet/Geom/ToiletLid",
+      "world_bounds_m": [
+        [
+          0.48051250839414744,
+          -1.3240143299556506,
+          0.43236734345555305
+        ],
+        [
+          0.8589874673110729,
+          -0.8390750497125752,
+          0.4475225359201431
+        ]
+      ],
+      "native_exact_path_observed": true,
+      "native_collision_paths": [
+        "/ThirdFloor/Cubicles/Cubicle02/Toilet/Geom/ToiletLid"
+      ]
+    },
+    {
+      "path": "/ThirdFloor/Cubicles/Cubicle02/Toilet/Geom/ToiletMain",
+      "world_bounds_m": [
+        [
+          0.4788235705359441,
+          -1.5439999194208822,
+          0.0
+        ],
+        [
+          0.8606763798729947,
+          -0.837999990456884,
+          0.7438443899154663
+        ]
+      ],
+      "native_exact_path_observed": true,
+      "native_collision_paths": [
+        "/ThirdFloor/Collision/Walls",
+        "/ThirdFloor/Cubicles/Cubicle02/Toilet/Geom/ToiletLid",
+        "/ThirdFloor/Cubicles/Cubicle02/Toilet/Geom/ToiletMain",
+        "/ThirdFloor/Cubicles/Cubicle02/Toilet/Geom/ToiletSeat",
+        "/__PaperMapProbeReferenceGround"
+      ]
+    },
+    {
+      "path": "/ThirdFloor/Cubicles/Cubicle02/Toilet/Geom/ToiletSeat",
+      "world_bounds_m": [
+        [
+          0.48010293580297203,
+          -1.3087381810598067,
+          0.39236246794462204
+        ],
+        [
+          0.8593969958007254,
+          -0.8416745274610706,
+          0.4267549589276314
+        ]
+      ],
+      "native_exact_path_observed": true,
+      "native_collision_paths": [
+        "/ThirdFloor/Cubicles/Cubicle02/Toilet/Geom/ToiletMain",
+        "/ThirdFloor/Cubicles/Cubicle02/Toilet/Geom/ToiletSeat"
+      ]
+    },
+    {
+      "path": "/ThirdFloor/Cubicles/Cubicle04/Toilet/Geom/ToiletLid",
+      "world_bounds_m": [
+        [
+          2.697158345224293,
+          -1.32401432995565,
+          0.43236734345555305
+        ],
+        [
+          3.0756333041412187,
+          -0.8390750497125745,
+          0.4475225359201431
+        ]
+      ],
+      "native_exact_path_observed": true,
+      "native_collision_paths": [
+        "/ThirdFloor/Cubicles/Cubicle04/Toilet/Geom/ToiletLid"
+      ]
+    },
+    {
+      "path": "/ThirdFloor/Cubicles/Cubicle04/Toilet/Geom/ToiletMain",
+      "world_bounds_m": [
+        [
+          2.6954694073660894,
+          -1.5439999194208816,
+          0.0
+        ],
+        [
+          3.0773222167031404,
+          -0.8379999904568833,
+          0.7438443899154663
+        ]
+      ],
+      "native_exact_path_observed": true,
+      "native_collision_paths": [
+        "/ThirdFloor/Collision/Walls",
+        "/ThirdFloor/Cubicles/Cubicle04/Toilet/Geom/ToiletLid",
+        "/ThirdFloor/Cubicles/Cubicle04/Toilet/Geom/ToiletMain",
+        "/ThirdFloor/Cubicles/Cubicle04/Toilet/Geom/ToiletSeat",
+        "/__PaperMapProbeReferenceGround"
+      ]
+    },
+    {
+      "path": "/ThirdFloor/Cubicles/Cubicle04/Toilet/Geom/ToiletSeat",
+      "world_bounds_m": [
+        [
+          2.6967487726331174,
+          -1.308738181059806,
+          0.39236246794462204
+        ],
+        [
+          3.076042832630871,
+          -0.84167452746107,
+          0.4267549589276314
+        ]
+      ],
+      "native_exact_path_observed": true,
+      "native_collision_paths": [
+        "/ThirdFloor/Cubicles/Cubicle04/Toilet/Geom/ToiletMain",
+        "/ThirdFloor/Cubicles/Cubicle04/Toilet/Geom/ToiletSeat"
+      ]
+    },
+    {
+      "path": "/ThirdFloor/Cubicles/Partitions/Shared",
+      "world_bounds_m": [
+        [
+          0.08000000014901161,
+          -1.5450000252723695,
+          2.3841857821338408e-08
+        ],
+        [
+          0.13499999985098837,
+          0.002000025272369421,
+          2.799999976158142
+        ]
+      ],
+      "native_exact_path_observed": true,
+      "native_collision_paths": [
+        "/ThirdFloor/Collision/Walls",
+        "/ThirdFloor/Cubicles/Cubicle01/Architecture/Header",
+        "/ThirdFloor/Cubicles/Cubicle01/Architecture/RightJamb",
+        "/ThirdFloor/Cubicles/Cubicle02/Architecture/Header",
+        "/ThirdFloor/Cubicles/Cubicle02/Architecture/LeftJamb",
+        "/ThirdFloor/Cubicles/Partitions/Shared",
+        "/ThirdFloor/Details/Ceiling/Main",
+        "/__PaperMapProbeReferenceGround"
+      ]
+    },
+    {
+      "path": "/ThirdFloor/Cubicles/Partitions/West",
+      "world_bounds_m": [
+        [
+          -0.9949999998509884,
+          -1.5450000252723695,
+          2.3841857821338408e-08
+        ],
+        [
+          -0.9400000001490116,
+          0.002000025272369421,
+          2.799999976158142
+        ]
+      ],
+      "native_exact_path_observed": true,
+      "native_collision_paths": [
+        "/ThirdFloor/Collision/Walls",
+        "/ThirdFloor/Cubicles/Cubicle01/Architecture/Header",
+        "/ThirdFloor/Cubicles/Cubicle01/Architecture/LeftJamb",
+        "/ThirdFloor/Cubicles/Partitions/West",
+        "/ThirdFloor/Details/Ceiling/Main",
+        "/__PaperMapProbeReferenceGround"
+      ]
+    },
+    {
+      "path": "/ThirdFloor/Details/Ceiling/Entry",
+      "world_bounds_m": [
+        [
+          -3.3075,
+          -1.5449999856948853,
+          2.790000000670552
+        ],
+        [
+          -2.6825,
+          -0.3900000143051148,
+          2.8499999993294476
+        ]
+      ],
+      "native_exact_path_observed": true,
+      "native_collision_paths": [
+        "/ThirdFloor/Collision/Walls",
+        "/ThirdFloor/Details/Ceiling/Entry"
+      ]
+    },
+    {
+      "path": "/ThirdFloor/Details/Ceiling/Main",
+      "world_bounds_m": [
+        [
+          -2.674999895095825,
+          -1.5449999904632568,
+          2.790000000670552
+        ],
+        [
+          3.2949998950958252,
+          1.599999990463257,
+          2.8499999993294476
+        ]
+      ],
+      "native_exact_path_observed": true,
+      "native_collision_paths": [
+        "/ThirdFloor/Collision/Walls",
+        "/ThirdFloor/Cubicles/Cubicle01/Architecture/Header",
+        "/ThirdFloor/Cubicles/Cubicle01/Architecture/LeftJamb",
+        "/ThirdFloor/Cubicles/Cubicle01/Architecture/RightJamb",
+        "/ThirdFloor/Cubicles/Cubicle02/Architecture/Header",
+        "/ThirdFloor/Cubicles/Cubicle02/Architecture/LeftJamb",
+        "/ThirdFloor/Cubicles/Cubicle02/Architecture/RightJamb",
+        "/ThirdFloor/Cubicles/Partitions/Shared",
+        "/ThirdFloor/Cubicles/Partitions/West",
+        "/ThirdFloor/Details/Ceiling/Main"
+      ]
+    },
+    {
+      "path": "/ThirdFloor/Details/Hygiene/Bin",
+      "world_bounds_m": [
+        [
+          -1.7550000011920934,
+          1.2599999988079071,
+          0.015000014305114773
+        ],
+        [
+          -1.4449999988079076,
+          1.570000001192093,
+          0.5449999856948853
+        ]
+      ],
+      "native_exact_path_observed": true,
+      "native_collision_paths": [
+        "/ThirdFloor/Details/Hygiene/Bin",
+        "/ThirdFloor/Details/Hygiene/BinLid"
+      ]
+    },
+    {
+      "path": "/ThirdFloor/Details/Hygiene/BinLid",
+      "world_bounds_m": [
+        [
+          -1.7599999964237218,
+          1.2550000035762787,
+          0.5439999998956919
+        ],
+        [
+          -1.4400000035762792,
+          1.5749999964237213,
+          0.5680000001043082
+        ]
+      ],
+      "native_exact_path_observed": true,
+      "native_collision_paths": [
+        "/ThirdFloor/Details/Hygiene/Bin",
+        "/ThirdFloor/Details/Hygiene/BinLid"
+      ]
+    },
+    {
+      "path": "/ThirdFloor/Details/WashStation/Basin1/Ceramic",
+      "world_bounds_m": [
+        [
+          -2.509999980926514,
+          0.7899999761581417,
+          0.8650000095367432
+        ],
+        [
+          -2.100000014305115,
+          1.3500000381469723,
+          1.0049999952316284
+        ]
+      ],
+      "native_exact_path_observed": true,
+      "native_collision_paths": [
+        "/ThirdFloor/Details/WashStation/Basin1/Ceramic"
+      ]
+    },
+    {
+      "path": "/ThirdFloor/Details/WashStation/Basin2/Ceramic",
+      "world_bounds_m": [
+        [
+          -2.509999980926514,
+          -0.12999998092651407,
+          0.8650000095367432
+        ],
+        [
+          -2.100000014305115,
+          0.429999961853027,
+          1.0049999952316284
+        ]
+      ],
+      "native_exact_path_observed": true,
+      "native_collision_paths": [
+        "/ThirdFloor/Details/WashStation/Basin2/Ceramic"
+      ]
+    },
+    {
+      "path": "/ThirdFloor/Details/WashStation/Cabinet",
+      "world_bounds_m": [
+        [
+          -2.6250000011920935,
+          -0.2699999952316288,
+          0.22000000834465028
+        ],
+        [
+          -2.0649999988079077,
+          1.489999995231628,
+          0.7999999916553497
+        ]
+      ],
+      "native_exact_path_observed": true,
+      "native_collision_paths": [
+        "/ThirdFloor/Details/WashStation/Cabinet",
+        "/ThirdFloor/Details/WashStation/Counter",
+        "/ThirdFloor/Details/WashStation/ToeRecess"
+      ]
+    },
+    {
+      "path": "/ThirdFloor/Details/WashStation/Counter",
+      "world_bounds_m": [
+        [
+          -2.6550000023841864,
+          -0.31000001668930094,
+          0.7899999998509883
+        ],
+        [
+          -2.034999997615815,
+          1.5300000166893002,
+          0.8600000001490116
+        ]
+      ],
+      "native_exact_path_observed": true,
+      "native_collision_paths": [
+        "/ThirdFloor/Details/WashStation/Cabinet",
+        "/ThirdFloor/Details/WashStation/Counter"
+      ]
+    },
+    {
+      "path": "/ThirdFloor/Details/WashStation/ToeRecess",
+      "world_bounds_m": [
+        [
+          -2.625000005960465,
+          -0.21499998807907142,
+          0.1250000023841858
+        ],
+        [
+          -2.324999994039536,
+          1.4349999880790707,
+          0.2549999976158142
+        ]
+      ],
+      "native_exact_path_observed": true,
+      "native_collision_paths": [
+        "/ThirdFloor/Details/WashStation/Cabinet",
+        "/ThirdFloor/Details/WashStation/ToeRecess"
+      ]
+    },
+    {
+      "path": "/ThirdFloor/Meshes/Assets/Door_0000/Geom/A06865e7a93064541911395c3271e1c34",
+      "world_bounds_m": [
+        [
+          -3.3522318343198205,
+          -1.352910682738777,
+          0.00900069273856797
+        ],
+        [
+          -2.5297615923829384,
+          -1.2989103929904038,
+          2.3000007058895315
+        ]
+      ],
+      "native_exact_path_observed": true,
+      "native_collision_paths": [
+        "/ThirdFloor/Meshes/Assets/Door_0000/Geom/A06865e7a93064541911395c3271e1c34",
+        "/ThirdFloor/Meshes/Assets/Door_0000/Geom/Static"
+      ]
+    },
+    {
+      "path": "/ThirdFloor/Meshes/Assets/Door_0000/Geom/Static",
+      "world_bounds_m": [
+        [
+          -3.507499933242798,
+          -1.4190000295639038,
+          0.0
+        ],
+        [
+          -3.2874999046325684,
+          -0.49053001403808594,
+          2.3529999256134033
+        ]
+      ],
+      "native_exact_path_observed": true,
+      "native_collision_paths": [
+        "/ThirdFloor/Collision/Walls",
+        "/ThirdFloor/Meshes/Assets/Door_0000/Geom/A06865e7a93064541911395c3271e1c34",
+        "/ThirdFloor/Meshes/Assets/Door_0000/Geom/Static",
+        "/__PaperMapProbeReferenceGround"
+      ]
+    },
+    {
+      "path": "/ThirdFloor/Meshes/Assets/Door_YS2HVXZVALGD2PTUJQ888888_7qcYe/Geom/Door",
+      "world_bounds_m": [
+        [
+          2.5914115183454864,
+          -0.676056876860955,
+          0.015307759269133303
+        ],
+        [
+          2.6624117696443648,
+          -0.07205671730117393,
+          2.3113078091407786
+        ]
+      ],
+      "native_exact_path_observed": true,
+      "native_collision_paths": [
+        "/ThirdFloor/Meshes/Assets/Door_YS2HVXZVALGD2PTUJQ888888_7qcYe/Geom/Door",
+        "/ThirdFloor/Meshes/Assets/Door_YS2HVXZVALGD2PTUJQ888888_7qcYe/Geom/Door_Frame"
+      ]
+    },
+    {
+      "path": "/ThirdFloor/Meshes/Assets/Door_YS2HVXZVALGD2PTUJQ888888_7qcYe/Geom/Door_Frame",
+      "world_bounds_m": [
+        [
+          2.4219294471572614,
+          -0.07209928588976544,
+          0.01230764389038086
+        ],
+        [
+          3.313929468607013,
+          -0.032099242563942317,
+          2.514307737350464
+        ]
+      ],
+      "native_exact_path_observed": true,
+      "native_collision_paths": [
+        "/ThirdFloor/Collision/Walls",
+        "/ThirdFloor/Meshes/Assets/Door_YS2HVXZVALGD2PTUJQ888888_7qcYe/Geom/Door",
+        "/ThirdFloor/Meshes/Assets/Door_YS2HVXZVALGD2PTUJQ888888_7qcYe/Geom/Door_Frame"
+      ]
+    },
+    {
+      "path": "/ThirdFloor/Meshes/Assets/Door_YS3UEUZVAJ2V4PTUKU888888_mdynP/Geom/Door",
+      "world_bounds_m": [
+        [
+          2.195189819863974,
+          -0.6495529680057273,
+          0.02428015695390129
+        ],
+        [
+          2.2181898315317623,
+          -0.04555279230582152,
+          2.240280228778285
+        ]
+      ],
+      "native_exact_path_observed": true,
+      "native_collision_paths": [
+        "/ThirdFloor/Meshes/Assets/Door_YS3UEUZVAJ2V4PTUKU888888_mdynP/Geom/Door",
+        "/ThirdFloor/Meshes/Assets/Door_YS3UEUZVAJ2V4PTUKU888888_mdynP/Geom/DoorFrame"
+      ]
+    },
+    {
+      "path": "/ThirdFloor/Meshes/Assets/Door_YS3UEUZVAJ2V4PTUKU888888_mdynP/Geom/DoorFrame",
+      "world_bounds_m": [
+        [
+          1.2306953663133509,
+          -0.049423818577128104,
+          0.021279811859129305
+        ],
+        [
+          2.4116953616834755,
+          -0.026423762451810134,
+          2.523279905319212
+        ]
+      ],
+      "native_exact_path_observed": true,
+      "native_collision_paths": [
+        "/ThirdFloor/Collision/Walls",
+        "/ThirdFloor/Meshes/Assets/Door_YS3UEUZVAJ2V4PTUKU888888_mdynP/Geom/Door",
+        "/ThirdFloor/Meshes/Assets/Door_YS3UEUZVAJ2V4PTUKU888888_mdynP/Geom/DoorFrame"
+      ]
+    },
+    {
+      "path": "/ThirdFloor/Meshes/Assets/Partition_0000/Geom/Static",
+      "world_bounds_m": [
+        [
+          0.8855000138282776,
+          1.200000047683716,
+          0.4000000059604645
+        ],
+        [
+          0.8985000252723694,
+          1.6000000238418581,
+          1.3009999990463257
+        ]
+      ],
+      "native_exact_path_observed": true,
+      "native_collision_paths": [
+        "/ThirdFloor/Collision/Walls",
+        "/ThirdFloor/Meshes/Assets/Partition_0000/Geom/Static"
+      ]
+    },
+    {
+      "path": "/ThirdFloor/Meshes/Assets/Partition_0001/Geom/Static",
+      "world_bounds_m": [
+        [
+          1.6764999628067017,
+          1.200000047683716,
+          0.4000000059604645
+        ],
+        [
+          1.6894999742507935,
+          1.6000000238418581,
+          1.3009999990463257
+        ]
+      ],
+      "native_exact_path_observed": true,
+      "native_collision_paths": [
+        "/ThirdFloor/Collision/Walls",
+        "/ThirdFloor/Meshes/Assets/Partition_0001/Geom/Static"
+      ]
+    },
+    {
+      "path": "/ThirdFloor/Meshes/Assets/Partition_0002/Geom/Static",
+      "world_bounds_m": [
+        [
+          -0.7555000185966494,
+          1.200000047683716,
+          0.4000000059604645
+        ],
+        [
+          -0.7425000071525576,
+          1.6000000238418581,
+          1.3009999990463257
+        ]
+      ],
+      "native_exact_path_observed": true,
+      "native_collision_paths": [
+        "/ThirdFloor/Collision/Walls",
+        "/ThirdFloor/Meshes/Assets/Partition_0002/Geom/Static"
+      ]
+    },
+    {
+      "path": "/ThirdFloor/Meshes/Assets/Partition_0003/Geom/Static",
+      "world_bounds_m": [
+        [
+          0.08550000190734841,
+          1.200000047683716,
+          0.4000000059604645
+        ],
+        [
+          0.09849999845027901,
+          1.6000000238418581,
+          1.3009999990463257
+        ]
+      ],
+      "native_exact_path_observed": true,
+      "native_collision_paths": [
+        "/ThirdFloor/Collision/Walls",
+        "/ThirdFloor/Meshes/Assets/Partition_0003/Geom/Static"
+      ]
+    },
+    {
+      "path": "/ThirdFloor/Meshes/Assets/Partition_0004/Geom/Static",
+      "world_bounds_m": [
+        [
+          2.4684998989105225,
+          1.200000047683716,
+          0.4000000059604645
+        ],
+        [
+          2.4814999103546143,
+          1.6000000238418581,
+          1.3009999990463257
+        ]
+      ],
+      "native_exact_path_observed": true,
+      "native_collision_paths": [
+        "/ThirdFloor/Collision/Walls",
+        "/ThirdFloor/Meshes/Assets/Partition_0004/Geom/Static"
+      ]
+    },
+    {
+      "path": "/ThirdFloor/Meshes/Assets/Toilet_YREQ6BBVAI7FMPTUJQ888888_KIiuW/Geom/ToiletLid",
+      "world_bounds_m": [
+        [
+          1.621046909334087,
+          -1.3251540899730445,
+          0.43126608787009707
+        ],
+        [
+          1.9995218682510127,
+          -0.8402148097299691,
+          0.44642128033468714
+        ]
+      ],
+      "native_exact_path_observed": true,
+      "native_collision_paths": [
+        "/ThirdFloor/Meshes/Assets/Toilet_YREQ6BBVAI7FMPTUJQ888888_KIiuW/Geom/ToiletLid"
+      ]
+    },
+    {
+      "path": "/ThirdFloor/Meshes/Assets/Toilet_YREQ6BBVAI7FMPTUJQ888888_KIiuW/Geom/ToiletMain",
+      "world_bounds_m": [
+        [
+          1.6193579714758837,
+          -1.5451396794382761,
+          -0.0011012554168701172
+        ],
+        [
+          2.0012107808129342,
+          -0.8391397504742779,
+          0.7427431344985962
+        ]
+      ],
+      "native_exact_path_observed": true,
+      "native_collision_paths": [
+        "/ThirdFloor/Collision/Walls",
+        "/ThirdFloor/Meshes/Assets/Toilet_YREQ6BBVAI7FMPTUJQ888888_KIiuW/Geom/ToiletLid",
+        "/ThirdFloor/Meshes/Assets/Toilet_YREQ6BBVAI7FMPTUJQ888888_KIiuW/Geom/ToiletMain",
+        "/ThirdFloor/Meshes/Assets/Toilet_YREQ6BBVAI7FMPTUJQ888888_KIiuW/Geom/ToiletSeat",
+        "/__PaperMapProbeReferenceGround"
+      ]
+    },
+    {
+      "path": "/ThirdFloor/Meshes/Assets/Toilet_YREQ6BBVAI7FMPTUJQ888888_KIiuW/Geom/ToiletSeat",
+      "world_bounds_m": [
+        [
+          1.6206373367429114,
+          -1.3098779410772006,
+          0.3912612125277519
+        ],
+        [
+          1.9999313967406651,
+          -0.8428142874784645,
+          0.42565370351076126
+        ]
+      ],
+      "native_exact_path_observed": true,
+      "native_collision_paths": [
+        "/ThirdFloor/Meshes/Assets/Toilet_YREQ6BBVAI7FMPTUJQ888888_KIiuW/Geom/ToiletMain",
+        "/ThirdFloor/Meshes/Assets/Toilet_YREQ6BBVAI7FMPTUJQ888888_KIiuW/Geom/ToiletSeat"
+      ]
+    },
+    {
+      "path": "/__PaperMapProbeReferenceGround",
+      "world_bounds_m": [
+        [
+          -4.199999809265137,
+          -2.700000047683716,
+          0.0
+        ],
+        [
+          4.199999809265137,
+          2.700000047683716,
+          0.0
+        ]
+      ],
+      "native_exact_path_observed": true,
+      "native_collision_paths": [
+        "/ThirdFloor/Collision/FixtureProxies/Edestalurinal_0000",
+        "/ThirdFloor/Collision/FixtureProxies/Fpd_0000",
+        "/ThirdFloor/Collision/FixtureProxies/Fpd_0001",
+        "/ThirdFloor/Collision/Walls",
+        "/ThirdFloor/Cubicles/Cubicle01/Architecture/LeftJamb",
+        "/ThirdFloor/Cubicles/Cubicle01/Architecture/RightJamb",
+        "/ThirdFloor/Cubicles/Cubicle01/Toilet/Geom/ToiletMain",
+        "/ThirdFloor/Cubicles/Cubicle02/Architecture/LeftJamb",
+        "/ThirdFloor/Cubicles/Cubicle02/Architecture/RightJamb",
+        "/ThirdFloor/Cubicles/Cubicle02/Toilet/Geom/ToiletMain",
+        "/ThirdFloor/Cubicles/Cubicle04/Toilet/Geom/ToiletMain",
+        "/ThirdFloor/Cubicles/Partitions/Shared",
+        "/ThirdFloor/Cubicles/Partitions/West",
+        "/ThirdFloor/Meshes/Assets/Door_0000/Geom/Static",
+        "/ThirdFloor/Meshes/Assets/Toilet_YREQ6BBVAI7FMPTUJQ888888_KIiuW/Geom/ToiletMain",
+        "/__PaperMapProbeReferenceGround"
+      ]
+    }
+  ],
+  "physics_counter_before": 2,
+  "physics_counter_after": 2
+}

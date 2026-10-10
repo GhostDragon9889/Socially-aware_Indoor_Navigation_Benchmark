@@ -10,6 +10,7 @@
 | 安装与常见问题 | [安装](docs/guides/installation.zh-CN.md) | [Installation](docs/guides/installation.en.md) |
 | 权重、数据与场景配置 | [配置](docs/guides/configuration.zh-CN.md) | [Configuration](docs/guides/configuration.en.md) |
 | 微调、评估与录像 | [使用](docs/guides/usage.zh-CN.md) | [Usage](docs/guides/usage.en.md) |
+| 发布的权重、机器人与四场景 | [资源发布](ASSET_RELEASE.md) | [Asset release](ASSET_RELEASE.md#english-instructions) |
 
 基于 Isaac Sim 6 / IsaacLab 3、TRACE 轨迹扩散与 PACER/AMP 物理行人的室内社交导航研究项目。
 核心实现使用 `src/` 布局，保留 ProtoMotions、CrowdSim 的导入名及原始项目署名。
@@ -36,6 +37,7 @@ src/
   deployment/         部署与动作处理
 configs/              实验、场景、相机与导航配置
 data/                 AMASS、模型权重、场景资源、导航地图
+resources/releases/   私有 LFS 权重、机器人、四场景及发布清单
 scripts/              训练、模拟、验证与录制的进程入口
 tools/                资产转换与动作重定向工具
 third_party/          上游参考仓库
@@ -57,7 +59,8 @@ output/               生成的训练、模拟与录制结果
 私有仓库：[GhostDragon9889/Socially-aware_Indoor_Navigation_Benchmark](https://github.com/GhostDragon9889/Socially-aware_Indoor_Navigation_Benchmark)。访问和克隆需要该仓库的授权账号。
 
 源码仓库上传范围、固定上游来源、资源准备和旧 Git 历史保留方式见
-[GitHub 源码说明](docs/GITHUB_SOURCE_ZH.md)。数据集、权重、场景、SDK 和视频保留在本地。
+[GitHub 源码说明](docs/GITHUB_SOURCE_ZH.md)。最新选用的行人权重、训练参数、机器人和四场景资源已整理为
+[私有 LFS 发布包](ASSET_RELEASE.md)；AMASS 原始动作、SMPL 参数、SDK 和视频独立准备。
 
 ## 使用现有环境
 

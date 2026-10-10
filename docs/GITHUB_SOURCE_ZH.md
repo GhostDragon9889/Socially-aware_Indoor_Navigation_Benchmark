@@ -16,7 +16,7 @@ Python 安装工具将该名称规范化为 `socially-aware-indoor-navigation-be
 ## 发布内容
 
 GitHub 提供核心算法、运行和评估入口、配置、导航地图、测试、环境锁、VS Code 配置、说明及许可。
-AMASS/SMPL 私有数据与人体模型、自训权重、外部场景、SDK、参考仓库、视频和原始实验数据保留在本地。上游公开历史与资源引用已随本次合并纳入。
+首个源码发布未包含 AMASS/SMPL 私有数据、自训权重和外部场景。后续 `pedestrians_20261010` 私有 LFS 发布加入最新选用权重、训练状态/参数、EVT-EXP 机器人与四场景依赖，详见[资源说明](../ASSET_RELEASE.md)。原始动作、SMPL 参数、SDK 和视频仍独立准备。上游公开历史与资源引用已随合并纳入。
 GitHub 中的结果索引和报告描述之前的本地实验，资源路径和校验值保持原记录，不能代表克隆后已经具备这些资源。
 
 首个提交由明确的文件清单构建；清单保存在 `configs/publication/source_manifest.json`。
@@ -73,7 +73,7 @@ GitHub 的轻量 CPU 检查仅验证源码布局、命令入口，不运行 SDK�
 
 ## 后续 GitHub 推送
 
-合并后的项目根目录 `main` 跟踪 `benchmark/main`，正常提交后使用 `GIT_LFS_SKIP_PUSH=1 git push benchmark main`，按既定方案仅推送源码及上游 LFS 引用。
+合并后的项目根目录 `main` 跟踪 `benchmark/main`。源码及上游引用可使用 `GIT_LFS_SKIP_PUSH=1 git push benchmark main`；含本项目新资源的提交必须先将对应 LFS 实体上传到 `benchmark` 并核验成功，再推送 Git 指针。私有资源的下载与完整性验证见[资源说明](../ASSET_RELEASE.md)，原上游 5.3 GB 继续按引用下载。
 
 本次发布已通过插件完成，不依赖本机 `gh` 登录。以下为以后使用命令行发布的可选方式。
 

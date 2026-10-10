@@ -1,0 +1,12 @@
+{
+  "clock_before": {
+    "submitted_physics_step": 2,
+    "timeline_s": 0.0
+  },
+  "clock_after": {
+    "submitted_physics_step": 2,
+    "timeline_s": 0.0
+  },
+  "query_time_unchanged": true,
+  "foreign_hit_paths": []
+}

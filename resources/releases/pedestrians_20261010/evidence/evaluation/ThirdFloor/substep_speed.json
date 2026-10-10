@@ -1,0 +1,25 @@
+{
+  "schema": "crowdsim.actual_substep_speed.v1",
+  "source_result_sha256": "9cd912410d1490d2dfdc2fa3d7e5876909ad8de346e7eba8fe9a815e3e1ee2a1",
+  "ground_support_sha256": "1a432ed00549928fc72bb473515f87e635aa2f652997d37253b8c4f38d4b1b54",
+  "physical_sha256": "b9522a885f6da4fa13bad8b9bfb98d4bb67f18de5a2f50eb404b1a53d14bc570",
+  "native_execution_sha256": "9d70605d14bedf3626f305ace0b22d2d6b0432e5f337de27dea48b3c9e64d01e",
+  "evaluator_source_sha256": "96bf20b19f0a0c64a309c1a815b8647cc53fde885d6eaa351b89da1c82232674",
+  "actual_controls": 1800,
+  "actual_physics_substeps_per_actor": 7200,
+  "control_final_velocity_max_abs_error": 0.0,
+  "upper_speed_m_s": 1.5,
+  "passed_upper1p5_all_substeps": true,
+  "per_actor": [
+    {
+      "actor": 0,
+      "actual_physics_substeps": 7200,
+      "peak_m_s": 1.3297381401062012,
+      "mean_m_s": 0.46965956687927246,
+      "substeps_above1p5": 0,
+      "substeps_below0p5_fraction": 0.5458333333333333
+    }
+  ],
+  "turn_start_stop_low_speed_samples_retained": true,
+  "scope": "Observed actual pelvis planar velocities at every120Hz native substep; no physical state changes and no global bound on future runs."
+}
