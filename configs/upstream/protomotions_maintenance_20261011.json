@@ -5,7 +5,7 @@
   "files": [
     {
       "target_path": ".gitattributes",
-      "reason": "Register reviewed release assets in Git LFS and preserve byte-bound metadata.",
+      "reason": "Register reviewed release assets in Git LFS and preserve byte-bound metadata; retain exact raw verification artifacts without text conversion.",
       "updates": [
         {
           "commit": "f8b41c0c12a74323c4a150bf6649b6207906f870",
@@ -38,6 +38,17 @@
           "after": {
             "mode": "100644",
             "git_blob": "d1c740c453931ea04a2ac8e15b6c2b39fe23f01b"
+          }
+        },
+        {
+          "commit": "5b7cdc13f5acbfbc6e3683ed00170097f632dedb",
+          "before": {
+            "mode": "100644",
+            "git_blob": "d1c740c453931ea04a2ac8e15b6c2b39fe23f01b"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "8c62b24a543d2d37326d994cb8d6784d2ca36c60"
           }
         }
       ]
@@ -72,7 +83,7 @@
     },
     {
       "target_path": "README.md",
-      "reason": "Document the reviewed asset release and clone-reproduction entry points.",
+      "reason": "Document the maintained benchmark and its external IsaacLab SDK interpreter configuration and complete project-local SDK installation.",
       "updates": [
         {
           "commit": "f8b41c0c12a74323c4a150bf6649b6207906f870",
@@ -105,6 +116,17 @@
           "after": {
             "mode": "100644",
             "git_blob": "292b70eb03c35c72378e28ca1dfefaecd091b831"
+          }
+        },
+        {
+          "commit": "5b7cdc13f5acbfbc6e3683ed00170097f632dedb",
+          "before": {
+            "mode": "100644",
+            "git_blob": "292b70eb03c35c72378e28ca1dfefaecd091b831"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "79a917f5cb346558617d0a0e89e806cdd182d0eb"
           }
         }
       ]
