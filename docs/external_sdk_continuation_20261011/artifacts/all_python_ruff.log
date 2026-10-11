@@ -1,0 +1,195 @@
+F811 [*] Redefinition of unused `os` from line 9
+  --> docs/source/conf.py:85:8
+   |
+83 | # Set environment variables before imports to avoid initialization issues
+84 | import sys  # noqa: E402
+85 | import os  # noqa: E402
+   |        ^^ `os` redefined here
+86 |
+87 | # Prevent MuJoCo initialization issues
+   |
+  ::: docs/source/conf.py:9:8
+   |
+ 7 | # https://www.sphinx-doc.org/en/master/usage/configuration.html
+ 8 |
+ 9 | import os
+   |        -- previous definition of `os` here
+10 | from pathlib import Path
+11 | import sys
+   |
+help: Remove definition: `os`
+
+F821 Undefined name `model`
+   --> docs/style_improvement_20261002/amp_style_bottleneck_review_v1/audit_executed_initial.py:160:26
+    |
+158 | …     x, _ = features(h, a)
+159 | …     with torch.no_grad():
+160 | …         logits = model(x).flatten()
+    |                    ^^^^^
+161 | …         reward = torch.nn.functional.softplus(logits).clamp_max(-math.log(config['amp_probability_epsilon'])) * config['amp_reward_…
+162 | …     return {'probability': summarize(logits.sigmoid()), 'amp_reward': summarize(reward)}
+    |
+
+F821 Undefined name `OfficialMapsORCACCorpus`
+   --> docs/style_improvement_20261003/orca_all_temporal_view_staging_v1/all_temporal_corpus.py:125:80
+    |
+123 |     ('orca_maps_official_usable_1000_v1', 'orca_maps_all_temporal_1000_v1'),
+124 |     ('orca_interact_usable_1000_v1', 'orca_interact_all_temporal_1000_v1')],
+125 |     {"InteractionORCACorpus": InteractionORCACorpus, "OfficialMapsORCACorpus": OfficialMapsORCACCorpus})
+    |                                                                                ^^^^^^^^^^^^^^^^^^^^^^^
+126 | manifest_window_counts = mixed["manifest_window_counts"]
+    |
+
+F823 Local variable `owner` referenced before assignment
+  --> docs/style_improvement_20261006/shared_social_native_tool_owner_preparation_v1/seal_CPU_evidence_first_failed_TEST_ONLY.py:50:23
+   |
+48 |     if (mutation["CPU_contract_suite_refused_mutation"] is not True or mutation["exact_source_bytes_restored"] is not True
+49 |             or mutation["compilation_succeeded"] is not True
+50 |             or record(owner.DRIVER)["sha256"] != mutation["restored_sha256"]):
+   |                       ^^^^^
+51 |         raise ValueError("Mutation or exact source restore missing")
+52 |     graph = [registration]
+   |
+
+F811 [*] Redefinition of unused `sys` from line 8
+  --> scripts/finetune_pacer_amass_verified.py:29:8
+   |
+27 | parser.add_argument("--task-horizons-s",type=float,nargs="+",default=[4.5])
+28 | args = parser.parse_args()
+29 | import sys
+   |        ^^^ `sys` redefined here
+30 | sys.path.insert(0,str(ROOT))
+31 | from CrowdSim.humanoid.training.task_horizon import horizon_frame_offsets
+   |
+  ::: scripts/finetune_pacer_amass_verified.py:8:8
+   |
+ 6 | from pathlib import Path
+ 7 | import subprocess
+ 8 | import sys
+   |        --- previous definition of `sys` here
+ 9 | import time
+   |
+help: Remove definition: `sys`
+
+F811 Redefinition of unused `owned` from line 10
+  --> tests/test_base_env_close.py:93:95
+   |
+92 | @pytest.mark.parametrize('failure_stage', ['component', 'ui', 'both'])
+93 | def test_cleanup_failures_reach_real_sdk_lifecycle_without_retaining_native_frames(close_env, owned, failure_stage):
+   |                                                                                               ^^^^^ `owned` redefined here
+94 |     events = []
+   |
+  ::: tests/test_base_env_close.py:10:36
+   |
+ 9 | from test_sdk61_lifecycle import runtime  # noqa: F401
+10 | from test_sdk61_owned_close import owned  # noqa: F401
+   |                                    ----- previous definition of `owned` here
+11 | from protomotions.simulator.isaaclab.utils.sdk61_owned_close import close_owned_simulator
+   |
+help: Remove definition: `owned`
+
+F811 Redefinition of unused `runtime` from line 12
+  --> tests/test_benchmark_sdk61_lifecycle.py:19:61
+   |
+18 | @pytest.mark.parametrize("failure_stage", [None, "config", "construct", "initialize", "step", "cleanup", "frame"])
+19 | def test_benchmark_releases_complete_and_partial_sdk_owners(runtime, monkeypatch, tmp_path, failure_stage):
+   |                                                             ^^^^^^^ `runtime` redefined here
+20 |     from CrowdSim.humanoid.runtime import sdk61_lifecycle, trace_pace_scope
+21 |     monkeypatch.setattr(sdk61_lifecycle, "uses_sim61", lambda: True)
+   |
+  ::: tests/test_benchmark_sdk61_lifecycle.py:12:46
+   |
+10 | import torch
+11 |
+12 | from test_sdk61_lifecycle import make_world, runtime  # noqa: F401
+   |                                              ------- previous definition of `runtime` here
+   |
+help: Remove definition: `runtime`
+
+F811 Redefinition of unused `owned` from line 11
+  --> tests/test_physx_terminal_cache.py:82:71
+   |
+82 | def test_cache_release_occurs_after_native_views_and_before_app_close(owned, monkeypatch):
+   |                                                                       ^^^^^ `owned` redefined here
+83 |     calls = []
+   |
+  ::: tests/test_physx_terminal_cache.py:11:36
+   |
+ 9 | from protomotions.simulator.isaaclab.utils import sdk61_owned_close as terminal
+10 | from test_sdk61_lifecycle import runtime  # noqa: F401
+11 | from test_sdk61_owned_close import owned  # noqa: F401
+   |                                    ----- previous definition of `owned` here
+   |
+help: Remove definition: `owned`
+
+F811 Redefinition of unused `runtime` from line 10
+   --> tests/test_physx_terminal_cache.py:98:74
+    |
+ 98 | def test_common_lifecycle_releases_cache_even_without_production_adapter(runtime, monkeypatch):
+    |                                                                          ^^^^^^^ `runtime` redefined here
+ 99 |     from test_sdk61_lifecycle import make_world
+100 |     runtime.Context.current = runtime.Sim()
+    |
+   ::: tests/test_physx_terminal_cache.py:10:34
+    |
+  9 | from protomotions.simulator.isaaclab.utils import sdk61_owned_close as terminal
+ 10 | from test_sdk61_lifecycle import runtime  # noqa: F401
+    |                                  ------- previous definition of `runtime` here
+ 11 | from test_sdk61_owned_close import owned  # noqa: F401
+    |
+help: Remove definition: `runtime`
+
+F811 Redefinition of unused `runtime` from line 10
+   --> tests/test_physx_terminal_cache.py:116:78
+    |
+116 | def test_cache_rejection_preserves_failure_and_still_attempts_full_app_close(runtime, monkeypatch):
+    |                                                                              ^^^^^^^ `runtime` redefined here
+117 |     from test_sdk61_lifecycle import make_world
+    |
+   ::: tests/test_physx_terminal_cache.py:10:34
+    |
+  9 | from protomotions.simulator.isaaclab.utils import sdk61_owned_close as terminal
+ 10 | from test_sdk61_lifecycle import runtime  # noqa: F401
+    |                                  ------- previous definition of `runtime` here
+ 11 | from test_sdk61_owned_close import owned  # noqa: F401
+    |
+help: Remove definition: `runtime`
+
+F811 Redefinition of unused `runtime` from line 10
+   --> tests/test_physx_terminal_cache.py:131:61
+    |
+131 | def test_failed_context_clear_never_releases_terminal_cache(runtime, monkeypatch):
+    |                                                             ^^^^^^^ `runtime` redefined here
+132 |     from test_sdk61_lifecycle import make_world
+133 |     runtime.Context.current = runtime.Sim()
+    |
+   ::: tests/test_physx_terminal_cache.py:10:34
+    |
+  9 | from protomotions.simulator.isaaclab.utils import sdk61_owned_close as terminal
+ 10 | from test_sdk61_lifecycle import runtime  # noqa: F401
+    |                                  ------- previous definition of `runtime` here
+ 11 | from test_sdk61_owned_close import owned  # noqa: F401
+    |
+help: Remove definition: `runtime`
+
+F811 Redefinition of unused `runtime` from line 9
+  --> tests/test_sdk61_owned_close.py:14:11
+   |
+13 | @pytest.fixture
+14 | def owned(runtime, monkeypatch):
+   |           ^^^^^^^ `runtime` redefined here
+15 |     from CrowdSim.humanoid.runtime import sdk61_lifecycle
+16 |     monkeypatch.setattr(sdk61_lifecycle, "SDK61Lifecycle", runtime.module.SDK61Lifecycle)
+   |
+  ::: tests/test_sdk61_owned_close.py:9:46
+   |
+ 7 | import pytest
+ 8 |
+ 9 | from test_sdk61_lifecycle import make_world, runtime  # noqa: F401
+   |                                              ------- previous definition of `runtime` here
+10 | from protomotions.simulator.isaaclab.utils import sdk61_owned_close as close_module
+   |
+help: Remove definition: `runtime`
+
+Found 12 errors.
+[*] 2 fixable with the `--fix` option.

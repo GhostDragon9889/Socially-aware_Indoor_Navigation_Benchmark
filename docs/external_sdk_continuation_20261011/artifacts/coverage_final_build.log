@@ -1,0 +1,90 @@
+/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/coverage/report_core.py:119: CoverageWarning: Couldn't parse '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/audit_shared_social_high_level.py:native_raw': No source for code: '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/audit_shared_social_high_level.py:native_raw'. (couldnt-parse); see https://coverage.readthedocs.io/en/7.15.2/messages.html#warning-couldnt-parse
+  coverage._warn(msg, slug="couldnt-parse")
+/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/coverage/report_core.py:119: CoverageWarning: Couldn't parse '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/audit_shared_social_inference.py:recovery_admission': No source for code: '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/audit_shared_social_inference.py:recovery_admission'. (couldnt-parse); see https://coverage.readthedocs.io/en/7.15.2/messages.html#warning-couldnt-parse
+  coverage._warn(msg, slug="couldnt-parse")
+/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/coverage/report_core.py:119: CoverageWarning: Couldn't parse '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/audit_shared_social_native.py:owned_CLI': No source for code: '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/audit_shared_social_native.py:owned_CLI'. (couldnt-parse); see https://coverage.readthedocs.io/en/7.15.2/messages.html#warning-couldnt-parse
+  coverage._warn(msg, slug="couldnt-parse")
+/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/coverage/report_core.py:119: CoverageWarning: Couldn't parse '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/audit_shared_social_native.py:seeded_main': No source for code: '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/audit_shared_social_native.py:seeded_main'. (couldnt-parse); see https://coverage.readthedocs.io/en/7.15.2/messages.html#warning-couldnt-parse
+  coverage._warn(msg, slug="couldnt-parse")
+/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/coverage/report_core.py:119: CoverageWarning: Couldn't parse '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/audit_shared_social_navigation.py:native_raw': No source for code: '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/audit_shared_social_navigation.py:native_raw'. (couldnt-parse); see https://coverage.readthedocs.io/en/7.15.2/messages.html#warning-couldnt-parse
+  coverage._warn(msg, slug="couldnt-parse")
+/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/coverage/report_core.py:119: CoverageWarning: Couldn't parse '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/diagnose_shared_social_locomotion.py:native_raw': No source for code: '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/diagnose_shared_social_locomotion.py:native_raw'. (couldnt-parse); see https://coverage.readthedocs.io/en/7.15.2/messages.html#warning-couldnt-parse
+  coverage._warn(msg, slug="couldnt-parse")
+/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/coverage/report_core.py:119: CoverageWarning: Couldn't parse '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/diagnose_shared_social_locomotion.py:registered_duration': No source for code: '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/diagnose_shared_social_locomotion.py:registered_duration'. (couldnt-parse); see https://coverage.readthedocs.io/en/7.15.2/messages.html#warning-couldnt-parse
+  coverage._warn(msg, slug="couldnt-parse")
+/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/coverage/report_core.py:119: CoverageWarning: Couldn't parse '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/evaluate_shared_social_native.py:explicit_seed_CLI': No source for code: '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/evaluate_shared_social_native.py:explicit_seed_CLI'. (couldnt-parse); see https://coverage.readthedocs.io/en/7.15.2/messages.html#warning-couldnt-parse
+  coverage._warn(msg, slug="couldnt-parse")
+/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/coverage/report_core.py:119: CoverageWarning: Couldn't parse '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/evaluate_shared_social_native.py:explicit_seed_main': No source for code: '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/evaluate_shared_social_native.py:explicit_seed_main'. (couldnt-parse); see https://coverage.readthedocs.io/en/7.15.2/messages.html#warning-couldnt-parse
+  coverage._warn(msg, slug="couldnt-parse")
+/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/coverage/report_core.py:119: CoverageWarning: Couldn't parse '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/evaluate_shared_social_native.py:native_paired': No source for code: '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/evaluate_shared_social_native.py:native_paired'. (couldnt-parse); see https://coverage.readthedocs.io/en/7.15.2/messages.html#warning-couldnt-parse
+  coverage._warn(msg, slug="couldnt-parse")
+/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/coverage/report_core.py:119: CoverageWarning: Couldn't parse '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/evaluate_shared_social_native_style.py:owned_CLI': No source for code: '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/evaluate_shared_social_native_style.py:owned_CLI'. (couldnt-parse); see https://coverage.readthedocs.io/en/7.15.2/messages.html#warning-couldnt-parse
+  coverage._warn(msg, slug="couldnt-parse")
+/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/coverage/report_core.py:119: CoverageWarning: Couldn't parse '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/evaluate_shared_social_native_style.py:seeded_main': No source for code: '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/evaluate_shared_social_native_style.py:seeded_main'. (couldnt-parse); see https://coverage.readthedocs.io/en/7.15.2/messages.html#warning-couldnt-parse
+  coverage._warn(msg, slug="couldnt-parse")
+/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/coverage/report_core.py:119: CoverageWarning: Couldn't parse '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/evaluate_shared_social_navigation.py:recovery_admission': No source for code: '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/evaluate_shared_social_navigation.py:recovery_admission'. (couldnt-parse); see https://coverage.readthedocs.io/en/7.15.2/messages.html#warning-couldnt-parse
+  coverage._warn(msg, slug="couldnt-parse")
+/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/coverage/report_core.py:119: CoverageWarning: Couldn't parse '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/evaluate_shared_social_tracking.py:recovery_admission': No source for code: '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/evaluate_shared_social_tracking.py:recovery_admission'. (couldnt-parse); see https://coverage.readthedocs.io/en/7.15.2/messages.html#warning-couldnt-parse
+  coverage._warn(msg, slug="couldnt-parse")
+/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/coverage/report_core.py:119: CoverageWarning: Couldn't parse '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/run_shared_social_evaluation.py:recovery_admission': No source for code: '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/run_shared_social_evaluation.py:recovery_admission'. (couldnt-parse); see https://coverage.readthedocs.io/en/7.15.2/messages.html#warning-couldnt-parse
+  coverage._warn(msg, slug="couldnt-parse")
+/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/coverage/report_core.py:119: CoverageWarning: Couldn't parse '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/run_shared_social_post_training.py:recovery_admission': No source for code: '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/run_shared_social_post_training.py:recovery_admission'. (couldnt-parse); see https://coverage.readthedocs.io/en/7.15.2/messages.html#warning-couldnt-parse
+  coverage._warn(msg, slug="couldnt-parse")
+/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/coverage/report_core.py:119: CoverageWarning: Couldn't parse '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/run_shared_social_post_training.py:registered_budget': No source for code: '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/run_shared_social_post_training.py:registered_budget'. (couldnt-parse); see https://coverage.readthedocs.io/en/7.15.2/messages.html#warning-couldnt-parse
+  coverage._warn(msg, slug="couldnt-parse")
+/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/coverage/report_core.py:119: CoverageWarning: Couldn't parse '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/CrowdSim/humanoid/analysis/native_navigation_audit.py:seeded_admission': No source for code: '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/CrowdSim/humanoid/analysis/native_navigation_audit.py:seeded_admission'. (couldnt-parse); see https://coverage.readthedocs.io/en/7.15.2/messages.html#warning-couldnt-parse
+  coverage._warn(msg, slug="couldnt-parse")
+/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/coverage/report_core.py:119: CoverageWarning: Couldn't parse '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/CrowdSim/humanoid/analysis/native_navigation_style.py:seeded_admission': No source for code: '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/CrowdSim/humanoid/analysis/native_navigation_style.py:seeded_admission'. (couldnt-parse); see https://coverage.readthedocs.io/en/7.15.2/messages.html#warning-couldnt-parse
+  coverage._warn(msg, slug="couldnt-parse")
+/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/coverage/report_core.py:119: CoverageWarning: Couldn't parse '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/CrowdSim/humanoid/analysis/paired_initial.py:native_count': No source for code: '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/CrowdSim/humanoid/analysis/paired_initial.py:native_count'. (couldnt-parse); see https://coverage.readthedocs.io/en/7.15.2/messages.html#warning-couldnt-parse
+  coverage._warn(msg, slug="couldnt-parse")
+/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/coverage/report_core.py:119: CoverageWarning: Couldn't parse '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/CrowdSim/humanoid/application/native_execution_bridge.py:episode_owner_admission': No source for code: '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/CrowdSim/humanoid/application/native_execution_bridge.py:episode_owner_admission'. (couldnt-parse); see https://coverage.readthedocs.io/en/7.15.2/messages.html#warning-couldnt-parse
+  coverage._warn(msg, slug="couldnt-parse")
+/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/coverage/report_core.py:119: CoverageWarning: Couldn't parse '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/CrowdSim/humanoid/runtime/sealed/sdk6_terminal.py:relocated_checkout': No source for code: '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/CrowdSim/humanoid/runtime/sealed/sdk6_terminal.py:relocated_checkout'. (couldnt-parse); see https://coverage.readthedocs.io/en/7.15.2/messages.html#warning-couldnt-parse
+  coverage._warn(msg, slug="couldnt-parse")
+/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/coverage/report_core.py:119: CoverageWarning: Couldn't parse '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/CrowdSim/humanoid/runtime/sealed/sdk6_terminal.py:single_asset': No source for code: '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/CrowdSim/humanoid/runtime/sealed/sdk6_terminal.py:single_asset'. (couldnt-parse); see https://coverage.readthedocs.io/en/7.15.2/messages.html#warning-couldnt-parse
+  coverage._warn(msg, slug="couldnt-parse")
+/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/coverage/report_core.py:119: CoverageWarning: Couldn't parse '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/CrowdSim/humanoid/training/episode_mixed_trajectories.py:explicit_float64_clock': No source for code: '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/CrowdSim/humanoid/training/episode_mixed_trajectories.py:explicit_float64_clock'. (couldnt-parse); see https://coverage.readthedocs.io/en/7.15.2/messages.html#warning-couldnt-parse
+  coverage._warn(msg, slug="couldnt-parse")
+/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/coverage/report_core.py:119: CoverageWarning: Couldn't parse '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/CrowdSim/humanoid/training/episode_trajectories.py:explicit_float64_clock': No source for code: '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/CrowdSim/humanoid/training/episode_trajectories.py:explicit_float64_clock'. (couldnt-parse); see https://coverage.readthedocs.io/en/7.15.2/messages.html#warning-couldnt-parse
+  coverage._warn(msg, slug="couldnt-parse")
+<unknown>:199: SyntaxWarning: invalid escape sequence '\*'
+/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/protomotions/utils/rotations.py:199: SyntaxWarning: invalid escape sequence '\*'
+  Combine two set of 3D rotations together using \**\* operator. The shape needs to be
+<unknown>:199: SyntaxWarning: invalid escape sequence '\*'
+docs/style_improvement_20261008/shared_social_S3R_kinematic_discriminator_CPU_v1/source_snapshots/05_rotations.py:199: SyntaxWarning: invalid escape sequence '\*'
+  Combine two set of 3D rotations together using \**\* operator. The shape needs to be
+docs/style_improvement_20261008/shared_social_episode_after_recovery_v2/source_snapshots/046_rotations.py:199: SyntaxWarning: invalid escape sequence '\*'
+  Combine two set of 3D rotations together using \**\* operator. The shape needs to be
+docs/style_improvement_20261008/shared_social_episode_after_recovery_v3/source_snapshots/047_rotations.py:199: SyntaxWarning: invalid escape sequence '\*'
+  Combine two set of 3D rotations together using \**\* operator. The shape needs to be
+docs/style_improvement_20261008/shared_social_episode_after_recovery_v4/source_snapshots/049_rotations.py:199: SyntaxWarning: invalid escape sequence '\*'
+  Combine two set of 3D rotations together using \**\* operator. The shape needs to be
+src/protomotions/utils/rotations.py:199: SyntaxWarning: invalid escape sequence '\*'
+  Combine two set of 3D rotations together using \**\* operator. The shape needs to be
+<unknown>:199: SyntaxWarning: invalid escape sequence '\*'
+{
+  "src": {
+    "num_statements": 55363,
+    "covered_lines": 42094,
+    "missing_lines": 13269,
+    "num_branches": 17072,
+    "covered_branches": 10918,
+    "missing_branches": 6154,
+    "files": 470,
+    "statement_percent": 76.03272944023988,
+    "branch_percent": 63.952671040299904
+  },
+  "scripts": {
+    "num_statements": 16948,
+    "covered_lines": 6969,
+    "missing_lines": 9979,
+    "num_branches": 4860,
+    "covered_branches": 1744,
+    "missing_branches": 3116,
+    "files": 152,
+    "statement_percent": 41.1198961529384,
+    "branch_percent": 35.88477366255144
+  }
+}
+{"scope": "all Git-tracked and nonignored untracked Python files, including archived snapshots", "python_files": 2640, "physical_lines": 645394, "function_definitions": 25087, "syntax_failures": 0, "executed_line_coverage": false}

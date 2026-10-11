@@ -1,0 +1,52 @@
+{
+  "current_collected_ordinary_cases": 5167,
+  "unique_cases_executed": 5167,
+  "passed": 5165,
+  "failed": 0,
+  "remaining_skips": [
+    {
+      "status": "skipped",
+      "file": "full_isolated_current/cpu.xml",
+      "classname": "src.protomotions.tests.test_isaacgym_friction_mode",
+      "name": "test_isaacgym_variants_initialize_baseline_friction[None-0.75]"
+    },
+    {
+      "status": "skipped",
+      "file": "full_isolated_current/cpu.xml",
+      "classname": "src.protomotions.tests.test_isaacgym_friction_mode",
+      "name": "test_isaacgym_variants_initialize_baseline_friction[friction_table1-0.45]"
+    }
+  ],
+  "subtests_passed_separate": 130,
+  "phases": [
+    {
+      "file": "full_isolated_current/cpu.xml",
+      "ordinary_cases": 5165,
+      "result": {
+        "passed": 5156,
+        "skipped": 9
+      }
+    },
+    {
+      "file": "full_isolated_current/cuda.xml",
+      "ordinary_cases": 7,
+      "result": {
+        "passed": 7
+      }
+    },
+    {
+      "file": "runtime_recovery_verified.xml",
+      "ordinary_cases": 110,
+      "result": {
+        "passed": 110
+      }
+    },
+    {
+      "file": "external_existing_verified.xml",
+      "ordinary_cases": 11,
+      "result": {
+        "passed": 11
+      }
+    }
+  ]
+}

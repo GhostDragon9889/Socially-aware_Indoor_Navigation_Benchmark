@@ -17,6 +17,8 @@
 /docs/verification_remaining_20261011/artifacts/** -text
 /docs/verification_remaining_20261011/artifacts/*.csv whitespace=cr-at-eol
 /docs/external_sdk_verification_20261011/artifacts/** -text
+/docs/external_sdk_continuation_20261011/artifacts/** -text
+/docs/external_sdk_continuation_20261011/artifacts/**/*.log whitespace=-blank-at-eol
 
 # Frozen patch context and captured test output retain their original bytes.
 /configs/compatibility/reference_patches/*.patch whitespace=-blank-at-eol

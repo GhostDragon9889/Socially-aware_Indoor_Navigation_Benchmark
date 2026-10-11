@@ -32,10 +32,13 @@ def native_paths(root: Path) -> list[str]:
     if directory.is_symlink() or receipt.is_symlink() or not directory.resolve().is_relative_to(root.resolve()):
         raise RuntimeError('Optional RVO2 dependency must remain inside the checkout')
     value = json.loads(receipt.read_text())
+    if not isinstance(value, dict):
+        raise RuntimeError('Optional RVO2 dependency receipt must be an object')
     name = value.get('binary', '')
     if (value.get('schema') != 'social_navigation.rvo2_native.v1'
             or value.get('source_commit') != 'c2c46ba8d59556aa10faf03479293236efea154d'
-            or Path(name).name != name or not name.startswith('rvo2.cpython-312-') or not name.endswith('.so')
+            or not isinstance(name, str) or Path(name).name != name
+            or not name.startswith('rvo2.cpython-312-') or not name.endswith('.so')
             or (directory / name).is_symlink()
             or hashlib.sha256((directory / name).read_bytes()).hexdigest() != value.get('sha256')):
         raise RuntimeError('Optional RVO2 dependency differs from its pinned build receipt')
@@ -45,13 +48,15 @@ def native_paths(root: Path) -> list[str]:
 def read_binding(root: Path) -> dict:
     path = root / BINDING
     value = json.loads(path.read_text())
-    if value.get('schema') != 'social_navigation.external_sdk.v1':
+    if not isinstance(value, dict) or value.get('schema') != 'social_navigation.external_sdk.v1':
         raise RuntimeError('Unknown external SDK binding schema')
     for key in ('lab_root', 'python', 'addons'):
         if not isinstance(value.get(key), str) or not Path(value[key]).is_absolute():
             raise RuntimeError('External SDK binding requires absolute ' + key)
     if Path(value['addons']).resolve() != (root / ADDONS).resolve():
         raise RuntimeError('Project additions belong to another checkout; configure this clone first')
+    if (root / ADDONS).is_symlink() or not runtime._inside(value['addons'], root):
+        raise RuntimeError('Project additions must stay inside this checkout')
     if not Path(value['python']).is_file():
         raise RuntimeError('Configured SDK Python is missing; configure an installed SDK')
     return value
@@ -75,17 +80,67 @@ def _check_addons(root: Path, sdk: dict, profile: dict, pins: dict, addons: Path
     return probe
 
 
+def _publish_setup(parent: Path, contents: dict[str, str]) -> None:
+    """Stage complete files, publish binding last, and restore on an I/O failure."""
+    temporary, previous, pending, published = [], {}, {}, []
+    recovery = set()
+    def stage(payload: bytes, mode: int = 0o600) -> Path:
+        descriptor, name = tempfile.mkstemp(prefix='.external_sdk_setup-', dir=parent)
+        path = Path(name)
+        temporary.append(path)
+        with os.fdopen(descriptor, 'wb') as stream:
+            stream.write(payload)
+        path.chmod(mode)
+        return path
+    try:
+        for name, text in contents.items():
+            target = parent / name
+            if target.is_symlink():
+                raise RuntimeError('External SDK setup files must stay inside this checkout')
+            previous[name] = stage(target.read_bytes(), target.stat().st_mode & 0o777) if target.exists() else None
+            pending[name] = stage(text.encode('utf-8'))
+        for name in contents:
+            pending[name].replace(parent / name)
+            published.append(name)
+    except BaseException as failure:
+        for name in reversed(published):
+            try:
+                if previous[name] is None:
+                    (parent / name).unlink()
+                else:
+                    previous[name].replace(parent / name)
+            except OSError as rollback_error:
+                # A persistent OS failure cannot be repaired automatically.
+                # Keep the original bytes available rather than deleting the
+                # only recovery copy or replacing the initial failure.
+                snapshot = previous[name]
+                if snapshot is not None:
+                    recovery.add(snapshot)
+                failure.add_note('SDK setup rollback failed for ' + str(parent / name)
+                                 + ': ' + str(rollback_error) + '; recovery snapshot: '
+                                 + str(snapshot if snapshot is not None else parent / name))
+        raise
+    finally:
+        for path in temporary:
+            if path not in recovery:
+                path.unlink(missing_ok=True)
+
+
 def configure(root: Path, lab: Path, *, python: Path | None = None,
               install_addons: bool = True, rebuild_addons: bool = False) -> dict:
     """Validate first, atomically install locked additions, then publish binding."""
     root, lab = root.expanduser().resolve(), lab.expanduser().resolve()
     # Do not resolve the Python symlink: its venv spelling selects SDK sys.prefix.
     python = Path(os.path.abspath(python.expanduser())) if python else lab / '.venv/bin/python'
+    parent, addons = root / '.runtime', root / ADDONS
+    if (not runtime._inside(parent, root) or runtime._inside(parent, lab)
+            or addons.is_symlink() or not runtime._inside(addons, root)):
+        raise RuntimeError('Project additions must stay inside this checkout and outside the SDK')
+    # Admit optional native inputs before installing packages or publishing a
+    # new interpreter selection. A failed configure keeps the old selection.
+    optional_paths = native_paths(root)
     profile, pins = runtime.load_runtime_profile(root)
     sdk = runtime._sdk_snapshot(lab, profile, python=python)
-    parent, addons = root / '.runtime', root / ADDONS
-    if not runtime._inside(parent, root) or runtime._inside(parent, lab):
-        raise RuntimeError('Project additions must stay inside this checkout and outside the SDK')
     parent.mkdir(parents=True, exist_ok=True)
     with (parent / '.external_sdk.install.lock').open('a') as lock:
         try:
@@ -94,70 +149,75 @@ def configure(root: Path, lab: Path, *, python: Path | None = None,
             raise RuntimeError('Another process is configuring this checkout') from exc
         fingerprint = runtime._fingerprint(root, profile, sdk)
         receipt = addons / 'social_navigation_addons_receipt.json'
-        if addons.exists() and not rebuild_addons:
-            previous = json.loads(receipt.read_text()).get('fingerprint', {}) if receipt.is_file() else {}
-            # A second matching SDK can live elsewhere. Package bytes belong to
-            # the project; actual requirements/provider ownership are reprobed.
-            keys = ('profile_sha256', 'overlay_lock_sha256', 'project_manifest_sha256',
-                    'sdk_source_tree', 'sdk_python_version')
-            if not previous or any(previous.get(key) != fingerprint[key] for key in keys):
-                raise RuntimeError('Existing additions differ from selected SDK/profile; preserved. Use --rebuild-addons')
-            probe = _check_addons(root, sdk, profile, pins, addons)
-        else:
-            if not install_addons:
-                raise RuntimeError('Project additions missing; run configure without --check-only')
-            uv = shutil.which('uv')
-            if uv is None:
-                raise RuntimeError('Install uv to download project additions')
-            candidate = Path(tempfile.mkdtemp(prefix='.external_sdk_packages-', dir=parent))
-            backup, published = None, False
-            try:
+        candidate, backup, published = None, None, False
+        try:
+            if addons.exists() and not rebuild_addons:
+                previous = json.loads(receipt.read_text()).get('fingerprint', {}) if receipt.is_file() else {}
+                # A second matching SDK can live elsewhere. Package bytes belong to
+                # the project; actual requirements/provider ownership are reprobed.
+                keys = ('profile_sha256', 'overlay_lock_sha256', 'project_manifest_sha256',
+                        'sdk_source_tree', 'sdk_python_version')
+                if not previous or any(previous.get(key) != fingerprint[key] for key in keys):
+                    raise RuntimeError('Existing additions differ from selected SDK/profile; preserved. Use --rebuild-addons')
+                probe = _check_addons(root, sdk, profile, pins, addons)
+            else:
+                if not install_addons:
+                    raise RuntimeError('Project additions missing; run configure without --check-only')
+                uv = shutil.which('uv')
+                if uv is None:
+                    raise RuntimeError('Install uv to download project additions')
+                candidate = Path(tempfile.mkdtemp(prefix='.external_sdk_packages-', dir=parent))
                 partial = candidate / 'requirements.txt'
                 partial.write_text(''.join(f'{n}=={v}\n' for n, v in pins.items() if n != 'chumpy'))
                 runtime._run([uv, 'pip', 'install', '--python', str(python), '--target', str(candidate),
-                              '--no-deps', '-r', str(partial)], log=candidate / 'install.log')
+                                  '--no-deps', '-r', str(partial)], log=candidate / 'install.log')
                 if 'chumpy' in pins:
                     runtime._run([uv, 'pip', 'install', '--python', str(python), '--target', str(candidate),
-                                  '--no-deps', '--no-build-isolation', f"chumpy=={pins['chumpy']}"],
-                                 log=candidate / 'install.log')
+                                      '--no-deps', '--no-build-isolation', f"chumpy=={pins['chumpy']}"],
+                                     log=candidate / 'install.log')
                 probe = _check_addons(root, sdk, profile, pins, candidate)
                 (candidate / receipt.name).write_text(json.dumps({'fingerprint': fingerprint}, indent=2))
                 if addons.exists():
                     backup = parent / ('.external_sdk_packages_backup-' + candidate.name.removeprefix('.external_sdk_packages-'))
                     addons.rename(backup)
-                try:
-                    candidate.rename(addons)
-                    published = True
-                except BaseException:
-                    if backup is not None: backup.rename(addons)
-                    raise
+                candidate.rename(addons)
+                published = True
                 probe = _check_addons(root, sdk, profile, pins, addons)
-            except BaseException:
+            binding = {'schema': 'social_navigation.external_sdk.v1', 'lab_root': str(lab),
+                     'python': str(python), 'addons': str(addons), 'sdk_modified': False,
+                     'project_venv_required': False, 'fingerprint': fingerprint,
+                     'sdk_probe': sdk['probe'], 'project_probe': probe, 'physics_tested': False}
+            workspace = parent / 'external_sdk.code-workspace'
+            env_file = parent / 'external_sdk.env'
+            import_paths = os.pathsep.join([str(root / 'src'), str(root), str(addons), *optional_paths])
+            workspace_text = json.dumps({'folders': [{'path':str(root),'name':root.name}],
+              'settings': {'python.defaultInterpreterPath':sdk['probe']['python'],
+                           'python.envFile':str(env_file),
+                           'terminal.integrated.env.linux': {'PYTHONPATH':import_paths,
+                                                            'ISAACLAB_ROOT':str(lab)}}}, indent=2)+'\n'
+            _publish_setup(parent, {
+                env_file.name: 'PYTHONPATH=' + json.dumps(import_paths, ensure_ascii=False)
+                              + '\nPYTHONDONTWRITEBYTECODE=1\nPYTEST_DISABLE_PLUGIN_AUTOLOAD=1\n',
+                workspace.name: workspace_text,
+                BINDING.name: json.dumps(binding, indent=2) + '\n',
+            })
+        except BaseException as failure:
+            # Preserve diagnostics before deleting or rolling back the newly
+            # published directory (the candidate name no longer exists then).
+            log = (addons if published else candidate)
+            try:
+                if log is not None and (log / 'install.log').is_file():
+                    shutil.copyfile(log / 'install.log', parent / 'external_sdk_failed_install.log')
+            except OSError as log_error:
+                failure.add_note('Could not retain installer diagnostics: ' + str(log_error))
+            finally:
                 if published:
                     shutil.rmtree(addons)
-                    if backup is not None: backup.rename(addons)
-                if (candidate / 'install.log').is_file():
-                    shutil.copyfile(candidate / 'install.log', parent / 'external_sdk_failed_install.log')
-                shutil.rmtree(candidate, ignore_errors=True)
-                raise
-        binding = {'schema': 'social_navigation.external_sdk.v1', 'lab_root': str(lab),
-                   'python': str(python), 'addons': str(addons), 'sdk_modified': False,
-                   'project_venv_required': False, 'fingerprint': fingerprint,
-                   'sdk_probe': sdk['probe'], 'project_probe': probe, 'physics_tested': False}
-        pending = parent / 'external_sdk.json.partial'
-        with pending.open('x') as stream:
-            json.dump(binding, stream, indent=2)
-        pending.replace(root / BINDING)
-        workspace = parent / 'external_sdk.code-workspace'
-        env_file = parent / 'external_sdk.env'
-        import_paths = os.pathsep.join([str(root / 'src'), str(root), str(addons), *native_paths(root)])
-        env_file.write_text('PYTHONPATH=' + json.dumps(import_paths, ensure_ascii=False)
-                            + '\nPYTHONDONTWRITEBYTECODE=1\nPYTEST_DISABLE_PLUGIN_AUTOLOAD=1\n')
-        workspace.write_text(json.dumps({'folders': [{'path':str(root),'name':root.name}],
-            'settings': {'python.defaultInterpreterPath':sdk['probe']['python'],
-                         'python.envFile':str(env_file),
-                         'terminal.integrated.env.linux': {'PYTHONPATH':import_paths,
-                                                          'ISAACLAB_ROOT':str(lab)}}}, indent=2)+'\n')
+                if backup is not None and not addons.exists():
+                    backup.rename(addons)
+                if candidate is not None:
+                    shutil.rmtree(candidate, ignore_errors=True)
+            raise
         return {'status': 'external_sdk_configured', 'python': str(python),
                 'binding': str(root / BINDING), 'vscode_workspace':str(workspace),
                 'sdk_modified': False, 'project_venv_required': False}

@@ -1,0 +1,10 @@
+baseline_sha256 05d29cca958300f0cfd46079e630e63e809fdc16c977b699253281b06bd800d5
+valid_zero_padding_rejected Network dimensions must be positive, got [0, 0].
+requested_channels 2 actual_convolutions 1
+Traceback (most recent call last):
+  File "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/run_external_python.py", line 27, in <module>
+    execute(ROOT, arguments[1:])
+  File "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/social_navigation/external_runtime.py", line 273, in execute
+    exec(compile(sys.stdin.read(), '<stdin>', 'exec'), {'__name__': '__main__', '__builtins__': __builtins__})
+  File "<stdin>", line 11, in <module>
+AssertionError: Prior implementation silently truncated a requested convolution layer

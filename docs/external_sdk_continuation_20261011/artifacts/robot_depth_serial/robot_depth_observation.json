@@ -1,0 +1,500 @@
+{
+  "schema": "social_navigation.native_depth_training.v1",
+  "python": "/project/EXP/IsaacLab/.venv/bin/python",
+  "status": "passed",
+  "observations": [
+    {
+      "raw_shape": [
+        4,
+        224,
+        224,
+        1
+      ],
+      "depth_shape": [
+        4,
+        224,
+        224
+      ],
+      "raw_finite_nonzero_pixels": 200422,
+      "depth_nonzero_pixels_per_robot": [
+        24629,
+        22743,
+        34301,
+        47389
+      ],
+      "depth_max": 0.9994609951972961
+    },
+    {
+      "raw_shape": [
+        4,
+        224,
+        224,
+        1
+      ],
+      "depth_shape": [
+        4,
+        224,
+        224
+      ],
+      "raw_finite_nonzero_pixels": 200281,
+      "depth_nonzero_pixels_per_robot": [
+        27451,
+        23251,
+        28176,
+        45152
+      ],
+      "depth_max": 0.9999972581863403
+    },
+    {
+      "raw_shape": [
+        4,
+        224,
+        224,
+        1
+      ],
+      "depth_shape": [
+        4,
+        224,
+        224
+      ],
+      "raw_finite_nonzero_pixels": 200275,
+      "depth_nonzero_pixels_per_robot": [
+        27729,
+        22915,
+        28179,
+        45078
+      ],
+      "depth_max": 0.9999996423721313
+    },
+    {
+      "raw_shape": [
+        4,
+        224,
+        224,
+        1
+      ],
+      "depth_shape": [
+        4,
+        224,
+        224
+      ],
+      "raw_finite_nonzero_pixels": 200284,
+      "depth_nonzero_pixels_per_robot": [
+        27759,
+        22982,
+        28179,
+        45381
+      ],
+      "depth_max": 0.99974125623703
+    },
+    {
+      "raw_shape": [
+        4,
+        224,
+        224,
+        1
+      ],
+      "depth_shape": [
+        4,
+        224,
+        224
+      ],
+      "raw_finite_nonzero_pixels": 200303,
+      "depth_nonzero_pixels_per_robot": [
+        27593,
+        23043,
+        28212,
+        45510
+      ],
+      "depth_max": 0.9999948740005493
+    },
+    {
+      "raw_shape": [
+        4,
+        224,
+        224,
+        1
+      ],
+      "depth_shape": [
+        4,
+        224,
+        224
+      ],
+      "raw_finite_nonzero_pixels": 200303,
+      "depth_nonzero_pixels_per_robot": [
+        27593,
+        23043,
+        28212,
+        45510
+      ],
+      "depth_max": 0.9999948740005493
+    },
+    {
+      "raw_shape": [
+        4,
+        224,
+        224,
+        1
+      ],
+      "depth_shape": [
+        4,
+        224,
+        224
+      ],
+      "raw_finite_nonzero_pixels": 200306,
+      "depth_nonzero_pixels_per_robot": [
+        27694,
+        22906,
+        28302,
+        45616
+      ],
+      "depth_max": 0.9999996423721313
+    },
+    {
+      "raw_shape": [
+        4,
+        224,
+        224,
+        1
+      ],
+      "depth_shape": [
+        4,
+        224,
+        224
+      ],
+      "raw_finite_nonzero_pixels": 200304,
+      "depth_nonzero_pixels_per_robot": [
+        27477,
+        22969,
+        28300,
+        45520
+      ],
+      "depth_max": 0.9999954104423523
+    },
+    {
+      "raw_shape": [
+        4,
+        224,
+        224,
+        1
+      ],
+      "depth_shape": [
+        4,
+        224,
+        224
+      ],
+      "raw_finite_nonzero_pixels": 200303,
+      "depth_nonzero_pixels_per_robot": [
+        27235,
+        23104,
+        28380,
+        45512
+      ],
+      "depth_max": 0.9999982714653015
+    },
+    {
+      "raw_shape": [
+        4,
+        224,
+        224,
+        1
+      ],
+      "depth_shape": [
+        4,
+        224,
+        224
+      ],
+      "raw_finite_nonzero_pixels": 200301,
+      "depth_nonzero_pixels_per_robot": [
+        27107,
+        22835,
+        28433,
+        45468
+      ],
+      "depth_max": 0.9999990463256836
+    },
+    {
+      "raw_shape": [
+        4,
+        224,
+        224,
+        1
+      ],
+      "depth_shape": [
+        4,
+        224,
+        224
+      ],
+      "raw_finite_nonzero_pixels": 200301,
+      "depth_nonzero_pixels_per_robot": [
+        27107,
+        22835,
+        28433,
+        45468
+      ],
+      "depth_max": 0.9999990463256836
+    },
+    {
+      "raw_shape": [
+        4,
+        224,
+        224,
+        1
+      ],
+      "depth_shape": [
+        4,
+        224,
+        224
+      ],
+      "raw_finite_nonzero_pixels": 200298,
+      "depth_nonzero_pixels_per_robot": [
+        27139,
+        22850,
+        28524,
+        45637
+      ],
+      "depth_max": 0.9999914169311523
+    },
+    {
+      "raw_shape": [
+        4,
+        224,
+        224,
+        1
+      ],
+      "depth_shape": [
+        4,
+        224,
+        224
+      ],
+      "raw_finite_nonzero_pixels": 200308,
+      "depth_nonzero_pixels_per_robot": [
+        27514,
+        22933,
+        28562,
+        45854
+      ],
+      "depth_max": 0.9998731017112732
+    },
+    {
+      "raw_shape": [
+        4,
+        224,
+        224,
+        1
+      ],
+      "depth_shape": [
+        4,
+        224,
+        224
+      ],
+      "raw_finite_nonzero_pixels": 200301,
+      "depth_nonzero_pixels_per_robot": [
+        27498,
+        23091,
+        28575,
+        45874
+      ],
+      "depth_max": 0.9999918341636658
+    },
+    {
+      "raw_shape": [
+        4,
+        224,
+        224,
+        1
+      ],
+      "depth_shape": [
+        4,
+        224,
+        224
+      ],
+      "raw_finite_nonzero_pixels": 200314,
+      "depth_nonzero_pixels_per_robot": [
+        27058,
+        22924,
+        28646,
+        45838
+      ],
+      "depth_max": 0.9999958276748657
+    },
+    {
+      "raw_shape": [
+        4,
+        224,
+        224,
+        1
+      ],
+      "depth_shape": [
+        4,
+        224,
+        224
+      ],
+      "raw_finite_nonzero_pixels": 200314,
+      "depth_nonzero_pixels_per_robot": [
+        27058,
+        22924,
+        28646,
+        45838
+      ],
+      "depth_max": 0.9999958276748657
+    },
+    {
+      "raw_shape": [
+        4,
+        224,
+        224,
+        1
+      ],
+      "depth_shape": [
+        4,
+        224,
+        224
+      ],
+      "raw_finite_nonzero_pixels": 200325,
+      "depth_nonzero_pixels_per_robot": [
+        26772,
+        22925,
+        28628,
+        45760
+      ],
+      "depth_max": 0.9999980926513672
+    },
+    {
+      "raw_shape": [
+        4,
+        224,
+        224,
+        1
+      ],
+      "depth_shape": [
+        4,
+        224,
+        224
+      ],
+      "raw_finite_nonzero_pixels": 200317,
+      "depth_nonzero_pixels_per_robot": [
+        26403,
+        22984,
+        28687,
+        46101
+      ],
+      "depth_max": 0.9996622204780579
+    },
+    {
+      "raw_shape": [
+        4,
+        224,
+        224,
+        1
+      ],
+      "depth_shape": [
+        4,
+        224,
+        224
+      ],
+      "raw_finite_nonzero_pixels": 200345,
+      "depth_nonzero_pixels_per_robot": [
+        26014,
+        23074,
+        28683,
+        46195
+      ],
+      "depth_max": 0.9999971389770508
+    },
+    {
+      "raw_shape": [
+        4,
+        224,
+        224,
+        1
+      ],
+      "depth_shape": [
+        4,
+        224,
+        224
+      ],
+      "raw_finite_nonzero_pixels": 200328,
+      "depth_nonzero_pixels_per_robot": [
+        26291,
+        23113,
+        28805,
+        46139
+      ],
+      "depth_max": 0.9999966025352478
+    }
+  ],
+  "scope": "Actual Warehouse/NovaCarter, four robots, provided SMPL policy; short training, no convergence claim.",
+  "changed_parameter_groups": {
+    "vector_encoder.": [
+      "vector_encoder.0.weight",
+      "vector_encoder.0.bias",
+      "vector_encoder.2.weight",
+      "vector_encoder.2.bias"
+    ],
+    "depth_encoder.": [
+      "depth_encoder.cnn.0.weight",
+      "depth_encoder.cnn.0.bias",
+      "depth_encoder.cnn.2.weight",
+      "depth_encoder.cnn.2.bias",
+      "depth_encoder.projection.weight",
+      "depth_encoder.projection.bias",
+      "depth_encoder.output_norm.weight",
+      "depth_encoder.output_norm.bias"
+    ],
+    "map_encoder.": [
+      "map_encoder.cnn.0.weight",
+      "map_encoder.cnn.0.bias",
+      "map_encoder.cnn.2.weight",
+      "map_encoder.cnn.2.bias",
+      "map_encoder.cnn.4.weight",
+      "map_encoder.cnn.4.bias",
+      "map_encoder.projection.weight",
+      "map_encoder.projection.bias",
+      "map_encoder.output_norm.weight",
+      "map_encoder.output_norm.bias"
+    ],
+    "fusion.": [
+      "fusion.projections.0.weight",
+      "fusion.projections.0.bias",
+      "fusion.projections.1.weight",
+      "fusion.projections.1.bias",
+      "fusion.projections.2.weight",
+      "fusion.projections.2.bias",
+      "fusion.transformer.layers.0.self_attn.in_proj_weight",
+      "fusion.transformer.layers.0.self_attn.in_proj_bias",
+      "fusion.transformer.layers.0.self_attn.out_proj.weight",
+      "fusion.transformer.layers.0.self_attn.out_proj.bias",
+      "fusion.transformer.layers.0.linear1.weight",
+      "fusion.transformer.layers.0.linear1.bias",
+      "fusion.transformer.layers.0.linear2.weight",
+      "fusion.transformer.layers.0.linear2.bias",
+      "fusion.transformer.layers.0.norm1.weight",
+      "fusion.transformer.layers.0.norm1.bias",
+      "fusion.transformer.layers.0.norm2.weight",
+      "fusion.transformer.layers.0.norm2.bias"
+    ],
+    "critic.": [
+      "critic.0.weight",
+      "critic.0.bias",
+      "critic.2.weight",
+      "critic.2.bias",
+      "critic.4.weight",
+      "critic.4.bias",
+      "critic.6.weight",
+      "critic.6.bias"
+    ]
+  },
+  "output": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/external_sdk_continuation_20261011/robot_depth_serial/robot4_depth_train/20261012_010436",
+  "checkpoint_sha256": "50221e657200134f1ff999496fb419e112a23e7652af8fdd551a96b78d085362",
+  "checkpoint_keys": [
+    "schema_version",
+    "step",
+    "model",
+    "optimizer",
+    "config",
+    "architecture",
+    "extra_state"
+  ],
+  "depth_fallback_flags": []
+}

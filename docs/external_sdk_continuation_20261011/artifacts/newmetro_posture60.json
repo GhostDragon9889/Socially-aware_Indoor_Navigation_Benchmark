@@ -1,0 +1,394 @@
+{
+  "schema": "crowdsim.actual_posture_diagnostics.v2",
+  "result_sha256": "83f2bf276cdb594ccf51e8dff3567dd2ce30fcb32112e23532cd3f92df048afc",
+  "physical_sha256": "6aa03ebe21de0a3243ee465c9d78be32f06961591562bb2022c6ec7692860da8",
+  "actual_controls": 1800,
+  "actors": 4,
+  "all_frames": {
+    "pelvis_yaw_1s_detrended_abs_deg": {
+      "mean": 3.840131728654959,
+      "p95": 10.12052646978691,
+      "rms": 5.198044999094834,
+      "max": 19.544242025768277
+    },
+    "shoulder_line_relative_pelvis_yaw_abs_deg": {
+      "mean": 5.34638146441501,
+      "p95": 13.934581565856934,
+      "rms": 6.696666226919272,
+      "max": 25.33317756652832
+    },
+    "head_pelvis_lateral_tilt_abs_deg": {
+      "mean": 2.814066358541119,
+      "p95": 7.090542316436767,
+      "rms": 3.5182506887875467,
+      "max": 14.35843563079834
+    },
+    "wrist_lateral_offset_from_shoulder_m": {
+      "mean": 0.07728818400344001,
+      "p95": 0.15223114416003225,
+      "rms": 0.09187876034636491,
+      "max": 0.45443981885910034
+    },
+    "arm_sagittal_angle_abs_deg": {
+      "mean": 12.364338732038627,
+      "p95": 24.6029465675354,
+      "rms": 16.550789550654986,
+      "max": 163.46170043945312
+    },
+    "elbow_flexion_deg": {
+      "mean": 27.435775247149998,
+      "p95": 38.94876327514648,
+      "rms": 28.194146436663182,
+      "max": 73.96324920654297
+    },
+    "root_speed_m_s": {
+      "mean": 0.4948023328638111,
+      "p95": 1.036238956451416,
+      "rms": 0.6162493654759482,
+      "max": 1.4692740440368652
+    }
+  },
+  "moving_threshold_m_s": 0.2,
+  "moving_actor_frames": 4942,
+  "total_actor_frames": 7200,
+  "moving_frames": {
+    "shoulder_line_relative_pelvis_yaw_abs_deg": {
+      "mean": 6.181152217625612,
+      "p95": 14.725542545318602,
+      "rms": 7.65190823204471,
+      "max": 25.33317756652832
+    },
+    "head_pelvis_lateral_tilt_abs_deg": {
+      "mean": 3.305207022069501,
+      "p95": 7.513125491142272,
+      "rms": 4.017950754439149,
+      "max": 14.35843563079834
+    },
+    "wrist_lateral_offset_from_shoulder_m": {
+      "mean": 0.07758675600230366,
+      "p95": 0.15221269205212593,
+      "rms": 0.09221522974682753,
+      "max": 0.45443981885910034
+    },
+    "arm_sagittal_angle_abs_deg": {
+      "mean": 11.660274510407461,
+      "p95": 25.296306800842288,
+      "rms": 16.1315002802992,
+      "max": 163.448486328125
+    },
+    "elbow_flexion_deg": {
+      "mean": 28.09705264864543,
+      "p95": 39.45269775390625,
+      "rms": 28.876983758593063,
+      "max": 73.96324920654297
+    },
+    "root_speed_m_s": {
+      "mean": 0.6973029345346337,
+      "p95": 1.0800691843032837,
+      "rms": 0.7420854390322889,
+      "max": 1.4692740440368652
+    }
+  },
+  "per_actor": [
+    {
+      "actor": 0,
+      "moving_frames": 1098,
+      "moving_fraction": 0.61,
+      "metrics": {
+        "shoulder_line_relative_pelvis_yaw_abs_deg": {
+          "mean": 6.134688722334555,
+          "p95": 14.648260021209715,
+          "rms": 7.534893002761133,
+          "max": 23.429630279541016
+        },
+        "head_pelvis_lateral_tilt_abs_deg": {
+          "mean": 3.4777938129536414,
+          "p95": 7.883606624603269,
+          "rms": 4.278282643479855,
+          "max": 14.35843563079834
+        },
+        "wrist_lateral_offset_from_shoulder_m": {
+          "mean": 0.08515550473606119,
+          "p95": 0.1677270159125328,
+          "rms": 0.10871060617858049,
+          "max": 0.45443981885910034
+        },
+        "arm_sagittal_angle_abs_deg": {
+          "mean": 13.440025450614279,
+          "p95": 27.07420015335083,
+          "rms": 22.724863231195044,
+          "max": 163.448486328125
+        },
+        "elbow_flexion_deg": {
+          "mean": 29.182185675059944,
+          "p95": 43.044464111328125,
+          "rms": 30.378922828011603,
+          "max": 73.7305908203125
+        },
+        "root_speed_m_s": {
+          "mean": 0.6711018345232218,
+          "p95": 1.0628998517990111,
+          "rms": 0.7194603359384262,
+          "max": 1.4586164951324463
+        }
+      },
+      "arms": {
+        "L": {
+          "sagittal_abs_deg": {
+            "mean": 13.958896787165374,
+            "p95": 27.37372245788573,
+            "rms": 25.474092308961755,
+            "max": 163.448486328125
+          },
+          "above_horizontal_fraction": 0.020947176684881604,
+          "forward_offset_std_m": 0.07233132421970367
+        },
+        "R": {
+          "sagittal_abs_deg": {
+            "mean": 12.921154114063185,
+            "p95": 26.851884746551494,
+            "rms": 19.593607089750893,
+            "max": 137.93698120117188
+          },
+          "above_horizontal_fraction": 0.01092896174863388,
+          "forward_offset_std_m": 0.07321646064519882
+        }
+      }
+    },
+    {
+      "actor": 1,
+      "moving_frames": 1061,
+      "moving_fraction": 0.5894444444444444,
+      "metrics": {
+        "shoulder_line_relative_pelvis_yaw_abs_deg": {
+          "mean": 6.341719868183874,
+          "p95": 14.971001625061035,
+          "rms": 7.907100738862489,
+          "max": 25.33317756652832
+        },
+        "head_pelvis_lateral_tilt_abs_deg": {
+          "mean": 3.339041223241285,
+          "p95": 8.105610847473145,
+          "rms": 4.144462981798979,
+          "max": 10.748250007629395
+        },
+        "wrist_lateral_offset_from_shoulder_m": {
+          "mean": 0.07574333272242136,
+          "p95": 0.1556377783417701,
+          "rms": 0.0880455334122171,
+          "max": 0.23596979677677155
+        },
+        "arm_sagittal_angle_abs_deg": {
+          "mean": 11.488142403571196,
+          "p95": 25.876394748687737,
+          "rms": 14.156089755088884,
+          "max": 41.34695816040039
+        },
+        "elbow_flexion_deg": {
+          "mean": 27.866691761933666,
+          "p95": 38.60232925415039,
+          "rms": 28.519204661499167,
+          "max": 48.03216552734375
+        },
+        "root_speed_m_s": {
+          "mean": 0.6927180773913018,
+          "p95": 1.0838474035263062,
+          "rms": 0.7371653398347685,
+          "max": 1.360838532447815
+        }
+      },
+      "arms": {
+        "L": {
+          "sagittal_abs_deg": {
+            "mean": 11.16203110491634,
+            "p95": 26.31683349609375,
+            "rms": 14.034884027963994,
+            "max": 34.9503173828125
+          },
+          "above_horizontal_fraction": 0.0,
+          "forward_offset_std_m": 0.0767144039273262
+        },
+        "R": {
+          "sagittal_abs_deg": {
+            "mean": 11.814253702226054,
+            "p95": 25.226848602294922,
+            "rms": 14.276266480766813,
+            "max": 41.34695816040039
+          },
+          "above_horizontal_fraction": 0.0,
+          "forward_offset_std_m": 0.07739479839801788
+        }
+      }
+    },
+    {
+      "actor": 2,
+      "moving_frames": 1122,
+      "moving_fraction": 0.6233333333333333,
+      "metrics": {
+        "shoulder_line_relative_pelvis_yaw_abs_deg": {
+          "mean": 6.298220552870974,
+          "p95": 14.65251350402832,
+          "rms": 7.747947510266859,
+          "max": 19.885269165039062
+        },
+        "head_pelvis_lateral_tilt_abs_deg": {
+          "mean": 3.084781307853267,
+          "p95": 7.568505525588992,
+          "rms": 3.8112922353350522,
+          "max": 10.359589576721191
+        },
+        "wrist_lateral_offset_from_shoulder_m": {
+          "mean": 0.07613319301035744,
+          "p95": 0.15151768475770946,
+          "rms": 0.08767505067998065,
+          "max": 0.25741663575172424
+        },
+        "arm_sagittal_angle_abs_deg": {
+          "mean": 11.26618416321436,
+          "p95": 25.254015350341795,
+          "rms": 13.936511112616328,
+          "max": 33.74280548095703
+        },
+        "elbow_flexion_deg": {
+          "mean": 28.16006516305308,
+          "p95": 39.0297492980957,
+          "rms": 28.850012052709594,
+          "max": 73.96324920654297
+        },
+        "root_speed_m_s": {
+          "mean": 0.7013775634839998,
+          "p95": 1.077533292770386,
+          "rms": 0.746293443371262,
+          "max": 1.4692740440368652
+        }
+      },
+      "arms": {
+        "L": {
+          "sagittal_abs_deg": {
+            "mean": 10.905769983633569,
+            "p95": 25.41050033569336,
+            "rms": 13.57168238967879,
+            "max": 30.269399642944336
+          },
+          "above_horizontal_fraction": 0.0,
+          "forward_offset_std_m": 0.07518460601568222
+        },
+        "R": {
+          "sagittal_abs_deg": {
+            "mean": 11.626598342795152,
+            "p95": 25.09638195037842,
+            "rms": 14.292029985199425,
+            "max": 33.74280548095703
+          },
+          "above_horizontal_fraction": 0.0,
+          "forward_offset_std_m": 0.07703138887882233
+        }
+      }
+    },
+    {
+      "actor": 3,
+      "moving_frames": 1661,
+      "moving_fraction": 0.9227777777777778,
+      "metrics": {
+        "shoulder_line_relative_pelvis_yaw_abs_deg": {
+          "mean": 6.030221434026557,
+          "p95": 14.669354438781738,
+          "rms": 7.496073266556815,
+          "max": 21.49408531188965
+        },
+        "head_pelvis_lateral_tilt_abs_deg": {
+          "mean": 3.3184034504358864,
+          "p95": 6.814999103546143,
+          "rms": 3.892239741401735,
+          "max": 8.811946868896484
+        },
+        "wrist_lateral_offset_from_shoulder_m": {
+          "mean": 0.0747428569458636,
+          "p95": 0.14533079192042345,
+          "rms": 0.08570023525100215,
+          "max": 0.20349575579166412
+        },
+        "arm_sagittal_angle_abs_deg": {
+          "mean": 10.859934355414595,
+          "p95": 24.3090311050415,
+          "rms": 13.178348864312166,
+          "max": 33.33757019042969
+        },
+        "elbow_flexion_deg": {
+          "mean": 27.484311406401392,
+          "p95": 38.7185302734375,
+          "rms": 28.09300271613143,
+          "max": 44.27662658691406
+        },
+        "root_speed_m_s": {
+          "mean": 0.7147993870092975,
+          "p95": 1.0886880159378052,
+          "rms": 0.7569467513689888,
+          "max": 1.3737248182296753
+        }
+      },
+      "arms": {
+        "L": {
+          "sagittal_abs_deg": {
+            "mean": 10.872719295058806,
+            "p95": 24.565996170043945,
+            "rms": 13.287704911450078,
+            "max": 28.88726043701172
+          },
+          "above_horizontal_fraction": 0.0,
+          "forward_offset_std_m": 0.06670176982879639
+        },
+        "R": {
+          "sagittal_abs_deg": {
+            "mean": 10.847149415770383,
+            "p95": 23.957990646362305,
+            "rms": 13.068077737955994,
+            "max": 33.33757019042969
+          },
+          "above_horizontal_fraction": 0.0,
+          "forward_offset_std_m": 0.06894475221633911
+        }
+      }
+    }
+  ],
+  "local_walking_screen": {
+    "thresholds": {
+      "minimum_moving_fraction": 0.2,
+      "arm_sagittal_p95_max_deg": 45.0,
+      "above_horizontal_fraction_max": 0.01,
+      "minimum_arm_forward_std_m": 0.01,
+      "head_pelvis_lateral_tilt_p95_max_deg": 12.0,
+      "shoulder_relative_yaw_p95_max_deg": 25.0
+    },
+    "checks": {
+      "actor0_moving_fraction": true,
+      "actor0_lateral_tilt": true,
+      "actor0_shoulder_twist": true,
+      "actor0_L_arm": false,
+      "actor0_R_arm": false,
+      "actor1_moving_fraction": true,
+      "actor1_lateral_tilt": true,
+      "actor1_shoulder_twist": true,
+      "actor1_L_arm": true,
+      "actor1_R_arm": true,
+      "actor2_moving_fraction": true,
+      "actor2_lateral_tilt": true,
+      "actor2_shoulder_twist": true,
+      "actor2_L_arm": true,
+      "actor2_R_arm": true,
+      "actor3_moving_fraction": true,
+      "actor3_lateral_tilt": true,
+      "actor3_shoulder_twist": true,
+      "actor3_L_arm": true,
+      "actor3_R_arm": true
+    },
+    "passed": false,
+    "author_benchmark": false
+  },
+  "limits": [
+    "Geometric angles and body-origin offsets are descriptive proxies; there is no author posture benchmark.",
+    "The one-second pelvis yaw detrending includes route turns and is not an isolated gait oscillation estimate.",
+    "Moving-frame selection is a declared secondary diagnostic; all-frame reliability remains mandatory.",
+    "The local walking screen is a bounded posture filter, not evidence of perceptual realism or dense-crowd generalization."
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "schema": "crowdsim.actual_yoho_composite_video.v1",
+  "status": "passed",
+  "video": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/external_sdk_continuation_20261011/yoho_video60/yoho_diffusion_amp_30s_sdk61.mp4",
+  "sha256": "eaea4b657fcd62fff6d0c51c840b8a40f2686c5dfb200c6bbde9c6002d82021c",
+  "ffprobe": {
+    "programs": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "width": 960,
+        "height": 720,
+        "r_frame_rate": "30/1",
+        "nb_read_frames": "900"
+      }
+    ],
+    "format": {
+      "duration": "30.000000"
+    }
+  },
+  "camera_execution_receipts": [
+    {
+      "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/external_sdk_continuation_20261011/yoho_video60/yoho_female_15s_sdk61_execution.json",
+      "sha256": "02d7417a58d76428706cd3155068c15c99ce48ae22a1691092fa1f1a13109f19"
+    },
+    {
+      "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/external_sdk_continuation_20261011/yoho_video60/yoho_male_15s_sdk61_execution.json",
+      "sha256": "ce2dc70787edc49a7ace569aad5323182bc9e5b8c5c348f1eca99bd4b4a3a7a6"
+    }
+  ],
+  "source_result_sha256": "3bb1edfa4f8833e844f6326edd03aadbd4e6d16c8b08601c5c68f06f1dd2ee9a",
+  "source_states_sha256": "55da304a91cc5af293cd7fa75e25611d5cb0eb7e873d062924ad34192bc1029f",
+  "recorder_source_sha256": "e927bdcfe4bb676b784ecc30de4cb77cfa6975235e03c46adffa9645e032f35e",
+  "local_walking_screen_sha256": "cc730c5324a616c7d4e396aa4ac4ac2c4ab48785cbad9bcd80d07cc7ecc97984",
+  "visual_fk_audit_sha256": "df72b293963e4763b827ac55ed93ac0ec5a0d20688e386460b5dfbd4140936a8",
+  "source_control_intervals": [
+    [
+      120,
+      570
+    ],
+    [
+      570,
+      1020
+    ]
+  ],
+  "source_physics_interval_s": [
+    4.033333333333333,
+    34.0
+  ],
+  "assembly_only": false,
+  "cuts_only_no_pose_interpolation": true,
+  "camera_follow_uses_same_actual_root_coordinates": true,
+  "fresh_physics": false,
+  "actual_physical_state_render": true,
+  "native_frozen_original_USD": true,
+  "analytical_floor_visibility_by_camera": {
+    "female": false,
+    "male": true
+  },
+  "floor_display": "female original tiles; male admitted analytical floor for visible contact shadows",
+  "original_floor_and_physical_pose_unchanged": true,
+  "limits": "Four neutral SMPL bodies in one YOHO scene, two camera shots; First source-control omission is explicitly recorded; full physics/posture reports include initialization. Not the author eight-scene protocol."
+}

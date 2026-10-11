@@ -1,0 +1,1012 @@
+..................................................................... [  1%]
+........................................................................ [  2%]
+........................................................................ [  4%]
+........................................................................ [  5%]
+.................................................................. [  6%]
+................................................................... [  8%]
+........................................................................ [  9%]
+........................................................................ [ 11%]
+........................................................................ [ 12%]
+........................................................................ [ 13%]
+........................................................................ [ 15%]
+........................................................................ [ 16%]
+........................................................................ [ 18%]
+................................................................F..FF.F. [ 19%]
+........................................................................ [ 21%]
+.................................................................... [ 22%]
+.............F.......................................................... [ 23%]
+........................................................................ [ 25%]
+........................................................................ [ 26%]
+........................................................................ [ 28%]
+.............................FF...................FF.................... [ 29%]
+........................................................................ [ 30%]
+........................................................................ [ 32%]
+.............................................FF......................... [ 33%]
+........................................................................ [ 35%]
+........................................................................ [ 36%]
+FF..........................F........................................... [ 38%]
+...................................................................FF... [ 39%]
+........................................................................ [ 40%]
+........................................................................ [ 42%]
+........................................................................ [ 43%]
+........................................................................ [ 45%]
+...............FF....................................................... [ 46%]
+.............................F........................................FF [ 48%]
+F....................................................................... [ 49%]
+.......................FFF.............................................. [ 50%]
+.........F..................................................................................... [ 52%]
+.........................................F...... [ 53%]
+..........................................F.F...................... [ 54%]
+..............................F....... [ 55%]
+........................................................................ [ 57%]
+........................................................................ [ 58%]
+....................................F................................... [ 60%]
+........................................................................ [ 61%]
+........................................................................ [ 62%]
+........................................................................ [ 64%]
+........................................................................ [ 65%]
+........................................................................ [ 67%]
+........................................................................ [ 68%]
+........................................................................ [ 69%]
+........................................................................ [ 71%]
+........................................................................ [ 72%]
+........................................................................ [ 74%]
+........................................................................ [ 75%]
+........................................................................ [ 77%]
+.................................ss..................................... [ 78%]
+........................................................................ [ 79%]
+........................................................................ [ 81%]
+........................................................................ [ 82%]
+........................................................................ [ 84%]
+........................................................................ [ 85%]
+........................................................................ [ 87%]
+........................................................................ [ 88%]
+........................................................................ [ 89%]
+........................................................................ [ 91%]
+........................................................................ [ 92%]
+........................................................................ [ 94%]
+........................................................................ [ 95%]
+........................................................................ [ 96%]
+........................................................................ [ 98%]
+........................................................................ [ 99%]
+........                                                                 [100%]
+=================================== FAILURES ===================================
+____________ test_four_articulations_and_contacts_release_in_order _____________
+
+grouped = namespace(runtime=namespace(module=<module 'test_owned_sdk61' from '/project/EXP/SangforAndSaut/Socially-aware_Indoor_...espace(_world=<test_grouped_sim61_migration.grouped.<locals>.World object at 0x7970b07b4740>), receipts=[], tracker=[])
+
+    def test_four_articulations_and_contacts_release_in_order(grouped):
+        g, r = grouped, grouped.runtime
+        g.lifecycle.close(r.App(), g.world)
+>       assert r.events[:3] == ["contacts", "stop", "clear"]
+E       AssertionError: assert ['stop', 'cle...tor': False})] == ['contacts', 'stop', 'clear']
+E         
+E         At index 0 diff: 'stop' != 'contacts'
+E         Use -v to get more diff
+
+tests/test_grouped_sim61_migration.py:54: AssertionError
+________ test_contact_external_reference_blocks_success_but_app_closes _________
+
+grouped = namespace(runtime=namespace(module=<module 'test_owned_sdk61' from '/project/EXP/SangforAndSaut/Socially-aware_Indoor_...espace(_world=<test_grouped_sim61_migration.grouped.<locals>.World object at 0x797053790170>), receipts=[], tracker=[])
+
+    def test_contact_external_reference_blocks_success_but_app_closes(grouped):
+        g, r = grouped, grouped.runtime
+        external = g.world.views[0]
+        g.lifecycle.close(r.App(), g.world)
+        assert external is not None
+>       assert r.report["owned_contact_views_live_after_release"] == 1
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'owned_contact_views_live_after_release'
+
+tests/test_grouped_sim61_migration.py:93: KeyError
+__________ test_callback_failure_drops_consumers_and_lifecycle_owners __________
+
+grouped = namespace(runtime=namespace(module=<module 'test_owned_sdk61' from '/project/EXP/SangforAndSaut/Socially-aware_Indoor_...espace(_world=<test_grouped_sim61_migration.grouped.<locals>.World object at 0x797058f341d0>), receipts=[], tracker=[])
+
+    def test_callback_failure_drops_consumers_and_lifecycle_owners(grouped):
+        g, r = grouped, grouped.runtime
+        def fail(owner):
+            owner.views.clear()
+            raise RuntimeError("fixture release failed")
+        g.lifecycle.callback = fail
+        g.lifecycle.close(r.App(), g.world)
+        assert r.report["cleanup_succeeded"] is False
+>       assert any("fixture release failed" in e for e in r.report["cleanup_errors"])
+E       assert False
+E        +  where False = any(<generator object test_callback_failure_drops_consumers_and_lifecycle_owners.<locals>.<genexpr> at 0x79705109d630>)
+
+tests/test_grouped_sim61_migration.py:106: AssertionError
+______ test_wrong_scene_structure_preserves_failure_and_closes_owned_app _______
+
+grouped = namespace(runtime=namespace(module=<module 'test_owned_sdk61' from '/project/EXP/SangforAndSaut/Socially-aware_Indoor_...espace(_world=<test_grouped_sim61_migration.grouped.<locals>.World object at 0x79706890c140>), receipts=[], tracker=[])
+
+    def test_wrong_scene_structure_preserves_failure_and_closes_owned_app(grouped):
+        g, r = grouped, grouped.runtime
+        g.world.scene.cfg.num_envs = 3
+        g.lifecycle.close(r.App(), g.world)
+        assert r.report["cleanup_succeeded"] is False
+        assert r.report["app_close_returned"] is True
+>       assert any("four-articulation" in e for e in r.report["cleanup_errors"])
+E       assert False
+E        +  where False = any(<generator object test_wrong_scene_structure_preserves_failure_and_closes_owned_app.<locals>.<genexpr> at 0x797053522c20>)
+
+tests/test_grouped_sim61_migration.py:127: AssertionError
+_ test_actual_pacer_wrong_identity_and_schema_fail_before_partial_training_transfer _
+
+real_setup = namespace(profile={'mode': 'paper_method_reconstruction', 'author_experiment_reproduction': False, 'data_manifest': 'd...0018,
+          0.0110,  0.0389, -0.0350, -0.0069, -0.0028, -0.0439, -0.0161,  0.0170]]), '4.bias': tensor([-0.0229])})
+tmp_path = PosixPath('/tmp/pytest-of-lfm/pytest-270/test_actual_pacer_wrong_identi0')
+
+    def test_actual_pacer_wrong_identity_and_schema_fail_before_partial_training_transfer(real_setup, tmp_path):
+        setup = real_setup
+        before = {name: value.clone() for name, value in setup.trainer.model.state_dict().items()}
+        with pytest.raises(ValueError, match="SHA-256 mismatch"):
+            setup.trainer.warm_start_pacer(PACER, setup.lower, setup.upper, expected_sha256="0" * 64)
+        # A valid serialized mapping and matching hash still lack the public schema.
+        bad = tmp_path / "invalid_public_schema.pth"
+        torch.save({"model": {}}, bad)
+        digest = hashlib.sha256(bad.read_bytes()).hexdigest()
+        with pytest.raises(ValueError, match="lacks actor/critic/discriminator/statistics"):
+            setup.trainer.warm_start_pacer(bad, setup.lower, setup.upper, expected_sha256=digest)
+        assert all(torch.equal(value, before[name]) for name, value in setup.trainer.model.state_dict().items())
+        assert not setup.trainer.optimizer.state and not setup.trainer.discriminator_optimizer.state
+        assert asdict(setup.trainer.config)["warm_start_discriminator"] is False
+>       assert not torch.cuda.is_initialized()
+E       AssertionError: assert not True
+E        +  where True = <function is_initialized at 0x79729a1c8d60>()
+E        +    where <function is_initialized at 0x79729a1c8d60> = <module 'torch.cuda' from '/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/torch/cuda/__init__.py'>.is_initialized
+E        +      where <module 'torch.cuda' from '/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/torch/cuda/__init__.py'> = torch.cuda
+
+../ProtoMotions/tests/test_mixed_state_action_profile.py:222: AssertionError
+___ test_count_core_and_map_copy_preserve_clock_RNG_and_detached_payload[3] ____
+
+actors = 3
+
+    @pytest.mark.parametrize("actors", [3, 15])
+    def test_count_core_and_map_copy_preserve_clock_RNG_and_detached_payload(actors):
+        core, proof, world, ground, scene = fixture(actors)
+        generator = torch.Generator().manual_seed(7)
+        before, metadata = core.rng_snapshot(generator)
+        arrays, clock = core.collect_snapshot(world, ground)
+        maps = initial.map_arrays(scene)
+        after, other = core.rng_snapshot(generator)
+        assert initial.original._equal_arrays(before, after) and metadata == other
+>       assert not metadata["CUDA_initialized"] and clock["physics_step_before"] == clock["physics_step_after"] == 17
+E       assert (not True)
+
+tests/test_native_paired_initial.py:72: AssertionError
+___ test_count_core_and_map_copy_preserve_clock_RNG_and_detached_payload[15] ___
+
+actors = 15
+
+    @pytest.mark.parametrize("actors", [3, 15])
+    def test_count_core_and_map_copy_preserve_clock_RNG_and_detached_payload(actors):
+        core, proof, world, ground, scene = fixture(actors)
+        generator = torch.Generator().manual_seed(7)
+        before, metadata = core.rng_snapshot(generator)
+        arrays, clock = core.collect_snapshot(world, ground)
+        maps = initial.map_arrays(scene)
+        after, other = core.rng_snapshot(generator)
+        assert initial.original._equal_arrays(before, after) and metadata == other
+>       assert not metadata["CUDA_initialized"] and clock["physics_step_before"] == clock["physics_step_after"] == 17
+E       assert (not True)
+
+tests/test_native_paired_initial.py:72: AssertionError
+_ test_complete_CPU_archive_requires_explicit_fixture_opt_in_and_keeps_exclusive_files[3] _
+
+actors = 3
+tmp_path = PosixPath('/tmp/pytest-of-lfm/pytest-270/test_complete_CPU_archive_requ0')
+
+    @pytest.mark.parametrize("actors", [3, 15])
+    def test_complete_CPU_archive_requires_explicit_fixture_opt_in_and_keeps_exclusive_files(actors, tmp_path):
+        arrays, contract, _ = complete_snapshot(actors)
+        left, right = tmp_path/"left", tmp_path/"right"
+        left.mkdir()
+        right.mkdir()
+        initial.publish_snapshot(left, arrays, contract)
+        initial.publish_snapshot(right, arrays, contract)
+        paths = left/"paired_initial_condition.json", right/"paired_initial_condition.json"
+        with pytest.raises(ValueError, match="CPU fixtures"):
+            initial.compare_initial_conditions(*paths)
+        report = initial.compare_initial_conditions(*paths, require_live=False)
+>       assert report["actors"] == actors and report["channel_count"] == 35
+E       assert (3 == 3 and 36 == 35)
+
+tests/test_native_paired_initial.py:164: AssertionError
+_ test_complete_CPU_archive_requires_explicit_fixture_opt_in_and_keeps_exclusive_files[15] _
+
+actors = 15
+tmp_path = PosixPath('/tmp/pytest-of-lfm/pytest-270/test_complete_CPU_archive_requ1')
+
+    @pytest.mark.parametrize("actors", [3, 15])
+    def test_complete_CPU_archive_requires_explicit_fixture_opt_in_and_keeps_exclusive_files(actors, tmp_path):
+        arrays, contract, _ = complete_snapshot(actors)
+        left, right = tmp_path/"left", tmp_path/"right"
+        left.mkdir()
+        right.mkdir()
+        initial.publish_snapshot(left, arrays, contract)
+        initial.publish_snapshot(right, arrays, contract)
+        paths = left/"paired_initial_condition.json", right/"paired_initial_condition.json"
+        with pytest.raises(ValueError, match="CPU fixtures"):
+            initial.compare_initial_conditions(*paths)
+        report = initial.compare_initial_conditions(*paths, require_live=False)
+>       assert report["actors"] == actors and report["channel_count"] == 35
+E       assert (15 == 15 and 36 == 35)
+
+tests/test_native_paired_initial.py:164: AssertionError
+_______ test_full_scene_output_matches_original_generator_without_rng[3] _______
+
+synthetic_source = {3: PosixPath('/tmp/pytest-of-lfm/pytest-270/native_SFM_numerical_fixture0/synthetic_3.json'), 15: PosixPath('/tmp/pytest-of-lfm/pytest-270/native_SFM_numerical_fixture0/synthetic_15.json')}
+count = 3
+
+    @pytest.mark.parametrize("count", [3, 15])
+    def test_full_scene_output_matches_original_generator_without_rng(synthetic_source, count):
+        planner = NativeSocialForcePlanner.for_CPU_snapshot(scene_source=synthetic_source[count], actors=count, seed=7)
+        call = inputs(planner)
+        originals = {key: value.clone() for key, value in call.items() if isinstance(value, torch.Tensor)}
+        rng = torch.get_rng_state().clone()
+        np_rng = np.random.get_state()
+        first = planner.plan(**call)
+        second = planner.plan(**call)
+        direct = SocialForceTrajectoryGenerator.generate(planner.generator,
+            call["states"][:, :2].numpy(), call["states"][:, 2:4].numpy(), call["waypoints"][:, -1].numpy())
+        assert first.xy.shape == (count, 51, 2)
+        assert torch.equal(first.xy, torch.from_numpy(direct.raw_xy.copy()).float())
+        assert torch.equal(first.xy, second.xy) and torch.equal(first.xy[:, 0], call["states"][:, :2])
+        assert all(torch.equal(call[key], value) for key, value in originals.items())
+        assert torch.equal(torch.get_rng_state(), rng)
+        after = np.random.get_state()
+        assert np_rng[0] == after[0] and np.array_equal(np_rng[1], after[1]) and np_rng[2:] == after[2:]
+>       assert not torch.cuda.is_initialized()
+E       AssertionError: assert not True
+E        +  where True = <function is_initialized at 0x79729a1c8d60>()
+E        +    where <function is_initialized at 0x79729a1c8d60> = <module 'torch.cuda' from '/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/torch/cuda/__init__.py'>.is_initialized
+E        +      where <module 'torch.cuda' from '/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/torch/cuda/__init__.py'> = torch.cuda
+
+tests/test_native_social_force_runtime.py:149: AssertionError
+______ test_full_scene_output_matches_original_generator_without_rng[15] _______
+
+synthetic_source = {3: PosixPath('/tmp/pytest-of-lfm/pytest-270/native_SFM_numerical_fixture0/synthetic_3.json'), 15: PosixPath('/tmp/pytest-of-lfm/pytest-270/native_SFM_numerical_fixture0/synthetic_15.json')}
+count = 15
+
+    @pytest.mark.parametrize("count", [3, 15])
+    def test_full_scene_output_matches_original_generator_without_rng(synthetic_source, count):
+        planner = NativeSocialForcePlanner.for_CPU_snapshot(scene_source=synthetic_source[count], actors=count, seed=7)
+        call = inputs(planner)
+        originals = {key: value.clone() for key, value in call.items() if isinstance(value, torch.Tensor)}
+        rng = torch.get_rng_state().clone()
+        np_rng = np.random.get_state()
+        first = planner.plan(**call)
+        second = planner.plan(**call)
+        direct = SocialForceTrajectoryGenerator.generate(planner.generator,
+            call["states"][:, :2].numpy(), call["states"][:, 2:4].numpy(), call["waypoints"][:, -1].numpy())
+        assert first.xy.shape == (count, 51, 2)
+        assert torch.equal(first.xy, torch.from_numpy(direct.raw_xy.copy()).float())
+        assert torch.equal(first.xy, second.xy) and torch.equal(first.xy[:, 0], call["states"][:, :2])
+        assert all(torch.equal(call[key], value) for key, value in originals.items())
+        assert torch.equal(torch.get_rng_state(), rng)
+        after = np.random.get_state()
+        assert np_rng[0] == after[0] and np.array_equal(np_rng[1], after[1]) and np_rng[2:] == after[2:]
+>       assert not torch.cuda.is_initialized()
+E       AssertionError: assert not True
+E        +  where True = <function is_initialized at 0x79729a1c8d60>()
+E        +    where <function is_initialized at 0x79729a1c8d60> = <module 'torch.cuda' from '/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/torch/cuda/__init__.py'>.is_initialized
+E        +      where <module 'torch.cuda' from '/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/torch/cuda/__init__.py'> = torch.cuda
+
+tests/test_native_social_force_runtime.py:149: AssertionError
+__ test_actual_class_pairs_each_substep_before_mean_and_preserves_watts[True] __
+
+source_class = <class 'PaperPowerSimulator'>, headless = True
+
+    @pytest.mark.parametrize("headless", [True, False])
+    def test_actual_class_pairs_each_substep_before_mean_and_preserves_watts(source_class, headless):
+        obj, _, _ = _cpu_response_world(source_class, headless=headless)
+        obj._physics_step()
+        expected_events = []
+        for index in range(4):
+            expected_events.extend((name, index) for name in ("apply", "write", "step"))
+            if not headless and index == 3:
+                expected_events.append(("render", index))
+            expected_events.extend((name, index) for name in ("update", "measured_force", "post_velocity"))
+        assert obj.events == expected_events
+        torch.testing.assert_close(obj.mean_projected_joint_power_w, torch.tensor([-6037.5, 9660.]), rtol=0, atol=0)
+>       assert not torch.cuda.is_initialized()
+E       AssertionError: assert not True
+E        +  where True = <function is_initialized at 0x79729a1c8d60>()
+E        +    where <function is_initialized at 0x79729a1c8d60> = <module 'torch.cuda' from '/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/torch/cuda/__init__.py'>.is_initialized
+E        +      where <module 'torch.cuda' from '/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/torch/cuda/__init__.py'> = torch.cuda
+
+../ProtoMotions/tests/test_paper_joint_power.py:246: AssertionError
+_ test_actual_class_pairs_each_substep_before_mean_and_preserves_watts[False] __
+
+source_class = <class 'PaperPowerSimulator'>, headless = False
+
+    @pytest.mark.parametrize("headless", [True, False])
+    def test_actual_class_pairs_each_substep_before_mean_and_preserves_watts(source_class, headless):
+        obj, _, _ = _cpu_response_world(source_class, headless=headless)
+        obj._physics_step()
+        expected_events = []
+        for index in range(4):
+            expected_events.extend((name, index) for name in ("apply", "write", "step"))
+            if not headless and index == 3:
+                expected_events.append(("render", index))
+            expected_events.extend((name, index) for name in ("update", "measured_force", "post_velocity"))
+        assert obj.events == expected_events
+        torch.testing.assert_close(obj.mean_projected_joint_power_w, torch.tensor([-6037.5, 9660.]), rtol=0, atol=0)
+>       assert not torch.cuda.is_initialized()
+E       AssertionError: assert not True
+E        +  where True = <function is_initialized at 0x79729a1c8d60>()
+E        +    where <function is_initialized at 0x79729a1c8d60> = <module 'torch.cuda' from '/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/torch/cuda/__init__.py'>.is_initialized
+E        +      where <module 'torch.cuda' from '/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/torch/cuda/__init__.py'> = torch.cuda
+
+../ProtoMotions/tests/test_paper_joint_power.py:246: AssertionError
+_ test_cpu_runner_contract_one_initial_reset_no_fall_teleport_and_exact_poststep_phase[False] _
+
+tmp_path = PosixPath('/tmp/pytest-of-lfm/pytest-270/test_cpu_runner_contract_one_i0')
+invalid_actor_actions = False
+
+    @pytest.mark.parametrize("invalid_actor_actions", [False, True])
+    def test_cpu_runner_contract_one_initial_reset_no_fall_teleport_and_exact_poststep_phase(tmp_path, invalid_actor_actions):
+        from CrowdSim.humanoid.amp.observations import PacerSMPLMapping
+    
+        corpus = synthetic_corpus()
+        world = SimpleNamespace(device=torch.device("cpu"), origins=torch.tensor([[6., 6.]]),
+            age=torch.zeros(1, dtype=torch.long), episode_ids=torch.zeros(1, dtype=torch.long),
+            amp_history=torch.zeros(1, 10, 195), amp_history_episode_ids=torch.zeros(1, 10, dtype=torch.long),
+            reference_ids=torch.zeros(1, dtype=torch.long), planar_history=torch.zeros(1, 91, 5),
+            history_available=torch.zeros(1, 91, dtype=torch.bool), mapping=PacerSMPLMapping())
+        calls, commands = [], []
+        world.ground_height_at = lambda xy: torch.zeros(xy.shape[:-1])
+    
+        def reset_envs(reset, env_ids):
+            calls.append(reset)
+            state = corpus.state_at(torch.tensor([9]))
+            translation = reset.root_pos-state.root_pos
+            state.rigid_body_pos += translation[:, None]
+            state.root_pos = state.rigid_body_pos[:, 0]
+            world.current = state
+            world.steps = 0
+    
+        world.simulator = SimpleNamespace(reset_envs=reset_envs, is_simulation_running=lambda: True)
+        world.state = lambda: world.current
+        world.planar = lambda state: torch.cat((state.root_pos[:, :2], state.root_vel[:, :2], torch.zeros(1, 1)), -1)
+    
+        def observations(command, state):
+            commands.append(command.clone())
+            return torch.zeros(1, 357), torch.zeros(1, 1044)
+    
+        def step(actions):
+            world.steps += 1
+            world.current.rigid_body_pos[..., 0] += 1/30
+            if world.steps == 5:
+                world.current.rigid_body_pos[..., 1] += .8
+            world.current.root_pos = world.current.rigid_body_pos[:, 0]
+            return world.current, torch.tensor([world.steps >= 5]), torch.tensor([False])
+    
+        world.observations, world.step = observations, step
+        actor = SimpleNamespace(act=lambda *obs, deterministic: {
+            "actions": torch.full((1, 69), float("inf") if invalid_actor_actions else .2),
+            "applied_actions": torch.full((1, 69), .2)})
+        record = {"motion_id": 0, "source_path": "source/validation/walking.motion", "frames": 42, "dt": 1/30,
+                  "tracking_window": tracking_window(42, 1/30).as_dict()}
+        if invalid_actor_actions:
+            with pytest.raises(FloatingPointError, match="before physics step"):
+                SCRIPT.run_reference_clip(world, SimpleNamespace(is_running=lambda: True), corpus, actor,
+                                           record, tmp_path, .5)
+            assert len(calls) == 1 and world.steps == 0
+            return
+        report = SCRIPT.run_reference_clip(world, SimpleNamespace(is_running=lambda: True), corpus, actor,
+                                           record, tmp_path, .5)
+        assert len(calls) == 1 and world.steps == 32
+        assert report["first_tracking_failure_capture_frame"] == 5 and report["fall_onset_events"] == 1
+        assert report["tracking_success"] is False and report["complete_clip"]
+        with np.load(report["capture"]) as saved:
+            assert saved["reference_frame"].tolist() == list(range(9, 42))
+            assert saved["native_reset_frame"].sum() == 1 and saved["metric_frame"].sum() == 32
+            assert saved["waypoint_query_phase_frame"].tolist() == [9]+list(range(9, 41))
+            np.testing.assert_allclose(saved["mean_body_position_error_m"][1:5], 0, atol=1e-6)
+            np.testing.assert_allclose(saved["mean_body_position_error_m"][5:], .8, atol=1e-6)
+        assert all(command.shape == (1, 10, 2) for command in commands)
+>       assert not torch.cuda.is_initialized()
+E       AssertionError: assert not True
+E        +  where True = <function is_initialized at 0x79729a1c8d60>()
+E        +    where <function is_initialized at 0x79729a1c8d60> = <module 'torch.cuda' from '/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/torch/cuda/__init__.py'>.is_initialized
+E        +      where <module 'torch.cuda' from '/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/torch/cuda/__init__.py'> = torch.cuda
+
+../ProtoMotions/tests/test_paper_motion_tracking.py:377: AssertionError
+_______ test_random_resets_preserve_max_interval_and_fresh_spawn[False] ________
+
+synchronized = False
+
+    @pytest.mark.parametrize("synchronized", [False, True])
+    def test_random_resets_preserve_max_interval_and_fresh_spawn(synchronized):
+        resets = np.random.default_rng(7).random((1200, 64)) < .006
+        result = _simulate(resets, synchronized=synchronized)
+        assert result["reset_checks"] == int(resets.sum()) > 300
+        assert max(result["intervals"]) <= 15
+        assert result["control_step"] == 1200
+>       assert not torch.cuda.is_initialized()
+E       AssertionError: assert not True
+E        +  where True = <function is_initialized at 0x79729a1c8d60>()
+E        +    where <function is_initialized at 0x79729a1c8d60> = <module 'torch.cuda' from '/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/torch/cuda/__init__.py'>.is_initialized
+E        +      where <module 'torch.cuda' from '/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/torch/cuda/__init__.py'> = torch.cuda
+
+../ProtoMotions/tests/test_paper_planning_clock.py:65: AssertionError
+________ test_random_resets_preserve_max_interval_and_fresh_spawn[True] ________
+
+synchronized = True
+
+    @pytest.mark.parametrize("synchronized", [False, True])
+    def test_random_resets_preserve_max_interval_and_fresh_spawn(synchronized):
+        resets = np.random.default_rng(7).random((1200, 64)) < .006
+        result = _simulate(resets, synchronized=synchronized)
+        assert result["reset_checks"] == int(resets.sum()) > 300
+        assert max(result["intervals"]) <= 15
+        assert result["control_step"] == 1200
+>       assert not torch.cuda.is_initialized()
+E       AssertionError: assert not True
+E        +  where True = <function is_initialized at 0x79729a1c8d60>()
+E        +    where <function is_initialized at 0x79729a1c8d60> = <module 'torch.cuda' from '/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/torch/cuda/__init__.py'>.is_initialized
+E        +      where <module 'torch.cuda' from '/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/torch/cuda/__init__.py'> = torch.cuda
+
+../ProtoMotions/tests/test_paper_planning_clock.py:65: AssertionError
+_ test_actual_historical_actor_and_current_actor_do_not_mix_cached_formats[shared_social_popart_pilot2000_v1/step_002000.pt-29b5903553e800007a5e8c004432f0ba9ec77b6d1573b2c6feab5df6765aa079] _
+
+current_checkpoint = (<module '_family_test_a39763bfc49442fbabbba7b9f41adb03' from '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navig...ocial_trainer_staging_v1/social_trainer.py'>, PosixPath('/tmp/pytest-of-lfm/pytest-270/popart_family0/step_000001.pt'))
+name = 'shared_social_popart_pilot2000_v1/step_002000.pt'
+sha = '29b5903553e800007a5e8c004432f0ba9ec77b6d1573b2c6feab5df6765aa079'
+
+    @pytest.mark.parametrize("name,sha", [
+        ("shared_social_popart_pilot2000_v1/step_002000.pt", "29b5903553e800007a5e8c004432f0ba9ec77b6d1573b2c6feab5df6765aa079"),
+        ("shared_social_budget12500_recovery_training_v2/step_012500.pt", "97ba4c6475817e1bbde4aa56377a45191058a0725cad48fcbf3a9b769accb675"),
+    ])
+    def test_actual_historical_actor_and_current_actor_do_not_mix_cached_formats(current_checkpoint, name, sha):
+        historical = training.ROOT / "output/diffusion_amp" / name
+        if not historical.is_file() or historical.stat().st_size < 1000:
+            pytest.skip("Materialized historical trained weights are required")
+        _, current = current_checkpoint
+        current_sha = hashlib.sha256(current.read_bytes()).hexdigest()
+>       assert read_actor(current, current_sha)["checkpoint_family"] == training.FORMAT
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_popart_checkpoint_families.py:61: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/tmp/pytest-of-lfm/pytest-270/popart_family0/step_000001.pt')
+sha = '210254555742704149c05917cf16ee280de8d2833db317e1953fc9d5de21662e'
+
+    def read_actor(path, sha):
+        rng = torch.get_rng_state().clone()
+        actor = FrozenSocialPopArtCheckpointInference.from_checkpoint(path, expected_sha256=sha)
+        assert torch.equal(rng, torch.get_rng_state())
+        values = actor.act(torch.zeros(3, 357), torch.zeros(3, 12308))
+        assert values["actions"].shape == (3, 69)
+        assert all(torch.isfinite(value).all() for value in values.values())
+        assert torch.equal(values["applied_actions"], values["actions"].clamp(-1, 1) * actor._action_mask)
+        assert int(actor._action_mask.sum()) == 57
+        assert actor.describe()["optimizer_resume_admitted"] is False
+        assert not hasattr(actor, "optimizer")
+>       assert not torch.cuda.is_initialized()
+E       AssertionError: assert not True
+E        +  where True = <function is_initialized at 0x79729a1c8d60>()
+E        +    where <function is_initialized at 0x79729a1c8d60> = <module 'torch.cuda' from '/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/torch/cuda/__init__.py'>.is_initialized
+E        +      where <module 'torch.cuda' from '/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/torch/cuda/__init__.py'> = torch.cuda
+
+tests/test_popart_checkpoint_families.py:47: AssertionError
+_ test_actual_historical_actor_and_current_actor_do_not_mix_cached_formats[shared_social_budget12500_recovery_training_v2/step_012500.pt-97ba4c6475817e1bbde4aa56377a45191058a0725cad48fcbf3a9b769accb675] _
+
+current_checkpoint = (<module '_family_test_a39763bfc49442fbabbba7b9f41adb03' from '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navig...ocial_trainer_staging_v1/social_trainer.py'>, PosixPath('/tmp/pytest-of-lfm/pytest-270/popart_family0/step_000001.pt'))
+name = 'shared_social_budget12500_recovery_training_v2/step_012500.pt'
+sha = '97ba4c6475817e1bbde4aa56377a45191058a0725cad48fcbf3a9b769accb675'
+
+    @pytest.mark.parametrize("name,sha", [
+        ("shared_social_popart_pilot2000_v1/step_002000.pt", "29b5903553e800007a5e8c004432f0ba9ec77b6d1573b2c6feab5df6765aa079"),
+        ("shared_social_budget12500_recovery_training_v2/step_012500.pt", "97ba4c6475817e1bbde4aa56377a45191058a0725cad48fcbf3a9b769accb675"),
+    ])
+    def test_actual_historical_actor_and_current_actor_do_not_mix_cached_formats(current_checkpoint, name, sha):
+        historical = training.ROOT / "output/diffusion_amp" / name
+        if not historical.is_file() or historical.stat().st_size < 1000:
+            pytest.skip("Materialized historical trained weights are required")
+        _, current = current_checkpoint
+        current_sha = hashlib.sha256(current.read_bytes()).hexdigest()
+>       assert read_actor(current, current_sha)["checkpoint_family"] == training.FORMAT
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_popart_checkpoint_families.py:61: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/tmp/pytest-of-lfm/pytest-270/popart_family0/step_000001.pt')
+sha = '210254555742704149c05917cf16ee280de8d2833db317e1953fc9d5de21662e'
+
+    def read_actor(path, sha):
+        rng = torch.get_rng_state().clone()
+        actor = FrozenSocialPopArtCheckpointInference.from_checkpoint(path, expected_sha256=sha)
+        assert torch.equal(rng, torch.get_rng_state())
+        values = actor.act(torch.zeros(3, 357), torch.zeros(3, 12308))
+        assert values["actions"].shape == (3, 69)
+        assert all(torch.isfinite(value).all() for value in values.values())
+        assert torch.equal(values["applied_actions"], values["actions"].clamp(-1, 1) * actor._action_mask)
+        assert int(actor._action_mask.sum()) == 57
+        assert actor.describe()["optimizer_resume_admitted"] is False
+        assert not hasattr(actor, "optimizer")
+>       assert not torch.cuda.is_initialized()
+E       AssertionError: assert not True
+E        +  where True = <function is_initialized at 0x79729a1c8d60>()
+E        +    where <function is_initialized at 0x79729a1c8d60> = <module 'torch.cuda' from '/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/torch/cuda/__init__.py'>.is_initialized
+E        +      where <module 'torch.cuda' from '/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/torch/cuda/__init__.py'> = torch.cuda
+
+tests/test_popart_checkpoint_families.py:47: AssertionError
+__ test_loader_and_repeated_inference_preserve_all_rng_and_normalizer_buffers __
+
+bundle = PosixPath('/tmp/pytest-of-lfm/pytest-270/reconstruction_inference0/unit_training_bundle.pt')
+
+    def test_loader_and_repeated_inference_preserve_all_rng_and_normalizer_buffers(bundle):
+        before = _rng()
+        inference = ReconstructionAMPInference.from_checkpoint(bundle)
+        _same_rng(before)
+        state = {name: tensor.clone() for name, tensor in inference.state_dict().items()}
+        expected = inference.act(*_inputs())
+        for _ in range(3):
+            actual = inference.act(*_inputs())
+            for key in expected:
+                assert torch.equal(actual[key], expected[key])
+        _same_rng(before)
+        for name, tensor in inference.state_dict().items():
+            assert torch.equal(tensor, state[name])
+        assert not inference.training and not inference.model.training
+        assert not any(parameter.requires_grad for parameter in inference.parameters())
+>       assert torch.cuda.is_initialized() is False
+E       AssertionError: assert True is False
+E        +  where True = <function is_initialized at 0x79729a1c8d60>()
+E        +    where <function is_initialized at 0x79729a1c8d60> = <module 'torch.cuda' from '/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/torch/cuda/__init__.py'>.is_initialized
+E        +      where <module 'torch.cuda' from '/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/torch/cuda/__init__.py'> = torch.cuda
+
+../ProtoMotions/tests/test_reconstruction_amp_inference.py:90: AssertionError
+__ test_partial_device_migration_fails_before_tensor_ops_without_cuda[model] ___
+
+bundle = PosixPath('/tmp/pytest-of-lfm/pytest-270/reconstruction_inference0/unit_training_bundle.pt')
+component = 'model'
+
+    @pytest.mark.parametrize("component", ["model", "normalizer", "mask"])
+    def test_partial_device_migration_fails_before_tensor_ops_without_cuda(bundle, component):
+        inference = ReconstructionAMPInference.from_checkpoint(bundle)
+        if component == "model":
+            inference.model.actor.to("meta")
+        elif component == "normalizer":
+            inference.self_normalizer.to("meta")
+        else:
+            inference.action_mask = inference.action_mask.to("meta")
+        before = _rng()
+        with pytest.raises(ValueError, match="action-mask device"):
+            inference.act(*_inputs())
+        _same_rng(before)
+>       assert not torch.cuda.is_initialized()
+E       AssertionError: assert not True
+E        +  where True = <function is_initialized at 0x79729a1c8d60>()
+E        +    where <function is_initialized at 0x79729a1c8d60> = <module 'torch.cuda' from '/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/torch/cuda/__init__.py'>.is_initialized
+E        +      where <module 'torch.cuda' from '/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/torch/cuda/__init__.py'> = torch.cuda
+
+../ProtoMotions/tests/test_reconstruction_amp_inference.py:332: AssertionError
+_ test_partial_device_migration_fails_before_tensor_ops_without_cuda[normalizer] _
+
+bundle = PosixPath('/tmp/pytest-of-lfm/pytest-270/reconstruction_inference0/unit_training_bundle.pt')
+component = 'normalizer'
+
+    @pytest.mark.parametrize("component", ["model", "normalizer", "mask"])
+    def test_partial_device_migration_fails_before_tensor_ops_without_cuda(bundle, component):
+        inference = ReconstructionAMPInference.from_checkpoint(bundle)
+        if component == "model":
+            inference.model.actor.to("meta")
+        elif component == "normalizer":
+            inference.self_normalizer.to("meta")
+        else:
+            inference.action_mask = inference.action_mask.to("meta")
+        before = _rng()
+        with pytest.raises(ValueError, match="action-mask device"):
+            inference.act(*_inputs())
+        _same_rng(before)
+>       assert not torch.cuda.is_initialized()
+E       AssertionError: assert not True
+E        +  where True = <function is_initialized at 0x79729a1c8d60>()
+E        +    where <function is_initialized at 0x79729a1c8d60> = <module 'torch.cuda' from '/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/torch/cuda/__init__.py'>.is_initialized
+E        +      where <module 'torch.cuda' from '/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/torch/cuda/__init__.py'> = torch.cuda
+
+../ProtoMotions/tests/test_reconstruction_amp_inference.py:332: AssertionError
+___ test_partial_device_migration_fails_before_tensor_ops_without_cuda[mask] ___
+
+bundle = PosixPath('/tmp/pytest-of-lfm/pytest-270/reconstruction_inference0/unit_training_bundle.pt')
+component = 'mask'
+
+    @pytest.mark.parametrize("component", ["model", "normalizer", "mask"])
+    def test_partial_device_migration_fails_before_tensor_ops_without_cuda(bundle, component):
+        inference = ReconstructionAMPInference.from_checkpoint(bundle)
+        if component == "model":
+            inference.model.actor.to("meta")
+        elif component == "normalizer":
+            inference.self_normalizer.to("meta")
+        else:
+            inference.action_mask = inference.action_mask.to("meta")
+        before = _rng()
+        with pytest.raises(ValueError, match="action-mask device"):
+            inference.act(*_inputs())
+        _same_rng(before)
+>       assert not torch.cuda.is_initialized()
+E       AssertionError: assert not True
+E        +  where True = <function is_initialized at 0x79729a1c8d60>()
+E        +    where <function is_initialized at 0x79729a1c8d60> = <module 'torch.cuda' from '/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/torch/cuda/__init__.py'>.is_initialized
+E        +      where <module 'torch.cuda' from '/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/torch/cuda/__init__.py'> = torch.cuda
+
+../ProtoMotions/tests/test_reconstruction_amp_inference.py:332: AssertionError
+____ test_all_supported_contact_owner_layouts_release_before_stop[floor-1] _____
+
+runtime = namespace(module=<module 'test_owned_sdk61' from '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchma...test_owned_sdk61.SDK61Lifecycle object at 0x797049347920>, getter=<function runtime.<locals>.getter at 0x797048f6f1a0>)
+mode = 'floor', expected_views = 1
+
+    @pytest.mark.parametrize('mode,expected_views', [('floor', 1), ('peer', 4), ('combined', 5)])
+    def test_all_supported_contact_owner_layouts_release_before_stop(runtime, mode, expected_views):
+        from CrowdSim.humanoid.contact_monitor import PedestrianContactMonitor
+        class View:
+            pass
+        runtime.Context.current = runtime.Sim()
+        world, asset, _, _ = make_world(runtime)
+        world.num_envs, world.device = 4, 'cpu'
+        peer = PedestrianContactMonitor.__new__(PedestrianContactMonitor)
+        peer.world, peer.robot = world, asset
+        peer.views = [(i, View()) for i in range(4)] if mode != 'floor' else []
+        adapter = peer if mode == 'peer' else SimpleNamespace(
+            world=world, robot=asset, floor=SimpleNamespace(view=View()), peer=peer if mode == 'combined' else None)
+        world.simulator.pedestrian_contacts = adapter
+        runtime.lifecycle.close(runtime.App(), world)
+>       assert runtime.report['cleanup_succeeded'] is True
+E       assert False is True
+
+tests/test_sdk61_lifecycle.py:366: AssertionError
+_____ test_all_supported_contact_owner_layouts_release_before_stop[peer-4] _____
+
+runtime = namespace(module=<module 'test_owned_sdk61' from '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchma...test_owned_sdk61.SDK61Lifecycle object at 0x79713e728200>, getter=<function runtime.<locals>.getter at 0x797048f6dee0>)
+mode = 'peer', expected_views = 4
+
+    @pytest.mark.parametrize('mode,expected_views', [('floor', 1), ('peer', 4), ('combined', 5)])
+    def test_all_supported_contact_owner_layouts_release_before_stop(runtime, mode, expected_views):
+        from CrowdSim.humanoid.contact_monitor import PedestrianContactMonitor
+        class View:
+            pass
+        runtime.Context.current = runtime.Sim()
+        world, asset, _, _ = make_world(runtime)
+        world.num_envs, world.device = 4, 'cpu'
+        peer = PedestrianContactMonitor.__new__(PedestrianContactMonitor)
+        peer.world, peer.robot = world, asset
+        peer.views = [(i, View()) for i in range(4)] if mode != 'floor' else []
+        adapter = peer if mode == 'peer' else SimpleNamespace(
+            world=world, robot=asset, floor=SimpleNamespace(view=View()), peer=peer if mode == 'combined' else None)
+        world.simulator.pedestrian_contacts = adapter
+        runtime.lifecycle.close(runtime.App(), world)
+>       assert runtime.report['cleanup_succeeded'] is True
+E       assert False is True
+
+tests/test_sdk61_lifecycle.py:366: AssertionError
+___ test_all_supported_contact_owner_layouts_release_before_stop[combined-5] ___
+
+runtime = namespace(module=<module 'test_owned_sdk61' from '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchma...test_owned_sdk61.SDK61Lifecycle object at 0x797049344e90>, getter=<function runtime.<locals>.getter at 0x797048fe72e0>)
+mode = 'combined', expected_views = 5
+
+    @pytest.mark.parametrize('mode,expected_views', [('floor', 1), ('peer', 4), ('combined', 5)])
+    def test_all_supported_contact_owner_layouts_release_before_stop(runtime, mode, expected_views):
+        from CrowdSim.humanoid.contact_monitor import PedestrianContactMonitor
+        class View:
+            pass
+        runtime.Context.current = runtime.Sim()
+        world, asset, _, _ = make_world(runtime)
+        world.num_envs, world.device = 4, 'cpu'
+        peer = PedestrianContactMonitor.__new__(PedestrianContactMonitor)
+        peer.world, peer.robot = world, asset
+        peer.views = [(i, View()) for i in range(4)] if mode != 'floor' else []
+        adapter = peer if mode == 'peer' else SimpleNamespace(
+            world=world, robot=asset, floor=SimpleNamespace(view=View()), peer=peer if mode == 'combined' else None)
+        world.simulator.pedestrian_contacts = adapter
+        runtime.lifecycle.close(runtime.App(), world)
+>       assert runtime.report['cleanup_succeeded'] is True
+E       assert False is True
+
+tests/test_sdk61_lifecycle.py:366: AssertionError
+______ test_real_builder_constructs_only_D_and_RMS_without_consuming_rng _______
+
+    def test_real_builder_constructs_only_D_and_RMS_without_consuming_rng():
+        _, _, reader, _ = diagnostic.prepare_sources()
+        module = reader._owned_module("_D_fixture_source_trainer", "trainer")
+        config = module.SocialTrainingConfig(actor_count=8, grid_center="root", grid_heading="root",
+            height_reference="static_center_ground_z", include_ego=False)
+        with torch.random.fork_rng(devices=[]):
+            saved_D = module._base._mlp(2019, config.discriminator_layers, 1)
+            saved_RMS = module._base.RunningNormalizer(195, 5.)
+        saved_RMS.count.fill_(120)
+        state = {"model": {"discriminator." + key: value for key, value in saved_D.state_dict().items()},
+                 "normalizers": {"amp_normalizer": saved_RMS.state_dict()}}
+        # A full network/trainer constructor would fail this fixture immediately.
+        original_factory = module.SocialAMPNetwork
+        module.SocialAMPNetwork = lambda *args, **kwargs: (_ for _ in ()).throw(AssertionError("Full NN constructed"))
+        rng = torch.get_rng_state().clone()
+        try:
+            discriminator, normalizer = diagnostic.build_discriminator(module, reader, state, config)
+        finally:
+            module.SocialAMPNetwork = original_factory
+        assert torch.equal(rng, torch.get_rng_state())
+        assert not discriminator.training and not normalizer.training
+        assert all(not parameter.requires_grad for parameter in discriminator.parameters())
+        for name, value in discriminator.state_dict().items():
+            assert torch.equal(value, saved_D.state_dict()[name])
+            assert value.data_ptr() != saved_D.state_dict()[name].data_ptr()
+        assert normalizer.count.item() == 120
+>       assert not torch.cuda.is_initialized()
+E       AssertionError: assert not True
+E        +  where True = <function is_initialized at 0x79729a1c8d60>()
+E        +    where <function is_initialized at 0x79729a1c8d60> = <module 'torch.cuda' from '/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/torch/cuda/__init__.py'>.is_initialized
+E        +      where <module 'torch.cuda' from '/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/torch/cuda/__init__.py'> = torch.cuda
+
+tests/test_shared_social_discriminator_diagnostic.py:114: AssertionError
+_ FullEpochFixtureTests.test_complete_six_epochs_and_strict_metadata_without_KL_stop _
+
+self = <test_shared_social_full_epochs.FullEpochFixtureTests testMethod=test_complete_six_epochs_and_strict_metadata_without_KL_stop>
+
+    def test_complete_six_epochs_and_strict_metadata_without_KL_stop(self):
+        module = self.module
+        config = module.SocialTrainingConfig(actor_count=8, **GEOMETRY,
+            target_kl=None, update_epochs=6, minibatch_size=8,
+            discriminator_updates_per_update=1, discriminator_batch_size=16,
+            discriminator_replay_capacity=32)
+        trainer = module.SocialAMPTrainer.prepare(config, device="cpu")
+        self_obs = torch.zeros(2, 8, 357)
+        task_obs = torch.zeros(2, 8, 12308)
+        action = {key: value.unflatten(0, (2, 8)) for key, value in
+                  trainer.act(self_obs.flatten(0, 1), task_obs.flatten(0, 1)).items()}
+        rollout = {"self_obs": self_obs, "task_obs": task_obs,
+            "amp_history": torch.zeros(2, 8, 10, 195), "actions": action["actions"],
+            "applied_actions": action["applied_actions"], "log_prob": action["log_prob"],
+            "values": action["values"], "next_values": action["values"].clone(),
+            "rewards": torch.full((2, 8), .5), "terminated": torch.zeros(2, 8, dtype=torch.bool),
+            "truncated": torch.zeros(2, 8, dtype=torch.bool)}
+        metrics = trainer.update(rollout, torch.zeros(16, 10, 195), torch.zeros(16, 69))
+        self.assertEqual(metrics["policy_epochs_started"], 6)
+        self.assertEqual(metrics["optimizer_minibatches"], 12)
+        self.assertFalse(metrics["policy_target_kl_stopped"])
+        self.assertEqual(metrics["value_normalization"]["new_count"], 16)
+        self.assertTrue(all(torch.isfinite(value).all() for value in trainer.model.state_dict().values()))
+        state = {key: None for key in module.CHECKPOINT_KEYS}
+        state.update(format=social_popart_training.FORMAT, version=1, config=asdict(config), provenance={},
+                     social_training_contract=module._contract(config))
+        self.assertIsNone(module.SocialAMPTrainer._admit_metadata(state).target_kl)
+>       self.assertFalse(torch.cuda.is_initialized())
+E       AssertionError: True is not false
+
+tests/test_shared_social_full_epochs.py:52: AssertionError
+_ PairedInitialTests.test_rng_getter_does_not_initialize_CUDA_or_advance_global_or_private_rng _
+
+self = <test_shared_social_paired_initial.PairedInitialTests testMethod=test_rng_getter_does_not_initialize_CUDA_or_advance_global_or_private_rng>
+
+    def test_rng_getter_does_not_initialize_CUDA_or_advance_global_or_private_rng(self):
+        generator = torch.Generator().manual_seed(7)
+        first, meta = initial.rng_snapshot(generator)
+        second, other = initial.rng_snapshot(generator)
+        self.assertTrue(initial._equal_arrays(first, second))
+        self.assertEqual(meta, other)
+>       self.assertFalse(meta["CUDA_initialized"])
+E       AssertionError: True is not false
+
+tests/test_shared_social_paired_initial.py:89: AssertionError
+_ SocialPopArtConnectionTests.test_full_fixture_update_applies_preservation_and_correct_counts _
+
+self = <test_shared_social_popart_connection.SocialPopArtConnectionTests testMethod=test_full_fixture_update_applies_preservation_and_correct_counts>
+
+    def test_full_fixture_update_applies_preservation_and_correct_counts(self):
+        module = self.module
+        config = module.SocialTrainingConfig(actor_count=8, **GEOMETRY, update_epochs=1, minibatch_size=16,
+            discriminator_updates_per_update=1, discriminator_batch_size=16, discriminator_replay_capacity=32)
+        trainer = module.SocialAMPTrainer.prepare(config, device="cpu")
+        # Fixtures check numerical connection only, never simulated transitions.
+        self_obs = torch.zeros(2, 8, 357)
+        task_obs = torch.zeros(2, 8, 12308)
+        action = {key: value.unflatten(0, (2, 8)) for key, value in
+                  trainer.act(self_obs.flatten(0, 1), task_obs.flatten(0, 1)).items()}
+        values = action["values"]
+        rollout = {"self_obs": self_obs, "task_obs": task_obs, "amp_history": torch.zeros(2, 8, 10, 195),
+            "actions": action["actions"], "applied_actions": action["applied_actions"],
+            "log_prob": action["log_prob"], "values": values, "next_values": values.clone(),
+            "rewards": torch.full((2, 8), .5), "terminated": torch.zeros(2, 8, dtype=torch.bool),
+            "truncated": torch.zeros(2, 8, dtype=torch.bool)}
+        result = trainer.update(rollout, torch.zeros(16, 10, 195), torch.zeros(16, 69))
+        preservation = result["value_normalization"]
+        self.assertEqual(preservation["old_count"], 0)
+        self.assertEqual(preservation["new_count"], 16)
+        self.assertFalse(preservation["actor_encoder_modified"])
+        self.assertFalse(preservation["physical_quality_verified"])
+        self.assertEqual(trainer.update_count, 1)
+        self.assertEqual(trainer.physical_transition_count, 16)
+        self.assertTrue(all(torch.isfinite(value).all() for value in trainer.model.state_dict().values()))
+>       self.assertFalse(torch.cuda.is_initialized())
+E       AssertionError: True is not false
+
+tests/test_shared_social_popart_connection.py:61: AssertionError
+_ SharedSFMIntegrationTests.test_snapshot_preserves_inputs_rng_and_determinism _
+
+self = <test_shared_social_sfm_integration.SharedSFMIntegrationTests testMethod=test_snapshot_preserves_inputs_rng_and_determinism>
+
+    def test_snapshot_preserves_inputs_rng_and_determinism(self):
+        planner = SocialForceSharedPlanner.for_CPU_snapshot(scene_source=SCENE, seed=7)
+        states = torch.tensor([[6., 6., 0, 0, 0], [6., 18., 0, 0, 0],
+                               [18., 6., 0, 0, 0], [18., 18., 0, 0, 0]])
+        goals = states[:, None, :2].repeat(1, 10, 1)
+        goals[:, :, 0] += torch.tensor([3., 3., -3., -3.])[:, None]
+        before = states.clone(), goals.clone(), torch.get_rng_state().clone()
+        first = planner.predict_snapshot(states, goals)
+        second = planner.predict_snapshot(states, goals)
+        self.assertEqual(first.xy.shape, (4, 51, 2))
+        self.assertTrue(torch.equal(first.xy, second.xy))
+        self.assertTrue(torch.equal(states, before[0]) and torch.equal(goals, before[1]))
+        self.assertTrue(torch.equal(torch.get_rng_state(), before[2]))
+>       self.assertFalse(torch.cuda.is_initialized())
+E       AssertionError: True is not false
+
+tests/test_shared_social_sfm_integration.py:41: AssertionError
+________ test_policy_binding_hooks_validation_do_not_consume_caller_rng ________
+
+    def test_policy_binding_hooks_validation_do_not_consume_caller_rng():
+        trainer = PaperAMPTrainer(compact_config())
+        before = (random.getstate(), np.random.get_state(), torch.get_rng_state())
+        bind_numerical_fixture(trainer)
+        trainer.terrain_statistics_policy.validate_checkpoint(trainer.task_normalizer,
+            update_count=0, physical_transition_count=0)
+        trainer.terrain_statistics_policy.state_dict()
+        assert random.getstate() == before[0]
+        current_numpy = np.random.get_state()
+        assert current_numpy[0] == before[1][0]
+        assert np.array_equal(current_numpy[1], before[1][1])
+        assert current_numpy[2:] == before[1][2:]
+        assert torch.equal(torch.get_rng_state(), before[2])
+>       assert not torch.cuda.is_initialized()
+E       AssertionError: assert not True
+E        +  where True = <function is_initialized at 0x79729a1c8d60>()
+E        +    where <function is_initialized at 0x79729a1c8d60> = <module 'torch.cuda' from '/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/torch/cuda/__init__.py'>.is_initialized
+E        +      where <module 'torch.cuda' from '/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/torch/cuda/__init__.py'> = torch.cuda
+
+tests/test_terrain_statistics_integration.py:208: AssertionError
+=============================== warnings summary ===============================
+../../IsaacLab/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1488: 51 warnings
+src/protomotions/tests/test_isaaclab_mjcf_usd.py: 35 warnings
+  /project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+<unknown>:4
+  <unknown>:4: SyntaxWarning: invalid escape sequence '\*'
+
+src/CrowdSim/tests/test_amp_pacer_contract.py::test_task_observation_matches_official_head_grid_and_root_center
+  /project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4381.)
+    return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+
+src/CrowdSim/tests/test_smpl_mesh_visualizer.py::test_non_numeric_pickle_global_is_rejected_before_loading
+  /project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/.runtime/external_sdk_packages/chumpy/ch.py:20: DeprecationWarning: Please import `LinearOperator` from the `scipy.sparse.linalg` namespace; the `scipy.sparse.linalg.interface` namespace is deprecated and will be removed in SciPy 2.0.0.
+    from scipy.sparse.linalg.interface import LinearOperator
+
+src/protomotions/tests/test_backend_velocity_contract.py::test_newton_real_gpu_link_velocities_match_rigid_rotation
+src/protomotions/tests/test_newton_simulator_fk.py::test_newton_simulator_fk_matches_motionlib_default_frame
+  /project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/protomotions/simulator/newton/simulator.py:285: DeprecationWarning: The legacy DOF-shaped joint_target_q layout is deprecated for models whose joint coordinate and DOF counts differ (free/ball/distance joints). In a future release joint_target_q will always use the coordinate layout (matching joint_q) and newton.use_coord_layout_targets will be removed. Set newton.use_coord_layout_targets = True before building models and index targets via Model.joint_target_q_start.
+    self.model = builder.finalize()
+
+src/protomotions/tests/test_backend_velocity_contract.py::test_newton_real_gpu_link_velocities_match_rigid_rotation
+src/protomotions/tests/test_newton_simulator_fk.py::test_newton_simulator_fk_matches_motionlib_default_frame
+  /project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/protomotions/simulator/newton/simulator.py:309: DeprecationWarning: Model.mujoco.dof_passive_damping is deprecated and will be removed in a future release. Use Model.joint_damping instead.
+    attr = getattr(mujoco_attrs, attr_name, None)
+
+src/protomotions/tests/test_baked_fk.py::TestONNXTrace::test_onnx_export_and_run
+src/protomotions/tests/test_baked_fk.py::TestONNXTrace::test_onnx_batch_inference
+  /project/EXP/SangforAndSaut/ProtoMotions/protomotions/tests/test_baked_fk.py:944: DeprecationWarning: You are using the legacy TorchScript-based ONNX export. Starting in PyTorch 2.9, the new torch.export-based ONNX exporter has become the default. Learn more about the new export logic: https://docs.pytorch.org/docs/stable/onnx_export.html. For exporting control flow: https://pytorch.org/tutorials/beginner/onnx/export_control_flow_model_to_onnx_tutorial.html
+    torch.onnx.export(
+
+src/protomotions/tests/test_baked_fk.py::TestONNXTrace::test_onnx_export_and_run
+src/protomotions/tests/test_baked_fk.py::TestONNXTrace::test_onnx_batch_inference
+src/protomotions/tests/test_baked_fk.py::TestONNXTraceTargetFK::test_target_fk_onnx_export_and_run[False]
+src/protomotions/tests/test_baked_fk.py::TestONNXTraceTargetFK::test_target_fk_onnx_export_and_run[True]
+  /project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/torch/onnx/_internal/torchscript_exporter/utils.py:218: DeprecationWarning: The feature will be removed. Please remove usage of this function
+    setup_onnx_logging(verbose) as log_ctx,
+
+src/protomotions/tests/test_baked_fk.py::TestONNXTrace::test_onnx_export_and_run
+src/protomotions/tests/test_baked_fk.py::TestONNXTrace::test_onnx_batch_inference
+src/protomotions/tests/test_baked_fk.py::TestONNXTraceTargetFK::test_target_fk_onnx_export_and_run[False]
+src/protomotions/tests/test_baked_fk.py::TestONNXTraceTargetFK::test_target_fk_onnx_export_and_run[True]
+  /project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/protomotions/utils/baked_fk.py:277: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+    if K.shape[0] > 0:
+
+src/protomotions/tests/test_baked_fk.py::TestONNXTrace::test_onnx_export_and_run
+src/protomotions/tests/test_baked_fk.py::TestONNXTrace::test_onnx_batch_inference
+  /project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/protomotions/utils/baked_fk.py:203: TracerWarning: Using len to get tensor shape might cause the trace to be incorrect. Recommended usage would be tensor.shape[0]. Passing a tensor of different shape might lead to errors or silently give incorrect results.
+    n_track = len(trackable)
+
+src/protomotions/tests/test_baked_fk.py::TestONNXTraceTargetFK::test_target_fk_onnx_export_and_run[False]
+src/protomotions/tests/test_baked_fk.py::TestONNXTraceTargetFK::test_target_fk_onnx_export_and_run[True]
+  /project/EXP/SangforAndSaut/ProtoMotions/protomotions/tests/test_baked_fk.py:1086: DeprecationWarning: You are using the legacy TorchScript-based ONNX export. Starting in PyTorch 2.9, the new torch.export-based ONNX exporter has become the default. Learn more about the new export logic: https://docs.pytorch.org/docs/stable/onnx_export.html. For exporting control flow: https://pytorch.org/tutorials/beginner/onnx/export_control_flow_model_to_onnx_tutorial.html
+    torch.onnx.export(
+
+src/protomotions/tests/test_baked_fk.py::TestONNXTraceTargetFK::test_target_fk_onnx_export_and_run[False]
+src/protomotions/tests/test_baked_fk.py::TestONNXTraceTargetFK::test_target_fk_onnx_export_and_run[True]
+  /project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/protomotions/utils/baked_fk.py:488: TracerWarning: Using len to get tensor shape might cause the trace to be incorrect. Recommended usage would be tensor.shape[0]. Passing a tensor of different shape might lead to errors or silently give incorrect results.
+    n_track = len(trackable)
+
+src/protomotions/tests/test_common_transformer.py::test_transformer_real_encoder_uses_context_and_respects_padding_mask
+  /project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/torch/nn/modules/transformer.py:531: UserWarning: The PyTorch API of nested tensors is in prototype stage and will change in the near future. We recommend specifying layout=torch.jagged when constructing a nested tensor, as this layout receives active development, has better operator coverage, and works with torch.compile. (Triggered internally at /pytorch/aten/src/ATen/NestedTensorImpl.cpp:178.)
+    output = torch._nested_tensor_from_mask(
+
+src/protomotions/tests/test_gpc_python38_annotations.py::test_public_python_paths_postpone_modern_annotations
+  /project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/protomotions/utils/rotations.py:199: SyntaxWarning: invalid escape sequence '\*'
+    Combine two set of 3D rotations together using \**\* operator. The shape needs to be
+
+src/protomotions/tests/test_newton_api_compat.py::test_position_targets_preserve_free_root_and_select_live_joint_layout[False]
+src/protomotions/tests/test_newton_api_compat.py::test_sensor_kernel_and_environment_mapping_use_total_force
+src/protomotions/tests/test_newton_api_compat.py::test_sensor_rejects_a_missing_environment_instead_of_returning_zeros
+  /project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/protomotions/tests/test_newton_api_compat.py:58: DeprecationWarning: The legacy DOF-shaped joint_target_q layout is deprecated for models whose joint coordinate and DOF counts differ (free/ball/distance joints). In a future release joint_target_q will always use the coordinate layout (matching joint_q) and newton.use_coord_layout_targets will be removed. Set newton.use_coord_layout_targets = True before building models and index targets via Model.joint_target_q_start.
+    return builder.finalize(device="cpu")
+
+src/protomotions/tests/test_optional_vendor_regressions.py::test_navdp_all_legacy_imports_migrated_and_preflight_precedes_app_import
+  <unknown>:23: SyntaxWarning: invalid escape sequence '\o'
+
+src/protomotions/tests/test_optional_vendor_regressions.py::test_differential_controller_batch_preserves_scalar_speed_limits[navdp]
+  /project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/third_party/navdp/wheeled_robots/controllers/differential_controller.py:23: SyntaxWarning: invalid escape sequence '\o'
+    \omega_R = \\frac{1}{2r}(2V + \omega b) \n
+
+src/protomotions/tests/test_recording_clock.py::test_25hz_recording_encodes_one_second_and_matching_motion
+  /project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/.runtime/external_sdk_packages/moviepy/video/io/ImageSequenceClip.py:82: DeprecationWarning: Starting with ImageIO v3 the behavior of this function will switch to that of iio.v3.imread. To keep the current behavior (and make this warning disappear) use `import imageio.v2 as imageio` or call `imageio.v2.imread` directly.
+    size = imread(sequence[0]).shape
+
+src/protomotions/tests/test_recording_clock.py: 25 warnings
+  /project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/.runtime/external_sdk_packages/moviepy/video/io/ImageSequenceClip.py:89: DeprecationWarning: Starting with ImageIO v3 the behavior of this function will switch to that of iio.v3.imread. To keep the current behavior (and make this warning disappear) use `import imageio.v2 as imageio` or call `imageio.v2.imread` directly.
+    image1=imread(image)
+
+src/protomotions/tests/test_recording_clock.py::test_25hz_recording_encodes_one_second_and_matching_motion
+  /project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/.runtime/external_sdk_packages/moviepy/video/io/ImageSequenceClip.py:124: DeprecationWarning: Starting with ImageIO v3 the behavior of this function will switch to that of iio.v3.imread. To keep the current behavior (and make this warning disappear) use `import imageio.v2 as imageio` or call `imageio.v2.imread` directly.
+    if with_mask and (imread(self.sequence[0]).shape[2]==4):
+
+src/protomotions/tests/test_recording_clock.py: 25 warnings
+  /project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/.runtime/external_sdk_packages/moviepy/video/io/ImageSequenceClip.py:119: DeprecationWarning: Starting with ImageIO v3 the behavior of this function will switch to that of iio.v3.imread. To keep the current behavior (and make this warning disappear) use `import imageio.v2 as imageio` or call `imageio.v2.imread` directly.
+    self.lastimage = imread(self.sequence[index])[:,:,:3]
+
+src/protomotions/tests/test_recording_clock.py::test_25hz_recording_encodes_one_second_and_matching_motion
+  /project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/.runtime/external_sdk_packages/moviepy/video/io/ffmpeg_reader.py:148: DeprecationWarning: Setting the shape on a NumPy array has been deprecated in NumPy 2.5.
+  As an alternative, you can create a new view using np.reshape (with copy=False if needed).
+    result.shape =(h, w, len(s)//(w*h)) # reshape((h, w, len(s)//(w*h)))
+
+src/protomotions/tests/test_terrain_class.py::test_terrain_load_save_and_plot_paths
+  /project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/protomotions/components/terrains/terrain.py:643: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.
+    cmap = plt.cm.get_cmap("viridis", 5)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_grouped_sim61_migration.py::test_four_articulations_and_contacts_release_in_order
+FAILED tests/test_grouped_sim61_migration.py::test_contact_external_reference_blocks_success_but_app_closes
+FAILED tests/test_grouped_sim61_migration.py::test_callback_failure_drops_consumers_and_lifecycle_owners
+FAILED tests/test_grouped_sim61_migration.py::test_wrong_scene_structure_preserves_failure_and_closes_owned_app
+FAILED tests/test_mixed_state_action_profile.py::test_actual_pacer_wrong_identity_and_schema_fail_before_partial_training_transfer
+FAILED tests/test_native_paired_initial.py::test_count_core_and_map_copy_preserve_clock_RNG_and_detached_payload[3]
+FAILED tests/test_native_paired_initial.py::test_count_core_and_map_copy_preserve_clock_RNG_and_detached_payload[15]
+FAILED tests/test_native_paired_initial.py::test_complete_CPU_archive_requires_explicit_fixture_opt_in_and_keeps_exclusive_files[3]
+FAILED tests/test_native_paired_initial.py::test_complete_CPU_archive_requires_explicit_fixture_opt_in_and_keeps_exclusive_files[15]
+FAILED tests/test_native_social_force_runtime.py::test_full_scene_output_matches_original_generator_without_rng[3]
+FAILED tests/test_native_social_force_runtime.py::test_full_scene_output_matches_original_generator_without_rng[15]
+FAILED tests/test_paper_joint_power.py::test_actual_class_pairs_each_substep_before_mean_and_preserves_watts[True]
+FAILED tests/test_paper_joint_power.py::test_actual_class_pairs_each_substep_before_mean_and_preserves_watts[False]
+FAILED tests/test_paper_motion_tracking.py::test_cpu_runner_contract_one_initial_reset_no_fall_teleport_and_exact_poststep_phase[False]
+FAILED tests/test_paper_planning_clock.py::test_random_resets_preserve_max_interval_and_fresh_spawn[False]
+FAILED tests/test_paper_planning_clock.py::test_random_resets_preserve_max_interval_and_fresh_spawn[True]
+FAILED tests/test_popart_checkpoint_families.py::test_actual_historical_actor_and_current_actor_do_not_mix_cached_formats[shared_social_popart_pilot2000_v1/step_002000.pt-29b5903553e800007a5e8c004432f0ba9ec77b6d1573b2c6feab5df6765aa079]
+FAILED tests/test_popart_checkpoint_families.py::test_actual_historical_actor_and_current_actor_do_not_mix_cached_formats[shared_social_budget12500_recovery_training_v2/step_012500.pt-97ba4c6475817e1bbde4aa56377a45191058a0725cad48fcbf3a9b769accb675]
+FAILED tests/test_reconstruction_amp_inference.py::test_loader_and_repeated_inference_preserve_all_rng_and_normalizer_buffers
+FAILED tests/test_reconstruction_amp_inference.py::test_partial_device_migration_fails_before_tensor_ops_without_cuda[model]
+FAILED tests/test_reconstruction_amp_inference.py::test_partial_device_migration_fails_before_tensor_ops_without_cuda[normalizer]
+FAILED tests/test_reconstruction_amp_inference.py::test_partial_device_migration_fails_before_tensor_ops_without_cuda[mask]
+FAILED tests/test_sdk61_lifecycle.py::test_all_supported_contact_owner_layouts_release_before_stop[floor-1]
+FAILED tests/test_sdk61_lifecycle.py::test_all_supported_contact_owner_layouts_release_before_stop[peer-4]
+FAILED tests/test_sdk61_lifecycle.py::test_all_supported_contact_owner_layouts_release_before_stop[combined-5]
+FAILED tests/test_shared_social_discriminator_diagnostic.py::test_real_builder_constructs_only_D_and_RMS_without_consuming_rng
+FAILED tests/test_shared_social_full_epochs.py::FullEpochFixtureTests::test_complete_six_epochs_and_strict_metadata_without_KL_stop
+FAILED tests/test_shared_social_paired_initial.py::PairedInitialTests::test_rng_getter_does_not_initialize_CUDA_or_advance_global_or_private_rng
+FAILED tests/test_shared_social_popart_connection.py::SocialPopArtConnectionTests::test_full_fixture_update_applies_preservation_and_correct_counts
+FAILED tests/test_shared_social_sfm_integration.py::SharedSFMIntegrationTests::test_snapshot_preserves_inputs_rng_and_determinism
+FAILED tests/test_terrain_statistics_integration.py::test_policy_binding_hooks_validation_do_not_consume_caller_rng
+31 failed, 5029 passed, 2 skipped, 170 warnings, 130 subtests passed in 635.06s (0:10:35)

@@ -16,6 +16,7 @@ if sys.version_info < (3, 11):
     if (binding.get('schema') != 'social_navigation.external_sdk.v1'
             or not isinstance(python, str) or not Path(python).is_absolute() or not Path(python).is_file()):
         raise SystemExit('Configure a valid external SDK Python before launching')
+    os.environ['PYTHONNOUSERSITE'] = '1'
     os.execv(python, [python, str(__file__), '--sdk-child', *sys.argv[1:]])
 sys.path.insert(0, str(ROOT / 'src'))
 from social_navigation.external_runtime import execute, launch

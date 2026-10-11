@@ -1,0 +1,182 @@
+{
+  "schema": "crowdsim.trace_pace_reliability_evaluation.v1",
+  "geometric_envelope_scope": "root circumscribed disk proxy; separate actual24-body contact residual mandatory in every native scene",
+  "declared_root_extent_m": [
+    0.65,
+    0.65,
+    1.7
+  ],
+  "native_source_scene": "NewMetro",
+  "quality_status": "passed_local_proxy_gates",
+  "paper_result": false,
+  "actual_force_contacts_measured": true,
+  "measured_contacts": {
+    "completed_controls": 1800,
+    "completed_physics_substeps": 7200,
+    "four_substeps_per_control_verified": true,
+    "all24_body_positions_and_root_rotation_equal_native_final_substep": true,
+    "floor_normal_load_mean_n_per_actor": [
+      621.2160616060813,
+      620.5849664274898,
+      621.0890116635658,
+      621.1982513646764
+    ],
+    "floor_load_over_body_weight_mean_per_actor": [
+      1.000171020181088,
+      0.9991549435732608,
+      0.9999664670819769,
+      1.0001423453151017
+    ],
+    "supported_substep_fraction_per_actor": [
+      0.9977777777777778,
+      0.9963888888888889,
+      0.99875,
+      0.9984722222222222
+    ],
+    "measured_supported_foot_body_origin_speed_proxy_m_s": 0.08379849238629727,
+    "contact_force_threshold_n": 1.0,
+    "friction_force_measured": false,
+    "contact_patch_slip_measured": false,
+    "peer_contact_actor_controls": 0,
+    "static_contact_actor_controls": 0,
+    "peer_contact_max_force_n": 0.0,
+    "static_contact_max_force_n": 6.258487701416016e-06,
+    "native_nonfloor_nonpeer_normal_force_residual": {
+      "source": "PhysX unfiltered net minus exact floor, peer and own-articulation normal force vectors",
+      "body_identity_verified_each_tick": true,
+      "reads": 7200,
+      "floor_positive_substeps": 7200,
+      "maximum_static_force_n": 6.258487701416016e-06,
+      "maximum_floor_force_n": 11476.818359375,
+      "first_physics_step": 1,
+      "last_physics_step": 7200,
+      "floor_witnesses": [
+        {
+          "physics_step": 1,
+          "force_n": 11476.818359375
+        },
+        {
+          "physics_step": 2,
+          "force_n": 104.94239807128906
+        },
+        {
+          "physics_step": 3,
+          "force_n": 218.688720703125
+        }
+      ],
+      "filtered_GPU_static_forces_are_insufficient": true,
+      "self_contact_separately_subtracted": true,
+      "force_cancellation_is_possible": true,
+      "body_names": [
+        "Pelvis",
+        "L_Hip",
+        "L_Knee",
+        "L_Ankle",
+        "L_Toe",
+        "R_Hip",
+        "R_Knee",
+        "R_Ankle",
+        "R_Toe",
+        "Torso",
+        "Spine",
+        "Chest",
+        "Neck",
+        "Head",
+        "L_Thorax",
+        "L_Shoulder",
+        "L_Elbow",
+        "L_Wrist",
+        "L_Hand",
+        "R_Thorax",
+        "R_Shoulder",
+        "R_Elbow",
+        "R_Wrist",
+        "R_Hand"
+      ],
+      "raw_artifact": {
+        "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/external_sdk_continuation_20261011/newmetro_candidate60_v2/native_static_residual.npz",
+        "sha256": "43f0fce370c3b2e9094513ec31b0c3148db12ba4cedbe853fca24217ae086d7e"
+      },
+      "all_read_substeps_archived": true
+    }
+  },
+  "actual_control_count": 1800,
+  "duration_s": 60.0,
+  "actors": 4,
+  "result_sha256": "8cae1ff16b60571130409719107d5f8c9cfba50af1773cc07dc06f018a0fd8c6",
+  "physical_sha256": "f613058e22714d29e535acd437b26b0454a055b3a8c121237faa04b9f21b1ac2",
+  "capture_parent_hash_available": true,
+  "evaluation_source_sha256": "5f272776b1f52b8e7f0e1276a528312b2718967447023717732827598ed6228a",
+  "all_frames_included": true,
+  "checks": {
+    "full_control_budget_actual_exit0": true,
+    "zero_actual_falls": true,
+    "actual_body_envelopes_no_peer_overlap": true,
+    "actual_body_envelopes_no_map_overlap": true,
+    "each_actor_reaches_route_vertex_if_duration_ge30s": true,
+    "no_route_vertex_gap_above60s_in_bounded_fixture": true,
+    "no_stationary_interval_above20s_in_cyclic_route": true,
+    "zero_measured_peer_contacts_above1N": true,
+    "zero_measured_static_contacts_above1N": true,
+    "measured_floor_support_in_majority_of_substeps": true,
+    "zero_native_nonfloor_nonpeer_force_residual_above1N": true
+  },
+  "path_length_m": [
+    36.52365235857885,
+    36.79258859140243,
+    38.38739803073605,
+    42.0275634236764
+  ],
+  "low_speed_fraction_below0p1_m_s": [
+    0.05,
+    0.03777777777777778,
+    0.043333333333333335,
+    0.04777777777777778
+  ],
+  "maximum_continuous_low_speed_s": [
+    0.5,
+    0.43333333333333335,
+    0.6,
+    0.5
+  ],
+  "maximum_time_without_route_vertex_s": [
+    1.4,
+    1.4333333333333333,
+    1.6,
+    1.1
+  ],
+  "maximum_actual_speed_m_s": [
+    1.346296476970153,
+    1.399938724741886,
+    1.4011444682982723,
+    1.3916511917192
+  ],
+  "actual_speed_p95_m_s": [
+    1.064624766319302,
+    1.0681581598772858,
+    1.0670215752823324,
+    1.0977872552310104
+  ],
+  "planning_speed_cap_is_not_a_physical_velocity_guarantee": true,
+  "minimum_actual_root_pair_distance_m": 1.4367858854954243,
+  "peer_body_envelope_overlap_control_frames": 0,
+  "minimum_actual_body_envelope_map_clearance_m": 0.22532998480007121,
+  "map_body_envelope_overlap_control_frames": 0,
+  "route_vertices_reached_per_actor": [
+    117,
+    119,
+    123,
+    191
+  ],
+  "safety_braking_plans": 36,
+  "total_plans": 140,
+  "toe_origin_below_ground_frames": 0,
+  "walking_near_ground_toe_speed_proxy_m_s": 0.4103132100792212,
+  "root_quaternion_max_norm_error": 1.321342704141415e-07,
+  "limitations": [
+    "Body envelopes approximate geometry; measured normal forces cover declared bodies and obstacles",
+    "Near-ground toe motion includes articulation and is not measured contact slip",
+    "Local gates and fixture are not the eight-scene author benchmark",
+    "A passing proxy report does not alone establish visually natural gait"
+  ]
+}

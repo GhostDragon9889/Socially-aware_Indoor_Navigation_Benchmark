@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/run_external_python.py", line 27, in <module>
+    execute(ROOT, arguments[1:])
+  File "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/social_navigation/external_runtime.py", line 270, in execute
+    exec(compile(name, '<string>', 'exec'), {'__name__': '__main__', '__builtins__': __builtins__})
+  File "<string>", line 1, in <module>
+  File "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/.runtime/external_sdk_packages/chumpy/__init__.py", line 1, in <module>
+    from .ch import *
+  File "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/.runtime/external_sdk_packages/chumpy/ch.py", line 1319, in <module>
+    from . import linalg
+  File "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/.runtime/external_sdk_packages/chumpy/linalg.py", line 178, in <module>
+    class SvdD(Ch):
+  File "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/.runtime/external_sdk_packages/chumpy/linalg.py", line 181, in SvdD
+    @depends_on('x')
+     ^^^^^^^^^^^^^^^
+  File "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/.runtime/external_sdk_packages/chumpy/ch.py", line 1203, in _depends_on
+    want_out = 'out' in inspect.getargspec(func).args
+                        ^^^^^^^^^^^^^^^^^^
+AttributeError: module 'inspect' has no attribute 'getargspec'. Did you mean: 'getargs'?

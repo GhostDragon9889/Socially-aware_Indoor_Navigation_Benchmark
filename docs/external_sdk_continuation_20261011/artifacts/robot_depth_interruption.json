@@ -1,0 +1,5 @@
+{
+  "action": "SIGINT to owned camera test after recorded Vulkan out-of-device-memory",
+  "pid": 2953871,
+  "reason": "Concurrent renderer plus two physical tests exhausted16GB GPU; results not accepted; retry alone."
+}

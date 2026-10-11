@@ -1,0 +1,10 @@
+propagated_error controlled rollback failure
+environment_after new environment
+recovery_snapshots 0
+Traceback (most recent call last):
+  File "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/run_external_python.py", line 27, in <module>
+    execute(ROOT, arguments[1:])
+  File "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/social_navigation/external_runtime.py", line 273, in execute
+    exec(compile(sys.stdin.read(), '<stdin>', 'exec'), {'__name__': '__main__', '__builtins__': __builtins__})
+  File "<stdin>", line 21, in <module>
+AssertionError: Original bytes were discarded after rollback failure

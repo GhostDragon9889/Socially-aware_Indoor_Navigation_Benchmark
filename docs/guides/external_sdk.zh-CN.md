@@ -19,11 +19,13 @@ python3 scripts/run_external_python.py -m social_navigation preflight --scene YO
 
 ```bash
 python3 scripts/run_external_python.py -c 'import sys; print(sys.executable)'
-PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 python3 scripts/run_external_python.py -m pytest -q
+python3 scripts/run_external_python.py scripts/run_project_tests.py --output-dir output/tests_new
 python3 scripts/run_external_python.py scripts/verify_pretrained_models.py --output output/pretrained_new.json
 ```
 
-锁变更时，运行 `configure --lab-root ... --rebuild-addons`。新包目录先完成验证，旧目录保留为备份；SDK 不变。配置生成 `.runtime/external_sdk.code-workspace` 与环境文件。在 VS Code 中打开该 workspace，即可选用外部解释器、项目附加包与新的任务入口。原 `.vscode` 任务通过统一入口启动，不依赖 `.venv`。二进制发行版的调试仍须按其官方环境设置执行。
+测试入口先在 CUDA 隐藏的独立进程中运行全部 CPU 合约，再在新进程中重试 CUDA 跳过项，沿用当前终端的 GPU 选择。CPU 合约包含“不得初始化 CUDA”的断言，因此不能将真实 GPU 测试和这些 CPU 合约混在一个进程中。每阶段保留真实退出码、JUnit 和日志；硬件或旧后端缺失会记录为 `passed_with_gaps`，跳过项不计入通过数。`--cpu-only` 可仅执行 CPU 阶段；输出目录必须是新目录。第三方 pytest 插件自动加载被关闭，避免 ROS 等主机插件影响项目测试。
+
+锁变更时，运行 `configure --lab-root ... --rebuild-addons`。新包目录先完成验证，旧目录保留为备份；SDK 不变。配置生成 `.runtime/external_sdk.code-workspace` 与环境文件。安装、提供者校验或配置发布失败时，会尝试回滚本次变更并保留安装诊断；可选 RVO2 输入在发布解释器选择前核验。若持续的操作系统错误使配置文件无法恢复，异常会注明恢复快照路径，并保留旧文件字节，需先排除该 I/O 故障再恢复。不能将这种失败视为配置成功。在 VS Code 中打开该 workspace，即可选用外部解释器、项目附加包与新的任务入口。原 `.vscode` 任务通过统一入口启动，不依赖 `.venv`。二进制发行版的调试仍须按其官方环境设置执行。
 
 ## 方式二：在项目内完整安装
 
@@ -67,4 +69,4 @@ python3 scripts/run_external_python.py scripts/generate_orca_diffusion_data.py \
 
 ## 验证边界
 
-模型文件清点覆盖指定目录全部文件，权重检查使用实际文件；当前模型严格加载与物理运行分别记录。历史 NavIsaacLab 分支的两组模型仍按 [注册表](../../data/pretrained_models/upstream_reference_registry.json)拒绝进入当前分支，不能因为张量可读便称其可运行。全项目行覆盖率、政策质量、多 GPU 和二进制 Sim 发行版测试需要独立证据，清点100%不能替代执行覆盖100%。本轮报告见 [外部 SDK 核验](../EXTERNAL_SDK_VERIFICATION_20261011_ZH.md)。
+模型文件清点覆盖指定目录全部文件，权重检查使用实际文件；当前模型严格加载与物理运行分别记录。历史 NavIsaacLab 分支的两组模型仍按 [注册表](../../data/pretrained_models/upstream_reference_registry.json)拒绝进入当前分支，不能因为张量可读便称其可运行。全项目行覆盖率、政策质量、多 GPU 和二进制 Sim 发行版测试需要独立证据，清点100%不能替代执行覆盖100%。安装与并行训练见 [外部 SDK 核验](../EXTERNAL_SDK_VERIFICATION_20261011_ZH.md)，配置回滚及后续物理/覆盖结果见 [后续核验](../EXTERNAL_SDK_CONTINUATION_20261011_ZH.md)。

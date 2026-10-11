@@ -73,14 +73,17 @@ class DepthEncoder(nn.Module):
         self,
         depth_size: int = 224,
         channels: tuple[int, ...] = (16, 32),
-        kernel_sizes: tuple[int, ...] = (3, 3),
-        strides: tuple[int, ...] = (2, 2),
-        paddings: tuple[int, ...] = (1, 1),
+        kernel_sizes: tuple[int, ...] = (3,),
+        strides: tuple[int, ...] = (2,),
+        paddings: tuple[int, ...] = (1,),
         feature_dim: int = 64,
         spatial_grid: int = 4,
     ) -> None:
         super().__init__()
         layers: list[nn.Module] = []
+        channels, kernel_sizes, strides, paddings = convolution_spec(
+            channels, kernel_sizes, strides, paddings
+        )
         in_ch = 1
         for out_ch, k, s, p in zip(channels, kernel_sizes, strides, paddings):
             layers.append(nn.Conv2d(in_ch, out_ch, k, s, p))
@@ -123,14 +126,17 @@ class MapEncoder(nn.Module):
         self,
         map_size: int = 24,
         channels: tuple[int, ...] = (8, 16),
-        kernel_sizes: tuple[int, ...] = (3, 3),
-        strides: tuple[int, ...] = (2, 2),
-        paddings: tuple[int, ...] = (1, 1),
+        kernel_sizes: tuple[int, ...] = (3,),
+        strides: tuple[int, ...] = (2,),
+        paddings: tuple[int, ...] = (1,),
         feature_dim: int = 64,
         spatial_grid: int = 4,
     ) -> None:
         super().__init__()
         layers: list[nn.Module] = []
+        channels, kernel_sizes, strides, paddings = convolution_spec(
+            channels, kernel_sizes, strides, paddings
+        )
         in_ch = 1
         for out_ch, k, s, p in zip(channels, kernel_sizes, strides, paddings):
             layers.append(nn.Conv2d(in_ch, out_ch, k, s, p))
@@ -190,14 +196,17 @@ class RGBEncoder(nn.Module):
         self,
         rgb_size: int = 224,
         channels: tuple[int, ...] = (32, 64),
-        kernel_sizes: tuple[int, ...] = (3, 3),
-        strides: tuple[int, ...] = (2, 2),
-        paddings: tuple[int, ...] = (1, 1),
+        kernel_sizes: tuple[int, ...] = (3,),
+        strides: tuple[int, ...] = (2,),
+        paddings: tuple[int, ...] = (1,),
         feature_dim: int = 256,
         spatial_grid: int = 4,
     ) -> None:
         super().__init__()
         layers: list[nn.Module] = []
+        channels, kernel_sizes, strides, paddings = convolution_spec(
+            channels, kernel_sizes, strides, paddings
+        )
         in_ch = 3
         for out_ch, k, s, p in zip(channels, kernel_sizes, strides, paddings):
             layers.append(nn.Conv2d(in_ch, out_ch, k, s, p))
@@ -478,10 +487,9 @@ def make_conv_encoder(
     strides: tuple[int, ...],
     paddings: tuple[int, ...],
 ) -> nn.Sequential:
-    channels = normalize_dims(channels)
-    kernel_sizes = expand_or_validate(kernel_sizes, len(channels), "kernel_sizes")
-    strides = expand_or_validate(strides, len(channels), "strides")
-    paddings = expand_or_validate(paddings, len(channels), "paddings")
+    channels, kernel_sizes, strides, paddings = convolution_spec(
+        channels, kernel_sizes, strides, paddings
+    )
     layers: list[nn.Module] = []
     in_channels = 1
     for out_channels, kernel_size, stride, padding in zip(
@@ -526,6 +534,33 @@ def expand_or_validate(value: int | float | str | list | tuple, length: int, nam
     return values
 
 
+def normalize_paddings(value: int | float | str | list | tuple) -> tuple[int, ...]:
+    """Convolution padding can be zero; network widths must remain positive."""
+    if isinstance(value, str):
+        value = [part.strip() for part in value.split(',') if part.strip()]
+    values = value if isinstance(value, (list, tuple)) else (value,)
+    paddings = tuple(int(item) for item in values)
+    if any(float(item) != converted for item, converted in zip(values, paddings)):
+        raise ValueError(f'Convolution paddings must be integers, got {value}.')
+    if not paddings or any(item < 0 for item in paddings):
+        raise ValueError(f'Convolution paddings must be nonnegative, got {value}.')
+    return paddings
+
+
+def convolution_spec(channels, kernel_sizes, strides, paddings):
+    """Expand shared parameters or reject inconsistent per-layer lists."""
+    channels = normalize_dims(channels)
+    count = len(channels)
+    kernel_sizes = expand_or_validate(kernel_sizes, count, 'kernel_sizes')
+    strides = expand_or_validate(strides, count, 'strides')
+    paddings = normalize_paddings(paddings)
+    if len(paddings) == 1:
+        paddings *= count
+    elif len(paddings) != count:
+        raise ValueError(f'Expected paddings to have length 1 or {count}, got {paddings}.')
+    return channels, kernel_sizes, strides, paddings
+
+
 def robot_network_kwargs(
     network_cfg: dict,
     hidden_dim_override: int | None = None,
@@ -556,6 +591,7 @@ def robot_network_kwargs(
     depth_cfg = network_cfg.get("depth_encoder", {})
     if not isinstance(depth_cfg, dict):
         depth_cfg = {}
+    map_channels = normalize_dims(map_encoder_cfg.get("channels", (8, 16)))
     kwargs = {
         "hidden_dims": shared_dims,
         "vector_hidden_dims": optional_hidden_dims(
@@ -574,10 +610,10 @@ def robot_network_kwargs(
             network_cfg.get("critic_hidden_dims"),
             default=shared_dims,
         ),
-        "map_encoder_channels": normalize_dims(map_encoder_cfg.get("channels", (8, 16))),
-        "map_encoder_kernel_sizes": normalize_dims(map_encoder_cfg.get("kernel_sizes", (3, 3))),
-        "map_encoder_strides": normalize_dims(map_encoder_cfg.get("strides", (2, 2))),
-        "map_encoder_paddings": normalize_dims(map_encoder_cfg.get("paddings", (1, 1))),
+        "map_encoder_channels": map_channels,
+        "map_encoder_kernel_sizes": normalize_dims(map_encoder_cfg.get("kernel_sizes", (3,) * len(map_channels))),
+        "map_encoder_strides": normalize_dims(map_encoder_cfg.get("strides", (2,) * len(map_channels))),
+        "map_encoder_paddings": normalize_paddings(map_encoder_cfg.get("paddings", (1,) * len(map_channels))),
     }
     # depth: explicit caller param > default True/224
     kwargs["depth_enabled"] = bool(depth_enabled) if depth_enabled is not None else True
@@ -600,9 +636,10 @@ def robot_network_kwargs(
     kwargs["num_neighbors"] = int(num_neighbors if num_neighbors is not None else 4)
 
     kwargs["depth_encoder_channels"] = normalize_dims(depth_cfg.get("channels", (16, 32, 64, 128)))
-    kwargs["depth_encoder_kernel_sizes"] = normalize_dims(depth_cfg.get("kernel_sizes", (3, 3, 3, 3)))
-    kwargs["depth_encoder_strides"] = normalize_dims(depth_cfg.get("strides", (2, 2, 2, 2)))
-    kwargs["depth_encoder_paddings"] = normalize_dims(depth_cfg.get("paddings", (1, 1, 1, 1)))
+    depth_layers = len(kwargs["depth_encoder_channels"])
+    kwargs["depth_encoder_kernel_sizes"] = normalize_dims(depth_cfg.get("kernel_sizes", (3,) * depth_layers))
+    kwargs["depth_encoder_strides"] = normalize_dims(depth_cfg.get("strides", (2,) * depth_layers))
+    kwargs["depth_encoder_paddings"] = normalize_paddings(depth_cfg.get("paddings", (1,) * depth_layers))
     kwargs["depth_feature_dim"] = int(depth_cfg.get("feature_dim", 256))
     return kwargs
 
