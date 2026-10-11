@@ -107,10 +107,16 @@ def test_policy_must_prove_each_complete_maintenance_chain(repository, defect):
     elif defect == 'unknown_commit':
         first['commit'] = '0' * 40
     elif defect == 'wrong_origin':
-        policy['files'][-1]['updates'][0]['upstream_origin']['commit'] = json.loads(
+        origins = [update['upstream_origin'] for item in policy['files']
+                   for update in item['updates'] if 'upstream_origin' in update]
+        assert len(origins) == 1
+        origins[0]['commit'] = json.loads(
             git(repository, 'cat-file', 'blob', verifier.CATALOG_BLOB))['upstream_commit']
     else:
-        policy['files'][-1]['updates'][0]['upstream_origin']['lfs_oid'] = '0' * 64
+        origins = [update['upstream_origin'] for item in policy['files']
+                   for update in item['updates'] if 'upstream_origin' in update]
+        assert len(origins) == 1
+        origins[0]['lfs_oid'] = '0' * 64
     path.write_text(json.dumps(policy))
     with pytest.raises(RuntimeError):
         verifier.verify(repository)

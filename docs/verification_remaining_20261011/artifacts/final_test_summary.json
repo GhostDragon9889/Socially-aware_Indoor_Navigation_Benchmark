@@ -727,5 +727,15 @@
       "reason": "could not import 'isaacgym': No module named 'isaacgym'"
     }
   ],
-  "scope": "Configured complete pytest collection; ordinary nodes deduplicated, subtests reported separately; source-byte consistency of measured GPU files is checked by coverage export."
+  "scope": "Configured complete pytest collection; ordinary nodes deduplicated, subtests reported separately; source-byte consistency of measured GPU files is checked by coverage export.",
+  "postcommit_regression": {
+    "run": "postcommit_git_regression_v2",
+    "passed_existing_nodes": 39,
+    "new_unique_nodes_added": 0,
+    "test_file_updated_since_full_collection": [
+      "tests/test_upstream_maintenance_admission.py"
+    ],
+    "all_current_test_file_nodes_rerun": true,
+    "note": "Only the Git negative-fixture selection changed after the full collection, to select the actual LFS-origin record in the expanded maintenance policy. Runtime source bytes and test node names are unchanged."
+  }
 }

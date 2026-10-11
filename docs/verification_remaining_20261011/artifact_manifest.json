@@ -5,8 +5,8 @@
     {
       "original_local_path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/final_test_summary.json",
       "published_path": "docs/verification_remaining_20261011/artifacts/final_test_summary.json",
-      "bytes": 42323,
-      "sha256": "54d53d214679956a768af8c613b9bdb6f36496734668be21a8c5723d65f96f32"
+      "bytes": 42842,
+      "sha256": "86daf354dace614451c8c0fe43129ad47d4bd40b47a98def46d0dc42cfff853c"
     },
     {
       "original_local_path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/final_cpu_v11_execution.json",
@@ -246,7 +246,7 @@
       "original_local_path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/inventory.json",
       "published_path": "docs/verification_remaining_20261011/artifacts/inventory.json",
       "bytes": 454210,
-      "sha256": "3946322bd7b0a3eae7e863f09a0cfc74c5e9cf372f3ff169e2e106f7782dd027"
+      "sha256": "8dd999fc3a7b193ba67b2c6e08ec52bfc523fa4be1178a952398c2cb3dce787e"
     },
     {
       "original_local_path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/static_findings.json",
@@ -258,13 +258,13 @@
       "original_local_path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/nonpython_syntax.json",
       "published_path": "docs/verification_remaining_20261011/artifacts/nonpython_syntax.json",
       "bytes": 41816,
-      "sha256": "e5b761a8bf988c5ff471789ccb42182c869e44b4da3524634debb933f977c1ab"
+      "sha256": "d4e82f3c5d4eb0235bd73fba54849d58b0bb5431d36f4fd1c5a7964ede80bce8"
     },
     {
       "original_local_path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/nonpython_final_consistency.json",
       "published_path": "docs/verification_remaining_20261011/artifacts/nonpython_final_consistency.json",
       "bytes": 314,
-      "sha256": "5f4c542eb34c04531b07f68e9df5c7e7ac89f87aca01ef806f31fb3d1a6a1b54"
+      "sha256": "1b3d883302c76444c1c3d8d908aa041b63b0a7acc01ec7938d4bce968db85c6b"
     },
     {
       "original_local_path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/installed_wheel_terminal_validation.json",
@@ -281,8 +281,8 @@
     {
       "original_local_path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/final_validation_summary.json",
       "published_path": "docs/verification_remaining_20261011/artifacts/final_validation_summary.json",
-      "bytes": 16941,
-      "sha256": "5f4083f3a6a95d598c00994955496229c8df6f427fbee282526807bee9c8b620"
+      "bytes": 17872,
+      "sha256": "4f4dd10f7b44c41ff9f473595e620fb9a70c41c66d055dba70877e78e92a3f89"
     },
     {
       "original_local_path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/final_native_pair_v3_numeric_equivalence.json",
@@ -293,8 +293,8 @@
     {
       "original_local_path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/execution_inventory_current.json",
       "published_path": "docs/verification_remaining_20261011/artifacts/execution_inventory_current.json",
-      "bytes": 45380,
-      "sha256": "d1f466342f4b99825b5e882ce2a782575b4a55870a3a79e379fae7995d7330e3"
+      "bytes": 46892,
+      "sha256": "9314f99e2c2eaa334de014f47f4bf61e0cf774ccc09cbbb4033de59f46061bda"
     },
     {
       "original_local_path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/production_physx_fixed_v3/result.json",
@@ -355,6 +355,43 @@
       "published_path": "docs/verification_remaining_20261011/artifacts/precommit_content_scan.json",
       "bytes": 174,
       "sha256": "397ac006dc0b27653b59857a940afc8982576471ee3bba9f247cd229dfd4eb70"
+    },
+    {
+      "original_local_path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/postcommit_git_regression_execution.json",
+      "published_path": "docs/verification_remaining_20261011/artifacts/postcommit_git_regression_execution.json",
+      "bytes": 121872,
+      "sha256": "b1a260dc04f39ae6b7d8b1e268fe590b99a52e148f723e64b5cab369face5a70"
+    },
+    {
+      "original_local_path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/postcommit_git_regression.xml",
+      "published_path": "docs/verification_remaining_20261011/artifacts/postcommit_git_regression.xml",
+      "bytes": 9968,
+      "sha256": "c3d1c06f2c896395b24ace477f7e9fe08471b9de38da2928cca3435a3a7f1220"
+    },
+    {
+      "original_local_path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/postcommit_git_regression_v2_execution.json",
+      "published_path": "docs/verification_remaining_20261011/artifacts/postcommit_git_regression_v2_execution.json",
+      "bytes": 121874,
+      "sha256": "964c40d43786977a293a55b9b03ce674c2852a0e35a1179d1537d7813e693a19"
+    },
+    {
+      "original_local_path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/postcommit_git_regression_v2.xml",
+      "published_path": "docs/verification_remaining_20261011/artifacts/postcommit_git_regression_v2.xml",
+      "bytes": 6131,
+      "sha256": "2434aa6bc2e3a2573443b8e13a87744762e9e9fea14bc1dc94162cef3e9be52e"
+    },
+    {
+      "original_local_path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/installed_wheel_release_validation.json",
+      "published_path": "docs/verification_remaining_20261011/artifacts/installed_wheel_release_validation.json",
+      "bytes": 12763,
+      "sha256": "89b99c53839ae2df0193e051c8b1e2b3e6c702315670490321740be06d125e34"
+    },
+    {
+      "original_local_path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/final_wheel_runtime_v9_execution.json",
+      "published_path": "docs/verification_remaining_20261011/artifacts/final_wheel_runtime_v9_execution.json",
+      "bytes": 121678,
+      "sha256": "1d5fa99ec2f415dbc0b91e845d070c6a9d9c5835a58d9e5898bc793ed080412f"
     }
-  ]
+  ],
+  "updated_utc": "2026-10-11T10:30:04.226203+00:00"
 }

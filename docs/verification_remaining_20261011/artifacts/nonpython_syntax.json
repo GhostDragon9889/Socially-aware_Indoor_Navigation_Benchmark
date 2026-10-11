@@ -1008,7 +1008,7 @@
     },
     {
       "path": "configs/upstream/protomotions_maintenance_20261011.json",
-      "sha256": "a5ae7bde6f86182bbc4b21922bcb61f9b0b140a5f1c4432f3084e50b38e8d06b",
+      "sha256": "7b6eb91039901ddacec89819a3821d82a5dadaf1cd78a50f3c1822d3fef4495b",
       "kind": ".json",
       "syntax": "passed"
     },

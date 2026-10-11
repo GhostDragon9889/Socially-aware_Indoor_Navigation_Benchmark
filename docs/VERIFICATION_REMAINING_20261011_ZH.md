@@ -28,7 +28,7 @@
 | 相机暗 uint8 帧被乘 255、CPU 共享缓冲覆盖旧帧、NaN/Inf 帧率被接受 | 按 dtype 处理 RGB，step 前复制深度快照，明确拒绝非有限帧率。真实 SDK ProxyArray CPU 数据验证与 19 个新增边界测试通过；全无效 burst 不再产生空集 mean/std 警告。 |
 | ControlConfig 字典覆盖调用不存在的 ControlInfo.from_dict | 使用真实 dataclass 构造，检查所有六个字段和 MJCF 传递；非法字段拒绝，已有实例及 None 语义不变，删除掩盖问题的假方法 mock。 |
 | 不完整／错误位置的 isaaclab namespace 导致路径定位 IndexError | SDK 路径发现明确处理不完整安装；冷进程及临时 namespace 回归通过。 |
-| 上游维护检查无法表达已登记的本地维护提交 | 以四个明确文件、七条已登记文件维护变更（涉及三个不同提交）限定 HEAD/index 校验；1,017 项映射及 21 项负例验证。该结果不宣称整个当前工作区与上游相同。 |
+| 上游维护检查无法表达已登记的本地维护提交 | 先核验四条路径的七条历史维护记录；发布后增加本次迁移 commit 的 37 条明确维护变更，总共 39 条路径。1,017 项映射及源码／来源负例在新 Git 状态复验通过。该结果不宣称整个当前工作区与上游相同。 |
 
 旧训练器 Pop-Art 数值迁移、CUDA 保存／恢复、PointGoal 超时 bootstrap、规划边界、运动播放器等前轮修复也包含在本轮完整回归中。没有通过放宽历史来源校验或修改冻结文档来使测试变绿。
 
@@ -46,7 +46,7 @@
 
 本轮十份成功执行的 coverage 记录合并后，`src/` 与 `scripts/` 的 617 个文件共 71,695 条可执行语句，已执行 46,149 条，**语句覆盖 64.37%**；21,690 条分支中覆盖 11,856 条，**分支覆盖 54.66%**。4,639 个函数语法范围中，1,234 个没有函数体语句执行记录。函数范围可嵌套，不能把其数量当成功能数量；执行到代码也不等于行为断言充分。
 
-每个有实际执行行的项目文件均与该进程启动时的 SHA 及当前源文件比对。24 个 `.py:label` 形式的动态编译代码对象核验来源后排除物理行统计，没有把变换后的行号映回原文件。范围不含测试、第三方、SDK、文档及范围外动态源码；静态检查的 384,247 物理行与这里的可执行语句不是同一种统计。失败的原生进程记录没有用于增加成功运行覆盖率。
+每个有实际执行行的项目文件均与该进程启动时的 SHA 及当前源文件比对。24 个 `.py:label` 形式的动态编译代码对象核验来源后排除物理行统计，没有把变换后的行号映回原文件。范围不含测试、第三方、SDK、文档及范围外动态源码；静态检查的 384,253 物理行与这里的可执行语句不是同一种统计。失败的原生进程记录没有用于增加成功运行覆盖率。
 
 [覆盖率摘要](verification_remaining_20261011/artifacts/coverage_summary.json)、[逐文件 CSV](verification_remaining_20261011/artifacts/file_coverage.csv)、[函数体已执行／未执行语句](verification_remaining_20261011/artifacts/function_coverage.json)、本机完整 HTML 位于 `output/verification_remaining_20261011/coverage_html/index.html`、[覆盖源码逐运行身份检查](verification_remaining_20261011/artifacts/coverage_source_consistency.json)。
 
@@ -124,9 +124,9 @@ Office N3、seed 7 的 SFM 与 diffusion 各运行 6,000 controls / 200 秒 / 18
 
 实际构建约 41 MB wheel，隔离安装；逐字节检查 wheel 中 470 份 Python 源码与当前源文件一致。禁用开发环境自动注入源码的 hook 后，确认五个核心包均从 wheel 安装目录导入；六个 console `--help`、info/status、自带 PointGoal 配置的训练及评估共 11 条命令通过。源目录命令继续显式使用 `SOCIAL_NAVIGATION_ROOT`；没有把依赖完整源码／证据目录的研究流程声称为独立 wheel 功能。
 
-当前 Python 清单为 **1,763 个文件、384,247 物理行**，逐文件记录 SHA、AST 和物理行数；AST 失败及 Ruff 致命错误均为 0（F821/F822/F823/F901/E9）；这证明读取与语法检查，不等于逐行人工审查或逐行动态执行。非 Python 检查包括 186 个 JSON/YAML/TOML/shell/JS 文件；两份 JS 的 13 个 V8 CPU 协议用例及一个拒绝假退出码的变异检查通过。仓库已有有说明的 Ruff 豁免保留。另附三份可复现原生关闭的探针／父进程记录器，独立 AST 与致命 Ruff 检查通过。
+当前 Python 清单为 **1,763 个文件、384,253 物理行**，逐文件记录 SHA、AST 和物理行数；AST 失败及 Ruff 致命错误均为 0（F821/F822/F823/F901/E9）；这证明读取与语法检查，不等于逐行人工审查或逐行动态执行。非 Python 检查包括 186 个 JSON/YAML/TOML/shell/JS 文件；两份 JS 的 13 个 V8 CPU 协议用例及一个拒绝假退出码的变异检查通过。仓库已有有说明的 Ruff 豁免保留。另附三份可复现原生关闭的探针／父进程记录器，独立 AST 与致命 Ruff 检查通过。
 
-[源码清单](verification_remaining_20261011/artifacts/inventory.json)、[致命静态结果](verification_remaining_20261011/artifacts/static_findings.json)、[配置与脚本语法](verification_remaining_20261011/artifacts/nonpython_syntax.json)、[最终非 Python 身份复验](verification_remaining_20261011/artifacts/nonpython_final_consistency.json)、[实际安装包运行](verification_remaining_20261011/artifacts/installed_wheel_terminal_validation.json)、[benchmark 真实成功退出](verification_remaining_20261011/artifacts/final_isaaclab_benchmark_v5_execution.json)。
+[源码清单](verification_remaining_20261011/artifacts/inventory.json)、[致命静态结果](verification_remaining_20261011/artifacts/static_findings.json)、[配置与脚本语法](verification_remaining_20261011/artifacts/nonpython_syntax.json)、[最终非 Python 身份复验](verification_remaining_20261011/artifacts/nonpython_final_consistency.json)、[实际安装包运行](verification_remaining_20261011/artifacts/installed_wheel_release_validation.json)、[benchmark 真实成功退出](verification_remaining_20261011/artifacts/final_isaaclab_benchmark_v5_execution.json)。
 
 ## 验收边界
 
@@ -148,3 +148,12 @@ PYTHONPATH=src:. .venv/bin/python docs/verification_remaining_20261011/probes/ex
 ```
 
 父进程将真实子进程退出码、源文件 SHA 和执行中变化写入 `output/terminal_probe_runs/`。故障复测分别追加 `--fail-component-close` 或 `--fail-after-initialize`，使用新运行名称和新输出目录，预期真实子进程退出 **1**；父记录器自身也以非零退出。只检查子进程的 JSON passed 标志不足以判断退出成功。
+
+
+## 发布时的 Git 校验
+
+迁移代码与初始证据提交为 `3c6192c430b5deb8c3c209f1dd59bf56810cb604`。维护登记逐项绑定该提交中 37 个已映射上游文件的 before/after Git blob，总共 39 条维护路径；保留完整 1,017 项原始上游目录、原合并父提交和 LFS 来源校验。这个检查不证明整个工作区或 LFS 实际 payload。
+
+发布扩展登记后，两个负例曾因用“最后一行”选择 LFS 来源而误选新维护项；失败记录保留。测试现在按实际 `upstream_origin` 字段选择那条原始 LFS 来源，仍验证非法 origin 和 OID 被拒绝。当前 39 项 Git／打包／许可证回归全部通过，均已包含于原有测试节点，未重复增加 4,988 的计数。运行代码未变；修改过的这一个测试文件已全部重跑。因此，完整收集的快照与发布后针对性验证分别保留，不能声称二者测试文件逐字节相同。
+
+[发布后的 39 项回归](verification_remaining_20261011/artifacts/postcommit_git_regression_v2.xml)、[实际退出](verification_remaining_20261011/artifacts/postcommit_git_regression_v2_execution.json)、[保留的误选负例](verification_remaining_20261011/artifacts/postcommit_git_regression_execution.json)、[最新 wheel 实际退出](verification_remaining_20261011/artifacts/final_wheel_runtime_v9_execution.json)。

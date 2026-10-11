@@ -1,10 +1,10 @@
 {
   "schema": "sim61.current_verification_index.v1",
-  "completed_utc": "2026-10-11T10:11:38.110877+00:00",
+  "completed_utc": "2026-10-11T10:27:50.570600+00:00",
   "test_summary": {
     "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/final_test_summary.json",
-    "bytes": 42323,
-    "sha256": "54d53d214679956a768af8c613b9bdb6f36496734668be21a8c5723d65f96f32"
+    "bytes": 42842,
+    "sha256": "86daf354dace614451c8c0fe43129ad47d4bd40b47a98def46d0dc42cfff853c"
   },
   "unique_test_counts": {
     "passed": 4988,
@@ -313,5 +313,23 @@
     "Two legacy IsaacGym test nodes remain skipped; other simulator backends are not fully certified.",
     "Historical failed/interrupted process observations are retained in execution_inventory_current.json.",
     "The terminal PhysX cache workaround is specific to the exact inspected Linux/CPython3.12 binding; unknown builds are rejected."
-  ]
+  ],
+  "publication_regression": {
+    "existing_nodes_passed": 39,
+    "new_unique_nodes_counted": 0,
+    "execution": {
+      "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/postcommit_git_regression_v2_execution.json",
+      "bytes": 121874,
+      "sha256": "964c40d43786977a293a55b9b03ce674c2852a0e35a1179d1537d7813e693a19"
+    },
+    "XML": {
+      "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/postcommit_git_regression_v2.xml",
+      "bytes": 6131,
+      "sha256": "2434aa6bc2e3a2573443b8e13a87744762e9e9fea14bc1dc94162cef3e9be52e"
+    },
+    "runtime_sources_unchanged_since_complete_collection": true,
+    "only_changed_test_source": "tests/test_upstream_maintenance_admission.py",
+    "maintenance_paths": 39,
+    "migration_commit": "3c6192c430b5deb8c3c209f1dd59bf56810cb604"
+  }
 }

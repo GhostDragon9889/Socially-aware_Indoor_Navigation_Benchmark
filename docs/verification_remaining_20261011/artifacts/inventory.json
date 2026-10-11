@@ -1,5 +1,5 @@
 {
-  "created_utc": "2026-10-11T09:59:51.547504+00:00",
+  "created_utc": "2026-10-11T10:22:54.313011+00:00",
   "claim": "Per-file inventory, byte hash, physical line count and AST parse; no claim of manual line-by-line review, line coverage, or zero bugs.",
   "scope": [
     "src",
@@ -22,7 +22,7 @@
     "directory symlinks, external file symlinks, duplicate resolved paths, environment/cache/VCS directories"
   ],
   "files_count": 1763,
-  "lines_count": 384247,
+  "lines_count": 384253,
   "third_party_files": 701,
   "ast_failed": 0,
   "files": [
@@ -8444,9 +8444,9 @@
     },
     {
       "path": "tests/test_upstream_maintenance_admission.py",
-      "bytes": 6709,
-      "lines": 145,
-      "sha256": "c3fa72aa75afd0962039b335e8ef2bddaf03d612122e2b6da54dbaebbdcbcf9a",
+      "bytes": 6999,
+      "lines": 151,
+      "sha256": "31cde7e4ec3bedffe58aa5f3d620c6f735e48862584b96b046b2f346c55baf8a",
       "third_party": false,
       "ast": "passed"
     },

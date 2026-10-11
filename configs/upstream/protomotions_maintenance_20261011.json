@@ -28,6 +28,17 @@
             "mode": "100644",
             "git_blob": "45ba21959471300921dee897449afd8026fa4b89"
           }
+        },
+        {
+          "commit": "3c6192c430b5deb8c3c209f1dd59bf56810cb604",
+          "before": {
+            "mode": "100644",
+            "git_blob": "45ba21959471300921dee897449afd8026fa4b89"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "d1c740c453931ea04a2ac8e15b6c2b39fe23f01b"
+          }
         }
       ]
     },
@@ -84,6 +95,17 @@
             "mode": "100644",
             "git_blob": "364e76c9677b365854b1b334d0060f8a5faa850a"
           }
+        },
+        {
+          "commit": "3c6192c430b5deb8c3c209f1dd59bf56810cb604",
+          "before": {
+            "mode": "100644",
+            "git_blob": "364e76c9677b365854b1b334d0060f8a5faa850a"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "292b70eb03c35c72378e28ca1dfefaecd091b831"
+          }
         }
       ]
     },
@@ -106,6 +128,601 @@
             "path": "protomotions/data/assets/usd/terrain_material.usda",
             "lfs_oid": "d27ccb8396709d22dcbcf9cc3c430a9df61d6c34e0caf2a9f8fc2fd1f1f7cadf",
             "lfs_bytes": 5908
+          }
+        }
+      ]
+    },
+    {
+      "target_path": ".github/workflows/public-ci.yml",
+      "reason": "Explicit IsaacLab 3 EA / Isaac Sim 6.1 migration and associated regression, packaging or documentation maintenance; verified by the committed blob chain and docs/VERIFICATION_REMAINING_20261011_ZH.md.",
+      "updates": [
+        {
+          "commit": "3c6192c430b5deb8c3c209f1dd59bf56810cb604",
+          "before": {
+            "mode": "100644",
+            "git_blob": "5b09e5341971ea358890797adb11624bcdaf5e92"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "3806e379b35909e7b2bfba914aaa6b383ccadcc2"
+          }
+        }
+      ]
+    },
+    {
+      "target_path": "Dockerfile.isaacgym",
+      "reason": "Explicit IsaacLab 3 EA / Isaac Sim 6.1 migration and associated regression, packaging or documentation maintenance; verified by the committed blob chain and docs/VERIFICATION_REMAINING_20261011_ZH.md.",
+      "updates": [
+        {
+          "commit": "3c6192c430b5deb8c3c209f1dd59bf56810cb604",
+          "before": {
+            "mode": "100644",
+            "git_blob": "f7702edab8279ab701148b4ee3f7797926a6b565"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "56657ad9b9682eb9e8a8472a5c87eacf122e7a59"
+          }
+        }
+      ]
+    },
+    {
+      "target_path": "Dockerfile.newton",
+      "reason": "Explicit IsaacLab 3 EA / Isaac Sim 6.1 migration and associated regression, packaging or documentation maintenance; verified by the committed blob chain and docs/VERIFICATION_REMAINING_20261011_ZH.md.",
+      "updates": [
+        {
+          "commit": "3c6192c430b5deb8c3c209f1dd59bf56810cb604",
+          "before": {
+            "mode": "100644",
+            "git_blob": "a59bac346300b43875be971aac34f6fa7fdd20f7"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "85a8dbf1dbd404e91e5116d4fc8a32ecee094ad9"
+          }
+        }
+      ]
+    },
+    {
+      "target_path": "MANIFEST.in",
+      "reason": "Explicit IsaacLab 3 EA / Isaac Sim 6.1 migration and associated regression, packaging or documentation maintenance; verified by the committed blob chain and docs/VERIFICATION_REMAINING_20261011_ZH.md.",
+      "updates": [
+        {
+          "commit": "3c6192c430b5deb8c3c209f1dd59bf56810cb604",
+          "before": {
+            "mode": "100644",
+            "git_blob": "ccabeaae34cbe372e1a0f3bcb85c5ea6d8406991"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "b45210a3dc792a8ee756361d55ba5b4173247e8a"
+          }
+        }
+      ]
+    },
+    {
+      "target_path": "docs/source/conf.py",
+      "reason": "Explicit IsaacLab 3 EA / Isaac Sim 6.1 migration and associated regression, packaging or documentation maintenance; verified by the committed blob chain and docs/VERIFICATION_REMAINING_20261011_ZH.md.",
+      "updates": [
+        {
+          "commit": "3c6192c430b5deb8c3c209f1dd59bf56810cb604",
+          "before": {
+            "mode": "100644",
+            "git_blob": "b7f72e948fd4ab43ce8af19991dafd8e91ca29c7"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "f5a269a82c5796dd3b897e73b879009fa148499f"
+          }
+        }
+      ]
+    },
+    {
+      "target_path": "docs/source/getting_started/installation.rst",
+      "reason": "Explicit IsaacLab 3 EA / Isaac Sim 6.1 migration and associated regression, packaging or documentation maintenance; verified by the committed blob chain and docs/VERIFICATION_REMAINING_20261011_ZH.md.",
+      "updates": [
+        {
+          "commit": "3c6192c430b5deb8c3c209f1dd59bf56810cb604",
+          "before": {
+            "mode": "100644",
+            "git_blob": "7b983fee8870dfa396bd0ea1357ed1bfd852638e"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "a902ffd89785fce6b5c69d23f692bae7303a00c0"
+          }
+        }
+      ]
+    },
+    {
+      "target_path": "docs/source/index.rst",
+      "reason": "Explicit IsaacLab 3 EA / Isaac Sim 6.1 migration and associated regression, packaging or documentation maintenance; verified by the committed blob chain and docs/VERIFICATION_REMAINING_20261011_ZH.md.",
+      "updates": [
+        {
+          "commit": "3c6192c430b5deb8c3c209f1dd59bf56810cb604",
+          "before": {
+            "mode": "100644",
+            "git_blob": "845ac90f801a3dec24b33a93dbdf2cd7804cd15f"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "bdd319cd45ab42f86888f12f1ecbf4f54cce9a0e"
+          }
+        }
+      ]
+    },
+    {
+      "target_path": "docs/source/user_guide/isaaclab3_migration.rst",
+      "reason": "Explicit IsaacLab 3 EA / Isaac Sim 6.1 migration and associated regression, packaging or documentation maintenance; verified by the committed blob chain and docs/VERIFICATION_REMAINING_20261011_ZH.md.",
+      "updates": [
+        {
+          "commit": "3c6192c430b5deb8c3c209f1dd59bf56810cb604",
+          "before": {
+            "mode": "100644",
+            "git_blob": "77a3552cc29cfbe3e7965c08d2a5f555d52e3aa1"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "6910ef3c994c5f2e495f6e71c9be0bb21bc5a403"
+          }
+        }
+      ]
+    },
+    {
+      "target_path": "examples/benchmark/isaaclab_bench.py",
+      "reason": "Explicit IsaacLab 3 EA / Isaac Sim 6.1 migration and associated regression, packaging or documentation maintenance; verified by the committed blob chain and docs/VERIFICATION_REMAINING_20261011_ZH.md.",
+      "updates": [
+        {
+          "commit": "3c6192c430b5deb8c3c209f1dd59bf56810cb604",
+          "before": {
+            "mode": "100644",
+            "git_blob": "531a235a840d4ae66f8af2c10e6c4a7397ab3cae"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "624834460d2fc16191244fd7ca722e0fc4402f08"
+          }
+        }
+      ]
+    },
+    {
+      "target_path": "examples/experiments/mimic/fsq.py",
+      "reason": "Explicit IsaacLab 3 EA / Isaac Sim 6.1 migration and associated regression, packaging or documentation maintenance; verified by the committed blob chain and docs/VERIFICATION_REMAINING_20261011_ZH.md.",
+      "updates": [
+        {
+          "commit": "3c6192c430b5deb8c3c209f1dd59bf56810cb604",
+          "before": {
+            "mode": "100644",
+            "git_blob": "d0f284e22577fa854a2d6d09e5a26f0d8f249f24"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "378a13bbd369dbbf131c7907d9e779b2cb8afe5d"
+          }
+        }
+      ]
+    },
+    {
+      "target_path": "pyproject.toml",
+      "reason": "Explicit IsaacLab 3 EA / Isaac Sim 6.1 migration and associated regression, packaging or documentation maintenance; verified by the committed blob chain and docs/VERIFICATION_REMAINING_20261011_ZH.md.",
+      "updates": [
+        {
+          "commit": "3c6192c430b5deb8c3c209f1dd59bf56810cb604",
+          "before": {
+            "mode": "100644",
+            "git_blob": "29833f9fcd655204bad50c2caacd049569ab4ef5"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "26032c1ec6d76645f4a30ef004ff621c76042c99"
+          }
+        }
+      ]
+    },
+    {
+      "target_path": "requirements_isaaclab.txt",
+      "reason": "Explicit IsaacLab 3 EA / Isaac Sim 6.1 migration and associated regression, packaging or documentation maintenance; verified by the committed blob chain and docs/VERIFICATION_REMAINING_20261011_ZH.md.",
+      "updates": [
+        {
+          "commit": "3c6192c430b5deb8c3c209f1dd59bf56810cb604",
+          "before": {
+            "mode": "100644",
+            "git_blob": "a52bb8a27478260faa9db4288b78d5902623c95e"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "3c8328a5ec5e7a1c7fae5ea37169577a71c6a4fe"
+          }
+        }
+      ]
+    },
+    {
+      "target_path": "src/deployment/motion_utils.py",
+      "reason": "Explicit IsaacLab 3 EA / Isaac Sim 6.1 migration and associated regression, packaging or documentation maintenance; verified by the committed blob chain and docs/VERIFICATION_REMAINING_20261011_ZH.md.",
+      "updates": [
+        {
+          "commit": "3c6192c430b5deb8c3c209f1dd59bf56810cb604",
+          "before": {
+            "mode": "100644",
+            "git_blob": "a2fd35b0a4f6fb8a08486c1991e36854c02254b1"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "5a6052f3961c145e0bcf3055ea607ad7fad36e89"
+          }
+        }
+      ]
+    },
+    {
+      "target_path": "src/protomotions/agents/ppo/agent.py",
+      "reason": "Explicit IsaacLab 3 EA / Isaac Sim 6.1 migration and associated regression, packaging or documentation maintenance; verified by the committed blob chain and docs/VERIFICATION_REMAINING_20261011_ZH.md.",
+      "updates": [
+        {
+          "commit": "3c6192c430b5deb8c3c209f1dd59bf56810cb604",
+          "before": {
+            "mode": "100644",
+            "git_blob": "5be10cc38cbe8c4db76746dad7e72e683366b5ab"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "f967ecd780b2d947138697053bf728c21b042c4f"
+          }
+        }
+      ]
+    },
+    {
+      "target_path": "src/protomotions/agents/utils/normalization.py",
+      "reason": "Explicit IsaacLab 3 EA / Isaac Sim 6.1 migration and associated regression, packaging or documentation maintenance; verified by the committed blob chain and docs/VERIFICATION_REMAINING_20261011_ZH.md.",
+      "updates": [
+        {
+          "commit": "3c6192c430b5deb8c3c209f1dd59bf56810cb604",
+          "before": {
+            "mode": "100755",
+            "git_blob": "011bde6076fa2708d83221c6e838517f93f3c9bb"
+          },
+          "after": {
+            "mode": "100755",
+            "git_blob": "3a928e52bd092d190b04de89e07278f03ee1756f"
+          }
+        }
+      ]
+    },
+    {
+      "target_path": "src/protomotions/agents/utils/training.py",
+      "reason": "Explicit IsaacLab 3 EA / Isaac Sim 6.1 migration and associated regression, packaging or documentation maintenance; verified by the committed blob chain and docs/VERIFICATION_REMAINING_20261011_ZH.md.",
+      "updates": [
+        {
+          "commit": "3c6192c430b5deb8c3c209f1dd59bf56810cb604",
+          "before": {
+            "mode": "100644",
+            "git_blob": "bc00a8aadfb09067f76769e894a8de01c37720e4"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "b8735a4d24a3e84c2fcbb5c7c45c0e113d69f759"
+          }
+        }
+      ]
+    },
+    {
+      "target_path": "src/protomotions/envs/base_env/env.py",
+      "reason": "Explicit IsaacLab 3 EA / Isaac Sim 6.1 migration and associated regression, packaging or documentation maintenance; verified by the committed blob chain and docs/VERIFICATION_REMAINING_20261011_ZH.md.",
+      "updates": [
+        {
+          "commit": "3c6192c430b5deb8c3c209f1dd59bf56810cb604",
+          "before": {
+            "mode": "100644",
+            "git_blob": "28fe20ab7176df2e156491a161034caaa7c87b98"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "42906ea63a938ff8ce52d609c95f63d7cbc2203e"
+          }
+        }
+      ]
+    },
+    {
+      "target_path": "src/protomotions/inference_agent.py",
+      "reason": "Explicit IsaacLab 3 EA / Isaac Sim 6.1 migration and associated regression, packaging or documentation maintenance; verified by the committed blob chain and docs/VERIFICATION_REMAINING_20261011_ZH.md.",
+      "updates": [
+        {
+          "commit": "3c6192c430b5deb8c3c209f1dd59bf56810cb604",
+          "before": {
+            "mode": "100644",
+            "git_blob": "aa05b659f91aa515d6ff7ee3d04db4cc1bc586dd"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "8385180f7b139eb5ac28f4bf51cdca54aad8e734"
+          }
+        }
+      ]
+    },
+    {
+      "target_path": "src/protomotions/robot_configs/base.py",
+      "reason": "Explicit IsaacLab 3 EA / Isaac Sim 6.1 migration and associated regression, packaging or documentation maintenance; verified by the committed blob chain and docs/VERIFICATION_REMAINING_20261011_ZH.md.",
+      "updates": [
+        {
+          "commit": "3c6192c430b5deb8c3c209f1dd59bf56810cb604",
+          "before": {
+            "mode": "100644",
+            "git_blob": "a8988bcbe0ccdb7199926cab49d2034cff7d9624"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "1234a59b6a42c80f0c18e1d9ca5b0a46dcd98212"
+          }
+        }
+      ]
+    },
+    {
+      "target_path": "src/protomotions/simulator/base_simulator/user_interface.py",
+      "reason": "Explicit IsaacLab 3 EA / Isaac Sim 6.1 migration and associated regression, packaging or documentation maintenance; verified by the committed blob chain and docs/VERIFICATION_REMAINING_20261011_ZH.md.",
+      "updates": [
+        {
+          "commit": "3c6192c430b5deb8c3c209f1dd59bf56810cb604",
+          "before": {
+            "mode": "100644",
+            "git_blob": "e0040dd505864e21c864db895d088c7f76891808"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "1cf288a654d3b45e8b37627bee974f1e2dae1949"
+          }
+        }
+      ]
+    },
+    {
+      "target_path": "src/protomotions/simulator/isaaclab/simulator.py",
+      "reason": "Explicit IsaacLab 3 EA / Isaac Sim 6.1 migration and associated regression, packaging or documentation maintenance; verified by the committed blob chain and docs/VERIFICATION_REMAINING_20261011_ZH.md.",
+      "updates": [
+        {
+          "commit": "3c6192c430b5deb8c3c209f1dd59bf56810cb604",
+          "before": {
+            "mode": "100644",
+            "git_blob": "44a5e869d12cdaf10d07bc6b2d7ed5bc13acd294"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "6d75331f205eaaf11542ba4a24e1fda4f6f556ad"
+          }
+        }
+      ]
+    },
+    {
+      "target_path": "src/protomotions/simulator/isaaclab/utils/actuator_groups.py",
+      "reason": "Explicit IsaacLab 3 EA / Isaac Sim 6.1 migration and associated regression, packaging or documentation maintenance; verified by the committed blob chain and docs/VERIFICATION_REMAINING_20261011_ZH.md.",
+      "updates": [
+        {
+          "commit": "3c6192c430b5deb8c3c209f1dd59bf56810cb604",
+          "before": {
+            "mode": "100644",
+            "git_blob": "ba69cca244f79bc20672c8287b26d3ecdd403b03"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "f12a02798c3ecf504d4a4aed67ce73636f8bd6cb"
+          }
+        }
+      ]
+    },
+    {
+      "target_path": "src/protomotions/simulator/isaaclab/utils/mjcf_to_usd.py",
+      "reason": "Explicit IsaacLab 3 EA / Isaac Sim 6.1 migration and associated regression, packaging or documentation maintenance; verified by the committed blob chain and docs/VERIFICATION_REMAINING_20261011_ZH.md.",
+      "updates": [
+        {
+          "commit": "3c6192c430b5deb8c3c209f1dd59bf56810cb604",
+          "before": {
+            "mode": "100644",
+            "git_blob": "ae3dc105e746aac88895ca39571a3efc506886b5"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "042de1eabad7f6e394b660925af080a6ff363d6c"
+          }
+        }
+      ]
+    },
+    {
+      "target_path": "src/protomotions/simulator/isaaclab/utils/scene.py",
+      "reason": "Explicit IsaacLab 3 EA / Isaac Sim 6.1 migration and associated regression, packaging or documentation maintenance; verified by the committed blob chain and docs/VERIFICATION_REMAINING_20261011_ZH.md.",
+      "updates": [
+        {
+          "commit": "3c6192c430b5deb8c3c209f1dd59bf56810cb604",
+          "before": {
+            "mode": "100644",
+            "git_blob": "242ae66496d7f22b7e176b6d2abfa26a828071d7"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "fac630d6c85b3d9495ee38df9a03892063293325"
+          }
+        }
+      ]
+    },
+    {
+      "target_path": "src/protomotions/simulator/isaaclab/utils/usd_body_paths.py",
+      "reason": "Explicit IsaacLab 3 EA / Isaac Sim 6.1 migration and associated regression, packaging or documentation maintenance; verified by the committed blob chain and docs/VERIFICATION_REMAINING_20261011_ZH.md.",
+      "updates": [
+        {
+          "commit": "3c6192c430b5deb8c3c209f1dd59bf56810cb604",
+          "before": {
+            "mode": "100644",
+            "git_blob": "44d4d8f480a1f9d4d8df30f432079a79f0f88ed6"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "3e1b406c383564b5049ed0c3b5c0b9453abdec43"
+          }
+        }
+      ]
+    },
+    {
+      "target_path": "src/protomotions/simulator/isaaclab/utils/usd_utils.py",
+      "reason": "Explicit IsaacLab 3 EA / Isaac Sim 6.1 migration and associated regression, packaging or documentation maintenance; verified by the committed blob chain and docs/VERIFICATION_REMAINING_20261011_ZH.md.",
+      "updates": [
+        {
+          "commit": "3c6192c430b5deb8c3c209f1dd59bf56810cb604",
+          "before": {
+            "mode": "100644",
+            "git_blob": "fb99d8b7e5e8a59fc3964196fc4427087a94f54c"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "7407e8ccbf594a35d13677783172aa5363cf5188"
+          }
+        }
+      ]
+    },
+    {
+      "target_path": "src/protomotions/simulator/newton/config.py",
+      "reason": "Explicit IsaacLab 3 EA / Isaac Sim 6.1 migration and associated regression, packaging or documentation maintenance; verified by the committed blob chain and docs/VERIFICATION_REMAINING_20261011_ZH.md.",
+      "updates": [
+        {
+          "commit": "3c6192c430b5deb8c3c209f1dd59bf56810cb604",
+          "before": {
+            "mode": "100644",
+            "git_blob": "a0ddf710e61a68579c7ffb7979eeeccda9604774"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "50aa836ff3c95281bdd2f2caf74836c217d71e58"
+          }
+        }
+      ]
+    },
+    {
+      "target_path": "src/protomotions/simulator/newton/simulator.py",
+      "reason": "Explicit IsaacLab 3 EA / Isaac Sim 6.1 migration and associated regression, packaging or documentation maintenance; verified by the committed blob chain and docs/VERIFICATION_REMAINING_20261011_ZH.md.",
+      "updates": [
+        {
+          "commit": "3c6192c430b5deb8c3c209f1dd59bf56810cb604",
+          "before": {
+            "mode": "100644",
+            "git_blob": "4f69ded47b0511aad700a0e0597a5c97fe007617"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "469a0864b5b845d434bab7b622e7cd267ca3c30e"
+          }
+        }
+      ]
+    },
+    {
+      "target_path": "src/protomotions/tests/test_agent_utils.py",
+      "reason": "Explicit IsaacLab 3 EA / Isaac Sim 6.1 migration and associated regression, packaging or documentation maintenance; verified by the committed blob chain and docs/VERIFICATION_REMAINING_20261011_ZH.md.",
+      "updates": [
+        {
+          "commit": "3c6192c430b5deb8c3c209f1dd59bf56810cb604",
+          "before": {
+            "mode": "100644",
+            "git_blob": "193ef7c87f387f97821ddfe1d7af62f6debf0a39"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "6ca7f5773a645f82373a99ea5a0fec383ee41987"
+          }
+        }
+      ]
+    },
+    {
+      "target_path": "src/protomotions/tests/test_isaaclab_mjcf_usd.py",
+      "reason": "Explicit IsaacLab 3 EA / Isaac Sim 6.1 migration and associated regression, packaging or documentation maintenance; verified by the committed blob chain and docs/VERIFICATION_REMAINING_20261011_ZH.md.",
+      "updates": [
+        {
+          "commit": "3c6192c430b5deb8c3c209f1dd59bf56810cb604",
+          "before": {
+            "mode": "100644",
+            "git_blob": "ff6f27c2f1cde0715cea2b2ac6fb11810baf1665"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "7d800a9108eeac3f24cae2e5e343b7fa8ec070bf"
+          }
+        }
+      ]
+    },
+    {
+      "target_path": "src/protomotions/tests/test_release_docs_and_legal.py",
+      "reason": "Explicit IsaacLab 3 EA / Isaac Sim 6.1 migration and associated regression, packaging or documentation maintenance; verified by the committed blob chain and docs/VERIFICATION_REMAINING_20261011_ZH.md.",
+      "updates": [
+        {
+          "commit": "3c6192c430b5deb8c3c209f1dd59bf56810cb604",
+          "before": {
+            "mode": "100644",
+            "git_blob": "089e239a4f6742cc256711605734fc0f369d46f5"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "8def4fda1d0292a8c0955338f558624182dbdfa8"
+          }
+        }
+      ]
+    },
+    {
+      "target_path": "src/protomotions/tests/test_robot_config_helpers.py",
+      "reason": "Explicit IsaacLab 3 EA / Isaac Sim 6.1 migration and associated regression, packaging or documentation maintenance; verified by the committed blob chain and docs/VERIFICATION_REMAINING_20261011_ZH.md.",
+      "updates": [
+        {
+          "commit": "3c6192c430b5deb8c3c209f1dd59bf56810cb604",
+          "before": {
+            "mode": "100644",
+            "git_blob": "fb1c4e217608c7bf0613a0a6e5225242874e44f6"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "2b02786a3751810bd1d20c0effdc76d86d1ded03"
+          }
+        }
+      ]
+    },
+    {
+      "target_path": "src/protomotions/tests/test_training_utils.py",
+      "reason": "Explicit IsaacLab 3 EA / Isaac Sim 6.1 migration and associated regression, packaging or documentation maintenance; verified by the committed blob chain and docs/VERIFICATION_REMAINING_20261011_ZH.md.",
+      "updates": [
+        {
+          "commit": "3c6192c430b5deb8c3c209f1dd59bf56810cb604",
+          "before": {
+            "mode": "100644",
+            "git_blob": "8931caf4494624eb0ef5a4445061d790e6ee420f"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "3f13a4f20d97d3c293c02eae6267d89029f73be3"
+          }
+        }
+      ]
+    },
+    {
+      "target_path": "src/protomotions/train_agent.py",
+      "reason": "Explicit IsaacLab 3 EA / Isaac Sim 6.1 migration and associated regression, packaging or documentation maintenance; verified by the committed blob chain and docs/VERIFICATION_REMAINING_20261011_ZH.md.",
+      "updates": [
+        {
+          "commit": "3c6192c430b5deb8c3c209f1dd59bf56810cb604",
+          "before": {
+            "mode": "100644",
+            "git_blob": "229322a3a765f5565d1e48e54e47ce20d2c34043"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "662b514940b506066ff348f88da42b8007d02f75"
+          }
+        }
+      ]
+    },
+    {
+      "target_path": "src/protomotions/utils/config_utils.py",
+      "reason": "Explicit IsaacLab 3 EA / Isaac Sim 6.1 migration and associated regression, packaging or documentation maintenance; verified by the committed blob chain and docs/VERIFICATION_REMAINING_20261011_ZH.md.",
+      "updates": [
+        {
+          "commit": "3c6192c430b5deb8c3c209f1dd59bf56810cb604",
+          "before": {
+            "mode": "100644",
+            "git_blob": "4bd9991c32024d18b8bd8bbe69499898b90f7f41"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "0dd1bd4abd0402742548123845904125da204325"
           }
         }
       ]

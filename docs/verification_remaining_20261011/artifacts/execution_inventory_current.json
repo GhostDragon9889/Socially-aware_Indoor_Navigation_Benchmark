@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-11T10:10:46.190690+00:00",
+  "updated_utc": "2026-10-11T10:30:04.169557+00:00",
   "scope": "Raw process observations; nonzero injected, obsolete and failed attempts are retained, not silently classified as current passing validation.",
   "records": [
     {
@@ -462,6 +462,14 @@
       "possible_deliberate_fault_injection": false
     },
     {
+      "name": "final_static_inventory_v9_execution.json",
+      "actual_exit": 0,
+      "exit_field": "actual_returncode",
+      "elapsed_s": 1.825631710991729,
+      "source_changes": [],
+      "possible_deliberate_fault_injection": false
+    },
+    {
       "name": "final_style_input_preflight_v1_execution.json",
       "actual_exit": 1,
       "exit_field": "actual_returncode",
@@ -566,6 +574,14 @@
       "possible_deliberate_fault_injection": false
     },
     {
+      "name": "final_wheel_build_v8_execution.json",
+      "actual_exit": 0,
+      "exit_field": "actual_returncode",
+      "elapsed_s": 4.825721312008682,
+      "source_changes": [],
+      "possible_deliberate_fault_injection": false
+    },
+    {
       "name": "final_wheel_install_v1_execution.json",
       "actual_exit": 0,
       "exit_field": "actual_returncode",
@@ -610,6 +626,14 @@
       "actual_exit": 0,
       "exit_field": "actual_returncode",
       "elapsed_s": 2.9210265110014006,
+      "source_changes": [],
+      "possible_deliberate_fault_injection": false
+    },
+    {
+      "name": "final_wheel_install_v8_execution.json",
+      "actual_exit": 0,
+      "exit_field": "actual_returncode",
+      "elapsed_s": 3.6736339920025785,
       "source_changes": [],
       "possible_deliberate_fault_injection": false
     },
@@ -666,6 +690,14 @@
       "actual_exit": 0,
       "exit_field": "actual_returncode",
       "elapsed_s": 7.362769863990252,
+      "source_changes": [],
+      "possible_deliberate_fault_injection": false
+    },
+    {
+      "name": "final_wheel_runtime_v9_execution.json",
+      "actual_exit": 0,
+      "exit_field": "actual_returncode",
+      "elapsed_s": 6.615969453996513,
       "source_changes": [],
       "possible_deliberate_fault_injection": false
     },
@@ -1125,6 +1157,22 @@
       "actual_exit": 0,
       "exit_field": "actual_returncode",
       "elapsed_s": 2.277448266991996,
+      "source_changes": [],
+      "possible_deliberate_fault_injection": false
+    },
+    {
+      "name": "postcommit_git_regression_execution.json",
+      "actual_exit": 1,
+      "exit_field": "actual_returncode",
+      "elapsed_s": 10.885953216988128,
+      "source_changes": [],
+      "possible_deliberate_fault_injection": false
+    },
+    {
+      "name": "postcommit_git_regression_v2_execution.json",
+      "actual_exit": 0,
+      "exit_field": "actual_returncode",
+      "elapsed_s": 11.54546381799446,
       "source_changes": [],
       "possible_deliberate_fault_injection": false
     },
