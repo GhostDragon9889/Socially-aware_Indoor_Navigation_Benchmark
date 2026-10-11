@@ -81,7 +81,8 @@ def cold_preflight(tmp_path):
     serial = tmp_path / 'release.json'
     serial.write_text('{}')
     plan = {'sources': [], 'serial_release': plans.release.record(serial)}
-    executable = str(plans.ROOT / '.venv/bin/python')
+    from social_navigation.external_runtime import selected_python
+    executable = str(selected_python(plans.ROOT))
     commands = [[executable, str(Path(training.__file__)), '--serial-release', str(serial),
                  '--stage', stage, '--check-sources'] for stage in ('smoke8', 'smoke256', 'pilot2000')]
     commands.append([executable, str(Path(evaluation.__file__)), '--serial-release', str(serial), '--check-sources'])

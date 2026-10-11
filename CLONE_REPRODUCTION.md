@@ -34,18 +34,19 @@ export NAV_ROOT="$PWD"
 git lfs install --local
 uv python install 3.12.13
 uv run --no-project --python 3.12.13 python scripts/audit_checkout.py
-uv run --no-project --python 3.12.13 python scripts/bootstrap_reproduction.py install --profile isaaclab3_ea_sim61
-export NAV_PY="$NAV_ROOT/.runtime/isaaclab3_ea_sim61/.venv/bin/python"
-export PYTHONPATH="$NAV_ROOT/src:$NAV_ROOT"
+# Option A: reuse an installed matching SDK
+python3 scripts/bootstrap_reproduction.py configure --lab-root /absolute/path/to/IsaacLab
+# Option B: full installation inside this project (choose instead of A)
+# python3 scripts/bootstrap_reproduction.py install
+export NAV_PY="$(python3 -c 'import json; print(json.load(open(".runtime/external_sdk.json"))["python"])')"
+export NAV_ADDONS="$NAV_ROOT/.runtime/external_sdk_packages"
+export PYTHONPATH="$NAV_ROOT/src:$NAV_ROOT:$NAV_ADDONS"
 export PYTHONDONTWRITEBYTECODE=1
-export NAV_LAB="$NAV_ROOT/.runtime/IsaacLab61"
-"$NAV_PY" -m social_navigation.runtime_environment check --lab-root "$NAV_LAB"
-"$NAV_PY" -I scripts/isaaclab3_environment.py --profile isaaclab3_ea_sim61 check
+python3 scripts/bootstrap_reproduction.py check
+python3 scripts/run_external_python.py -m social_navigation status
 ```
 
-引导器默认固定 IsaacLab 源码 `ae37b028ea415c91ea2bc32609efcd759ed2b974`、Python 3.12.13、Sim 6.1.0.0、IsaacLab 产品 3.0.0（包 17.0.2）、Torch 2.11.0+cu128。SDK 位于 `.runtime/IsaacLab61`，项目补充依赖位于独立 `.runtime/isaaclab3_ea_sim61/.venv`；不修改或重复安装已装 SDK 源码和二进制提供者。按 NVIDIA 条款接受 EULA 后再启动 Kit；必要时设置 `OMNI_KIT_ACCEPT_EULA=YES`。不要在存档 profile 目录直接运行 `uv sync`。
-
-复用匹配 SDK 时运行 `python3 scripts/bootstrap_reproduction.py prepare-runtime --profile isaaclab3_ea_sim61 --lab-root /absolute/path/to/IsaacLab`，再选取输出的项目解释器。本机已真实安装并验证独立 overlay；完整新 SDK 网络安装未在本轮重复下载。详见[运行环境](env/isaaclab3_ea_sim61/README.md)与[依赖说明](docs/guides/dependencies.zh-CN.md)。已有四场景视频保持历史 Sim6.0 身份；新 SDK 的 60 秒物理、录制和质量验收须独立保存证据，不能由迁移/import 测试推导。
+默认固定 Python3.12.13、IsaacLab3EA 源码 `ae37b028ea415c91ea2bc32609efcd759ed2b974`（源码包17.0.2）、Sim6.1.0.0、Torch2.11.0+cu128。解释器属于所选 SDK；项目附加包按精确锁安装，不创建第二个 Python 或仿真提供者。配置过程校验冻结输入哈希后恢复 Git 不保存的只读权限。锁变更时用 `--rebuild-addons`，旧附加包目录会保留为备份。启动 Kit 前须阅读并接受 NVIDIA EULA。完整新 SDK 安装已实际执行，详见[配置与核验](docs/guides/external_sdk.zh-CN.md)。随后按下节下载资源；许可 AMASS/SMPL 输入仍需另外准备。
 
 ## 2. 恢复项目内的 LFS 资源
 

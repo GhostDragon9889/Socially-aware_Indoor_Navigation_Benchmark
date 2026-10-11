@@ -1,0 +1,160 @@
+{
+  "schema": "shared_social.episode_reference_serial_execution_plan.v1",
+  "objective": "Train the fixed2848 episode-bound procedural + unchangedAMASS31 shared AMP and measure full independent style/route/physics outcomes",
+  "entry": {
+    "path": "/project/EXP/SangforAndSaut/ProtoMotions/scripts/train_shared_social_episode_reference.py",
+    "bytes": 11013,
+    "sha256": "0ea765022821d52c34b0a246fbff5579fe6e03f3ea48b79a23bba403bc977c15"
+  },
+  "World": {
+    "path": "/project/EXP/SangforAndSaut/ProtoMotions/docs/style_improvement_20261006/shared_social_episode_reference_runtime_preparation_v1/shared_group_world.py",
+    "bytes": 40596,
+    "sha256": "635bd6183404141502bca82f6e7e3143c223a75c64c5cd080a1b3eb89031b360"
+  },
+  "curriculum": {
+    "path": "/project/EXP/SangforAndSaut/ProtoMotions/CrowdSim/humanoid/training/episode_mixed_trajectories.py",
+    "bytes": 12099,
+    "sha256": "61ec4446472800c4c6ed922194cb42f8d6988cabe732853d865f5386d4793e1a"
+  },
+  "reference": {
+    "path": "/project/EXP/SangforAndSaut/ProtoMotions/CrowdSim/humanoid/training/episode_trajectories.py",
+    "bytes": 6705,
+    "sha256": "f4283656f29a31547905ee640316aac63e7ba2cdbcd9321f1763475247a17576"
+  },
+  "required_whole_S3_completion_certificate": "/project/EXP/SangforAndSaut/ProtoMotions/docs/style_improvement_20261005/shared_social_budget12500_v1/external_owner_completion.json",
+  "GPU_jobs_concurrent_max": 1,
+  "stages": [
+    {
+      "stage": "smoke8",
+      "profile": {
+        "path": "/project/EXP/SangforAndSaut/ProtoMotions/docs/style_improvement_20261006/shared_social_episode_reference_runtime_preparation_v1/smoke.json",
+        "bytes": 1085,
+        "sha256": "df9ba4aae81226a9daf9d89aa7b249e4841291b9fbd07212aeec89b77714d7d9"
+      },
+      "runtime": {
+        "actors": 8,
+        "updates": 1,
+        "rollout_controls": 4,
+        "episode_controls": 4,
+        "floor_size_m": 64.0,
+        "env_spacing_m": 8.0,
+        "checkpoint_every_updates": 1,
+        "archive_every_updates": 1,
+        "archive_controls_before_reset": true,
+        "seed": 7
+      },
+      "training_command": [
+        "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/bin/python",
+        "/project/EXP/SangforAndSaut/ProtoMotions/scripts/train_shared_social_episode_reference.py",
+        "--config",
+        "/project/EXP/SangforAndSaut/ProtoMotions/docs/style_improvement_20261006/shared_social_episode_reference_runtime_preparation_v1/smoke.json",
+        "--device",
+        "cuda:0",
+        "--output",
+        "/project/EXP/SangforAndSaut/ProtoMotions/output/diffusion_amp/shared_social_episode_reference_smoke8_v1"
+      ],
+      "output_directory": "/project/EXP/SangforAndSaut/ProtoMotions/output/diffusion_amp/shared_social_episode_reference_smoke8_v1",
+      "required_actual_exit_code": 0,
+      "CPU_audit_required_before_next_stage": true,
+      "executed": false
+    },
+    {
+      "stage": "smoke256",
+      "profile": {
+        "path": "/project/EXP/SangforAndSaut/ProtoMotions/docs/style_improvement_20261006/shared_social_episode_reference_runtime_preparation_v1/smoke256.json",
+        "bytes": 1096,
+        "sha256": "5c619d1bc0ac9f0cba3391eb45f0c77a3224de8523a29a76d418cea9baf65738"
+      },
+      "runtime": {
+        "actors": 256,
+        "updates": 2,
+        "rollout_controls": 32,
+        "episode_controls": 300,
+        "floor_size_m": 512.0,
+        "env_spacing_m": 8.0,
+        "checkpoint_every_updates": 2,
+        "archive_every_updates": 2,
+        "archive_controls_before_reset": false,
+        "seed": 7
+      },
+      "training_command": [
+        "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/bin/python",
+        "/project/EXP/SangforAndSaut/ProtoMotions/scripts/train_shared_social_episode_reference.py",
+        "--config",
+        "/project/EXP/SangforAndSaut/ProtoMotions/docs/style_improvement_20261006/shared_social_episode_reference_runtime_preparation_v1/smoke256.json",
+        "--device",
+        "cuda:0",
+        "--output",
+        "/project/EXP/SangforAndSaut/ProtoMotions/output/diffusion_amp/shared_social_episode_reference_smoke256_v1"
+      ],
+      "output_directory": "/project/EXP/SangforAndSaut/ProtoMotions/output/diffusion_amp/shared_social_episode_reference_smoke256_v1",
+      "required_actual_exit_code": 0,
+      "CPU_audit_required_before_next_stage": true,
+      "executed": false
+    },
+    {
+      "stage": "pilot2000",
+      "profile": {
+        "path": "/project/EXP/SangforAndSaut/ProtoMotions/docs/style_improvement_20261006/shared_social_episode_reference_runtime_preparation_v1/training.json",
+        "bytes": 1118,
+        "sha256": "0d00173b490d18f3c38f75934c6f73a16641b3cf6e7f64dac5bb543955cd4a7b"
+      },
+      "runtime": {
+        "actors": 256,
+        "updates": 2000,
+        "rollout_controls": 32,
+        "episode_controls": 300,
+        "floor_size_m": 512.0,
+        "env_spacing_m": 8.0,
+        "checkpoint_every_updates": 500,
+        "archive_every_updates": 500,
+        "archive_controls_before_reset": false,
+        "seed": 7
+      },
+      "training_command": [
+        "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/bin/python",
+        "/project/EXP/SangforAndSaut/ProtoMotions/scripts/train_shared_social_episode_reference.py",
+        "--config",
+        "/project/EXP/SangforAndSaut/ProtoMotions/docs/style_improvement_20261006/shared_social_episode_reference_runtime_preparation_v1/training.json",
+        "--device",
+        "cuda:0",
+        "--output",
+        "/project/EXP/SangforAndSaut/ProtoMotions/output/diffusion_amp/shared_social_episode_reference_pilot2000_v1"
+      ],
+      "output_directory": "/project/EXP/SangforAndSaut/ProtoMotions/output/diffusion_amp/shared_social_episode_reference_pilot2000_v1",
+      "required_actual_exit_code": 0,
+      "CPU_audit_required_before_next_stage": true,
+      "executed": false
+    }
+  ],
+  "selected_terminal_checkpoint": "/project/EXP/SangforAndSaut/ProtoMotions/output/diffusion_amp/shared_social_episode_reference_pilot2000_v1/step_002000.pt",
+  "fresh_initialization": true,
+  "future81_combined": false,
+  "formal_baseline_post_receipt": {
+    "path": "/project/EXP/SangforAndSaut/ProtoMotions/docs/style_improvement_20261005/shared_social_full_epochs_v1/post_training_execution.json",
+    "bytes": 2273,
+    "sha256": "640b0cf7d6152f2be7ecf523eaa20bc5d135642e4ad75f851dfa5a92e213f19f"
+  },
+  "formal_diffusion": {
+    "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/diffusion_amp/official_ORCA_all_temporal_EMA40000_micro200_accum2_v1/step_40000.ckpt",
+    "bytes": 372121656,
+    "sha256": "4581f29de20c91865ad30645564f4c93a0edd47a8d88f9e496359b9c52d270ff"
+  },
+  "required_after_training": [
+    "Actual successful training exit, CPU weight/RMS/optimizer/replay/rollout audit and terminal seal",
+    "Full validation22 plus frozen independent45D/90D style, all failed frames retained",
+    "Same formalDiffusion40k N4 smoke/200s and complete native arrays/route/contact/style audit",
+    "Matched initial-state sameAMP Diffusion/SFM paired comparison",
+    "Native original scenes/N3-15/multiple seeds using a separately registered candidate weight binding"
+  ],
+  "reference_change_scope": [
+    "Reset-only procedural path ownership",
+    "Reference buffer covers physical episode plus5s lookahead; cap rounds up only to0.1s knots",
+    "Persistent future queries remove the prior local5s endpoint hold",
+    "Procedural private RNG exposure changes with path length and reset count"
+  ],
+  "physical_reward_expert_schema_changed": false,
+  "author_training_equivalence_claimed": false,
+  "quality_improvement_proven": false,
+  "SDK_started": false
+}

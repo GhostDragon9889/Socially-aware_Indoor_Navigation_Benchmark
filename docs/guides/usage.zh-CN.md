@@ -2,7 +2,7 @@
 
 [English](usage.en.md) · [文档目录](README.md) · 更新：2026-10-10
 
-默认目标为 Lab3.0 EA/Sim6.1，先创建项目独立 overlay。已有 SDK 可在安装步骤中显式指定实际路径；不要把根 `.venv` 的历史链接当作新环境证明。以下既有模型与历史结果仍须在新 SDK 重新测量验收。
+默认目标为 Lab3.0 EA/Sim6.1。先[配置外部 SDK 或在项目内完整安装](external_sdk.zh-CN.md)，项目直接使用该 SDK 的解释器，附加包保存在项目目录。历史结果与本轮实测范围见[核验报告](../EXTERNAL_SDK_VERIFICATION_20261011_ZH.md)。
 
 ## 1. 方法与模块
 
@@ -27,10 +27,11 @@ NavIsaacLab 的五状态 Diffusion / history-plus-action AMP 方法重建入口�
 ```bash
 cd /absolute/path/to/Socially-aware_Indoor_Navigation_Benchmark
 export NAV_ROOT="$PWD"
-export NAV_LAB_ROOT="$NAV_ROOT/.runtime/IsaacLab61"
-export NAV_PY="$NAV_ROOT/.runtime/isaaclab3_ea_sim61/.venv/bin/python"
+export NAV_LAB_ROOT="$(python3 -c 'import json; print(json.load(open(".runtime/external_sdk.json"))["lab_root"])')"
+export ISAACLAB_ROOT="$NAV_LAB_ROOT"
+export NAV_PY="$(python3 -c 'import json; print(json.load(open(".runtime/external_sdk.json"))["python"])')"
 export PYTHONDONTWRITEBYTECODE=1
-export PYTHONPATH="$NAV_ROOT/src:$NAV_ROOT${PYTHONPATH:+:$PYTHONPATH}"
+export PYTHONPATH="$NAV_ROOT/src:$NAV_ROOT:$NAV_ROOT/.runtime/external_sdk_packages:$NAV_ROOT/.runtime/rvo2_native${PYTHONPATH:+:$PYTHONPATH}"
 "$NAV_PY" -m social_navigation status
 ```
 

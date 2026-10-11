@@ -17,7 +17,7 @@ ROOT = training.ROOT
 PREPARATION = ROOT / "docs/style_improvement_20261006/shared_social_episode_evaluation_preparation_v1"
 HISTORICAL_REGISTRATION = PREPARATION / "registration.json"
 HISTORICAL_REGISTRATION_SHA = "ed2700e63cd821af2f5f25d4e8bbf9720fa974b6766e2c374f758fccc716569b"
-REGISTRATION = ROOT / "configs/compatibility/episode_sim61/historical_training_evaluation.json"
+REGISTRATION = ROOT / "configs/compatibility/episode_external_sdk/historical_training_evaluation.json"
 CURRENT_TRAINING_REGISTRATION = REGISTRATION.with_name("current_training_evaluation.json")
 ENTRY = ROOT / "scripts/run_shared_social_episode_evaluation.py"
 PARENT = ROOT / "scripts/run_shared_social_post_training.py"
@@ -130,6 +130,17 @@ def admit_registration(path=REGISTRATION):
     registration = json.loads(path.read_text())
     family = "current" if path == CURRENT_TRAINING_REGISTRATION else "historical"
     expected = registration_document() if family == "historical" else registration_document(family)
+    from social_navigation.sdk_paths import relocate_sdk_path
+    def relocate(value):
+        if isinstance(value, dict):
+            return {key: relocate(item) for key, item in value.items()}
+        if isinstance(value, list):
+            return [relocate(item) for item in value]
+        if isinstance(value, str) and value.startswith('/'):
+            return str(artifact_path(relocate_sdk_path(value, root=ROOT), root=ROOT))
+        return value
+    registration = relocate(registration)
+    expected = relocate(expected)
     if registration != expected or record(path) != identity:
         raise ValueError("Episode evaluation registration or registered sources changed")
     return registration, identity

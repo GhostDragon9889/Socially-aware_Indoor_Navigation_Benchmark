@@ -2,7 +2,7 @@
 
 [English](configuration.en.md) · [文档目录](README.md) · 更新：2026-10-10
 
-默认目标为 Lab3.0 EA/Sim6.1，先创建项目独立 overlay。已有 SDK 可在安装步骤中显式指定实际路径；不要把根 `.venv` 的历史链接当作新环境证明。以下既有模型与历史结果仍须在新 SDK 重新测量验收。
+默认目标为 Lab3.0 EA/Sim6.1。先[配置外部 SDK 或在项目内完整安装](external_sdk.zh-CN.md)，项目直接使用该 SDK 的解释器，附加包保存在项目目录。历史结果与本轮实测范围见[核验报告](../EXTERNAL_SDK_VERIFICATION_20261011_ZH.md)。
 
 ## 1. 运行目录和环境变量
 
@@ -11,10 +11,11 @@
 ```bash
 cd /absolute/path/to/Socially-aware_Indoor_Navigation_Benchmark
 export NAV_ROOT="$PWD"
-export NAV_LAB_ROOT="$NAV_ROOT/.runtime/IsaacLab61"
-export NAV_PY="$NAV_ROOT/.runtime/isaaclab3_ea_sim61/.venv/bin/python"
+export NAV_LAB_ROOT="$(python3 -c 'import json; print(json.load(open(".runtime/external_sdk.json"))["lab_root"])')"
+export ISAACLAB_ROOT="$NAV_LAB_ROOT"
+export NAV_PY="$(python3 -c 'import json; print(json.load(open(".runtime/external_sdk.json"))["python"])')"
 export PYTHONDONTWRITEBYTECODE=1
-export PYTHONPATH="$NAV_ROOT/src:$NAV_ROOT${PYTHONPATH:+:$PYTHONPATH}"
+export PYTHONPATH="$NAV_ROOT/src:$NAV_ROOT:$NAV_ROOT/.runtime/external_sdk_packages:$NAV_ROOT/.runtime/rvo2_native${PYTHONPATH:+:$PYTHONPATH}"
 "$NAV_PY" -m social_navigation status
 ```
 
@@ -42,10 +43,10 @@ export PROTOMOTIONS_ASSET_ROOT="$NAV_ROOT/src/protomotions/data/assets"
 | 资源 | 路径或入口 | 用途与状态 |
 | --- | --- | --- |
 | 上游模型/示例 | `data/pretrained_models/`、`examples/data/` | 已恢复 Git/LFS 引用，按需从上游下载 |
-| TRACE 权重和模型配置 | `data/pretrained_models/paper_references/trace/ckpt/trace/orca_mixed/{iter40000.ckpt,config.json}` | 四场景使用的公开扩散模型；已包含在本项目私有 LFS 发布包 |
-| PACER 锚定教师 | `data/pretrained_models/paper_references/pacer/output/release/pacer_no_shape/Humanoid.pth` | 本地 AMP 微调教师；已包含在私有发布包，另有原始下载器 |
-| 选定 AMP，YOHO/NewMetro | `data/pretrained_models/local_amass_finetune/speed_conservative_20261010/Humanoid_AMASS.pth` | 本地微调产物；已包含在本项目私有 LFS 发布包 |
-| 选定 AMP，二/三层 | `data/pretrained_models/local_amass_finetune/walking_turn_20261009/Humanoid_AMASS.pth` | 当前窄场景控制器和微调父权重；已包含在私有发布包 |
+| TRACE 权重和模型配置 | `data/pretrained_models/paper_references/trace/ckpt/trace/orca_mixed/{iter40000.ckpt,config.json}` | 四场景使用的公开扩散模型；已包含在本项目 LFS 发布包 |
+| PACER 锚定教师 | `data/pretrained_models/paper_references/pacer/output/release/pacer_no_shape/Humanoid.pth` | 本地 AMP 微调教师；已包含在发布包，另有原始下载器 |
+| 选定 AMP，YOHO/NewMetro | `data/pretrained_models/local_amass_finetune/speed_conservative_20261010/Humanoid_AMASS.pth` | 本地微调产物；已包含在本项目 LFS 发布包 |
+| 选定 AMP，二/三层 | `data/pretrained_models/local_amass_finetune/walking_turn_20261009/Humanoid_AMASS.pth` | 当前窄场景控制器和微调父权重；已包含在发布包 |
 | 固定 AMASS | `data/diffusion_amp/amass_style_2848/manifest_labeled_v7.json` 及对应 train bank | 训练 2,848、验证 22、测试 34 条选定片段 |
 | 通用 AMASS 库 | 相邻 `Assets/motion/` | 原始归档、逐动作转换与 train/test/validation MotionLib |
 | SMPL 与人体资产 | `src/protomotions/data/assets/`、录制器引用的人体模型参数 | 物理骨架、可视皮肤、人体参数是不同资源，按各自许可准备 |
@@ -54,7 +55,7 @@ export PROTOMOTIONS_ASSET_ROOT="$NAV_ROOT/src/protomotions/data/assets"
 
 原始四场景目录分别为 `Rest_Room_HongKong_YOHO`、`Rest_Room_HongKong_NewMetro`、`Rest_Room_Second_Floor`、`Rest_Room_Third_Floor`。CLI 名称分别为 `YOHO`、`NewMetro`、`SecondFloor`、`ThirdFloor`。
 
-本项目的[私有资源发布包](../../ASSET_RELEASE.md)已包含选定 TRACE/AMP/教师权重、训练参数与恢复状态、EVT 机器人、四场景及材料引用。它不包含原始 AMASS、SMPL 人体参数、SDK 或视频。发布包 467 条文件记录已核对，来源见[发布凭据](../ASSET_PUBLICATION_20261010.json)；旧 47 条资产清单是上游合并时的历史清单，详见[合并记录](../UPSTREAM_MERGE_20261010_ZH.md)。
+本项目的[资源发布包](../../ASSET_RELEASE.md)已包含选定 TRACE/AMP/教师权重、训练参数与恢复状态、EVT 机器人、四场景及材料引用。它不包含原始 AMASS、SMPL 人体参数、SDK 或视频。发布包 467 条文件记录已核对，来源见[发布凭据](../ASSET_PUBLICATION_20261010.json)；旧 47 条资产清单是上游合并时的历史清单，详见[合并记录](../UPSTREAM_MERGE_20261010_ZH.md)。
 
 从仓库根恢复已发布资源：
 
@@ -203,7 +204,7 @@ PY
 
 ## 6. VS Code 和配置维护
 
-打开根 `Socially-aware_Indoor_Navigation_Benchmark.code-workspace`，选择 `.runtime/isaaclab3_ea_sim61/.venv/bin/python`。`.vscode/settings.json` 提供 src 导入路径、排除数据/产物目录；`launch.json` 和 `tasks.json` 提供状态、预检、基线和原生入口。终端变量不等于被调试程序的全部配置；调试仍需相同的资源路径和 SDK 环境。
+打开配置生成的 `.runtime/external_sdk.code-workspace`，它选择所配置的 SDK Python 并提供附加包路径。`.vscode/settings.json` 提供 src 导入路径、排除数据/产物目录；`launch.json` 和 `tasks.json` 提供状态、预检、基线和原生入口。终端变量不等于被调试程序的全部配置；调试仍需相同的资源路径和 SDK 环境。
 
 更新 manifest/lock 时同步更新 `profile.json` 的哈希并运行环境检查；更新被上游映射清单记录的文件时维护对应 Git blob 记录，保留原合并值的追溯字段。生成结果、授权数据、凭据和训练权重保持在源码发布清单之外。
 

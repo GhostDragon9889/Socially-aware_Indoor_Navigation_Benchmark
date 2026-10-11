@@ -1,7 +1,9 @@
 """Generate new map/neighbor-conditioned expert trajectories with real RVO2.
 
-Run this with the independent data/tools/orca_generator/.venv environment.
-Neither the IsaacLab environment nor the frozen AMASS checkpoint is modified.
+Run through scripts/run_external_python.py after install_rvo2_external.py,
+passing --rvo2-source .runtime/dependencies/Python-RVO2. The historical
+independent generator environment is also supported. Neither SDK files nor
+the frozen AMASS checkpoint are modified.
 """
 
 from __future__ import annotations

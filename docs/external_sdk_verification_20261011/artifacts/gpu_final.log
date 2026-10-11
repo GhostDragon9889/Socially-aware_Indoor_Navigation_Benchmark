@@ -1,0 +1,21 @@
+.......                                                                  [100%]
+=============================== warnings summary ===============================
+../../IsaacLab/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1488: 44 warnings
+  /project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+<unknown>:4
+  <unknown>:4: SyntaxWarning: invalid escape sequence '\*'
+
+src/protomotions/tests/test_backend_velocity_contract.py::test_newton_real_gpu_link_velocities_match_rigid_rotation
+src/protomotions/tests/test_newton_simulator_fk.py::test_newton_simulator_fk_matches_motionlib_default_frame
+  /project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/protomotions/simulator/newton/simulator.py:285: DeprecationWarning: The legacy DOF-shaped joint_target_q layout is deprecated for models whose joint coordinate and DOF counts differ (free/ball/distance joints). In a future release joint_target_q will always use the coordinate layout (matching joint_q) and newton.use_coord_layout_targets will be removed. Set newton.use_coord_layout_targets = True before building models and index targets via Model.joint_target_q_start.
+    self.model = builder.finalize()
+
+src/protomotions/tests/test_backend_velocity_contract.py::test_newton_real_gpu_link_velocities_match_rigid_rotation
+src/protomotions/tests/test_newton_simulator_fk.py::test_newton_simulator_fk_matches_motionlib_default_frame
+  /project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/protomotions/simulator/newton/simulator.py:309: DeprecationWarning: Model.mujoco.dof_passive_damping is deprecated and will be removed in a future release. Use Model.joint_damping instead.
+    attr = getattr(mujoco_attrs, attr_name, None)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+7 passed, 49 warnings in 8.72s

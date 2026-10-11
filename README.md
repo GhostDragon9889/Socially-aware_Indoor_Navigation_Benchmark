@@ -63,7 +63,7 @@ output/               生成的训练、模拟与录制结果
 上游完整文件树和原始 Git 历史已合并；文件映射、LFS 下载和本地历史说明见
 [上游合并记录](docs/UPSTREAM_MERGE_20261010_ZH.md)。
 
-私有仓库：[GhostDragon9889/Socially-aware_Indoor_Navigation_Benchmark](https://github.com/GhostDragon9889/Socially-aware_Indoor_Navigation_Benchmark)。访问和克隆需要该仓库的授权账号。
+公开源码仓库：[GhostDragon9889/Socially-aware_Indoor_Navigation_Benchmark](https://github.com/GhostDragon9889/Socially-aware_Indoor_Navigation_Benchmark)。外部资源仍按各自许可与下载权限获取。
 
 源码仓库上传范围、固定上游来源、资源准备和旧 Git 历史保留方式见
 [GitHub 源码说明](docs/GITHUB_SOURCE_ZH.md)。最新选用的行人权重、训练参数、机器人和四场景资源已整理为
@@ -71,44 +71,34 @@ output/               生成的训练、模拟与录制结果
 
 ## 使用现有环境
 
-从项目根目录运行。当前本机根 `.venv` 仍指向旧 Sim6.0 SDK；新解释器为 `.runtime/isaaclab3_ea_sim61/.venv/bin/python`，正在进行物理验收。显式选取该路径。复用另一匹配 SDK 时先按 [安装指南](docs/guides/installation.zh-CN.md) 创建项目 overlay。
+从项目根目录配置已有外部 SDK。项目直接使用 SDK 的 Python，附加包安装在项目 `.runtime/external_sdk_packages`，无需项目 `.venv`，也不向外部 SDK 安装本项目。
 
 ```bash
-cd '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark'
-export NAV_PY="$PWD/.runtime/isaaclab3_ea_sim61/.venv/bin/python"
-export PYTHONDONTWRITEBYTECODE=1
-export PYTHONPATH="$PWD/src:$PWD${PYTHONPATH:+:$PYTHONPATH}"
-"$NAV_PY" -m social_navigation status
-"$NAV_PY" -m social_navigation preflight --scene YOHO
-"$NAV_PY" -m social_navigation simulate --scene YOHO --steps 60 --output output/sim61_smoke
+python3 scripts/bootstrap_reproduction.py configure --lab-root /project/EXP/IsaacLab
+python3 scripts/bootstrap_reproduction.py check
+python3 scripts/run_external_python.py -m social_navigation status
+python3 scripts/run_external_python.py -m social_navigation preflight --scene YOHO
+python3 scripts/run_external_python.py -m social_navigation simulate --scene YOHO --steps 60 --output output/sim61_smoke
 ```
+
+新机器可运行 `python3 scripts/bootstrap_reproduction.py install`，在项目 `.runtime/IsaacLab61` 完整安装固定 IsaacLab3EA/Sim6.1 SDK；随后使用相同的 `run_external_python.py` 入口。可用 `--python /absolute/path/to/python` 指定已安装 Lab 的 SDK 解释器，或配置好 Lab 的二进制 Sim `python.sh`。详见[外部 SDK 与可移植安装](docs/guides/external_sdk.zh-CN.md)。启动新安装的 Kit 前须阅读并接受 NVIDIA EULA。
 
 `preflight` 检查本地资源与原生场景配置；`simulate` 使用既有父进程启动器执行原生物理模拟，
 输出到自动生成的新目录。1800 个 30 Hz 控制步对应 60 秒模拟时间。
 原生任务须逐个运行，避免多个 Isaac 实例争用 GPU。
 
-现有环境安装本项目时，可在项目根目录执行以下命令，沿用现有依赖：
-
-```bash
-uv pip install --python .venv/bin/python --no-deps --no-build-isolation -e .
-.venv/bin/social-navigation --help
-```
-
-创建新环境请先遵循 [中文安装指南](docs/guides/installation.zh-CN.md)；
-环境版本与测试资源不能用未经验证的依赖升级替代。
-
 ## 训练、评估与录制
 
 ```bash
-.venv/bin/python -m social_navigation train-amp --help
-.venv/bin/python -m social_navigation evaluate-physics --help
-.venv/bin/python -m social_navigation evaluate-posture --help
-.venv/bin/python -m social_navigation evaluate-speed --help
-.venv/bin/python -m social_navigation evaluate-stasis --help
-.venv/bin/python -m social_navigation audit-speed --help
-.venv/bin/python -m social_navigation audit-feet --help
-.venv/bin/python -m social_navigation audit-camera --help
-.venv/bin/python -m social_navigation record --help
+python3 scripts/run_external_python.py -m social_navigation train-amp --help
+python3 scripts/run_external_python.py -m social_navigation evaluate-physics --help
+python3 scripts/run_external_python.py -m social_navigation evaluate-posture --help
+python3 scripts/run_external_python.py -m social_navigation evaluate-speed --help
+python3 scripts/run_external_python.py -m social_navigation evaluate-stasis --help
+python3 scripts/run_external_python.py -m social_navigation audit-speed --help
+python3 scripts/run_external_python.py -m social_navigation audit-feet --help
+python3 scripts/run_external_python.py -m social_navigation audit-camera --help
+python3 scripts/run_external_python.py -m social_navigation record --help
 ```
 
 这些命令转交原有已验证工具的参数，保留质量门槛、实际子进程退出码和资源记录。
@@ -117,7 +107,7 @@ uv pip install --python .venv/bin/python --no-deps --no-build-isolation -e .
 ## VS Code
 
 打开根目录的 `Socially-aware_Indoor_Navigation_Benchmark.code-workspace`。
-推荐扩展为 Python、Pylance、Python Debugger 与 Ruff；默认解释器为 `.venv/bin/python`。
+推荐扩展为 Python、Pylance、Python Debugger 与 Ruff；打开配置生成的 `.runtime/external_sdk.code-workspace`，使用绑定的外部 SDK 解释器。
 “任务”提供资源检查、原生模拟、CPU 迁移测试和工具帮助；“运行和调试”提供状态、资源检查与基线调试。
 
 ## 上游与许可

@@ -1,12 +1,15 @@
 """Locate installed SDK files without importing Torch, pxr, or starting Kit."""
 from importlib import metadata, util
 import os
+import json
 from pathlib import Path
 
 from protomotions.repository import repository_root
 
 LEGACY_PROJECT = "/project/EXP/SangforAndSaut/ProtoMotions"
 LEGACY_LAB = "/project/EXP/SangforAndSaut/IsaacLab-Protomotions"
+PUBLISHED_PROJECT = "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark"
+PUBLISHED_LAB = "/project/EXP/IsaacLab"
 
 
 def lab_root():
@@ -16,6 +19,11 @@ def lab_root():
     else:
         spec = util.find_spec("isaaclab")
         if spec is None or not spec.submodule_search_locations:
+            binding = repository_root() / '.runtime/external_sdk.json'
+            if spec is None and binding.is_file():
+                path = Path(json.loads(binding.read_text())['lab_root']).resolve()
+                if (path / 'source/isaaclab/isaaclab/__init__.py').is_file():
+                    return path
             raise RuntimeError("IsaacLab source checkout not found; run scripts/bootstrap_reproduction.py")
         candidates = []
         for location in spec.submodule_search_locations:
@@ -39,13 +47,17 @@ def sim_root():
 def relocate_sdk_path(value, *, root=None):
     value = str(value)
     root = Path(root or repository_root()).resolve()
-    site_prefix = LEGACY_LAB + "/.venv/lib/python3.12/site-packages/isaacsim/"
-    if value.startswith(site_prefix):
-        return str(sim_root() / value[len(site_prefix):])
-    if value.startswith(LEGACY_LAB + "/"):
-        return str(lab_root() / value[len(LEGACY_LAB) + 1:])
-    if value.startswith(LEGACY_PROJECT + "/"):
-        return str(root / value[len(LEGACY_PROJECT) + 1:])
+    if Path(value).is_absolute() and Path(value).is_relative_to(root):
+        return value
+    for prefix in (LEGACY_LAB, PUBLISHED_LAB):
+        site_prefix = prefix + "/.venv/lib/python3.12/site-packages/isaacsim/"
+        if value.startswith(site_prefix):
+            return str(sim_root() / value[len(site_prefix):])
+        if value.startswith(prefix + "/"):
+            return str(lab_root() / value[len(prefix) + 1:])
+    for prefix in (LEGACY_PROJECT, PUBLISHED_PROJECT):
+        if value.startswith(prefix + "/"):
+            return str(root / value[len(prefix) + 1:])
     return value
 
 

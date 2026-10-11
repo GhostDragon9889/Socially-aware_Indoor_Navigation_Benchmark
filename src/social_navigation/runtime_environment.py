@@ -140,7 +140,7 @@ visible={}
 for dist in md.distributions():
  name=canonicalize_name(dist.metadata['Name'])
  visible.setdefault(name,dict(version=dist.version,metadata=str(Path(dist._path).resolve())))
-local_dists={canonicalize_name(d.metadata['Name']):d for d in md.distributions(path=[str(local)])}
+local_dists={canonicalize_name(d.metadata['Name']):d for d in md.distributions(path=[args.get('addons_site',str(local))])}
 overlay_pins=args.get('overlay_pins'); checks=[]
 def check_requirement(parent, raw):
  req=Requirement(raw)
@@ -168,10 +168,15 @@ def _expected_versions(profile: dict[str, Any]) -> dict[str, str]:
 
 
 def _probe_python(python: Path, profile: dict[str, Any], *, pins: dict[str, str] | None = None,
-                  requirements: list[str] | None = None) -> dict[str, Any]:
+                  requirements: list[str] | None = None, addons: Path | None = None) -> dict[str, Any]:
     args = {"versions": _expected_versions(profile), "excluded": profile.get("excluded_packages", ["usd-core"]),
             "overlay_pins": pins, "project_requirements": requirements or []}
-    output = _run([str(python), "-I", "-c", _PROBE, json.dumps(args)])
+    code = _PROBE
+    if addons is not None:
+        args['addons_site'] = str(addons)
+        code = ('import site, sys\nsite.addsitedir(sys.argv[2])\n'
+                'sys.path.remove(sys.argv[2]); sys.path.insert(0, sys.argv[2])\n' + code)
+    output = _run([str(python), "-I", "-c", code, json.dumps(args), *([str(addons)] if addons is not None else [])])
     report = json.loads(output)
     if report["python_version"] != profile["python_recorded"]:
         report["errors"].append(f"Python is {report['python_version']}; expected {profile['python_recorded']}")
@@ -182,8 +187,8 @@ def _probe_python(python: Path, profile: dict[str, Any], *, pins: dict[str, str]
     return report
 
 
-def _sdk_snapshot(lab_root: Path, profile: dict[str, Any]) -> dict[str, Any]:
-    python = lab_root / ".venv" / "bin" / "python"
+def _sdk_snapshot(lab_root: Path, profile: dict[str, Any], *, python: Path | None = None) -> dict[str, Any]:
+    python = python or lab_root / ".venv" / "bin" / "python"
     if not python.is_file():
         raise RuntimeError(f"Install the pinned SDK first; interpreter is missing: {python}")
     head = _run(["git", "--no-optional-locks", "-C", str(lab_root), "rev-parse", "HEAD"]).strip()

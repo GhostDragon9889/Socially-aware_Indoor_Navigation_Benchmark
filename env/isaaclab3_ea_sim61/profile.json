@@ -30,5 +30,5 @@
     "lab_repository": "https://github.com/isaac-sim/IsaacLab"
   },
   "scope": "Pinned Lab3EA source checkout and Sim6.1.0.0 for Linux x86_64; physical tests recorded separately",
-  "overlay_lock_sha256": "21852f8040a6bdd869066ceb22aa8eb5482217062a9c853e662730bfc4ba6e9c"
+  "overlay_lock_sha256": "29ccd92e7fc8d46eac69b78d8d19f326d9f9afb8c7e55b0f129e80b465cf7496"
 }

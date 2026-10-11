@@ -2,7 +2,7 @@
 
 [简体中文](usage.zh-CN.md) · [Documentation index](README.md) · Updated: 2026-10-10
 
-The default targets Lab3.0 EA/Sim6.1 with a separate project overlay. Existing SDKs can supply their real path during installation. A historical root `.venv` link does not establish the new environment; existing model releases and results require fresh acceptance measurements.
+The default targets Lab3.0 EA/Sim6.1. First configure an external SDK or install a complete SDK inside the checkout using the [installation guide](installation.en.md). Project launches use that SDK interpreter directly, with project additions in a separate package directory. See the [verification report (Chinese)](../EXTERNAL_SDK_VERIFICATION_20261011_ZH.md) for measured scope.
 
 ## 1. Method and modules
 
@@ -27,10 +27,11 @@ Complete [installation](installation.en.md) and [configuration](configuration.en
 ```bash
 cd /absolute/path/to/Socially-aware_Indoor_Navigation_Benchmark
 export NAV_ROOT="$PWD"
-export NAV_LAB_ROOT="$NAV_ROOT/.runtime/IsaacLab61"
-export NAV_PY="$NAV_ROOT/.runtime/isaaclab3_ea_sim61/.venv/bin/python"
+export NAV_LAB_ROOT="$(python3 -c 'import json; print(json.load(open(".runtime/external_sdk.json"))["lab_root"])')"
+export ISAACLAB_ROOT="$NAV_LAB_ROOT"
+export NAV_PY="$(python3 -c 'import json; print(json.load(open(".runtime/external_sdk.json"))["python"])')"
 export PYTHONDONTWRITEBYTECODE=1
-export PYTHONPATH="$NAV_ROOT/src:$NAV_ROOT${PYTHONPATH:+:$PYTHONPATH}"
+export PYTHONPATH="$NAV_ROOT/src:$NAV_ROOT:$NAV_ROOT/.runtime/external_sdk_packages:$NAV_ROOT/.runtime/rvo2_native${PYTHONPATH:+:$PYTHONPATH}"
 "$NAV_PY" -m social_navigation status
 ```
 

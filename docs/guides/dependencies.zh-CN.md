@@ -1,6 +1,6 @@
 # 项目依赖
 
-[English](dependencies.en.md) · [文档目录](README.md) · 更新：2026-10-10
+[English](dependencies.en.md) · [文档目录](README.md) · 更新：2026-10-11
 
 ## 默认环境：IsaacLab 3.0 EA / Isaac Sim 6.1
 
@@ -15,7 +15,7 @@
 | Isaac Sim 包 | `6.1.0.0` |
 | Torch / NumPy / Warp | `2.11.0+cu128` / `2.5.1` / `1.16.0` |
 | 独立 USD 提供者 | `usd-exchange==2.3.0`；USD `25.5` |
-| 项目运行解释器 | `.runtime/isaaclab3_ea_sim61/.venv/bin/python` |
+| 项目运行解释器 | `.runtime/external_sdk.json` 的 `python` |
 
 ## 权威文件与环境边界
 
@@ -24,12 +24,12 @@
 | [根 pyproject.toml](../../pyproject.toml) | 核心依赖范围、五个源码包及可选后端 |
 | [SDK manifest](../../env/isaaclab3_ea_sim61/pyproject.toml)、[SDK uv.lock](../../env/isaaclab3_ea_sim61/uv.lock) | 新建固定 SDK 环境的完整快照 |
 | [profile.json](../../env/isaaclab3_ea_sim61/profile.json) | 源码、二进制提供者版本及 manifest/lock 哈希 |
-| [完整锁定依赖清单](dependency-inventory-isaaclab3-ea-sim61.json) | 当前 SDK、overlay 与核心依赖的机器可读快照 |
-| [requirements.overlay.lock](../../env/isaaclab3_ea_sim61/requirements.overlay.lock) | 32 项精确项目补充依赖 |
+| [完整锁定依赖清单](dependency-inventory-isaaclab3-ea-sim61.json) | 2026-10-10 旧 overlay 依赖快照；当前附加包以 lock 为准 |
+| [requirements.overlay.lock](../../env/isaaclab3_ea_sim61/requirements.overlay.lock) | 33 项精确项目补充依赖 |
 | [运行环境说明](../../env/isaaclab3_ea_sim61/README.md) | 已有 SDK 复用、安装与只读验证 |
 | [约束收据](../../env/isaaclab3_ea_sim61/runtime_constraints_receipt.txt) | 本机实测可见包版本记录；不是独立 SDK 安装锁 |
 
-SDK 与项目补充依赖位于不同虚拟环境。项目 overlay 通过 `.pth` 引用 SDK site-packages 与源码，本项目 `src/` 优先；不重新安装 Torch、NumPy、Warp、MuJoCo、Isaac 软件或 USD 提供者，不编辑已安装 SDK。安装器检查包来源、169 项 USD RECORD 文件以及所有 overlay 默认依赖和 18 项项目核心要求，本机共 116 项要求满足。安装失败不会切换项目 `.venv`；SDK、锁或项目路径改变时拒绝复用旧收据。
+项目直接使用外部 SDK 的 Python；也可在 `.runtime/IsaacLab61` 完整安装 SDK。33 项补充包安装到 `.runtime/external_sdk_packages`，无需另建项目解释器。配置检查提供者来源、169 项 USD RECORD 文件、补充包依赖闭合及项目核心要求，不向 SDK 安装或覆盖 Torch、NumPy、Warp、Isaac 和 USD 包。运行使用 `scripts/run_external_python.py`；旧 overlay 仅供已有部署重放。详见[外部 SDK 指南](external_sdk.zh-CN.md)。
 
 ## 项目补充依赖
 
@@ -44,6 +44,7 @@ SDK 与项目补充依赖位于不同虚拟环境。项目 overlay 通过 `.pth`
 | `scikit-image` | `0.26.0` | 图像与独立评估 |
 | `moviepy` / `imageio-ffmpeg` | `1.0.3` / `0.6.0` | 视频处理 |
 | `easydict` / `termcolor` | `1.13` / `3.3.0` | 参考控制器配置和日志 |
+| `tensorboardX` | `2.6.5` | ProtoMotions SummaryWriter |
 | `pytest` | `9.0.3` | CPU 功能测试 |
 
 完整列表以 overlay lock 为准。`dm-control==1.0.40` 在目标 MuJoCo 3.11 上真实出现 `flex_bandwidth` 缺失；改为 [官方 1.0.44](https://github.com/google-deepmind/dm_control/releases/tag/1.0.44) 后完成 CPU 接触、步进、复制、重置回归。不能以 import 成功代替该数值/API 检查。
@@ -54,7 +55,7 @@ SDK 与项目补充依赖位于不同虚拟环境。项目 overlay 通过 `.pth`
 - 新转换器根 USD 默认 `Physics=physics`；行人 spawn 和路径检查显式选择 `physx` 图层，保留 SMPL 24 bodies / 69 DOFs。
 - Warp、ProxyArray 与 Torch 之间使用显式张量视图；写状态和目标使用当前官方 `_index` 接口。
 - [历史上游注册表](../../data/pretrained_models/upstream_reference_registry.json)仅将两份旧 NavIsaacLab 分支配置列为归档、不支持当前运行。其权重/sidecar 原字节保留；现行 TRACE/PACER 与本地微调权重不在该排除范围内。
-- 本轮软件与 CPU 校验不能转述成新 SDK 的完整四场景 60 秒物理、视频或论文效果验证。历史四场景结果使用旧 Sim 6.0 环境；新运行须独立保存退出码、状态与质量报告。
+- 本轮完成新 SDK 四场景短时物理、256 环境训练及恢复，实测范围见[核验报告](../EXTERNAL_SDK_VERIFICATION_20261011_ZH.md)；短时成功不能转述成完整 60 秒质量、视频或论文效果验证。
 
 ## 系统依赖与其他后端
 

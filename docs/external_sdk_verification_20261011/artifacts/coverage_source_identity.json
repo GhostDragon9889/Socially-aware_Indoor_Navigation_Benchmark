@@ -1,0 +1,1889 @@
+{
+  "scope": "Current src Python files excluding tests; source identity recorded before completing measurement",
+  "files": [
+    {
+      "path": "src/CrowdSim/__init__.py",
+      "sha256": "21110771a490396c243d113bb280403dc7c2667c9b7f58d0b95e8cdfa8e90de7"
+    },
+    {
+      "path": "src/CrowdSim/control/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src/CrowdSim/control/drive.py",
+      "sha256": "bbd1407a9e76685df1e06dfb93ff990f33a59f5b2af1ca8ea2313c1635c3acf7"
+    },
+    {
+      "path": "src/CrowdSim/crowd_sim.py",
+      "sha256": "c5369db88f1a6de4c487a005afec84f4b17fa0cff3a8ab06ec4fcef9b8981ccf"
+    },
+    {
+      "path": "src/CrowdSim/flow/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src/CrowdSim/flow/collect_ppo_buffer.py",
+      "sha256": "bd47a2f13c84be1e5d531ce7ab78017edf720f024a4d541c2e0d8e32a4cf7fa2"
+    },
+    {
+      "path": "src/CrowdSim/flow/recover_ppo_buffer.py",
+      "sha256": "5de16086ef04fdab75e5210b4e59c568922c24195abde4ebb0c902fc2282fdf9"
+    },
+    {
+      "path": "src/CrowdSim/flow/route_guided_ppo_collector.py",
+      "sha256": "aebb288b6f038ba02cacfc84467ca7b124e777c653ea8cf3039bd9ef12bd6ccb"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/__init__.py",
+      "sha256": "454955f3cd7b9f3c68a4d7a7781c1baab209cff65de66778054e7f0e07fffbfd"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/amass_corpus.py",
+      "sha256": "2d4e4f7549aa38f5fd6763de4d3924a9cdd969746682c649ab773f033d747cf7"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/amp/__init__.py",
+      "sha256": "64083ff917c1c19c8e8985ca13760f4b6ab168247cd070ac8337882e1bdfd835"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/amp/controller.py",
+      "sha256": "b1e56c6392e91e023af63437d74feb28d13a29099ad6708d4c742f08f737e3d2"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/amp/network.py",
+      "sha256": "7e00aeea89b8ab46f28fcdcb8fa9daeeae0f5f7f54519fdb10808b22af735d91"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/amp/observations.py",
+      "sha256": "000f3980a8f4d3c1fac929c57029dd05a9ce19b1d8ce82423dad273c9315e599"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/amp_world.py",
+      "sha256": "a114f1b0763b7a2307a3f7fdd9409c38b4385ed4db02a9fbf36a56854dee554a"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/analysis/__init__.py",
+      "sha256": "ed447254c4b8200b7d69ca0e23aee3e7053f012c1e5ca5f33ea6aa27d73313f8"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/analysis/amass_activity.py",
+      "sha256": "f04c66d90172af297f5b2b7950eb408cb5bdaa74c663a82b1d50e69a29bb2085"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/analysis/amp_kinematic_controls.py",
+      "sha256": "bf5764c98ee6e13680e523254b44d1946588c006edd0e8a290ff14b9ba350352"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/analysis/amp_temporal_diagnostic.py",
+      "sha256": "a226ea8d950efe03834dcb1a20d89fb447c1bd82f5a12da601aa98c17ced7ce1"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/analysis/cpu_dependency_migration.py",
+      "sha256": "9b3380f093cc62320a03bd19d4973110a6ccced2d4ec169d450c4d0945341c1f"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/analysis/episode_horizons.py",
+      "sha256": "6e97891c37499663a0ac47433b07e7d7eb9945442896f21743bf6dfcb91e22e9"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/analysis/heading_geometry.py",
+      "sha256": "de7739fd9dc337b152493d6b49feebe63434e52d95d3d256802c1f515f3cae33"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/analysis/joint_velocity_consistency.py",
+      "sha256": "0fd65e48ea1eb2783b795662d36c8873e5e7c81b4120d05e32b40ee9f4d2bb33"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/analysis/native_map_audit_reader.py",
+      "sha256": "995f49a34be80e5cf828ff3956cc11d9b155c55dece9ee47818a24a42420fbeb"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/analysis/native_navigation_audit.py",
+      "sha256": "ed71f8fba70afdd4beb0ad97fa81515ee2a92feac5188724d2936460f28310d8"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/analysis/native_navigation_seeded_audit.py",
+      "sha256": "2c4a496bef98806ccdd7d0c2ef3b3444fe8ca8a1d129079a559e1f7312423dce"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/analysis/native_navigation_seeded_style.py",
+      "sha256": "90afd3c2dc1e50a8f46766e6e67b090d52600d6439b18057fd8e16147a5b689b"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/analysis/native_navigation_style.py",
+      "sha256": "9cd1e3f15f325f0d8885398f433e42c993a648fc6928701db7d3e66805a6f47f"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/analysis/native_paired_initial.py",
+      "sha256": "2112d1138da97a158ce362c624b7330d573dd7c205ae0b572d629343178442d5"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/analysis/native_seed_protocol.py",
+      "sha256": "73e034a752b4171c1739c792a75e62a7e78dd0263373f82fa5b82c0de01201d8"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/analysis/paired_initial.py",
+      "sha256": "59135b38ae3bfe73a146055fdcbb5599db7e5ad3e7aa721ac28433fb1fa3a5b1"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/analysis/procedural_anchoring.py",
+      "sha256": "521a056c93b79b5b2df7e46e6192c6f48982cc5258ee244d0b666a2be871754a"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/analysis/support_phases.py",
+      "sha256": "d27928fc366edb32d0b06eaafcb83820ce214fb42dfc12f401f8eec6dc67dbe7"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/analysis/trace_pace_capture.py",
+      "sha256": "c9617dfc5180b411d892ec80117e1d93510645e4900e208838a8e8885e0dc015"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/analysis/tracking_commands.py",
+      "sha256": "78b2eaf78d7a7329df870fbace0ceec0d29bb1f121afd023eaf6dcd9267f48e0"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/analysis/tracking_error_decomposition.py",
+      "sha256": "6e9f067f972f8d2fc6d146c271c589a1b9551e4b8fc795864e00ce5e88432dd9"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/analysis/trajectory_response.py",
+      "sha256": "094f59ebf1ae9e79ef021eecd5068c45907ec57f9922daf88f779803edbdc6d5"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/application/__init__.py",
+      "sha256": "614c01a824a2be9d8d11a5c8073a37daac091e57e0b0b03157a261c14f5e063f"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/application/capture.py",
+      "sha256": "f08860e785ff4b24c9342b2556b13f0b27a9e2cc5234700ca16e8075cdabd9df"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/application/capture_rgbd.py",
+      "sha256": "abf081a028efa9abb8eede1f83eb14c37c71f61215e5d4d528b1a114cf67f353"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/application/configuration.py",
+      "sha256": "64dfa8f399fb4d7731ed24b66f8b5db1d96d9e879d0d72c0a03f4cd747912456"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/application/deployment.py",
+      "sha256": "3a0f6bf99b04e8f122020a87eef70c40f213cabed2b06a9b97cfc3e3eac8795c"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/application/episode_evaluation_admission.py",
+      "sha256": "741fcbc75320c24ba4fd5ac18ea08d9ea2d0141dfa761f8a92265f100705b63c"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/application/episode_native_execution.py",
+      "sha256": "122ce32280e68505e61b85ec6a11f67f4e6cd251a8f0e72047e447d087402ff7"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/application/episode_pipeline_plan.py",
+      "sha256": "0a72cc1902d216153e12643778a7804053376860030d8e82186e7e9f4e007f94"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/application/episode_reference_clock_grid.py",
+      "sha256": "7481bee03efa922e1b362883b57cdd0e4b0e57b73f289c23b79ce49855780714"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/application/episode_serial_release.py",
+      "sha256": "091b4a70ce8cff0812dc5065b4e13cbbfa3ddf0415d98cb559262f98063e5899"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/application/episode_world_consumers.py",
+      "sha256": "776ba187769192ccff4e42aff1f232ce95413c9d23e61a428ff1ac3c13ffecf8"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/application/historical_recovery.py",
+      "sha256": "20e175cf35ba6e62ab467e9ca18741018f2b2ffddf800fa1c201b2476f5fbda5"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/application/native_deployment.py",
+      "sha256": "a3a8097e5d63b03e5f96f24e6246c333b2103f3628c6209139e2aff2c564cd96"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/application/native_execution_bridge.py",
+      "sha256": "249e66e60d5378a4c52e00c35803501059ceb97c22bb03090e8add995aa0a7e6"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/application/native_matrix_migration.py",
+      "sha256": "8ca699a3c864f76696aa23164eac19878f471d16e933408581acbebcf288379b"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/application/native_scene_migration.py",
+      "sha256": "1fd393c554399dd8cfc498897c1767a5043606a37fe21aa37587c1fb11de1c53"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/application/native_scene_preparation.py",
+      "sha256": "3bf9a4413565918f98931291f588e4438dc869ff971d16b79d6afab4da382a43"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/application/preflight.py",
+      "sha256": "bd1a961845e84e88aa641f9514f7071d8693236e76ad9b607d1d57a1ec02a440"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/application/recovery_evaluation_admission.py",
+      "sha256": "3ca0fbe20269f74d4f48a232b28a3ae2b82a2c52702300572fabb0ff5e66fd65"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/application/resources.py",
+      "sha256": "1a7e130ebcaff396c23238598f92e9407f5de37c0e214a63d4e235d800794bb5"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/application/settings.py",
+      "sha256": "5254c5b89d75d3eef52de8b5463db12801e8605cb02bff4d95551963171dc7dc"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/application/state_prior_initialization.py",
+      "sha256": "9520b35ddc77ace422d245521a020b6ade8ff791818299a451c2f09dc1351b3b"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/contact_monitor.py",
+      "sha256": "0ae3bd7fed94336c277b4e1c3ebcf0d77f2326ce1f3c5d795e98b2e3cd8c6d4d"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/diffusion/__init__.py",
+      "sha256": "80a89ebb21602af0d5f449f7c3c12aedbf5df1caa2a34451a9428a695c8c29dd"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/diffusion/base_models.py",
+      "sha256": "67c4c9958d467b41de46eab1a475018e57687d9a72a31793098be607a925124b"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/diffusion/batch_utils.py",
+      "sha256": "f34b4961c5e8ada66fc4a98b4b8f2548ef6a66d4b21e5119fc757461fe49b424"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/diffusion/dynamics.py",
+      "sha256": "d189a47db56a0aa9c645e11461e0e5d620fab3e48db485a9e09c05c6b4456fa0"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/diffusion/dynamics_base.py",
+      "sha256": "63d9fbdf723239d56639725e1ff1067fe4e7a4628f943e05c81b0b249ce166c3"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/diffusion/geometry.py",
+      "sha256": "327874863231c1a5a902f302f3ebb15b7e5589585ba9278fb6cdb871bc3ee326"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/diffusion/guidance.py",
+      "sha256": "3df337dac75e958060a0f6be3865c9b73517b8b1296f90f8732354c28f4cc29f"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/diffusion/model.py",
+      "sha256": "37e2f4d41155f730b525d564294f248a9224c8fe976a415e054ba8bd4028130d"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/diffusion/paper.py",
+      "sha256": "e287e0c0d1b3dcb1c9f4200c3fd233d12996b82c03a19a0cf3d3479b7f3c471f"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/diffusion/planner.py",
+      "sha256": "095579e2c91c3faba029a82958a893abc6d323830878da59f0cc8286047e3d21"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/diffusion/raster.py",
+      "sha256": "5cd506a783ae3c99b4accf55f15e1d36515453e9db7651e6e6ff35d1480bbbda"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/diffusion/refinement.py",
+      "sha256": "51286356304d09ce959e8a758e0f4b79a67d84bfca787b8f3e20a008489b5586"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/diffusion/temporal.py",
+      "sha256": "b6753dccc1676d661ef788320f619947f46ce5f3f7b0a9309c2dd67f5c827b79"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/diffusion/tensor_utils.py",
+      "sha256": "f8a0094672473cab882e61e9deefdec9f6a4410702f42263444d6b00068f34c6"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/diffusion/trace_helpers.py",
+      "sha256": "365a0789d5d0518509425041bcfa8fe0915141e5c556368e4ea1a6b44be4bb18"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/evaluation.py",
+      "sha256": "b012e2ad950a4ba11e2360f8014d98f48a4cae0fde47d06d7f246919d22fff3c"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/foot_capture.py",
+      "sha256": "89c48fde37c05eaa57f4eacf2fb3eb072b087c0d9a46acff3f7d23729f28d39b"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/foot_support.py",
+      "sha256": "8c9cb88ddcbe55599ebe79abf80ea7a77a85eedfaa17324b937a862b284267e8"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/ground_support_archive.py",
+      "sha256": "7cdeaf74e7f17ce859f76bc6cf3378d1a2872ef8801e1a9aa0954601ba328ea3"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/initial_reference_pool.py",
+      "sha256": "455828a04cee094aff3842e2c5992fd85fa48e773cd9d674ba0c5eaa91af2d8a"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/motion_reset.py",
+      "sha256": "e455ca0d6b63b82af969323d5b82615eca424ba43ebe00e45259b3007f9fe5f4"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/motion_tracking.py",
+      "sha256": "da482dcd565d42ef9f6165606428ad510f077bdd68c3fab09c73a840149eac56"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/orca_corpus.py",
+      "sha256": "7b18b23d11509fdcf8a07c57bbba14a8d7d57e000c9651ade5d6b5b79c3a2750"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/physics_views.py",
+      "sha256": "1b13d982864a3a2dae6eaebccd15f7ecfdda666c1e1a8dbce4996786a59a0c21"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/planning_clock.py",
+      "sha256": "899b15b8eac712c9fc04e98657286d870ed58fcd59af0f3aa5c706e2bd1f71d5"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/power.py",
+      "sha256": "41a4f14fb49e19169c37a28022e3137b133a79d435324190c8f267db66354256"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/reconstruction_scene.py",
+      "sha256": "d8264b8cf4ead1289a0de25198a4a875e64b115631a5bcbdc7d5c0e4817cf14f"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/run_avoidance_test.py",
+      "sha256": "6ab7a0018343e0daeb1f654d0258e3cf0f738f503684209222f2f52bca71a281"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/__init__.py",
+      "sha256": "f072b964700c37bc3b6ccc315c3c6cd975871c6faf6323b973aa4edef6b7c262"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/amp_inference.py",
+      "sha256": "f94a461ff1527ee955d4f34cf972805e13450604988f7d4268f1c2fadd13f88b"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/arm_style.py",
+      "sha256": "fbe774160e3f162632dd39c4b69257a9b50a155da1b978d952c921c1fe8ef656"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/body_map_guard.py",
+      "sha256": "c37fad1b63355978c833ca38c2583e52afece14d16835b4e41193219390dbf7a"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/checkpoint_contract.py",
+      "sha256": "cc44f94f13fb0e4e3a06eacf44c2806293d2bf6778d832372105645d4eeee72a"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/dynbench_live.py",
+      "sha256": "4c7f5384658778623b96ceeca0c52cda938d57e644b8084f4461e21ebac42bca"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/dynbench_scene.py",
+      "sha256": "68bd2171ad9707c3f280c374d73538b8c532764a42e1f90335c6375090595d28"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/evaluation_actor.py",
+      "sha256": "efed61b8c21ee9656463b07c06d035d4789223c8622bdd07d0e8fb3521ca54ec"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/evaluation_source_migration.py",
+      "sha256": "08b6731f6889f22e69b898bd0c7d19a8ff5b5457296f9318544a9d4747abb147"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/grouped_sdk61_lifecycle.py",
+      "sha256": "e597fc13c5078a4b40bfc35fb894ceae1a398a07025cfd0e31187e517b42446e"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/grouped_source_migration.py",
+      "sha256": "aa74c63118f8f29a7fa7bd7098df52ef13312bee7b3032f12572f0eb3a1fd622"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/keep_right_planning.py",
+      "sha256": "1702013d6fdcb008c68cf2772cc1597b1a8f7de29dd3a573997dcb316508dc88"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/map_velocity_guard.py",
+      "sha256": "2a6e33b0f4a6c5d8ef0358f03e46c3d57408478638190a3bf1fc64b762b3fe71"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/native_cell_grid.py",
+      "sha256": "a2b0b64c26ae1053ee3d039a36068c557fc3ec77d31d6d49510d65091f4b9f20"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/native_contact_report.py",
+      "sha256": "4e6ebcafea310a4197e8fb2ecfe6452beb5b87aad90587de1d7954a37f43df32"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/native_framework_shutdown.py",
+      "sha256": "0376e1092b46655a6e53bc8b5eb8b28ca660d4000947b073eeb2f3a4a7b524aa"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/native_grid_scene.py",
+      "sha256": "b5563bd5a509cdb02ae33e57ad34ab7a0524825ad16e481ef631531d59308165"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/native_map_v7.py",
+      "sha256": "2b048eaa246a20766fed03541b4702030799cb842947d0dd9ab6dadf6df1c3e9"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/native_map_v8.py",
+      "sha256": "11d2cbdf1fa77c1a2ff02e61aaf249451ee669930e1ec7ef0c4c4425306c6289"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/native_map_v9.py",
+      "sha256": "e942359bafc1476d21ed4d5e9cda58132d52b8119b4181b7d7f5bf92059b12ef"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/native_social_navigation_lifecycle.py",
+      "sha256": "ec707d071bf3e6f19b14f15068c1677da26688f0a1b1e6114e4343dce3ed50d7"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/native_social_observation_producer.py",
+      "sha256": "39333ea4fc903dae11cf4d4921b134fe25624820b5c353b141444778dff5165f"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/native_visual_scene.py",
+      "sha256": "e8fce8fcb7db21a73b4dbea40b61a80b713952acbb77f914bff62756cfd663ae"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/popart_checkpoint_family.py",
+      "sha256": "814343abd1f532be510f53b9e089397483255520dee32311acea4ff48534943a"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/popart_reader_definitions.py",
+      "sha256": "6bfda66a587c99b01a780cbdc9efbd04f87bcf58ffed7c91190be093b77afaf1"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/pre_action_observation.py",
+      "sha256": "2fe9afc170309edcf1da2ebced1e8db9bae0dfde525dfd4dae8b05262681394b"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/relocated_terminal.py",
+      "sha256": "35bb104a8e9069d5f6fc3618cb96c3cca2e8aea0d9f5fc0d44c6a994928902dc"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/route_dwell.py",
+      "sha256": "af9696ea6845802a1934fde7a4aec0e99d5fcb93b4c7174a7a46522507cb7e2a"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/route_progress.py",
+      "sha256": "9a0ef97002bee68c191573b29acf4eb37982b8b0df24758e2cf044e891cc441f"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/sdk61_lifecycle.py",
+      "sha256": "63c6d1e30e2531ec33a8172a54b6abaffd01c0d6a87e67383e266f29a23d852c"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/sealed/__init__.py",
+      "sha256": "2f3d5e7b409da5c04bb7c47d6c2fe6a6e82779950c8ccfd2095969a46056894f"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/sealed/sdk6_terminal.py",
+      "sha256": "0e6b2ef97cc2f32612317df162ebba6107b1e276083f9912995badd5f416685e"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/settled_braking_target.py",
+      "sha256": "af3122092358e2a9df2941e835411a06ece3160a1ec79d052ff4a177a88b5713"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/social_evaluation_lifecycle.py",
+      "sha256": "e2958d5ca75b34eeb3a8dbefef3ab80acead0587a0664a5595c599c5c202b721"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/social_navigation_lifecycle.py",
+      "sha256": "f48a6a89c9b979bfcd667436892d43a6171756ee6e40fdf9b04e558fa977a6bf"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/social_observation_producer.py",
+      "sha256": "a955a83e42e778012885863b9de666ce9378d0a993e77b82cc8ff174e3e78045"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/social_popart_inference.py",
+      "sha256": "1e92e8c3144da0c335bbdd3703888cebcdbca12e880b9bb4b54b08c501522d61"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/social_popart_training.py",
+      "sha256": "aeea06d7506f09d93284476a2f3d08635fa2dcdb2eb79eced99afa0419c60723"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/social_training_recovery.py",
+      "sha256": "7bb57c09de0df9c3ccd5302d351daab4d47f89e5ce02922d9898c33bb311fd21"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/terminal_cache_source_migration.py",
+      "sha256": "c36c2f7f1544040d8a2ea447a216e83dcd43566977fca8b50a08b5ebff1a7d16"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/trace_pace.py",
+      "sha256": "759a4f05ea92e857ae35759b74ccf16353de51c1b328995c401689dfbd453a68"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/trace_pace_lifecycle.py",
+      "sha256": "03586009edb7f876c0aa58ba47bfab56ad908381ebe94e66c9a624f7329e1c6a"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/trace_pace_measured_lifecycle.py",
+      "sha256": "397add53f5d4f7daf0ddee4738a923d34bafef3bab1d59d44a6dd0d3ea93aadd"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/trace_pace_native_lifecycle.py",
+      "sha256": "8b96bc991fb0f5f92a34c3af2939a126facce85b429b7d577b9721e9ffebfcb0"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/trace_pace_scope.py",
+      "sha256": "cbcf6f8dc8df303bb091c2ae88a8c1a86655c5cbafa693a09aa396316ffa0ad4"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/simulate.py",
+      "sha256": "35098561ee74e2b7290b754ada7bc33f821e33cc4084be4017d12f6fc1371aac"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/style_evaluation.py",
+      "sha256": "b09fa58caaf877d89b69ca788538c2808e3a3d8d91410277ea07b5df3bcdaca2"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/training/__init__.py",
+      "sha256": "e76d34cc4c654886369a19a2464c41ae38d24db2432a8f6eff25a6d62b6e7f5a"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/training/amass_curation.py",
+      "sha256": "75c6505c2589664651604bd3cb3bc6d656916176c91b82f423b16dcc038b09e8"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/training/amass_trajectories.py",
+      "sha256": "ddca3403a59422045f051b5d9f653d6f411db1523840ed8bc021fc96ef82566e"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/training/contracts.py",
+      "sha256": "26c7379ba60842c67f062fa5c1a3459ddfb6e0843e1b4952e1d078aa6f78cdad"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/training/episode_mixed_trajectories.py",
+      "sha256": "61ec4446472800c4c6ed922194cb42f8d6988cabe732853d865f5386d4793e1a"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/training/episode_trajectories.py",
+      "sha256": "f4283656f29a31547905ee640316aac63e7ba2cdbcd9321f1763475247a17576"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/training/expert_sampling.py",
+      "sha256": "b16984a920f21ca92c3fe01976d9c0453a75bf54d3f46df369984ff27453f9cd"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/training/kinematic_gait_prior.py",
+      "sha256": "e5c30b3324ea6748fb40c2f16484312afb1146c0edc5eb72790913cef05a7d28"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/training/locomotion_objective.py",
+      "sha256": "ddac163eb1722a4a16263aa8a698a72ba11a6fe5691f279b616659b0e0b1288e"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/training/manifests.py",
+      "sha256": "682d744e6aa6cb7caa38244139104cdc2be1acc7e243f3bdd3cb93e326977036"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/training/minimum_horizon_curriculum.py",
+      "sha256": "817ac3898d540cc18e0f6ab8dd0b50b8ae6ecd2bd8a0f350efbbebd847388ef0"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/training/mixed_trajectories.py",
+      "sha256": "c79732a675ac737d4ce0aff0d2b76cfa30cebed2d9c115e1a35da39299694d67"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/training/pacer_finetune.py",
+      "sha256": "845c38669815d145da7b16995b2e0e5bde5fcdb65a1ec0487c87450420c1c87b"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/training/reachable_selection.py",
+      "sha256": "4fe35842d2fcf23ac741e8cacf9c5ed43e9fde4d1f93b185b839662044f78034"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/training/reference.py",
+      "sha256": "a9ebda71323a92c7e0373d04b11d429c9e33a278fe59e3d279f57a2d2d0daa65"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/training/replay.py",
+      "sha256": "f023108348cfc0a2045138a97e09453ec6b489a900c2eb6da31467419184d27a"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/training/rewards.py",
+      "sha256": "fc595dd9c1b2012aa76f37dcecd4ec5d7dad50fbd923840736a77c24622a6430"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/training/symmetry.py",
+      "sha256": "af8dfd1cc04f42c03ee538c16543455466dea7067c6e04c3c494c16ce3e14373"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/training/task_horizon.py",
+      "sha256": "3a9bfd6c811ca194bff3b23ce00e7d581c6302c4f8a8e2a9fffdf1a98a7faf26"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/training/temporal_gait_prior.py",
+      "sha256": "b9c064ffc132bf470c9fda3339fdb924e46163cd926c5ae8929d92ee5751bc78"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/training/terrain_statistics.py",
+      "sha256": "7c07e3a54617d40b72475bc40bf0b728516b7d4166fb99795c8a8bb69b0f78f3"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/training/trainer.py",
+      "sha256": "1e5444f62ccc5214e3f635850d4b9b018b457918259ffbb1e999a05148f4eee7"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/training/trajectories.py",
+      "sha256": "81701988535cf847b8b86979a836ba37089e93553aa4e3fe5ecfc9529d62d2c9"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/training/validate.py",
+      "sha256": "c0d022763a6309c25e243e5195b18b80f6c24a019eadf90aa550362368659328"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/training/value_normalization.py",
+      "sha256": "e2c6aac084ce0ffd67774c3071824e6d30de7639ba92330a91b2fb089345adc5"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/training/walking_turn_curriculum.py",
+      "sha256": "72e185710e7898ef15b5e7b019a1eb776e716cb5f1d50dc2b078b1e562bfde5f"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/trajectory/__init__.py",
+      "sha256": "a748f716c9ad8eaaa881ee384c46181d44bba01e9813c79a4646b0e8609bc898"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/trajectory/native_social_force_runtime.py",
+      "sha256": "9328de70a4e4361d59f7023e17cad556c8f919931c6808f0472f8645b6fdacdb"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/trajectory/social_force.py",
+      "sha256": "936b1c9ed2d0328b5b3dc4799a2607ce385d8061a6e48c4c2b063e8c47ef191e"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/trajectory/social_force_runtime.py",
+      "sha256": "10f403e35ed717cd755313a4b9411304d4b58fa52786761eed9afafd55a8469f"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/waypoint_weighting.py",
+      "sha256": "dd424543c4e5f2c5579b039b3ed3ee5e685a30ec72a9469dcf33321f5469bd51"
+    },
+    {
+      "path": "src/CrowdSim/nav_manager.py",
+      "sha256": "96341e2194dc811fe08c438ab3f16a342d6ced58ddeb9911eca53bc04889998b"
+    },
+    {
+      "path": "src/CrowdSim/ppo/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src/CrowdSim/ppo/episode_metrics.py",
+      "sha256": "38477d3554147709bdebe8c1c1f431d8cfc16d164f426dd61813655fc184be4b"
+    },
+    {
+      "path": "src/CrowdSim/ppo/goal_curriculum.py",
+      "sha256": "2c005c07f668bc50e4c00b6455e6ce2e2e88f2afd0fb7fddefd29f30a19a7796"
+    },
+    {
+      "path": "src/CrowdSim/ppo/ppo_policy.py",
+      "sha256": "a3686db781def190a73ea3aa69bef1bba991dd8ea40bdde3ec232786df834987"
+    },
+    {
+      "path": "src/CrowdSim/ppo/reward_model_ppo.py",
+      "sha256": "fcbcf39f3bb02803906f04add4767967c66d878860c2ea96d64dfb9a866db059"
+    },
+    {
+      "path": "src/CrowdSim/ppo/train_ppo.py",
+      "sha256": "f0b61d5988c1653d37e0c93c967194993458fe3a6cad586de1c58f83dcb749e8"
+    },
+    {
+      "path": "src/CrowdSim/ppo/train_ppo_finetune.py",
+      "sha256": "9eae13646d79428683d2a512209f8b8eff5396f7d9176b887ed5348aefae0447"
+    },
+    {
+      "path": "src/CrowdSim/ppo_policy.py",
+      "sha256": "998a1c30c393b919a94eb11996a42c92f11d6bb30aee852030db87abeb5c50ca"
+    },
+    {
+      "path": "src/CrowdSim/pref/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src/CrowdSim/pref/build_offline_preferences.py",
+      "sha256": "e7c27ce85cf5b18b5cbedc5eeed27ff0e049fc7c523d76e985ff1851aabc84e0"
+    },
+    {
+      "path": "src/CrowdSim/pref/offline_reward_model.py",
+      "sha256": "81f6dea4039df4d29d1506ee588311d0b9fb8fa924a1d50ab87116fc46032163"
+    },
+    {
+      "path": "src/CrowdSim/pref/pref_buffer.py",
+      "sha256": "80e65a6155775c323aeabd2ff6c623bed6ac19b43269503a750781991c4a59f8"
+    },
+    {
+      "path": "src/CrowdSim/pref/pref_collect.py",
+      "sha256": "518ac28fc8e8f808c8445b745ff462326a28ad5c1f32b68da0f2fb5250f76d0d"
+    },
+    {
+      "path": "src/CrowdSim/pref/pref_train_reward.py",
+      "sha256": "898fed8562d48d9bbff6b8db0fca919fe0af17b7c4f95d7de9f3d5dba5dc2c2f"
+    },
+    {
+      "path": "src/CrowdSim/pref/reward_model_utils.py",
+      "sha256": "1a7b9e956fbb286db739f9bd75e73c6f2c2e3029c4ebddf297d68b6bf40a00af"
+    },
+    {
+      "path": "src/CrowdSim/pref/script_teacher.py",
+      "sha256": "56748501edd55ee980c777e7e60e7bed9d97ec7961e7ea3bdde34e77b9bc24c1"
+    },
+    {
+      "path": "src/CrowdSim/pref/train_offline_reward.py",
+      "sha256": "88078fa845a522c9def4a73a84735cd728c66eca25ff8494a120e940a53be7d9"
+    },
+    {
+      "path": "src/CrowdSim/protomotions_runtime.py",
+      "sha256": "8a958d28db8f3b82028baa01545571b0b8c0332c65b06b0a4668efa75eb74bff"
+    },
+    {
+      "path": "src/CrowdSim/scene_setup.py",
+      "sha256": "bc5696717b41d2c3763f34438a04b7c73611cc47387b8a9c9039c9bf9d1bf589"
+    },
+    {
+      "path": "src/CrowdSim/tools/__init__.py",
+      "sha256": "a748f716c9ad8eaaa881ee384c46181d44bba01e9813c79a4646b0e8609bc898"
+    },
+    {
+      "path": "src/CrowdSim/tools/check_action_distribution.py",
+      "sha256": "82a727e088187321d8a6afe930557c13390c5284bd96a10e69fb045103670f16"
+    },
+    {
+      "path": "src/CrowdSim/tools/eval_policy.py",
+      "sha256": "3417269505e02fdd68dc6db7d25f1e54cffd03b7a9f9fc90148e9be24016746c"
+    },
+    {
+      "path": "src/CrowdSim/tools/panel_render.py",
+      "sha256": "f124e9293617f31f46ac216ac0e4a48304842f02077c64e40785a9f1096df8ae"
+    },
+    {
+      "path": "src/CrowdSim/tools/render_navigation_fast.py",
+      "sha256": "211d5ed9256256349e73e8b965dccb2f4e9c58903c26fe30f24c8837ecd451c0"
+    },
+    {
+      "path": "src/CrowdSim/tools/smpl_mesh_visualizer.py",
+      "sha256": "271d8b2aec5a607b6209a7190048fff7dead1153a8c2d1df5af9cfaadcaf98b0"
+    },
+    {
+      "path": "src/CrowdSim/tools/test_camera_depth.py",
+      "sha256": "36420cf58fe40283a61ad12b39756abdfb760011cc48a93a1d0fb64245a86447"
+    },
+    {
+      "path": "src/CrowdSim/tools/test_robot_kinematics.py",
+      "sha256": "ef00c9912ef7839cc526c10a65fc0229d960960c939e3b7c22e349f7380f6c52"
+    },
+    {
+      "path": "src/CrowdSim/tools/test_robot_obs.py",
+      "sha256": "5c03bbdf34d499cf673e9924be2dfd6d3808189114a68a3d054f1c3bdf84efb3"
+    },
+    {
+      "path": "src/CrowdSim/tools/validate_drive_integration.py",
+      "sha256": "2c9d24828d3f2d56917b27db1b5439a30763b16e2692c9a20936b11f4351fe6c"
+    },
+    {
+      "path": "src/CrowdSim/tools/visualize_paths.py",
+      "sha256": "34904fc7e00008b22756a34c3374f7b0daaa7d2a46787d18f0d2309617978500"
+    },
+    {
+      "path": "src/CrowdSim/utils/__init__.py",
+      "sha256": "a748f716c9ad8eaaa881ee384c46181d44bba01e9813c79a4646b0e8609bc898"
+    },
+    {
+      "path": "src/CrowdSim/utils/config_loader.py",
+      "sha256": "9c648038002403178f3e748b9fbb8a32193ca2442725649a442afb86402cdb2d"
+    },
+    {
+      "path": "src/CrowdSim/utils/humanoid_state_recorder.py",
+      "sha256": "8f6c2ba43ec44fc451e5d92693fd4c38d91b7b619297b9e998ea1a1032a9e52e"
+    },
+    {
+      "path": "src/CrowdSim/utils/map_metadata.py",
+      "sha256": "602ca64a0a4d4b0a6241be399f42cef6dbe9e567d9d5f3d669f1c712a594bd95"
+    },
+    {
+      "path": "src/CrowdSim/utils/sensor_stream.py",
+      "sha256": "c98dab5960d9756ac9282ad3098b90d5700166c591178f090497302884ce6adc"
+    },
+    {
+      "path": "src/CrowdSim/utils/vision.py",
+      "sha256": "f7f65b973e77fb2a65b55c22085166c6045db25dbb1854537ededa8db9b035c4"
+    },
+    {
+      "path": "src/CrowdSim/world/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src/CrowdSim/world/builder.py",
+      "sha256": "d77ceacec025148ffd2e77a8a58900fe7bed19f2e1eb23d17b953683305e617c"
+    },
+    {
+      "path": "src/CrowdSim/world/map.py",
+      "sha256": "7fbd29b8f49bd41abe62dd96161d01d6e16757a4506da1a4f0e2deb888a271dd"
+    },
+    {
+      "path": "src/CrowdSim/world/nav_init.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src/CrowdSim/world/planning.py",
+      "sha256": "b7719b73e5b3885cf68c61e4ffaaa979a85e356dde64a011f291900d87f16a06"
+    },
+    {
+      "path": "src/CrowdSim/world/sfm.py",
+      "sha256": "88f3274e1bfa2361dd92bb827b7b924d0d7c90d88f4a868ba76913bdfeccfd9c"
+    },
+    {
+      "path": "src/crowdsim_ppo/__init__.py",
+      "sha256": "7aabc962295962f97155ba244751b04a1647d60abf81640aa13b4e33e768de77"
+    },
+    {
+      "path": "src/crowdsim_ppo/checkpoint.py",
+      "sha256": "8875d85a1187c23f475e5f839d096a9a945c740a1e4c29a0eeb8fb6e18aa27b2"
+    },
+    {
+      "path": "src/crowdsim_ppo/evaluate.py",
+      "sha256": "5c714670aca06d98ede009895d170d165c49379c6f98f5cc6dd75fa622139728"
+    },
+    {
+      "path": "src/crowdsim_ppo/goal_curriculum.py",
+      "sha256": "2c005c07f668bc50e4c00b6455e6ce2e2e88f2afd0fb7fddefd29f30a19a7796"
+    },
+    {
+      "path": "src/crowdsim_ppo/pipeline.py",
+      "sha256": "adf5d1ee057f2b3167a6998dedfad1c4d57fbb8496ab25fa4c65b10d4a4fceb9"
+    },
+    {
+      "path": "src/crowdsim_ppo/point_goal_env.py",
+      "sha256": "f8661a15b62ecd31cdbcebf08bb317afafc71e5eefb53e40d1e0df38b5fca8f5"
+    },
+    {
+      "path": "src/crowdsim_ppo/ppo_policy.py",
+      "sha256": "05d29cca958300f0cfd46079e630e63e809fdc16c977b699253281b06bd800d5"
+    },
+    {
+      "path": "src/crowdsim_ppo/train.py",
+      "sha256": "90b8b108ccd15509f905c31ed1744688b99e217b402c919b03ac4dd2e967aba0"
+    },
+    {
+      "path": "src/deployment/__init__.py",
+      "sha256": "13eacd66e534feccf260e2bb8c07c830b4efd72092af3476e3d07e9aef4140d7"
+    },
+    {
+      "path": "src/deployment/export_bm_tracker_onnx.py",
+      "sha256": "7af53182c34b6670dae2d30a92ba08dd5caded5b7150d61a1a912d301703be91"
+    },
+    {
+      "path": "src/deployment/export_tracker_onnx.py",
+      "sha256": "533c6a85392a439afb29ebcd759e41759b73da9a112e6fcbcd9d46ce31a4ac97"
+    },
+    {
+      "path": "src/deployment/motion_utils.py",
+      "sha256": "c4bd3525a0667e05b0a2bab3b4df845e6e1d12cd8075edac187866624069745c"
+    },
+    {
+      "path": "src/deployment/state_utils.py",
+      "sha256": "ac763720451020fed5e52040bb666743495b5634d6afc7e173872451998b3c1f"
+    },
+    {
+      "path": "src/deployment/test_tracker_mujoco.py",
+      "sha256": "e629754177a2c5c7de8dfcd12cff9a8e34e5bf64fc7ae5907f8ec52852d1b144"
+    },
+    {
+      "path": "src/deployment/tracker_inputs.py",
+      "sha256": "ca80ca4c994d18025912e6feb5da72953f6d2fd4eff3662b3d8c4a39f1a1e829"
+    },
+    {
+      "path": "src/protomotions/__init__.py",
+      "sha256": "15b364aacabfd9949e86ebfc19601eaa5fe2d9e94beb257deaf0d657fb777746"
+    },
+    {
+      "path": "src/protomotions/_train_launch_common.py",
+      "sha256": "dea3a4e3d783a5156368e2a260b4eed0f19754cc3645ecb8b3aaa0e10462747b"
+    },
+    {
+      "path": "src/protomotions/agents/__init__.py",
+      "sha256": "5cb3b4f448bc834954ee1625cca0af86f4212c505ee42070138bf63ea2bdc566"
+    },
+    {
+      "path": "src/protomotions/agents/amp/__init__.py",
+      "sha256": "e0cb642ef795c18e5f37d739b64db90d1b8729db035d15c94cd096b423e99821"
+    },
+    {
+      "path": "src/protomotions/agents/amp/agent.py",
+      "sha256": "b5869065d64ab0619fe27914567eb33a82f0cc2c1007ce705ddb62e998983d33"
+    },
+    {
+      "path": "src/protomotions/agents/amp/component.py",
+      "sha256": "fe486c274f1b3a4145629e1a405bac0561f44564c16250be9de50bbc5aba2384"
+    },
+    {
+      "path": "src/protomotions/agents/amp/config.py",
+      "sha256": "bfc0c1190f2664ff1731256c126b0858d387661251d5e1089f62d05af849474d"
+    },
+    {
+      "path": "src/protomotions/agents/amp/model.py",
+      "sha256": "5a0a6e81c7b4c827ae1b2cf0988cd396bc44293056c6aac17b6086c95a3b05ca"
+    },
+    {
+      "path": "src/protomotions/agents/ase/__init__.py",
+      "sha256": "ac08ccab4f0f5b4df80570fed57d9c31b0f1c577a6e0495189f89e91a00b42bc"
+    },
+    {
+      "path": "src/protomotions/agents/ase/agent.py",
+      "sha256": "18ba123f3879f74adb09f5e9ffe8feb7e469ffbdfaf32f574e4dc30bd8b2da4e"
+    },
+    {
+      "path": "src/protomotions/agents/ase/config.py",
+      "sha256": "5f4d1c71bf6ac4c5713d92f2c39dc6c1b5d673bd98e5af16d3b4ab544921913b"
+    },
+    {
+      "path": "src/protomotions/agents/ase/model.py",
+      "sha256": "80d361031213380f0317c6858d47ad6f544ec422ae88317f87d76026158436b4"
+    },
+    {
+      "path": "src/protomotions/agents/base_agent/__init__.py",
+      "sha256": "84fa7fc8f23d0d542568248281c29ace200aef208d59f2c00d789b2795dffd4b"
+    },
+    {
+      "path": "src/protomotions/agents/base_agent/agent.py",
+      "sha256": "b8f55031814b2d4803e6fabb0d6cac993379ec811e4b485eef1978f9357d1e7f"
+    },
+    {
+      "path": "src/protomotions/agents/base_agent/config.py",
+      "sha256": "bf124cc4b0606d182ebe985db2c4b9beed4924808ebe28439b9139d868ad6de6"
+    },
+    {
+      "path": "src/protomotions/agents/base_agent/model.py",
+      "sha256": "007dc189f4a9bd21628eba1cd22866aa4a1e953dc00bde6f6683e86d26eb564e"
+    },
+    {
+      "path": "src/protomotions/agents/base_agent/motion_shards.py",
+      "sha256": "51a7670d353a05806888346f3ceb1b18ecbf0b858188b0bd6db2e32e38bb2ad9"
+    },
+    {
+      "path": "src/protomotions/agents/callbacks/__init__.py",
+      "sha256": "5cb3b4f448bc834954ee1625cca0af86f4212c505ee42070138bf63ea2bdc566"
+    },
+    {
+      "path": "src/protomotions/agents/callbacks/slurm_autoresume_srun.py",
+      "sha256": "39e16ccc1c1921013be120dde7f6838fd52595b3486b0ee7161df6e583e62601"
+    },
+    {
+      "path": "src/protomotions/agents/common/__init__.py",
+      "sha256": "5cb3b4f448bc834954ee1625cca0af86f4212c505ee42070138bf63ea2bdc566"
+    },
+    {
+      "path": "src/protomotions/agents/common/autoencoder/__init__.py",
+      "sha256": "6777a7344ba7ad321ea1803f79f8155087c5482f64f2088f7a5a6944e734f31c"
+    },
+    {
+      "path": "src/protomotions/agents/common/autoencoder/config.py",
+      "sha256": "63a4ef8beef288d6463328ef8cbaa515e6720392c91149ad43cacb966f1a12a9"
+    },
+    {
+      "path": "src/protomotions/agents/common/autoregressive.py",
+      "sha256": "3d23f4795000885599c0a13be0a0537c97943756c5651ea8fff6fdc0ed67a2f7"
+    },
+    {
+      "path": "src/protomotions/agents/common/common.py",
+      "sha256": "ff248cc0b6ddbce711dfa02c40e8be8001abd1f298abe4b6884e69b2f81ea823"
+    },
+    {
+      "path": "src/protomotions/agents/common/config.py",
+      "sha256": "95aa92fc46c23e702d62e7e02561ac22f2247ab3a9f81b6e33408e7e6751ddb7"
+    },
+    {
+      "path": "src/protomotions/agents/common/discrete_latent.py",
+      "sha256": "881ecfbf365a56d5ef1e2238f917277ea7c69a07bf2a2b752eedc7315bbb1ecf"
+    },
+    {
+      "path": "src/protomotions/agents/common/fsq.py",
+      "sha256": "ff59aecfb3419dded4d3656e90aa002d40f8301f31f72ef187177991fd3de078"
+    },
+    {
+      "path": "src/protomotions/agents/common/fsq_config.py",
+      "sha256": "6e6c78deda6abb5c21c41f2097e04d6c8bc8b194a8e674242c2b0907f22de302"
+    },
+    {
+      "path": "src/protomotions/agents/common/latent.py",
+      "sha256": "da3f1fe648977e0d54bfd1cb1996b58a5da6b4cccfd741fae28467beb83fa0ae"
+    },
+    {
+      "path": "src/protomotions/agents/common/mlp.py",
+      "sha256": "2181b7049d8204cc6c1981e3199e306d59e3172173d240b3b710503663a74b4f"
+    },
+    {
+      "path": "src/protomotions/agents/common/pretrained.py",
+      "sha256": "872fbd2449e685b0f0df2f74e39ded8f2e2c555aa1e36e95ea7e5f56d3771db8"
+    },
+    {
+      "path": "src/protomotions/agents/common/supervision.py",
+      "sha256": "258261c1f71db8c7696ec3c068b484e20e0859b4a732abdf3d8d1e91a5345001"
+    },
+    {
+      "path": "src/protomotions/agents/common/transformer.py",
+      "sha256": "3c140919d041e795961934bb617a5ffe73bcfe4885d2cf23c2c713467f3e934d"
+    },
+    {
+      "path": "src/protomotions/agents/evaluators/__init__.py",
+      "sha256": "532a7c47e7dd133f7d91b9625dfc860db6b478893235790cad8c4197774a2a01"
+    },
+    {
+      "path": "src/protomotions/agents/evaluators/aggregate_metrics.py",
+      "sha256": "d54e30e9645618e910645ebae665184b53f20ae28c7289cc749a9ed6307d9c98"
+    },
+    {
+      "path": "src/protomotions/agents/evaluators/base_evaluator.py",
+      "sha256": "3e010476dd97c3a5915c2eeddb9de7d0c45339c6fdeba104ca5c3d5932129258"
+    },
+    {
+      "path": "src/protomotions/agents/evaluators/config.py",
+      "sha256": "d5514dbdcb2a2cd0cb3972ce34c4b606700c9d81f0ec46a89cf299d770a41cc0"
+    },
+    {
+      "path": "src/protomotions/agents/evaluators/metrics.py",
+      "sha256": "c1d409a8bdb64da34cd6c5a3b4d2f3bd946a58c392a614020929468e92d7ff8f"
+    },
+    {
+      "path": "src/protomotions/agents/evaluators/mimic_evaluator.py",
+      "sha256": "f3216fcf5c2dc308af985b4d751bc7f10992f1b30b96ca7264648354a850fb3f"
+    },
+    {
+      "path": "src/protomotions/agents/evaluators/smoothness_calculator.py",
+      "sha256": "1327e705c3334eaba55421fba70dc95bb3fa1abf31309857c33a266f50aa3d5f"
+    },
+    {
+      "path": "src/protomotions/agents/fine_tuning/__init__.py",
+      "sha256": "3c927c158d0f96a62a5ea8bf9d637523877a7f4141ac19d37c4c8fc30ae9d69d"
+    },
+    {
+      "path": "src/protomotions/agents/fine_tuning/agent.py",
+      "sha256": "6d5fc0831246f129a9b1ec52dabd31e57e206cbb21ca595fcc4c55407e9f2cd4"
+    },
+    {
+      "path": "src/protomotions/agents/fine_tuning/config.py",
+      "sha256": "a3eb1b2f85e03cb6bab14c257ffdbb1d27373a33fad776e5f51eba2c5b530e11"
+    },
+    {
+      "path": "src/protomotions/agents/fine_tuning/pretrained_modules.py",
+      "sha256": "c391a3618aa89120bf1817bff0eb71c417625e9a9ad3cdaa1ea899abe352a36f"
+    },
+    {
+      "path": "src/protomotions/agents/mimic/__init__.py",
+      "sha256": "5cb3b4f448bc834954ee1625cca0af86f4212c505ee42070138bf63ea2bdc566"
+    },
+    {
+      "path": "src/protomotions/agents/mimic/agent_add.py",
+      "sha256": "9e68b9499255300419c767830193a01baaeb2fdaae8be0ff0eba7fb2969176e1"
+    },
+    {
+      "path": "src/protomotions/agents/optimizer/__init__.py",
+      "sha256": "bd29e8a721b9cd91077ccd82e607405aba7c9f820486279ec7e5384d87465cf9"
+    },
+    {
+      "path": "src/protomotions/agents/optimizer/factory.py",
+      "sha256": "b33e11ad54680a8897b7dd2df22aff3dff6cc52828efa3e8b3a5ed24b8a83e0f"
+    },
+    {
+      "path": "src/protomotions/agents/optimizer/muon.py",
+      "sha256": "85168fb3dbe2d8b7e714b63b1f79a941ff45ccef179bdff97e9c51624583b261"
+    },
+    {
+      "path": "src/protomotions/agents/peft/__init__.py",
+      "sha256": "e43563b76cab321339b453e3f413bd6bdb0017b2870a2c25c1a8034912984bae"
+    },
+    {
+      "path": "src/protomotions/agents/peft/actor.py",
+      "sha256": "61591c14938d5733b9ed18fd177b935415bfaa23cf8272fe80934b917315e93e"
+    },
+    {
+      "path": "src/protomotions/agents/peft/adapters.py",
+      "sha256": "0adae1f9d206750d39ac10bf3d500112b94a3081ec467e06b58fb4c971f299be"
+    },
+    {
+      "path": "src/protomotions/agents/peft/config.py",
+      "sha256": "5481ddcfa43dc718fcd13ee81e747db1bf4ecbb6ef279b25e7d0c47a72bda206"
+    },
+    {
+      "path": "src/protomotions/agents/peft/model.py",
+      "sha256": "2604e7e3d16afe9d141257619be54a07c8afc817ddc481f9903812136167f95e"
+    },
+    {
+      "path": "src/protomotions/agents/peft/prior_agent.py",
+      "sha256": "71d10d545a1cb4794a0d41932ac2ce828a4994e6934ec807684a009606f49632"
+    },
+    {
+      "path": "src/protomotions/agents/peft/prior_amp_agent.py",
+      "sha256": "7f125e7966f6ca054c29f6cc3c47828d6cd78d3a80c67844422a162ceb889ca9"
+    },
+    {
+      "path": "src/protomotions/agents/peft/prior_amp_config.py",
+      "sha256": "e790209d64b6e420e99ebc275f5a1361df2fbf83dd92b4a274bc78cd8349d57e"
+    },
+    {
+      "path": "src/protomotions/agents/peft/prior_amp_model.py",
+      "sha256": "4915dcaaf7d0277c36e0e23c9f3741a973120d5dab337204d46789f85d481ce8"
+    },
+    {
+      "path": "src/protomotions/agents/peft/prior_config.py",
+      "sha256": "fd18bde91d6c17d7ff8b904e33c7f208b6c7de8d784653edebf35542a26862c5"
+    },
+    {
+      "path": "src/protomotions/agents/peft/prior_setup.py",
+      "sha256": "009cd21c7df8042a7094bb4a85fbee3ef8689b6832ba8b2d41799b93b99ccc23"
+    },
+    {
+      "path": "src/protomotions/agents/peft/prior_with_peft.py",
+      "sha256": "3416c887466190bc3bb21f5af9b42cc83737f6425abc2895adc86e068d301ea3"
+    },
+    {
+      "path": "src/protomotions/agents/peft/sft_agent.py",
+      "sha256": "f1ba3663cc473794da500ded97c58fb5bbf268d0d6ab2147b10313e74688a05c"
+    },
+    {
+      "path": "src/protomotions/agents/peft/sft_model.py",
+      "sha256": "dd1e725bb8699b11299b4d76d6658d521d6079240fe15801108711c429ea2cac"
+    },
+    {
+      "path": "src/protomotions/agents/peft/utils/__init__.py",
+      "sha256": "b9aa2507a101bdd1788ffa6e7c5392abf0e75b159993ed89a3e7f282ed9f77d7"
+    },
+    {
+      "path": "src/protomotions/agents/peft/utils/adapter_state.py",
+      "sha256": "5789125f43a34b04346238e3bb90959a6a1704036e8ef6ef5c540579d18f60fe"
+    },
+    {
+      "path": "src/protomotions/agents/peft/utils/frozen_prior_checkpoint.py",
+      "sha256": "bb91daf7895ddce8c7002da84ef2b85e9f416a5053c8f56edb8ff4aec8d58a14"
+    },
+    {
+      "path": "src/protomotions/agents/peft/utils/frozen_prior_contract.py",
+      "sha256": "32dfd38616034ecfd3b2810cfee12f9e7057533680b450e5b97da21b8a530175"
+    },
+    {
+      "path": "src/protomotions/agents/peft/utils/model_state.py",
+      "sha256": "ba61ef7839feb163f0b0219e34c2bf229e151e3eb2d5c7fde0ffdd93ff2fad0a"
+    },
+    {
+      "path": "src/protomotions/agents/ppo/__init__.py",
+      "sha256": "5170ae034a60d1bdec9096dbc6afae408dca34811091aff4a8ad085388d8239a"
+    },
+    {
+      "path": "src/protomotions/agents/ppo/agent.py",
+      "sha256": "0e2798c0ab17c8a4c7be793cb9577c58503358150ea9b38f5ac89cf0b06103f7"
+    },
+    {
+      "path": "src/protomotions/agents/ppo/config.py",
+      "sha256": "882a7516e67dc4af72295e090344fefc94cf3959082e6e8f5d2acf9db25b17a8"
+    },
+    {
+      "path": "src/protomotions/agents/ppo/model.py",
+      "sha256": "7a00ff937bce4db83a982261e2e8432a6542a5b8c757837118b75eb8d887927f"
+    },
+    {
+      "path": "src/protomotions/agents/ppo/utils.py",
+      "sha256": "41e7bfde0046431c8daa49f93cd915befa372f3e0c8275775f97dc7a80b34f9a"
+    },
+    {
+      "path": "src/protomotions/agents/supervised/__init__.py",
+      "sha256": "ec1aae7fc1cedfa068672997ec48c2b04797014df96e9166913da9ec5efaf1ca"
+    },
+    {
+      "path": "src/protomotions/agents/supervised/agent.py",
+      "sha256": "26c6533640df71d0e910109cad88a657d640fc2fffa9f93c8454a7b892e82fc1"
+    },
+    {
+      "path": "src/protomotions/agents/supervised/config.py",
+      "sha256": "a545ac32f6f92c552e3936c57de1d7a1a4a1ec0ad74b37e4e7f6d90d4a58c9bc"
+    },
+    {
+      "path": "src/protomotions/agents/supervised/expert_utils.py",
+      "sha256": "76ec6b96f3199c1c7853c38d7c27d2a3bf170d5406cb6c8e18d6293b4f75a758"
+    },
+    {
+      "path": "src/protomotions/agents/supervised/latent_prior_config.py",
+      "sha256": "16b4944a35b6176a49e73d0ee8c37b6ba39a5948d369f07767a05a3115315ee2"
+    },
+    {
+      "path": "src/protomotions/agents/supervised/latent_prior_model.py",
+      "sha256": "ec64804c98b7dd90b23f7cc777982962792ed39351de02a3f50fe0a72dc29e8b"
+    },
+    {
+      "path": "src/protomotions/agents/supervised/masked_mimic_config.py",
+      "sha256": "efd7ed35a728bbaae48c28c3745633460d6c4294247f5ef62779573095c4c772"
+    },
+    {
+      "path": "src/protomotions/agents/supervised/masked_mimic_model.py",
+      "sha256": "503b8e9f96a12a77f3c4d91539575414bc1bb9b8bc5d884e6285247450b702e4"
+    },
+    {
+      "path": "src/protomotions/agents/utils/__init__.py",
+      "sha256": "5cb3b4f448bc834954ee1625cca0af86f4212c505ee42070138bf63ea2bdc566"
+    },
+    {
+      "path": "src/protomotions/agents/utils/data.py",
+      "sha256": "a9aff627982ebcaf8503fd380a55811209e51b2714c9e0ca225e9604aff62b40"
+    },
+    {
+      "path": "src/protomotions/agents/utils/distributed.py",
+      "sha256": "e0fd42afdd2d20243378917c1c9a79291bf4193bfaa67e1e18ec064f89339c43"
+    },
+    {
+      "path": "src/protomotions/agents/utils/metering.py",
+      "sha256": "e7f8b7b2ef0d87d82471902bffcfc87ebb19e745b2a137e01b1d952c413b747a"
+    },
+    {
+      "path": "src/protomotions/agents/utils/normalization.py",
+      "sha256": "4972b2704ec0949b15257be8c62a9ac97195df1ba68f306c2e6849aa784c69a3"
+    },
+    {
+      "path": "src/protomotions/agents/utils/replay_buffer.py",
+      "sha256": "914dddacec8c26b849f4366c739223766b86faea6dd031449570dc0117514bef"
+    },
+    {
+      "path": "src/protomotions/agents/utils/step_tracker.py",
+      "sha256": "770e640a7ae76a509aa8f95a3c6151c257d267f7eed6f1cd58f2087d92d1b9a0"
+    },
+    {
+      "path": "src/protomotions/agents/utils/training.py",
+      "sha256": "bd78a3a0056e9d0e1e3ff4cf5c50fcba7537b0e7d1eb54bd631a599634271977"
+    },
+    {
+      "path": "src/protomotions/assets.py",
+      "sha256": "b96224581c15cc8a4ffd8a804063011c927a0ecc161c7decafaf316fab84a6e5"
+    },
+    {
+      "path": "src/protomotions/cli.py",
+      "sha256": "fb0a8f749f221518c4b056d0b187eb1dc8d18ce068df636c19bf7e43bb5b1d4d"
+    },
+    {
+      "path": "src/protomotions/components/__init__.py",
+      "sha256": "5cb3b4f448bc834954ee1625cca0af86f4212c505ee42070138bf63ea2bdc566"
+    },
+    {
+      "path": "src/protomotions/components/motion_lib.py",
+      "sha256": "7f6d1e71ab18d627efc7d3afe2c4e73fb9e0268dcfedced3ddec48baa5e5d5d9"
+    },
+    {
+      "path": "src/protomotions/components/pose_lib.py",
+      "sha256": "92be5981cc26c225208067811de08bdc0bfe50ccb6704ea4a4536fe0e476b239"
+    },
+    {
+      "path": "src/protomotions/components/scene_lib.py",
+      "sha256": "344933acec8c9b1bcf1b0229244e2341b3312e8ba8bf4fee19f56299d535e873"
+    },
+    {
+      "path": "src/protomotions/components/terrains/__init__.py",
+      "sha256": "5cb3b4f448bc834954ee1625cca0af86f4212c505ee42070138bf63ea2bdc566"
+    },
+    {
+      "path": "src/protomotions/components/terrains/config.py",
+      "sha256": "498fc6dfe21ef6249bd9dc3fe773e214c519fd2e2c38be97c7f9cce43b649c0e"
+    },
+    {
+      "path": "src/protomotions/components/terrains/shape_utils.py",
+      "sha256": "957ae946faf8ff7e823881c8708ee7c614e2d3e60a4a2ab65177e9a9dccccca5"
+    },
+    {
+      "path": "src/protomotions/components/terrains/subterrain.py",
+      "sha256": "b1ea2dde472d4445eb73aebc86524a7f4f66b1b6bc2f070c30c06984da786246"
+    },
+    {
+      "path": "src/protomotions/components/terrains/subterrain_generator.py",
+      "sha256": "309b3af644669866992e3f36075c375c2e1a0033b7d940eed6e05008d608fe6f"
+    },
+    {
+      "path": "src/protomotions/components/terrains/terrain.py",
+      "sha256": "dfe3744364862dbd2375e8fbd55594d095257a823ab8a88eafaa1bd4e2827f94"
+    },
+    {
+      "path": "src/protomotions/components/terrains/terrain_utils.py",
+      "sha256": "04e2d25b795c48a73076c9914b458180fc471f0269946ee3f99898ca5e55950a"
+    },
+    {
+      "path": "src/protomotions/data/assets/checkerboard/create_checkerboard_texture.py",
+      "sha256": "7d7a120dcb24ed88c8930af214edc53483ef0de9d0ce8d253f67bbfc2b9d244a"
+    },
+    {
+      "path": "src/protomotions/envs/__init__.py",
+      "sha256": "4c1912821081fcf4a33dcffd9abc71acc48114f880cf5034f0a3b29fa6e2aeb0"
+    },
+    {
+      "path": "src/protomotions/envs/action/__init__.py",
+      "sha256": "38b9d494dda3c8da0f9b14e966a98b724e56e151c6a110c5aabde7d082da0fb8"
+    },
+    {
+      "path": "src/protomotions/envs/action/action_functions.py",
+      "sha256": "bc06c792178e5d6921fc3fb39aae71859c92183ead729db93cfd291db06ea299"
+    },
+    {
+      "path": "src/protomotions/envs/base_env/__init__.py",
+      "sha256": "d855f5a05621a88ee959ece36ecf5fc1edb93d8be355de56afdc20efc29d66c8"
+    },
+    {
+      "path": "src/protomotions/envs/base_env/config.py",
+      "sha256": "a6e41689de11f32526131dedadae39ea9d2d049013ace8e8d508ddc63dc152ce"
+    },
+    {
+      "path": "src/protomotions/envs/base_env/env.py",
+      "sha256": "2eba83d1adfbd45c10cecd33bfbb0f7ed8c9ec117a689d25700439aecc8d5040"
+    },
+    {
+      "path": "src/protomotions/envs/base_env/utils.py",
+      "sha256": "cf19972b59dd634a936edd50c717656796d0b0f32d8b23f8c7491b81373dd839"
+    },
+    {
+      "path": "src/protomotions/envs/component_factories.py",
+      "sha256": "4a69244cf4694233cc195a23344b1dd85c02583d05516f73b2d5cf672c151e94"
+    },
+    {
+      "path": "src/protomotions/envs/component_manager.py",
+      "sha256": "ccc8bd4ad963bbce2df59a96bfdcc37b76d794fc1e21bff43dec6aa533a87e12"
+    },
+    {
+      "path": "src/protomotions/envs/context_paths.py",
+      "sha256": "e1e319dbc7d79a6c933691cd61c5be7d9a6b944915831bea9b3660ba3c029f71"
+    },
+    {
+      "path": "src/protomotions/envs/context_views.py",
+      "sha256": "e1edccb036db5f2be7760839b5534ae9771dedcd245550f83973f708e35c04be"
+    },
+    {
+      "path": "src/protomotions/envs/control/__init__.py",
+      "sha256": "5cb3b4f448bc834954ee1625cca0af86f4212c505ee42070138bf63ea2bdc566"
+    },
+    {
+      "path": "src/protomotions/envs/control/base.py",
+      "sha256": "ee1d1f867efd09501fcb667fe0a8a7125058d38a92c23e9830d5e0f00386dbdb"
+    },
+    {
+      "path": "src/protomotions/envs/control/external_kinematic_control.py",
+      "sha256": "37444302daa4e48339e4ee5d45b90c07818ac2b12b909b9d4dbd92fc3750282f"
+    },
+    {
+      "path": "src/protomotions/envs/control/gpc_sft_reference_target_control.py",
+      "sha256": "4f0a8e331e078822f699780045940e510702405b908367934ecb9bd4a1831684"
+    },
+    {
+      "path": "src/protomotions/envs/control/kinematic_replay_control.py",
+      "sha256": "9d1798365fa62e316f060fc0b0349412bda68a5cf318684822637d729580c8f6"
+    },
+    {
+      "path": "src/protomotions/envs/control/manager.py",
+      "sha256": "466a7806db96520543e0431aa549cebacf5cdc5d1e357838f2ffaebe05fcc93f"
+    },
+    {
+      "path": "src/protomotions/envs/control/masked_mimic_control.py",
+      "sha256": "a75ba1b276be98e3fb8946d07d8df9b6186dde91a05afc1a28a14dc2f4840ace"
+    },
+    {
+      "path": "src/protomotions/envs/control/mimic_control.py",
+      "sha256": "31e484c9f88cb149bb17eca3f7bbb30866a02fb7dea83ccbf2f47ea446afd305"
+    },
+    {
+      "path": "src/protomotions/envs/control/path_follower_control.py",
+      "sha256": "d5829636260ac5869a6b51120af9336db217014ed1058a1e883039d84ce0a119"
+    },
+    {
+      "path": "src/protomotions/envs/control/steering_control.py",
+      "sha256": "fc9c6487ee728a7ae914f35b2ce08385e7ed68d8ff2e759fe8bfd04ca3f69234"
+    },
+    {
+      "path": "src/protomotions/envs/control/target_control.py",
+      "sha256": "e0d993bca1f13957d6a953fe0c596af20e030604bdd124999aef6140775eaedb"
+    },
+    {
+      "path": "src/protomotions/envs/mdp_component.py",
+      "sha256": "a03220fcab26144dfb8d6f8c16222a00e8e2f95553c88ccc7b01f8b7228ac231"
+    },
+    {
+      "path": "src/protomotions/envs/motion_manager/__init__.py",
+      "sha256": "5cb3b4f448bc834954ee1625cca0af86f4212c505ee42070138bf63ea2bdc566"
+    },
+    {
+      "path": "src/protomotions/envs/motion_manager/config.py",
+      "sha256": "698e733ab07e2bb4c9f7439b1c6c332422f27b75a837299d70a5bae9ec1176bd"
+    },
+    {
+      "path": "src/protomotions/envs/motion_manager/mimic_motion_manager.py",
+      "sha256": "a16f4a2597a6af14fb870fc321b10786d518ce95e3861f6d988e1071bb6b42fc"
+    },
+    {
+      "path": "src/protomotions/envs/motion_manager/motion_manager.py",
+      "sha256": "bdb85b5b767fb2cf208aa3d1273672cfb99464075abc38aac73573d20e261605"
+    },
+    {
+      "path": "src/protomotions/envs/obs/__init__.py",
+      "sha256": "052fcff1dda6da487bc256e688f24f43a47a20c35435a226a1a4b4042f8b5060"
+    },
+    {
+      "path": "src/protomotions/envs/obs/humanoid.py",
+      "sha256": "2bcf28b38e854e8d5495d14c8ef1847bf84b1cee5958dd59299ab354c6fe43cb"
+    },
+    {
+      "path": "src/protomotions/envs/obs/humanoid_historical.py",
+      "sha256": "b26a737895077f52373a1cad1d110f1de5b8be7540ba963a8a057c541e8e0df9"
+    },
+    {
+      "path": "src/protomotions/envs/obs/masked_mimic.py",
+      "sha256": "aa0d2fd09d0adee2f32ceba021377472085080e32e1dfca0cf5d2c41d039295c"
+    },
+    {
+      "path": "src/protomotions/envs/obs/nearest_surface_obs.py",
+      "sha256": "ae98ac59074e3a01f1892c53870a48c9d731f20a8b1280c6cb420d673de35510"
+    },
+    {
+      "path": "src/protomotions/envs/obs/observation_noise.py",
+      "sha256": "bc64ae846f7b608896422725ba333365bd4e9f17c6733a1f73496e7c4b59a53e"
+    },
+    {
+      "path": "src/protomotions/envs/obs/path.py",
+      "sha256": "45e0d96b893f337521c0846f7454f390dd14af0594703fa6e457124de5ad1e02"
+    },
+    {
+      "path": "src/protomotions/envs/obs/prior.py",
+      "sha256": "70834656d237889f2349b9fe7f474d36f0f469bc27e52b9fd578c3e2a7e7ccc2"
+    },
+    {
+      "path": "src/protomotions/envs/obs/scene_obs.py",
+      "sha256": "5306165056ad7863cd28c765176a3087ad11d3ca98736ad6ffbcb13c6281b58f"
+    },
+    {
+      "path": "src/protomotions/envs/obs/state_history_buffer.py",
+      "sha256": "d9500f321cf869bd9332fdb37ad28d0f4eaba4471cd555eb57f52f7d5c5b4ac3"
+    },
+    {
+      "path": "src/protomotions/envs/obs/steering.py",
+      "sha256": "c18269fa64dcf320f6b4c5b26cca45f95301ea7a95741f670b8a871bbda09340"
+    },
+    {
+      "path": "src/protomotions/envs/obs/target.py",
+      "sha256": "a5689190cae5230b37b91c0a8e7dd5050eeba2967459a02dcf492e1a07b62c04"
+    },
+    {
+      "path": "src/protomotions/envs/obs/target_poses.py",
+      "sha256": "9ba24d3c5662810847c8eeaba04c4259d2401f7253245479c0f437999a90b002"
+    },
+    {
+      "path": "src/protomotions/envs/obs/terrain_obs.py",
+      "sha256": "41a2138075d0b0555a40233d4f22cf97faabc09c4237ca398af4a03e6873d60c"
+    },
+    {
+      "path": "src/protomotions/envs/obs/utils.py",
+      "sha256": "0df8325dd8b3107cae7cdf35885a031b345f206dd7fa91b7d493c7bf7256d27f"
+    },
+    {
+      "path": "src/protomotions/envs/rewards/__init__.py",
+      "sha256": "9eeddb63f12f70ccf59b598ac35da409c145b5f39570210cfb751c4dbfa3ca92"
+    },
+    {
+      "path": "src/protomotions/envs/rewards/base.py",
+      "sha256": "c53a40eba54bdc1fefe3812efe3641a454dbed06b3816b09c35c70795c52fd6a"
+    },
+    {
+      "path": "src/protomotions/envs/rewards/regularization.py",
+      "sha256": "816342d181e2b8187d15d07852bf7a5069ed914ec9d5f7f4a96f1967cbdb2f6a"
+    },
+    {
+      "path": "src/protomotions/envs/rewards/task.py",
+      "sha256": "2e4549ea37d86509b115684f745f716ad36105969483e9af90b2a73bab06b22c"
+    },
+    {
+      "path": "src/protomotions/envs/rewards/tracking.py",
+      "sha256": "fe53f5514bc5f636d6dfe498c60f6787130402ab198e0f9b7045ef2e30990d37"
+    },
+    {
+      "path": "src/protomotions/envs/terminations/__init__.py",
+      "sha256": "088483d773cf13ff56d6f7cbb6569159b903f7cfa344ce2e66bfb0db732c015c"
+    },
+    {
+      "path": "src/protomotions/envs/terminations/base.py",
+      "sha256": "3cc1468bace01f62814d7be05307a7b636816c68e4a95491d07042613547ee00"
+    },
+    {
+      "path": "src/protomotions/envs/terminations/task.py",
+      "sha256": "5df7f60de26ea0f5d29cc3261f42867db6af98a51ede20badd13df857d02e227"
+    },
+    {
+      "path": "src/protomotions/envs/terminations/tracking.py",
+      "sha256": "4bacef0a915b36c960030759cb101e2ca52880c19cffebe34892dbfe7c97499e"
+    },
+    {
+      "path": "src/protomotions/envs/utils/__init__.py",
+      "sha256": "28ca5f47cb81c13faef8e3809b5f98b9708dbf084a51000bf761b71b7bc4668f"
+    },
+    {
+      "path": "src/protomotions/envs/utils/path_generator.py",
+      "sha256": "0bfab699205cbf6ed562271b69e27085e59d294078e0d085ca3c5870ff1618eb"
+    },
+    {
+      "path": "src/protomotions/envs/utils/scene.py",
+      "sha256": "99aa2d3d1cc753c75c1db934c1cc7a44fa913b67c65f81fa8f6d50af337bb143"
+    },
+    {
+      "path": "src/protomotions/inference_agent.py",
+      "sha256": "3bd1b4e0401905d873183b15578c5298387d90a93fae61cdf346cd26c95cf8a1"
+    },
+    {
+      "path": "src/protomotions/repository.py",
+      "sha256": "58b5743fcc410ffee18178730012c4d87d74db8dd4eb7a42b90b66531c970044"
+    },
+    {
+      "path": "src/protomotions/robot_configs/__init__.py",
+      "sha256": "e47b2e46f8f5bd8c377a6addbf552be57e0a58f04692710b3ac42c6b4744253a"
+    },
+    {
+      "path": "src/protomotions/robot_configs/amp.py",
+      "sha256": "8bd88e40df7a3343dd15f78cc6a8930d87d2516201294f32d718b897613fbe8f"
+    },
+    {
+      "path": "src/protomotions/robot_configs/base.py",
+      "sha256": "d211a1b7bd40d5ff1fde1c148ecc266fd10a37065181afc09a1138598c897ad5"
+    },
+    {
+      "path": "src/protomotions/robot_configs/factory.py",
+      "sha256": "4c8603243216ca955f93c4aba30f7868620a281f408456c368525f8f5babd672"
+    },
+    {
+      "path": "src/protomotions/robot_configs/g1.py",
+      "sha256": "a2bb8f47cffdfcdbd3c9a5d2e73892d99aa11e9307f0be26a7545dfa346b961d"
+    },
+    {
+      "path": "src/protomotions/robot_configs/h1_2.py",
+      "sha256": "e445ffab745be0413082634b358a9eb39411a4ea8c164a315f02f9d94ed99250"
+    },
+    {
+      "path": "src/protomotions/robot_configs/rigv1.py",
+      "sha256": "d9e1f729e69f352c68b71aa915c923ddd30cb7d1d0e18637e87d8bb85a6c7c64"
+    },
+    {
+      "path": "src/protomotions/robot_configs/smpl.py",
+      "sha256": "505e6e909f5b36a93e5449c75ee10a87b11ce30a4f2052a965ac65d273ae7b2e"
+    },
+    {
+      "path": "src/protomotions/robot_configs/smplx.py",
+      "sha256": "a436ffc6db9ef3d7c5698a021f0838e1ed406cb1a3960701a44dde10523d0073"
+    },
+    {
+      "path": "src/protomotions/robot_configs/soma23.py",
+      "sha256": "595cd087e0f701f6b231866e3b14cc8cb07069b125c0b60973d1e23a445b2c61"
+    },
+    {
+      "path": "src/protomotions/simulator/__init__.py",
+      "sha256": "9d5c459ee656dcf65855629b281b995fbe9e594817e961969629c032fcfe8139"
+    },
+    {
+      "path": "src/protomotions/simulator/base_simulator/__init__.py",
+      "sha256": "5cb3b4f448bc834954ee1625cca0af86f4212c505ee42070138bf63ea2bdc566"
+    },
+    {
+      "path": "src/protomotions/simulator/base_simulator/config.py",
+      "sha256": "d63e2190d184d6faf40a8f72d88b9736afd2cd5d373e51ab51c19efc6af8788d"
+    },
+    {
+      "path": "src/protomotions/simulator/base_simulator/record.py",
+      "sha256": "e857e0402c62dd5721e7b1e240a22ba6f82fb83bd6ed7769dad2957a6c5b35d3"
+    },
+    {
+      "path": "src/protomotions/simulator/base_simulator/simulator.py",
+      "sha256": "6b080dd1b63885e34fcad523b8468ab6b63e838a3eaac765e7a230a2ca3ac782"
+    },
+    {
+      "path": "src/protomotions/simulator/base_simulator/simulator_state.py",
+      "sha256": "31cf14fab319151602f43fcf6ad2751b71088cda3a3f4feefadfa61262102731"
+    },
+    {
+      "path": "src/protomotions/simulator/base_simulator/user_interface.py",
+      "sha256": "a8fbd51e4ca3c6df7f7376ce9c9202cc90e45492a1a049a501169464ad5450c2"
+    },
+    {
+      "path": "src/protomotions/simulator/base_simulator/utils.py",
+      "sha256": "1528e18139ce3d9eb9ef0055f69af53a88862de522a86f118fa68aa0b378dfc5"
+    },
+    {
+      "path": "src/protomotions/simulator/factory.py",
+      "sha256": "edcda3f4b062403f92b02483dc444482381ce73c50580b443b1bc9524cdd88b4"
+    },
+    {
+      "path": "src/protomotions/simulator/genesis/__init__.py",
+      "sha256": "5cb3b4f448bc834954ee1625cca0af86f4212c505ee42070138bf63ea2bdc566"
+    },
+    {
+      "path": "src/protomotions/simulator/genesis/config.py",
+      "sha256": "a3ca6b37abe17fb62c8b14b7714fda31d0d31a61b4e5b21b7b32ebe7dc2d1b9f"
+    },
+    {
+      "path": "src/protomotions/simulator/genesis/simulator.py",
+      "sha256": "02059dbe5a7beddf861ce7e54cb53d405f44d884544f16c7dccfb160ed1a3534"
+    },
+    {
+      "path": "src/protomotions/simulator/isaacgym/__init__.py",
+      "sha256": "5cb3b4f448bc834954ee1625cca0af86f4212c505ee42070138bf63ea2bdc566"
+    },
+    {
+      "path": "src/protomotions/simulator/isaacgym/config.py",
+      "sha256": "f48fe4dbbbfa9506427d23f9f0fa704b00eb8c3a74595328eeb02e786a96c36e"
+    },
+    {
+      "path": "src/protomotions/simulator/isaacgym/simulator.py",
+      "sha256": "06cb4abf90117afca8c0b1df2c811c4f152bdfce0ac10b970c100604332dc4c9"
+    },
+    {
+      "path": "src/protomotions/simulator/isaaclab/__init__.py",
+      "sha256": "5cb3b4f448bc834954ee1625cca0af86f4212c505ee42070138bf63ea2bdc566"
+    },
+    {
+      "path": "src/protomotions/simulator/isaaclab/config.py",
+      "sha256": "67682326c12f9fbc9887c4a87256bb36cac0e46ed77ac04bd3fb7320c3ac6db7"
+    },
+    {
+      "path": "src/protomotions/simulator/isaaclab/simulator.py",
+      "sha256": "8cd33819027fb13b457be8ee725eae6bd6bd013036add6359b3fa734634345b1"
+    },
+    {
+      "path": "src/protomotions/simulator/isaaclab/utils/__init__.py",
+      "sha256": "5cb3b4f448bc834954ee1625cca0af86f4212c505ee42070138bf63ea2bdc566"
+    },
+    {
+      "path": "src/protomotions/simulator/isaaclab/utils/actuator_groups.py",
+      "sha256": "1de8f8483a407128d3bddf5df713919dbf62dad5513c55746ca9b5a2f752af3a"
+    },
+    {
+      "path": "src/protomotions/simulator/isaaclab/utils/collision_baking.py",
+      "sha256": "db2026bb310adc06a9f4cac5e8d5b5acce138f8bd6a523e9ce8c589f2e2cd0e2"
+    },
+    {
+      "path": "src/protomotions/simulator/isaaclab/utils/materials.py",
+      "sha256": "6429662119c0b0cc29edb6c5f89b1170739b5a3c261a9f8a1dcd255345e45e8d"
+    },
+    {
+      "path": "src/protomotions/simulator/isaaclab/utils/mjcf_d6_workaround.py",
+      "sha256": "9e1ee16aa5d3646e4eb4ba3e10060b7537063185fe9450a3612ed53d143ef371"
+    },
+    {
+      "path": "src/protomotions/simulator/isaaclab/utils/mjcf_to_usd.py",
+      "sha256": "e472e2397a26b20ae90700ab1e7a68dc4cbe4293c0fe90f4c3265c415f351f57"
+    },
+    {
+      "path": "src/protomotions/simulator/isaaclab/utils/perspective_viewer.py",
+      "sha256": "800e146cfe22abd39f4515f260a5f19938100dcbd31c402d3568445736173c47"
+    },
+    {
+      "path": "src/protomotions/simulator/isaaclab/utils/runtime_compat.py",
+      "sha256": "3df68767c1001bfe696bace9636bda28bd326a3a1fe83736ce6d921b9a7ac164"
+    },
+    {
+      "path": "src/protomotions/simulator/isaaclab/utils/scene.py",
+      "sha256": "3fcf83158b29c998971ee59f9e7370183fda9ad6f892a5d8ffc5d5bca79fff51"
+    },
+    {
+      "path": "src/protomotions/simulator/isaaclab/utils/sdk61_owned_close.py",
+      "sha256": "8c91e50e665fee2b8b52fa7ad7b6b4eb9972bb74fdec701cafcc4baa0181e7a5"
+    },
+    {
+      "path": "src/protomotions/simulator/isaaclab/utils/usd_body_paths.py",
+      "sha256": "ddc13ca4f74a3a5722a89b4cc242d77c3f43d2d3212f8b1a7d6c6fa7c0572bca"
+    },
+    {
+      "path": "src/protomotions/simulator/isaaclab/utils/usd_only_scene.py",
+      "sha256": "2351bcff82e5be991aa0ae6509b50d53f54c48592c3f06f9978f5e82873f9c35"
+    },
+    {
+      "path": "src/protomotions/simulator/isaaclab/utils/usd_utils.py",
+      "sha256": "7e1d0776f8bfa7b5aeac216f4bbb54c5d44191de70d3320ab816c09d314a11ec"
+    },
+    {
+      "path": "src/protomotions/simulator/mujoco/__init__.py",
+      "sha256": "2b35983e7bf519bb5f56be1663047e4f72fe897381b5897c68dbbc5d40060c9a"
+    },
+    {
+      "path": "src/protomotions/simulator/mujoco/config.py",
+      "sha256": "b876dfc190abfe9448334d91e6364df52139c97aa1275d3b8938bcffbec1a3c3"
+    },
+    {
+      "path": "src/protomotions/simulator/mujoco/keyboard.py",
+      "sha256": "2b0f474f065bbfe7b0e858b58bcc2f4dbc23c18a646c6f1df0aea4845f48f4b4"
+    },
+    {
+      "path": "src/protomotions/simulator/mujoco/simulator.py",
+      "sha256": "313a3c5627ff95f840f03b1b062567eabdb85826025d790199affb08bb80289f"
+    },
+    {
+      "path": "src/protomotions/simulator/newton/__init__.py",
+      "sha256": "5cb3b4f448bc834954ee1625cca0af86f4212c505ee42070138bf63ea2bdc566"
+    },
+    {
+      "path": "src/protomotions/simulator/newton/api_compat.py",
+      "sha256": "724e0aa8e1e99eda6744c2419a6e286090cce351d05ea3c40a4245fa67734bdf"
+    },
+    {
+      "path": "src/protomotions/simulator/newton/config.py",
+      "sha256": "757896b9f787ec0f3d2365ee7a24524fd6c1102b24f665543521d8cab3fd7889"
+    },
+    {
+      "path": "src/protomotions/simulator/newton/contact_utils.py",
+      "sha256": "871d970bd21072defbfa028cfefe3157eaf23313e0bf4b38212657463cbc08b6"
+    },
+    {
+      "path": "src/protomotions/simulator/newton/randomization_utils.py",
+      "sha256": "0588653550b77e03e6b977f5d50ed488c0dc84ba6ee41cef79b750af6fc0abb4"
+    },
+    {
+      "path": "src/protomotions/simulator/newton/simulator.py",
+      "sha256": "57940ae53a535c2bf4665963bc7713b66f39d18ceb54649f4e3949a20f3ded2a"
+    },
+    {
+      "path": "src/protomotions/train_agent.py",
+      "sha256": "516bef8915b78e01d74a92bdc548301b024dbd4c489380d800be1f9337f9f0d8"
+    },
+    {
+      "path": "src/protomotions/train_lepton.py",
+      "sha256": "a2eac738a1a5e5ae64e1218dd8749a14e08382ff6d0af20c90e3e778beed08a2"
+    },
+    {
+      "path": "src/protomotions/train_slurm.py",
+      "sha256": "ef325298f38d13b85646743b03e2a4051d289998d15ada45916bec3daa01c6f3"
+    },
+    {
+      "path": "src/protomotions/utils/__init__.py",
+      "sha256": "5cb3b4f448bc834954ee1625cca0af86f4212c505ee42070138bf63ea2bdc566"
+    },
+    {
+      "path": "src/protomotions/utils/baked_fk.py",
+      "sha256": "6dd2a03e91fcdd756bdc2d6bd53a64aec93a001c75996a6c043052672724b09a"
+    },
+    {
+      "path": "src/protomotions/utils/checkpoint.py",
+      "sha256": "97aeed515c33ab1271c21ba7fbc0f5ab81cdfdb5005f20109fda673cd0570984"
+    },
+    {
+      "path": "src/protomotions/utils/cli_utils.py",
+      "sha256": "d75d7ea5a973cbf2d95be4a0f1a5cf5e94635da7481c8e8076a2af5e19a7bc13"
+    },
+    {
+      "path": "src/protomotions/utils/component_builder.py",
+      "sha256": "8c8239ee2b146ea40b413ffb18bf379883ccd41797b09bbaaf1624b358992071"
+    },
+    {
+      "path": "src/protomotions/utils/config_builder.py",
+      "sha256": "109aa628e0acd5430c79886a81e001231a52c44e928a635496ac721ee38c20aa"
+    },
+    {
+      "path": "src/protomotions/utils/config_utils.py",
+      "sha256": "fb39cf4d8c98af52cb216e31bddf5b421e06f8614ffad10725eb468efc40c198"
+    },
+    {
+      "path": "src/protomotions/utils/export_utils.py",
+      "sha256": "46d726f30315528da45170a4ee93830e908f630130a85fd67f798aada10b323d"
+    },
+    {
+      "path": "src/protomotions/utils/fabric_config.py",
+      "sha256": "7fbb62793fdb28a65804ebfa97cb8041a3e7ddde935fde522e4b5846775c5ef1"
+    },
+    {
+      "path": "src/protomotions/utils/hydra_replacement.py",
+      "sha256": "1c9a6cb7fea866705a7eee98c555b36de5a81339c70a6709b897eaf88a876ea5"
+    },
+    {
+      "path": "src/protomotions/utils/inference_utils.py",
+      "sha256": "d79d4bda6da6bef899702a8498a0e606a3a86a2594b4d5dfec4770c50fc8e8b6"
+    },
+    {
+      "path": "src/protomotions/utils/mesh_utils.py",
+      "sha256": "9722614022ed2957881318994825e1c5bff9bd25eed6b47a4eeb295f81e1050d"
+    },
+    {
+      "path": "src/protomotions/utils/motion_interpolation_utils.py",
+      "sha256": "5de11616661e0dd70e858b3bb009ba1c5fd10435cd36ae6938d728070b147f9e"
+    },
+    {
+      "path": "src/protomotions/utils/odom_corruption.py",
+      "sha256": "8f24fae52c7d2748862db9f225bf69fd7a94c22f861cc7b0b1c6bed85ee3fcde"
+    },
+    {
+      "path": "src/protomotions/utils/pretrained_compat.py",
+      "sha256": "f8a0d80988885eab03c93d520ed6d8ec9c5b2e753a90901982a2fc98329e362f"
+    },
+    {
+      "path": "src/protomotions/utils/retargeting_fps.py",
+      "sha256": "fd06ce603a92e7230fd1db633e6a1ee9d7ccf3763a5cfc6210bc86b13dc3dc0c"
+    },
+    {
+      "path": "src/protomotions/utils/robot_heading.py",
+      "sha256": "57906313985933964fddc178209c3d7968f509dce6926abd1c8d843a1c3d7797"
+    },
+    {
+      "path": "src/protomotions/utils/rotations.py",
+      "sha256": "ef1475d33d6f941ccdea4a612477483db4fad8236ba7786fbe8bf91a65c1cef8"
+    },
+    {
+      "path": "src/protomotions/utils/simulator_imports.py",
+      "sha256": "7f236c0a5bd071996437ce1298c7911975a1527bea5a33bad61d68f7724918e8"
+    },
+    {
+      "path": "src/protomotions/utils/torch_utils.py",
+      "sha256": "74bea5066a0f8a9315d737a5ef3462cd3940abf24e8dbc84ffa64c07d3ca7968"
+    },
+    {
+      "path": "src/social_navigation/__init__.py",
+      "sha256": "b1064eb9fcae08d53f4dc355633a91e980293e2f06d36c7129ff08a9074aca2e"
+    },
+    {
+      "path": "src/social_navigation/__main__.py",
+      "sha256": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d"
+    },
+    {
+      "path": "src/social_navigation/artifact_identity.py",
+      "sha256": "d15c4af33ee1d5937981a6a82e72bc101692804bd0207ae447b2d99a119d64bc"
+    },
+    {
+      "path": "src/social_navigation/asset_release.py",
+      "sha256": "4eed9e5765db04e2a416d74ce3798e65e840731ae093e5c30ed260a6052fbf1d"
+    },
+    {
+      "path": "src/social_navigation/cli.py",
+      "sha256": "f2acef8f7254a8b15e9d256683a28256c0c6ffaa28b28f02fa034630d2c54803"
+    },
+    {
+      "path": "src/social_navigation/external_runtime.py",
+      "sha256": "f8b76647f345862bb7cf75f134469ef9756969aaecf9924ea844060a879f66a9"
+    },
+    {
+      "path": "src/social_navigation/paths.py",
+      "sha256": "3d33fe66cd0b8760c2ad6ee8e390e88bd2d32606283c5c1b79bc3cda9443f111"
+    },
+    {
+      "path": "src/social_navigation/portable_usd.py",
+      "sha256": "a72a52ee08d5341f322b01907cd8ba407e5fc582399ad1bfd686c4b4e320a7b3"
+    },
+    {
+      "path": "src/social_navigation/preflight.py",
+      "sha256": "9bc4971a1033adaff13d9ab42c8b02e5622d0d6bf2fc0d118dc97c0be5ad2601"
+    },
+    {
+      "path": "src/social_navigation/reproduction.py",
+      "sha256": "9457f407b16d4894a12507ef7653141fb56fb00847e6dbfc5591074e4213c2f0"
+    },
+    {
+      "path": "src/social_navigation/resource_bindings.py",
+      "sha256": "ee711511624c6b5c399c5b2cb11ce4908a3522feb97c9d7ccff765fc47d12461"
+    },
+    {
+      "path": "src/social_navigation/runtime_environment.py",
+      "sha256": "e2fa68eb552fd4883f422a7a41fe29bae2f2348c3804977b18c14363d47b5b60"
+    },
+    {
+      "path": "src/social_navigation/sdk_paths.py",
+      "sha256": "a8e667613e8c56cd4504f30404300f1a267f0ffe09d6b3972a820bbd987ab4f7"
+    },
+    {
+      "path": "src/social_navigation/serialized_bank.py",
+      "sha256": "687a580d3af86ba48effcdc678f9b53bb51d25e193d3cd9f3c304c510661e2d6"
+    }
+  ]
+}

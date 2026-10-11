@@ -24,12 +24,18 @@ def manifest():
     if record(MANIFEST)["sha256"] != MANIFEST_SHA or MANIFEST.stat().st_mode & 0o222:
         raise ValueError("Grouped Sim61 source registration changed")
     from .terminal_cache_source_migration import admit_dependency
-    return admit_dependency(json.loads(MANIFEST.read_text()))
+    inventory = admit_dependency(json.loads(MANIFEST.read_text()))
+    inventory['dependencies'] = {str(_path(key)): row for key, row in inventory['dependencies'].items()}
+    return inventory
 
 
 def _path(value):
     path = Path(value)
-    return path if path.is_absolute() else ROOT / path
+    if path.is_absolute():
+        from social_navigation.artifact_identity import artifact_path
+        from social_navigation.sdk_paths import relocate_sdk_path
+        return artifact_path(relocate_sdk_path(path))
+    return ROOT / path
 
 
 def _check(row):
@@ -150,7 +156,7 @@ def verify_sdk():
     method = Articulation.set_joint_position_target_index
     path = Path(method.__code__.co_filename).resolve()
     expected = "/project/EXP/IsaacLab/source/isaaclab/isaaclab/assets/articulation/base_articulation.py"
-    identity = manifest()["dependencies"][expected]
+    identity = manifest()["dependencies"][str(_path(expected))]
     if path != _check(identity):
         raise ValueError("Grouped joint target writer belongs to another SDK source")
 

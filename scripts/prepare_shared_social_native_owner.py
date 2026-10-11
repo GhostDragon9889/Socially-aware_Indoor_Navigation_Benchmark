@@ -10,6 +10,7 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from CrowdSim.humanoid.application import native_execution_bridge as bridge  # noqa: E402
+from social_navigation.external_runtime import selected_python  # noqa: E402
 
 DRIVER = ROOT / "scripts/shared_social_native_tool_owner.js"
 COMPLETION = bridge.S3 / "external_owner_completion.json"
@@ -27,8 +28,16 @@ def build_plan(case_id, registration_path):
     bridge.require(bridge.record(bridge.__file__)["sha256"] == BRIDGE_SHA,
                    "Require the CPU-reviewed native exit bridge")
     case = bridge.prepare_case(case_id)
+    python = str(selected_python(ROOT))
+    # Preserve the frozen command derivation; adapt only executable selection.
+    commands = [case["style_command"], *[row["command"] for row in case["initial_comparisons"]]]
+    for row in case["stages"]:
+        commands.extend((row["SDK_command"], row["raw_command"]))
+    for command in commands:
+        bridge.require(command[0] == str(bridge.PYTHON), "Frozen native command executable changed")
+        command[0] = python
     parent = Path(case["stages"][0]["SDK_receipt"]).parent
-    cli = [str(bridge.PYTHON), str(Path(__file__).resolve()), "--registration", str(registration_path)]
+    cli = [python, str(Path(__file__).resolve()), "--registration", str(registration_path)]
     actions = []
     for controls in (30, 6000):
         for stage in case["stages"]:
@@ -37,7 +46,7 @@ def build_plan(case_id, registration_path):
             prefix = stage["planner"] + "_C" + str(controls)
             sdk = action(prefix + "_SDK", stage["SDK_command"], parent, cuda="0", sdk=True)
             raw = action(prefix + "_raw_CPU", stage["raw_command"], parent)
-            publisher = [str(bridge.PYTHON), str(ROOT / "scripts/prepare_shared_social_native_execution.py"),
+            publisher = [python, str(ROOT / "scripts/prepare_shared_social_native_execution.py"),
                 "--case-id", case_id, "--planner", stage["planner"], "--control-steps", str(controls),
                 "--owner-completion", str(COMPLETION)]
             sdk_publish = action(prefix + "_SDK_publication", [*publisher, "--mode", "SDK-exit",
@@ -52,6 +61,7 @@ def build_plan(case_id, registration_path):
         action("style_200s", case["style_command"], parent),
         action("collect_measurements", [*cli, "--mode", "collect"], parent)))
     return {"schema": PLAN_SCHEMA, "case_id": case_id, "actors": case["case"]["actors"], "seed": case["case"]["seed"],
+        "checkout_root": str(ROOT), "sdk_python": python,
         "registration_path": str(registration_path), "owner_completion": str(COMPLETION),
         "matrix": case["matrix"], "scene_configuration": case["request"]["configuration_file"],
         "case_plan": case, "sources": {"bridge": bridge.record(bridge.__file__),
@@ -78,6 +88,7 @@ def owner_view(plan):
         value["failure_publication"] = visible(row["failure_publication"]) if row["failure_publication"] else None
         return value
     value = {key: plan[key] for key in ("schema", "case_id", "registration_path", "SDK_started",
+        "checkout_root", "sdk_python",
         "observation_directory", "state_path", "execution_preflight_command", "guard_command")}
     value["actions"] = [visible(row) for row in plan["actions"]]
     return value

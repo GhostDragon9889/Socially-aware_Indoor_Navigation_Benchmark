@@ -50,9 +50,12 @@ def test_repository_root_override(monkeypatch, tmp_path):
 
 
 def test_editor_uses_process_arguments_and_current_debugger():
+    settings = json.loads((ROOT / '.vscode/settings.json').read_text())
+    assert 'python.defaultInterpreterPath' not in settings and 'python.envFile' not in settings
+    assert 'PYTHONPATH' not in settings['terminal.integrated.env.linux']
     tasks = json.loads((ROOT / '.vscode/tasks.json').read_text())['tasks']
     assert all(task['type'] == 'process' and isinstance(task['args'], list) for task in tasks)
-    assert all(task['command'] == '${workspaceFolder}/.venv/bin/python' for task in tasks)
+    assert all(task['command'] == 'python3' and task['args'][0] == '${workspaceFolder}/scripts/run_external_python.py' for task in tasks)
     launch = json.loads((ROOT / '.vscode/launch.json').read_text())['configurations']
     assert all(item['type'] == 'debugpy' for item in launch)
     workspace = json.loads((ROOT / 'Socially-aware_Indoor_Navigation_Benchmark.code-workspace').read_text())

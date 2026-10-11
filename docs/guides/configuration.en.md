@@ -2,7 +2,7 @@
 
 [简体中文](configuration.zh-CN.md) · [Documentation index](README.md) · Updated: 2026-10-10
 
-The default targets Lab3.0 EA/Sim6.1 with a separate project overlay. Existing SDKs can supply their real path during installation. A historical root `.venv` link does not establish the new environment; existing model releases and results require fresh acceptance measurements.
+The default targets Lab3.0 EA/Sim6.1. First configure an external SDK or install a complete SDK inside the checkout using the [installation guide](installation.en.md). Project launches use that SDK interpreter directly, with project additions in a separate package directory. See the [verification report (Chinese)](../EXTERNAL_SDK_VERIFICATION_20261011_ZH.md) for measured scope.
 
 ## 1. Working directory and environment variables
 
@@ -11,10 +11,11 @@ Use the pinned environment from [installation](installation.en.md), starting at 
 ```bash
 cd /absolute/path/to/Socially-aware_Indoor_Navigation_Benchmark
 export NAV_ROOT="$PWD"
-export NAV_LAB_ROOT="$NAV_ROOT/.runtime/IsaacLab61"
-export NAV_PY="$NAV_ROOT/.runtime/isaaclab3_ea_sim61/.venv/bin/python"
+export NAV_LAB_ROOT="$(python3 -c 'import json; print(json.load(open(".runtime/external_sdk.json"))["lab_root"])')"
+export ISAACLAB_ROOT="$NAV_LAB_ROOT"
+export NAV_PY="$(python3 -c 'import json; print(json.load(open(".runtime/external_sdk.json"))["python"])')"
 export PYTHONDONTWRITEBYTECODE=1
-export PYTHONPATH="$NAV_ROOT/src:$NAV_ROOT${PYTHONPATH:+:$PYTHONPATH}"
+export PYTHONPATH="$NAV_ROOT/src:$NAV_ROOT:$NAV_ROOT/.runtime/external_sdk_packages:$NAV_ROOT/.runtime/rvo2_native${PYTHONPATH:+:$PYTHONPATH}"
 "$NAV_PY" -m social_navigation status
 ```
 
@@ -42,10 +43,10 @@ These variables do not rewrite absolute paths in JSON/YAML. Migrate those entrie
 | Resource | Location or entry point | Role and availability |
 | --- | --- | --- |
 | Upstream models/examples | `data/pretrained_models/`, `examples/data/` | Original Git/LFS references restored; download selectively |
-| TRACE model/config | `data/pretrained_models/paper_references/trace/ckpt/trace/orca_mixed/{iter40000.ckpt,config.json}` | Public diffusion model used by the four-scene profiles; included in this project’s private LFS release |
-| PACER anchor teacher | `data/pretrained_models/paper_references/pacer/output/release/pacer_no_shape/Humanoid.pth` | Teacher for local AMP fine-tuning; included in the private release, with an original downloader available |
-| Selected AMP, YOHO/NewMetro | `data/pretrained_models/local_amass_finetune/speed_conservative_20261010/Humanoid_AMASS.pth` | Local fine-tuned artifact included in this project’s private LFS release |
-| Selected AMP, upper floors | `data/pretrained_models/local_amass_finetune/walking_turn_20261009/Humanoid_AMASS.pth` | Current narrow-scene controller and fine-tuning parent, included in the private release |
+| TRACE model/config | `data/pretrained_models/paper_references/trace/ckpt/trace/orca_mixed/{iter40000.ckpt,config.json}` | Public diffusion model used by the four-scene profiles; included in this project’s LFS release |
+| PACER anchor teacher | `data/pretrained_models/paper_references/pacer/output/release/pacer_no_shape/Humanoid.pth` | Teacher for local AMP fine-tuning; included in the asset release, with an original downloader available |
+| Selected AMP, YOHO/NewMetro | `data/pretrained_models/local_amass_finetune/speed_conservative_20261010/Humanoid_AMASS.pth` | Local fine-tuned artifact included in this project’s LFS release |
+| Selected AMP, upper floors | `data/pretrained_models/local_amass_finetune/walking_turn_20261009/Humanoid_AMASS.pth` | Current narrow-scene controller and fine-tuning parent, included in the asset release |
 | Fixed AMASS | `data/diffusion_amp/amass_style_2848/manifest_labeled_v7.json` and train bank | 2,848 training, 22 validation and 34 test segments |
 | General AMASS libraries | Adjacent `Assets/motion/` | Authorized archives, per-motion conversions and train/test/validation MotionLib |
 | SMPL/body assets | `src/protomotions/data/assets/` and body parameters referenced by rendering | Physics skeleton, visible skin and body parameters are distinct resources |
@@ -54,7 +55,7 @@ These variables do not rewrite absolute paths in JSON/YAML. Migrate those entrie
 
 Raw scene directory names are `Rest_Room_HongKong_YOHO`, `Rest_Room_HongKong_NewMetro`, `Rest_Room_Second_Floor`, and `Rest_Room_Third_Floor`. CLI names are `YOHO`, `NewMetro`, `SecondFloor`, and `ThirdFloor`.
 
-This project’s [private asset release](../../ASSET_RELEASE.md#english-instructions) contains the selected TRACE/AMP/teacher weights, training parameters and resume checkpoints, EVT robot, four scenes and their material references. Raw AMASS, licensed SMPL parameters, SDKs and videos remain separate. The release’s 467 file records were verified; see the [publication receipt](../ASSET_PUBLICATION_20261010.json). The old 47-item asset ledger describes the earlier upstream merge; see the [merge record](../UPSTREAM_MERGE_20261010_ZH.md).
+This project’s [asset release](../../ASSET_RELEASE.md#english-instructions) contains the selected TRACE/AMP/teacher weights, training parameters and resume checkpoints, EVT robot, four scenes and their material references. Raw AMASS, licensed SMPL parameters, SDKs and videos remain separate. The release’s 467 file records were verified; see the [publication receipt](../ASSET_PUBLICATION_20261010.json). The old 47-item asset ledger describes the earlier upstream merge; see the [merge record](../UPSTREAM_MERGE_20261010_ZH.md).
 
 Restore published resources from the checkout root:
 
@@ -203,7 +204,7 @@ The low-level resource preflight checks model/manifest identity only. Unified `s
 
 ## 6. VS Code and configuration maintenance
 
-Open root `Socially-aware_Indoor_Navigation_Benchmark.code-workspace` and select `.runtime/isaaclab3_ea_sim61/.venv/bin/python`. `.vscode/settings.json` supplies source paths and excludes data/generated directories; `launch.json` and `tasks.json` expose status, preflight, baseline and native commands. A debugger still needs the same resource configuration and SDK environment.
+Open the generated `.runtime/external_sdk.code-workspace`; it selects the configured SDK Python and project additions. `.vscode/settings.json` supplies source paths and excludes data/generated directories; `launch.json` and `tasks.json` expose status, preflight, baseline and native commands. A debugger still needs the same resource configuration and SDK environment.
 
 Update `profile.json` hashes with manifest/lock changes, then run the environment checker. When changing a file listed in the upstream mapping, maintain its Git blob record and retain the initial merge value for traceability. Keep generated data, credentials and training weights outside the source publication manifest.
 

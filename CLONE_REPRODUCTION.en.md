@@ -34,18 +34,19 @@ export NAV_ROOT="$PWD"
 git lfs install --local
 uv python install 3.12.13
 uv run --no-project --python 3.12.13 python scripts/audit_checkout.py
-uv run --no-project --python 3.12.13 python scripts/bootstrap_reproduction.py install --profile isaaclab3_ea_sim61
-export NAV_PY="$NAV_ROOT/.runtime/isaaclab3_ea_sim61/.venv/bin/python"
-export PYTHONPATH="$NAV_ROOT/src:$NAV_ROOT"
+# Option A: reuse an installed matching SDK
+python3 scripts/bootstrap_reproduction.py configure --lab-root /absolute/path/to/IsaacLab
+# Option B: full installation inside this project (choose instead of A)
+# python3 scripts/bootstrap_reproduction.py install
+export NAV_PY="$(python3 -c 'import json; print(json.load(open(".runtime/external_sdk.json"))["python"])')"
+export NAV_ADDONS="$NAV_ROOT/.runtime/external_sdk_packages"
+export PYTHONPATH="$NAV_ROOT/src:$NAV_ROOT:$NAV_ADDONS"
 export PYTHONDONTWRITEBYTECODE=1
-export NAV_LAB="$NAV_ROOT/.runtime/IsaacLab61"
-"$NAV_PY" -m social_navigation.runtime_environment check --lab-root "$NAV_LAB"
-"$NAV_PY" -I scripts/isaaclab3_environment.py --profile isaaclab3_ea_sim61 check
+python3 scripts/bootstrap_reproduction.py check
+python3 scripts/run_external_python.py -m social_navigation status
 ```
 
-Bootstrap defaults to IsaacLab source `ae37b028ea415c91ea2bc32609efcd759ed2b974`, Python 3.12.13, Sim 6.1.0.0, Lab product 3.0.0 (Python package 17.0.2), and Torch 2.11.0+cu128. The SDK lives at `.runtime/IsaacLab61`; project dependencies use a separate `.runtime/isaaclab3_ea_sim61/.venv`. Installed SDK source and binary providers are not modified or duplicated. Accept NVIDIA's EULA before Kit use; set `OMNI_KIT_ACCEPT_EULA=YES` where required. Do not run `uv sync` inside a stored profile directory.
-
-To reuse a matching installed SDK, run `python3 scripts/bootstrap_reproduction.py prepare-runtime --profile isaaclab3_ea_sim61 --lab-root /absolute/path/to/IsaacLab`, then select the reported project interpreter. The overlay was actually installed and validated locally; a full fresh SDK download was not repeated. See [runtime instructions](env/isaaclab3_ea_sim61/README.md) and [dependencies](docs/guides/dependencies.en.md). Existing four-scene videos retain their historical Sim6.0 identity. New-SDK 60-second dynamics, video and quality validation require independent receipts; migration/import tests do not transfer those results.
+The default pins Python3.12.13, Lab3EA source `ae37b028ea415c91ea2bc32609efcd759ed2b974` (source package17.0.2), Sim6.1.0.0 and Torch2.11.0+cu128. The interpreter belongs to the selected SDK. Project additions are exactly locked ordinary packages, with no second Python or simulator provider. The installer also restores Git-lost read-only permissions after checking all frozen input hashes. If an existing additions lock differs, `--rebuild-addons` builds and validates a replacement while retaining the previous directory. Read and accept NVIDIA EULA before Kit startup. The full fresh SDK installation has now been executed; see [setup and validation](docs/guides/external_sdk.zh-CN.md). Download resources below; licensed AMASS/SMPL inputs remain external.
 
 ## 2. Restore project resources
 

@@ -22,7 +22,11 @@ TERMINAL_ADDITION = (
 
 def admit_dependency(inventory):
     """Derive one current dependency in the caller's parsed manifest only."""
-    key = str(LIFECYCLE)
+    from social_navigation.artifact_identity import artifact_path
+    keys = [key for key in inventory['dependencies'] if artifact_path(key) == LIFECYCLE]
+    if len(keys) != 1:
+        raise ValueError('Require exactly one registered terminal lifecycle dependency')
+    key = keys[0]
     row = inventory["dependencies"][key]
     if (row["path"] != str(LIFECYCLE.relative_to(ROOT))
             or (row["bytes"], row["sha256"]) != (HISTORICAL_BYTES, HISTORICAL_SHA)):

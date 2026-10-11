@@ -1,0 +1,761 @@
+..................................................................... [  1%]
+........................................................................ [  2%]
+........................................................................ [  4%]
+........................................................................ [  5%]
+.................................................................. [  7%]
+................................................................... [  8%]
+........................................................................ [ 10%]
+........................................................................ [ 11%]
+.....ssssss.s........................................................... [ 13%]
+........................................................................ [ 14%]
+............F........................................................... [ 16%]
+........................................................................ [ 17%]
+........................................................................ [ 19%]
+........................................................................ [ 20%]
+.................................................................... [ 22%]
+........................................................................ [ 23%]
+........................................................................ [ 25%]
+........................................................................ [ 26%]
+........................................................................ [ 28%]
+........................................................................ [ 29%]
+........................................................................ [ 31%]
+........................................................................ [ 32%]
+........................................................................ [ 34%]
+........................................................................ [ 35%]
+..s..................................................................... [ 37%]
+........................................................................ [ 38%]
+........................................................................ [ 40%]
+........................................................................ [ 41%]
+........................................................................ [ 43%]
+........................................................................ [ 44%]
+........................................................................ [ 46%]
+........................................................................ [ 47%]
+........................................................................ [ 49%]
+........................................................................ [ 50%]
+........................................................................ [ 52%]
+....FFFF............................EEEE [ 52%]
+EEEEEEEE.................................................FF....................................................... [ 55%]
+.......................FF................................................................................ [ 57%]
+........................................................................ [ 58%]
+..s..................................................................... [ 60%]
+........................................................................ [ 61%]
+........................................................................ [ 63%]
+........................................................................ [ 64%]
+..........................................s............................. [ 66%]
+.............s.......................................................... [ 67%]
+........................................................................ [ 69%]
+........................................................................ [ 70%]
+........................................................................ [ 72%]
+........................................................................ [ 73%]
+........................................................................ [ 75%]
+........................................................ss.............. [ 76%]
+........................................................................ [ 78%]
+....................................................s................... [ 79%]
+........................................................................ [ 81%]
+........................................s.....s......................... [ 82%]
+........................................................................ [ 84%]
+........................................................................ [ 85%]
+........................................................................ [ 87%]
+........................................................................ [ 88%]
+........................................................................ [ 90%]
+........................................................................ [ 91%]
+........................................................................ [ 93%]
+........................................................................ [ 94%]
+........................................................................ [ 96%]
+........................................................................ [ 97%]
+........................................................................ [ 99%]
+...............................                                          [100%]
+==================================== ERRORS ====================================
+_ ERROR at setup of EpisodeTerminalContracts.test_actual_exit_and_audit_admission_cannot_be_skipped _
+
+cls = <class 'test_shared_social_episode_evaluation.EpisodeTerminalContracts'>
+
+    @classmethod
+    def setUpClass(cls):
+>       cls.registration, _ = admission.admit_registration()
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_shared_social_episode_evaluation.py:37: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/configs/compatibility/episode_sim61/historical_training_evaluation.json')
+
+    def admit_registration(path=REGISTRATION):
+        path = Path(path).resolve()
+        if path not in (REGISTRATION, CURRENT_TRAINING_REGISTRATION) or path.is_symlink() or path.stat().st_mode & 0o222:
+            raise ValueError("Use the exact readonly episode evaluation registration")
+        identity = record(path)
+        registration = json.loads(path.read_text())
+        family = "current" if path == CURRENT_TRAINING_REGISTRATION else "historical"
+        expected = registration_document() if family == "historical" else registration_document(family)
+        if registration != expected or record(path) != identity:
+>           raise ValueError("Episode evaluation registration or registered sources changed")
+E           ValueError: Episode evaluation registration or registered sources changed
+
+src/CrowdSim/humanoid/application/episode_evaluation_admission.py:134: ValueError
+_ ERROR at setup of EpisodeTerminalContracts.test_changed_runtime_source_or_import_origin_rejected _
+
+cls = <class 'test_shared_social_episode_evaluation.EpisodeTerminalContracts'>
+
+    @classmethod
+    def setUpClass(cls):
+>       cls.registration, _ = admission.admit_registration()
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_shared_social_episode_evaluation.py:37: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/configs/compatibility/episode_sim61/historical_training_evaluation.json')
+
+    def admit_registration(path=REGISTRATION):
+        path = Path(path).resolve()
+        if path not in (REGISTRATION, CURRENT_TRAINING_REGISTRATION) or path.is_symlink() or path.stat().st_mode & 0o222:
+            raise ValueError("Use the exact readonly episode evaluation registration")
+        identity = record(path)
+        registration = json.loads(path.read_text())
+        family = "current" if path == CURRENT_TRAINING_REGISTRATION else "historical"
+        expected = registration_document() if family == "historical" else registration_document(family)
+        if registration != expected or record(path) != identity:
+>           raise ValueError("Episode evaluation registration or registered sources changed")
+E           ValueError: Episode evaluation registration or registered sources changed
+
+src/CrowdSim/humanoid/application/episode_evaluation_admission.py:134: ValueError
+_ ERROR at setup of EpisodeTerminalContracts.test_compatible_popart_family_is_insufficient_for_candidate_selection _
+
+cls = <class 'test_shared_social_episode_evaluation.EpisodeTerminalContracts'>
+
+    @classmethod
+    def setUpClass(cls):
+>       cls.registration, _ = admission.admit_registration()
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_shared_social_episode_evaluation.py:37: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/configs/compatibility/episode_sim61/historical_training_evaluation.json')
+
+    def admit_registration(path=REGISTRATION):
+        path = Path(path).resolve()
+        if path not in (REGISTRATION, CURRENT_TRAINING_REGISTRATION) or path.is_symlink() or path.stat().st_mode & 0o222:
+            raise ValueError("Use the exact readonly episode evaluation registration")
+        identity = record(path)
+        registration = json.loads(path.read_text())
+        family = "current" if path == CURRENT_TRAINING_REGISTRATION else "historical"
+        expected = registration_document() if family == "historical" else registration_document(family)
+        if registration != expected or record(path) != identity:
+>           raise ValueError("Episode evaluation registration or registered sources changed")
+E           ValueError: Episode evaluation registration or registered sources changed
+
+src/CrowdSim/humanoid/application/episode_evaluation_admission.py:134: ValueError
+_ ERROR at setup of EpisodeTerminalContracts.test_future81_cannot_enter_the_episode31_experiment _
+
+cls = <class 'test_shared_social_episode_evaluation.EpisodeTerminalContracts'>
+
+    @classmethod
+    def setUpClass(cls):
+>       cls.registration, _ = admission.admit_registration()
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_shared_social_episode_evaluation.py:37: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/configs/compatibility/episode_sim61/historical_training_evaluation.json')
+
+    def admit_registration(path=REGISTRATION):
+        path = Path(path).resolve()
+        if path not in (REGISTRATION, CURRENT_TRAINING_REGISTRATION) or path.is_symlink() or path.stat().st_mode & 0o222:
+            raise ValueError("Use the exact readonly episode evaluation registration")
+        identity = record(path)
+        registration = json.loads(path.read_text())
+        family = "current" if path == CURRENT_TRAINING_REGISTRATION else "historical"
+        expected = registration_document() if family == "historical" else registration_document(family)
+        if registration != expected or record(path) != identity:
+>           raise ValueError("Episode evaluation registration or registered sources changed")
+E           ValueError: Episode evaluation registration or registered sources changed
+
+src/CrowdSim/humanoid/application/episode_evaluation_admission.py:134: ValueError
+_ ERROR at setup of EpisodeTerminalContracts.test_incomplete_exposure_or_foreign_output_rejected _
+
+cls = <class 'test_shared_social_episode_evaluation.EpisodeTerminalContracts'>
+
+    @classmethod
+    def setUpClass(cls):
+>       cls.registration, _ = admission.admit_registration()
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_shared_social_episode_evaluation.py:37: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/configs/compatibility/episode_sim61/historical_training_evaluation.json')
+
+    def admit_registration(path=REGISTRATION):
+        path = Path(path).resolve()
+        if path not in (REGISTRATION, CURRENT_TRAINING_REGISTRATION) or path.is_symlink() or path.stat().st_mode & 0o222:
+            raise ValueError("Use the exact readonly episode evaluation registration")
+        identity = record(path)
+        registration = json.loads(path.read_text())
+        family = "current" if path == CURRENT_TRAINING_REGISTRATION else "historical"
+        expected = registration_document() if family == "historical" else registration_document(family)
+        if registration != expected or record(path) != identity:
+>           raise ValueError("Episode evaluation registration or registered sources changed")
+E           ValueError: Episode evaluation registration or registered sources changed
+
+src/CrowdSim/humanoid/application/episode_evaluation_admission.py:134: ValueError
+_ ERROR at setup of EpisodeTerminalContracts.test_live_root_reference_cannot_enter_as_episode_reference _
+
+cls = <class 'test_shared_social_episode_evaluation.EpisodeTerminalContracts'>
+
+    @classmethod
+    def setUpClass(cls):
+>       cls.registration, _ = admission.admit_registration()
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_shared_social_episode_evaluation.py:37: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/configs/compatibility/episode_sim61/historical_training_evaluation.json')
+
+    def admit_registration(path=REGISTRATION):
+        path = Path(path).resolve()
+        if path not in (REGISTRATION, CURRENT_TRAINING_REGISTRATION) or path.is_symlink() or path.stat().st_mode & 0o222:
+            raise ValueError("Use the exact readonly episode evaluation registration")
+        identity = record(path)
+        registration = json.loads(path.read_text())
+        family = "current" if path == CURRENT_TRAINING_REGISTRATION else "historical"
+        expected = registration_document() if family == "historical" else registration_document(family)
+        if registration != expected or record(path) != identity:
+>           raise ValueError("Episode evaluation registration or registered sources changed")
+E           ValueError: Episode evaluation registration or registered sources changed
+
+src/CrowdSim/humanoid/application/episode_evaluation_admission.py:134: ValueError
+_ ERROR at setup of EpisodeTerminalContracts.test_old_periodic_reference_cannot_be_relabelled _
+
+cls = <class 'test_shared_social_episode_evaluation.EpisodeTerminalContracts'>
+
+    @classmethod
+    def setUpClass(cls):
+>       cls.registration, _ = admission.admit_registration()
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_shared_social_episode_evaluation.py:37: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/configs/compatibility/episode_sim61/historical_training_evaluation.json')
+
+    def admit_registration(path=REGISTRATION):
+        path = Path(path).resolve()
+        if path not in (REGISTRATION, CURRENT_TRAINING_REGISTRATION) or path.is_symlink() or path.stat().st_mode & 0o222:
+            raise ValueError("Use the exact readonly episode evaluation registration")
+        identity = record(path)
+        registration = json.loads(path.read_text())
+        family = "current" if path == CURRENT_TRAINING_REGISTRATION else "historical"
+        expected = registration_document() if family == "historical" else registration_document(family)
+        if registration != expected or record(path) != identity:
+>           raise ValueError("Episode evaluation registration or registered sources changed")
+E           ValueError: Episode evaluation registration or registered sources changed
+
+src/CrowdSim/humanoid/application/episode_evaluation_admission.py:134: ValueError
+_ ERROR at setup of EpisodeTerminalContracts.test_private_parent_keeps_original_child_paths_and_globals _
+
+cls = <class 'test_shared_social_episode_evaluation.EpisodeTerminalContracts'>
+
+    @classmethod
+    def setUpClass(cls):
+>       cls.registration, _ = admission.admit_registration()
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_shared_social_episode_evaluation.py:37: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/configs/compatibility/episode_sim61/historical_training_evaluation.json')
+
+    def admit_registration(path=REGISTRATION):
+        path = Path(path).resolve()
+        if path not in (REGISTRATION, CURRENT_TRAINING_REGISTRATION) or path.is_symlink() or path.stat().st_mode & 0o222:
+            raise ValueError("Use the exact readonly episode evaluation registration")
+        identity = record(path)
+        registration = json.loads(path.read_text())
+        family = "current" if path == CURRENT_TRAINING_REGISTRATION else "historical"
+        expected = registration_document() if family == "historical" else registration_document(family)
+        if registration != expected or record(path) != identity:
+>           raise ValueError("Episode evaluation registration or registered sources changed")
+E           ValueError: Episode evaluation registration or registered sources changed
+
+src/CrowdSim/humanoid/application/episode_evaluation_admission.py:134: ValueError
+_ ERROR at setup of EpisodeTerminalContracts.test_readonly_registration_drift_is_rejected _
+
+cls = <class 'test_shared_social_episode_evaluation.EpisodeTerminalContracts'>
+
+    @classmethod
+    def setUpClass(cls):
+>       cls.registration, _ = admission.admit_registration()
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_shared_social_episode_evaluation.py:37: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/configs/compatibility/episode_sim61/historical_training_evaluation.json')
+
+    def admit_registration(path=REGISTRATION):
+        path = Path(path).resolve()
+        if path not in (REGISTRATION, CURRENT_TRAINING_REGISTRATION) or path.is_symlink() or path.stat().st_mode & 0o222:
+            raise ValueError("Use the exact readonly episode evaluation registration")
+        identity = record(path)
+        registration = json.loads(path.read_text())
+        family = "current" if path == CURRENT_TRAINING_REGISTRATION else "historical"
+        expected = registration_document() if family == "historical" else registration_document(family)
+        if registration != expected or record(path) != identity:
+>           raise ValueError("Episode evaluation registration or registered sources changed")
+E           ValueError: Episode evaluation registration or registered sources changed
+
+src/CrowdSim/humanoid/application/episode_evaluation_admission.py:134: ValueError
+_ ERROR at setup of EpisodeTerminalContracts.test_registered_candidate_metadata_fixture_matches _
+
+cls = <class 'test_shared_social_episode_evaluation.EpisodeTerminalContracts'>
+
+    @classmethod
+    def setUpClass(cls):
+>       cls.registration, _ = admission.admit_registration()
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_shared_social_episode_evaluation.py:37: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/configs/compatibility/episode_sim61/historical_training_evaluation.json')
+
+    def admit_registration(path=REGISTRATION):
+        path = Path(path).resolve()
+        if path not in (REGISTRATION, CURRENT_TRAINING_REGISTRATION) or path.is_symlink() or path.stat().st_mode & 0o222:
+            raise ValueError("Use the exact readonly episode evaluation registration")
+        identity = record(path)
+        registration = json.loads(path.read_text())
+        family = "current" if path == CURRENT_TRAINING_REGISTRATION else "historical"
+        expected = registration_document() if family == "historical" else registration_document(family)
+        if registration != expected or record(path) != identity:
+>           raise ValueError("Episode evaluation registration or registered sources changed")
+E           ValueError: Episode evaluation registration or registered sources changed
+
+src/CrowdSim/humanoid/application/episode_evaluation_admission.py:134: ValueError
+_ ERROR at setup of EpisodeTerminalContracts.test_repeated_cold_admission_releases_its_owned_private_helper _
+
+cls = <class 'test_shared_social_episode_evaluation.EpisodeTerminalContracts'>
+
+    @classmethod
+    def setUpClass(cls):
+>       cls.registration, _ = admission.admit_registration()
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_shared_social_episode_evaluation.py:37: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/configs/compatibility/episode_sim61/historical_training_evaluation.json')
+
+    def admit_registration(path=REGISTRATION):
+        path = Path(path).resolve()
+        if path not in (REGISTRATION, CURRENT_TRAINING_REGISTRATION) or path.is_symlink() or path.stat().st_mode & 0o222:
+            raise ValueError("Use the exact readonly episode evaluation registration")
+        identity = record(path)
+        registration = json.loads(path.read_text())
+        family = "current" if path == CURRENT_TRAINING_REGISTRATION else "historical"
+        expected = registration_document() if family == "historical" else registration_document(family)
+        if registration != expected or record(path) != identity:
+>           raise ValueError("Episode evaluation registration or registered sources changed")
+E           ValueError: Episode evaluation registration or registered sources changed
+
+src/CrowdSim/humanoid/application/episode_evaluation_admission.py:134: ValueError
+_ ERROR at setup of EpisodeTerminalContracts.test_second_namespace_is_fresh_and_source_list_is_not_shared _
+
+cls = <class 'test_shared_social_episode_evaluation.EpisodeTerminalContracts'>
+
+    @classmethod
+    def setUpClass(cls):
+>       cls.registration, _ = admission.admit_registration()
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_shared_social_episode_evaluation.py:37: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/configs/compatibility/episode_sim61/historical_training_evaluation.json')
+
+    def admit_registration(path=REGISTRATION):
+        path = Path(path).resolve()
+        if path not in (REGISTRATION, CURRENT_TRAINING_REGISTRATION) or path.is_symlink() or path.stat().st_mode & 0o222:
+            raise ValueError("Use the exact readonly episode evaluation registration")
+        identity = record(path)
+        registration = json.loads(path.read_text())
+        family = "current" if path == CURRENT_TRAINING_REGISTRATION else "historical"
+        expected = registration_document() if family == "historical" else registration_document(family)
+        if registration != expected or record(path) != identity:
+>           raise ValueError("Episode evaluation registration or registered sources changed")
+E           ValueError: Episode evaluation registration or registered sources changed
+
+src/CrowdSim/humanoid/application/episode_evaluation_admission.py:134: ValueError
+=================================== FAILURES ===================================
+____ test_cold_preflight_accepts_exact_commands_outputs_and_observed_exits _____
+
+cold_preflight = ({'serial_release': {'bytes': 2, 'path': '/tmp/pytest-of-lfm/pytest-243/test_cold_preflight_accepts_ex0/release.json',...preflight_accepts_ex0/3.stderr', 'sha256': 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'}, ...}]})
+
+    def test_cold_preflight_accepts_exact_commands_outputs_and_observed_exits(cold_preflight):
+>       plans.validate_preflight(*cold_preflight)
+
+tests/test_episode_pipeline_source_inventory.py:100: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+plan = {'serial_release': {'bytes': 2, 'path': '/tmp/pytest-of-lfm/pytest-243/test_cold_preflight_accepts_ex0/release.json', 'sha256': '44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a'}, 'sources': []}
+preflight = {'schema': 'shared_social.episode_cold_preflight.sim61.v2', 'sources': [], 'steps': [{'actual_exit_code': 0, 'command'..._preflight_accepts_ex0/3.stderr', 'sha256': 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'}, ...}]}
+
+    def validate_preflight(plan, preflight):
+        import json
+        if preflight.get("schema") != "shared_social.episode_cold_preflight.sim61.v2":
+            raise ValueError("Cold preflight schema differs from current execution")
+        # Cold probes are only applicable to the exact reviewed source inventory.
+        require_inventory(preflight.get("sources"), plan["sources"], "Cold preflight source")
+        from scripts import train_shared_social_episode_after_recovery as training
+        from scripts import run_shared_social_episode_after_recovery_evaluation as evaluation
+        from social_navigation.external_runtime import selected_python
+        executable = str(selected_python(ROOT))
+        serial = str(artifact_path(plan["serial_release"]["path"]))
+        commands = [[executable, str(Path(training.__file__)), "--serial-release", serial,
+                     "--stage", stage, "--check-sources"] for stage in ("smoke8", "smoke256", "pilot2000")]
+        commands.append([executable, str(Path(evaluation.__file__)), "--serial-release", serial, "--check-sources"])
+        for row, command in zip(preflight["steps"], commands, strict=True):
+            if (row.get("command") != command or row.get("exit_observation") != "subprocess.run.returncode"
+                    or type(row.get("actual_exit_code")) is not int or row["actual_exit_code"] != 0):
+>               raise ValueError("Cold preflight command is not the registered entry")
+E               ValueError: Cold preflight command is not the registered entry
+
+src/CrowdSim/humanoid/application/episode_pipeline_plan.py:92: ValueError
+_____ test_short_or_shadow_namespace_fails_without_index_error[locations0] _____
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x79afd4d173b0>
+locations = ['/isaaclab']
+
+    @pytest.mark.parametrize('locations', [['/isaaclab'], ['/tmp/isaaclab'], []])
+    def test_short_or_shadow_namespace_fails_without_index_error(monkeypatch, locations):
+        monkeypatch.delenv('ISAACLAB_ROOT', raising=False)
+        monkeypatch.setattr(sdk_paths.util, 'find_spec', lambda _: SimpleNamespace(submodule_search_locations=locations))
+>       with pytest.raises(RuntimeError, match='IsaacLab'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'RuntimeError'>
+
+tests/test_sdk_path_discovery.py:10: Failed
+_____ test_short_or_shadow_namespace_fails_without_index_error[locations1] _____
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x79afd5dede20>
+locations = ['/tmp/isaaclab']
+
+    @pytest.mark.parametrize('locations', [['/isaaclab'], ['/tmp/isaaclab'], []])
+    def test_short_or_shadow_namespace_fails_without_index_error(monkeypatch, locations):
+        monkeypatch.delenv('ISAACLAB_ROOT', raising=False)
+        monkeypatch.setattr(sdk_paths.util, 'find_spec', lambda _: SimpleNamespace(submodule_search_locations=locations))
+>       with pytest.raises(RuntimeError, match='IsaacLab'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'RuntimeError'>
+
+tests/test_sdk_path_discovery.py:10: Failed
+_____ test_short_or_shadow_namespace_fails_without_index_error[locations2] _____
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x79afd4a92720>
+locations = []
+
+    @pytest.mark.parametrize('locations', [['/isaaclab'], ['/tmp/isaaclab'], []])
+    def test_short_or_shadow_namespace_fails_without_index_error(monkeypatch, locations):
+        monkeypatch.delenv('ISAACLAB_ROOT', raising=False)
+        monkeypatch.setattr(sdk_paths.util, 'find_spec', lambda _: SimpleNamespace(submodule_search_locations=locations))
+>       with pytest.raises(RuntimeError, match='IsaacLab'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE <class 'RuntimeError'>
+
+tests/test_sdk_path_discovery.py:10: Failed
+__________ test_one_real_checkout_can_follow_an_irrelevant_namespace ___________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x79afd5d99610>
+tmp_path = PosixPath('/tmp/pytest-of-lfm/pytest-243/test_one_real_checkout_can_fol0')
+
+    def test_one_real_checkout_can_follow_an_irrelevant_namespace(monkeypatch, tmp_path):
+        root = tmp_path/'lab'
+        package = root/'source/isaaclab/isaaclab'
+        package.mkdir(parents=True)
+        (package/'__init__.py').write_text('')
+        monkeypatch.delenv('ISAACLAB_ROOT', raising=False)
+        monkeypatch.setattr(sdk_paths.util,'find_spec',lambda _:SimpleNamespace(submodule_search_locations=['/tmp/isaaclab',str(package)]))
+>       assert sdk_paths.lab_root() == root
+E       AssertionError: assert PosixPath('/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/.runtime/IsaacLab61') == PosixPath('/tmp/pytest-of-lfm/pytest-243/test_one_real_checkout_can_fol0/lab')
+E        +  where PosixPath('/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/.runtime/IsaacLab61') = <function lab_root at 0x79b0eada4d60>()
+E        +    where <function lab_root at 0x79b0eada4d60> = sdk_paths.lab_root
+
+tests/test_sdk_path_discovery.py:21: AssertionError
+__________ test_fresh_source_preflight_imports_neither_Torch_nor_SDK ___________
+
+    def test_fresh_source_preflight_imports_neither_Torch_nor_SDK():
+>       report = json.loads(subprocess_code("from scripts import train_shared_social_episode_reference as e;e.main(['--check-sources'])"))
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_shared_social_episode_reference_entry.py:146: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+code = "from scripts import train_shared_social_episode_reference as e;e.main(['--check-sources'])"
+
+    def subprocess_code(code):
+        result = subprocess.run([sys.executable, "-I", "-c", "import sys;sys.path.insert(0," + repr(str(entry.ROOT)) + ");" + code],
+                                capture_output=True, text=True)
+>       assert result.returncode == 0, result.stderr
+E       AssertionError: Traceback (most recent call last):
+E           File "<string>", line 1, in <module>
+E           File "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/train_shared_social_episode_reference.py", line 18, in <module>
+E             from scripts import train_shared_social as canonical  # noqa: E402
+E             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           File "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/train_shared_social.py", line 17, in <module>
+E             from CrowdSim.humanoid.runtime.social_evaluation_lifecycle import record  # noqa: E402
+E             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           File "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/CrowdSim/humanoid/runtime/social_evaluation_lifecycle.py", line 19, in <module>
+E             from .relocated_terminal import derive_relocated_checkout, overlay_kit_arguments
+E           File "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/CrowdSim/humanoid/runtime/relocated_terminal.py", line 9, in <module>
+E             from social_navigation.sdk_paths import relocate_sdk_path
+E         ModuleNotFoundError: No module named 'social_navigation'
+E         
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['/project/EXP/IsaacLab/.venv/bin/python', '-I', '-c', "import sys;sys.path.insert(0,'/project/E...om social_navigation.sdk_paths import relocate_sdk_path\nModuleNotFoundError: No module named \'social_navigation\'\n').returncode
+
+tests/test_shared_social_episode_reference_entry.py:141: AssertionError
+_ test_missing_whole_owner_certificate_is_rejected_without_Torch_SDK_or_output _
+
+tmp_path = PosixPath('/tmp/pytest-of-lfm/pytest-243/test_missing_whole_owner_certi0')
+
+    def test_missing_whole_owner_certificate_is_rejected_without_Torch_SDK_or_output(tmp_path):
+        code = f"""
+    from scripts import train_shared_social_episode_reference as e
+    from pathlib import Path
+    e.COMPLETION=Path({str(tmp_path / 'absent_external_owner.json')!r})
+    assert e.main(['--check-ready','--config',{str(entry.HERE / 'smoke.json')!r}]) == 1
+    assert not any(name.split('.')[0] in {{'torch','isaacsim','isaaclab','omni','pxr','warp'}} for name in sys.modules)
+    """
+>       report = json.loads(subprocess_code(code))
+                            ^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_shared_social_episode_reference_entry.py:160: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+code = "\nfrom scripts import train_shared_social_episode_reference as e\nfrom pathlib import Path\ne.COMPLETION=Path('/tmp/p...1\nassert not any(name.split('.')[0] in {'torch','isaacsim','isaaclab','omni','pxr','warp'} for name in sys.modules)\n"
+
+    def subprocess_code(code):
+        result = subprocess.run([sys.executable, "-I", "-c", "import sys;sys.path.insert(0," + repr(str(entry.ROOT)) + ");" + code],
+                                capture_output=True, text=True)
+>       assert result.returncode == 0, result.stderr
+E       AssertionError: Traceback (most recent call last):
+E           File "<string>", line 2, in <module>
+E           File "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/train_shared_social_episode_reference.py", line 18, in <module>
+E             from scripts import train_shared_social as canonical  # noqa: E402
+E             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           File "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/train_shared_social.py", line 17, in <module>
+E             from CrowdSim.humanoid.runtime.social_evaluation_lifecycle import record  # noqa: E402
+E             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           File "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/CrowdSim/humanoid/runtime/social_evaluation_lifecycle.py", line 19, in <module>
+E             from .relocated_terminal import derive_relocated_checkout, overlay_kit_arguments
+E           File "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/CrowdSim/humanoid/runtime/relocated_terminal.py", line 9, in <module>
+E             from social_navigation.sdk_paths import relocate_sdk_path
+E         ModuleNotFoundError: No module named 'social_navigation'
+E         
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['/project/EXP/IsaacLab/.venv/bin/python', '-I', '-c', "import sys;sys.path.insert(0,'/project/E...om social_navigation.sdk_paths import relocate_sdk_path\nModuleNotFoundError: No module named \'social_navigation\'\n').returncode
+
+tests/test_shared_social_episode_reference_entry.py:141: AssertionError
+__________ test_fresh_source_preflight_imports_neither_Torch_nor_SDK ___________
+
+    def test_fresh_source_preflight_imports_neither_Torch_nor_SDK():
+>       report = json.loads(subprocess_code("from scripts import train_shared_social_minimum_horizon as e;e.main(['--check-sources'])"))
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_shared_social_minimum_horizon_entry.py:142: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+code = "from scripts import train_shared_social_minimum_horizon as e;e.main(['--check-sources'])"
+
+    def subprocess_code(code):
+        result = subprocess.run([sys.executable, "-I", "-c", "import sys;sys.path.insert(0," + repr(str(entry.ROOT)) + ");" + code],
+                                capture_output=True, text=True)
+>       assert result.returncode == 0, result.stderr
+E       AssertionError: Traceback (most recent call last):
+E           File "<string>", line 1, in <module>
+E           File "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/train_shared_social_minimum_horizon.py", line 18, in <module>
+E             from scripts import train_shared_social as canonical  # noqa: E402
+E             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           File "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/train_shared_social.py", line 17, in <module>
+E             from CrowdSim.humanoid.runtime.social_evaluation_lifecycle import record  # noqa: E402
+E             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           File "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/CrowdSim/humanoid/runtime/social_evaluation_lifecycle.py", line 19, in <module>
+E             from .relocated_terminal import derive_relocated_checkout, overlay_kit_arguments
+E           File "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/CrowdSim/humanoid/runtime/relocated_terminal.py", line 9, in <module>
+E             from social_navigation.sdk_paths import relocate_sdk_path
+E         ModuleNotFoundError: No module named 'social_navigation'
+E         
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['/project/EXP/IsaacLab/.venv/bin/python', '-I', '-c', "import sys;sys.path.insert(0,'/project/E...om social_navigation.sdk_paths import relocate_sdk_path\nModuleNotFoundError: No module named \'social_navigation\'\n').returncode
+
+tests/test_shared_social_minimum_horizon_entry.py:137: AssertionError
+_ test_missing_whole_owner_certificate_is_rejected_without_Torch_SDK_or_output _
+
+tmp_path = PosixPath('/tmp/pytest-of-lfm/pytest-243/test_missing_whole_owner_certi1')
+
+    def test_missing_whole_owner_certificate_is_rejected_without_Torch_SDK_or_output(tmp_path):
+        code = f"""
+    from scripts import train_shared_social_minimum_horizon as e
+    from pathlib import Path
+    e.COMPLETION=Path({str(tmp_path / 'absent_external_owner.json')!r})
+    assert e.main(['--check-ready','--config',{str(entry.HERE / 'smoke.json')!r}]) == 1
+    assert not any(name.split('.')[0] in {{'torch','isaacsim','isaaclab','omni','pxr','warp'}} for name in sys.modules)
+    """
+>       report = json.loads(subprocess_code(code))
+                            ^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_shared_social_minimum_horizon_entry.py:156: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+code = "\nfrom scripts import train_shared_social_minimum_horizon as e\nfrom pathlib import Path\ne.COMPLETION=Path('/tmp/pyt...1\nassert not any(name.split('.')[0] in {'torch','isaacsim','isaaclab','omni','pxr','warp'} for name in sys.modules)\n"
+
+    def subprocess_code(code):
+        result = subprocess.run([sys.executable, "-I", "-c", "import sys;sys.path.insert(0," + repr(str(entry.ROOT)) + ");" + code],
+                                capture_output=True, text=True)
+>       assert result.returncode == 0, result.stderr
+E       AssertionError: Traceback (most recent call last):
+E           File "<string>", line 2, in <module>
+E           File "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/train_shared_social_minimum_horizon.py", line 18, in <module>
+E             from scripts import train_shared_social as canonical  # noqa: E402
+E             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           File "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/train_shared_social.py", line 17, in <module>
+E             from CrowdSim.humanoid.runtime.social_evaluation_lifecycle import record  # noqa: E402
+E             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           File "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/CrowdSim/humanoid/runtime/social_evaluation_lifecycle.py", line 19, in <module>
+E             from .relocated_terminal import derive_relocated_checkout, overlay_kit_arguments
+E           File "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/CrowdSim/humanoid/runtime/relocated_terminal.py", line 9, in <module>
+E             from social_navigation.sdk_paths import relocate_sdk_path
+E         ModuleNotFoundError: No module named 'social_navigation'
+E         
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['/project/EXP/IsaacLab/.venv/bin/python', '-I', '-c', "import sys;sys.path.insert(0,'/project/E...om social_navigation.sdk_paths import relocate_sdk_path\nModuleNotFoundError: No module named \'social_navigation\'\n').returncode
+
+tests/test_shared_social_minimum_horizon_entry.py:137: AssertionError
+=============================== warnings summary ===============================
+../../IsaacLab/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1488: 51 warnings
+src/protomotions/tests/test_isaaclab_mjcf_usd.py: 35 warnings
+  /project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1488: DeprecationWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+<unknown>:4
+  <unknown>:4: SyntaxWarning: invalid escape sequence '\*'
+
+src/protomotions/tests/test_baked_fk.py::TestONNXTrace::test_onnx_export_and_run
+src/protomotions/tests/test_baked_fk.py::TestONNXTrace::test_onnx_batch_inference
+  /project/EXP/SangforAndSaut/ProtoMotions/protomotions/tests/test_baked_fk.py:944: DeprecationWarning: You are using the legacy TorchScript-based ONNX export. Starting in PyTorch 2.9, the new torch.export-based ONNX exporter has become the default. Learn more about the new export logic: https://docs.pytorch.org/docs/stable/onnx_export.html. For exporting control flow: https://pytorch.org/tutorials/beginner/onnx/export_control_flow_model_to_onnx_tutorial.html
+    torch.onnx.export(
+
+src/protomotions/tests/test_baked_fk.py::TestONNXTrace::test_onnx_export_and_run
+src/protomotions/tests/test_baked_fk.py::TestONNXTrace::test_onnx_batch_inference
+src/protomotions/tests/test_baked_fk.py::TestONNXTraceTargetFK::test_target_fk_onnx_export_and_run[False]
+src/protomotions/tests/test_baked_fk.py::TestONNXTraceTargetFK::test_target_fk_onnx_export_and_run[True]
+  /project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/torch/onnx/_internal/torchscript_exporter/utils.py:218: DeprecationWarning: The feature will be removed. Please remove usage of this function
+    setup_onnx_logging(verbose) as log_ctx,
+
+src/protomotions/tests/test_baked_fk.py::TestONNXTrace::test_onnx_export_and_run
+src/protomotions/tests/test_baked_fk.py::TestONNXTrace::test_onnx_batch_inference
+src/protomotions/tests/test_baked_fk.py::TestONNXTraceTargetFK::test_target_fk_onnx_export_and_run[False]
+src/protomotions/tests/test_baked_fk.py::TestONNXTraceTargetFK::test_target_fk_onnx_export_and_run[True]
+  /project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/protomotions/utils/baked_fk.py:277: TracerWarning: Converting a tensor to a Python boolean might cause the trace to be incorrect. We can't record the data flow of Python values, so this value will be treated as a constant in the future. This means that the trace might not generalize to other inputs!
+    if K.shape[0] > 0:
+
+src/protomotions/tests/test_baked_fk.py::TestONNXTrace::test_onnx_export_and_run
+src/protomotions/tests/test_baked_fk.py::TestONNXTrace::test_onnx_batch_inference
+  /project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/protomotions/utils/baked_fk.py:203: TracerWarning: Using len to get tensor shape might cause the trace to be incorrect. Recommended usage would be tensor.shape[0]. Passing a tensor of different shape might lead to errors or silently give incorrect results.
+    n_track = len(trackable)
+
+src/protomotions/tests/test_baked_fk.py::TestONNXTraceTargetFK::test_target_fk_onnx_export_and_run[False]
+src/protomotions/tests/test_baked_fk.py::TestONNXTraceTargetFK::test_target_fk_onnx_export_and_run[True]
+  /project/EXP/SangforAndSaut/ProtoMotions/protomotions/tests/test_baked_fk.py:1086: DeprecationWarning: You are using the legacy TorchScript-based ONNX export. Starting in PyTorch 2.9, the new torch.export-based ONNX exporter has become the default. Learn more about the new export logic: https://docs.pytorch.org/docs/stable/onnx_export.html. For exporting control flow: https://pytorch.org/tutorials/beginner/onnx/export_control_flow_model_to_onnx_tutorial.html
+    torch.onnx.export(
+
+src/protomotions/tests/test_baked_fk.py::TestONNXTraceTargetFK::test_target_fk_onnx_export_and_run[False]
+src/protomotions/tests/test_baked_fk.py::TestONNXTraceTargetFK::test_target_fk_onnx_export_and_run[True]
+  /project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/protomotions/utils/baked_fk.py:488: TracerWarning: Using len to get tensor shape might cause the trace to be incorrect. Recommended usage would be tensor.shape[0]. Passing a tensor of different shape might lead to errors or silently give incorrect results.
+    n_track = len(trackable)
+
+src/protomotions/tests/test_common_transformer.py::test_transformer_real_encoder_uses_context_and_respects_padding_mask
+  /project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/torch/nn/modules/transformer.py:531: UserWarning: The PyTorch API of nested tensors is in prototype stage and will change in the near future. We recommend specifying layout=torch.jagged when constructing a nested tensor, as this layout receives active development, has better operator coverage, and works with torch.compile. (Triggered internally at /pytorch/aten/src/ATen/NestedTensorImpl.cpp:178.)
+    output = torch._nested_tensor_from_mask(
+
+src/protomotions/tests/test_gpc_python38_annotations.py::test_public_python_paths_postpone_modern_annotations
+  /project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/protomotions/utils/rotations.py:199: SyntaxWarning: invalid escape sequence '\*'
+    Combine two set of 3D rotations together using \**\* operator. The shape needs to be
+
+src/protomotions/tests/test_newton_api_compat.py::test_position_targets_preserve_free_root_and_select_live_joint_layout[False]
+src/protomotions/tests/test_newton_api_compat.py::test_sensor_kernel_and_environment_mapping_use_total_force
+src/protomotions/tests/test_newton_api_compat.py::test_sensor_rejects_a_missing_environment_instead_of_returning_zeros
+  /project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/protomotions/tests/test_newton_api_compat.py:58: DeprecationWarning: The legacy DOF-shaped joint_target_q layout is deprecated for models whose joint coordinate and DOF counts differ (free/ball/distance joints). In a future release joint_target_q will always use the coordinate layout (matching joint_q) and newton.use_coord_layout_targets will be removed. Set newton.use_coord_layout_targets = True before building models and index targets via Model.joint_target_q_start.
+    return builder.finalize(device="cpu")
+
+src/protomotions/tests/test_optional_vendor_regressions.py::test_navdp_all_legacy_imports_migrated_and_preflight_precedes_app_import
+  <unknown>:23: SyntaxWarning: invalid escape sequence '\o'
+
+src/protomotions/tests/test_optional_vendor_regressions.py::test_differential_controller_batch_preserves_scalar_speed_limits[navdp]
+  /project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/third_party/navdp/wheeled_robots/controllers/differential_controller.py:23: SyntaxWarning: invalid escape sequence '\o'
+    \omega_R = \\frac{1}{2r}(2V + \omega b) \n
+
+src/protomotions/tests/test_recording_clock.py::test_25hz_recording_encodes_one_second_and_matching_motion
+  /project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/.runtime/external_sdk_packages/moviepy/config_defaults.py:47: SyntaxWarning: invalid escape sequence '\P'
+    IMAGEMAGICK_BINARY = r"C:\Program Files\ImageMagick-6.8.8-Q16\magick.exe"
+
+src/protomotions/tests/test_recording_clock.py::test_25hz_recording_encodes_one_second_and_matching_motion
+  /project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/.runtime/external_sdk_packages/moviepy/video/io/ImageSequenceClip.py:82: DeprecationWarning: Starting with ImageIO v3 the behavior of this function will switch to that of iio.v3.imread. To keep the current behavior (and make this warning disappear) use `import imageio.v2 as imageio` or call `imageio.v2.imread` directly.
+    size = imread(sequence[0]).shape
+
+src/protomotions/tests/test_recording_clock.py: 25 warnings
+  /project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/.runtime/external_sdk_packages/moviepy/video/io/ImageSequenceClip.py:89: DeprecationWarning: Starting with ImageIO v3 the behavior of this function will switch to that of iio.v3.imread. To keep the current behavior (and make this warning disappear) use `import imageio.v2 as imageio` or call `imageio.v2.imread` directly.
+    image1=imread(image)
+
+src/protomotions/tests/test_recording_clock.py::test_25hz_recording_encodes_one_second_and_matching_motion
+  /project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/.runtime/external_sdk_packages/moviepy/video/io/ImageSequenceClip.py:124: DeprecationWarning: Starting with ImageIO v3 the behavior of this function will switch to that of iio.v3.imread. To keep the current behavior (and make this warning disappear) use `import imageio.v2 as imageio` or call `imageio.v2.imread` directly.
+    if with_mask and (imread(self.sequence[0]).shape[2]==4):
+
+src/protomotions/tests/test_recording_clock.py: 25 warnings
+  /project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/.runtime/external_sdk_packages/moviepy/video/io/ImageSequenceClip.py:119: DeprecationWarning: Starting with ImageIO v3 the behavior of this function will switch to that of iio.v3.imread. To keep the current behavior (and make this warning disappear) use `import imageio.v2 as imageio` or call `imageio.v2.imread` directly.
+    self.lastimage = imread(self.sequence[index])[:,:,:3]
+
+src/protomotions/tests/test_recording_clock.py::test_25hz_recording_encodes_one_second_and_matching_motion
+  /project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/.runtime/external_sdk_packages/moviepy/video/io/ffmpeg_reader.py:294: SyntaxWarning: invalid escape sequence '\d'
+    lines_video = [l for l in lines if ' Video: ' in l and re.search('\d+x\d+', l)]
+
+src/protomotions/tests/test_recording_clock.py::test_25hz_recording_encodes_one_second_and_matching_motion
+  /project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/.runtime/external_sdk_packages/moviepy/video/io/ffmpeg_reader.py:367: SyntaxWarning: invalid escape sequence '\d'
+    rotation_lines = [l for l in lines if 'rotate          :' in l and re.search('\d+$', l)]
+
+src/protomotions/tests/test_recording_clock.py::test_25hz_recording_encodes_one_second_and_matching_motion
+  /project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/.runtime/external_sdk_packages/moviepy/video/io/ffmpeg_reader.py:370: SyntaxWarning: invalid escape sequence '\d'
+    match = re.search('\d+$', rotation_line)
+
+src/protomotions/tests/test_terrain_class.py::test_terrain_load_save_and_plot_paths
+  /project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/protomotions/components/terrains/terrain.py:643: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed in 3.11. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap()`` or ``pyplot.get_cmap()`` instead.
+    cmap = plt.cm.get_cmap("viridis", 5)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_episode_pipeline_source_inventory.py::test_cold_preflight_accepts_exact_commands_outputs_and_observed_exits
+FAILED tests/test_sdk_path_discovery.py::test_short_or_shadow_namespace_fails_without_index_error[locations0]
+FAILED tests/test_sdk_path_discovery.py::test_short_or_shadow_namespace_fails_without_index_error[locations1]
+FAILED tests/test_sdk_path_discovery.py::test_short_or_shadow_namespace_fails_without_index_error[locations2]
+FAILED tests/test_sdk_path_discovery.py::test_one_real_checkout_can_follow_an_irrelevant_namespace
+FAILED tests/test_shared_social_episode_reference_entry.py::test_fresh_source_preflight_imports_neither_Torch_nor_SDK
+FAILED tests/test_shared_social_episode_reference_entry.py::test_missing_whole_owner_certificate_is_rejected_without_Torch_SDK_or_output
+FAILED tests/test_shared_social_minimum_horizon_entry.py::test_fresh_source_preflight_imports_neither_Torch_nor_SDK
+FAILED tests/test_shared_social_minimum_horizon_entry.py::test_missing_whole_owner_certificate_is_rejected_without_Torch_SDK_or_output
+ERROR tests/test_shared_social_episode_evaluation.py::EpisodeTerminalContracts::test_actual_exit_and_audit_admission_cannot_be_skipped
+ERROR tests/test_shared_social_episode_evaluation.py::EpisodeTerminalContracts::test_changed_runtime_source_or_import_origin_rejected
+ERROR tests/test_shared_social_episode_evaluation.py::EpisodeTerminalContracts::test_compatible_popart_family_is_insufficient_for_candidate_selection
+ERROR tests/test_shared_social_episode_evaluation.py::EpisodeTerminalContracts::test_future81_cannot_enter_the_episode31_experiment
+ERROR tests/test_shared_social_episode_evaluation.py::EpisodeTerminalContracts::test_incomplete_exposure_or_foreign_output_rejected
+ERROR tests/test_shared_social_episode_evaluation.py::EpisodeTerminalContracts::test_live_root_reference_cannot_enter_as_episode_reference
+ERROR tests/test_shared_social_episode_evaluation.py::EpisodeTerminalContracts::test_old_periodic_reference_cannot_be_relabelled
+ERROR tests/test_shared_social_episode_evaluation.py::EpisodeTerminalContracts::test_private_parent_keeps_original_child_paths_and_globals
+ERROR tests/test_shared_social_episode_evaluation.py::EpisodeTerminalContracts::test_readonly_registration_drift_is_rejected
+ERROR tests/test_shared_social_episode_evaluation.py::EpisodeTerminalContracts::test_registered_candidate_metadata_fixture_matches
+ERROR tests/test_shared_social_episode_evaluation.py::EpisodeTerminalContracts::test_repeated_cold_admission_releases_its_owned_private_helper
+ERROR tests/test_shared_social_episode_evaluation.py::EpisodeTerminalContracts::test_second_namespace_is_fresh_and_source_list_is_not_shared
+9 failed, 4771 passed, 16 skipped, 167 warnings, 12 errors, 119 subtests passed in 366.73s (0:06:06)

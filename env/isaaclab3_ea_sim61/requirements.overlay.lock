@@ -26,6 +26,7 @@ scikit-image==0.26.0
 smplx==0.1.28
 tensordict==0.9.0
 termcolor==3.3.0
+tensorboardX==2.6.5
 tifffile==2026.9.20
 torchmetrics==1.9.0
 wandb==0.23.0

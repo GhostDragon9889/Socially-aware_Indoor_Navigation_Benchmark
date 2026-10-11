@@ -50,7 +50,13 @@ def main():
                 except (ValueError, UnicodeError) as error:
                     failures.append('Invalid JSON: '+rel+': '+str(error))
             # Kit accepts settings namespace reopening; its grammar is checked by Kit.
-            if file.suffix in ('.toml','.lock'):
+            if file.name == 'requirements.overlay.lock':
+                from social_navigation.runtime_environment import read_overlay_lock
+                try:
+                    read_overlay_lock(file)
+                except RuntimeError as error:
+                    failures.append('Invalid package lock: '+rel+': '+str(error))
+            elif file.suffix in ('.toml','.lock'):
                 try:
                     tomllib.loads(file.read_text())
                 except (ValueError, UnicodeError) as error:
@@ -68,7 +74,7 @@ def main():
     for rel in required:
         if rel not in tracked or not (ROOT/rel).is_file():
             failures.append('Missing committed runtime input: '+rel)
-    for rel in ('CrowdSim','protomotions','deployment','src/CrowdSim/config','src/CrowdSim/maps'):
+    for rel in ('CrowdSim','protomotions','deployment','social_navigation','src/CrowdSim/config','src/CrowdSim/maps'):
         file = ROOT/rel
         if not file.resolve().is_relative_to(ROOT):
             failures.append('External source alias: '+rel)

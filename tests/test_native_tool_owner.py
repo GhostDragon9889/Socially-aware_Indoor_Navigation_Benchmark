@@ -10,6 +10,7 @@ from types import SimpleNamespace
 import pytest
 
 from scripts import prepare_shared_social_native_owner as owner
+from social_navigation.external_runtime import selected_python
 
 
 def test_serial_plan_retains_fixed_stage_order_and_exact_commands(tmp_path):
@@ -23,6 +24,7 @@ def test_serial_plan_retains_fixed_stage_order_and_exact_commands(tmp_path):
     assert [row["role"] for row in actions[-3:]] == ["seal_captures", "style_200s", "collect_measurements"]
     assert plan["actors"] == 15 and plan["seed"] == 42 and not path.exists()
     for row in actions:
+        assert row['argv'][0] == str(selected_python(owner.ROOT))
         assert row["cmd"] == owner.bridge.tool_command(row["argv"], cuda=row["cuda"])
         if row["failure_publication"]:
             index = actions.index(row)
@@ -33,6 +35,8 @@ def test_serial_plan_retains_fixed_stage_order_and_exact_commands(tmp_path):
 def test_compact_owner_view_retains_every_executable_command_and_failure_publication(tmp_path):
     plan = owner.build_plan("Office_N03_seed19", tmp_path / "CPU_FIXTURE_NOT_ACTUAL_registration.json")
     view = owner.owner_view(plan)
+    assert view['checkout_root'] == str(owner.ROOT)
+    assert view['sdk_python'] == str(selected_python(owner.ROOT))
     assert "case_plan" not in view and len(view["actions"]) == 21
     for original, compact in zip(plan["actions"], view["actions"]):
         assert all(compact[key] == original[key] for key in ("role", "cmd", "workdir", "observation", "requires_host_GPU"))

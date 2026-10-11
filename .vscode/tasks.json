@@ -4,8 +4,9 @@
     {
       "label": "项目：状态",
       "type": "process",
-      "command": "${workspaceFolder}/.venv/bin/python",
+      "command": "python3",
       "args": [
+        "${workspaceFolder}/scripts/run_external_python.py",
         "-m",
         "social_navigation",
         "status"
@@ -29,8 +30,9 @@
     {
       "label": "项目：检查场景资源",
       "type": "process",
-      "command": "${workspaceFolder}/.venv/bin/python",
+      "command": "python3",
       "args": [
+        "${workspaceFolder}/scripts/run_external_python.py",
         "-m",
         "social_navigation",
         "preflight",
@@ -56,8 +58,9 @@
     {
       "label": "项目：60 秒原生行人模拟",
       "type": "process",
-      "command": "${workspaceFolder}/.venv/bin/python",
+      "command": "python3",
       "args": [
+        "${workspaceFolder}/scripts/run_external_python.py",
         "-m",
         "social_navigation",
         "simulate",
@@ -85,8 +88,9 @@
     {
       "label": "项目：CPU 迁移测试",
       "type": "process",
-      "command": "${workspaceFolder}/.venv/bin/python",
+      "command": "python3",
       "args": [
+        "${workspaceFolder}/scripts/run_external_python.py",
         "-m",
         "pytest",
         "-q",
@@ -119,8 +123,9 @@
     {
       "label": "项目：AMP 微调参数",
       "type": "process",
-      "command": "${workspaceFolder}/.venv/bin/python",
+      "command": "python3",
       "args": [
+        "${workspaceFolder}/scripts/run_external_python.py",
         "-m",
         "social_navigation",
         "train-amp",
@@ -145,8 +150,9 @@
     {
       "label": "项目：视频录制参数",
       "type": "process",
-      "command": "${workspaceFolder}/.venv/bin/python",
+      "command": "python3",
       "args": [
+        "${workspaceFolder}/scripts/run_external_python.py",
         "-m",
         "social_navigation",
         "record",

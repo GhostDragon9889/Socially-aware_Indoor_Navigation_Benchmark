@@ -5,8 +5,10 @@
       "name": "项目状态",
       "type": "debugpy",
       "request": "launch",
-      "module": "social_navigation",
       "args": [
+        "--sdk-child",
+        "-m",
+        "social_navigation",
         "status"
       ],
       "cwd": "${workspaceFolder}",
@@ -15,14 +17,17 @@
       "env": {
         "PYTHONDONTWRITEBYTECODE": "1",
         "PYTHONPATH": "${workspaceFolder}/src:${workspaceFolder}"
-      }
+      },
+      "program": "${workspaceFolder}/scripts/run_external_python.py"
     },
     {
       "name": "场景资源检查",
       "type": "debugpy",
       "request": "launch",
-      "module": "social_navigation",
       "args": [
+        "--sdk-child",
+        "-m",
+        "social_navigation",
         "preflight",
         "--scene",
         "${input:scene}"
@@ -33,14 +38,17 @@
       "env": {
         "PYTHONDONTWRITEBYTECODE": "1",
         "PYTHONPATH": "${workspaceFolder}/src:${workspaceFolder}"
-      }
+      },
+      "program": "${workspaceFolder}/scripts/run_external_python.py"
     },
     {
       "name": "PointGoal PPO 参数",
       "type": "debugpy",
       "request": "launch",
-      "module": "social_navigation",
       "args": [
+        "--sdk-child",
+        "-m",
+        "social_navigation",
         "baseline-train",
         "--help"
       ],
@@ -50,7 +58,8 @@
       "env": {
         "PYTHONDONTWRITEBYTECODE": "1",
         "PYTHONPATH": "${workspaceFolder}/src:${workspaceFolder}"
-      }
+      },
+      "program": "${workspaceFolder}/scripts/run_external_python.py"
     }
   ],
   "inputs": [

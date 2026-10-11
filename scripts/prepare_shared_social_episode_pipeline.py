@@ -22,7 +22,8 @@ def main(argv=None):
     serial, cold = output / "serial_release.json", output / "cold_preflight.json"
     owner.io.write_json(serial, release.release_document(), readonly=True)
     sources = inventory.source_inventory()
-    executable = str(release.ROOT / ".venv/bin/python")
+    from social_navigation.external_runtime import selected_python
+    executable = str(selected_python(release.ROOT))
     commands = [(stage["stage"], [executable, str(Path(training.__file__)), "--serial-release", str(serial),
                                  "--stage", stage["stage"], "--check-sources"]) for stage in release.stages()]
     commands.append(("evaluation", [executable, str(Path(evaluation.__file__)),

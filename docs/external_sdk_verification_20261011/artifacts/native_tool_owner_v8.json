@@ -1,0 +1,11 @@
+{
+  "schema": "social_navigation.test_observation.v1",
+  "runner": "functions.exec V8",
+  "result": {
+    "status": "native_tool_owner_in_memory_CPU_contracts_passed",
+    "passed": 13,
+    "SDK_started": false,
+    "fixtures_published_as_actual_evidence": false
+  },
+  "scope": "In-memory CPU contracts; no native simulation or fabricated native receipts"
+}

@@ -1,0 +1,26 @@
+{
+  "scope": "Current src CPU parent-process branch coverage; excludes test modules, scripts, GPU and child processes; virtual compile filenames exported with -i and warnings retained",
+  "totals": {
+    "covered_lines": 39208,
+    "num_statements": 55278,
+    "percent_covered": 68.15893563466379,
+    "percent_covered_display": "68",
+    "missing_lines": 16070,
+    "excluded_lines": 78,
+    "percent_statements_covered": 70.92876008538659,
+    "percent_statements_covered_display": "71",
+    "num_branches": 17028,
+    "num_partial_branches": 2293,
+    "covered_branches": 10075,
+    "missing_branches": 6953,
+    "percent_branches_covered": 59.16725393469579,
+    "percent_branches_covered_display": "59"
+  },
+  "statement_percent": 70.92876008538659,
+  "branch_percent": 59.16725393469579,
+  "source_files": 470,
+  "functions": 3988,
+  "functions_without_observed_body_lines": 993,
+  "source_identity_verified": true,
+  "runtime_100_percent_claimed": false
+}

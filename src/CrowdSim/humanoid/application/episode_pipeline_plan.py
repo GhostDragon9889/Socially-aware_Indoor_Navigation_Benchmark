@@ -80,7 +80,8 @@ def validate_preflight(plan, preflight):
     require_inventory(preflight.get("sources"), plan["sources"], "Cold preflight source")
     from scripts import train_shared_social_episode_after_recovery as training
     from scripts import run_shared_social_episode_after_recovery_evaluation as evaluation
-    executable = str(ROOT / ".venv/bin/python")
+    from social_navigation.external_runtime import selected_python
+    executable = str(selected_python(ROOT))
     serial = str(artifact_path(plan["serial_release"]["path"]))
     commands = [[executable, str(Path(training.__file__)), "--serial-release", serial,
                  "--stage", stage, "--check-sources"] for stage in ("smoke8", "smoke256", "pilot2000")]

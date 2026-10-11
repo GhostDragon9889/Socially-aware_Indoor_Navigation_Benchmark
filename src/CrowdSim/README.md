@@ -3,9 +3,10 @@
 This directory contains the original Isaac Lab training path used by the
 CrowdSim robot-navigation PPO expert.
 
-The current integration targets the pinned Isaac Sim 6 / IsaacLab 3 environment.
-See [the completion report](../docs/PROJECT_COMPLETION_20261001_ZH.md) for actual
-validation, compatibility boundaries, dependency setup and resource requirements.
+The current integration targets the pinned IsaacLab 3.0 EA / Isaac Sim 6.1 SDK.
+Configure it using the [external SDK guide](../../docs/guides/external_sdk.zh-CN.md).
+See the [verification report](../../docs/EXTERNAL_SDK_VERIFICATION_20261011_ZH.md)
+for actual checks and compatibility limits.
 
 ## Main entry points
 
@@ -18,8 +19,8 @@ validation, compatibility boundaries, dependency setup and resource requirements
 - `humanoid/simulate.py`: real SMPL pedestrians without navigation robots
 
 ```bash
-python -m CrowdSim.humanoid.simulate --num-humanoids 4
-python -m CrowdSim.humanoid.simulate --headless --steps 240 \
+python3 scripts/run_external_python.py -m CrowdSim.humanoid.simulate --num-humanoids 4
+python3 scripts/run_external_python.py -m CrowdSim.humanoid.simulate --headless --steps 240 \
   --num-humanoids 4 --reset-at 120 --capture
 ```
 
@@ -42,9 +43,9 @@ python -m CrowdSim.humanoid.simulate --headless --steps 240 \
 Commands are run from the repository root:
 
 ```bash
-python CrowdSim/ppo/train_ppo.py --headless
+python3 scripts/run_external_python.py src/CrowdSim/ppo/train_ppo.py --headless
 
-python CrowdSim/tools/eval_policy.py \
+python3 scripts/run_external_python.py src/CrowdSim/tools/eval_policy.py \
   --ckpt output/crowdsim_robot_ppo/RUN/robot_ppo_latest.pt \
   --env-config CrowdSim/config/env.yaml \
   --num-episodes 200 \

@@ -43,8 +43,12 @@ async function runRegisteredNativeToolOwner(tools, envelope, notify = () => {}) 
       !Array.isArray(plan.actions) || plan.actions.length !== 21) {
     throw new Error("Require the exact prepared native case envelope");
   }
-  const root = "/project/EXP/SangforAndSaut/ProtoMotions";
-  const python = "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/bin/python";
+  const root = plan.checkout_root;
+  const python = plan.sdk_python;
+  if (typeof root !== "string" || !root.startsWith("/") || typeof python !== "string" || !python.startsWith("/") ||
+      plan.actions.some(action => action.workdir !== root)) {
+    throw new Error("Require the registered checkout and SDK interpreter");
+  }
   const quote = value => "'" + String(value).replace(/'/g, "'\\''") + "'";
   const CPU = "env CUDA_VISIBLE_DEVICES='' OMP_NUM_THREADS=4 MKL_NUM_THREADS=4 OPENBLAS_NUM_THREADS=4 PYTHONDONTWRITEBYTECODE=1 ";
   const cpu = cmd => observeNativeTerminal(tools, {cmd, workdir: root, yield_time_ms: 1000, max_output_tokens: 16000});
@@ -90,10 +94,6 @@ async function runRegisteredNativeToolOwner(tools, envelope, notify = () => {}) 
     state.stage = action.role;
     await save();
     const request = {cmd: action.cmd, workdir: action.workdir, yield_time_ms: 1000, max_output_tokens: 1200};
-    if (action.requires_host_GPU === true) {
-      request.sandbox_permissions = "require_escalated";
-      request.justification = "用户已授权行人模拟与独立评估；S3及其后续GPU评价已完成并准入，按固定案例串行执行原生SDK。";
-    }
     let returnedChunks = 0;
     const response = await observeNativeTerminal(tools, request, async observed => {
       returnedChunks++;

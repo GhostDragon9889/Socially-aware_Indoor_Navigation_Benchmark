@@ -45,6 +45,7 @@ async function nativeToolOwnerCPUContracts(runOwner, observe) {
       requires_host_GPU: index === 0}));
     actions[0].failure_publication = actions[1];
     return {registration, plan: {schema: "shared_social.registered_native_serial_tool_plan.v1", SDK_started: false,
+      checkout_root: "/tmp", sdk_python: "/tmp/CPU_FIXTURE_NOT_ACTUAL_python",
       registration_path: registration.path, actions, case_id: "CPU_FIXTURE_NOT_ACTUAL_CASE",
       execution_preflight_command: "CPU_FIXTURE_preflight", guard_command: "CPU_FIXTURE_guard",
       observation_directory: "/tmp/CPU_FIXTURE_NOT_ACTUAL", state_path: "/tmp/CPU_FIXTURE_NOT_ACTUAL_state.json"}};
@@ -60,7 +61,7 @@ async function nativeToolOwnerCPUContracts(runOwner, observe) {
         status: "native_serial_sources_and_S3_guarded", registration: envelope.registration})};
       const row = envelope.plan.actions.find(action => action.cmd === request.cmd);
       if (row) {
-        require((request.sandbox_permissions === "require_escalated") === row.requires_host_GPU, "Host GPU scope differs");
+        require(request.sandbox_permissions === undefined, "The owner must use the active tool permission profile");
         children.push(row.role);
         return terminal(row.role === failRole ? -9 : 0);
       }

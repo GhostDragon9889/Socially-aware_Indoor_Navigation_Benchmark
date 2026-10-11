@@ -1,5 +1,4 @@
 {
-  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
   "python.analysis.extraPaths": [
     "${workspaceFolder}/src",
     "${workspaceFolder}"
@@ -21,8 +20,7 @@
   ],
   "python.testing.cwd": "${workspaceFolder}",
   "terminal.integrated.env.linux": {
-    "PYTHONDONTWRITEBYTECODE": "1",
-    "PYTHONPATH": "${workspaceFolder}/src:${workspaceFolder}"
+    "PYTHONDONTWRITEBYTECODE": "1"
   },
   "files.exclude": {
     "protomotions": true,
@@ -56,6 +54,5 @@
     "usd_convert/**": true,
     "**/.runtime/**": true
   },
-  "editor.formatOnSave": false,
-  "python.envFile": "${workspaceFolder}/.vscode/test.env"
+  "editor.formatOnSave": false
 }

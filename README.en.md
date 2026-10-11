@@ -59,45 +59,45 @@ See the [detailed structure (Chinese)](docs/PROJECT_STRUCTURE_ZH.md).
 
 Private repository: [GhostDragon9889/Socially-aware_Indoor_Navigation_Benchmark](https://github.com/GhostDragon9889/Socially-aware_Indoor_Navigation_Benchmark). Access requires an authorized GitHub account.
 
-All 1,017 original upstream paths are mapped into the reorganized project, with 235 previously omitted files restored and the original 74-commit ProtoMotions history retained. Original LFS references download from NVlabs/ProtoMotions; approximately 5.3 GB of payloads are not mirrored into this private repository. Existing adaptations remain in the merged source. See the [merge record (Chinese)](docs/UPSTREAM_MERGE_20261010_ZH.md).
+All 1,017 original upstream paths are mapped into the reorganized project, with 235 previously omitted files restored and the original 74-commit ProtoMotions history retained. Original LFS references download from NVlabs/ProtoMotions; approximately 5.3 GB of payloads are not mirrored into this repository. Existing adaptations remain in the merged source. See the [merge record (Chinese)](docs/UPSTREAM_MERGE_20261010_ZH.md).
 
 The selected fine-tuned controllers, training parameters, EVT-EXP robot and four-scene assets are packaged in the [private LFS release](ASSET_RELEASE.md#english-instructions). Raw AMASS motions, SMPL parameters, SDK workspaces and videos remain separately prepared. [Configuration](docs/guides/configuration.en.md) explains cross-machine requirements.
 
 ## Quick start with an existing environment
 
-The local root `.venv` still selects the old Sim6.0 SDK. Explicitly select the new project interpreter at `.runtime/isaaclab3_ea_sim61/.venv/bin/python`, which is undergoing physical acceptance. For another matching SDK, create the project overlay using [installation](docs/guides/installation.en.md).
+Configure an installed external SDK from the project root. The launcher uses that SDK's Python directly; project additions live in `.runtime/external_sdk_packages`. No project venv or editable install into the SDK is required.
 
 ```bash
-cd /absolute/path/to/Socially-aware_Indoor_Navigation_Benchmark
-export NAV_PY="$PWD/.runtime/isaaclab3_ea_sim61/.venv/bin/python"
-export PYTHONDONTWRITEBYTECODE=1
-export PYTHONPATH="$PWD/src:$PWD${PYTHONPATH:+:$PYTHONPATH}"
-"$NAV_PY" -m social_navigation status
-"$NAV_PY" -m social_navigation preflight --scene YOHO
-"$NAV_PY" -m social_navigation simulate --scene YOHO --steps 60 --output output/sim61_smoke
+python3 scripts/bootstrap_reproduction.py configure --lab-root /absolute/path/to/IsaacLab
+python3 scripts/bootstrap_reproduction.py check
+python3 scripts/run_external_python.py -m social_navigation status
+python3 scripts/run_external_python.py -m social_navigation preflight --scene YOHO
+python3 scripts/run_external_python.py -m social_navigation simulate --scene YOHO --steps 60 --output output/sim61_smoke
 ```
+
+For a new machine, `python3 scripts/bootstrap_reproduction.py install` installs the pinned Lab3EA/Sim6.1 SDK under `.runtime/IsaacLab61`. Use the same launcher afterwards. `--python` selects another SDK interpreter, including a binary Sim `python.sh` with Lab installed. Read and accept NVIDIA's EULA before first Kit launch. See [external SDK setup](docs/guides/external_sdk.zh-CN.md).
 
 Preflight checks resources and native scene configuration. Simulation uses the owning parent launcher and a fresh output directory. The short 60-control smoke command does not replace 1,800-control (60-second) quality/recording acceptance. Run native jobs serially. For a new machine, follow [installation](docs/guides/installation.en.md) before these commands.
 
 ## Training, evaluation and recording
 
 ```bash
-.venv/bin/python -m social_navigation train-amp --help
-.venv/bin/python -m social_navigation evaluate-physics --help
-.venv/bin/python -m social_navigation evaluate-posture --help
-.venv/bin/python -m social_navigation evaluate-speed --help
-.venv/bin/python -m social_navigation evaluate-stasis --help
-.venv/bin/python -m social_navigation audit-speed --help
-.venv/bin/python -m social_navigation audit-feet --help
-.venv/bin/python -m social_navigation audit-camera --help
-.venv/bin/python -m social_navigation record --help
+python3 scripts/run_external_python.py -m social_navigation train-amp --help
+python3 scripts/run_external_python.py -m social_navigation evaluate-physics --help
+python3 scripts/run_external_python.py -m social_navigation evaluate-posture --help
+python3 scripts/run_external_python.py -m social_navigation evaluate-speed --help
+python3 scripts/run_external_python.py -m social_navigation evaluate-stasis --help
+python3 scripts/run_external_python.py -m social_navigation audit-speed --help
+python3 scripts/run_external_python.py -m social_navigation audit-feet --help
+python3 scripts/run_external_python.py -m social_navigation audit-camera --help
+python3 scripts/run_external_python.py -m social_navigation record --help
 ```
 
 Tools retain quality gates, actual child exits and resource provenance. Use new output paths and follow the complete [usage workflow](docs/guides/usage.en.md); a new checkpoint requires independent admission before recording.
 
 ## VS Code
 
-Open `Socially-aware_Indoor_Navigation_Benchmark.code-workspace`. Recommended extensions are Python, Pylance, Python Debugger and Ruff; the default interpreter is `.venv/bin/python`. Tasks and debug configurations expose status, preflight, baseline and native entry points.
+Open `Socially-aware_Indoor_Navigation_Benchmark.code-workspace`. Recommended extensions are Python, Pylance, Python Debugger and Ruff; open the generated `.runtime/external_sdk.code-workspace` to use the configured external SDK interpreter. Tasks and debug configurations expose status, preflight, baseline and native entry points.
 
 ## Upstream projects and licenses
 

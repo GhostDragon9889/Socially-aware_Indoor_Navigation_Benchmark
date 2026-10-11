@@ -2,7 +2,9 @@
 from pathlib import Path
 import json,os,subprocess,hashlib,time,sys,argparse,re
 R=Path(__file__).resolve().parents[1];S=None
-P='/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/bin/python'
+sys.path.insert(0,str(R/'src'))
+from social_navigation.external_runtime import selected_python
+P=str(selected_python(R))
 def digest(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
 def launch(command,name):
  log=S/(name+'.owner.log');receipt=S/(name+'.owner.json');start=time.monotonic()

@@ -1,0 +1,212 @@
+[
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "pacer_train256",
+      "observation": {
+        "chunk_id": "0a1998",
+        "wall_time_seconds": 2.8103e-05,
+        "exit_code": 0,
+        "original_token_count": 0,
+        "output": ""
+      }
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "pacer_resume256",
+      "observation": {
+        "chunk_id": "c4a9da",
+        "wall_time_seconds": 3.676e-06,
+        "exit_code": 0,
+        "original_token_count": 0,
+        "output": ""
+      }
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "local_full_install",
+      "observation": {
+        "chunk_id": "791ed6",
+        "wall_time_seconds": 1.0825e-05,
+        "exit_code": 0,
+        "original_token_count": 0,
+        "output": ""
+      }
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "full_cpu",
+      "observation": {
+        "chunk_id": "197759",
+        "wall_time_seconds": 3.234e-06,
+        "exit_code": 0,
+        "original_token_count": 0,
+        "output": ""
+      }
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "clone_NewMetro",
+      "observation": {
+        "chunk_id": "000c6c",
+        "wall_time_seconds": 3.602e-06,
+        "exit_code": 0,
+        "original_token_count": 0,
+        "output": ""
+      }
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "changed_regressions",
+      "observation": {
+        "chunk_id": "1bd269",
+        "wall_time_seconds": 6.088e-06,
+        "exit_code": 0,
+        "original_token_count": 0,
+        "output": ""
+      }
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "gpu_final",
+      "observation": {
+        "chunk_id": "aa929d",
+        "exit_code": 0,
+        "source": "actual tool terminal result observed in this session"
+      }
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "rvo2_build",
+      "observation": {
+        "chunk_id": "fee700",
+        "exit_code": 0,
+        "source": "actual tool terminal result observed in this session"
+      }
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "pretrained_final",
+      "observation": {
+        "chunk_id": "5322aa",
+        "exit_code": 0,
+        "source": "actual tool terminal result observed in this session"
+      }
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "configure_final",
+      "observation": {
+        "chunk_id": "46e197",
+        "exit_code": 0,
+        "source": "actual tool terminal result observed in this session"
+      }
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "mutation_review",
+      "observation": {
+        "chunk_id": "53159a",
+        "exit_code": 0,
+        "source": "actual tool terminal result observed in this session"
+      }
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "orca_native_generation",
+      "observation": {
+        "chunk_id": "a42284",
+        "exit_code": 0,
+        "source": "actual tool terminal result observed in this session"
+      }
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "cli_interfaces",
+      "observation": {
+        "chunk_id": "d6638c",
+        "exit_code": 0,
+        "source": "actual tool terminal result observed in this session"
+      }
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "debugger_regression",
+      "observation": {
+        "chunk_id": "6be07f",
+        "exit_code": 0,
+        "source": "actual tool terminal result observed in this session"
+      }
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "coverage_current_interrupted_for_debugger_fix",
+      "observation": {
+        "chunk_id": "b876e7",
+        "exit_code": 2,
+        "source": "actual tool terminal result observed in this session"
+      }
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "full_cpu_current_v2",
+      "observation": {
+        "chunk_id": "1a2761",
+        "exit_code": 0,
+        "source": "actual terminal tool response observed after coverage suite completed"
+      }
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "crowdsim_robot4_train",
+      "observation": {
+        "chunk_id": "6d5be8",
+        "exit_code": 0,
+        "source": "actual terminal tool result for original process session"
+      }
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "crowdsim_robot4_resume",
+      "observation": {
+        "chunk_id": "a2ae8d",
+        "exit_code": 0,
+        "source": "actual terminal tool result for original process session"
+      }
+    }
+  }
+]

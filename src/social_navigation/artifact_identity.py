@@ -19,8 +19,12 @@ def artifact_path(value, *, root=None):
     if not path.is_absolute() or '..' in path.parts:
         raise ValueError('Artifact path must be absolute and contain no parent traversal')
     local_root = Path(root or repository_root()).resolve()
-    if path.is_relative_to(LEGACY_PROJECT):
-        path = local_root / path.relative_to(LEGACY_PROJECT)
+    from .sdk_paths import PUBLISHED_PROJECT
+    if not path.is_relative_to(local_root):
+        for prefix in (LEGACY_PROJECT, Path(PUBLISHED_PROJECT)):
+            if path.is_relative_to(prefix):
+                path = local_root / path.relative_to(prefix)
+                break
     if path.is_relative_to(local_root):
         relative = path.relative_to(local_root)
         if relative.parts and relative.parts[0] in SOURCE_PACKAGES:

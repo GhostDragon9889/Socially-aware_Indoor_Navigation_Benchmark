@@ -2,22 +2,9 @@
 
 [中文](installation.zh-CN.md) · [Guide index](README.md)
 
-The default is **IsaacLab 3.0 EA / Isaac Sim 6.1.0.0**. Follow [clone reproduction](../../CLONE_REPRODUCTION.en.md) for complete assets, data and execution. On a fresh machine, run from the project root:
+The default is **Lab3EA/Sim6.1**. Configure an external SDK with `python3 scripts/bootstrap_reproduction.py configure --lab-root /absolute/path/to/IsaacLab`, verify with `bootstrap_reproduction.py check`, and run scripts through `scripts/run_external_python.py`. A full local installation is available with `bootstrap_reproduction.py install`. See [setup](external_sdk.zh-CN.md) for resources and editor configuration.
 
-```bash
-uv python install 3.12.13
-uv run --no-project --python 3.12.13 python scripts/bootstrap_reproduction.py install --profile isaaclab3_ea_sim61
-export NAV_LAB="$PWD/.runtime/IsaacLab61"
-export NAV_PY="$PWD/.runtime/isaaclab3_ea_sim61/.venv/bin/python"
-export PYTHONPATH="$PWD/src:$PWD"
-"$NAV_PY" -m social_navigation.runtime_environment check --lab-root "$NAV_LAB"
-"$NAV_PY" scripts/manage_release_assets.py fetch
-"$NAV_PY" scripts/manage_release_assets.py prepare --check-usd
-```
-
-For a matching installed SDK, set `NAV_LAB` to its real path and run `python3 scripts/bootstrap_reproduction.py prepare-runtime --profile isaaclab3_ea_sim61 --lab-root "$NAV_LAB"`. Project dependencies install in an isolated overlay without editing the SDK. Reuse requires matching SDK, locks and paths; failure preserves the selected interpreter. See [runtime instructions](../../env/isaaclab3_ea_sim61/README.md).
-
-Prepare licensed raw AMASS and SMPL separately. `--profile isaaclab3_sim6` retains the historical Sim6.0 environment. Its recordings and metrics do not certify the new SDK. New recording runs still require scene quality gates and complete video decoding.
+AMASS and SMPL separately. `--profile isaaclab3_sim6` retains the historical Sim6.0 environment. Its recordings and metrics do not certify the new SDK. New recording runs still require scene quality gates and complete video decoding.
 
 Troubleshooting:
 

@@ -5,8 +5,30 @@ import gzip
 import json
 from pathlib import Path
 import shutil
+import stat
 
 from .asset_release import contained_file, sha256
+
+
+def prepare_frozen_inputs(root: Path):
+    """Restore permissions lost by Git only after verifying every frozen byte."""
+    root = root.resolve()
+    manifest = json.loads((root / 'configs/reproduction/frozen_inputs.json').read_text())
+    if manifest.get('schema') != 'social_navigation.frozen_inputs.v1':
+        raise ValueError('Unknown frozen inputs schema')
+    checked = []
+    for row in manifest['files']:
+        path = root / row['path']
+        info = path.lstat()
+        if (not path.resolve().is_relative_to(root) or path.is_symlink()
+                or not stat.S_ISREG(info.st_mode) or info.st_nlink != 1
+                or info.st_size != row['bytes'] or sha256(path) != row['sha256']):
+            raise ValueError('Frozen input differs; no permissions changed: ' + str(path))
+        checked.append((path, info.st_mode))
+    for path, mode in checked:
+        path.chmod(stat.S_IMODE(mode) & ~0o222)
+    return {'status': 'frozen_input_permissions_prepared', 'files': len(checked),
+            'content_rewritten': False, 'physics_tested': False}
 
 
 def _copy_exact(source, target, expected):

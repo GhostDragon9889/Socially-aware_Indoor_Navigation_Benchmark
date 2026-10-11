@@ -1,0 +1,26 @@
+{
+  "schema": "social_navigation.external_sdk_source_migration.v1",
+  "base_commit": "4487fc2f9a7e27d8b856d2f262d1474dc3505a4f",
+  "files": [
+    {
+      "path": "src/CrowdSim/humanoid/runtime/grouped_source_migration.py",
+      "historical_sha256": "558209d46dd3e31300fa1b6ac0a3aad7fbab7bc15a597787aef94b8272032e5e",
+      "current_sha256": "aa74c63118f8f29a7fa7bd7098df52ef13312bee7b3032f12572f0eb3a1fd622",
+      "scope": "Explicit interpreter/source path relocation and fresh external SDK registration; no reward, reset, physics or policy numeric changes"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/terminal_cache_source_migration.py",
+      "historical_sha256": "4fb7517315179aca69dc794aca8cda6cbcc628c840a67816a4f8825f2a5871f1",
+      "current_sha256": "c36c2f7f1544040d8a2ea447a216e83dcd43566977fca8b50a08b5ebff1a7d16",
+      "scope": "Explicit interpreter/source path relocation and fresh external SDK registration; no reward, reset, physics or policy numeric changes"
+    },
+    {
+      "path": "src/CrowdSim/humanoid/application/episode_evaluation_admission.py",
+      "historical_sha256": "94937f5d9cab121323853bbcfabd1c2709d07782ac58419d088bab7571bca448",
+      "current_sha256": "741fcbc75320c24ba4fd5ac18ea08d9ea2d0141dfa761f8a92265f100705b63c",
+      "scope": "Explicit interpreter/source path relocation and fresh external SDK registration; no reward, reset, physics or policy numeric changes"
+    }
+  ],
+  "historical_registration_files_unchanged": true,
+  "physical_equivalence_claimed": false
+}

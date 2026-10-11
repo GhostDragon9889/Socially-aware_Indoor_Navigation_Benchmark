@@ -1,6 +1,6 @@
 # Project dependencies
 
-[中文](dependencies.zh-CN.md) · [Guide index](README.md) · Updated 2026-10-10
+[中文](dependencies.zh-CN.md) · [Guide index](README.md) · Updated 2026-10-11
 
 ## Default: IsaacLab 3.0 EA / Isaac Sim 6.1
 
@@ -15,7 +15,7 @@ The [official EA documentation](https://isaac-sim.github.io/IsaacLab/v3.0.0-EA/i
 | Isaac Sim package | `6.1.0.0` |
 | Torch / NumPy / Warp | `2.11.0+cu128` / `2.5.1` / `1.16.0` |
 | Standalone USD provider | `usd-exchange==2.3.0`; USD `25.5` |
-| Project interpreter | `.runtime/isaaclab3_ea_sim61/.venv/bin/python` |
+| Project interpreter | `python` in `.runtime/external_sdk.json` |
 
 ## Authoritative files and installation boundaries
 
@@ -24,12 +24,12 @@ The [official EA documentation](https://isaac-sim.github.io/IsaacLab/v3.0.0-EA/i
 | [Root pyproject.toml](../../pyproject.toml) | Core ranges, five source packages and optional backends |
 | [SDK manifest](../../env/isaaclab3_ea_sim61/pyproject.toml), [SDK uv.lock](../../env/isaaclab3_ea_sim61/uv.lock) | Complete snapshot for a new pinned SDK |
 | [profile.json](../../env/isaaclab3_ea_sim61/profile.json) | Source, binary providers and manifest/lock hashes |
-| [Dependency inventory](dependency-inventory-isaaclab3-ea-sim61.json) | Machine-readable SDK, overlay and core declarations |
-| [requirements.overlay.lock](../../env/isaaclab3_ea_sim61/requirements.overlay.lock) | 32 exact project additions |
+| [Dependency inventory](dependency-inventory-isaaclab3-ea-sim61.json) | Historical 2026-10-10 overlay snapshot; current additions follow the lock |
+| [requirements.overlay.lock](../../env/isaaclab3_ea_sim61/requirements.overlay.lock) | 33 exact project additions |
 | [Runtime instructions](../../env/isaaclab3_ea_sim61/README.md) | Reuse, install and read-only validation |
 | [Constraint receipt](../../env/isaaclab3_ea_sim61/runtime_constraints_receipt.txt) | Observed visible packages, not a standalone SDK installation lock |
 
-The SDK and project additions use separate virtual environments. A project `.pth` references SDK site-packages and source while prioritizing this checkout's `src/`. Torch, NumPy, Warp, MuJoCo, Isaac packages and USD providers are not installed twice. Installed SDK files are not changed. Validation checks provider origins, 169 USD RECORD entries, default overlay dependencies and 18 project core requirements: 116 requirements satisfied locally. Failure preserves the selected `.venv`; changes to the SDK, lock or checkout path reject an old receipt.
+Project launches directly use the configured SDK Python, or a complete SDK installed under `.runtime/IsaacLab61`. The 33 additions live in `.runtime/external_sdk_packages`; a second project interpreter is unnecessary. Configuration verifies provider origins, 169 USD RECORD files, dependency closure and project requirements. Torch, NumPy, Warp, Isaac and USD providers remain SDK-owned. Launch with `scripts/run_external_python.py`; the old overlay remains available for existing deployments.
 
 ## Project additions
 
@@ -44,6 +44,7 @@ The SDK and project additions use separate virtual environments. A project `.pth
 | `scikit-image` | `0.26.0` | Image processing and evaluation |
 | `moviepy` / `imageio-ffmpeg` | `1.0.3` / `0.6.0` | Video handling |
 | `easydict` / `termcolor` | `1.13` / `3.3.0` | Reference controller settings and logging |
+| `tensorboardX` | `2.6.5` | ProtoMotions SummaryWriter |
 | `pytest` | `9.0.3` | CPU functionality tests |
 
 The overlay lock contains the full list. `dm-control==1.0.40` failed with a missing `flex_bandwidth` on the target MuJoCo 3.11. The [official 1.0.44 release](https://github.com/google-deepmind/dm_control/releases/tag/1.0.44) passed actual CPU contact, stepping, copy and reset checks. Successful imports alone do not establish this compatibility.

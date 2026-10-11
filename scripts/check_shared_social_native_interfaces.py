@@ -20,9 +20,10 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from CrowdSim.humanoid.application import episode_native_execution as bridge  # noqa: E402
 from scripts import resume_shared_social_recovery_evaluation as io  # noqa: E402
+from social_navigation.external_runtime import selected_python  # noqa: E402
 
 ENTRY = ROOT / "scripts/evaluate_shared_social_native_seeded.py"
-PYTHON = ROOT.parent / "IsaacLab-Protomotions/.venv/bin/python"
+PYTHON = selected_python(ROOT)
 
 
 def now():
