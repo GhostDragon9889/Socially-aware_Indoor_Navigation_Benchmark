@@ -8,6 +8,7 @@ from pathlib import Path
 import re
 
 from CrowdSim.humanoid.runtime.dynbench_scene import DynBenchSceneProvider, file_record
+from social_navigation.artifact_identity import artifact_path, same_artifact
 
 SCHEMA = "crowdsim.native_pedestrian_scene.v1"
 
@@ -23,7 +24,8 @@ def _bound_resource(value, directory):
             or type(value["path"]) is not str or "://" in value["path"]
             or type(value["sha256"]) is not str or not re.fullmatch("[0-9a-f]{64}", value["sha256"])):
         raise ValueError("Native resource requires a local path and explicit SHA256")
-    path = (directory/value["path"]).resolve()
+    selected = Path(value["path"])
+    path = (artifact_path(selected) if selected.is_absolute() else directory / selected).resolve()
     record = file_record(path)
     if record["sha256"] != value["sha256"]:
         raise ValueError("Native scene resource changed: "+str(path))
@@ -63,7 +65,7 @@ def preflight_native_scene(path, *, actors):
     owner = result.get("floor_ownership", {})
     if (provider.scene_name != data["scene"] or result.get("scene") != data["scene"]
             or result.get("status") != "scene_resource_gate_passed"
-            or result.get("preflight") != preflight or result.get("scene_resource_gate_passed") is not True
+            or not same_artifact(result.get("preflight"), preflight) or result.get("scene_resource_gate_passed") is not True
             or owner.get("floor_ownership_verified") is not True
             or owner.get("single_declared_floor_owner_verified") is not True
             or result.get("original_source_layers_unchanged") is not True):

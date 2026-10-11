@@ -1,0 +1,753 @@
+{
+  "schema": "migration.configuration_syntax.v1",
+  "files": 124,
+  "passed": 124,
+  "failures": [],
+  "rows": [
+    {
+      "path": ".github/workflows/deploy-docs.yml",
+      "bytes": 2154,
+      "sha256": "4a374965f1c2231e1d259f7c9da59068addb5412c622da2d48941ceaa5b05fe4",
+      "syntax": "passed"
+    },
+    {
+      "path": ".github/workflows/public-ci.yml",
+      "bytes": 1362,
+      "sha256": "52d066cb681cbd9ff6cf2df719ed92efafce831d96489cdb10651fe247a6c1cb",
+      "syntax": "passed"
+    },
+    {
+      "path": ".vscode/extensions.json",
+      "bytes": 137,
+      "sha256": "2d1e1233a5fd87d048cb4c8af16d0e87b210b996d21ff4dc0aefb24754c98566",
+      "syntax": "passed"
+    },
+    {
+      "path": ".vscode/launch.json",
+      "bytes": 1597,
+      "sha256": "c7bf97ea0c3d9f58bf5bcba22a95bd20fbf89a02cc14c68922187601dc1dc0cc",
+      "syntax": "passed"
+    },
+    {
+      "path": ".vscode/settings.json",
+      "bytes": 1518,
+      "sha256": "02a807688833dc73e4035daaebdd900ecefd36c8a596e258cf2d0dcb71c04264",
+      "syntax": "passed"
+    },
+    {
+      "path": ".vscode/tasks.json",
+      "bytes": 4490,
+      "sha256": "b7a913b09f3f78164c3f5abb6068b31fde6dd26deb6ab21b2251f81efa9ed94b",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/reference_patches/manifest.json",
+      "bytes": 12666,
+      "sha256": "c73e874d68611d27b7d26dc7721fb9dd13f55e353f335cf143e4b51a0db3a69e",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/crowdsim/analysis/ppo_fixed_route_100.yaml",
+      "bytes": 323,
+      "sha256": "71780485d86a4b97ab7714e5b4c83a35df8f3e4b695c6d0b0cf1ede44b182e1c",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/crowdsim/collect/ppo.yaml",
+      "bytes": 4845,
+      "sha256": "8d513b617816c806809f15c82f1ee4f3464e6c0524f10e5b9aa4c996451fd689",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/crowdsim/env.yaml",
+      "bytes": 5433,
+      "sha256": "5eb3e027555e64582fb043e0411a0d4445e5b12a52ed762afcd0a25511df679b",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/crowdsim/pedestrian.yaml",
+      "bytes": 1937,
+      "sha256": "757b930c47d6ddcf053f97ad89bb047b37d62d6c04b8c8e840503ae3213556bc",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/crowdsim/reward_model_ppo.yaml",
+      "bytes": 1179,
+      "sha256": "7480c13964e0e1bff96c7b3f03735db27ac65eef20155f59be9c7723742139e3",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/crowdsim/scenes/bidirectional_open.yaml",
+      "bytes": 438,
+      "sha256": "855ff0d0366d3218713537e2c35c2c1c7e93fe2733ef114b5c212169b7629e24",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/crowdsim/scenes/dynabench_full_warehouse.yaml",
+      "bytes": 400,
+      "sha256": "7921532220b5b26115f22d009e4eaa4e251484b583bf280873538cdd5de8791a",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/crowdsim/scenes/dynabench_hospital.yaml",
+      "bytes": 321,
+      "sha256": "e3337a388de09e92740b2ad04c005d2f5bc92ee4604eca5f84bf2c6908ec8b1b",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/crowdsim/scenes/dynabench_office.yaml",
+      "bytes": 315,
+      "sha256": "2e684e6e1837fa0a6f5c154a8ac53ff25dc42a386f7adb633a53b4624274c732",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/crowdsim/scenes/dynabench_warehouse.yaml",
+      "bytes": 316,
+      "sha256": "2457f76c76a9adc9bb406b33d6aa8fec99faa43e26baf43eb42c4bf13a436914",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/crowdsim/scenes/pedestrian_open.yaml",
+      "bytes": 196,
+      "sha256": "6210b11a23930044f018bd5ef9f37a3d4226acf85f15fe3a64cb7bb7154ec668",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/crowdsim/scenes/warehouse.yaml",
+      "bytes": 1860,
+      "sha256": "6146e4c3e281f8a42c663654796b19cd4bd729f31c264dd41ecbff5c83d6c32e",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/amass_curation.yaml",
+      "bytes": 876,
+      "sha256": "2a2e92f24c509942c49c3ae58a2ddde05580d686ea58bee5dfe8be71f5f5a169",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/amass_curation_labeled.yaml",
+      "bytes": 973,
+      "sha256": "d7507fff0b16324e0e1345bac33d0f64178e3d2a348a4644a1efb81350d08764",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/amp_independent_curriculum.yaml",
+      "bytes": 3887,
+      "sha256": "1c44dd0d77edeab0a3b37ffb1a8f7643ba93199bf3911ad923c4fa97dfc02a69",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/amp_pacer_adaptation.yaml",
+      "bytes": 3520,
+      "sha256": "cb30619b0c16ba4602f61ecdcf39824ba90f737882f3b1778afae3a74e638aa6",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/amp_style_amass_backward_penalty.yaml",
+      "bytes": 5433,
+      "sha256": "a8893d6f63b2937bfd0028175395758301dd0baff46ba95a67926e627016b066",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/amp_style_amass_replay.yaml",
+      "bytes": 4887,
+      "sha256": "bdf0ade1123795e4160fc6979cc5d605d842ba171459429c3803e41f32cca67b",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/amp_style_amass_root_curriculum.yaml",
+      "bytes": 4963,
+      "sha256": "23b265fd2955b879ff76e2c429d9280f1ab48d53919bf63ab52546967f6ca988",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/amp_style_amass_stratified_experts.yaml",
+      "bytes": 6501,
+      "sha256": "f8f6bf2cb66380cadd859b8c2b9808a89a583996290cc914eccb916b2a1eadfb",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/amp_style_mixed_amass_procedural.yaml",
+      "bytes": 5268,
+      "sha256": "631f372cebe3c4ac6e87e67c333cda85d4a80a960b962ac9d1d8c483430068d9",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/amp_style_mixed_state_action.yaml",
+      "bytes": 6505,
+      "sha256": "6963d3429079ef7ea5613fb468e9e8ac742d7508ef1bf2d9d105b156ceca2aab",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/amp_style_mixed_state_action_state_prior_pacer_reward.yaml",
+      "bytes": 8400,
+      "sha256": "6d76dbfad6bc3827904af7efaf2fea7849ba5f5ff441971745ea17501b7f1bae",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/amp_style_mixed_state_action_state_prior_terrain_protected.yaml",
+      "bytes": 8054,
+      "sha256": "220f6d38d4cd71d8cc26f045bf2f3f842661ecc7f69875c11e4a8ee6df39e7c2",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/amp_style_mixed_state_action_terrain_protected.yaml",
+      "bytes": 7583,
+      "sha256": "a73f91ef997997f9e890a43aef61f3abd19e25efb3feab052d042fd62133082e",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_speed_20261010/NewMetro_cameras.json",
+      "bytes": 739,
+      "sha256": "49b1ca8827284707860d2d170e68dc5eb791f5d8bc795a4f7d28b970f26140c2",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_speed_20261010/NewMetro_profile.json",
+      "bytes": 3020,
+      "sha256": "c81ceb72d359f4a1b6af51d43de66714d33cb24999f557ebc839a008046da20a",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_speed_20261010/NewMetro_scene.yaml",
+      "bytes": 11303,
+      "sha256": "5a93d922a9bf9457208d009f14e34b4e6fb1e09611967340e6cb5d69b7d1220e",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_speed_20261010/SecondFloor_cameras.json",
+      "bytes": 719,
+      "sha256": "89337ac99df87a06811387ff077f69285db12815f9acb4d488f1cf6d6f524827",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_speed_20261010/SecondFloor_profile.json",
+      "bytes": 3017,
+      "sha256": "6f8b33f4a7ea45a612a059ffc814fcb04c279643d403c9983a812114ffc2aee6",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_speed_20261010/SecondFloor_scene.yaml",
+      "bytes": 1518,
+      "sha256": "b0b56d2a1a89320858b219c9451fe8e6d771201b7de2ffb8f2d62c09f9d96da6",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_speed_20261010/ThirdFloor_cameras.json",
+      "bytes": 583,
+      "sha256": "aa40bf33ca42c74e84ea5f9a1f939fe5570405bf55bc2c2616f1414ac2f0ff6e",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_speed_20261010/ThirdFloor_profile.json",
+      "bytes": 3013,
+      "sha256": "0ddb3ad3d9727b8b6f58c5568774ab9b7b422d67331a91996c7da24ec33f01bb",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_speed_20261010/ThirdFloor_scene.yaml",
+      "bytes": 1509,
+      "sha256": "a378c35c5f594a848e8316bb87399466952604725155dab17ce899a77333b80a",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_speed_20261010/YOHO_cameras.json",
+      "bytes": 844,
+      "sha256": "2193bde63b13acea449f7f4cf8fef1652895fdb395e7f6d1d7229c20f7234b89",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_speed_20261010/YOHO_profile.json",
+      "bytes": 3014,
+      "sha256": "472e2d27a36439855befaae2d381426ea941b4505f64fd576032a6cecc5e6dde",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_speed_20261010/YOHO_scene.yaml",
+      "bytes": 9296,
+      "sha256": "b4f7d5513d91c597fc347078940f4d77d8f3ea43904d505582f35944a2a6bc84",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_speed_20261010/gait_conservative_prior_v3.json",
+      "bytes": 2967,
+      "sha256": "4cc64b2f7924b64643d562697a2c455ec6dfbe801f4cd04991992175d0e83f52",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_speed_20261010/locomotion_conservative128_v3.json",
+      "bytes": 708,
+      "sha256": "8b6bf3517184cb370e21c06bf434954e0ee1ec3e78e539d92fbf155270cdbdae",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_speed_20261010/temporal_speed_prior_v1.json",
+      "bytes": 1859,
+      "sha256": "c1cfd48538df4469d0cd5bf85b206044b047c28d6f024027b861bff5ffab4cec",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_speed_20261010/walking_conservative_windows_v3.json",
+      "bytes": 2217257,
+      "sha256": "e9d871feda9e30d5851558b314564cb095e67f7580756949b3dbd95be541e463",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_walking_20261009/NewMetro_cameras.json",
+      "bytes": 489,
+      "sha256": "81aa639eef3c77ea785d5ccdcc64f88f55cfcef151e7018d0fa3cbc90124fa23",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_walking_20261009/NewMetro_profile.json",
+      "bytes": 2167,
+      "sha256": "2fd5bebbd24cdf8bc916058e71a2e5dda2de2b156ffb8fbf1e4842e35104512b",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_walking_20261009/NewMetro_scene.yaml",
+      "bytes": 8920,
+      "sha256": "b5e91ae9f01750bfb567818fd9eb5e4916ec9407ee0d56cec377100153816460",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_walking_20261009/SecondFloor_cameras.json",
+      "bytes": 719,
+      "sha256": "89337ac99df87a06811387ff077f69285db12815f9acb4d488f1cf6d6f524827",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_walking_20261009/SecondFloor_profile.json",
+      "bytes": 2326,
+      "sha256": "1c1a44fb01abcce085779ae19328f9be86da61ce44fe2fb85b12caa3bcdfbe73",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_walking_20261009/SecondFloor_scene.yaml",
+      "bytes": 1449,
+      "sha256": "3998230fa1cb41e696f967b6b898e888c6d6eb037da2c77df5bd28157c6770e2",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_walking_20261009/ThirdFloor_cameras.json",
+      "bytes": 583,
+      "sha256": "aa40bf33ca42c74e84ea5f9a1f939fe5570405bf55bc2c2616f1414ac2f0ff6e",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_walking_20261009/ThirdFloor_profile.json",
+      "bytes": 2326,
+      "sha256": "1c1a44fb01abcce085779ae19328f9be86da61ce44fe2fb85b12caa3bcdfbe73",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_walking_20261009/ThirdFloor_scene.yaml",
+      "bytes": 1441,
+      "sha256": "7cf31b191bd1bd99078be25923afc865664a2b0d2d26f8318422be48b0d99e5a",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_walking_20261009/YOHO_cameras.json",
+      "bytes": 477,
+      "sha256": "10b36c5726bac1d41b9590a554aa74a68640df9af0c5e2044c176b0ed6f1c459",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_walking_20261009/YOHO_profile.json",
+      "bytes": 2167,
+      "sha256": "2fd5bebbd24cdf8bc916058e71a2e5dda2de2b156ffb8fbf1e4842e35104512b",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_walking_20261009/YOHO_scene.yaml",
+      "bytes": 9261,
+      "sha256": "14d0c2f8bae7e5f7b7d89e4789ba98b6df46eabbe27fa56ee2fdd76f05a8214d",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_walking_20261009/gait_prior_compact_v3.json",
+      "bytes": 2957,
+      "sha256": "d3d33f64b4ec0a6701e517e9f69fdcaf9b5e834090bffaf8f0c94d2cd9c336cf",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_walking_20261009/locomotion_walking_turn_v9.json",
+      "bytes": 708,
+      "sha256": "1affadd086ea934cfdd01c19a191dc5320d669abdaba0da2a1b72a5be6acde7c",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_walking_20261009/temporal_gait_prior_v2.json",
+      "bytes": 2051,
+      "sha256": "4f5365a93ed0ddf31deb0a18baaf9c13851296b3ad56a70e79160c26c6290a28",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_walking_20261009/walking_reset_windows_v9.json",
+      "bytes": 2217257,
+      "sha256": "e9d871feda9e30d5851558b314564cb095e67f7580756949b3dbd95be541e463",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/locomotion_finetune_v1.json",
+      "bytes": 280,
+      "sha256": "38e86b2fa47eb8c8a22f34ea257e273d2cee5df3112d69521ce45e4c47d7db79",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/locomotion_finetune_v2.json",
+      "bytes": 469,
+      "sha256": "27cf98cf28b9d06df43527a31752cfe1e606f63376a24ad98b6669f94d9de22f",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/locomotion_upperbody_v2.json",
+      "bytes": 469,
+      "sha256": "ab38c330602d399581c9171707adbd13a2131e0fbd1f73ebdfea590a45d6108e",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/method_reconstruction.yaml",
+      "bytes": 2722,
+      "sha256": "4b177f233c7409694ee8a14a7f1830105b7e56606d3b3bacca5d95b1e9256c6d",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/native_warehouse_pedestrians_15_clearance08_v1.yaml",
+      "bytes": 5522,
+      "sha256": "286b714239147166b1fd19d4b1db665cbdad8801e962f66f8ace608812f8dd45",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/native_warehouse_pedestrians_clearance08_v1.yaml",
+      "bytes": 2128,
+      "sha256": "2432ef639cd08a51a8ec7331f1e9110adf2858a86c2b5bbd62611b7a0ca71b56",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/native_warehouse_pedestrians_v1.yaml",
+      "bytes": 2209,
+      "sha256": "29a33f1e299095328f7ac24d1a9b321b76168e4c2c67d38e3b89526d86a2b523",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/reference_weights.yaml",
+      "bytes": 623,
+      "sha256": "c3a17852732f3f1b0627766d501bc50acf01f7af4f6207e7ee55e9d978fe2322",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/shared_flat_validation.yaml",
+      "bytes": 419,
+      "sha256": "a0c630d4a0fe17870daa0a02e528b4cb495da304ef3b7457aeb785319452492b",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/shared_obstacle_timed_validation.yaml",
+      "bytes": 709,
+      "sha256": "7971206da6fd50d9981dafd068b6005f326c6e7b6a8768e5a717aeb517573e9f",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/shared_obstacle_trace_pace_circulation.yaml",
+      "bytes": 1024,
+      "sha256": "f801add8392565657d2f24dc8ff2ce428974c3016a9e28a43944e05e4633eacc",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/shared_obstacle_trace_pace_keep_right.yaml",
+      "bytes": 1061,
+      "sha256": "9a199040a6a61847c4135088a20c7b6993a7fa432d682ecafe1d04a5915196fa",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/shared_obstacle_trace_pace_reciprocal.yaml",
+      "bytes": 957,
+      "sha256": "f907b5fd45e19cc33e00976c3ed6a0e5caf668fa95a0efb4ae20c9b28d18e6fb",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/shared_obstacle_trace_pace_walking.yaml",
+      "bytes": 929,
+      "sha256": "013f860ce952f84cf6118b3f6a95095abae302a1a3b8b2f35161a2dfc684e739",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/shared_obstacle_trace_pace_wide.yaml",
+      "bytes": 935,
+      "sha256": "3b614a51afaf909a9c637776a9d6c6e5ed04e6e9a63a76fa9539f0dc9e74a983",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/shared_obstacle_validation.yaml",
+      "bytes": 653,
+      "sha256": "1c8e868f7ac06c7c889b421b768dc77fb0012c25101f9374bc518a4d7a5d3398",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/strict_author_experiment.yaml",
+      "bytes": 980,
+      "sha256": "ebb78490999a6c9065359d70f8eef0ee87c95c4a9fea59498342ecee46d690b6",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/trace_pace_amass_finetuned.json",
+      "bytes": 3509,
+      "sha256": "92f1120cd65ca806d9f88f55bda9be558c6c374dfe2e1325822505dd1b834dad",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/trace_pace_amass_finetuned_candidate.json",
+      "bytes": 1742,
+      "sha256": "43ff2be23a0b394e751110f42ce0b8c2cc9489ba767ae4ba58f8bb9819f654d8",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/trace_pace_crowd.json",
+      "bytes": 1324,
+      "sha256": "f2d4ba415ba293cc787dfee6ab1440bcfd3f57e029cb836c28369d0f893a7892",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/trace_pace_crowd_circulation.json",
+      "bytes": 1520,
+      "sha256": "f8a9ae6bbaa17a0231a02b40d22fa5642f599bc5573c84ba2cfddc7cb1c7e18f",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/trace_pace_crowd_guarded.json",
+      "bytes": 1392,
+      "sha256": "c686775cfbd686958a95f37a02e45036f4ce64c8e267b7bd1e91f6f1ca99ad38",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/trace_pace_crowd_locomotion.json",
+      "bytes": 1520,
+      "sha256": "f8a9ae6bbaa17a0231a02b40d22fa5642f599bc5573c84ba2cfddc7cb1c7e18f",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/trace_pace_crowd_walking.json",
+      "bytes": 1423,
+      "sha256": "2af39bcb4a0630328c436ee1a1600f1016b5903fada56218170457fc2fc62ad2",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/trace_pace_reliable.json",
+      "bytes": 1321,
+      "sha256": "76b9cb443dce2956823f77b2103f80ff3de49c89f997ba56f0c2922ab4cc8c41",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/trace_pace_warehouse_locomotion_v1.json",
+      "bytes": 3168,
+      "sha256": "ed4ee7e9f2ee356f567ad0e10cee838fc20bf1f526f300d2d4f97e8cefd4afa9",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/trace_pace_yoho_upperbody_v1.json",
+      "bytes": 2466,
+      "sha256": "07632e6b52453554c4271a4274ce3729e7ab423cd0c67ef2cc5964150b253aca",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/warehouse_trace_pace_speed_v1.yaml",
+      "bytes": 2183,
+      "sha256": "fbfbf4d2edd4fd65e589a78b913f7aa57552acebcaa3bf0b28697dea1691a0e0",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/warehouse_trace_pace_v1.yaml",
+      "bytes": 2183,
+      "sha256": "c54679f92e87f6de533a9978982836f25d5ce9c6bfa11a8de7ffd9fa3598ae3b",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/yoho_pedestrians_v1.yaml",
+      "bytes": 4290,
+      "sha256": "8302797996b5f974685056131d34d33ee80046b75c0de469625ec197f6e81563",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/point_goal.json",
+      "bytes": 1252,
+      "sha256": "81391e785455b582fbff03ccbceac73b7413b46a49ed74eecc4757d5e59a67d6",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/publication/external_source_assets.json",
+      "bytes": 20864,
+      "sha256": "920b8c284524db959b27cd34a48b13119b9f6de8615f84948dd8798d052c2884",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/publication/source_manifest.json",
+      "bytes": 962214,
+      "sha256": "ba5b053d1b6da5a8c3609c43e7213d5a3ebdda39acc48b170de04e653fffbc0b",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/reference_repositories.json",
+      "bytes": 907,
+      "sha256": "cdecfcac0a74a21ea6a25b8a1f30ab2802cbbab7ebc41c2987bec830a08bd2ad",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/reproduction/amass_containers/test.json",
+      "bytes": 32686,
+      "sha256": "d5d285a40ad820e36bb39c47113d6b139e73b4c2c78f7801a092b0ae76fdb238",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/reproduction/amass_containers/train.json",
+      "bytes": 474952,
+      "sha256": "e0d0933312103b40dfcd95c852695db2fe3c570965b30d314071501063427abf",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/reproduction/amass_containers/validation.json",
+      "bytes": 60248,
+      "sha256": "16c7801a34692dfc2ed21cd1e208156e2afb826bf9493d213328963ba509fc73",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/reproduction/four_scene/NewMetro_cameras.json",
+      "bytes": 739,
+      "sha256": "49b1ca8827284707860d2d170e68dc5eb791f5d8bc795a4f7d28b970f26140c2",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/reproduction/four_scene/NewMetro_profile.json",
+      "bytes": 2979,
+      "sha256": "c64f742235ed04d5fd695e37e853a7b6b2d0ecf5b7b0de8298194c271e0b3919",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/reproduction/four_scene/NewMetro_scene.yaml",
+      "bytes": 11257,
+      "sha256": "e1ef3ef25d97eb48a8cca70ef93dba5fcc104ae87574e37b80bf40c518d79e36",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/reproduction/four_scene/SecondFloor_cameras.json",
+      "bytes": 719,
+      "sha256": "89337ac99df87a06811387ff077f69285db12815f9acb4d488f1cf6d6f524827",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/reproduction/four_scene/SecondFloor_profile.json",
+      "bytes": 2976,
+      "sha256": "ab5523b83ad8efe6647a6461724f252694c6172736146880931ecc310fecbfaf",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/reproduction/four_scene/SecondFloor_scene.yaml",
+      "bytes": 1472,
+      "sha256": "b3297d10de9253e850f86e547db5e1205010d6d0fd6e357bc5fe90d6c5bed52b",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/reproduction/four_scene/ThirdFloor_cameras.json",
+      "bytes": 583,
+      "sha256": "aa40bf33ca42c74e84ea5f9a1f939fe5570405bf55bc2c2616f1414ac2f0ff6e",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/reproduction/four_scene/ThirdFloor_profile.json",
+      "bytes": 3393,
+      "sha256": "f06e9902b80790bd568979124779660bc144768108c3aff30b4667e7af845982",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/reproduction/four_scene/ThirdFloor_scene.yaml",
+      "bytes": 1463,
+      "sha256": "e5e4abfe22b548370368c28ba60ad7c26e8f217178a8160502ff58713553e4af",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/reproduction/four_scene/YOHO_cameras.json",
+      "bytes": 844,
+      "sha256": "2193bde63b13acea449f7f4cf8fef1652895fdb395e7f6d1d7229c20f7234b89",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/reproduction/four_scene/YOHO_profile.json",
+      "bytes": 2973,
+      "sha256": "bef5eda2f9f0d95872457ee38afdf67b5aa5f337bf34611ac7e227ef8a22d022",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/reproduction/four_scene/YOHO_scene.yaml",
+      "bytes": 9250,
+      "sha256": "d8ee65ef260d34d56371ae06441495f833b5724e00ed12883744a3a8a7f0ed36",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/reproduction/four_scene/camera_actors.json",
+      "bytes": 300,
+      "sha256": "e1a928b1619a692938b2c955ef5a761d16926b9e8edb63c99e59623e6019e111",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/reproduction/resource_bindings.json",
+      "bytes": 236549,
+      "sha256": "1ef88fefc430bb971105787366e753d7860a7753e9d78df6eef25f45653675af",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/upstream/protomotions_merge_20261010.json",
+      "bytes": 442965,
+      "sha256": "baac9b2a7d25b79c9f652e0d1b61873c2b7c2f9082b7c39a46e94be9bd46f153",
+      "syntax": "passed"
+    },
+    {
+      "path": "env/isaaclab3_ea_sim61/profile.json",
+      "bytes": 1291,
+      "sha256": "a0b4f0c269bc51d734e2e410425dea44c126bfafc199b829bd2fdd85a94a9e7c",
+      "syntax": "passed"
+    },
+    {
+      "path": "env/isaaclab3_ea_sim61/pyproject.toml",
+      "bytes": 16103,
+      "sha256": "2780d507882950e64ca8f972fcad4c19e74b9681af1d830e0b34fa09e79e116b",
+      "syntax": "passed"
+    },
+    {
+      "path": "env/isaaclab3_sim6/native_shutdown/original_build_manifest.json",
+      "bytes": 38668,
+      "sha256": "713c477db243b9c72081beec906fc30d67143cfd61ec4ca3eb61f95c0489c980",
+      "syntax": "passed"
+    },
+    {
+      "path": "env/isaaclab3_sim6/native_shutdown/source_review.json",
+      "bytes": 9654,
+      "sha256": "a6901351e97ce092cd2b328265c2e7b14225188c64892879d8bb87064fd59f5d",
+      "syntax": "passed"
+    },
+    {
+      "path": "env/isaaclab3_sim6/native_shutdown/standalone_build_arguments.json",
+      "bytes": 5662,
+      "sha256": "ad85c92dc51bc6c0e0e2bc32139867b79f795ff9663eb286fa7c887b903c7dc8",
+      "syntax": "passed"
+    },
+    {
+      "path": "env/isaaclab3_sim6/profile.json",
+      "bytes": 2728,
+      "sha256": "75057698b0c7913a0d8be2b05f01d70ae671c0f576feabe1f507e5c2da5150ca",
+      "syntax": "passed"
+    },
+    {
+      "path": "env/isaaclab3_sim6/pyproject.toml",
+      "bytes": 14426,
+      "sha256": "29f54eddb1f577fcb214875b2cfd011fb821de60ee56143978fb535296c4bd96",
+      "syntax": "passed"
+    },
+    {
+      "path": "pyproject.toml",
+      "bytes": 12737,
+      "sha256": "69f89568881108ce518ac8d8c2a9d880684e18a97f9594712714bb672708b750",
+      "syntax": "passed"
+    }
+  ],
+  "scope": "configs,env,.vscode,.github,root manifests; syntax only, not every Hydra resolution or runtime semantic validation"
+}

@@ -7,16 +7,20 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
 import os
+from pathlib import Path
 import sys
 
 # -- Path setup --------------------------------------------------------------
 # Add the project root to sys.path to enable importing protomotions modules
-sys.path.insert(0, os.path.abspath("../.."))
+SOURCE_DIR = Path(__file__).resolve().parent
+REPOSITORY_ROOT = SOURCE_DIR.parents[1]
+sys.path.insert(0, str(REPOSITORY_ROOT / "src"))
+sys.path.insert(1, str(REPOSITORY_ROOT))
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = "ProtoMotions"
+project = "Socially-aware_Indoor_Navigation_Benchmark"
 copyright = "2025-2026, NVIDIA CORPORATION & AFFILIATES"
 author = "NVIDIA CORPORATION & AFFILIATES"
 
@@ -41,7 +45,7 @@ extensions = [
 ]
 
 # Add local extension directory
-sys.path.insert(0, os.path.abspath("_ext"))
+sys.path.insert(0, str(SOURCE_DIR / "_ext"))
 
 # Napoleon settings for Google-style docstrings
 napoleon_google_docstring = True
@@ -273,7 +277,7 @@ html_theme_options = {
     "icon_links": [
         {
             "name": "GitHub",
-            "url": "https://github.com/NVlabs/ProtoMotions",
+            "url": "https://github.com/GhostDragon9889/Socially-aware_Indoor_Navigation_Benchmark",
             "icon": "fa-brands fa-github",
             "type": "fontawesome",
         },
@@ -287,7 +291,7 @@ html_show_sourcelink = False
 toc_object_entries_show_parents = "hide"
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = "ProtoMotionsdoc"
+htmlhelp_basename = "SociallyAwareIndoorNavigationBenchmark"
 
 # -- Options for intersphinx extension ---------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html#configuration
@@ -297,6 +301,11 @@ intersphinx_mapping = {
     "torch": ("https://pytorch.org/docs/stable/", None),
     "numpy": ("https://numpy.org/doc/stable/", None),
 }
+
+# Offline documentation builds still validate local RST/HTML strictly.
+# External inventory links require a separate network-enabled build.
+if os.environ.get("SOCIAL_NAVIGATION_DOCS_OFFLINE") == "1":
+    intersphinx_mapping = {}
 
 # -- Options for copybutton --------------------------------------------------
 copybutton_prompt_text = r">>> |\.\.\. |\$ |In \[\d*\]: | {2,5}\.\.\.: | {5,8}: "

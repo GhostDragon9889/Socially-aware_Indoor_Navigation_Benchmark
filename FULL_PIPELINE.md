@@ -30,7 +30,7 @@
 详见 [Warehouse 当前结果](docs/WAREHOUSE_DIFFUSION_AMP_ZH.md) 与 `docs/warehouse_diffusion_amp_evidence_index.json`。本次一场景工程复现不等于作者完整八场景协议。此前AMASS anchor512和旧Social AMP结果保留为历史对照。
 
 
-Use Isaac Sim 6.0.0.1, the pinned Isaac Lab 3.0 development checkout, and the supplied SMPL assets. Run from this source checkout. The installable ProtoMotions core and the CrowdSim pedestrian application have separate packaging boundaries.
+The default target is now pinned IsaacLab 3.0 EA / Isaac Sim 6.1.0.0 with an independent project overlay. Use [clone reproduction](CLONE_REPRODUCTION.en.md) and [the default environment](env/isaaclab3_ea_sim61/README.md) for new runs. Recorded Sim6.0 commands, experiments, videos and metrics below remain historical records with their original environment identity; they do not certify migrated 6.1 results.
 
 ## Local fixed-AMASS PACER fine tuning (2026-10-08)
 
@@ -342,27 +342,32 @@ pointer files. Their pointer metadata is retained, but the corresponding binary
 objects must be downloaded from the upstream ProtoMotions distribution when a
 simulator configuration needs them.
 
-## Environment
+## Default environment: Lab 3.0 EA / Sim 6.1
 
-The tested path uses **Isaac Sim package 6.0.0.1**, **Python 3.12**, the PhysX
-backend, and IsaacLab commit `4ecd0b036da19ff6ad2bb4d621f886b63e9f6db8`.
-That checkout has product `VERSION=3.0.0` and Python package `isaaclab==12.0.0`.
-It is a pinned development commit; the product and package numbers differ.
-
-For an existing checkout with the specified Sim and Lab already installed,
-apply and check the recorded dependency profile from this repository:
+The pinned source is `ae37b028ea415c91ea2bc32609efcd759ed2b974`, product
+`VERSION=3.0.0`, Python package `isaaclab==17.0.2`, and Sim package `6.1.0.0`.
+SDK and project dependencies occupy separate environments. Reuse a matching
+installed SDK without changing its files:
 
 ```bash
-../IsaacLab-Protomotions/.venv/bin/python scripts/isaaclab3_environment.py apply \
-  --lab-root ../IsaacLab-Protomotions --sync
-../IsaacLab-Protomotions/.venv/bin/python -I scripts/isaaclab3_environment.py check
-source ../IsaacLab-Protomotions/.venv/bin/activate
+export NAV_LAB=/absolute/path/to/IsaacLab
+python3 scripts/bootstrap_reproduction.py prepare-runtime --profile isaaclab3_ea_sim61 --lab-root "$NAV_LAB"
+export NAV_PY="$PWD/.runtime/isaaclab3_ea_sim61/.venv/bin/python"
+"$NAV_PY" -m social_navigation.runtime_environment check --lab-root "$NAV_LAB"
+"$NAV_PY" -I scripts/isaaclab3_environment.py --profile isaaclab3_ea_sim61 check
 ```
 
-The [environment profile](env/isaaclab3_sim6/README.md) includes the complete
-manifest/lock, pytest and a check for the repaired USD provider conflict. The
-script validates the existing installation, backs up its dependency files and
-does not perform a new Sim installation. Run the commands below with that Python.
+For a new machine, use `scripts/bootstrap_reproduction.py install --profile
+isaaclab3_ea_sim61`; see [the bilingual runtime guide](env/isaaclab3_ea_sim61/README.md).
+The actual local overlay passed metadata/provider checks. Complete new-SDK
+60-second physical and video acceptance requires separate measured evidence.
+
+The old [Sim6.0 snapshot](env/isaaclab3_sim6/README.md) retains Lab package12,
+source `4ecd0b036da19ff6ad2bb4d621f886b63e9f6db8`, and its native shutdown patch
+for historical replay. The Sim6.1 runtime does not load that old native ABI.
+Two old NavIsaacLab branch-specific pretrained configs are explicitly archived
+in [the reference registry](data/pretrained_models/upstream_reference_registry.json);
+their original files are preserved, with no fabricated compatibility aliases.
 
 The scene builder checks required files before launching Isaac Sim and reports
 missing files and unresolved Git LFS pointers. Scene-only `--empty` mode does

@@ -10,8 +10,8 @@
       "sha256": "35a5fb329e72c5b2988e90ab58fb443b72303feb0558b4d954b8fb3aecbe3fbd"
     },
     "amp_checkpoint": {
-      "path": "data/pretrained_models/local_amass_finetune/walking_turn_20261009/Humanoid_AMASS.pth",
-      "sha256": "0cd961343d9828f95b0fcd6ed38ca8fb391140115c1a8fe808ff4ec1884434a8"
+      "path": "data/pretrained_models/local_amass_finetune/speed_conservative_20261010/Humanoid_AMASS.pth",
+      "sha256": "cb2783690a683cbfbbf14e0788d99a2a49d0da0513d11399682db776deb3553c"
     },
     "amass_manifest": {
       "path": "data/diffusion_amp/amass_style_2848/manifest_labeled_v7.json",
@@ -49,32 +49,39 @@
   "stationary_route_heading": true,
   "mixed_safety_brakes": true,
   "guard_horizon_s": 0.7,
-  "guard_tracking_margin_m": 0.025,
+  "guard_tracking_margin_m": 0.1,
   "persistent_braking_target": true,
   "amp_sample_start_s": 0.0,
   "local_finetune_admission": {
     "candidate": false,
-    "physical_quality_pending": false,
-    "purpose": "Completed local N1/N4 60s physical and posture/speed/contact gates; source-bound video recorded",
+    "physical_quality_pending": true,
+    "purpose": "IsaacSim6.1 narrow-room safety adaptation: previously N4-accepted conservative AMASS AMP, measured body forecast margin; pending fresh full-contact acceptance. No new checkpoint promoted.",
     "author_experiment_reproduction": false,
-    "tested_profile": {
-      "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/speed_coverage_optimization/ThirdFloor_parent_profile_v17.json",
-      "bytes": 2440,
-      "sha256": "679fd1d1ef189003fe59c52b97ffbb0bf78ac0624ffbe401bed547a1613e4272"
-    },
-    "tested_execution": {
-      "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/speed_coverage_optimization/ThirdFloor_speed_coverage60_v17_execution.json",
-      "bytes": 26598,
-      "sha256": "9d70605d14bedf3626f305ace0b22d2d6b0432e5f337de27dea48b3c9e64d01e"
+    "historical_sim60_admission": {
+      "candidate": false,
+      "physical_quality_pending": false,
+      "purpose": "Completed local N1/N4 60s physical and posture/speed/contact gates; source-bound video recorded",
+      "author_experiment_reproduction": false,
+      "tested_profile": {
+        "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/speed_coverage_optimization/ThirdFloor_parent_profile_v17.json",
+        "bytes": 2440,
+        "sha256": "679fd1d1ef189003fe59c52b97ffbb0bf78ac0624ffbe401bed547a1613e4272"
+      },
+      "tested_execution": {
+        "path": "/home/lfm/Documents/ChatGPT/Social Navigation/trace_pace_reproduction/speed_coverage_optimization/ThirdFloor_speed_coverage60_v17_execution.json",
+        "bytes": 26598,
+        "sha256": "9d70605d14bedf3626f305ace0b22d2d6b0432e5f337de27dea48b3c9e64d01e"
+      }
     }
   },
   "pedestrian_extent_m": [
-    0.5,
-    0.5,
+    0.65,
+    0.65,
     1.7
   ],
-  "map_guard_clearance_m": 0.02,
+  "map_guard_clearance_m": 0.06,
   "actual_body_map_guard": true,
-  "body_guard_horizon_s": 0.3,
-  "body_guard_gap_m": 0.04
+  "body_guard_horizon_s": 0.6,
+  "body_guard_gap_m": 0.1,
+  "settle_braking_target": true
 }

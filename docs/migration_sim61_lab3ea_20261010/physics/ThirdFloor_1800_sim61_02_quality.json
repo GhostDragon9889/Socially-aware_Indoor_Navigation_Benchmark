@@ -1,0 +1,152 @@
+{
+  "schema": "crowdsim.trace_pace_reliability_evaluation.v1",
+  "geometric_envelope_scope": "root circumscribed disk proxy; separate actual24-body contact residual mandatory in every native scene",
+  "declared_root_extent_m": [
+    0.65,
+    0.65,
+    1.7
+  ],
+  "native_source_scene": "ThirdFloor",
+  "quality_status": "passed_local_proxy_gates",
+  "paper_result": false,
+  "actual_force_contacts_measured": true,
+  "measured_contacts": {
+    "completed_controls": 1800,
+    "completed_physics_substeps": 7200,
+    "four_substeps_per_control_verified": true,
+    "all24_body_positions_and_root_rotation_equal_native_final_substep": true,
+    "floor_normal_load_mean_n_per_actor": [
+      621.097272125808
+    ],
+    "floor_load_over_body_weight_mean_per_actor": [
+      0.999979766601191
+    ],
+    "supported_substep_fraction_per_actor": [
+      0.9970833333333333
+    ],
+    "measured_supported_foot_body_origin_speed_proxy_m_s": 0.038015155194281024,
+    "contact_force_threshold_n": 1.0,
+    "friction_force_measured": false,
+    "contact_patch_slip_measured": false,
+    "peer_contact_actor_controls": 0,
+    "static_contact_actor_controls": 0,
+    "peer_contact_max_force_n": 0.0,
+    "static_contact_max_force_n": 1.239776611328125e-05,
+    "native_nonfloor_nonpeer_normal_force_residual": {
+      "source": "PhysX unfiltered net minus exact floor, peer and own-articulation normal force vectors",
+      "body_identity_verified_each_tick": true,
+      "reads": 7200,
+      "floor_positive_substeps": 7179,
+      "maximum_static_force_n": 1.239776611328125e-05,
+      "maximum_floor_force_n": 2282.265625,
+      "first_physics_step": 1,
+      "last_physics_step": 7200,
+      "floor_witnesses": [
+        {
+          "physics_step": 1,
+          "force_n": 1815.70263671875
+        },
+        {
+          "physics_step": 3,
+          "force_n": 42.31648635864258
+        },
+        {
+          "physics_step": 4,
+          "force_n": 352.6329040527344
+        }
+      ],
+      "filtered_GPU_static_forces_are_insufficient": true,
+      "self_contact_separately_subtracted": true,
+      "force_cancellation_is_possible": true,
+      "body_names": [
+        "Pelvis",
+        "L_Hip",
+        "L_Knee",
+        "L_Ankle",
+        "L_Toe",
+        "R_Hip",
+        "R_Knee",
+        "R_Ankle",
+        "R_Toe",
+        "Torso",
+        "Spine",
+        "Chest",
+        "Neck",
+        "Head",
+        "L_Thorax",
+        "L_Shoulder",
+        "L_Elbow",
+        "L_Wrist",
+        "L_Hand",
+        "R_Thorax",
+        "R_Shoulder",
+        "R_Elbow",
+        "R_Wrist",
+        "R_Hand"
+      ],
+      "raw_artifact": {
+        "path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/physics/ThirdFloor_1800_sim61_02/native_static_residual.npz",
+        "sha256": "52ef7cfa46d3115a978dbe34300b9438a72b446399bb97679c288d2d2d564a7e"
+      },
+      "all_read_substeps_archived": true
+    }
+  },
+  "actual_control_count": 1800,
+  "duration_s": 60.0,
+  "actors": 1,
+  "result_sha256": "0dab1413ac76f98832d14dfff82fd6656ed6cd4acf71d55ecb02bc72583c9bad",
+  "physical_sha256": "5574ce44655460f8901dcd68444be9d5a16be758a722c29e5fe91803632b3b07",
+  "capture_parent_hash_available": true,
+  "evaluation_source_sha256": "5f272776b1f52b8e7f0e1276a528312b2718967447023717732827598ed6228a",
+  "all_frames_included": true,
+  "checks": {
+    "full_control_budget_actual_exit0": true,
+    "zero_actual_falls": true,
+    "actual_body_envelopes_no_peer_overlap": true,
+    "actual_body_envelopes_no_map_overlap": true,
+    "each_actor_reaches_route_vertex_if_duration_ge30s": true,
+    "no_route_vertex_gap_above60s_in_bounded_fixture": true,
+    "no_stationary_interval_above20s_in_cyclic_route": true,
+    "zero_measured_peer_contacts_above1N": true,
+    "zero_measured_static_contacts_above1N": true,
+    "measured_floor_support_in_majority_of_substeps": true,
+    "zero_native_nonfloor_nonpeer_force_residual_above1N": true
+  },
+  "path_length_m": [
+    5.028710771999378
+  ],
+  "low_speed_fraction_below0p1_m_s": [
+    0.7733333333333333
+  ],
+  "maximum_continuous_low_speed_s": [
+    2.3666666666666667
+  ],
+  "maximum_time_without_route_vertex_s": [
+    49.56666666666666
+  ],
+  "maximum_actual_speed_m_s": [
+    0.6862610275252882
+  ],
+  "actual_speed_p95_m_s": [
+    0.3680012196510212
+  ],
+  "planning_speed_cap_is_not_a_physical_velocity_guarantee": true,
+  "minimum_actual_root_pair_distance_m": null,
+  "peer_body_envelope_overlap_control_frames": 0,
+  "minimum_actual_body_envelope_map_clearance_m": 0.037838909021648826,
+  "map_body_envelope_overlap_control_frames": 0,
+  "route_vertices_reached_per_actor": [
+    1
+  ],
+  "safety_braking_plans": 135,
+  "total_plans": 277,
+  "toe_origin_below_ground_frames": 0,
+  "walking_near_ground_toe_speed_proxy_m_s": 0.2129953262716668,
+  "root_quaternion_max_norm_error": 1.1534266508572699e-07,
+  "limitations": [
+    "Body envelopes approximate geometry; measured normal forces cover declared bodies and obstacles",
+    "Near-ground toe motion includes articulation and is not measured contact slip",
+    "Local gates and fixture are not the eight-scene author benchmark",
+    "A passing proxy report does not alone establish visually natural gait"
+  ]
+}

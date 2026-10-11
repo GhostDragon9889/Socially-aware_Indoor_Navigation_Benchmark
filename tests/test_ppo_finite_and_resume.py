@@ -110,3 +110,51 @@ def test_invalid_training_loop_bounds_fail_before_pipeline(monkeypatch, tmp_path
 def test_zero_evaluation_episodes_has_clear_error_before_checkpoint_load():
     with pytest.raises(ValueError, match="must be positive"):
         evaluation.evaluate(NS(episodes=0, num_envs=2))
+
+
+def test_training_bootstraps_timeout_from_terminal_obs_without_crossing_episode(monkeypatch, tmp_path):
+    def state(values):
+        return (torch.tensor(values).reshape(3, 1), torch.zeros(3, 0, 5),
+                torch.zeros(3, 0, dtype=torch.bool))
+
+    class Env:
+        config = NS(num_neighbors=0)
+        num_envs, obs_dim, neighbor_dim = 3, 1, 5
+
+        def observe(self):
+            return state([1.0, 2.0, 3.0])
+
+        def step(self, action):
+            return state([100.0, 200.0, 300.0]), torch.tensor([1.0, 2.0, 3.0]), torch.tensor([True, True, False]), {
+                "timeout": torch.tensor([True, False, False]),
+                "terminal_observation": state([10.0, 20.0, 30.0]),
+                "success": torch.tensor([False, True, False]),
+                "episode_return": torch.tensor([1.0, 2.0, 3.0]),
+                "episode_length": torch.ones(3),
+            }
+
+    class Trainer:
+        config = NS(gamma=0.5, gae_lambda=0.95)
+
+        def act(self, obs, **kwargs):
+            return torch.zeros(3, 2), torch.zeros(3, 2), torch.zeros(3), obs[:, 0]
+
+        def value(self, obs, **kwargs):
+            return obs[:, 0]
+
+        def update(self, buffer):
+            # Timeout uses V(final)=10; true termination has no bootstrap;
+            # the continuing environment uses V(next)=300.
+            torch.testing.assert_close(buffer.returns, torch.tensor([[6.0, 2.0, 153.0]]))
+            return dict(policy_loss=0.0, value_loss=0.0, entropy=0.0, explained_variance=0.0)
+
+        def save(self, *args):
+            pass
+
+    monkeypatch.setattr(training, "load_config", lambda _: {
+        "training": {"rollout_steps": 1, "total_steps": 3, "save_interval": 0}})
+    monkeypatch.setattr(training, "build_pipeline", lambda *args: (Env(), Trainer()))
+    monkeypatch.setattr(training, "PPOGoalCurriculum", lambda *args: NS(
+        observe=lambda *args: None, state_dict=lambda: {}, stage=NS(name="test")))
+    training.train(NS(seed=1, config=None, device="cpu", total_steps=None,
+                      output=str(tmp_path), resume=None))

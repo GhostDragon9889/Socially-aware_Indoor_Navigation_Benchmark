@@ -15,7 +15,7 @@
 | 微调、独立评估、录制、AMASS 转换入口 | `scripts/`、`data/scripts/` |
 | 当前四场景配置、相机与资源绑定 | `configs/reproduction/` |
 | AMASS 步态先验与已完成微调配方 | `configs/diffusion_amp/four_scene_speed_20261010/` |
-| 精确 SDK 依赖快照和退出补丁 | `env/isaaclab3_sim6/` |
+| 默认 SDK 与精确项目 overlay | `env/isaaclab3_ea_sim61/`；历史 `env/isaaclab3_sim6/` |
 | 权重、恢复训练检查点、EVT 机器人、四场景 | `resources/releases/pedestrians_20261010/` |
 | 人体 UV 与有来源许可的纹理 | `resources/pedestrian_visuals/` |
 
@@ -34,16 +34,18 @@ export NAV_ROOT="$PWD"
 git lfs install --local
 uv python install 3.12.13
 uv run --no-project --python 3.12.13 python scripts/audit_checkout.py
-uv run --no-project --python 3.12.13 python scripts/bootstrap_reproduction.py install
-export NAV_PY="$NAV_ROOT/.runtime/IsaacLab/.venv/bin/python"
+uv run --no-project --python 3.12.13 python scripts/bootstrap_reproduction.py install --profile isaaclab3_ea_sim61
+export NAV_PY="$NAV_ROOT/.runtime/isaaclab3_ea_sim61/.venv/bin/python"
 export PYTHONPATH="$NAV_ROOT/src:$NAV_ROOT"
 export PYTHONDONTWRITEBYTECODE=1
-"$NAV_PY" -I scripts/isaaclab3_environment.py check
+export NAV_LAB="$NAV_ROOT/.runtime/IsaacLab61"
+"$NAV_PY" -m social_navigation.runtime_environment check --lab-root "$NAV_LAB"
+"$NAV_PY" -I scripts/isaaclab3_environment.py --profile isaaclab3_ea_sim61 check
 ```
 
-引导器固定 IsaacLab 源码提交 `4ecd0b036da19ff6ad2bb4d621f886b63e9f6db8`、Python 3.12.13、Isaac Sim 6.0.0.1、IsaacLab 产品 3.0.0（Python 包版本 12.0.0）、Torch 2.11。自动修正 editable 源码位置，并复制独立的原生退出补丁，不修改已安装 SDK。应按 NVIDIA 条款接受 EULA 后再启动 Kit；必要时设置 `OMNI_KIT_ACCEPT_EULA=YES`。不要在 `env/isaaclab3_sim6/` 直接运行 `uv sync`。
+引导器默认固定 IsaacLab 源码 `ae37b028ea415c91ea2bc32609efcd759ed2b974`、Python 3.12.13、Sim 6.1.0.0、IsaacLab 产品 3.0.0（包 17.0.2）、Torch 2.11.0+cu128。SDK 位于 `.runtime/IsaacLab61`，项目补充依赖位于独立 `.runtime/isaaclab3_ea_sim61/.venv`；不修改或重复安装已装 SDK 源码和二进制提供者。按 NVIDIA 条款接受 EULA 后再启动 Kit；必要时设置 `OMNI_KIT_ACCEPT_EULA=YES`。不要在存档 profile 目录直接运行 `uv sync`。
 
-复用相同版本环境时设置 `NAV_PY` 为其 Python，再运行 `scripts/bootstrap_reproduction.py prepare-native`。本次没有重新联网安装整套 SDK；已有环境的版本、USD 二进制提供者和原生补丁有单独检查。已知依赖覆盖见[依赖说明](docs/guides/dependencies.zh-CN.md)。
+复用匹配 SDK 时运行 `python3 scripts/bootstrap_reproduction.py prepare-runtime --profile isaaclab3_ea_sim61 --lab-root /absolute/path/to/IsaacLab`，再选取输出的项目解释器。本机已真实安装并验证独立 overlay；完整新 SDK 网络安装未在本轮重复下载。详见[运行环境](env/isaaclab3_ea_sim61/README.md)与[依赖说明](docs/guides/dependencies.zh-CN.md)。已有四场景视频保持历史 Sim6.0 身份；新 SDK 的 60 秒物理、录制和质量验收须独立保存证据，不能由迁移/import 测试推导。
 
 ## 2. 恢复项目内的 LFS 资源
 

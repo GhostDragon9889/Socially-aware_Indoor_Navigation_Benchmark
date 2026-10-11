@@ -2,6 +2,8 @@
 
 [English](usage.en.md) · [文档目录](README.md) · 更新：2026-10-10
 
+默认目标为 Lab3.0 EA/Sim6.1，先创建项目独立 overlay。已有 SDK 可在安装步骤中显式指定实际路径；不要把根 `.venv` 的历史链接当作新环境证明。以下既有模型与历史结果仍须在新 SDK 重新测量验收。
+
 ## 1. 方法与模块
 
 当前四场景部署使用公开 TRACE 的轨迹扩散 + PACER 的 state-only AMP 控制器及本地 AMASS 微调。轨迹进入策略观测，AMP 产生 PD 位置目标，由 PhysX 推进行人；模拟不是通过轨迹直接移动根部或插值播放关节。录像阶段则回放已测量的物理姿态，仅切换相机。
@@ -25,8 +27,8 @@ NavIsaacLab 的五状态 Diffusion / history-plus-action AMP 方法重建入口�
 ```bash
 cd /absolute/path/to/Socially-aware_Indoor_Navigation_Benchmark
 export NAV_ROOT="$PWD"
-export NAV_LAB_ROOT="$(cd ../IsaacLab-Protomotions && pwd)"
-export NAV_PY="$NAV_LAB_ROOT/.venv/bin/python"
+export NAV_LAB_ROOT="$NAV_ROOT/.runtime/IsaacLab61"
+export NAV_PY="$NAV_ROOT/.runtime/isaaclab3_ea_sim61/.venv/bin/python"
 export PYTHONDONTWRITEBYTECODE=1
 export PYTHONPATH="$NAV_ROOT/src:$NAV_ROOT${PYTHONPATH:+:$PYTHONPATH}"
 "$NAV_PY" -m social_navigation status

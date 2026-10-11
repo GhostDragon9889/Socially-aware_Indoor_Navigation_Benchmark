@@ -22,13 +22,42 @@ from .social_force import SFMParameters, SocialForceTrajectoryGenerator, SourceB
 from .social_force_runtime import SocialForceSharedPlanner, file_identity
 
 ROOT = repository_root(__file__)
-PINS = {
+HISTORICAL_PINS = {
     "fixture_bridge": ("CrowdSim/humanoid/trajectory/social_force_runtime.py", "2a476693543d871c678cbb4cc56b35aff9331199a34b97232332974cac116676"),
     "force_math": ("CrowdSim/humanoid/trajectory/social_force.py", "936b1c9ed2d0328b5b3dc4799a2607ce385d8061a6e48c4c2b063e8c47ef191e"),
     "deployment": ("CrowdSim/humanoid/application/native_deployment.py", "af708cc18873424ed57b497473f35d17cecc2c3910b15f4c67ef4d8cd5ab49f0"),
     "provider": ("CrowdSim/humanoid/runtime/dynbench_scene.py", "c49282b44d38e65b92cbf71fa1909c3e87f551e8494793aa31c5f68246ac7a73"),
     "grid": ("CrowdSim/humanoid/runtime/native_grid_scene.py", "d77e9b5702d47765e045a03f6e79f770c313dc8d4d0ad9e969aead81d40024f5"),
 }
+
+
+# Version the live source boundary separately from sealed October 6 evidence.
+# These are exact approved current implementation hashes, never permissive
+# fallbacks. Old reports retain HISTORICAL_PINS and cannot certify this version.
+SOURCE_VERSION = "native_sfm.current_scene_sources.v2"
+PINS = {
+    **HISTORICAL_PINS,
+    "deployment": (HISTORICAL_PINS["deployment"][0], "a3a8097e5d63b03e5f96f24e6246c333b2103f3628c6209139e2aff2c564cd96"),
+    "fixture_bridge": (HISTORICAL_PINS["fixture_bridge"][0], "10f403e35ed717cd755313a4b9411304d4b58fa52786761eed9afafd55a8469f"),
+    "provider": (HISTORICAL_PINS["provider"][0], "68bd2171ad9707c3f280c374d73538b8c532764a42e1f90335c6375090595d28"),
+    "grid": (HISTORICAL_PINS["grid"][0], "b5563bd5a509cdb02ae33e57ad34ab7a0524825ad16e481ef631531d59308165"),
+}
+
+
+def _restore_fixture_location(source):
+    """Prove that the N4 parent changed only its repository lookup location."""
+    replacements = (
+        ("from protomotions.repository import repository_root\n\n", ""),
+        ("ROOT = repository_root(__file__)", "ROOT = Path(__file__).resolve().parents[3]"),
+    )
+    original = source
+    for current, historical in replacements:
+        if original.count(current) != 1:
+            raise ValueError("Ambiguous source-bound fixture location derivation")
+        original = original.replace(current, historical, 1)
+    if hashlib.sha256(original.encode()).hexdigest() != HISTORICAL_PINS["fixture_bridge"][1]:
+        raise ValueError("Fixture location inverse did not restore exact historical source")
+    return original
 
 
 def _json_hash(value):
@@ -47,7 +76,10 @@ def source_bindings():
         if selected["sha256"] != sha:
             raise ValueError("Native SFM dependency changed: " + role)
         result[role] = selected
+    _restore_fixture_location((ROOT / PINS["fixture_bridge"][0]).read_text())
     result["implementation"] = file_identity(__file__)
+    result["source_version"] = SOURCE_VERSION
+    result["historical_sha256"] = {role: row[1] for role, row in HISTORICAL_PINS.items()}
     return result
 
 
@@ -59,11 +91,19 @@ def derive_actor_methods(source):
     """
     if hashlib.sha256(source.encode()).hexdigest() != PINS["fixture_bridge"][1]:
         raise ValueError("Require the exact source-bound N4 planner bridge")
+    historical = _restore_fixture_location(source)
     cls = next(node for node in ast.parse(source).body
                if isinstance(node, ast.ClassDef) and node.name == "SocialForceSharedPlanner")
     methods = [textwrap.dedent(ast.get_source_segment(source, node)) for node in cls.body
                if isinstance(node, ast.FunctionDef) and node.name in {"predict_snapshot", "plan"}]
     original = "\n\n".join(methods) + "\n"
+    historical_cls = next(node for node in ast.parse(historical).body
+                          if isinstance(node, ast.ClassDef) and node.name == "SocialForceSharedPlanner")
+    historical_methods = [textwrap.dedent(ast.get_source_segment(historical, node))
+                          for node in historical_cls.body if isinstance(node, ast.FunctionDef)
+                          and node.name in {"predict_snapshot", "plan"}]
+    if original != "\n\n".join(historical_methods) + "\n":
+        raise ValueError("Fixture location migration changed exact actor method bytes")
     replacements = [
         ("states.shape != (4, 5)", "states.shape != (self.actor_count, 5)"),
         ("waypoints.shape != (4, 10, 2)", "waypoints.shape != (self.actor_count, 10, 2)"),
@@ -96,7 +136,10 @@ def derive_actor_methods(source):
     return derived, {"parent": source_bindings()["fixture_bridge"], "replacement_count": len(replacements),
                      "exact_inverse": True, "changed_methods": ["predict_snapshot", "plan"],
                      "derived_sha256": hashlib.sha256(derived.encode()).hexdigest(),
-                     "force_integration_reference_math_changed": False, "SDK_executed": False}
+                     "force_integration_reference_math_changed": False, "SDK_executed": False,
+                     "source_version": SOURCE_VERSION, "fixture_location_exact_inverse": True,
+                     "historical_fixture_sha256": HISTORICAL_PINS["fixture_bridge"][1],
+                     "historical_actor_method_bytes_equal": True}
 
 
 def native_distance_grid(labels, *, origin_xy, bounds_xy, resolution_m, source):

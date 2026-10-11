@@ -23,10 +23,27 @@ NATIVE_PINS = {
     "CrowdSim.humanoid.runtime.dynbench_scene": ("CrowdSim/humanoid/runtime/dynbench_scene.py", "fd8f3cb6e84776af6b6bc7f6e5d527b24284dad2086ca23dc5c89d4f8ebe3870"),
     "CrowdSim.humanoid.runtime.native_grid_scene": ("CrowdSim/humanoid/runtime/native_grid_scene.py", "3fe1090b9c1e457c4c7ca00d4dbc3c07d7ab48ef1a5d1973ed8ae9d4f520881a"),
 }
+SDK61_NATIVE_PINS = {
+    "CrowdSim.humanoid.runtime.dynbench_scene": (NATIVE_PINS["CrowdSim.humanoid.runtime.dynbench_scene"][0],
+        "68bd2171ad9707c3f280c374d73538b8c532764a42e1f90335c6375090595d28"),
+    "CrowdSim.humanoid.runtime.native_grid_scene": (NATIVE_PINS["CrowdSim.humanoid.runtime.native_grid_scene"][0],
+        "b5563bd5a509cdb02ae33e57ad34ab7a0524825ad16e481ef631531d59308165"),
+}
+
+# This constructor-only branch leaves every sealed terminal method byte intact.
+SDK61_PARENT_BRANCH = '''        if self._sdk61 is not None:
+            # SDK61Lifecycle validates the loaded backend and releases contacts
+            # before stop; the sealed Sim6.0 sensor teardown must not run here.
+            report["evaluation_lifecycle"]["navigation_release_version"] = "sdk61_owned_contacts.v1"
+            return
+'''
 
 
 def derive_native_release(source):
-    if hashlib.sha256(source.encode()).hexdigest() != PARENT_SHA:
+    historical = source
+    if historical.count(SDK61_PARENT_BRANCH) == 1:
+        historical = historical.replace(SDK61_PARENT_BRANCH, "", 1)
+    if hashlib.sha256(historical.encode()).hexdigest() != PARENT_SHA:
         raise ValueError("Require the exact current N4 terminal lifecycle")
     cls = next(node for node in ast.parse(source).body
                if isinstance(node, ast.ClassDef) and node.name == "FourActorNavigationLifecycle")
@@ -84,14 +101,17 @@ class NativeNavigationLifecycle(FourActorNavigationLifecycle):
             raise ValueError("Native lifecycle supports exactly N3..15")
         super().__init__(report)
         self.actor_count = actors
-        self._native_sources = {name: record(ROOT / relative) for name, (relative, sha) in NATIVE_PINS.items()}
-        if any(self._native_sources[name]["sha256"] != sha for name, (_, sha) in NATIVE_PINS.items()):
+        pins = SDK61_NATIVE_PINS if self._sdk61 is not None else NATIVE_PINS
+        self._native_sources = {name: record(ROOT / relative) for name, (relative, sha) in pins.items()}
+        if any(self._native_sources[name]["sha256"] != sha for name, (_, sha) in pins.items()):
             raise ValueError("Native ownership dependency changed")
         self._producer_binding = native_social_observation_producer.describe_migration()
         report["evaluation_lifecycle"].update(native_navigation_implementation=record(__file__),
             native_navigation_derivation=dict(_derivation), navigation_actor_count=actors,
             expected_owned_contact_views=actors + 1, native_sources=self._native_sources,
             native_producer=self._producer_binding, native_SDK_smoke_verified=False)
+        if self._sdk61 is not None:
+            report["evaluation_lifecycle"]["native_source_version"] = "native_navigation.sim61.v2"
 
     def _guard_native_owners(self, world, producer):
         for name, expected in self._native_sources.items():

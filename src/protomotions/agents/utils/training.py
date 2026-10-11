@@ -76,10 +76,11 @@ def handle_model_grad_clipping(config, fabric, model, optimizer, model_name):
     grad_norm_before_clip = torch_utils.grad_norm(params)
     if config.check_grad_mag:
         bad_grads = (
-            torch.isnan(grad_norm_before_clip) or grad_norm_before_clip > 1000000.0
+            not torch.isfinite(grad_norm_before_clip)
+            or grad_norm_before_clip > 1000000.0
         )
     else:
-        bad_grads = torch.isnan(grad_norm_before_clip)
+        bad_grads = not torch.isfinite(grad_norm_before_clip)
 
     bad_grads_count = 0
     if bad_grads:
@@ -152,7 +153,9 @@ def aggregate_scalar_metrics(log_dict: Dict, fabric: Fabric, weight: int = 1) ->
             )
         elif isinstance(value, torch.Tensor):
             if value.numel() == 1:
-                value_tensor = value.float().to(fabric.device)
+                # All ranks must gather a scalar. Keeping singleton dimensions
+                # makes [ranks, 1] values broadcast against [ranks] weights.
+                value_tensor = value.float().to(fabric.device).reshape(())
             else:
                 value_tensor = value.mean().float().to(fabric.device)
         else:

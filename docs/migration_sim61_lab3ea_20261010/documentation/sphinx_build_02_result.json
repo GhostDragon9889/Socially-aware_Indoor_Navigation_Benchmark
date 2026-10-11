@@ -1,0 +1,25 @@
+{
+  "command": [
+    "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/docs_finalize/.venv/bin/python",
+    "-I",
+    "-m",
+    "sphinx",
+    "-E",
+    "-W",
+    "--keep-going",
+    "-b",
+    "html",
+    "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/source",
+    "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/docs_finalize/html_offline",
+    "-D",
+    "autosummary_generate=0"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 12.153750338002283,
+  "offline_flag": "SOCIAL_NAVIGATION_DOCS_OFFLINE=1",
+  "external_inventory_checks": "not run in offline build",
+  "autosummary_generated_sources": false,
+  "environment": "independent docs tools only; no SDK or project overlay installed",
+  "warnings_as_errors": true,
+  "source_name": "docs/source"
+}

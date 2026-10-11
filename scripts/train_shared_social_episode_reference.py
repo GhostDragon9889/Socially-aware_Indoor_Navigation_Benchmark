@@ -19,18 +19,18 @@ from scripts import train_shared_social as canonical  # noqa: E402
 
 HERE = ROOT / "docs/style_improvement_20261006/shared_social_episode_reference_runtime_preparation_v1"
 WORLD = HERE / "shared_group_world.py"
-CURRICULUM = ROOT / "CrowdSim/humanoid/training/episode_mixed_trajectories.py"
-REFERENCE = ROOT / "CrowdSim/humanoid/training/episode_trajectories.py"
+CURRICULUM = ROOT / "src/CrowdSim/humanoid/training/episode_mixed_trajectories.py"
+REFERENCE = ROOT / "src/CrowdSim/humanoid/training/episode_trajectories.py"
 REFERENCE_SHA = "f4283656f29a31547905ee640316aac63e7ba2cdbcd9321f1763475247a17576"
 PARENT_WORLD_SHA = "e76182d2be5a3fa4dad19a04d71275d91929ce3ea2d63a1c23f081aa1a59880b"
 WORLD_SHA = "635bd6183404141502bca82f6e7e3143c223a75c64c5cd080a1b3eb89031b360"
 CURRICULUM_SHA = "61ec4446472800c4c6ed922194cb42f8d6988cabe732853d865f5386d4793e1a"
-CANONICAL_SHA = "a1247911b78cc9adce2ee67da42e2afefb43c785fcdbd8afe02e97b1b572cacc"
+CANONICAL_SHA = "bd751851ce348a7f73f2e52d2d1911076b29f56786be450a8c4fd262dc507a88"
 PROFILE_SHAS = {"smoke.json": "df9ba4aae81226a9daf9d89aa7b249e4841291b9fbd07212aeec89b77714d7d9",
     "smoke256.json": "5c619d1bc0ac9f0cba3391eb45f0c77a3224de8523a29a76d418cea9baf65738",
     "training.json": "0d00173b490d18f3c38f75934c6f73a16641b3cf6e7f64dac5bb543955cd4a7b"}
 COMPLETION = ROOT / "docs/style_improvement_20261005/shared_social_budget12500_v1/external_owner_completion.json"
-BRIDGE_SHA = "a9eccb65600be8b2f3f057ae8b13df297c36da405922398c84f55886e4bcd2a9"
+BRIDGE_SHA = "249e66e60d5378a4c52e00c35803501059ceb97c22bb03090e8add995aa0a7e6"
 
 
 def pinned(path, expected, *, readonly=False):
@@ -43,15 +43,10 @@ def pinned(path, expected, *, readonly=False):
 def world_sources():
     """Cold-read only the pinned dependency declaration, without importing Torch."""
     pinned(WORLD, WORLD_SHA, readonly=True)
-    statements = [node for node in ast.parse(WORLD.read_bytes()).body if isinstance(node, ast.Assign)
-        and any(isinstance(target, ast.Name) and target.id == "PINS" for target in node.targets)]
-    if len(statements) != 1:
-        raise ValueError("Require the one explicit World dependency declaration")
-    namespace = {"ROOT": ROOT, "STAGES": ROOT / "docs/style_improvement_20261004",
-                 "LAB": ROOT.parent / "IsaacLab-Protomotions/source"}
-    exec(compile(ast.Module(body=statements, type_ignores=[]), str(WORLD), "exec"), namespace)
+    from CrowdSim.humanoid.runtime.grouped_source_migration import pins_for
+    selected = pins_for(WORLD)
     result = {}
-    for name, (path, size, sha, readonly) in namespace["PINS"].items():
+    for name, (path, size, sha, readonly) in selected.items():
         row = pinned(path, sha, readonly=readonly)
         if row["bytes"] != size:
             raise ValueError("World dependency size differs: " + name)

@@ -219,7 +219,8 @@ def test_actual_driver_AST_act_is_once_before_world_step():
     import ast
     import CrowdSim
 
-    workspace = Path(CrowdSim.__file__).resolve().parents[1]
+    from protomotions.repository import repository_root
+    workspace = repository_root(CrowdSim.__file__)
     tree = ast.parse((workspace / "scripts/train_paper_amp.py").read_text())
     loops = [
         node

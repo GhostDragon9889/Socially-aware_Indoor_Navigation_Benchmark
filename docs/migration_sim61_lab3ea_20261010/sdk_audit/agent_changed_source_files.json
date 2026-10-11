@@ -1,0 +1,236 @@
+{
+  "repo": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark",
+  "files": [
+    {
+      "path": "examples/experiments/mimic/fsq.py",
+      "bytes": 8197,
+      "sha256_at_receipt": "49ca31077c36323b8898b133ef2da25989d67a5f76a100923990cc787b1f4654"
+    },
+    {
+      "path": "src/protomotions/simulator/newton/api_compat.py",
+      "bytes": 5355,
+      "sha256_at_receipt": "724e0aa8e1e99eda6744c2419a6e286090cce351d05ea3c40a4245fa67734bdf"
+    },
+    {
+      "path": "src/protomotions/simulator/newton/config.py",
+      "bytes": 2310,
+      "sha256_at_receipt": "757896b9f787ec0f3d2365ee7a24524fd6c1102b24f665543521d8cab3fd7889"
+    },
+    {
+      "path": "src/protomotions/simulator/newton/simulator.py",
+      "bytes": 60756,
+      "sha256_at_receipt": "57940ae53a535c2bf4665963bc7713b66f39d18ceb54649f4e3949a20f3ded2a"
+    },
+    {
+      "path": "src/protomotions/tests/test_newton_api_compat.py",
+      "bytes": 10000,
+      "sha256_at_receipt": "57016d8e2cf8a59c6323b715dc691da3ed2ea828713bbe5887d054c78ae3c593"
+    },
+    {
+      "path": "src/protomotions/tests/test_optional_vendor_regressions.py",
+      "bytes": 20777,
+      "sha256_at_receipt": "c0c4bc8da6eaaf6d2a7821d782a4f484923dab39f0e8678510bea2a955d91eea"
+    },
+    {
+      "path": "third_party/flux/baselines/flux/deployment_server.py",
+      "bytes": 8321,
+      "sha256_at_receipt": "2cfdf71a4f1f07459a810d0c59da666313afa05c8e62e30de70fe6748c4c4c97"
+    },
+    {
+      "path": "third_party/flux/baselines/flux/policy_network.py",
+      "bytes": 21446,
+      "sha256_at_receipt": "2f1fcec90c71a4119778f1fe6c94c2809f0b6473dc22b856f0cdd79c19c56f7b"
+    },
+    {
+      "path": "third_party/flux/baselines/logoplanner/deployment/visualization.py",
+      "bytes": 1341,
+      "sha256_at_receipt": "dbda6d31e7b94f7438e4b5e1e47580349843a0f710735e63719cb56cb9e6ac25"
+    },
+    {
+      "path": "third_party/flux/configs/tasks/usd_utils.py",
+      "bytes": 1395,
+      "sha256_at_receipt": "8647f9a8987c5bd32c3e2a79853c70cb6ab637065e71661e4f84f20768121f43"
+    },
+    {
+      "path": "third_party/flux/configs/tasks/wheeled_task.py",
+      "bytes": 62618,
+      "sha256_at_receipt": "143daa958e8badd55583ad9dc79898200d7193e072440f1b0c28b52dba7e6d7a"
+    },
+    {
+      "path": "third_party/flux/wheeled_robots/controllers/differential_controller.py",
+      "bytes": 6515,
+      "sha256_at_receipt": "78006274a46c8e9efd1c493ec5fe419da1b898654e1fc5b185aaa1b5681712b3"
+    },
+    {
+      "path": "third_party/navdp/baselines/logoplanner/deployment/visualization.py",
+      "bytes": 1341,
+      "sha256_at_receipt": "dbda6d31e7b94f7438e4b5e1e47580349843a0f710735e63719cb56cb9e6ac25"
+    },
+    {
+      "path": "third_party/navdp/baselines/x-navdp/eval/scripts/evaluate_pointgoal.py",
+      "bytes": 12410,
+      "sha256_at_receipt": "fae9aa5c71602bbab025125b2f767e83a87daf5ba9abf18693717bafb8d349a1"
+    },
+    {
+      "path": "third_party/navdp/baselines/x-navdp/src/environment/robots/dingo_config.py",
+      "bytes": 3321,
+      "sha256_at_receipt": "4792e4c6857950f9cfdd364e8e92f468b7b507c2df61358fdf9a79661829ff52"
+    },
+    {
+      "path": "third_party/navdp/baselines/x-navdp/src/environment/robots/g1_config.py",
+      "bytes": 6563,
+      "sha256_at_receipt": "f783ee97751f867c0ce372692fd06bf07b78dcea2f1af2fd58adb763886d5039"
+    },
+    {
+      "path": "third_party/navdp/baselines/x-navdp/src/environment/robots/go2_config.py",
+      "bytes": 4111,
+      "sha256_at_receipt": "99372168b025771a59c6b936717bffc7cd41edd2c8dbcbde11ea2a13616ca63e"
+    },
+    {
+      "path": "third_party/navdp/baselines/x-navdp/src/environment/tasks/event_utils.py",
+      "bytes": 18573,
+      "sha256_at_receipt": "4206732438ff88af5ede81877b118c779dee715208b17595b0e592e40d33282b"
+    },
+    {
+      "path": "third_party/navdp/baselines/x-navdp/src/environment/tasks/observation_utils.py",
+      "bytes": 17713,
+      "sha256_at_receipt": "8001f51c2e93bf6c0d163e2f177392466826f6c01f95cc751d2e748c942b85db"
+    },
+    {
+      "path": "third_party/navdp/baselines/x-navdp/src/environment/tasks/reward_utils.py",
+      "bytes": 22458,
+      "sha256_at_receipt": "64eb4378b3933dd3e6077f80e06f48f1168b0da6cdac63df7bf6a9d34a772976"
+    },
+    {
+      "path": "third_party/navdp/baselines/x-navdp/src/training/worker.py",
+      "bytes": 11200,
+      "sha256_at_receipt": "3225f26b27f5e7f8abc7303b2fd695a3957eef102578e2187b0d71d1ee4ced59"
+    },
+    {
+      "path": "third_party/navdp/baselines/x-navdp/train.py",
+      "bytes": 45343,
+      "sha256_at_receipt": "5300c6aa52d1e8e51314be30ec3e1c4a7298a33919a72e99147f854cb864f834"
+    },
+    {
+      "path": "third_party/navdp/configs/robots/dingo_config.py",
+      "bytes": 3173,
+      "sha256_at_receipt": "3d6497a52362256ef9f82598c48f98cf399002253fb25d3b29b804786b1ebcdf"
+    },
+    {
+      "path": "third_party/navdp/configs/scenes/default_scene.py",
+      "bytes": 2503,
+      "sha256_at_receipt": "efec78d33b42f73851c398bb1c9a5d7c8aa24516f3b2bdce6eabab89fe792ad0"
+    },
+    {
+      "path": "third_party/navdp/configs/tasks/usd_utils.py",
+      "bytes": 1395,
+      "sha256_at_receipt": "8647f9a8987c5bd32c3e2a79853c70cb6ab637065e71661e4f84f20768121f43"
+    },
+    {
+      "path": "third_party/navdp/configs/tasks/wheeled_task.py",
+      "bytes": 29690,
+      "sha256_at_receipt": "f75e4b62186d636012ad83063192168c5fad0f57692a73a96806c3cee678e11b"
+    },
+    {
+      "path": "third_party/navdp/eval_imagegoal_wheeled.py",
+      "bytes": 14285,
+      "sha256_at_receipt": "1cf2ba019ae29b431cb14cd4915504cc1538a117ffecb876b9b1f7e83a19d7a1"
+    },
+    {
+      "path": "third_party/navdp/eval_nogoal_wheeled.py",
+      "bytes": 16147,
+      "sha256_at_receipt": "c96a80b1db6d91c0cb9cc70713a4fac734636777843e2ae0ae62228b8daf5e99"
+    },
+    {
+      "path": "third_party/navdp/eval_pointgoal_wheeled.py",
+      "bytes": 13978,
+      "sha256_at_receipt": "eb5685fcbd363da2939a5a90b89827411135b8696a04c3f2f0c41e319dd5ad48"
+    },
+    {
+      "path": "third_party/navdp/eval_startgoal_wheeled.py",
+      "bytes": 15510,
+      "sha256_at_receipt": "cb0a1f09af2b20af6a18dc3c61fa8e33222e0de63759c2d1ae7306413c1e1087"
+    },
+    {
+      "path": "third_party/navdp/runtime_compat.py",
+      "bytes": 2643,
+      "sha256_at_receipt": "623ab39ff16643b4300f45207a9eeedf6cfdb1810ee03af0ca4f936640bbfa38"
+    },
+    {
+      "path": "third_party/navdp/teleop_imagegoal_wheeled.py",
+      "bytes": 15070,
+      "sha256_at_receipt": "25d669a0fe2298896f06d63db1061f51c946489841dc302d41fa4c0195ba8d09"
+    },
+    {
+      "path": "third_party/navdp/teleop_nogoal_wheeled.py",
+      "bytes": 14155,
+      "sha256_at_receipt": "ed3bc0c703b3e7032153b91564d0423d2526e7eb9526eea3577964e9e3b708e4"
+    },
+    {
+      "path": "third_party/navdp/teleop_pointgoal_wheeled.py",
+      "bytes": 15141,
+      "sha256_at_receipt": "e2ace00759d6c4115ac6cc94349dcfd37734cf4313188d14c191fdd147c56118"
+    },
+    {
+      "path": "third_party/navdp/wheeled_robots/controllers/base_controller.py",
+      "bytes": 1241,
+      "sha256_at_receipt": "335a4676f2d8f013c7d50ce8bdc5799323c43affdcf851978472f7ff22f1573f"
+    },
+    {
+      "path": "third_party/navdp/wheeled_robots/controllers/differential_controller.py",
+      "bytes": 5198,
+      "sha256_at_receipt": "969accaafade9166ed15a4f70216d94564d21cfa5583c8d3c38132407c106e32"
+    },
+    {
+      "path": "third_party/pacer/pacer/env/tasks/humanoid_amp.py",
+      "bytes": 44028,
+      "sha256_at_receipt": "7a1ce273eee683681b0b48cea776f9875cc3ffe886edaf90538bf57f91ae9f14"
+    },
+    {
+      "path": "third_party/pacer/pacer/env/util/traj_generator.py",
+      "bytes": 7341,
+      "sha256_at_receipt": "4d5ceea702973c34d63ce8714a6ba660bb399ad03ef28b497124e856048eb5f1"
+    },
+    {
+      "path": "third_party/pacer/pacer/learning/amp_network_sept_value_builder.py",
+      "bytes": 2854,
+      "sha256_at_receipt": "e473312b47569c8e3ce3820c2e237aecfe3d506265cc5b66650826147c690a9d"
+    },
+    {
+      "path": "third_party/pacer/pacer/learning/common_agent.py",
+      "bytes": 25379,
+      "sha256_at_receipt": "d740414b8d5bc52b9a15b881e78486715031c9d2819f51f1aba49ffb3019b03a"
+    },
+    {
+      "path": "third_party/pacer/pacer/learning/network_builder.py",
+      "bytes": 42728,
+      "sha256_at_receipt": "4114cd3898d1eba8abfe3df000db909d1f5050a7911866b8314f9392ee2dce8e"
+    },
+    {
+      "path": "third_party/pacer/pacer/run.py",
+      "bytes": 10087,
+      "sha256_at_receipt": "d1fda7848d2eb68a021120990fa768dc3ac356eeda7af2d4845178822ea1668b"
+    },
+    {
+      "path": "third_party/pacer/pacer/utils/flags.py",
+      "bytes": 209,
+      "sha256_at_receipt": "80ee1a36d2aa1af6183ca4f1c2a452a81b776b054c2363d12e6d3d60f55c123c"
+    },
+    {
+      "path": "third_party/pacer/uhc/smpllib/smpl_mujoco.py",
+      "bytes": 29740,
+      "sha256_at_receipt": "37aff3ff9d03901fad56363e3b928159eee72d6a4e06c011edb310baf80bdf6d"
+    },
+    {
+      "path": "third_party/pacer/uhc/utils/flags.py",
+      "bytes": 189,
+      "sha256_at_receipt": "428f6f62d667668d5ce156afaf009e6a8c3a418e80fc7675f5dd083660034d3f"
+    },
+    {
+      "path": "third_party/pacer/uhc/utils/torch_utils.py",
+      "bytes": 18865,
+      "sha256_at_receipt": "85e1be7c1f37a9efbd830cc4125f755626982b4a86a2c433e0132468a0d46b05"
+    }
+  ],
+  "note": "Only SDK/Newton/vendor subtask changes; parent and other agents source changes excluded. Current hashes, no commit/push."
+}

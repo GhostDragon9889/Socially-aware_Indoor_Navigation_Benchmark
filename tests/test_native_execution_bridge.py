@@ -21,6 +21,23 @@ def declared_packet(command, cuda="0"):
         "response": {"exit_code": 0, "chunk_id": "IN_MEMORY_CPU_CONTRACT_ONLY"}}
 
 
+def test_navigation_receipt_retains_the_counts_required_by_raw_array_audit():
+    result = {"fall_resets": 7, "route_vertices_reached": [0, 2, 1]}
+    summary = bridge.navigation_summary(result, 3)
+    assert summary == result
+    result["route_vertices_reached"][0] = 100
+    assert summary["route_vertices_reached"] == [0, 2, 1]
+
+
+@pytest.mark.parametrize("falls,arrivals", [
+    (None, [0, 0, 0]), (False, [0, 0, 0]), (-1, [0, 0, 0]),
+    (0, [0, 0]), (0, [0, 0, True]), (0, [0, 0, -1]), (0, [0, 0, 0.0]),
+])
+def test_navigation_receipt_refuses_missing_or_invalid_driver_counts(falls, arrivals):
+    with pytest.raises(ValueError, match="navigation termination and route summaries"):
+        bridge.navigation_summary({"fall_resets": falls, "route_vertices_reached": arrivals}, 3)
+
+
 @pytest.mark.parametrize("case_id,actors,seed", (("Office_N03_seed19", 3, 19), ("Warehouse_N15_seed42", 15, 42)))
 def test_fixed_native_case_plan_uses_same_seed_and_candidate_without_creating_outputs(case_id, actors, seed):
     plan = bridge.prepare_case(case_id)

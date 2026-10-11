@@ -79,6 +79,41 @@ def resolve_articulation_root_prim_path_from_records(
     return "/" if not relative else f"/{relative}"
 
 
+def _select_physx_variant(stage):
+    """Select the backend's physics payload in the session layer only.
+
+    Sim 6.1's importer defaults to the generic ``physics`` variant, whose
+    parallel MJCF hinges are over-constrained for PhysX. The repaired D6
+    articulation is authored in ``physx``; the same selection must be used
+    when inspecting paths and when spawning the robot. Source USD files are
+    never rewritten by this inspection.
+    """
+    default_prim = stage.GetDefaultPrim()
+    if not default_prim or "Physics" not in default_prim.GetVariantSets().GetNames():
+        return None
+    variants = default_prim.GetVariantSet("Physics")
+    if "physx" not in variants.GetVariantNames():
+        raise ValueError("Converted robot has a Physics variant set without a physx payload")
+    previous_target = stage.GetEditTarget()
+    try:
+        stage.SetEditTarget(stage.GetSessionLayer())
+        if not variants.SetVariantSelection("physx"):
+            raise ValueError("Could not select the converted robot's physx payload")
+    finally:
+        stage.SetEditTarget(previous_target)
+    return {"Physics": "physx"}
+
+
+def physx_usd_variant_selection(usd_path: str):
+    """Return explicit spawn variants for an importer-produced robot USD."""
+    from pxr import Usd
+
+    stage = Usd.Stage.Open(usd_path)
+    if stage is None:
+        raise ValueError(f"Could not open USD stage: {usd_path}")
+    return _select_physx_variant(stage)
+
+
 def _stage_records(usd_path: str, stage_factory=None):
     if stage_factory is not None:
         stage = stage_factory(usd_path)
@@ -95,6 +130,7 @@ def _stage_records(usd_path: str, stage_factory=None):
     stage = Usd.Stage.Open(usd_path)
     if stage is None:
         raise ValueError(f"Could not open USD stage: {usd_path}")
+    _select_physx_variant(stage)
     default_prim = stage.GetDefaultPrim()
     default_path = default_prim.GetPath().pathString if default_prim else ""
     records = []
@@ -178,4 +214,4 @@ def contact_sensor_prim_path(
 ) -> str:
     """Build a ContactSensorCfg prim path for a resolved body."""
     relative = body_prim_paths[body_name]
-    return f"{robot_prim_root}/{relative}"
+    return f"{robot_prim_root}/{relative}" if relative else robot_prim_root

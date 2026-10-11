@@ -1,0 +1,22 @@
+{
+  "sources": 176,
+  "inputs": 7,
+  "actual_cold_checks": 4,
+  "before_after_inventory_verified": true,
+  "Torch_imported": false,
+  "SDK_started": false,
+  "terminal_cache_source_inverse": {
+    "version": "terminal_PhysX_cache.sim61.v1",
+    "historical_sha256": "b4f85259dd7a13164213fb2c28d2e0dc1d359a0dba645d6555541ac257f1e676",
+    "current_sha256": "63c6d1e30e2531ec33a8172a54b6abaffd01c0d6a87e67383e266f29a23d852c",
+    "whole_source_inverse_verified": true,
+    "helper": {
+      "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/protomotions/simulator/isaaclab/utils/sdk61_owned_close.py",
+      "bytes": 16120,
+      "sha256": "8c91e50e665fee2b8b52fa7ad7b6b4eb9972bb74fdec701cafcc4baa0181e7a5"
+    },
+    "historical_manifest_modified": false,
+    "physical_execution_verified": false
+  },
+  "training_updates_executed_by_this_admission": 0
+}

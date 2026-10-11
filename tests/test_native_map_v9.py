@@ -4,9 +4,12 @@ import importlib.util
 from pathlib import Path
 import shutil
 import sys
+import subprocess
+import json
 
 import pytest
 import CrowdSim
+from protomotions.repository import repository_root
 
 from CrowdSim.humanoid.runtime.dynbench_scene import file_record
 import test_native_map_v7 as legacy
@@ -16,7 +19,42 @@ from CrowdSim.humanoid.runtime import dynbench_scene as prior_provider
 from CrowdSim.humanoid.runtime import native_grid_scene as prior_grid
 
 ROOT = Path(__file__).resolve().parents[1]
-WORKSPACE = Path(CrowdSim.__file__).resolve().parents[1]
+WORKSPACE = repository_root(CrowdSim.__file__)
+
+
+def test_standalone_layer_verification_keeps_parent_free_of_USD_and_tensor_modules(tmp_path, candidate_modules):
+    provider, data, _ = fixture_v9(tmp_path, candidate_modules)
+    payload = json.dumps({"provider": provider._data, "data": data,
+                          "original_ram": data["runtime_stage_composition"]["original_source_root_in_memory_sha256"]})
+    code = '''import sys,json
+from types import SimpleNamespace
+from CrowdSim.humanoid.runtime.native_map_v9 import _owned_layer_content
+data=json.loads(sys.stdin.read())
+_owned_layer_content(SimpleNamespace(_data=data['provider']),data['data'],data['original_ram'])
+assert not any(n.split('.')[0] in {'pxr','torch','isaacsim','isaaclab','omni','warp'} for n in sys.modules)
+print('verified_without_parent_SDK_import')
+'''
+    child = subprocess.run([sys.executable, '-c', code], input=payload, text=True, capture_output=True)
+    assert child.returncode == 0, child.stderr
+    assert child.stdout.strip() == 'verified_without_parent_SDK_import'
+    document = json.loads(payload)
+    document['original_ram'] = '0' * 64
+    child = subprocess.run([sys.executable, '-c', code], input=json.dumps(document), text=True, capture_output=True)
+    assert child.returncode != 0
+    assert 'Standalone USD content verification failed' in child.stderr
+
+
+@pytest.mark.parametrize('fault', ['exit', 'invalid_json', 'wrong_identity'])
+def test_standalone_verifier_rejects_unobserved_or_mismatched_success(monkeypatch, fault):
+    from types import SimpleNamespace
+    from CrowdSim.humanoid.runtime import native_map_v9
+    monkeypatch.delitem(sys.modules, 'pxr', raising=False)
+    response = SimpleNamespace(returncode=1 if fault == 'exit' else 0,
+                               stdout='invalid' if fault == 'invalid_json' else '{"verified": true}',
+                               stderr='failed verifier')
+    monkeypatch.setattr(subprocess, 'run', lambda *a, **kw: response)
+    with pytest.raises(ValueError, match='Standalone USD'):
+        native_map_v9._owned_layer_content(SimpleNamespace(_data={}), {}, '0' * 64)
 
 
 def source_module(name, path):
@@ -46,7 +84,8 @@ def fixture_v9(folder, modules):
     old, data, low_row = prior.fixture_v8(folder,(prior_verifier,prior_provider,prior_grid))
     preflight=deepcopy(old._data)
     script=folder/"probe_v9.py"
-    shutil.copyfile(ROOT/"scripts/probe_paper_scene_maps.py",script)
+    # v9 admission binds the frozen v9 producer, not the evolving live probe.
+    shutil.copyfile(WORKSPACE/"docs/style_improvement_20261002/native_map_clock_v9_proposal_v2/proposed/scripts/probe_paper_scene_maps.py",script)
     assert file_record(script)["sha256"]==verifier.PROBE_SHA256
     preflight["script"]=file_record(script)
     data["script"]=preflight["script"]

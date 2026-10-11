@@ -13,7 +13,7 @@ from CrowdSim.humanoid.application import native_execution_bridge as bridge  # n
 
 DRIVER = ROOT / "scripts/shared_social_native_tool_owner.js"
 COMPLETION = bridge.S3 / "external_owner_completion.json"
-BRIDGE_SHA = "a9eccb65600be8b2f3f057ae8b13df297c36da405922398c84f55886e4bcd2a9"
+BRIDGE_SHA = "249e66e60d5378a4c52e00c35803501059ceb97c22bb03090e8add995aa0a7e6"
 PLAN_SCHEMA = "shared_social.registered_native_serial_tool_plan.v1"
 
 

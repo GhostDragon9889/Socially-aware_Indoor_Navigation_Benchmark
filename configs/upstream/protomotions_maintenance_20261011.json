@@ -1,0 +1,114 @@
+{
+  "schema": "social_navigation.upstream_maintenance.v1",
+  "catalog_commit": "15dd16bfc40320ae13ec147daa03cc8779d95807",
+  "merge_commit": "23ccdddee7f1d72c08b59f7985a13a1a79084cbe",
+  "files": [
+    {
+      "target_path": ".gitattributes",
+      "reason": "Register reviewed release assets in Git LFS and preserve byte-bound metadata.",
+      "updates": [
+        {
+          "commit": "f8b41c0c12a74323c4a150bf6649b6207906f870",
+          "before": {
+            "mode": "100644",
+            "git_blob": "44d4e2ebfa6dbdd0d74d1aa01e64371982005c57"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "2b508e7b9035faa8eed642c5ad3c79b0122e21ec"
+          }
+        },
+        {
+          "commit": "cb5738b825030c14c148ac88888f4bc883532bd0",
+          "before": {
+            "mode": "100644",
+            "git_blob": "2b508e7b9035faa8eed642c5ad3c79b0122e21ec"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "45ba21959471300921dee897449afd8026fa4b89"
+          }
+        }
+      ]
+    },
+    {
+      "target_path": ".gitignore",
+      "reason": "Allow the explicit asset release and visual resources while ignoring managed SDK installations.",
+      "updates": [
+        {
+          "commit": "f8b41c0c12a74323c4a150bf6649b6207906f870",
+          "before": {
+            "mode": "100644",
+            "git_blob": "6a6685540c4ebe3400d705e04198c2c238891448"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "1aebe4dc596e93a83d6912b90c591326d9b9c173"
+          }
+        },
+        {
+          "commit": "cb5738b825030c14c148ac88888f4bc883532bd0",
+          "before": {
+            "mode": "100644",
+            "git_blob": "1aebe4dc596e93a83d6912b90c591326d9b9c173"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "8cc00c291eafb45811c8fd9cb58a19c01c56d6a4"
+          }
+        }
+      ]
+    },
+    {
+      "target_path": "README.md",
+      "reason": "Document the reviewed asset release and clone-reproduction entry points.",
+      "updates": [
+        {
+          "commit": "f8b41c0c12a74323c4a150bf6649b6207906f870",
+          "before": {
+            "mode": "100644",
+            "git_blob": "0bf0eb66f43835028884914b9b6b2866200772e6"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "8e66fed98672504377a01351b75cd162662dfa33"
+          }
+        },
+        {
+          "commit": "cb5738b825030c14c148ac88888f4bc883532bd0",
+          "before": {
+            "mode": "100644",
+            "git_blob": "8e66fed98672504377a01351b75cd162662dfa33"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "364e76c9677b365854b1b334d0060f8a5faa850a"
+          }
+        }
+      ]
+    },
+    {
+      "target_path": "src/protomotions/data/assets/usd/terrain_material.usda",
+      "reason": "Replace the merged material with the recoverable payload from an earlier upstream revision; this is not byte-identical restoration of the merged upstream material.",
+      "updates": [
+        {
+          "commit": "bb48a0b79d5b73cde6c3ba85163737e1fec8a194",
+          "before": {
+            "mode": "100644",
+            "git_blob": "6a10c3fcad2f4390a4bd5d5863aea339615ccf1d"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "4c71a8a5d457aace7716c315c6ca9e6f2d00d801"
+          },
+          "upstream_origin": {
+            "commit": "57f98a963ef1c7c4327745b097a3028920adcd19",
+            "path": "protomotions/data/assets/usd/terrain_material.usda",
+            "lfs_oid": "d27ccb8396709d22dcbcf9cc3c430a9df61d6c34e0caf2a9f8fc2fd1f1f7cadf",
+            "lfs_bytes": 5908
+          }
+        }
+      ]
+    }
+  ]
+}

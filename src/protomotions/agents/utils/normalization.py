@@ -154,16 +154,16 @@ class RunningMeanStd(nn.Module):
     ) -> None:
         if self.ema_decay is not None:
             d = self.ema_decay
-            self.mean[:] = d * self.mean + (1 - d) * batch_mean
-            self.var[:] = d * self.var + (1 - d) * batch_var
+            self.mean.copy_(d * self.mean + (1 - d) * batch_mean)
+            self.var.copy_(d * self.var + (1 - d) * batch_var)
             return
 
         new_mean, new_var, new_count = combine_moments(
             [self.mean, batch_mean], [self.var, batch_var], [self.count, batch_count]
         )
 
-        self.mean[:] = new_mean
-        self.var[:] = new_var
+        self.mean.copy_(new_mean)
+        self.var.copy_(new_var)
         self.count.fill_(new_count)
 
     def maybe_clamp(self, x: Tensor):
@@ -248,9 +248,12 @@ def combine_moments(means: List[Tensor], vars: List[Tensor], counts: List[Tensor
     """
     if not isinstance(counts, torch.Tensor):
         counts = torch.tensor(counts)
+    mean_dtype, var_dtype = means[0].dtype, vars[0].dtype
 
     # Convert all inputs to a compatible type for accumulation
-    counts = counts.float()
+    # Float32 loses integer increments beyond 2**24 samples, which can freeze
+    # the running count during long training runs with small per-rank batches.
+    counts = counts.double()
 
     while len(means) > 1:
         new_means, new_vars, new_counts = [], [], []
@@ -290,8 +293,8 @@ def combine_moments(means: List[Tensor], vars: List[Tensor], counts: List[Tensor
         vars = new_vars
         counts = new_counts
 
-    combined_mean = means[0]
-    combined_var = torch.clamp(vars[0], min=0.0)  # Ensure non-negative variance
+    combined_mean = means[0].to(dtype=mean_dtype)
+    combined_var = torch.clamp(vars[0], min=0.0).to(dtype=var_dtype)
     total_count = counts[0].long()
 
     return combined_mean, combined_var, total_count

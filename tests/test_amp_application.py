@@ -288,6 +288,7 @@ def test_application_and_legacy_entry_imports_are_torch_and_kit_free_in_fresh_py
     source = """
 import json, runpy, sys
 sys.path.insert(0, sys.argv[1])
+sys.path.insert(0, sys.argv[1] + '/src')
 from CrowdSim.humanoid.application.configuration import load_amp_profile
 from CrowdSim.humanoid.application.resources import preflight_amp_resources
 load_amp_profile(sys.argv[1] + '/configs/diffusion_amp/method_reconstruction.yaml')
@@ -306,6 +307,7 @@ def test_preflight_module_runs_the_same_complete_file_gate_without_torch(local_f
     source = """
 import json, sys
 sys.path.insert(0, sys.argv[1])
+sys.path.insert(0, sys.argv[1] + '/src')
 from CrowdSim.humanoid.application.preflight import main
 status = main(sys.argv[2:])
 for prefix in ('torch', 'isaaclab', 'isaacsim', 'omni', 'pxr', 'warp'):

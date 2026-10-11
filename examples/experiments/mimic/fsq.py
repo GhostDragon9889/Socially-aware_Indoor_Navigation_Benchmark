@@ -5,6 +5,7 @@
 
 import argparse
 
+from protomotions.agents.ppo.config import PPOAgentConfig
 from protomotions.envs.base_env.config import EnvConfig
 from protomotions.robot_configs.base import RobotConfig
 from protomotions.simulator.base_simulator.config import SimulatorConfig
@@ -107,7 +108,6 @@ def agent_config(
     from protomotions.agents.ppo.config import (
         AdvantageNormalizationConfig,
         PPOActorConfig,
-        PPOAgentConfig,
         PPOModelConfig,
     )
     from protomotions.envs.component_factories import (

@@ -27,7 +27,8 @@ class NewtonSimParams(SimParams):
     )
     ls_parallel: bool = field(
         default=True,
-        metadata={"help": "Run line search in parallel."}
+        metadata={"help": "Parallel line search on Newton versions exposing this option. "
+                  "Newton 1.5+ uses its solver implementation and ignores this legacy setting."}
     )
     impratio: float = field(
         default=10.0,

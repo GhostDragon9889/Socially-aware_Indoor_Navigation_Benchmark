@@ -2,127 +2,66 @@
 
 [English](dependencies.en.md) · [文档目录](README.md) · 更新：2026-10-10
 
-## 1. 依赖的权威来源
+## 默认环境：IsaacLab 3.0 EA / Isaac Sim 6.1
 
-| 文件 | 含义 |
-| --- | --- |
-| [根 pyproject.toml](../../pyproject.toml) | 项目发行包、核心要求、可选后端和控制台入口 |
-| [SDK manifest](../../env/isaaclab3_sim6/pyproject.toml) | 应用于 IsaacLab 源码根目录的完整环境配置 |
-| [SDK uv.lock](../../env/isaaclab3_sim6/uv.lock) | 273 个锁定包及其来源、wheel 哈希 |
-| [profile.json](../../env/isaaclab3_sim6/profile.json) | 平台、源码提交、版本及 manifest/lock 哈希 |
-| [独立 PPO 包](../../packages/crowdsim-ppo/pyproject.toml) | 无模拟器的 NumPy/PyTorch 导航基线 |
-| [完整依赖清单](dependency-inventory.json) | 上述声明与全部 273 个锁定包的可读快照 |
-
-根目录依赖范围不是精确环境锁。`requirements_isaaclab.txt` 是补充列表，也不是锁；复用物理行人环境时以 SDK manifest、lock 和 profile 三者为准。
-
-## 2. 固定物理行人环境
+[官方 EA 文档](https://isaac-sim.github.io/IsaacLab/v3.0.0-EA/index.html)与本项目固定源码、锁文件共同定义目标环境。产品名、Python 包版本及源码提交需要分别核对。
 
 | 项目 | 固定值 |
 | --- | --- |
-| 平台 | Linux x86_64 |
-| Python | 3.12；本机记录 3.12.13 |
-| IsaacLab 源码 | `4ecd0b036da19ff6ad2bb4d621f886b63e9f6db8` |
-| IsaacLab 产品 / Python 包版本 | `3.0.0` / `12.0.0` |
-| Isaac Sim Python 包 | `6.0.0.1` |
-| 本项目版本 | `3.1.0` |
+| 平台 / Python | Linux x86_64 / 3.12.13 |
+| IsaacLab 源码提交 | `ae37b028ea415c91ea2bc32609efcd759ed2b974` |
+| IsaacLab 源码树 | `27e5b57ad0928e0339e121a06be040ae234a99ed` |
+| 产品 VERSION / Python 包 | `3.0.0` / `isaaclab==17.0.2` |
+| Isaac Sim 包 | `6.1.0.0` |
+| Torch / NumPy / Warp | `2.11.0+cu128` / `2.5.1` / `1.16.0` |
+| 独立 USD 提供者 | `usd-exchange==2.3.0`；USD `25.5` |
+| 项目运行解释器 | `.runtime/isaaclab3_ea_sim61/.venv/bin/python` |
 
-该 IsaacLab 提交属于开发线，不等于 `v3.0.0-beta2` tag。官方 [beta2](https://github.com/isaac-sim/IsaacLab/releases/tag/v3.0.0-beta2)支持 Sim 6.0，但安装本项目时仍须使用精确提交。[3.0 EA](https://github.com/isaac-sim/IsaacLab/releases/tag/v3.0.0-EA)要求 Sim 6.1，不能仅依据“3.0”名称替换本环境。
+## 权威文件与环境边界
 
-
-### 本机实际状态补充（2026-10-10）
-
-本轮核对 SDK manifest/lock SHA 与存档相同，272 个非 virtual 锁定版本全部匹配；18 项项目 core 约束满足，`uv pip check` 仍报告下述3项覆盖冲突。当前 SDK HEAD 已是 `5951d48dde083986489957a7b108ad48a46822a7`（依赖配置提交），profile 仍记录 `4ecd0b...`；两提交之间只改变 manifest/lock，SDK source 未改变，但 `apply` 的精确 commit 门禁会拒绝当前 HEAD。`check` 的版本、234 个 USD RECORD 文件及 standalone round-trip 验证通过。不要把两种检查混写为同一结论。
-
-`/project/EXP/IsaacLab` 的 Sim6.1/package17.0.2 与此环境不同，其项目 core 尚缺7包并有2项版本越界。迁移问题及实际资源缺口见[全面审查](../RESOURCE_DEPENDENCY_MAP_20261010_ZH.md)和[机器清单](../resource_audit_20261010/inventory.json)。
-
-### 主要锁定版本
-
-以下值直接来自仓库 lock；不表示已在任意机器安装或验证。
-
-| 包 | 锁定版本 |
+| 文件 | 用途 |
 | --- | --- |
-| `isaaclab` | `12.0.0` |
-| `isaacsim` | `6.0.0.1` |
-| `torch` | `2.11.0+cu128` |
-| `torchvision` | `0.26.0+cu128` |
-| `torchaudio` | `2.11.0+cu128` |
-| `numpy` | `2.3.1` |
-| `scipy` | `1.17.0` |
-| `lightning` | `2.5.6` |
-| `tensordict` | `0.9.0` |
-| `wandb` | `0.23.0` |
-| `usd-exchange` | `3.0.0` |
-| `mujoco-usd-converter` | `0.2.0` |
-| `urdf-usd-converter` | `0.1.2` |
-| `smplx` | `0.1.28` |
-| `chumpy` | `0.70` |
-| `opencv-python-headless` | `4.13.0.90` |
-| `pillow` | `12.1.1` |
-| `moviepy` | `1.0.3` |
-| `imageio-ffmpeg` | `0.6.0` |
-| `rtree` | `1.4.1` |
-| `scikit-image` | `0.26.0` |
-| `trimesh` | `4.11.1` |
-| `numba` | `0.64.0` |
-| `warp-lang` | `1.15.0.dev20260626` |
-| `newton` | `1.4.0.dev0` |
-| `newton-usd-schemas` | `0.5.0` |
-| `coverage` | `7.6.1` |
-| `pytest` | `9.0.3` |
+| [根 pyproject.toml](../../pyproject.toml) | 核心依赖范围、五个源码包及可选后端 |
+| [SDK manifest](../../env/isaaclab3_ea_sim61/pyproject.toml)、[SDK uv.lock](../../env/isaaclab3_ea_sim61/uv.lock) | 新建固定 SDK 环境的完整快照 |
+| [profile.json](../../env/isaaclab3_ea_sim61/profile.json) | 源码、二进制提供者版本及 manifest/lock 哈希 |
+| [完整锁定依赖清单](dependency-inventory-isaaclab3-ea-sim61.json) | 当前 SDK、overlay 与核心依赖的机器可读快照 |
+| [requirements.overlay.lock](../../env/isaaclab3_ea_sim61/requirements.overlay.lock) | 32 项精确项目补充依赖 |
+| [运行环境说明](../../env/isaaclab3_ea_sim61/README.md) | 已有 SDK 复用、安装与只读验证 |
+| [约束收据](../../env/isaaclab3_ea_sim61/runtime_constraints_receipt.txt) | 本机实测可见包版本记录；不是独立 SDK 安装锁 |
 
-## 3. 核心 Python 要求
+SDK 与项目补充依赖位于不同虚拟环境。项目 overlay 通过 `.pth` 引用 SDK site-packages 与源码，本项目 `src/` 优先；不重新安装 Torch、NumPy、Warp、MuJoCo、Isaac 软件或 USD 提供者，不编辑已安装 SDK。安装器检查包来源、169 项 USD RECORD 文件以及所有 overlay 默认依赖和 18 项项目核心要求，本机共 116 项要求满足。安装失败不会切换项目 `.venv`；SDK、锁或项目路径改变时拒绝复用旧收据。
 
-| 根 pyproject.toml 中的声明 |
-| --- |
-| `dm-control>=1.0` |
-| `easydict>=1.10` |
-| `lightning>=2.3,<2.6` |
-| `matplotlib>=3.6` |
-| `moviepy>=1.0.3,<2.0.0.dev0; python_version >= '3.9'` |
-| `numpy>=1.21.1` |
-| `omegaconf==2.3.0` |
-| `PyYAML>=6` |
-| `rich>=13` |
-| `rtree>=1.2,<2` |
-| `scikit-image>=0.19` |
-| `scipy>=1.8` |
-| `tensordict>=0.5,<0.10` |
-| `termcolor>=1.1` |
-| `tensorboardX>=2.6` |
-| `torch>=2.2` |
-| `trimesh>=4.4` |
-| `wandb>=0.15,<0.24` |
+## 项目补充依赖
 
-主要职责：Torch/TensorDict/Lightning 用于策略、训练与张量；NumPy/SciPy/图像库用于数据和评估；MuJoCo/dm-control/Trimesh/Rtree 用于动作、几何和转换；OmegaConf/PyYAML 用于配置；MoviePy/图像工具用于视频；W&B/TensorBoardX 用于日志。
-
-## 4. 可选依赖与环境分工
-
-| 安装项 | 用途 | 使用方式 |
+| 包 | 精确版本 | 用途 |
 | --- | --- | --- |
-| `isaaclab` | 本项目物理行人后端 | 先建立固定 SDK 环境，再 editable 安装源码 |
-| `crowd` | Pillow 和 GUI 版 OpenCV 辅助工具 | 专用 SDK lock 已选择 headless OpenCV；不要直接混装两种 OpenCV 提供者 |
-| `dev` | pytest、ONNX 导出、构建和发布工具 | 按实际开发任务选取 |
-| `docs` | 上游 Sphinx 文档工具 | 本组双语指南本身是 Markdown |
-| `mujoco` / `newton` / `genesis` | 上游其他模拟后端 | 使用各自独立环境和 requirements；本次四场景不验证这些后端 |
-| `isaacgym` | 上游旧后端接口，extra 为空 | 不能通过该 extra 获得 IsaacGym SDK |
-| `packages/crowdsim-ppo` | PointGoal PPO 基线 | 仅 NumPy ≥1.24、Torch ≥2.2；Python ≥3.10 |
+| `omegaconf` / `hydra-core` | `2.3.0` / `1.3.2` | 本项目配置及已保存配置兼容 |
+| `tensordict` | `0.9.0` | 策略张量与批数据 |
+| `lightning` / `pytorch-lightning` | `2.5.6` / `2.5.6` | 训练入口 |
+| `wandb` / `protobuf` | `0.23.0` / `6.33.6` | 训练日志与 SDK 兼容 |
+| `dm-control` / `dm-env` | `1.0.44` / `1.6` | MuJoCo 动作、运动学处理 |
+| `smplx` / `chumpy` | `0.1.28` / `0.70` | 许可 SMPL 模型读取及蒙皮 |
+| `scikit-image` | `0.26.0` | 图像与独立评估 |
+| `moviepy` / `imageio-ffmpeg` | `1.0.3` / `0.6.0` | 视频处理 |
+| `easydict` / `termcolor` | `1.13` / `3.3.0` | 参考控制器配置和日志 |
+| `pytest` | `9.0.3` | CPU 功能测试 |
 
-不要在专用 SDK 环境执行根目录 `uv sync --all-extras`。后端有互斥项及不同 Torch 约束；SDK 的完整快照只在 IsaacLab 工作区同步。
+完整列表以 overlay lock 为准。`dm-control==1.0.40` 在目标 MuJoCo 3.11 上真实出现 `flex_bandwidth` 缺失；改为 [官方 1.0.44](https://github.com/google-deepmind/dm_control/releases/tag/1.0.44) 后完成 CPU 接触、步进、复制、重置回归。不能以 import 成功代替该数值/API 检查。
 
-## 5. 必须保留的兼容设置
+## 物理与资产合约
 
-- 独立 Python 的 USD 提供者为 `usd-exchange==3.0.0`；`usd-core` 被排除。两者覆盖相同 `pxr` 文件，官方 [usd-exchange 说明](https://pypi.org/project/usd-exchange/3.0.0/)要求避免共装。
-- 独立 USD 是 `26.8`；历史本机 Kit 加载 `25.11`。`check` 验证的是独立进程，不应把该版本断言套到 Kit 进程。
-- manifest 覆盖 Newton、schemas 和 coverage。`uv pip check` 已知会报告三项与 Sim 元数据的差异：`newton==1.4.0.dev0`、`newton-usd-schemas==0.5.0`、`coverage==7.6.1`。记录并比对差异；新增冲突需要另行排查，不要把全部失败当作允许项。
-- Linux x86_64 的 `tool.uv.environments` 限制与正确的平台条件用于避免 `pytetwild` 的跨平台不可能分支。保留仓库的 manifest，不通过删除依赖解决冲突。
-- `--locked` 检查 manifest 与 lock 是否一致；`--frozen` 跳过这项检查，不适合作为修复冲突的方法。见 [uv 官方同步说明](https://docs.astral.sh/uv/concepts/projects/sync/)。
+- 明确保持旧 AMP 动力学：`use_newton_actuators=False`、`enable_external_forces_every_iteration=False`。
+- 新转换器根 USD 默认 `Physics=physics`；行人 spawn 和路径检查显式选择 `physx` 图层，保留 SMPL 24 bodies / 69 DOFs。
+- Warp、ProxyArray 与 Torch 之间使用显式张量视图；写状态和目标使用当前官方 `_index` 接口。
+- [历史上游注册表](../../data/pretrained_models/upstream_reference_registry.json)仅将两份旧 NavIsaacLab 分支配置列为归档、不支持当前运行。其权重/sidecar 原字节保留；现行 TRACE/PACER 与本地微调权重不在该排除范围内。
+- 本轮软件与 CPU 校验不能转述成新 SDK 的完整四场景 60 秒物理、视频或论文效果验证。历史四场景结果使用旧 Sim 6.0 环境；新运行须独立保存退出码、状态与质量报告。
 
-## 6. 系统工具和外部资源
+## 系统依赖与其他后端
 
-需要 Git/Git LFS、uv、可用 NVIDIA 驱动和支持目标 SDK 的 GPU；录像需要命令行 `ffmpeg` 与 `ffprobe`，只有 Python `imageio-ffmpeg` 不等于已具备这两个系统命令。按 [Sim 6.0 系统要求](https://docs.isaacsim.omniverse.nvidia.com/6.0.0/installation/requirements.html)核对硬件；pip 环境要求 Python 3.12 和 Linux GLIBC ≥2.35，见 [官方安装说明](https://docs.isaacsim.omniverse.nvidia.com/6.0.0/installation/install_python.html)。
+Git/Git LFS、uv、NVIDIA 驱动和匹配 GPU 按 [Isaac Sim 6.1 系统要求](https://docs.isaacsim.omniverse.nvidia.com/6.1.0/installation/requirements.html)准备。录制还需要系统 `ffmpeg`、`ffprobe`；Python 视频包不等于这两个命令已可用。AMASS、SMPL 参数、权重、场景及材质属于外部资源，见[配置](configuration.zh-CN.md)。
 
-AMASS、SMPL 模型、TRACE/PACER 权重、场景 USD/材质、原生查询地图和历史执行证据都不是 pip 依赖。克隆源码和安装依赖后，继续按[资源与配置](configuration.zh-CN.md)准备。
+默认 extra `isaaclab` 对应新环境；`isaaclab6` 对应旧 Lab12/Sim6.0。[旧环境快照](../../env/isaaclab3_sim6/README.md)、历史依赖清单与实验结果仅用于重放旧记录。不要在 SDK 或项目 runtime 中执行根目录 `uv sync --all-extras`；MuJoCo、Newton、Genesis、IsaacGym 与独立 PPO 有各自环境边界。
 
-公开 PACER 下载器还使用 `gdown==6.2.0` 与 `requests`；它们不在专用 SDK 的保证范围内，建议使用独立下载环境。数据和模型许可位置见根 `LICENSE.md`、`legal/` 和参考仓库的许可证。
+根安装元数据支持 Python3.12，并将 uv 全平台解析限定为受支持的 Linux x86_64。两个 Lab 包通过官方 Git 子目录和固定提交取得；Sim6.1 明确声明必需的 `tinyobjloader==2.0.0rc13`。六种仿真后端的每一对 extra 均互斥，官方双 Git 来源在 uv 默认预发布策略下真实解析通过；dry-run 不代表安装或动力学验收。核心 MoviePy 范围允许已有1/2写视频接口，本运行环境仍精确固定1.0.3。历史独立 `newton[sim]==1.0.0` extra 使用 Warp1.12，须与 SDK 内置 Newton1.5.2 / Warp1.16 分开。
 
 下一步：[安装](installation.zh-CN.md) → [配置](configuration.zh-CN.md) → [运行](usage.zh-CN.md)。

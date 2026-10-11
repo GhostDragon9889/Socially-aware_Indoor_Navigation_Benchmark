@@ -1,3 +1,5 @@
+> **2026-10-11 迁移入口：** 当前默认为 IsaacLab 3.0 EA（包17.0.2）／IsaacSim 6.1.0.0，项目 `.venv` 指向独立 SDK overlay。请先阅读[迁移报告](../ISAACLAB3_EA_SIM61_MIGRATION_20261011_ZH.md)。下列旧 SDK 版本、缺包诊断、训练/评估和视频结果是原日期的历史快照，不能当作新环境验收。新 SDK 依赖缺口已在 overlay 修复；本轮真实运行与剩余边界以迁移报告为准。
+
 # Technology Stack
 审查：2026-10-10；基于本机文件、安装元数据、AST 和 SHA。此次未启动 Kit、训练或物理重测。完整机器清单见 [inventory.json](../resource_audit_20261010/inventory.json)。
 

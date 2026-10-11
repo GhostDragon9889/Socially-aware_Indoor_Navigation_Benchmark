@@ -58,6 +58,8 @@ _source, _derivation = derive_origin_guard(PARENT.read_text())
 _parent = ModuleType("_shared_eval_original_producer_scripted_origin")
 _parent.__file__ = str(PARENT)
 exec(compile(_source, str(PARENT) + ":scripted_origin", "exec"), _parent.__dict__)
+from .evaluation_source_migration import migrate_observation_pins
+migrate_observation_pins(_parent)
 _parent_sources = _parent._sources
 
 

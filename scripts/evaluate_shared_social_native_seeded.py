@@ -19,7 +19,7 @@ from scripts import evaluate_shared_social_native_paired as paired  # noqa: E402
 from CrowdSim.humanoid.runtime.social_evaluation_lifecycle import record  # noqa: E402
 
 PAIRED = ROOT / "scripts/evaluate_shared_social_native_paired.py"
-PAIRED_SHA = "e25368dcde2b07b0dc6de6e339cd60cf60f20502d46d3e860c96d8cc3edf6e4e"
+PAIRED_SHA = "fcec4cc935ccc57739335ff5d200832655314e9a69482e3bac798cf7016eb502"
 CLI_PARENT = paired.PARENT
 CLI_PARENT_SHA = paired.PARENT_SHA
 

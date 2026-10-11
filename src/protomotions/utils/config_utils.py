@@ -13,6 +13,8 @@ from typing import Dict, Any, Callable
 import torch
 import numpy as np
 
+from protomotions.utils.pretrained_compat import require_supported_checkpoint_config
+
 
 log = logging.getLogger(__name__)
 
@@ -31,6 +33,7 @@ def load_resolved_configs_from_checkpoint(
     for config_name in config_names:
         resolved_configs_path = checkpoint_dir / config_name
         if resolved_configs_path.exists():
+            require_supported_checkpoint_config(resolved_configs_path)
             try:
                 return torch.load(
                     resolved_configs_path,

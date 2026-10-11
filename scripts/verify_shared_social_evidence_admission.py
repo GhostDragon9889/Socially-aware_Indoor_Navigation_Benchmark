@@ -116,7 +116,8 @@ def tracking_protocol(before, after):
 
 
 def frozen_source(value, relative):
-    original.require(Path(value["path"]).resolve() == ROOT / relative
+    from social_navigation.artifact_identity import artifact_path
+    original.require(artifact_path(value["path"], root=ROOT).resolve() == (ROOT / relative).resolve()
                      and value["sha256"] == FROZEN[relative],
                      "Frozen style source differs: " + relative)
     return identity(value)

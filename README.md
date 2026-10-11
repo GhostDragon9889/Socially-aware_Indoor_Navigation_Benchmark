@@ -1,5 +1,7 @@
 # Socially-aware_Indoor_Navigation_Benchmark
 
+最新继续审查包含完整未筛选回归、256 actor 并行训练与 PhysX 退出崩溃修复，见 [验证与剩余边界](docs/VERIFICATION_REMAINING_20261011_ZH.md)。语句覆盖 64.37%，不代表所有功能或模型质量已验收。
+
 **从 Git 克隆复现：** [完整步骤](CLONE_REPRODUCTION.md)（SDK 引导、资源恢复、固定 AMASS 重建、四场景评估和录制）。
 
 [简体中文](README.md) · [English](README.en.md) · [完整双语文档](docs/guides/README.md)
@@ -15,10 +17,12 @@
 | 发布的权重、机器人与四场景 | [资源发布](ASSET_RELEASE.md) | [Asset release](ASSET_RELEASE.md#english-instructions) |
 | 实际资源和依赖审查 | [2026-10-10 全面清单](docs/RESOURCE_DEPENDENCY_MAP_20261010_ZH.md) | [Codebase map](docs/codebase/STACK.md) |
 
-基于 Isaac Sim 6 / IsaacLab 3、TRACE 轨迹扩散与 PACER/AMP 物理行人的室内社交导航研究项目。
+默认迁移目标为 **Isaac Sim 6.1.0.0 / IsaacLab 3.0 EA**，使用 TRACE 轨迹扩散与 PACER/AMP 物理行人。新环境说明见 [运行环境](env/isaaclab3_ea_sim61/README.md)。
 核心实现使用 `src/` 布局，保留 ProtoMotions、CrowdSim 的导入名及原始项目署名。
 
 ## 当前可用成果
+
+新 Sim6.1 runtime 的依赖、当前完整回归、真实 CUDA、AMASS AMP 训练 smoke、RTX三帧录制及四场景60秒物理结果已独立记录，见[迁移与测试报告](docs/ISAACLAB3_EA_SIM61_MIGRATION_20261011_ZH.md)。以下四段60秒成片仍属于历史Sim6.0环境。
 
 - 在本地真实 AMASS 动作上微调的 AMP 行人控制器，以及四场景的配置、路线与相机方案。
 - YOHO、NewMetro、SecondFloor、ThirdFloor 各一段 60 秒视频与对应的物理、姿态、速度、停滞和录制校验。
@@ -67,16 +71,16 @@ output/               生成的训练、模拟与录制结果
 
 ## 使用现有环境
 
-从项目根目录运行。
-`.venv` 指向已经验证的 IsaacLab/Isaac Sim 环境。
+从项目根目录运行。当前本机根 `.venv` 仍指向旧 Sim6.0 SDK；新解释器为 `.runtime/isaaclab3_ea_sim61/.venv/bin/python`，正在进行物理验收。显式选取该路径。复用另一匹配 SDK 时先按 [安装指南](docs/guides/installation.zh-CN.md) 创建项目 overlay。
 
 ```bash
 cd '/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark'
+export NAV_PY="$PWD/.runtime/isaaclab3_ea_sim61/.venv/bin/python"
 export PYTHONDONTWRITEBYTECODE=1
 export PYTHONPATH="$PWD/src:$PWD${PYTHONPATH:+:$PYTHONPATH}"
-.venv/bin/python -m social_navigation status
-.venv/bin/python -m social_navigation preflight --scene YOHO
-.venv/bin/python -m social_navigation simulate --scene YOHO --steps 1800
+"$NAV_PY" -m social_navigation status
+"$NAV_PY" -m social_navigation preflight --scene YOHO
+"$NAV_PY" -m social_navigation simulate --scene YOHO --steps 60 --output output/sim61_smoke
 ```
 
 `preflight` 检查本地资源与原生场景配置；`simulate` 使用既有父进程启动器执行原生物理模拟，
@@ -123,3 +127,7 @@ uv pip install --python .venv/bin/python --no-deps --no-build-isolation -e .
 原始 ProtoMotions README 保存在 [参考文档](docs/reference/PROTOMOTIONS_README.md)。
 保留 [LICENSE.md](LICENSE.md) 与 `legal/` 及各第三方的许可。
 SMPL/SMPL-H、AMASS、权重和场景资产遵循各自许可，模型人体资产不随构建的 wheel/sdist 分发。
+
+## 上游 GPC 与 PEFT
+
+上游功能说明见 [GPC and PEFT guide](docs/source/user_guide/gpc.rst)。人体 MJCF 资产位于 `src/protomotions/data/assets/mjcf/`（兼容路径 `protomotions/data/assets/mjcf/`）；权重运行支持和历史版本限制见各模型卡。

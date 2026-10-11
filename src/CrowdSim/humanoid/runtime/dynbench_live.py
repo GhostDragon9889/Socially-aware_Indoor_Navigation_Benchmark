@@ -5,6 +5,14 @@ import math
 import sys
 
 
+def _matches_authored_points(actual, expected):
+    """Compare with the point3f values actually authored by UsdGeom.Mesh."""
+    import numpy as np
+    actual = np.asarray(actual, dtype=np.float64)
+    expected = np.asarray(expected, dtype=np.float32).astype(np.float64)
+    return actual.shape == expected.shape and np.allclose(actual, expected, atol=1e-6, rtol=0)
+
+
 def verify_live_runtime(provider, *, origins_xy, simulation_context, free_cell_limit=0):
     """Verify source/floor/context and all native ray hits; no SDK construction."""
     import numpy as np
@@ -98,7 +106,7 @@ def verify_live_runtime(provider, *, origins_xy, simulation_context, free_cell_l
     points, counts, indices = reference_ground_geometry(provider.bounds_xy, provider.ground_height_m,
         provider._data["reference_ground"]["margin_m"])
     floor_mesh = UsdGeom.Mesh(floor)
-    if (not np.allclose(np.asarray(floor_mesh.GetPointsAttr().Get(), dtype=np.float64), points, atol=1e-6, rtol=0)
+    if (not _matches_authored_points(floor_mesh.GetPointsAttr().Get(), points)
             or list(floor_mesh.GetFaceVertexCountsAttr().Get()) != counts
             or list(floor_mesh.GetFaceVertexIndicesAttr().Get()) != indices
             or not np.allclose(np.asarray(UsdGeom.XformCache().GetLocalToWorldTransform(floor)), np.eye(4), atol=1e-8, rtol=0)):

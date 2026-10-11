@@ -1,0 +1,23 @@
+[
+  {
+    "path": "/project/EXP/IsaacLab/apps/isaaclab.python.headless.kit",
+    "line": 155,
+    "section": "[settings.persistent]",
+    "setting": "renderer.startupMessageDisplayed = true # hides the IOMMU popup window",
+    "effective_key": "/persistent/renderer/startupMessageDisplayed"
+  },
+  {
+    "path": "/project/EXP/IsaacLab/apps/isaaclab.python.kit",
+    "line": 203,
+    "section": "[settings.persistent]",
+    "setting": "renderer.startupMessageDisplayed = true # hides the IOMMU popup window",
+    "effective_key": "/persistent/renderer/startupMessageDisplayed"
+  },
+  {
+    "path": "/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/isaacsim/apps/isaacsim.exp.base.kit",
+    "line": 268,
+    "section": "[settings.persistent]",
+    "setting": "renderer.startupMessageDisplayed = true # hides the IOMMU popup window",
+    "effective_key": "/persistent/renderer/startupMessageDisplayed"
+  }
+]

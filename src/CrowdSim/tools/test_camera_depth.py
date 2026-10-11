@@ -19,9 +19,11 @@ import numpy as np
 import torch
 from PIL import Image
 
+from CrowdSim.control.drive import articulation_torch_view
+
 
 def record_headless_camera_burst(env, frames: int = 100, save_envs: int = 1) -> None:
-    """In headless mode, step N times and save depth images + timing stats.
+    """Step N times, save raw metric depth and PNG previews, and print timing stats.
 
     Args:
         env: The ProtoMotions env (must have crowdsim_robot_camera sensor).
@@ -41,6 +43,8 @@ def record_headless_camera_burst(env, frames: int = 100, save_envs: int = 1) -> 
     output_dir.mkdir(parents=True, exist_ok=True)
     for f in output_dir.glob("*.png"):
         f.unlink()
+    for f in output_dir.glob("env*_frame*.npy"):
+        f.unlink()
 
     save_eids = list(range(min(max(save_envs, 0), n_envs)))
     print(f"[Camera] Headless burst: {frames} frames × {n_envs} env(s), "
@@ -59,7 +63,8 @@ def record_headless_camera_burst(env, frames: int = 100, save_envs: int = 1) -> 
             missing += 1
             env.step(zero)
             continue
-        depth = d.detach().cpu().numpy()
+        # CPU tensors may reuse the sensor buffer; freeze this frame before step().
+        depth = articulation_torch_view(d).detach().cpu().numpy().copy()
         t1 = time.perf_counter()
         depth_frames.append(depth)
         times.append(t1 - t0)
@@ -89,7 +94,9 @@ def record_headless_camera_burst(env, frames: int = 100, save_envs: int = 1) -> 
                 anomalies += 1
 
         valid_mean_vals = means[means >= 0]
-        print(f"  env{eid}: depth={valid_mean_vals.mean():.2f}±{valid_mean_vals.std():.2f}m "
+        detail = (f"depth={valid_mean_vals.mean():.2f}±{valid_mean_vals.std():.2f}m"
+                  if valid_mean_vals.size else "no valid depth hits")
+        print(f"  env{eid}: {detail} "
               f"valid={vf.mean()*100:.0f}±{vf.std()*100:.0f}% "
               f"anomalies={anomalies}")
         if anomalies:
@@ -97,13 +104,15 @@ def record_headless_camera_burst(env, frames: int = 100, save_envs: int = 1) -> 
 
         if eid in save_eids:
             for t in range(T):
+                # Keep no-hit sentinels and metric precision alongside the preview.
+                np.save(output_dir / f"env{eid:02d}_frame{t:04d}.npy", ed[t])
                 d_img = np.where(np.isfinite(ed[t]), ed[t], 0.0)
                 d_img = np.clip(d_img / 20.0 * 255, 0, 255).astype(np.uint8)
                 Image.fromarray(d_img, "L").save(
                     output_dir / f"env{eid:02d}_frame{t:04d}.png")
 
     if save_eids:
-        print(f"[Camera] Saved {T * len(save_eids)} depth images to {output_dir}/")
+        print(f"[Camera] Saved {T * len(save_eids)} raw depth frames and PNG previews to {output_dir}/")
 
 
 def add_camera_check_key(env) -> None:
@@ -129,21 +138,29 @@ def add_camera_check_key(env) -> None:
         if depth_raw is None:
             print("[Camera] No data yet. Wait for first camera update.")
             return
-        depth = depth_raw.detach().cpu().numpy()
+        depth = articulation_torch_view(depth_raw).detach().cpu().numpy()
         print(f"[Camera] {env.num_envs} env(s), {depth.shape[1]}×{depth.shape[2]}:")
         for eid in range(env.num_envs):
             d = depth[eid, ..., 0]
             valid = np.isfinite(d) & (d > 0)
             dv = d[valid]
-            print(f"  env{eid}: valid={valid.mean()*100:.0f}% "
-                  f"depth [{dv.min():.2f}~{dv.max():.2f}]m avg={dv.mean():.2f}m")
+            if dv.size:
+                detail = f"depth [{dv.min():.2f}~{dv.max():.2f}]m avg={dv.mean():.2f}m"
+            else:
+                detail = "no valid depth hits"
+            print(f"  env{eid}: valid={valid.mean()*100:.0f}% {detail}")
+            # Preserve metric values and no-hit sentinels. The PNG below is
+            # only a visualization, where invalid pixels are displayed black.
+            np.save(out / f"depth_env{eid}.npy", d)
             d_img = np.where(np.isfinite(d), d, 0.0)
             d_img = np.clip(d_img / 20.0 * 255, 0, 255).astype(np.uint8)
             Image.fromarray(d_img, "L").save(out / f"depth_env{eid}.png")
             if rgb is not None:
-                r = rgb[eid].detach().cpu().numpy()
-                if r.max() <= 1.0:
-                    r = (r * 255).astype(np.uint8)
+                r = articulation_torch_view(rgb)[eid].detach().cpu().numpy()
+                if r.dtype != np.uint8:
+                    if np.issubdtype(r.dtype, np.floating) and r.min() >= 0.0 and r.max() <= 1.0:
+                        r = r * 255
+                    r = np.clip(r, 0, 255).astype(np.uint8)
                 Image.fromarray(r[..., :3]).save(out / f"rgb_env{eid}.png")
         print(f"[Camera] Saved to {out}/")
 

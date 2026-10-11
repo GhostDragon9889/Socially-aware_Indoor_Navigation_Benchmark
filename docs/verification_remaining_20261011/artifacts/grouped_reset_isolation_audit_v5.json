@@ -1,0 +1,46 @@
+{
+  "episode": {
+    "checks": {
+      "history_has_no_other_episode": true,
+      "post_history_has_no_other_episode": true,
+      "each_control_advances_once": true,
+      "each_control_has_four_physics_steps": true,
+      "reset_adds_no_control_or_physics_steps": true,
+      "within_step_ages_advance_once": true,
+      "only_reset_actors_change_episode": true,
+      "nonreset_ages_continue": true,
+      "reset_age_is_zero": true,
+      "group_resets_are_complete": true,
+      "reset_and_nonreset_both_exercised": true
+    },
+    "reset_actor_controls": 300,
+    "nonreset_actor_controls": 7892,
+    "checkpoint_updates": 2,
+    "audited_actor_controls": 8192,
+    "adjacent_actor_controls_with_next_episode_observed": 7936,
+    "last_control_post_reset_state_in_archive": false,
+    "rollout_sha256": "daaa171f7ff87904324dd5ae06e672a55a2cd7864480a8a9620355f4e017e4e9"
+  },
+  "future": {
+    "checks": {
+      "history_has_no_other_episode": true,
+      "post_history_has_no_other_episode": true,
+      "each_control_advances_once": true,
+      "each_control_has_four_physics_steps": true,
+      "reset_adds_no_control_or_physics_steps": true,
+      "within_step_ages_advance_once": true,
+      "only_reset_actors_change_episode": true,
+      "nonreset_ages_continue": true,
+      "reset_age_is_zero": true,
+      "group_resets_are_complete": true,
+      "reset_and_nonreset_both_exercised": true
+    },
+    "reset_actor_controls": 324,
+    "nonreset_actor_controls": 7868,
+    "checkpoint_updates": 2,
+    "audited_actor_controls": 8192,
+    "adjacent_actor_controls_with_next_episode_observed": 7936,
+    "last_control_post_reset_state_in_archive": false,
+    "rollout_sha256": "9214ec3a0a460f9c1cc2861b38eef2d47922daa99891bbfa4c6ed7574acf15c9"
+  }
+}

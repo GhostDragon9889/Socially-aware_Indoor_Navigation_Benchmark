@@ -1,5 +1,4 @@
 """CPU evidence-reader failures/registration, without simulated SDK success."""
-import importlib.util
 import json
 from pathlib import Path
 
@@ -9,10 +8,7 @@ import pytest
 from CrowdSim.humanoid.runtime.dynbench_scene import file_record
 
 ROOT = Path(__file__).resolve().parents[1]
-PATH = ROOT / "docs/style_improvement_20261002/native_map_admission_v7/audit_actual_four_scenes.py"
-SPEC = importlib.util.spec_from_file_location("actual_v7_reader", PATH)
-reader = importlib.util.module_from_spec(SPEC)
-SPEC.loader.exec_module(reader)
+from CrowdSim.humanoid.analysis import native_map_audit_reader as reader
 
 
 def test_registration_does_not_infer_execution_from_missing_outputs(tmp_path):
@@ -57,3 +53,13 @@ def test_inventory_retains_dtype_bytes_and_rejects_bad_buffers(tmp_path):
 def test_reader_cannot_overwrite_prior_audit(tmp_path):
     with pytest.raises(SystemExit):
         reader.main(["--output", str(tmp_path), "--register-only"])
+
+
+def test_relocated_reader_keeps_the_complete_historical_inverse():
+    source = reader.PARENT.read_text()
+    derived, proof = reader.derive_reader(source)
+    assert proof['exact_inverse'] and not proof['SDK_executed']
+    assert 'allow_pickle=False' in derived
+    assert 'hashlib.sha256(content).hexdigest() != record["sha256"]' in derived
+    with pytest.raises(ValueError, match='Frozen v7 audit implementation changed'):
+        reader.derive_reader(source.replace('allow_pickle=False', 'allow_pickle=True'))

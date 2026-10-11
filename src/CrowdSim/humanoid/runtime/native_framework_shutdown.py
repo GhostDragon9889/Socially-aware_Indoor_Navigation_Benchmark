@@ -12,6 +12,19 @@ import time
 def unload_native_plugins(report, *, full_app_close_returned):
     if full_app_close_returned is not True:
         raise RuntimeError('Full App.close must return before native plugin unloading')
+    from importlib import metadata
+    if metadata.version("isaacsim") == "6.1.0.0":
+        # The 6.0 workaround must not eagerly unload 6.1's interfaces while
+        # their Python SDK classes still exist. Full App.close has already
+        # completed; let this SDK perform its documented process teardown.
+        report['native_framework_shutdown'] = {
+            'source': 'Sim6.1 stock framework teardown after full App.close',
+            'returned': True, 'manual_plugin_unload': False,
+            'framework_unload_deferred_to_SDK': True,
+            'process_exit_masked': False,
+            'actual_process_exit_requires_parent_wait': True,
+        }
+        return
     import carb
     started=time.monotonic();framework=carb.get_framework()
     before=len(framework.get_plugins())

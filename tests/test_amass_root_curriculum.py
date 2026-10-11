@@ -259,12 +259,30 @@ def test_real_runner_native_replan_and_next_step_target_source_phase(tmp_path):
     assert not torch.equal(namespace['plans'][:, 0], origins)
 
 
-def test_complete_physical_control_loop_ast_remains_exact_before():
+def test_complete_training_physical_control_loop_ast_remains_exact_before():
+    class TrainingBranch(ast.NodeTransformer):
+        # The maintained runner now omits discriminator/value collection in
+        # pure evaluation. Compare the actual training branch, without dropping
+        # any physics, action, observation, reward or route statements.
+        def visit_If(self, node):
+            node = self.generic_visit(node)
+            if ast.unparse(node.test) == 'not pure_evaluation':
+                assert not node.orelse
+                return node.body
+            return node
+
+        def visit_BoolOp(self, node):
+            node = self.generic_visit(node)
+            if isinstance(node.op, ast.And) and ast.unparse(node.values[0]) == 'not pure_evaluation':
+                assert len(node.values) == 2
+                return node.values[1]
+            return node
+
     def loop(path):
         tree = ast.parse(path.read_text())
         nodes = [n for n in ast.walk(tree) if isinstance(n, ast.For) and ast.unparse(n.target) == 'step']
         assert len(nodes) == 1
-        return ast.dump(nodes[0], include_attributes=False)
+        return ast.dump(TrainingBranch().visit(nodes[0]), include_attributes=False)
     assert loop(ROOT/'scripts/train_paper_amp.py') == loop(BEFORE/'scripts/train_paper_amp.py')
 
 
@@ -295,7 +313,8 @@ def minimal_world(tmp_path, *, enabled, before=False):
     def step(target):
         steps.append(target.clone())  # Does not emulate simulation or claim SDK correctness.
 
-    world = SimpleNamespace(corpus=c, device=torch.device('cpu'), num_envs=1, history_frames=10, episode_steps=300,
+    world = SimpleNamespace(align_spawn_heading_to_route=False, initial_reference_max_speed_m_s=None,
+        initial_reference_arm_cone_deg=None, initialize_at_rest=False, corpus=c, device=torch.device('cpu'), num_envs=1, history_frames=10, episode_steps=300,
         origins=torch.tensor([[20., 20.]]), lower=torch.zeros(69), upper=torch.ones(69),
         mapping=SimpleNamespace(dof_names=[]), simulator=SimpleNamespace(reset_envs=reset_envs, step=step),
         age=torch.zeros(1, dtype=torch.long), episode_ids=torch.zeros(1, dtype=torch.long),

@@ -32,22 +32,39 @@ def now():
     return datetime.now(timezone.utc).isoformat()
 
 
-def admit_plan(path):
+def admit_plan(path, *, historical=False):
+    from social_navigation.artifact_identity import artifact_path, same_artifact
+    path = artifact_path(path)
     identity = release.recovery.readonly_identity(path)
     plan = json.loads(path.read_text())
     release.recovery.require(plan.get("schema") == PLAN_SCHEMA and plan.get("GPU_resource_policy") == POLICY,
                              "Require the readonly episode candidate serial pipeline plan")
-    _, release_identity = release.admit_release(plan["serial_release"]["path"])
-    release.recovery.require(release_identity == plan["serial_release"] and plan["stages"] == release.stages(),
-                             "Candidate stage/profile/output registration changed")
-    for row in plan["sources"] + plan["inputs"]:
-        release.recovery.require(release.record(row["path"]) == row, "Pipeline source/input changed: " + row["path"])
-    preflight = json.loads(Path(plan["cold_preflight"]["path"]).read_text())
+    if historical:
+        # This exact retained plan may be read to interpret old outcomes. It
+        # cannot authorize execution of current sources through run_owner().
+        expected = ROOT / "docs/style_improvement_20261008/shared_social_episode_after_recovery_v4/owner_plan.json"
+        release.recovery.require(path == expected and identity["sha256"] ==
+            "8e8314cb35d40eee4b095ac6a05fd7601e92d57027ba56a0ba20e155e3f79c4d", "Unknown historical episode plan")
+        release_identity = release.recovery.readonly_identity(artifact_path(plan["serial_release"]["path"]))
+        release.recovery.require(same_artifact(release_identity, plan["serial_release"]), "Historical serial release changed")
+        inputs = plan["inputs"]
+    else:
+        from CrowdSim.humanoid.application import episode_pipeline_plan
+        _, release_identity = release.admit_release(artifact_path(plan["serial_release"]["path"]))
+        release.recovery.require(same_artifact(release_identity, plan["serial_release"]) and plan["stages"] == release.stages(),
+                                 "Candidate stage/profile/output registration changed")
+        inputs = plan["sources"] + plan["inputs"]
+        episode_pipeline_plan.validate_inventory(plan)
+    for row in inputs:
+        release.recovery.require(same_artifact(release.record(artifact_path(row["path"])), row), "Pipeline source/input changed: " + row["path"])
+    preflight = json.loads(artifact_path(plan["cold_preflight"]["path"]).read_text())
     release.recovery.require([row.get("stage") for row in preflight.get("steps", [])] ==
                              ["smoke8", "smoke256", "pilot2000", "evaluation"]
                              and all(release.recovery.exact_integer(row.get("actual_exit_code"), 0)
                                      and row.get("SDK_started") is False and row.get("Torch_imported") is False
                                      for row in preflight["steps"]), "Require all actual cold entry preflights")
+    if not historical:
+        episode_pipeline_plan.validate_preflight(plan, preflight)
     release.recovery.require(release.record(path) == identity, "Pipeline plan changed during admission")
     return plan
 
@@ -73,7 +90,7 @@ def run_owner(path):
     here = path.parent
     if any((here / name).exists() for name in ("owner_state.json", "completion.json")):
         raise FileExistsError("Episode pipeline already started")
-    outputs = [Path(row["output_directory"]) for row in plan["stages"]] + [evaluation.admission.OUTPUT]
+    outputs = [Path(row["output_directory"]) for row in plan["stages"]] + [evaluation.admission.CURRENT_OUTPUT]
     if any(target.exists() for target in outputs):
         raise FileExistsError("Preserve prior candidate outputs; never restart into an existing path")
     state = {"schema": "shared_social.episode_after_recovery_pipeline_owner_state.v1", "status": "running",
@@ -179,12 +196,12 @@ def run_owner(path):
                 save()
         pipeline, evaluation_step = child("independent_evaluation", "0", [sys.executable,
             str(Path(evaluation.__file__)), "--serial-release", plan["serial_release"]["path"],
-            "--execution-receipt", str(receipt)], evaluation.admission.OUTPUT / "execution.json", "passed_execution")
+            "--execution-receipt", str(receipt)], evaluation.admission.CURRENT_OUTPUT / "execution.json", "passed_execution")
         io.successful_steps(pipeline, ["actor_CPU_inference", "tracking_style", "navigation_smoke", "navigation200s",
                                        "navigation_CPU_array_audit"], "passed_execution")
         state.update(status="completed_training_and_independent_evaluation_quality_unclassified",
                      evaluation_pipeline=evaluation_step["result"], measurements=pipeline["measurements"])
-        for artifact in evaluation.admission.OUTPUT.rglob("*"):
+        for artifact in evaluation.admission.CURRENT_OUTPUT.rglob("*"):
             if artifact.is_file() and not artifact.is_symlink():
                 artifact.chmod(0o444)
     except BaseException as error:

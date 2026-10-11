@@ -1,0 +1,1279 @@
+diff --git a/baselines/logoplanner/deployment/visualization.py b/baselines/logoplanner/deployment/visualization.py
+index 2380e38..4d46d60 100644
+--- a/baselines/logoplanner/deployment/visualization.py
++++ b/baselines/logoplanner/deployment/visualization.py
+@@ -1,3 +1,6 @@
++import numpy as np
++
++
+ def plot_trajectory(global_planed_traj, x_history, u_history, traj_name='real'):
+     import matplotlib
+     matplotlib.use('Agg') 
+diff --git a/baselines/x-navdp/eval/scripts/evaluate_pointgoal.py b/baselines/x-navdp/eval/scripts/evaluate_pointgoal.py
+index ba0bda1..21a2223 100644
+--- a/baselines/x-navdp/eval/scripts/evaluate_pointgoal.py
++++ b/baselines/x-navdp/eval/scripts/evaluate_pointgoal.py
+@@ -86,9 +86,9 @@ def add_robot_state(observation, env):
+     """Attach world-frame robot pose used by temporal guidance and stuck detection."""
+     observation = dict(observation)
+     robot = env.unwrapped.scene["robot"]
+-    observation["robot_pose"] = robot.data.root_pos_w
+-    # Isaac Lab uses wxyz quaternions; SciPy guidance code expects xyzw.
+-    observation["robot_rot"] = robot.data.root_quat_w[:, [1, 2, 3, 0]]
++    observation["robot_pose"] = robot.data.root_pos_w.torch
++    # Lab 3 and SciPy guidance both use XYZW.
++    observation["robot_rot"] = robot.data.root_quat_w.torch
+     return observation
+ 
+ 
+diff --git a/baselines/x-navdp/src/environment/robots/dingo_config.py b/baselines/x-navdp/src/environment/robots/dingo_config.py
+index db53841..38f56a2 100644
+--- a/baselines/x-navdp/src/environment/robots/dingo_config.py
++++ b/baselines/x-navdp/src/environment/robots/dingo_config.py
+@@ -10,7 +10,7 @@ DINGO_WHEEL_JOINTS = ["left_wheel_joint","right_wheel_joint"]
+ DINGO_WHEEL_RADIUS = 0.049 * 2.5 * 0.5
+ DINGO_WHEEL_BASE = 0.22616
+ DINGO_CAMERA_TRANS = [0.28618,0.0,0.62532]
+-DINGO_CAMERA_ROTS = [-0.54168, -0.45452, 0.45452, 0.54168]
++DINGO_CAMERA_ROTS = [-0.45452, 0.45452, 0.54168, -0.54168]
+ 
+ # RealSense D455 depth @ 640x360 / Z16 (device calibration intrinsics)
+ #   fx=fy=326.398560, cx=321.792145, cy=181.007690
+@@ -56,6 +56,7 @@ DINGO_ContactCfg = ContactSensorCfg(prim_path="{ENV_REGEX_NS}/Robot/%s"%DINGO_BA
+ DINGO_CameraCfg = CameraCfg(
+     prim_path="{ENV_REGEX_NS}/Robot/%s/front_cam"%DINGO_BASE_LINK,
+     update_period=0.05,
++    update_latest_camera_pose=True,
+     height=D455_DEPTH_HEIGHT,
+     width=D455_DEPTH_WIDTH,
+     data_types=["rgb", "distance_to_image_plane"],
+@@ -66,12 +67,13 @@ DINGO_CameraCfg = CameraCfg(
+         vertical_aperture=D455_DEPTH_VERTICAL_APERTURE,
+         clipping_range=(0.01, 100.0),
+     ),
+-    offset=CameraCfg.OffsetCfg(pos=DINGO_CAMERA_TRANS, rot=DINGO_CAMERA_ROTS, convention="usd"),
++    offset=CameraCfg.OffsetCfg(pos=DINGO_CAMERA_TRANS, rot=DINGO_CAMERA_ROTS, convention="opengl"),
+ )
+ 
+ DINGO_BirdEye_CameraCfg = CameraCfg(
+     prim_path="{ENV_REGEX_NS}/Robot/%s/birdeye_cam"%DINGO_BASE_LINK,
+     update_period=0.05,
++    update_latest_camera_pose=True,
+     height=480,
+     width=480,
+     data_types=["rgb"],
+@@ -84,7 +86,7 @@ DINGO_BirdEye_CameraCfg = CameraCfg(
+     ),
+     offset=CameraCfg.OffsetCfg(
+         pos=[-2.0, 0.0, 1.5],
+-        rot=[0.6123, 0.35355, -0.35355, -0.61237],
+-        convention="usd",
++        rot=[0.35355, -0.35355, -0.61237, 0.6123],
++        convention="opengl",
+     ),
+ )
+diff --git a/baselines/x-navdp/src/environment/robots/g1_config.py b/baselines/x-navdp/src/environment/robots/g1_config.py
+index 8442445..396bf70 100644
+--- a/baselines/x-navdp/src/environment/robots/g1_config.py
++++ b/baselines/x-navdp/src/environment/robots/g1_config.py
+@@ -9,7 +9,7 @@ from isaaclab.sensors import ContactSensorCfg, CameraCfg
+ 
+ G1_HEAD_LINK = 'yaw_head_01'
+ G1_CAMERA_TRANS = [-0.1, 0.0, 0.05]
+-G1_CAMERA_ROTS = [0.53163, 0.46623, 0.46623, 0.53163]
++G1_CAMERA_ROTS = [0.46623, 0.46623, 0.53163, 0.53163]
+ 
+ # RealSense D455 depth @ 640x360 / Z16 (device calibration intrinsics)
+ #   fx=fy=326.398560, cx=321.792145, cy=181.007690
+@@ -157,6 +157,7 @@ def _camera_cfg(name, rot):
+     return CameraCfg(
+         prim_path="{ENV_REGEX_NS}/Robot/%s/%s" % (G1_HEAD_LINK, name),
+         update_period=0.05,
++        update_latest_camera_pose=True,
+         height=D455_DEPTH_HEIGHT,
+         width=D455_DEPTH_WIDTH,
+         data_types=["rgb", "distance_to_image_plane"],
+@@ -167,7 +168,7 @@ def _camera_cfg(name, rot):
+             vertical_aperture=D455_DEPTH_VERTICAL_APERTURE,
+             clipping_range=(0.01, 100.0),
+         ),
+-        offset=CameraCfg.OffsetCfg(pos=G1_CAMERA_TRANS, rot=rot, convention="usd"),
++        offset=CameraCfg.OffsetCfg(pos=G1_CAMERA_TRANS, rot=rot, convention="opengl"),
+     )
+ 
+ 
+@@ -176,6 +177,7 @@ G1_CameraCfg = _camera_cfg("front_cam", G1_CAMERA_ROTS)
+ G1_BirdEye_CameraCfg = CameraCfg(
+     prim_path="{ENV_REGEX_NS}/Robot/%s/birdeye_cam" % G1_HEAD_LINK,
+     update_period=0.05,
++    update_latest_camera_pose=True,
+     height=480,
+     width=480,
+     data_types=["rgb"],
+@@ -188,7 +190,7 @@ G1_BirdEye_CameraCfg = CameraCfg(
+     ),
+     offset=CameraCfg.OffsetCfg(
+         pos=[-2.0, 0.0, 1.5],
+-        rot=[0.6123, 0.35355, -0.35355, -0.61237],
+-        convention="usd",
++        rot=[0.35355, -0.35355, -0.61237, 0.6123],
++        convention="opengl",
+     ),
+ )
+diff --git a/baselines/x-navdp/src/environment/robots/go2_config.py b/baselines/x-navdp/src/environment/robots/go2_config.py
+index e9a1c6a..feae499 100644
+--- a/baselines/x-navdp/src/environment/robots/go2_config.py
++++ b/baselines/x-navdp/src/environment/robots/go2_config.py
+@@ -10,7 +10,7 @@ from isaaclab.utils.assets import ISAACLAB_NUCLEUS_DIR
+ 
+ GO2_CAMERA_LINK = 'base'
+ GO2_CAMERA_TRANS = [0.32, 0.0, 0.20]
+-GO2_CAMERA_ROTS = [0.54168, 0.45452, -0.45452, -0.54168]
++GO2_CAMERA_ROTS = [0.45452, -0.45452, -0.54168, 0.54168]
+ 
+ # RealSense D455 depth @ 640x360 / Z16 (device calibration intrinsics)
+ #   fx=fy=326.398560, cx=321.792145, cy=181.007690
+@@ -88,6 +88,7 @@ GO2_ContactCfg = ContactSensorCfg(
+ GO2_CameraCfg = CameraCfg(
+     prim_path="{ENV_REGEX_NS}/Robot/%s/front_cam" % GO2_CAMERA_LINK,
+     update_period=0.05,
++    update_latest_camera_pose=True,
+     height=D455_DEPTH_HEIGHT,
+     width=D455_DEPTH_WIDTH,
+     data_types=["rgb", "distance_to_image_plane"],
+@@ -98,12 +99,13 @@ GO2_CameraCfg = CameraCfg(
+         vertical_aperture=D455_DEPTH_VERTICAL_APERTURE,
+         clipping_range=(0.01, 100.0),
+     ),
+-    offset=CameraCfg.OffsetCfg(pos=GO2_CAMERA_TRANS, rot=GO2_CAMERA_ROTS, convention="usd"),
++    offset=CameraCfg.OffsetCfg(pos=GO2_CAMERA_TRANS, rot=GO2_CAMERA_ROTS, convention="opengl"),
+ )
+ 
+ GO2_BirdEye_CameraCfg = CameraCfg(
+     prim_path="{ENV_REGEX_NS}/Robot/%s/birdeye_cam" % GO2_CAMERA_LINK,
+     update_period=0.05,
++    update_latest_camera_pose=True,
+     height=480,
+     width=480,
+     data_types=["rgb"],
+@@ -116,7 +118,7 @@ GO2_BirdEye_CameraCfg = CameraCfg(
+     ),
+     offset=CameraCfg.OffsetCfg(
+         pos=[-2.0, 0.0, 1.5],
+-        rot=[0.6123, 0.35355, -0.35355, -0.61237],
+-        convention="usd",
++        rot=[0.35355, -0.35355, -0.61237, 0.6123],
++        convention="opengl",
+     ),
+ )
+diff --git a/baselines/x-navdp/src/environment/tasks/event_utils.py b/baselines/x-navdp/src/environment/tasks/event_utils.py
+index d95bd85..b42f830 100644
+--- a/baselines/x-navdp/src/environment/tasks/event_utils.py
++++ b/baselines/x-navdp/src/environment/tasks/event_utils.py
+@@ -8,7 +8,7 @@ from isaaclab.utils import configclass
+ from isaacsim.core.utils.prims import create_prim
+ from isaaclab.managers import EventTermCfg as EventTerm
+ from isaaclab.managers import SceneEntityCfg
+-from isaacsim.core.prims import XFormPrim
++from isaacsim.core.prims import XFormPrim, SingleXFormPrim
+ import isaacsim.core.utils.numpy.rotations as rot_utils
+ from isaaclab.envs import ManagerBasedEnv
+ from isaaclab.assets import Articulation, RigidObject
+@@ -161,7 +161,7 @@ def add_point_light(
+     if prim_path is None:
+         prim_path = "/World/Lights/point_light"
+         count = 0
+-        while create_prim(prim_path).IsValid():
++        while get_prim_at_path(prim_path).IsValid():
+             count += 1
+             prim_path = f"/World/Lights/point_light_{count}"
+     light_prim = create_prim(
+@@ -172,7 +172,7 @@ def add_point_light(
+     point_light.CreateIntensityAttr(intensity)
+     point_light.CreateColorAttr(Gf.Vec3f(*color))
+     point_light.CreateRadiusAttr(radius)
+-    xform_prim = XFormPrim(prim_path)
++    xform_prim = SingleXFormPrim(prim_path)
+     xform_prim.set_world_pose(position=position)
+     return point_light
+ 
+@@ -233,7 +233,7 @@ def pointnav_reset(env: ManagerBasedEnv,
+         if reset_counter == 0:
+             for light_idx,pts in enumerate(sample_points[:,0]):
+                 pts = pts + np.array([0.0, 0.0, 1.5])
+-                add_point_light(torch.as_tensor(pts, dtype=torch.float32, device=robot_asset.data.root_pos_w.device),
++                add_point_light(torch.as_tensor(pts, dtype=torch.float32, device=robot_asset.data.root_pos_w.torch.device),
+                                 prim_path= f"/World/envs/env_{env_ids[0]}/point_light_{light_idx}")
+ 
+     random_robot_points = []
+@@ -278,25 +278,25 @@ def pointnav_reset(env: ManagerBasedEnv,
+     random_robot_points = np.array(random_robot_points)
+     random_goal_points = np.array(random_goal_points)
+     random_init_orientions = np.array(random_init_orientions)
+-    random_init_orientions = torch.tensor(random_init_orientions, dtype=torch.float32, device=robot_asset.data.root_pos_w.device)
+-    tensor_robot_points = torch.tensor(random_robot_points, dtype=torch.float32, device=robot_asset.data.root_pos_w.device) + env.scene.env_origins[env_ids]
++    random_init_orientions = torch.tensor(random_init_orientions, dtype=torch.float32, device=robot_asset.data.root_pos_w.torch.device)
++    tensor_robot_points = torch.tensor(random_robot_points, dtype=torch.float32, device=robot_asset.data.root_pos_w.torch.device) + env.scene.env_origins[env_ids]
+     tensor_robot_points[:, 2] = tensor_robot_points[:, 2] + height_offset
+     if len(tensor_robot_points.shape) == 1:
+         tensor_robot_points = tensor_robot_points.unsqueeze(0)
+-    tensor_goal_points = torch.tensor(random_goal_points, dtype=torch.float32, device=robot_asset.data.root_pos_w.device) + env.scene.env_origins[env_ids]
++    tensor_goal_points = torch.tensor(random_goal_points, dtype=torch.float32, device=robot_asset.data.root_pos_w.torch.device) + env.scene.env_origins[env_ids]
+     tensor_goal_points[:, 2] = tensor_goal_points[:, 2] + 1.5
+ 
+     angle = random_init_orientions
+     angle = angle.unsqueeze(-1).cpu().numpy()
+-    batch_init_rotation = torch.tensor(rot_utils.euler_angles_to_quats(np.concatenate((angle*0.0, angle*0.0, angle), axis=-1))).to(robot_asset.data.root_pos_w.device)
+-    robot_asset.write_root_pose_to_sim(torch.concat((tensor_robot_points, batch_init_rotation.to(torch.float32)),dim=-1),env_ids)
++    batch_init_rotation = torch.tensor(rot_utils.euler_angles_to_quats(np.concatenate((angle*0.0, angle*0.0, angle), axis=-1))).to(robot_asset.data.root_pos_w.torch.device)
++    robot_asset.write_root_pose_to_sim(torch.concat((tensor_robot_points, batch_init_rotation[:, [1, 2, 3, 0]].to(torch.float32)),dim=-1),env_ids)
+     for i, env_id in enumerate(env_ids):
+         goal_primview = XFormPrim(prim_paths_expr=f"/World/envs/env_{env_id}/Goal", name="xform_view")
+         goal_primview.set_world_poses(tensor_goal_points[i].unsqueeze(0),batch_init_rotation[i].unsqueeze(0))
+     reset_counter += env_ids.shape[0]
+ 
+     _reset_arrival_timer(env, env_ids)
+-    _reset_reward_related_state(env, env_ids, robot_asset.data.root_pos_w.device)
++    _reset_reward_related_state(env, env_ids, robot_asset.data.root_pos_w.torch.device)
+ 
+ def pointnav_reset_eval(env: ManagerBasedEnv,
+                    env_ids: torch.Tensor,
+@@ -352,7 +352,7 @@ def pointnav_reset_eval(env: ManagerBasedEnv,
+         if reset_counter == 0:
+             for light_idx,pts in enumerate(sample_points[:,0]):
+                 pts = pts + np.array([0.0, 0.0, 1.5])
+-                add_point_light(torch.as_tensor(pts, dtype=torch.float32, device=robot_asset.data.root_pos_w.device),
++                add_point_light(torch.as_tensor(pts, dtype=torch.float32, device=robot_asset.data.root_pos_w.torch.device),
+                                 prim_path= f"/World/envs/env_{env_ids[0]}/point_light_{light_idx}")
+ 
+     random_robot_points = []
+@@ -385,18 +385,18 @@ def pointnav_reset_eval(env: ManagerBasedEnv,
+     random_robot_points = np.array(random_robot_points)
+     random_goal_points = np.array(random_goal_points)
+     random_init_orientions = np.array(random_init_orientions)
+-    random_init_orientions = torch.tensor(random_init_orientions, dtype=torch.float32, device=robot_asset.data.root_pos_w.device)
+-    tensor_robot_points = torch.tensor(random_robot_points, dtype=torch.float32, device=robot_asset.data.root_pos_w.device) + env.scene.env_origins[env_ids]
++    random_init_orientions = torch.tensor(random_init_orientions, dtype=torch.float32, device=robot_asset.data.root_pos_w.torch.device)
++    tensor_robot_points = torch.tensor(random_robot_points, dtype=torch.float32, device=robot_asset.data.root_pos_w.torch.device) + env.scene.env_origins[env_ids]
+     tensor_robot_points[:, 2] = tensor_robot_points[:, 2] + height_offset
+     if len(tensor_robot_points.shape) == 1:
+         tensor_robot_points = tensor_robot_points.unsqueeze(0)
+-    tensor_goal_points = torch.tensor(random_goal_points, dtype=torch.float32, device=robot_asset.data.root_pos_w.device) + env.scene.env_origins[env_ids]
++    tensor_goal_points = torch.tensor(random_goal_points, dtype=torch.float32, device=robot_asset.data.root_pos_w.torch.device) + env.scene.env_origins[env_ids]
+     tensor_goal_points[:, 2] = tensor_goal_points[:, 2] + 1.5
+ 
+     angle = random_init_orientions
+     angle = angle.unsqueeze(-1).cpu().numpy()
+-    batch_init_rotation = torch.tensor(rot_utils.euler_angles_to_quats(np.concatenate((angle*0.0, angle*0.0, angle), axis=-1))).to(robot_asset.data.root_pos_w.device)
+-    robot_asset.write_root_pose_to_sim(torch.concat((tensor_robot_points, batch_init_rotation.to(torch.float32)),dim=-1),env_ids)
++    batch_init_rotation = torch.tensor(rot_utils.euler_angles_to_quats(np.concatenate((angle*0.0, angle*0.0, angle), axis=-1))).to(robot_asset.data.root_pos_w.torch.device)
++    robot_asset.write_root_pose_to_sim(torch.concat((tensor_robot_points, batch_init_rotation[:, [1, 2, 3, 0]].to(torch.float32)),dim=-1),env_ids)
+     for i, env_id in enumerate(env_ids):
+         goal_primview = XFormPrim(prim_paths_expr=f"/World/envs/env_{env_id}/Goal", name="xform_view")
+         goal_primview.set_world_poses(tensor_goal_points[i].unsqueeze(0),batch_init_rotation[i].unsqueeze(0))
+diff --git a/baselines/x-navdp/src/environment/tasks/observation_utils.py b/baselines/x-navdp/src/environment/tasks/observation_utils.py
+index 31047fb..818ce3a 100644
+--- a/baselines/x-navdp/src/environment/tasks/observation_utils.py
++++ b/baselines/x-navdp/src/environment/tasks/observation_utils.py
+@@ -146,8 +146,8 @@ def oracle_imu_pose_data(env: ManagerBasedEnv,
+                          robot_asset_cfg: SceneEntityCfg = SceneEntityCfg("robot")):
+     """Return goal position expressed in each robot's local frame."""
+     robot_asset = env.scene[robot_asset_cfg.name]
+-    robot_rot = math_utils.matrix_from_quat(robot_asset.data.root_quat_w)
+-    robot_pos = robot_asset.data.root_pos_w
++    robot_rot = math_utils.matrix_from_quat(robot_asset.data.root_quat_w.torch)
++    robot_pos = robot_asset.data.root_pos_w.torch
+     goal_primview = XFormPrim(prim_paths_expr="/World/envs/env_.*/Goal", name="xform_view")
+     goal_pos = goal_primview.get_world_poses()[0]
+     rel_pos = torch.zeros((goal_pos.shape[0], 3),device=robot_pos.device)
+@@ -160,16 +160,16 @@ def nonhead_joint_pos(env: ManagerBasedEnv, asset_cfg: SceneEntityCfg = SceneEnt
+     asset = env.scene[asset_cfg.name]
+     all_names = list(asset.data.joint_names)
+     ids = [i for i, n in enumerate(all_names) if "head" not in n.lower()]
+-    ids = torch.tensor(ids, device=asset.data.joint_pos.device, dtype=torch.long)
+-    return asset.data.joint_pos[:,ids] - asset.data.default_joint_pos[:,ids]
++    ids = torch.tensor(ids, device=asset.data.joint_pos.torch.device, dtype=torch.long)
++    return asset.data.joint_pos.torch[:,ids] - asset.data.default_joint_pos.torch[:,ids]
+ 
+ def nonhead_joint_vel(env: ManagerBasedEnv, asset_cfg: SceneEntityCfg = SceneEntityCfg("robot")) -> torch.Tensor:
+     """Return non-head joint velocity offsets from defaults."""
+     asset = env.scene[asset_cfg.name]
+     all_names = list(asset.data.joint_names)
+     ids = [i for i, n in enumerate(all_names) if "head" not in n.lower()]
+-    ids = torch.tensor(ids, device=asset.data.joint_pos.device, dtype=torch.long)
+-    return asset.data.joint_vel[:,ids] - asset.data.default_joint_vel[:,ids]
++    ids = torch.tensor(ids, device=asset.data.joint_pos.torch.device, dtype=torch.long)
++    return asset.data.joint_vel.torch[:,ids] - asset.data.default_joint_vel.torch[:,ids]
+ 
+ def nonhead_last_action(env: ManagerBasedEnv, asset_cfg: SceneEntityCfg = SceneEntityCfg("robot")) -> torch.Tensor:
+     """Return the previous low-level joint-position action."""
+diff --git a/baselines/x-navdp/src/environment/tasks/reward_utils.py b/baselines/x-navdp/src/environment/tasks/reward_utils.py
+index 318fc51..5db7365 100644
+--- a/baselines/x-navdp/src/environment/tasks/reward_utils.py
++++ b/baselines/x-navdp/src/environment/tasks/reward_utils.py
+@@ -64,7 +64,7 @@ def relative_distance_reward_dir(
+     """Reward selected envs for A* progress aligned with robot heading."""
+ 
+     robot_asset = env.scene[robot_asset_cfg.name]
+-    robot_pos = robot_asset.data.root_pos_w[:, :2]
++    robot_pos = robot_asset.data.root_pos_w.torch[:, :2]
+     goal_primview = XFormPrim(prim_paths_expr="/World/envs/env_.*/Goal", name="xform_view")
+     goal_pos = goal_primview.get_world_poses()[0][:, :2]
+     device = robot_pos.device
+@@ -75,8 +75,8 @@ def relative_distance_reward_dir(
+         env._prev_distance_to_goal = torch.full((num_envs,), -1.0, dtype=torch.float32, device=device)
+         env._prev_pose = robot_pos.clone()
+ 
+-    robot_quat = robot_asset.data.root_quat_w.cpu().numpy()
+-    scipy_quats = robot_quat[:, [1, 2, 3, 0]]
++    robot_quat = robot_asset.data.root_quat_w.torch.cpu().numpy()
++    scipy_quats = robot_quat  # Lab 3 and SciPy use XYZW.
+     dir_2d = None
+     try:
+         rot = R.from_quat(scipy_quats)
+@@ -159,7 +159,7 @@ def relative_distance_reward_dir_clutter(
+     """Reward clutter scenes using Euclidean progress and heading direction."""
+ 
+     robot_asset = env.scene[robot_asset_cfg.name]
+-    robot_pos = robot_asset.data.root_pos_w[:, :2]
++    robot_pos = robot_asset.data.root_pos_w.torch[:, :2]
+     goal_primview = XFormPrim(prim_paths_expr="/World/envs/env_.*/Goal", name="xform_view")
+     goal_pos = goal_primview.get_world_poses()[0][:, :2]
+     device = robot_pos.device
+@@ -172,8 +172,8 @@ def relative_distance_reward_dir_clutter(
+         )
+         env._prev_euclidean_pose = robot_pos.clone()
+ 
+-    robot_quat = robot_asset.data.root_quat_w.cpu().numpy()
+-    scipy_quats = robot_quat[:, [1, 2, 3, 0]]
++    robot_quat = robot_asset.data.root_quat_w.torch.cpu().numpy()
++    scipy_quats = robot_quat  # Lab 3 and SciPy use XYZW.
+     dir_2d = None
+     try:
+         rot = R.from_quat(scipy_quats)
+@@ -245,7 +245,7 @@ def collision_reward(env: ManagerBasedRLEnv,
+                      delta_threshold: float = 10.0) -> torch.Tensor:
+     """Penalize dangerous contact impacts, suppressing repeated same-place hits."""
+     robot_asset = env.scene[robot_asset_cfg.name]
+-    robot_pos = robot_asset.data.root_pos_w[:, :2]
++    robot_pos = robot_asset.data.root_pos_w.torch[:, :2]
+     sensor = env.scene[sensor_cfg.name]
+     # net_forces_w: [num_envs, num_bodies, 3]
+     net_forces_w = sensor.data.net_forces_w
+@@ -284,7 +284,7 @@ def collision_reward_new(env: ManagerBasedRLEnv,
+     """Penalize new and repeated contact impacts without an initial positive reward."""
+ 
+     robot_asset = env.scene[robot_asset_cfg.name]
+-    robot_pos = robot_asset.data.root_pos_w[:, :2]
++    robot_pos = robot_asset.data.root_pos_w.torch[:, :2]
+     sensor = env.scene[sensor_cfg.name]
+ 
+     net_forces_w = sensor.data.net_forces_w
+@@ -333,7 +333,7 @@ def stuck_reward_long_window(env: ManagerBasedRLEnv,
+ 
+     embodiment_interval = int(interval * (10 / env._decimation))
+     robot_asset = env.scene[robot_asset_cfg.name]
+-    pos = robot_asset.data.root_pos_w[:, :2]
++    pos = robot_asset.data.root_pos_w.torch[:, :2]
+     reward = torch.zeros_like(pos[:,0])
+ 
+     for i in range(env.num_envs):
+@@ -381,10 +381,10 @@ def humanoid_low_height_fall_penalty(
+ ) -> torch.Tensor:
+     """仅 unitree_g1：根高度低于阈值时每步惩罚 -1（再乘 RewTerm weight），并锁存跌倒标志。"""
+     robot_asset = env.scene[robot_asset_cfg.name]
+-    device = robot_asset.data.root_pos_w.device
++    device = robot_asset.data.root_pos_w.torch.device
+     if getattr(env, "_embodiment", None) != "unitree_g1":
+         return torch.zeros(env.num_envs, device=device, dtype=torch.float32)
+-    z = robot_asset.data.root_pos_w[:, 2]
++    z = robot_asset.data.root_pos_w.torch[:, 2]
+     low = z < height_threshold
+     if not hasattr(env, "_humanoid_fell_latched"):
+         env._humanoid_fell_latched = torch.zeros(env.num_envs, dtype=torch.bool, device=device)
+@@ -406,10 +406,10 @@ def goal_arrival_reward(env: ManagerBasedRLEnv,
+     """
+     enable_curriculum = getattr(env, '_enable_curriculum_learning', ENABLE_CURRICULUM_LEARNING)
+     robot_asset = env.scene[robot_asset_cfg.name]
+-    robot_pos = robot_asset.data.root_pos_w
++    robot_pos = robot_asset.data.root_pos_w.torch
+     goal_primview = XFormPrim(prim_paths_expr="/World/envs/env_.*/Goal", name="xform_view")
+     goal_pos = goal_primview.get_world_poses()[0]
+-    robot_vel = robot_asset.data.root_lin_vel_w
++    robot_vel = robot_asset.data.root_lin_vel_w.torch
+     distance = torch.square(robot_pos[:,0:2] - goal_pos[:,0:2]).sum(axis=1).sqrt()
+     velocity = torch.abs(robot_vel).sum(axis=1)
+ 
+@@ -471,10 +471,10 @@ def goal_arrival_reward_eval(env: ManagerBasedRLEnv,
+     """Return an evaluation success reward once the arrival timer finishes."""
+ 
+     robot_asset = env.scene[robot_asset_cfg.name]
+-    robot_pos = robot_asset.data.root_pos_w
++    robot_pos = robot_asset.data.root_pos_w.torch
+     goal_primview = XFormPrim(prim_paths_expr="/World/envs/env_.*/Goal", name="xform_view")
+     goal_pos = goal_primview.get_world_poses()[0]
+-    robot_vel = robot_asset.data.root_lin_vel_w
++    robot_vel = robot_asset.data.root_lin_vel_w.torch
+ 
+     distance = torch.square(robot_pos[:,0:2] - goal_pos[:,0:2]).sum(axis=1).sqrt()
+     velocity = torch.abs(robot_vel).sum(axis=1)
+diff --git a/baselines/x-navdp/src/training/worker.py b/baselines/x-navdp/src/training/worker.py
+index 885022c..ac4e1ca 100644
+--- a/baselines/x-navdp/src/training/worker.py
++++ b/baselines/x-navdp/src/training/worker.py
+@@ -57,8 +57,8 @@ def wait_worker_result(result_queue, timeout=None, rank=None):
+ def extract_env_metadata(env, num_envs: int) -> dict:
+     """Collect lightweight environment state needed by rewards, logging, and videos."""
+     unwrapped = env.unwrapped
+-    robot_pos = unwrapped.scene["robot"].data.root_pos_w[:, :2].cpu().numpy()
+-    robot_quat = unwrapped.scene["robot"].data.root_quat_w.cpu().numpy()
++    robot_pos = unwrapped.scene["robot"].data.root_pos_w.torch[:, :2].cpu().numpy()
++    robot_quat = unwrapped.scene["robot"].data.root_quat_w.torch.cpu().numpy()
+ 
+     grid_matrix = unwrapped._grid_matrix
+     occ_min_bound = getattr(unwrapped, "_occ_min_bound", np.zeros(3))
+diff --git a/baselines/x-navdp/train.py b/baselines/x-navdp/train.py
+index fb66777..fc41fee 100644
+--- a/baselines/x-navdp/train.py
++++ b/baselines/x-navdp/train.py
+@@ -557,8 +557,8 @@ def run():
+                 episode_point_buffer[env_idx].append(prev_obs_raw['goal_pose'][env_idx].cpu().numpy())
+                 robot_pos = metadata['robot_pos'][env_idx] if env_idx < metadata['robot_pos'].shape[0] else np.zeros(2)
+                 episode_pos_buffer[env_idx].append(robot_pos[:2] if len(robot_pos) >= 2 else np.zeros(2))
+-                robot_quat = metadata['robot_quat'][env_idx] if env_idx < metadata['robot_quat'].shape[0] else np.array([1, 0, 0, 0])
+-                episode_quat_buffer[env_idx].append(robot_quat[[1, 2, 3, 0]])
++                robot_quat = metadata['robot_quat'][env_idx] if env_idx < metadata['robot_quat'].shape[0] else np.array([0, 0, 0, 1])
++                episode_quat_buffer[env_idx].append(robot_quat)  # Lab 3 already uses XYZW.
+ 
+         goal_prev = obs['pointgoal'].cpu().numpy()[:, 0:2]
+         episode_length_prev = metadata['episode_length_buf']
+diff --git a/configs/robots/dingo_config.py b/configs/robots/dingo_config.py
+index 3829e6e..0f57456 100644
+--- a/configs/robots/dingo_config.py
++++ b/configs/robots/dingo_config.py
+@@ -1,8 +1,8 @@
+-import omni.isaac.lab.sim as sim_utils
+-from omni.isaac.lab.actuators import ImplicitActuatorCfg
+-from omni.isaac.lab.assets.articulation import ArticulationCfg
+-from omni.isaac.lab.utils.assets import ISAAC_NUCLEUS_DIR
+-from omni.isaac.lab.sensors import ContactSensorCfg, patterns, CameraCfg, RayCasterCfg, OffsetCfg
++import isaaclab.sim as sim_utils
++from isaaclab.actuators import ImplicitActuatorCfg
++from isaaclab.assets.articulation import ArticulationCfg
++from isaaclab.utils.assets import ISAAC_NUCLEUS_DIR
++from isaaclab.sensors import ContactSensorCfg, patterns, CameraCfg, RayCasterCfg
+ 
+ DINGO_CFG = ArticulationCfg(
+     prim_path = "{ENV_REGEX_NS}/Robot",
+@@ -36,9 +36,9 @@ DINGO_WHEEL_RADIUS = 0.0591
+ DINGO_WHEEL_BASE = 0.22616
+ DINGO_THRESHOLD = 15.0
+ DINGO_CAMERA_TRANS = [0.0,0.0,0.3]
+-DINGO_CAMERA_ROTS = [0.5, -0.5, 0.5, -0.5]
++DINGO_CAMERA_ROTS = [-0.5, 0.5, -0.5, 0.5]
+ DINGO_IMAGEGOAL_TRANS = [5.0,0.0,0.3]
+-DINGO_IMAGEGOAL_ROTS = [0.5, -0.5, 0.5, -0.5]
++DINGO_IMAGEGOAL_ROTS = [-0.5, 0.5, -0.5, 0.5]
+ 
+ DINGO_ContactCfg = ContactSensorCfg(prim_path="{ENV_REGEX_NS}/Robot/%s"%DINGO_BASE_LINK, 
+                                     history_length=10, 
+@@ -48,6 +48,7 @@ DINGO_ContactCfg = ContactSensorCfg(prim_path="{ENV_REGEX_NS}/Robot/%s"%DINGO_BA
+ DINGO_CameraCfg = CameraCfg(
+     prim_path="{ENV_REGEX_NS}/Robot/%s/front_cam"%DINGO_BASE_LINK,
+     update_period=0.05,
++    update_latest_camera_pose=True,
+     height=360,
+     width=640,
+     data_types=["rgb", "distance_to_image_plane"],
+@@ -60,6 +61,7 @@ DINGO_CameraCfg = CameraCfg(
+ DINGO_ImageGoal_CameraCfg = CameraCfg(
+     prim_path="{ENV_REGEX_NS}/goal_cam",
+     update_period=0.05,
++    update_latest_camera_pose=True,
+     height=360,
+     width=640,
+     data_types=["rgb"],
+@@ -72,6 +74,7 @@ DINGO_ImageGoal_CameraCfg = CameraCfg(
+ DINGO_MetricCameraCfg = CameraCfg(
+     prim_path="{ENV_REGEX_NS}/Robot/%s/narritor_cam"%DINGO_BASE_LINK,
+     update_period=0.05,
++    update_latest_camera_pose=True,
+     height=90,
+     width=160,
+     data_types=["rgb", "distance_to_image_plane"],
+diff --git a/configs/scenes/default_scene.py b/configs/scenes/default_scene.py
+index fce58a2..7d634f9 100644
+--- a/configs/scenes/default_scene.py
++++ b/configs/scenes/default_scene.py
+@@ -1,11 +1,11 @@
+-from omni.isaac.lab.utils import configclass
+-from omni.isaac.lab.terrains import TerrainImporterCfg
+-from omni.isaac.lab.scene import InteractiveSceneCfg
+-from omni.isaac.lab.assets import ArticulationCfg,AssetBaseCfg
+-from omni.isaac.lab.sensors import ContactSensorCfg, CameraCfg, RayCasterCfg
++from isaaclab.utils import configclass
++from isaaclab.terrains import TerrainImporterCfg
++from isaaclab.scene import InteractiveSceneCfg
++from isaaclab.assets import ArticulationCfg,AssetBaseCfg
++from isaaclab.sensors import ContactSensorCfg, CameraCfg, RayCasterCfg
+ from dataclasses import MISSING
+-from omni.isaac.lab.sim.spawners import materials
+-import omni.isaac.lab.sim as sim_utils
++from isaaclab.sim.spawners import materials
++import isaaclab.sim as sim_utils
+ 
+ GOAL_CFG = AssetBaseCfg(prim_path="{ENV_REGEX_NS}/Goal",\
+     spawn = sim_utils.SphereCfg(visual_material=materials.PreviewSurfaceCfg(diffuse_color=(1.0,0.0,0.0)),visible=False,radius=0.25),
+diff --git a/configs/tasks/usd_utils.py b/configs/tasks/usd_utils.py
+index bc59dee..ca4115b 100644
+--- a/configs/tasks/usd_utils.py
++++ b/configs/tasks/usd_utils.py
+@@ -1,7 +1,7 @@
+-from omni.isaac.core.utils.prims import get_prim_at_path
++from isaacsim.core.utils.prims import get_prim_at_path
+ from pxr import UsdLux, Gf
+-from omni.isaac.core.prims import XFormPrim
+-from omni.isaac.core.utils.prims import create_prim
++from isaacsim.core.prims import SingleXFormPrim as XFormPrim
++from isaacsim.core.utils.prims import create_prim
+ import torch
+ # 辅助函数：设置实体不可见
+ def hide_entity(prim_path: str):
+@@ -25,7 +25,7 @@ def add_point_light(
+     if prim_path is None:
+         prim_path = "/World/Lights/point_light"
+         count = 0
+-        while create_prim(prim_path).IsValid():
++        while get_prim_at_path(prim_path).IsValid():
+             count += 1
+             prim_path = f"/World/Lights/point_light_{count}"
+     
+diff --git a/configs/tasks/wheeled_task.py b/configs/tasks/wheeled_task.py
+index 3d49f55..a81dab1 100644
+--- a/configs/tasks/wheeled_task.py
++++ b/configs/tasks/wheeled_task.py
+@@ -8,29 +8,30 @@ import matplotlib.pyplot as plt
+ from collections import deque
+ from dataclasses import MISSING
+ from typing import Literal
+-from omni.isaac.lab.envs import ManagerBasedRLEnvCfg,ManagerBasedEnvCfg
+-from omni.isaac.lab.utils import configclass
+-import omni.isaac.lab.sim as sim_utils
+-from omni.isaac.lab.sim.spawners import materials
+-from omni.isaac.lab.assets import ArticulationCfg, AssetBaseCfg
+-from omni.isaac.lab.scene import InteractiveSceneCfg
+-from omni.isaac.lab.sensors import ContactSensorCfg, patterns, CameraCfg
+-from omni.isaac.lab.utils import configclass
+-from omni.isaac.lab.managers import EventTermCfg as EventTerm
+-from omni.isaac.lab.managers import ObservationGroupCfg as ObsGroup
+-from omni.isaac.lab.managers import ObservationTermCfg as ObsTerm
+-from omni.isaac.lab.managers import RewardTermCfg as RewTerm
+-from omni.isaac.lab.managers import SceneEntityCfg
+-from omni.isaac.lab.managers import TerminationTermCfg as DoneTerm
+-from omni.isaac.lab.utils import configclass
+-from omni.isaac.lab.utils.noise import AdditiveUniformNoiseCfg as Unoise
+-from omni.isaac.lab.sensors import CameraCfg
+-from omni.isaac.core.prims import XFormPrimView
+-import omni.isaac.core.utils.numpy.rotations as rot_utils
+-import omni.isaac.lab_tasks.manager_based.locomotion.velocity.mdp as mdp
+-import omni.isaac.lab.utils.math as math_utils
+-from omni.isaac.lab.envs import ManagerBasedEnv
+-from omni.isaac.lab.assets import Articulation, RigidObject
++from isaaclab.envs import ManagerBasedRLEnvCfg,ManagerBasedEnvCfg
++from isaaclab.utils import configclass
++import isaaclab.sim as sim_utils
++from isaaclab_physx.physics import PhysxCfg
++from isaaclab.sim.spawners import materials
++from isaaclab.assets import ArticulationCfg, AssetBaseCfg
++from isaaclab.scene import InteractiveSceneCfg
++from isaaclab.sensors import ContactSensorCfg, patterns, CameraCfg
++from isaaclab.utils import configclass
++from isaaclab.managers import EventTermCfg as EventTerm
++from isaaclab.managers import ObservationGroupCfg as ObsGroup
++from isaaclab.managers import ObservationTermCfg as ObsTerm
++from isaaclab.managers import RewardTermCfg as RewTerm
++from isaaclab.managers import SceneEntityCfg
++from isaaclab.managers import TerminationTermCfg as DoneTerm
++from isaaclab.utils import configclass
++from isaaclab.utils.noise import AdditiveUniformNoiseCfg as Unoise
++from isaaclab.sensors import CameraCfg
++from isaacsim.core.prims import XFormPrim as XFormPrimView
++import isaacsim.core.utils.numpy.rotations as rot_utils
++import isaaclab.envs.mdp as mdp
++import isaaclab.utils.math as math_utils
++from isaaclab.envs import ManagerBasedEnv
++from isaaclab.assets import Articulation, RigidObject
+ from configs.robots import *
+ from .usd_utils import *
+ 
+@@ -44,13 +45,13 @@ def camera_depth_data(env: ManagerBasedEnv, asset_cfg: SceneEntityCfg = SceneEnt
+ def oracle_imu_pose_data(env: ManagerBasedEnv, 
+                          robot_asset_cfg: SceneEntityCfg = SceneEntityCfg("robot")):
+     robot_asset = env.scene[robot_asset_cfg.name]
+-    robot_rot = math_utils.matrix_from_quat(robot_asset.data.root_quat_w)
+-    robot_pos = robot_asset.data.root_pos_w
++    robot_rot = math_utils.matrix_from_quat(robot_asset.data.root_quat_w.torch)
++    robot_pos = robot_asset.data.root_pos_w.torch
+     goal_primview = XFormPrimView(prim_paths_expr="/World/envs/env_.*/Goal", name="xform_view")
+     goal_pos = goal_primview.get_world_poses()[0]
+-    rel_pos = torch.zeros((goal_pos.shape[0], 3))
++    rel_pos = torch.zeros((goal_pos.shape[0], 3), device=robot_pos.device)
+     for i in range(rel_pos.shape[0]):
+-        rel_pos[i] = torch.matmul(torch.inverse(robot_rot[i]),(goal_pos[i] - robot_pos[i]).T)
++        rel_pos[i] = torch.matmul(torch.inverse(robot_rot[i]),(goal_pos[i] - robot_pos[i]))
+     return rel_pos
+ 
+ def pixel_projection_data(env: ManagerBasedEnv,
+@@ -61,9 +62,9 @@ def pixel_projection_data(env: ManagerBasedEnv,
+     camera_intrinsic = camera_asset._data.intrinsic_matrices
+     goal_primview = XFormPrimView(prim_paths_expr="/World/envs/env_.*/Goal", name="xform_view")
+     goal_pos = goal_primview.get_world_poses()[0]
+-    pixel_coords = torch.zeros((goal_pos.shape[0], 2))
++    pixel_coords = torch.zeros((goal_pos.shape[0], 2), device=camera_w_pos.device)
+     for i in range(camera_intrinsic.shape[0]):
+-        frame_coord = torch.matmul(torch.inverse(camera_w_rot[i]),(goal_pos[i] - camera_w_pos[i]).T)
++        frame_coord = torch.matmul(torch.inverse(camera_w_rot[i]),(goal_pos[i] - camera_w_pos[i]))
+         pixel_coord_x =  -frame_coord[1] * camera_intrinsic[i,0,0] / frame_coord[0] + camera_intrinsic[i,0,2]
+         pixel_coord_y =  -frame_coord[2] * camera_intrinsic[i,1,1] / frame_coord[0] + camera_intrinsic[i,1,2]
+         pixel_coords[i] = torch.as_tensor([pixel_coord_x,pixel_coord_y],dtype=torch.float32,device=camera_w_pos.device)
+@@ -73,24 +74,28 @@ def stuck_terminal_check(env: ManagerBasedEnv,
+                          robot_asset_cfg: SceneEntityCfg = SceneEntityCfg("robot"),
+                          window_size: int = 10,
+                          threshold: float = 0.05):
+-    if not hasattr(env, '_recent_positions'):
++    if window_size < 2 or threshold < 0:
++        raise ValueError("stuck termination requires window_size >= 2 and nonnegative threshold")
++    positions = env.scene[robot_asset_cfg.name].data.root_pos_w.torch[:, :2]
++    if (not hasattr(env, '_recent_positions')
++            or env._recent_positions.maxlen != window_size
++            or (env._recent_positions and env._recent_positions[-1].shape != positions.shape)):
+         env._recent_positions = deque(maxlen=window_size)
+-    robot_asset = env.scene[robot_asset_cfg.name]
+-    pos = robot_asset.data.root_pos_w[0, :2].cpu().numpy()  # 只看x, y
+-    env._recent_positions.append(pos)
++    # Snapshot shared simulator memory; otherwise every history item tracks the newest pose.
++    env._recent_positions.append(positions.clone())
+     if len(env._recent_positions) < window_size:
+-        return False 
+-    current = env._recent_positions[-1]
+-    max_dist = max(np.linalg.norm(current - np.array(p)) for p in list(env._recent_positions)[:-1])
+-    return bool(max_dist < threshold)
++        return torch.zeros(positions.shape[0], dtype=torch.bool, device=positions.device)
++    history = torch.stack(list(env._recent_positions)[:-1])
++    max_dist = torch.linalg.vector_norm(history - positions.unsqueeze(0), dim=-1).amax(dim=0)
++    return max_dist < threshold
+ 
+ def arrival_terminal_check(env: ManagerBasedEnv,
+                            robot_asset_cfg: SceneEntityCfg = SceneEntityCfg("robot")):
+     robot_asset = env.scene[robot_asset_cfg.name]
+-    robot_pos = robot_asset.data.root_pos_w
++    robot_pos = robot_asset.data.root_pos_w.torch
+     goal_primview = XFormPrimView(prim_paths_expr="/World/envs/env_.*/Goal", name="xform_view")
+     goal_pos = goal_primview.get_world_poses()[0]
+-    robot_vel = robot_asset.data.root_lin_vel_w
++    robot_vel = robot_asset.data.root_lin_vel_w.torch
+     distance = torch.square(robot_pos[:,0:2] - goal_pos[:,0:2]).sum(axis=1).sqrt()
+     velocity = torch.abs(robot_vel).sum(axis=1)
+     return (distance < 0.85) & (velocity < 0.3)
+@@ -114,7 +119,7 @@ def exploration_reset(env: ManagerBasedEnv,
+         if reset_counter == 0:
+             for light_idx,pts in enumerate(sample_points[:,0]):
+                 pts = pts + np.array([0.0, 0.0, 1.5])
+-                add_point_light(torch.as_tensor(pts, dtype=torch.float32, device=robot_asset.data.root_pos_w.device),
++                add_point_light(torch.as_tensor(pts, dtype=torch.float32, device=robot_asset.data.root_pos_w.torch.device),
+                                 prim_path= f"/World/envs/env_{env_ids[0]}/point_light_{light_idx}")
+                 
+     random_robot_points = []
+@@ -128,17 +133,17 @@ def exploration_reset(env: ManagerBasedEnv,
+         random_init_orientions.append(init_orientions)
+         
+     random_robot_points = np.array(random_robot_points)
+-    tensor_robot_points = torch.tensor(random_robot_points, dtype=torch.float32, device=robot_asset.data.root_pos_w.device) + env.scene.env_origins[env_ids]
++    tensor_robot_points = torch.tensor(random_robot_points, dtype=torch.float32, device=robot_asset.data.root_pos_w.torch.device) + env.scene.env_origins[env_ids]
+     tensor_robot_points[:, 2] = tensor_robot_points[:, 2] + height_offset
+     random_init_orientions = np.array(random_init_orientions)
+-    random_init_orientions = torch.tensor(random_init_orientions, dtype=torch.float32, device=robot_asset.data.root_pos_w.device)
++    random_init_orientions = torch.tensor(random_init_orientions, dtype=torch.float32, device=robot_asset.data.root_pos_w.torch.device)
+     if len(tensor_robot_points.shape) == 1:
+         tensor_robot_points = tensor_robot_points.unsqueeze(0)
+         
+     angle = random_init_orientions
+     angle = angle.unsqueeze(-1).cpu().numpy()
+-    batch_init_rotation = torch.tensor(rot_utils.euler_angles_to_quats(np.concatenate((angle*0.0, angle*0.0, angle), axis=-1))).to(robot_asset.data.root_pos_w.device)
+-    robot_asset.write_root_pose_to_sim(torch.concat((tensor_robot_points, batch_init_rotation.to(torch.float32)),dim=-1),env_ids)
++    batch_init_rotation = torch.tensor(rot_utils.euler_angles_to_quats(np.concatenate((angle*0.0, angle*0.0, angle), axis=-1))).to(robot_asset.data.root_pos_w.torch.device)
++    robot_asset.write_root_pose_to_sim(torch.concat((tensor_robot_points, batch_init_rotation[:, [1, 2, 3, 0]].to(torch.float32)),dim=-1),env_ids)
+     reset_counter += env_ids.shape[0]
+ 
+ def pointnav_reset(env: ManagerBasedEnv, 
+@@ -160,7 +165,7 @@ def pointnav_reset(env: ManagerBasedEnv,
+         if reset_counter == 0:
+             for light_idx,pts in enumerate(sample_points[:,0]):
+                 pts = pts + np.array([0.0, 0.0, 1.5])
+-                add_point_light(torch.as_tensor(pts, dtype=torch.float32, device=robot_asset.data.root_pos_w.device),
++                add_point_light(torch.as_tensor(pts, dtype=torch.float32, device=robot_asset.data.root_pos_w.torch.device),
+                                 prim_path= f"/World/envs/env_{env_ids[0]}/point_light_{light_idx}")
+     
+     random_robot_points = []
+@@ -179,18 +184,18 @@ def pointnav_reset(env: ManagerBasedEnv,
+     random_robot_points = np.array(random_robot_points)
+     random_goal_points = np.array(random_goal_points)
+     random_init_orientions = np.array(random_init_orientions)
+-    random_init_orientions = torch.tensor(random_init_orientions, dtype=torch.float32, device=robot_asset.data.root_pos_w.device)
+-    tensor_robot_points = torch.tensor(random_robot_points, dtype=torch.float32, device=robot_asset.data.root_pos_w.device) + env.scene.env_origins[env_ids]
++    random_init_orientions = torch.tensor(random_init_orientions, dtype=torch.float32, device=robot_asset.data.root_pos_w.torch.device)
++    tensor_robot_points = torch.tensor(random_robot_points, dtype=torch.float32, device=robot_asset.data.root_pos_w.torch.device) + env.scene.env_origins[env_ids]
+     tensor_robot_points[:, 2] = tensor_robot_points[:, 2] + height_offset
+     if len(tensor_robot_points.shape) == 1:
+         tensor_robot_points = tensor_robot_points.unsqueeze(0)
+-    tensor_goal_points = torch.tensor(random_goal_points, dtype=torch.float32, device=robot_asset.data.root_pos_w.device) + env.scene.env_origins[env_ids]
++    tensor_goal_points = torch.tensor(random_goal_points, dtype=torch.float32, device=robot_asset.data.root_pos_w.torch.device) + env.scene.env_origins[env_ids]
+     tensor_goal_points[:, 2] = tensor_goal_points[:, 2] + 1.5
+     
+     angle = random_init_orientions
+     angle = angle.unsqueeze(-1).cpu().numpy()
+-    batch_init_rotation = torch.tensor(rot_utils.euler_angles_to_quats(np.concatenate((angle*0.0, angle*0.0, angle), axis=-1))).to(robot_asset.data.root_pos_w.device)
+-    robot_asset.write_root_pose_to_sim(torch.concat((tensor_robot_points, batch_init_rotation.to(torch.float32)),dim=-1),env_ids)
++    batch_init_rotation = torch.tensor(rot_utils.euler_angles_to_quats(np.concatenate((angle*0.0, angle*0.0, angle), axis=-1))).to(robot_asset.data.root_pos_w.torch.device)
++    robot_asset.write_root_pose_to_sim(torch.concat((tensor_robot_points, batch_init_rotation[:, [1, 2, 3, 0]].to(torch.float32)),dim=-1),env_ids)
+     for i, env_id in enumerate(env_ids):
+         goal_primview = XFormPrimView(prim_paths_expr=f"/World/envs/env_{env_id}/Goal", name="xform_view")
+         goal_primview.set_world_poses(tensor_goal_points[i].unsqueeze(0),batch_init_rotation[i].unsqueeze(0))
+@@ -216,7 +221,7 @@ def imagenav_reset(env: ManagerBasedEnv,
+         if reset_counter == 0:
+             for light_idx,pts in enumerate(sample_points[:,0]):
+                 pts = pts + np.array([0.0, 0.0, 1.5])
+-                add_point_light(torch.as_tensor(pts, dtype=torch.float32, device=robot_asset.data.root_pos_w.device),
++                add_point_light(torch.as_tensor(pts, dtype=torch.float32, device=robot_asset.data.root_pos_w.torch.device),
+                                 prim_path= f"/World/envs/env_{env_ids[0]}/point_light_{light_idx}")
+     
+     random_robot_points = []
+@@ -235,25 +240,25 @@ def imagenav_reset(env: ManagerBasedEnv,
+     random_robot_points = np.array(random_robot_points)
+     random_goal_points = np.array(random_goal_points)
+     random_init_orientions = np.array(random_init_orientions)
+-    random_init_orientions = torch.tensor(random_init_orientions, dtype=torch.float32, device=robot_asset.data.root_pos_w.device)
+-    tensor_robot_points = torch.tensor(random_robot_points, dtype=torch.float32, device=robot_asset.data.root_pos_w.device) + env.scene.env_origins[env_ids]
++    random_init_orientions = torch.tensor(random_init_orientions, dtype=torch.float32, device=robot_asset.data.root_pos_w.torch.device)
++    tensor_robot_points = torch.tensor(random_robot_points, dtype=torch.float32, device=robot_asset.data.root_pos_w.torch.device) + env.scene.env_origins[env_ids]
+     tensor_robot_points[:, 2] = tensor_robot_points[:, 2] + height_offset
+     if len(tensor_robot_points.shape) == 1:
+         tensor_robot_points = tensor_robot_points.unsqueeze(0)
+-    tensor_goal_points = torch.tensor(random_goal_points, dtype=torch.float32, device=robot_asset.data.root_pos_w.device) + env.scene.env_origins[env_ids]
++    tensor_goal_points = torch.tensor(random_goal_points, dtype=torch.float32, device=robot_asset.data.root_pos_w.torch.device) + env.scene.env_origins[env_ids]
+     tensor_goal_points[:, 2] = tensor_goal_points[:, 2] + 1.5
+     
+     angle = random_init_orientions
+     angle = angle.unsqueeze(-1).cpu().numpy()
+-    batch_init_rotation = torch.tensor(rot_utils.euler_angles_to_quats(np.concatenate((angle*0.0, angle*0.0, angle), axis=-1))).to(robot_asset.data.root_pos_w.device)
+-    robot_asset.write_root_pose_to_sim(torch.concat((tensor_robot_points, batch_init_rotation.to(torch.float32)),dim=-1),env_ids)
++    batch_init_rotation = torch.tensor(rot_utils.euler_angles_to_quats(np.concatenate((angle*0.0, angle*0.0, angle), axis=-1))).to(robot_asset.data.root_pos_w.torch.device)
++    robot_asset.write_root_pose_to_sim(torch.concat((tensor_robot_points, batch_init_rotation[:, [1, 2, 3, 0]].to(torch.float32)),dim=-1),env_ids)
+     
+     for i, env_id in enumerate(env_ids):
+         goal_primview = XFormPrimView(prim_paths_expr=f"/World/envs/env_{env_id}/goal_cam", name="xform_view")
+         goal_image_point = tensor_goal_points[i]
+-        goal_image_point[2] = robot_asset.data.root_pos_w[i,2] + camera_offset
+-        goal_image_rot = torch.tensor(rot_utils.euler_angles_to_quats(np.concatenate((angle*0.0 + np.pi/2, angle*0.0, angle - np.pi/2), axis=-1))).to(robot_asset.data.root_pos_w.device)
+-        goal_primview.set_world_poses(goal_image_point.unsqueeze(0),goal_image_rot)
++        goal_image_point[2] = robot_asset.data.root_pos_w.torch[env_ids[i],2] + camera_offset
++        goal_image_rot = torch.tensor(rot_utils.euler_angles_to_quats(np.concatenate((angle*0.0 + np.pi/2, angle*0.0, angle - np.pi/2), axis=-1))).to(robot_asset.data.root_pos_w.torch.device)
++        goal_primview.set_world_poses(goal_image_point.unsqueeze(0),goal_image_rot[i].unsqueeze(0))
+         
+     for i, env_id in enumerate(env_ids):
+         goal_primview = XFormPrimView(prim_paths_expr=f"/World/envs/env_{env_id}/Goal", name="xform_view")
+@@ -279,7 +284,7 @@ def pixelnav_reset(env: ManagerBasedEnv,
+         if reset_counter == 0:
+             for light_idx,pts in enumerate(sample_points[:,0]):
+                 pts = pts + np.array([0.0, 0.0, 1.5])
+-                add_point_light(torch.as_tensor(pts, dtype=torch.float32, device=robot_asset.data.root_pos_w.device),
++                add_point_light(torch.as_tensor(pts, dtype=torch.float32, device=robot_asset.data.root_pos_w.torch.device),
+                                 prim_path= f"/World/envs/env_{env_ids[0]}/point_light_{light_idx}")
+     
+     random_robot_points = []
+@@ -298,18 +303,18 @@ def pixelnav_reset(env: ManagerBasedEnv,
+     random_robot_points = np.array(random_robot_points)
+     random_goal_points = np.array(random_goal_points)
+     random_init_orientions = np.array(random_init_orientions)
+-    random_init_orientions = torch.tensor(random_init_orientions, dtype=torch.float32, device=robot_asset.data.root_pos_w.device)
+-    tensor_robot_points = torch.tensor(random_robot_points, dtype=torch.float32, device=robot_asset.data.root_pos_w.device) + env.scene.env_origins[env_ids]
++    random_init_orientions = torch.tensor(random_init_orientions, dtype=torch.float32, device=robot_asset.data.root_pos_w.torch.device)
++    tensor_robot_points = torch.tensor(random_robot_points, dtype=torch.float32, device=robot_asset.data.root_pos_w.torch.device) + env.scene.env_origins[env_ids]
+     tensor_robot_points[:, 2] = tensor_robot_points[:, 2] + height_offset
+     if len(tensor_robot_points.shape) == 1:
+         tensor_robot_points = tensor_robot_points.unsqueeze(0)
+-    tensor_goal_points = torch.tensor(random_goal_points, dtype=torch.float32, device=robot_asset.data.root_pos_w.device) + env.scene.env_origins[env_ids]
++    tensor_goal_points = torch.tensor(random_goal_points, dtype=torch.float32, device=robot_asset.data.root_pos_w.torch.device) + env.scene.env_origins[env_ids]
+     tensor_goal_points[:, 2] = tensor_goal_points[:, 2] + 1.5
+     
+     angle = random_init_orientions
+     angle = angle.unsqueeze(-1).cpu().numpy()
+-    batch_init_rotation = torch.tensor(rot_utils.euler_angles_to_quats(np.concatenate((angle*0.0, angle*0.0, angle), axis=-1))).to(robot_asset.data.root_pos_w.device)
+-    robot_asset.write_root_pose_to_sim(torch.concat((tensor_robot_points, batch_init_rotation.to(torch.float32)),dim=-1),env_ids)
++    batch_init_rotation = torch.tensor(rot_utils.euler_angles_to_quats(np.concatenate((angle*0.0, angle*0.0, angle), axis=-1))).to(robot_asset.data.root_pos_w.torch.device)
++    robot_asset.write_root_pose_to_sim(torch.concat((tensor_robot_points, batch_init_rotation[:, [1, 2, 3, 0]].to(torch.float32)),dim=-1),env_ids)
+     for i, env_id in enumerate(env_ids):
+         goal_primview = XFormPrimView(prim_paths_expr=f"/World/envs/env_{env_id}/Goal", name="xform_view")
+         goal_primview.set_world_poses(tensor_goal_points[i].unsqueeze(0),batch_init_rotation[i].unsqueeze(0))
+@@ -585,7 +590,8 @@ class DingoPointNavCfg(ManagerBasedRLEnvCfg):
+         self.decimation = 15
+         self.episode_length_s = 120.0
+         self.sim.dt = 0.01
+-        self.sim.disable_contact_processing = True
++        self.sim.physics = PhysxCfg()
++        self.sim.use_newton_actuators = False
+         
+ @configclass
+ class DingoImageNavCfg(ManagerBasedRLEnvCfg):
+@@ -600,7 +606,8 @@ class DingoImageNavCfg(ManagerBasedRLEnvCfg):
+         self.decimation = 15
+         self.episode_length_s = 120.0
+         self.sim.dt = 0.01
+-        self.sim.disable_contact_processing = True
++        self.sim.physics = PhysxCfg()
++        self.sim.use_newton_actuators = False
+ 
+ @configclass
+ class DingoPixelNavCfg(ManagerBasedRLEnvCfg):
+@@ -615,7 +622,8 @@ class DingoPixelNavCfg(ManagerBasedRLEnvCfg):
+         self.decimation = 15
+         self.episode_length_s = 120.0
+         self.sim.dt = 0.01
+-        self.sim.disable_contact_processing = True
++        self.sim.physics = PhysxCfg()
++        self.sim.use_newton_actuators = False
+         
+ @configclass
+ class DingoExplorationCfg(ManagerBasedRLEnvCfg):
+@@ -629,7 +637,8 @@ class DingoExplorationCfg(ManagerBasedRLEnvCfg):
+         self.decimation = 15
+         self.episode_length_s = 120.0
+         self.sim.dt = 0.01
+-        self.sim.disable_contact_processing = True
++        self.sim.physics = PhysxCfg()
++        self.sim.use_newton_actuators = False
+ 
+         
+ 
+diff --git a/eval_imagegoal_wheeled.py b/eval_imagegoal_wheeled.py
+index ad7b5cc..6ee04fb 100644
+--- a/eval_imagegoal_wheeled.py
++++ b/eval_imagegoal_wheeled.py
+@@ -1,5 +1,9 @@
+ import argparse
+-from omni.isaac.lab.app import AppLauncher
++from runtime_compat import require_supported_runtime, require_baseline_dependencies
++
++require_supported_runtime()
++require_baseline_dependencies(teleop=False)
++from isaaclab.app import AppLauncher
+ 
+ parser = argparse.ArgumentParser(description="A script to run a car control simulation")
+ parser.add_argument(
+@@ -19,7 +23,7 @@ parser.add_argument(
+ parser.add_argument(
+     "--port", type=int, default=8888)
+ args_cli = parser.parse_args()
+-app_launcher = AppLauncher(headless=True, enable_cameras=True)
++app_launcher = AppLauncher(headless=True, enable_cameras=True, kit_args="--/physics/disableContactProcessing=true")
+ simulation_app = app_launcher.app
+ 
+ import omni
+@@ -36,9 +40,9 @@ import cv2
+ import open3d as o3d
+ from scipy.spatial.transform import Rotation as R
+ from pxr import Usd, Sdf
+-from omni.isaac.lab.envs import ManagerBasedRLEnv
+-from omni.isaac.lab.managers import SceneEntityCfg
+-from omni.isaac.lab_tasks.utils.wrappers.rsl_rl import RslRlVecEnvWrapper
++from isaaclab.envs import ManagerBasedRLEnv
++from isaaclab.managers import SceneEntityCfg
++from isaaclab_rl.rsl_rl import RslRlVecEnvWrapper
+ from wheeled_robots.controllers.differential_controller import DifferentialController
+ import torchvision.transforms as F
+ import time
+@@ -193,7 +197,7 @@ while simulation_app.is_running():
+         # get all camera poses
+         camera_pos = env.unwrapped.scene.sensors['camera_sensor'].data.pos_w.cpu().numpy()
+         camera_rot_quat = env.unwrapped.scene.sensors['camera_sensor'].data.quat_w_world.cpu().numpy()
+-        camera_rot_quat = camera_rot_quat[:,[1, 2, 3, 0]]
++        # Lab 3 camera quaternions and SciPy both use XYZW.
+         camera_rot = R.from_quat(camera_rot_quat).as_matrix()
+         
+         with input_lock:
+diff --git a/eval_nogoal_wheeled.py b/eval_nogoal_wheeled.py
+index 7441ae1..2f5f108 100644
+--- a/eval_nogoal_wheeled.py
++++ b/eval_nogoal_wheeled.py
+@@ -1,5 +1,9 @@
+ import argparse
+-from omni.isaac.lab.app import AppLauncher
++from runtime_compat import require_supported_runtime, require_baseline_dependencies
++
++require_supported_runtime()
++require_baseline_dependencies(teleop=False)
++from isaaclab.app import AppLauncher
+ 
+ parser = argparse.ArgumentParser(description="A script to run a car control simulation")
+ parser.add_argument(
+@@ -19,7 +23,7 @@ parser.add_argument(
+ parser.add_argument(
+     "--port", type=int, default=8888)
+ args_cli = parser.parse_args()
+-app_launcher = AppLauncher(headless=True, enable_cameras=True)
++app_launcher = AppLauncher(headless=True, enable_cameras=True, kit_args="--/physics/disableContactProcessing=true")
+ simulation_app = app_launcher.app
+ 
+ import omni
+@@ -33,10 +37,10 @@ import torch
+ import open3d as o3d
+ from scipy.spatial.transform import Rotation as R
+ from pxr import Usd, Sdf
+-from omni.isaac.lab.envs import ManagerBasedRLEnv
+-from omni.isaac.lab.managers import SceneEntityCfg
+-from omni.isaac.lab.sensors.camera.utils import create_pointcloud_from_rgbd
+-from omni.isaac.lab_tasks.utils.wrappers.rsl_rl import RslRlVecEnvWrapper
++from isaaclab.envs import ManagerBasedRLEnv
++from isaaclab.managers import SceneEntityCfg
++from isaaclab.sensors.camera.utils import create_pointcloud_from_rgbd
++from isaaclab_rl.rsl_rl import RslRlVecEnvWrapper
+ from wheeled_robots.controllers.differential_controller import DifferentialController
+ import torchvision.transforms as F
+ import time
+@@ -216,7 +220,7 @@ while simulation_app.is_running():
+      
+         camera_pos = env.unwrapped.scene.sensors['camera_sensor'].data.pos_w.cpu().numpy()
+         camera_rot_quat = env.unwrapped.scene.sensors['camera_sensor'].data.quat_w_world.cpu().numpy()
+-        camera_rot_quat = camera_rot_quat[:,[1, 2, 3, 0]]
++        # Lab 3 camera quaternions and SciPy both use XYZW.
+         camera_rot = R.from_quat(camera_rot_quat).as_matrix()
+         
+         metric_camera_pos = env.unwrapped.scene.sensors["metric_sensor"].data.pos_w
+diff --git a/eval_pointgoal_wheeled.py b/eval_pointgoal_wheeled.py
+index c157bc0..933d5ef 100644
+--- a/eval_pointgoal_wheeled.py
++++ b/eval_pointgoal_wheeled.py
+@@ -1,5 +1,9 @@
+ import argparse
+-from omni.isaac.lab.app import AppLauncher
++from runtime_compat import require_supported_runtime, require_baseline_dependencies
++
++require_supported_runtime()
++require_baseline_dependencies(teleop=False)
++from isaaclab.app import AppLauncher
+ 
+ parser = argparse.ArgumentParser(description="A script to run a car control simulation")
+ parser.add_argument(
+@@ -19,7 +23,7 @@ parser.add_argument(
+ parser.add_argument(
+     "--port", type=int, default=8888)
+ args_cli = parser.parse_args()
+-app_launcher = AppLauncher(headless=True, enable_cameras=True)
++app_launcher = AppLauncher(headless=True, enable_cameras=True, kit_args="--/physics/disableContactProcessing=true")
+ simulation_app = app_launcher.app
+ 
+ import omni
+@@ -33,9 +37,9 @@ import torch
+ import open3d as o3d
+ from scipy.spatial.transform import Rotation as R
+ from pxr import Usd, Sdf
+-from omni.isaac.lab.envs import ManagerBasedRLEnv
+-from omni.isaac.lab.managers import SceneEntityCfg
+-from omni.isaac.lab_tasks.utils.wrappers.rsl_rl import RslRlVecEnvWrapper
++from isaaclab.envs import ManagerBasedRLEnv
++from isaaclab.managers import SceneEntityCfg
++from isaaclab_rl.rsl_rl import RslRlVecEnvWrapper
+ from wheeled_robots.controllers.differential_controller import DifferentialController
+ import torchvision.transforms as F
+ import time
+@@ -186,7 +190,7 @@ while simulation_app.is_running():
+         # get all camera poses
+         camera_pos = env.unwrapped.scene.sensors['camera_sensor'].data.pos_w.cpu().numpy()
+         camera_rot_quat = env.unwrapped.scene.sensors['camera_sensor'].data.quat_w_world.cpu().numpy()
+-        camera_rot_quat = camera_rot_quat[:,[1, 2, 3, 0]]
++        # Lab 3 camera quaternions and SciPy both use XYZW.
+         camera_rot = R.from_quat(camera_rot_quat).as_matrix()
+         
+         with input_lock:
+diff --git a/eval_startgoal_wheeled.py b/eval_startgoal_wheeled.py
+index 22281ba..4ea50ee 100644
+--- a/eval_startgoal_wheeled.py
++++ b/eval_startgoal_wheeled.py
+@@ -1,5 +1,9 @@
+ import argparse
+-from omni.isaac.lab.app import AppLauncher
++from runtime_compat import require_supported_runtime, require_baseline_dependencies
++
++require_supported_runtime()
++require_baseline_dependencies(teleop=False)
++from isaaclab.app import AppLauncher
+ 
+ parser = argparse.ArgumentParser(description="A script to run a car control simulation")
+ parser.add_argument(
+@@ -19,7 +23,7 @@ parser.add_argument(
+ parser.add_argument(
+     "--port", type=int, default=19999)
+ args_cli = parser.parse_args()
+-app_launcher = AppLauncher(headless=True, enable_cameras=True)
++app_launcher = AppLauncher(headless=True, enable_cameras=True, kit_args="--/physics/disableContactProcessing=true")
+ simulation_app = app_launcher.app
+ 
+ import omni
+@@ -33,9 +37,9 @@ import torch
+ import open3d as o3d
+ from scipy.spatial.transform import Rotation as R
+ from pxr import Usd, Sdf
+-from omni.isaac.lab.envs import ManagerBasedRLEnv
+-from omni.isaac.lab.managers import SceneEntityCfg
+-from omni.isaac.lab_tasks.utils.wrappers.rsl_rl import RslRlVecEnvWrapper
++from isaaclab.envs import ManagerBasedRLEnv
++from isaaclab.managers import SceneEntityCfg
++from isaaclab_rl.rsl_rl import RslRlVecEnvWrapper
+ from wheeled_robots.controllers.differential_controller import DifferentialController
+ import torchvision.transforms as F
+ import time
+@@ -193,7 +197,7 @@ while simulation_app.is_running():
+         # get all camera poses
+         camera_pos = env.unwrapped.scene.sensors['camera_sensor'].data.pos_w.cpu().numpy()
+         camera_rot_quat = env.unwrapped.scene.sensors['camera_sensor'].data.quat_w_world.cpu().numpy()
+-        camera_rot_quat = camera_rot_quat[:,[1, 2, 3, 0]]
++        # Lab 3 camera quaternions and SciPy both use XYZW.
+         camera_rot = R.from_quat(camera_rot_quat).as_matrix()
+         
+         with input_lock:
+diff --git a/teleop_imagegoal_wheeled.py b/teleop_imagegoal_wheeled.py
+index 249fffc..85382a2 100644
+--- a/teleop_imagegoal_wheeled.py
++++ b/teleop_imagegoal_wheeled.py
+@@ -1,5 +1,9 @@
+ import argparse
+-from omni.isaac.lab.app import AppLauncher
++from runtime_compat import require_supported_runtime, require_baseline_dependencies
++
++require_supported_runtime()
++require_baseline_dependencies(teleop=True)
++from isaaclab.app import AppLauncher
+ 
+ parser = argparse.ArgumentParser(description="A script to run a car control simulation")
+ parser.add_argument(
+@@ -15,7 +19,7 @@ parser.add_argument(
+ parser.add_argument(
+     "--port", type=int, default=8888)
+ args_cli = parser.parse_args()
+-app_launcher = AppLauncher(headless=False, enable_cameras=True)
++app_launcher = AppLauncher(headless=False, enable_cameras=True, kit_args="--/physics/disableContactProcessing=true")
+ simulation_app = app_launcher.app
+ 
+ import omni
+@@ -36,9 +40,9 @@ from queue import Queue
+ from typing import Optional, List, Tuple
+ from pynput import keyboard  # Replace keyboard with pynput.keyboard
+ from scipy.spatial.transform import Rotation as R
+-from omni.isaac.lab.envs import ManagerBasedRLEnv
+-from omni.isaac.lab.managers import SceneEntityCfg
+-from omni.isaac.lab_tasks.utils.wrappers.rsl_rl import RslRlVecEnvWrapper
++from isaaclab.envs import ManagerBasedRLEnv
++from isaaclab.managers import SceneEntityCfg
++from isaaclab_rl.rsl_rl import RslRlVecEnvWrapper
+ from wheeled_robots.controllers.differential_controller import DifferentialController
+ 
+ from utils_tasks.basic_utils import PlanningInput, PlanningOutput,find_usd_path,adjust_usd_scale
+@@ -216,7 +220,7 @@ def main():
+         # get all camera poses
+         camera_pos = env.unwrapped.scene.sensors['camera_sensor'].data.pos_w.cpu().numpy()
+         camera_rot_quat = env.unwrapped.scene.sensors['camera_sensor'].data.quat_w_world.cpu().numpy()
+-        camera_rot_quat = camera_rot_quat[:,[1, 2, 3, 0]]
++        # Lab 3 camera quaternions and SciPy both use XYZW.
+         camera_rot = R.from_quat(camera_rot_quat).as_matrix()
+         
+         # Update shared state with latest observations
+diff --git a/teleop_nogoal_wheeled.py b/teleop_nogoal_wheeled.py
+index ba2582c..904699f 100644
+--- a/teleop_nogoal_wheeled.py
++++ b/teleop_nogoal_wheeled.py
+@@ -1,5 +1,9 @@
+ import argparse
+-from omni.isaac.lab.app import AppLauncher
++from runtime_compat import require_supported_runtime, require_baseline_dependencies
++
++require_supported_runtime()
++require_baseline_dependencies(teleop=True)
++from isaaclab.app import AppLauncher
+ 
+ parser = argparse.ArgumentParser(description="A script to run a car control simulation")
+ parser.add_argument(
+@@ -15,7 +19,7 @@ parser.add_argument(
+ parser.add_argument(
+     "--port", type=int, default=8888)
+ args_cli = parser.parse_args()
+-app_launcher = AppLauncher(headless=False, enable_cameras=True)
++app_launcher = AppLauncher(headless=False, enable_cameras=True, kit_args="--/physics/disableContactProcessing=true")
+ simulation_app = app_launcher.app
+ 
+ import omni
+@@ -36,9 +40,9 @@ from queue import Queue
+ from typing import Optional, List, Tuple
+ from pynput import keyboard  # Replace keyboard with pynput.keyboard
+ from scipy.spatial.transform import Rotation as R
+-from omni.isaac.lab.envs import ManagerBasedRLEnv
+-from omni.isaac.lab.managers import SceneEntityCfg
+-from omni.isaac.lab_tasks.utils.wrappers.rsl_rl import RslRlVecEnvWrapper
++from isaaclab.envs import ManagerBasedRLEnv
++from isaaclab.managers import SceneEntityCfg
++from isaaclab_rl.rsl_rl import RslRlVecEnvWrapper
+ from wheeled_robots.controllers.differential_controller import DifferentialController
+ 
+ from utils_tasks.basic_utils import PlanningInput, PlanningOutput,find_usd_path,adjust_usd_scale
+@@ -211,7 +215,7 @@ def main():
+         # get all camera poses
+         camera_pos = env.unwrapped.scene.sensors['camera_sensor'].data.pos_w.cpu().numpy()
+         camera_rot_quat = env.unwrapped.scene.sensors['camera_sensor'].data.quat_w_world.cpu().numpy()
+-        camera_rot_quat = camera_rot_quat[:,[1, 2, 3, 0]]
++        # Lab 3 camera quaternions and SciPy both use XYZW.
+         camera_rot = R.from_quat(camera_rot_quat).as_matrix()
+         
+         # Update shared state with latest observations
+diff --git a/teleop_pointgoal_wheeled.py b/teleop_pointgoal_wheeled.py
+index 4d1d1f5..9255dba 100644
+--- a/teleop_pointgoal_wheeled.py
++++ b/teleop_pointgoal_wheeled.py
+@@ -1,5 +1,9 @@
+ import argparse
+-from omni.isaac.lab.app import AppLauncher
++from runtime_compat import require_supported_runtime, require_baseline_dependencies
++
++require_supported_runtime()
++require_baseline_dependencies(teleop=True)
++from isaaclab.app import AppLauncher
+ 
+ parser = argparse.ArgumentParser(description="A script to run a car control simulation")
+ parser.add_argument(
+@@ -15,7 +19,7 @@ parser.add_argument(
+ parser.add_argument(
+     "--port", type=int, default=8888)
+ args_cli = parser.parse_args()
+-app_launcher = AppLauncher(headless=False, enable_cameras=True)
++app_launcher = AppLauncher(headless=False, enable_cameras=True, kit_args="--/physics/disableContactProcessing=true")
+ simulation_app = app_launcher.app
+ 
+ import omni
+@@ -36,9 +40,9 @@ from queue import Queue
+ from typing import Optional, List, Tuple
+ from pynput import keyboard  # Replace keyboard with pynput.keyboard
+ from scipy.spatial.transform import Rotation as R
+-from omni.isaac.lab.envs import ManagerBasedRLEnv
+-from omni.isaac.lab.managers import SceneEntityCfg
+-from omni.isaac.lab_tasks.utils.wrappers.rsl_rl import RslRlVecEnvWrapper
++from isaaclab.envs import ManagerBasedRLEnv
++from isaaclab.managers import SceneEntityCfg
++from isaaclab_rl.rsl_rl import RslRlVecEnvWrapper
+ from wheeled_robots.controllers.differential_controller import DifferentialController
+ 
+ from utils_tasks.basic_utils import PlanningInput, PlanningOutput,draw_box_with_text, find_usd_path,adjust_usd_scale
+@@ -213,7 +217,7 @@ def main():
+         # get all camera poses
+         camera_pos = env.unwrapped.scene.sensors['camera_sensor'].data.pos_w.cpu().numpy()
+         camera_rot_quat = env.unwrapped.scene.sensors['camera_sensor'].data.quat_w_world.cpu().numpy()
+-        camera_rot_quat = camera_rot_quat[:,[1, 2, 3, 0]]
++        # Lab 3 camera quaternions and SciPy both use XYZW.
+         camera_rot = R.from_quat(camera_rot_quat).as_matrix()
+         
+         # Update shared state with latest observations
+diff --git a/wheeled_robots/controllers/base_controller.py b/wheeled_robots/controllers/base_controller.py
+index f0e494d..477f028 100644
+--- a/wheeled_robots/controllers/base_controller.py
++++ b/wheeled_robots/controllers/base_controller.py
+@@ -8,7 +8,7 @@
+ #
+ from abc import ABC, abstractmethod
+ 
+-from omni.isaac.core.utils.types import ArticulationAction
++from isaacsim.core.utils.types import ArticulationAction
+ 
+ 
+ class BaseController(ABC):
+diff --git a/wheeled_robots/controllers/differential_controller.py b/wheeled_robots/controllers/differential_controller.py
+index 2c779e9..916b909 100644
+--- a/wheeled_robots/controllers/differential_controller.py
++++ b/wheeled_robots/controllers/differential_controller.py
+@@ -9,7 +9,7 @@
+ 
+ import numpy as np
+ from .base_controller import BaseController
+-from omni.isaac.core.utils.types import ArticulationAction
++from isaacsim.core.utils.types import ArticulationAction
+ import torch
+ 
+ class DifferentialController(BaseController):
+@@ -95,8 +95,17 @@ class DifferentialController(BaseController):
+             torch.Tensor: the raw tensor of joint velocities for the batch.
+         """
+         # calculate wheel speed
++        commands = np.asarray(commands)
++        if commands.ndim != 2 or commands.shape[1] != 2:
++            raise ValueError("commands must have shape (batch, 2)")
++        commands = np.clip(
++            commands,
++            a_min=[-self.max_linear_speed, -self.max_angular_speed],
++            a_max=[self.max_linear_speed, self.max_angular_speed],
++        )
+         joint_velocities = np.zeros((commands.shape[0], 2))
+         joint_velocities[:, 0] = ((2 * commands[:, 0]) - (commands[:, 1] * self.wheel_base)) / (2 * self.wheel_radius)
+         joint_velocities[:, 1] = ((2 * commands[:, 0]) + (commands[:, 1] * self.wheel_base)) / (2 * self.wheel_radius)
+ 
++        joint_velocities = np.clip(joint_velocities, -self.max_wheel_speed, self.max_wheel_speed)
+         return torch.tensor(joint_velocities, dtype=torch.float32)
+\ No newline at end of file
+diff --git a/runtime_compat.py b/runtime_compat.py
+new file mode 100644
+--- /dev/null
++++ b/runtime_compat.py
+@@ -0,0 +1,48 @@
++"""Preflight for the migrated NavDP standalone scripts, before Kit is loaded.
++
++The archived requirements.txt describes the original Lab 2 environment. Keep it
++isolated from the primary Lab 3 / Sim 6.1 runtime. This preflight verifies the
++runtime family; it does not certify full navigation or external model assets.
++"""
++import importlib.metadata
++import importlib.util
++import sys
++
++
++def require_supported_runtime(*, python_version=None, version_lookup=None):
++    python_version = sys.version_info if python_version is None else python_version
++    version_lookup = importlib.metadata.version if version_lookup is None else version_lookup
++    prefix = (
++        "NavDP standalone simulation requires the project Isaac Lab 3.0 EA / Isaac Sim 6.1 "
++        "Python 3.12 environment. Activate that environment; do not install the archived "
++        "third_party/navdp/requirements.txt into the main runtime. "
++    )
++    if tuple(python_version[:2]) != (3, 12):
++        raise RuntimeError(prefix + f"Found Python {python_version[0]}.{python_version[1]}.")
++    try:
++        sim_version = version_lookup("isaacsim")
++        lab_version = version_lookup("isaaclab")
++    except importlib.metadata.PackageNotFoundError as exc:
++        raise RuntimeError(prefix + f"Missing installed package: {exc.name}.") from exc
++    if tuple(sim_version.split(".")[:2]) != ("6", "1"):
++        raise RuntimeError(prefix + f"Found Isaac Sim {sim_version}.")
++    # The target SDK's distribution version is 17.x; its repository VERSION is 3.0.0.
++    if lab_version.split(".")[0] != "17":
++        raise RuntimeError(prefix + f"Found isaaclab distribution {lab_version}; expected target SDK 17.x.")
++    return {"python": ".".join(map(str, python_version[:3])), "isaacsim": sim_version, "isaaclab_distribution": lab_version}
++
++
++def require_baseline_dependencies(*, teleop=False, module_lookup=None):
++    """Reject missing optional baseline packages before any Kit/GPU startup."""
++    module_lookup = importlib.util.find_spec if module_lookup is None else module_lookup
++    names = ["casadi", "pathfinding", "open3d", "cv2", "imageio", "requests", "rsl_rl", "torchvision", "scipy", "matplotlib"]
++    if teleop:
++        names.append("pynput")
++    missing = [name for name in names if module_lookup(name) is None]
++    if missing:
++        raise RuntimeError(
++            "Missing optional NavDP baseline modules: " + ", ".join(missing) + ". "
++            "Install compatible optional dependencies in the target SDK environment before launching "
++            "this baseline. Do not install its archived Lab 2 / NumPy 1 requirements into the main runtime."
++        )
++    return names

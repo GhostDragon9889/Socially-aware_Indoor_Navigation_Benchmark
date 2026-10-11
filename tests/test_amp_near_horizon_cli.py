@@ -91,7 +91,7 @@ def test_actual_runner_replan_passes_priority_and_keeps_subset_clocks(tmp_path):
 
     world = SimpleNamespace(device=torch.device('cpu'), validation_scene=SimpleNamespace(),
                             planner_inputs=lambda actor_ids: {'actor_ids': actor_ids})
-    namespace = dict(torch=torch, args=args, curriculum=None, reference_adapter=None, world=world,
+    namespace = dict(torch=torch, args=args, curriculum=None, reference_adapter=None, native_scene=None, world=world,
         planner=SimpleNamespace(plan=plan), new_goals=lambda actors: None,
         plans=plans, plan_age=ages, route_waypoints=torch.zeros(4, 10, 2), goals=torch.zeros(4, 2),
         waypoint_times=torch.arange(.5, 5.1, .5), guidance_weight=20., replan_count=0, planner_forward_calls=0)

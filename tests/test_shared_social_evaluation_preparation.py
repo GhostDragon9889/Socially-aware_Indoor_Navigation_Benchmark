@@ -4,6 +4,7 @@ import importlib.util
 import json
 from pathlib import Path
 import sys
+import subprocess
 import tempfile
 from types import SimpleNamespace
 import unittest
@@ -31,6 +32,13 @@ diagnostic_spec.loader.exec_module(diagnostic)
 
 
 class SharedEvaluationPreparationTests(unittest.TestCase):
+    def setUp(self):
+        self._modules_before = set(sys.modules)
+
+    def assert_no_new_heavy_modules(self, prefix):
+        self.assertFalse(any(name == prefix or name.startswith(prefix + '.')
+            for name in set(sys.modules) - self._modules_before))
+
     def test_single_asset_guard_keeps_sdk_release_logic(self):
         source = TERMINAL.read_text()
         original = next(node for node in ast.parse(source).body
@@ -63,8 +71,8 @@ class SharedEvaluationPreparationTests(unittest.TestCase):
         self.assertTrue(proof["derivation"]["whole_byte_reverse_exact"])
         self.assertIn("run_reference_clip", functions)
         self.assertEqual(parent.MANIFEST_SHA, "68d41be28908f28a09c47f7658af39d55fad01b32212bd7c0ced2b1e6b1489ca")
-        self.assertNotIn("torch", sys.modules)
-        self.assertNotIn("isaacsim", sys.modules)
+        self.assert_no_new_heavy_modules("torch")
+        self.assert_no_new_heavy_modules("isaacsim")
 
     def test_navigation_derivation_keeps_physical_and_metric_functions(self):
         original = navigation.PARENT.read_text()
@@ -76,11 +84,11 @@ class SharedEvaluationPreparationTests(unittest.TestCase):
         self.assertEqual(set(before), set(after))
         changed = {name for name in before if before[name] != after[name]}
         self.assertEqual(changed, {"_sources", "main"})
-        self.assertEqual(proof["replacement_count"], 9)
+        self.assertEqual(proof["replacement_count"], 10)
         self.assertTrue(proof["exact_inverse"])
         self.assertFalse(proof["physical_driver_changes_added"])
-        self.assertNotIn("torch", sys.modules)
-        self.assertNotIn("isaacsim", sys.modules)
+        self.assert_no_new_heavy_modules("torch")
+        self.assert_no_new_heavy_modules("isaacsim")
 
     def test_navigation_rejects_changed_launch_ownership(self):
         altered = navigation.PARENT.read_text().replace('owned["app"] = launcher(options).app',
@@ -100,7 +108,7 @@ class SharedEvaluationPreparationTests(unittest.TestCase):
             self.assertEqual(ast.dump(before, include_attributes=False), ast.dump(after, include_attributes=False))
         self.assertTrue(proof["exact_inverse"])
         self.assertFalse(proof["observation_math_changed"])
-        self.assertNotIn("torch", sys.modules)
+        self.assert_no_new_heavy_modules("torch")
 
     def test_training_windows_use_cumulative_count_differences_and_exact_exposure(self):
         rows = [{"driver_reason_counts": {"fell_actor_controls": count}, "reward_mean": reward,
@@ -111,7 +119,7 @@ class SharedEvaluationPreparationTests(unittest.TestCase):
         self.assertEqual(result[1]["reason_flags"], {"fell_actor_controls": 7})
         self.assertEqual([item["actor_controls"] for item in result], [16384, 8192])
         self.assertEqual([item["KL_stop_updates"] for item in result], [2, 1])
-        self.assertNotIn("torch", sys.modules)
+        self.assert_no_new_heavy_modules("torch")
 
     def fixture_receipt(self, directory):
         run = directory / "run"
@@ -164,7 +172,7 @@ class SharedEvaluationPreparationTests(unittest.TestCase):
             receipt_path.write_text(json.dumps(receipt))
             admission = entry.admit_training(receipt_path)[2]
             self.assertEqual(admission["value_normalization"], "popart")
-            self.assertNotIn("torch", sys.modules)
+            self.assert_no_new_heavy_modules("torch")
             result["canonical_entry"]["value_normalization"] = "legacy"
             result_path.write_text(json.dumps(result))
             receipt["result_identity"] = record(result_path)
@@ -272,3 +280,26 @@ class SharedEvaluationPreparationTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+def test_pure_preparation_import_and_operations_are_sdk_free_in_fresh_process():
+    # Pytest collection imports Torch for other modules; only a fresh process
+    # can prove that this preparation pipeline does not bootstrap the SDK.
+    source = """
+import importlib.util, sys, unittest
+from pathlib import Path
+root = Path(sys.argv[1])
+sys.path[:0] = [str(root / 'src'), str(root)]
+spec = importlib.util.spec_from_file_location('cold_preparation_tests', root / 'tests/test_shared_social_evaluation_preparation.py')
+module = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(module)
+names = ['test_navigation_derivation_keeps_physical_and_metric_functions',
+ 'test_scripted_origin_migration_keeps_all_observation_geometry',
+ 'test_training_windows_use_cumulative_count_differences_and_exact_exposure',
+ 'test_popart_family_requires_matching_independent_numeric_audit']
+result = unittest.TextTestRunner().run(unittest.TestSuite(module.SharedEvaluationPreparationTests(name) for name in names))
+assert result.wasSuccessful()
+assert not any(name.split('.')[0] in {'torch','isaaclab','isaacsim','omni','pxr','warp'} for name in sys.modules)
+"""
+    subprocess.run([sys.executable, '-I', '-c', source, str(ROOT)], check=True,
+                   capture_output=True, text=True, timeout=30)

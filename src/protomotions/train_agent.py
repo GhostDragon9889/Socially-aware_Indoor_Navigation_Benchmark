@@ -645,6 +645,9 @@ def main():
                 f"This may be an old checkpoint. Use --checkpoint flag for warm start instead."
             )
 
+        from protomotions.utils.pretrained_compat import require_supported_checkpoint_config
+
+        require_supported_checkpoint_config(resolved_configs_path)
         log.info(f"Loading configs from {resolved_configs_path}")
         resolved_configs = torch.load(
             resolved_configs_path, map_location="cpu", weights_only=False

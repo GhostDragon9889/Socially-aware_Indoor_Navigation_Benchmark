@@ -1,0 +1,66 @@
+{
+  "schema": "shared_social.source_bound_raw_array_kernel.v1",
+  "status": "passed",
+  "reader": {
+    "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/audit_shared_social_navigation.py",
+    "bytes": 8822,
+    "sha256": "8fb54bbd2048eb755713b025d7f5331c6296520fa3870a5ea4fec4afe48d0414"
+  },
+  "execution_receipt": {
+    "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/native_final_v4_Office_N03_sfm_C6000_SDK_receipt.json",
+    "bytes": 2140,
+    "sha256": "2838e18fac5f6e150fcadfa4dfbe4e17e4c1e87c9db913bac8979f4700045197"
+  },
+  "result": {
+    "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/native_final_v4_Office_N03_sfm_C6000/result.json",
+    "bytes": 2924712,
+    "sha256": "2088436c0ba406cb9b9e6fc9025b92e45f834e0975ed024053f522c81278fab1"
+  },
+  "arrays": [
+    {
+      "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/native_final_v4_Office_N03_sfm_C6000/physical_states.npz",
+      "bytes": 20023686,
+      "sha256": "9c15ab76931a21eb32358b4554021ad6fb3743e5ae6d53cf3784aa6c415c2c62"
+    },
+    {
+      "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/native_final_v4_Office_N03_sfm_C6000/ground_support.npz",
+      "bytes": 114234869,
+      "sha256": "e180d0f32283de5184882ca6eb55a5feb7226daee8dcef398a8a03cfec22eb64"
+    },
+    {
+      "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/native_final_v4_Office_N03_sfm_C6000/reference_plans.npz",
+      "bytes": 8164516,
+      "sha256": "4cbf9f63d6b8373073464310d40f8522523431236cf5c394bfa66099e8815203"
+    }
+  ],
+  "controls": 6000,
+  "actor_controls": 18000,
+  "physics_substeps": 24000,
+  "fall_termination_actor_controls": 597,
+  "fall_terminations_per_actor_second": 0.995,
+  "time_limit_terminations": 0,
+  "reset_actor_controls": 600,
+  "static_contact_actor_controls": 0,
+  "peer_contact_actor_controls": 0,
+  "unordered_peer_pair_controls": 0,
+  "native_normal_force_threshold_n": 1.0,
+  "route_vertices_reached": [
+    0,
+    0,
+    0
+  ],
+  "completed_episodes": 597,
+  "completed_episode_length_mean_controls": 30.09547738693467,
+  "same_episode_position_intervals": 17400,
+  "same_episode_root_speed_mean_mps": 0.9501659870147705,
+  "no_support_substep_fraction_mean": 0.044236112385988235,
+  "double_support_substep_fraction_mean": 0.6767500042915344,
+  "supported_foot_origin_proxy_samples": 151435,
+  "supported_foot_origin_speed_proxy_mean_mps": 0.17333728075027466,
+  "supported_foot_origin_speed_proxy_p95_mps": 0.665372908115387,
+  "support_proxy_scope": "all measured supported body-origin substeps; not contact-point slip; failures included",
+  "paper_rate_denominators_recovered": false,
+  "quality_or_author_equivalence_established": false,
+  "Torch_imported": false,
+  "SDK_executed": false
+}

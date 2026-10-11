@@ -73,3 +73,47 @@ def verify_owned_layers(layers, receipts):
         if (row['exact_inverse'] is not True or row['geometry_or_physics_opinions_changed'] is not False
                 or hashlib.sha256(layer.ExportToString().encode()).hexdigest() != row['owned_ram_sha256']):
             raise ValueError('Owned USD source changed after exact inverse verification')
+
+
+def stable_layer_receipts(layers, receipts, *, source_records):
+    """Compare independently created USD copies by content, not memory address.
+
+    Live anonymous identifiers remain in the owner's diagnostic receipt. Only
+    this pairing view replaces references to owned layers with original paths;
+    all other file opinions and every geometry/physics opinion are retained.
+    """
+    from pxr import Sdf, UsdUtils
+    verify_owned_layers(layers, receipts)
+    aliases = {row['owned_layer']: row['original'] for row in receipts}
+    if len(set(aliases.values())) != len(aliases):
+        raise ValueError('Duplicate original USD layer')
+    originals = {str(resolve_path(row['path'])) for row in source_records}
+    if len(originals) != len(source_records) or set(aliases.values()) != originals:
+        raise ValueError('Portable USD source closure is incomplete')
+    def canonical_path(value):
+        if value.startswith('anon:') and value not in aliases:
+            raise ValueError('Unregistered anonymous USD dependency')
+        return aliases.get(value, value)
+    by_id = {layer.identifier: layer for layer in layers}
+    expected_keys = {'original', 'original_ram_sha256', 'owned_layer', 'owned_ram_sha256',
+                     'file_location_changes', 'exact_inverse', 'geometry_or_physics_opinions_changed'}
+    result = []
+    for row in sorted(receipts, key=lambda r: r['original']):
+        if set(row) != expected_keys:
+            raise ValueError('Unexpected portable USD receipt fields')
+        changes = row['file_location_changes']
+        if len(set(changes.values())) != len(changes):
+            raise ValueError('Ambiguous portable USD receipt inverse')
+        reverse = {value: key for key, value in changes.items()}
+        copy = Sdf.Layer.CreateAnonymous('pairing_inverse.usda')
+        copy.TransferContent(by_id[row['owned_layer']])
+        UsdUtils.ModifyAssetPaths(copy, lambda v: reverse.get(v, v))
+        if hashlib.sha256(copy.ExportToString().encode()).hexdigest() != row['original_ram_sha256']:
+            raise ValueError('Portable USD inverse receipt changed')
+        copy.TransferContent(by_id[row['owned_layer']])
+        UsdUtils.ModifyAssetPaths(copy, canonical_path)
+        result.append({'original': row['original'], 'original_ram_sha256': row['original_ram_sha256'],
+                       'canonical_ram_sha256': hashlib.sha256(copy.ExportToString().encode()).hexdigest(),
+                       'file_location_changes': {k: canonical_path(v) for k, v in changes.items()},
+                       'exact_inverse': True, 'geometry_or_physics_opinions_changed': False})
+    return {'schema': 'portable_usd.content_pairing.v1', 'layers': result}

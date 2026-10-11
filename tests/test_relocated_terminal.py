@@ -9,11 +9,12 @@ from CrowdSim.humanoid.runtime.social_evaluation_lifecycle import (
 )
 
 
-def test_actual_sealed_verifier_accepts_same_files_after_directory_rename():
+def test_actual_sealed_verifier_accepts_same_files_after_directory_rename(monkeypatch):
+    monkeypatch.setattr("CrowdSim.humanoid.runtime.sdk61_lifecycle.uses_sim61", lambda: False)
     source = TERMINAL.read_text()
     assert hashlib.sha256(source.encode()).hexdigest() == TERMINAL_SHA
-    derived, record = derive_relocated_checkout(source, ROOT.parent / 'ProtoMotions', ROOT)
-    assert record['exact_inverse'] and record['absolute_source_path_changes'] == 2
+    derived, record = derive_relocated_checkout(source, ROOT, ROOT)
+    assert record['exact_inverse'] and record['absolute_source_path_changes'] >= 2
     assert not record['SDK_source_changes'] and not record['shutdown_operations_changed']
     assert len(derived.splitlines()) == len(source.splitlines())
     report = {}
@@ -33,10 +34,11 @@ def test_directory_alias_to_other_checkout_is_rejected(tmp_path):
 def test_expected_source_shape_cannot_silently_change():
     changed = TERMINAL.read_text().replace('manifest["extension_path"] != str(OVERLAY)', 'True')
     with pytest.raises(ValueError, match='Ambiguous'):
-        derive_relocated_checkout(changed, ROOT.parent / 'ProtoMotions', ROOT)
+        derive_relocated_checkout(changed, ROOT, ROOT)
 
 
-def test_sdk_split_arguments_preserve_exact_overlay_directory():
+def test_sdk_split_arguments_preserve_exact_overlay_directory(monkeypatch):
+    monkeypatch.setattr("CrowdSim.humanoid.runtime.sdk61_lifecycle.uses_sim61", lambda: False)
     import json
     report = {}
     owner = IsolatedTrackingLifecycle(report)

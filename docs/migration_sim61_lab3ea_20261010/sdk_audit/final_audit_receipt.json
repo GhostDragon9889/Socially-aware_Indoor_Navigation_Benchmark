@@ -1,0 +1,91 @@
+{
+  "scope": {
+    "src": {
+      "files": 623,
+      "lines": 170853,
+      "parse_pass": 623,
+      "warnings": 1
+    },
+    "scripts": {
+      "files": 143,
+      "lines": 24109,
+      "parse_pass": 143,
+      "warnings": 0
+    },
+    "third_party": {
+      "files": 701,
+      "lines": 125166,
+      "parse_pass": 701,
+      "warnings": 9
+    },
+    "examples": {
+      "files": 47,
+      "lines": 11240,
+      "parse_pass": 47,
+      "warnings": 0
+    }
+  },
+  "files": 1514,
+  "lines": 331368,
+  "definitions": 14364,
+  "imports": 11268,
+  "critical_ruff_candidates": {
+    "F405": 597,
+    "F402": 2
+  },
+  "navdp_matrix": {
+    "legacy_import_statements": 69,
+    "new_modules": 22,
+    "resolved_source_paths": 69,
+    "unresolved": []
+  },
+  "git_commit_push": false,
+  "vendor_navdp_cpu.xml": {
+    "tests": "29",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "time": "7.311"
+  },
+  "final_newton_vendor_cpu.xml": {
+    "tests": "66",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "2",
+    "time": "9.266"
+  },
+  "newton_all_cpu.xml": {
+    "tests": "37",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "2",
+    "time": "5.406"
+  },
+  "newton_legacy_cpu.xml": {
+    "tests": "13",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "time": "13.622"
+  },
+  "gpu_diagnostics": {
+    "bare_physx_preclose": "inferior exits normally; root blank stock process exit0",
+    "real_secondfloor_1step": "SIGSEGV during ArticulationData SimulationView finalization; exact objects captured",
+    "actual_scene_repaired_exit_validation": "root SecondFloor_N1_60_07 actual parent exit0, 60 controls, 0falls, view weakref dead before App.close; see native_n1_exit_acceptance.json"
+  },
+  "initial_full_static_snapshot": {
+    "files": 1512,
+    "lines": 330820,
+    "note": "Before two new regression/compatibility source files; scope src/scripts/third_party/examples."
+  },
+  "vendor_navdp_quaternion_cpu.xml": {
+    "name": "pytest",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "0",
+    "tests": "36",
+    "time": "7.039",
+    "timestamp": "2026-10-11T00:20:10.018022+08:00",
+    "hostname": "lfm-UBUNTU"
+  }
+}

@@ -132,6 +132,10 @@ class KeyBindingScope:
         (global key uniqueness is still enforced by :class:`UserInterface`).
         """
         _validate_action_name(action)
+        if hasattr(type(self), action):
+            raise ValueError(
+                f"Action name '{action}' shadows a KeyBindingScope attribute"
+            )
         if action in self._actions:
             raise ValueError(
                 f"Action '{action}' is already registered in scope "

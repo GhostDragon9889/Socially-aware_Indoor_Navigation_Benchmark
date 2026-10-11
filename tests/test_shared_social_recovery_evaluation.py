@@ -5,6 +5,7 @@ from copy import deepcopy
 import json
 from pathlib import Path
 import sys
+import subprocess
 from tempfile import TemporaryDirectory
 import unittest
 from unittest.mock import patch
@@ -24,7 +25,11 @@ class RecoveryEvaluationTests(unittest.TestCase):
 
     def test_actual_terminal_metadata_admitted_cold(self):
         self.validate(self.documents)
-        self.assertNotIn("torch", sys.modules)
+        cold = subprocess.run([sys.executable, "-c",
+            "import sys; from CrowdSim.humanoid.application.recovery_evaluation_admission import completed_documents; "
+            "completed_documents(); assert 'torch' not in sys.modules"],
+            cwd=admission.ROOT, capture_output=True, text=True)
+        self.assertEqual(cold.returncode, 0, cold.stderr)
 
     def test_exit_is_actual_exact_integer_zero(self):
         for value in [False, True, None, "0", 1, -9]:
@@ -107,7 +112,11 @@ class RecoveryEvaluationTests(unittest.TestCase):
                 self.assertTrue(binding["derivation"]["complete_source_inverse"])
                 self.assertFalse(binding["derivation"]["tracking_style_navigation_metric_or_physics_math_changed"])
                 self.assertIsNot(module.admit_training, admission.admit_training)
-        self.assertNotIn("torch", sys.modules)
+        cold = subprocess.run([sys.executable, "-c",
+            "import sys; from scripts import evaluate_shared_social_recovery as e; "
+            "[e.prepare(stage) for stage in e.PARENTS]; assert 'torch' not in sys.modules"],
+            cwd=admission.ROOT, capture_output=True, text=True)
+        self.assertEqual(cold.returncode, 0, cold.stderr)
 
     def test_ambiguous_child_routing_rejected(self):
         source = (admission.ROOT / evaluation.PARENTS["tracking_style"][0]).read_text()

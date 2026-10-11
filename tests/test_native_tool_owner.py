@@ -2,6 +2,8 @@
 from __future__ import annotations
 
 import json
+import subprocess
+import sys
 from pathlib import Path
 from types import SimpleNamespace
 
@@ -62,8 +64,11 @@ def test_execution_preflight_refuses_missing_S3_completion_without_creating_nati
     plan = owner.build_plan("Office_N03_seed19", path)
     owner.bridge._write_new(path, plan)
     assert not Path(plan["observation_directory"]).exists()
-    with pytest.raises(FileNotFoundError):
-        owner.main(["--mode", "execution-preflight", "--registration", str(path)])
+    child = subprocess.run([sys.executable, owner.__file__, "--mode", "execution-preflight",
+                            "--registration", str(path)], cwd=owner.ROOT, text=True, capture_output=True)
+    assert child.returncode != 0
+    assert "FileNotFoundError" in child.stderr
+    assert "external_owner_completion.json" in child.stderr
     assert not Path(plan["observation_directory"]).exists()
 
 

@@ -17,7 +17,16 @@ def lab_root():
         spec = util.find_spec("isaaclab")
         if spec is None or not spec.submodule_search_locations:
             raise RuntimeError("IsaacLab source checkout not found; run scripts/bootstrap_reproduction.py")
-        path = Path(next(iter(spec.submodule_search_locations))).resolve().parents[2]
+        candidates = []
+        for location in spec.submodule_search_locations:
+            package = Path(location).resolve()
+            if len(package.parents) >= 3:
+                candidate = package.parents[2]
+                if (candidate / "source/isaaclab/isaaclab").resolve() == package and (package / "__init__.py").is_file():
+                    candidates.append(candidate)
+        if len(set(candidates)) != 1:
+            raise RuntimeError("IsaacLab import path does not identify one source checkout; check ISAACLAB_ROOT and PYTHONPATH")
+        path = candidates[0]
     if not (path / "source/isaaclab/isaaclab").is_dir():
         raise RuntimeError("ISAACLAB_ROOT must identify the pinned source checkout")
     return path

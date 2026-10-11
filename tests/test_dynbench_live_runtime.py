@@ -1,5 +1,7 @@
 """Fake-interface CPU contracts, not SDK native execution or physics evidence."""
 from types import SimpleNamespace
+import hashlib
+from pathlib import Path
 import sys
 
 import numpy as np
@@ -11,6 +13,26 @@ import test_dynbench_scene_provider as source_contracts
 
 # Reuse the explicit source-bound contract fixture, without importing SDK.
 evidence = source_contracts.evidence
+
+
+def test_floor_points_compare_the_actual_USD_float32_representation():
+    from pxr import Usd, UsdGeom
+    from CrowdSim.humanoid.runtime.dynbench_live import _matches_authored_points
+    # Hospital's 37.6 metre boundary rounds by 1.53e-6 in a point3f array.
+    points, _, _ = reference_ground_geometry(((-48.8, -4.9), (27.4, 37.4)), 0., .2)
+    stage = Usd.Stage.CreateInMemory()
+    mesh = UsdGeom.Mesh.Define(stage, '/Floor')
+    mesh.CreatePointsAttr(points)
+    actual = np.asarray(mesh.GetPointsAttr().Get())
+    assert actual.dtype == np.float32
+    assert np.max(np.abs(actual.astype(np.float64) - points)) > 1e-6
+    assert _matches_authored_points(actual, points)
+    changed = actual.copy()
+    changed[0, 0] += .001
+    assert not _matches_authored_points(changed, points)
+    assert not _matches_authored_points(actual[:1], points)
+    changed[0, 0] = np.nan
+    assert not _matches_authored_points(changed, points)
 
 
 class Attribute:
@@ -103,6 +125,17 @@ def live(evidence, monkeypatch):
         Prim("/World/physicsScene", kind="Scene", collision=False),
         Prim("/World/envs/env_0/Robot/Foot")], sublayers=[provider._data["source"]["path"]])
     source_stage = Stage([Prim("/Root", kind="Xform", collision=False), Prim("/Root/SourcePhysics", kind="Scene", collision=False)])
+    # This fixture constructs a fake spawned owner, so supply the same layer
+    # closure fields that the real provider._spawn publishes. The actual
+    # verify_owned_layers function still validates every declared memory hash.
+    source_path = provider._data["source"]["path"]
+    source_text = Path(source_path).read_text()
+    owned = SimpleNamespace(identifier=source_path, ExportToString=lambda: source_text)
+    provider._runtime_source_layer = owned
+    provider._portable_layers = (owned,)
+    provider._portable_usd_receipt = [{"owned_layer": source_path,
+        "owned_ram_sha256": hashlib.sha256(source_text.encode()).hexdigest(),
+        "exact_inverse": True, "geometry_or_physics_opinions_changed": False}]
     context = Context(stage)
     hit_rows = [SimpleNamespace(collision=FLOOR_PATH, rigid_body="", position=(0., 0., 0.), normal=(0., 0., 1.), distance=.3)]
     calls = []
@@ -147,7 +180,11 @@ def live(evidence, monkeypatch):
     monkeypatch.setattr(Prim, "IsA", is_a)
     monkeypatch.setattr(Prim, "HasAPI", has_api)
     monkeypatch.setitem(sys.modules, "pxr", SimpleNamespace(Usd=usd, UsdGeom=geometry, UsdPhysics=physics))
-    monkeypatch.setitem(sys.modules, "isaaclab.sim", SimpleNamespace(SimulationContext=SimpleNamespace(instance=lambda: context)))
+    simulated_sdk = SimpleNamespace(SimulationContext=SimpleNamespace(instance=lambda: context))
+    monkeypatch.setitem(sys.modules, "isaaclab.sim", simulated_sdk)
+    # Python may resolve an already imported submodule through its parent attr.
+    if "isaaclab" in sys.modules:
+        monkeypatch.setattr(sys.modules["isaaclab"], "sim", simulated_sdk, raising=False)
     monkeypatch.setattr(dynbench_scene, "_active_spawn_stage", lambda: stage)
     provider.bind_native_query(SimpleNamespace(raycast_all=raycast), physics_step_count=context.get_physics_step_count,
         dynamic_robot_roots=["/World/envs/env_0/Robot"])
@@ -192,7 +229,10 @@ def test_live_gate_rejects_wrong_stage_context_floor_source_or_material(live, mo
     elif change == "wrong_stage":
         live.context.stage = object()
     elif change == "wrong_singleton":
-        monkeypatch.setitem(sys.modules, "isaaclab.sim", SimpleNamespace(SimulationContext=SimpleNamespace(instance=lambda: object())))
+        wrong_sdk = SimpleNamespace(SimulationContext=SimpleNamespace(instance=lambda: object()))
+        monkeypatch.setitem(sys.modules, "isaaclab.sim", wrong_sdk)
+        if "isaaclab" in sys.modules:
+            monkeypatch.setattr(sys.modules["isaaclab"], "sim", wrong_sdk, raising=False)
     elif change == "wrong_counter":
         live.provider._counter = lambda: 2
     with pytest.raises((ValueError, RuntimeError)):

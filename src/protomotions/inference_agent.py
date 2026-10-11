@@ -246,6 +246,9 @@ def main():
         resolved_configs_path.exists()
     ), f"Could not find resolved configs at {resolved_configs_path}"
 
+    from protomotions.utils.pretrained_compat import require_supported_checkpoint_config
+
+    require_supported_checkpoint_config(resolved_configs_path)
     log.info(f"Loading resolved configs from {resolved_configs_path}")
     resolved_configs = torch.load(
         resolved_configs_path, map_location="cpu", weights_only=False

@@ -3,15 +3,19 @@
 
 """Exercise real core PPO updates with singleton rollout/minibatch moments."""
 
+from datetime import timedelta
 from types import SimpleNamespace
 
 import pytest
 import torch
+import torch.distributed as dist
+import torch.multiprocessing as mp
 from torch import nn
 
 from protomotions.agents.ppo.agent import PPO
 from protomotions.agents.ppo.config import AdvantageNormalizationConfig
 from protomotions.agents.utils.data import ExperienceBuffer
+from protomotions.agents.utils.training import aggregate_scalar_metrics
 
 
 class _Actor(nn.Module):
@@ -87,7 +91,7 @@ def _rollout(agent, count):
     PPO.pre_process_dataset(agent)
     obs = torch.arange(1, count + 1, dtype=torch.float).unsqueeze(-1)
     action = torch.full((count, 1), 0.5)
-    old_distribution = torch.distributions.Normal(obs * agent.actor.weight.detach(), agent.actor.logstd.exp())
+    old_distribution = torch.distributions.Normal(obs * agent.actor_module.weight.detach(), agent.actor_module.logstd.exp())
     return {
         "obs": obs, "action": action,
         "neglogp": -old_distribution.log_prob(action).sum(-1),
@@ -135,3 +139,87 @@ def test_distributed_batch_moments_include_between_rank_variance_for_singletons(
     batch = _rollout(agent, 1)
     # Combined raw advantages [1,3] have mean 2 and population variance 1.
     assert torch.allclose(batch["advantages"], torch.tensor([-1.0]))
+
+
+def test_distributed_ema_uses_all_rank_samples_and_between_rank_variance():
+    agent = _agent(use_ema=True)
+    agent.config.advantage_normalization.clamp_range = 10.0
+    agent.config.advantage_normalization.ema_alpha = 0.5
+    agent.fabric.world_size = 2
+    calls = []
+
+    def all_gather(value):
+        calls.append(value)
+        if isinstance(value, int):
+            return torch.tensor([1, 3])
+        if len(calls) == 1:
+            return torch.tensor([1.0, 5.0])
+        return torch.tensor([0.0, 8.0 / 3.0])
+
+    agent.fabric.all_gather = all_gather
+    _rollout(agent, 1)
+    global_values = torch.tensor([1.0, 3.0, 5.0, 7.0])
+    torch.testing.assert_close(agent.adv_mean_ema, 0.5 * global_values.mean())
+    torch.testing.assert_close(agent.adv_std_ema, 0.5 * global_values.std(unbiased=False) + 0.5)
+
+
+class _GlooFabric:
+    world_size = 2
+    device = torch.device("cpu")
+
+    def __init__(self, rank):
+        self.global_rank = rank
+
+    def all_gather(self, value):
+        value = torch.as_tensor(value)
+        gathered = [torch.empty_like(value) for _ in range(self.world_size)]
+        dist.all_gather(gathered, value)
+        return torch.stack(gathered)
+
+    def broadcast(self, value, src):
+        dist.broadcast(value, src)
+        return value
+
+    def backward(self, loss):
+        loss.backward()
+
+
+def _distributed_ppo_worker(rank, rendezvous):
+    dist.init_process_group("gloo", init_method=f"file://{rendezvous}", rank=rank,
+                            world_size=2, timeout=timedelta(seconds=30))
+    try:
+        agent = _agent(use_ema=True)
+        agent.fabric = _GlooFabric(rank)
+        agent.actor = nn.parallel.DistributedDataParallel(agent.actor)
+        agent.critic = nn.parallel.DistributedDataParallel(agent.critic)
+        agent.config.advantage_normalization.clamp_range = 10.0
+        agent.config.advantage_normalization.ema_alpha = 0.5
+        values = torch.tensor([1.0, 1.0, 2.0, 3.0])
+        expected_mean, expected_std = torch.tensor(0.0), torch.tensor(1.0)
+        initial_actor = agent.actor_module.weight.detach().clone()
+        initial_critic = agent.critic_module.weight.detach().clone()
+        for iteration in range(2):
+            batch = _rollout(agent, 1 if rank == 0 else 3)
+            expected_mean = 0.5 * values.mean() + 0.5 * expected_mean
+            expected_std = 0.5 * values.std(unbiased=False) + 0.5 * expected_std
+            torch.testing.assert_close(agent.adv_mean_ema, expected_mean)
+            torch.testing.assert_close(agent.adv_std_ema, expected_std)
+            logs = PPO.perform_optimization_step(agent, batch, batch_idx=iteration)
+            assert all(torch.isfinite(torch.as_tensor(value)).all() for value in logs.values())
+            for parameter in (agent.actor_module.weight, agent.critic_module.weight):
+                gathered = agent.fabric.all_gather(parameter.detach())
+                torch.testing.assert_close(gathered[0], gathered[1])
+        assert agent.actor_module.weight.item() != initial_actor.item()
+        assert agent.critic_module.weight.item() != initial_critic.item()
+        metrics = aggregate_scalar_metrics(
+            {"loss": torch.tensor([float(rank + 1)])}, agent.fabric,
+            weight=1 if rank == 0 else 3,
+        )
+        assert metrics["loss"] == 1.75
+    finally:
+        dist.destroy_process_group()
+
+
+@pytest.mark.skipif(not dist.is_gloo_available(), reason="needs CPU Gloo distributed backend")
+def test_real_cpu_distributed_ppo_updates_with_unequal_environment_counts(tmp_path):
+    mp.spawn(_distributed_ppo_worker, args=(str(tmp_path / "rendezvous"),), nprocs=2, join=True)

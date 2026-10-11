@@ -1,0 +1,887 @@
+[
+  {
+    "path": "src/CrowdSim/control/drive.py",
+    "line": 215,
+    "field": "root_quat_w"
+  },
+  {
+    "path": "src/CrowdSim/control/drive.py",
+    "line": 295,
+    "field": "root_pos_w"
+  },
+  {
+    "path": "src/CrowdSim/control/drive.py",
+    "line": 296,
+    "field": "root_quat_w"
+  },
+  {
+    "path": "src/CrowdSim/control/drive.py",
+    "line": 227,
+    "field": "root_pos_w"
+  },
+  {
+    "path": "src/CrowdSim/control/drive.py",
+    "line": 409,
+    "field": "root_pos_w"
+  },
+  {
+    "path": "src/CrowdSim/control/drive.py",
+    "line": 410,
+    "field": "root_quat_w"
+  },
+  {
+    "path": "src/CrowdSim/control/drive.py",
+    "line": 267,
+    "field": "root_pos_w"
+  },
+  {
+    "path": "src/CrowdSim/control/drive.py",
+    "line": 268,
+    "field": "root_quat_w"
+  },
+  {
+    "path": "src/CrowdSim/humanoid/amass_corpus.py",
+    "line": 124,
+    "field": "get"
+  },
+  {
+    "path": "src/CrowdSim/humanoid/amp_world.py",
+    "line": 68,
+    "field": "joint_vel"
+  },
+  {
+    "path": "src/CrowdSim/humanoid/runtime/native_contact_report.py",
+    "line": 33,
+    "field": "force_matrix_w"
+  },
+  {
+    "path": "src/CrowdSim/humanoid/runtime/native_contact_report.py",
+    "line": 37,
+    "field": "net_forces_w"
+  },
+  {
+    "path": "src/CrowdSim/humanoid/runtime/sealed/sdk6_terminal.py",
+    "line": 89,
+    "field": "default_joint_pos"
+  },
+  {
+    "path": "src/CrowdSim/humanoid/runtime/sealed/sdk6_terminal.py",
+    "line": 90,
+    "field": "default_joint_vel"
+  },
+  {
+    "path": "src/CrowdSim/humanoid/runtime/sealed/sdk6_terminal.py",
+    "line": 168,
+    "field": "default_joint_pos"
+  },
+  {
+    "path": "src/CrowdSim/humanoid/runtime/sealed/sdk6_terminal.py",
+    "line": 783,
+    "field": "default_root_pose"
+  },
+  {
+    "path": "src/CrowdSim/nav_manager.py",
+    "line": 1698,
+    "field": "output"
+  },
+  {
+    "path": "src/CrowdSim/nav_manager.py",
+    "line": 1754,
+    "field": "output"
+  },
+  {
+    "path": "src/CrowdSim/nav_manager.py",
+    "line": 2417,
+    "field": "root_ang_vel_w"
+  },
+  {
+    "path": "src/CrowdSim/nav_manager.py",
+    "line": 2423,
+    "field": "root_quat_w"
+  },
+  {
+    "path": "src/CrowdSim/nav_manager.py",
+    "line": 1909,
+    "field": "default_root_state"
+  },
+  {
+    "path": "src/CrowdSim/nav_manager.py",
+    "line": 1924,
+    "field": "default_joint_vel"
+  },
+  {
+    "path": "src/CrowdSim/nav_manager.py",
+    "line": 1923,
+    "field": "default_joint_pos"
+  },
+  {
+    "path": "src/CrowdSim/nav_manager.py",
+    "line": 2507,
+    "field": "root_pos_w"
+  },
+  {
+    "path": "src/CrowdSim/nav_manager.py",
+    "line": 2508,
+    "field": "root_quat_w"
+  },
+  {
+    "path": "src/CrowdSim/nav_manager.py",
+    "line": 772,
+    "field": "root_pos_w"
+  },
+  {
+    "path": "src/CrowdSim/nav_manager.py",
+    "line": 773,
+    "field": "root_lin_vel_w"
+  },
+  {
+    "path": "src/CrowdSim/nav_manager.py",
+    "line": 1200,
+    "field": "joint_vel"
+  },
+  {
+    "path": "src/CrowdSim/nav_manager.py",
+    "line": 1155,
+    "field": "root_pos_w"
+  },
+  {
+    "path": "src/CrowdSim/scene_setup.py",
+    "line": 705,
+    "field": "default_root_state"
+  },
+  {
+    "path": "src/CrowdSim/scene_setup.py",
+    "line": 715,
+    "field": "default_joint_vel"
+  },
+  {
+    "path": "src/CrowdSim/scene_setup.py",
+    "line": 714,
+    "field": "default_joint_pos"
+  },
+  {
+    "path": "src/CrowdSim/tests/test_quaternion_boundaries.py",
+    "line": 118,
+    "field": "root_pos_w"
+  },
+  {
+    "path": "src/CrowdSim/tools/smpl_mesh_visualizer.py",
+    "line": 186,
+    "field": "joint_names"
+  },
+  {
+    "path": "src/CrowdSim/tools/smpl_mesh_visualizer.py",
+    "line": 187,
+    "field": "joint_pos"
+  },
+  {
+    "path": "src/CrowdSim/tools/smpl_mesh_visualizer.py",
+    "line": 190,
+    "field": "root_quat_w"
+  },
+  {
+    "path": "src/CrowdSim/tools/smpl_mesh_visualizer.py",
+    "line": 194,
+    "field": "root_pos_w"
+  },
+  {
+    "path": "src/CrowdSim/tools/test_camera_depth.py",
+    "line": 56,
+    "field": "output"
+  },
+  {
+    "path": "src/CrowdSim/tools/test_camera_depth.py",
+    "line": 126,
+    "field": "output"
+  },
+  {
+    "path": "src/CrowdSim/tools/test_robot_kinematics.py",
+    "line": 345,
+    "field": "default_joint_vel"
+  },
+  {
+    "path": "src/CrowdSim/tools/test_robot_kinematics.py",
+    "line": 344,
+    "field": "default_joint_pos"
+  },
+  {
+    "path": "src/CrowdSim/tools/test_robot_kinematics.py",
+    "line": 459,
+    "field": "joint_names"
+  },
+  {
+    "path": "src/CrowdSim/tools/test_robot_kinematics.py",
+    "line": 327,
+    "field": "root_quat_w"
+  },
+  {
+    "path": "src/CrowdSim/tools/test_robot_kinematics.py",
+    "line": 282,
+    "field": "root_pos_w"
+  },
+  {
+    "path": "src/CrowdSim/tools/test_robot_kinematics.py",
+    "line": 283,
+    "field": "root_pos_w"
+  },
+  {
+    "path": "src/CrowdSim/tools/test_robot_kinematics.py",
+    "line": 284,
+    "field": "root_quat_w"
+  },
+  {
+    "path": "src/CrowdSim/tools/test_robot_kinematics.py",
+    "line": 289,
+    "field": "root_lin_vel_w"
+  },
+  {
+    "path": "src/CrowdSim/tools/test_robot_kinematics.py",
+    "line": 291,
+    "field": "root_ang_vel_w"
+  },
+  {
+    "path": "src/CrowdSim/tools/validate_drive_integration.py",
+    "line": 58,
+    "field": "root_quat_w"
+  },
+  {
+    "path": "src/CrowdSim/tools/validate_drive_integration.py",
+    "line": 75,
+    "field": "root_quat_w"
+  },
+  {
+    "path": "src/CrowdSim/tools/validate_drive_integration.py",
+    "line": 66,
+    "field": "root_lin_vel_w"
+  },
+  {
+    "path": "src/CrowdSim/tools/validate_drive_integration.py",
+    "line": 67,
+    "field": "root_ang_vel_w"
+  },
+  {
+    "path": "src/CrowdSim/tools/validate_drive_integration.py",
+    "line": 57,
+    "field": "root_pos_w"
+  },
+  {
+    "path": "src/CrowdSim/tools/validate_drive_integration.py",
+    "line": 74,
+    "field": "root_pos_w"
+  },
+  {
+    "path": "src/CrowdSim/utils/sensor_stream.py",
+    "line": 108,
+    "field": "output"
+  },
+  {
+    "path": "src/CrowdSim/utils/sensor_stream.py",
+    "line": 91,
+    "field": "image_shape"
+  },
+  {
+    "path": "src/CrowdSim/utils/sensor_stream.py",
+    "line": 93,
+    "field": "intrinsic_matrices"
+  },
+  {
+    "path": "src/CrowdSim/utils/sensor_stream.py",
+    "line": 94,
+    "field": "intrinsic_matrices"
+  },
+  {
+    "path": "src/protomotions/agents/amp/component.py",
+    "line": 750,
+    "field": "clone"
+  },
+  {
+    "path": "src/protomotions/agents/common/common.py",
+    "line": 81,
+    "field": "fill_"
+  },
+  {
+    "path": "src/protomotions/agents/evaluators/metrics.py",
+    "line": 124,
+    "field": "masked_fill"
+  },
+  {
+    "path": "src/protomotions/agents/evaluators/metrics.py",
+    "line": 144,
+    "field": "masked_fill"
+  },
+  {
+    "path": "src/protomotions/agents/evaluators/metrics.py",
+    "line": 163,
+    "field": "masked_fill"
+  },
+  {
+    "path": "src/protomotions/agents/evaluators/metrics.py",
+    "line": 320,
+    "field": "masked_fill"
+  },
+  {
+    "path": "src/protomotions/agents/evaluators/metrics.py",
+    "line": 528,
+    "field": "clone"
+  },
+  {
+    "path": "src/protomotions/agents/evaluators/metrics.py",
+    "line": 551,
+    "field": "shape"
+  },
+  {
+    "path": "src/protomotions/agents/evaluators/metrics.py",
+    "line": 555,
+    "field": "zero_"
+  },
+  {
+    "path": "src/protomotions/agents/evaluators/metrics.py",
+    "line": 561,
+    "field": "to"
+  },
+  {
+    "path": "src/protomotions/agents/mimic/agent_add.py",
+    "line": 94,
+    "field": "shape"
+  },
+  {
+    "path": "src/protomotions/agents/peft/prior_with_peft.py",
+    "line": 289,
+    "field": "zero_"
+  },
+  {
+    "path": "src/protomotions/agents/peft/prior_with_peft.py",
+    "line": 291,
+    "field": "zero_"
+  },
+  {
+    "path": "src/protomotions/agents/peft/utils/frozen_prior_checkpoint.py",
+    "line": 66,
+    "field": "copy_"
+  },
+  {
+    "path": "src/protomotions/agents/ppo/agent.py",
+    "line": 178,
+    "field": "clone"
+  },
+  {
+    "path": "src/protomotions/agents/utils/metering.py",
+    "line": 243,
+    "field": "items"
+  },
+  {
+    "path": "src/protomotions/components/pose_lib.py",
+    "line": 1660,
+    "field": "qpos"
+  },
+  {
+    "path": "src/protomotions/components/pose_lib.py",
+    "line": 1662,
+    "field": "xpos"
+  },
+  {
+    "path": "src/protomotions/components/pose_lib.py",
+    "line": 1663,
+    "field": "xquat"
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/simulator.py",
+    "line": 1012,
+    "field": "root_pos_w"
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/simulator.py",
+    "line": 570,
+    "field": "default_mass"
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/simulator.py",
+    "line": 571,
+    "field": "default_inertia"
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/simulator.py",
+    "line": 1026,
+    "field": "root_link_vel_w"
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/simulator.py",
+    "line": 1041,
+    "field": "root_state_w"
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/simulator.py",
+    "line": 758,
+    "field": "body_pos_w"
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/simulator.py",
+    "line": 759,
+    "field": "body_quat_w"
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/simulator.py",
+    "line": 762,
+    "field": "body_link_lin_vel_w"
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/simulator.py",
+    "line": 764,
+    "field": "body_link_ang_vel_w"
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/simulator.py",
+    "line": 804,
+    "field": "applied_torque"
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/simulator.py",
+    "line": 823,
+    "field": "joint_pos"
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/simulator.py",
+    "line": 824,
+    "field": "joint_vel"
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/simulator.py",
+    "line": 845,
+    "field": "joint_pos_limits"
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/simulator.py",
+    "line": 942,
+    "field": "root_pos_w"
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/simulator.py",
+    "line": 943,
+    "field": "root_quat_w"
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/simulator.py",
+    "line": 944,
+    "field": "root_link_lin_vel_w"
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/simulator.py",
+    "line": 945,
+    "field": "root_link_ang_vel_w"
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/simulator.py",
+    "line": 977,
+    "field": "root_pos_w"
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/simulator.py",
+    "line": 980,
+    "field": "root_quat_w"
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/simulator.py",
+    "line": 983,
+    "field": "root_link_lin_vel_w"
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/simulator.py",
+    "line": 986,
+    "field": "root_link_ang_vel_w"
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/simulator.py",
+    "line": 876,
+    "field": "net_forces_w"
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/simulator.py",
+    "line": 905,
+    "field": "force_matrix_w"
+  },
+  {
+    "path": "src/protomotions/simulator/mujoco/simulator.py",
+    "line": 794,
+    "field": "ctrl"
+  },
+  {
+    "path": "src/protomotions/simulator/mujoco/simulator.py",
+    "line": 795,
+    "field": "qfrc_applied"
+  },
+  {
+    "path": "src/protomotions/simulator/mujoco/simulator.py",
+    "line": 802,
+    "field": "ctrl"
+  },
+  {
+    "path": "src/protomotions/simulator/mujoco/simulator.py",
+    "line": 904,
+    "field": "qvel"
+  },
+  {
+    "path": "src/protomotions/simulator/mujoco/simulator.py",
+    "line": 906,
+    "field": "qvel"
+  },
+  {
+    "path": "src/protomotions/simulator/mujoco/simulator.py",
+    "line": 1010,
+    "field": "ncon"
+  },
+  {
+    "path": "src/protomotions/simulator/mujoco/simulator.py",
+    "line": 606,
+    "field": "qpos"
+  },
+  {
+    "path": "src/protomotions/simulator/mujoco/simulator.py",
+    "line": 607,
+    "field": "qvel"
+  },
+  {
+    "path": "src/protomotions/simulator/mujoco/simulator.py",
+    "line": 609,
+    "field": "qpos"
+  },
+  {
+    "path": "src/protomotions/simulator/mujoco/simulator.py",
+    "line": 610,
+    "field": "qvel"
+  },
+  {
+    "path": "src/protomotions/simulator/mujoco/simulator.py",
+    "line": 778,
+    "field": "qpos"
+  },
+  {
+    "path": "src/protomotions/simulator/mujoco/simulator.py",
+    "line": 779,
+    "field": "qpos"
+  },
+  {
+    "path": "src/protomotions/simulator/mujoco/simulator.py",
+    "line": 780,
+    "field": "qpos"
+  },
+  {
+    "path": "src/protomotions/simulator/mujoco/simulator.py",
+    "line": 782,
+    "field": "qvel"
+  },
+  {
+    "path": "src/protomotions/simulator/mujoco/simulator.py",
+    "line": 787,
+    "field": "qvel"
+  },
+  {
+    "path": "src/protomotions/simulator/mujoco/simulator.py",
+    "line": 788,
+    "field": "qvel"
+  },
+  {
+    "path": "src/protomotions/simulator/mujoco/simulator.py",
+    "line": 790,
+    "field": "qpos"
+  },
+  {
+    "path": "src/protomotions/simulator/mujoco/simulator.py",
+    "line": 791,
+    "field": "qvel"
+  },
+  {
+    "path": "src/protomotions/simulator/mujoco/simulator.py",
+    "line": 864,
+    "field": "qpos"
+  },
+  {
+    "path": "src/protomotions/simulator/mujoco/simulator.py",
+    "line": 865,
+    "field": "qpos"
+  },
+  {
+    "path": "src/protomotions/simulator/mujoco/simulator.py",
+    "line": 866,
+    "field": "qvel"
+  },
+  {
+    "path": "src/protomotions/simulator/mujoco/simulator.py",
+    "line": 867,
+    "field": "qpos"
+  },
+  {
+    "path": "src/protomotions/simulator/mujoco/simulator.py",
+    "line": 868,
+    "field": "qvel"
+  },
+  {
+    "path": "src/protomotions/simulator/mujoco/simulator.py",
+    "line": 873,
+    "field": "qpos"
+  },
+  {
+    "path": "src/protomotions/simulator/mujoco/simulator.py",
+    "line": 874,
+    "field": "qvel"
+  },
+  {
+    "path": "src/protomotions/simulator/mujoco/simulator.py",
+    "line": 1011,
+    "field": "contact"
+  },
+  {
+    "path": "src/protomotions/simulator/mujoco/simulator.py",
+    "line": 1071,
+    "field": "ctrl"
+  },
+  {
+    "path": "src/protomotions/simulator/mujoco/simulator.py",
+    "line": 1159,
+    "field": "qpos"
+  },
+  {
+    "path": "src/protomotions/simulator/mujoco/simulator.py",
+    "line": 1160,
+    "field": "qpos"
+  },
+  {
+    "path": "src/protomotions/simulator/mujoco/simulator.py",
+    "line": 1161,
+    "field": "qvel"
+  },
+  {
+    "path": "src/protomotions/simulator/mujoco/simulator.py",
+    "line": 1162,
+    "field": "qvel"
+  },
+  {
+    "path": "src/protomotions/simulator/mujoco/simulator.py",
+    "line": 876,
+    "field": "qpos"
+  },
+  {
+    "path": "src/protomotions/simulator/mujoco/simulator.py",
+    "line": 876,
+    "field": "qvel"
+  },
+  {
+    "path": "src/protomotions/simulator/mujoco/simulator.py",
+    "line": 879,
+    "field": "ctrl"
+  },
+  {
+    "path": "src/protomotions/simulator/mujoco/simulator.py",
+    "line": 888,
+    "field": "ncon"
+  },
+  {
+    "path": "src/protomotions/simulator/mujoco/simulator.py",
+    "line": 905,
+    "field": "xmat"
+  },
+  {
+    "path": "src/protomotions/simulator/mujoco/simulator.py",
+    "line": 918,
+    "field": "qvel"
+  },
+  {
+    "path": "src/protomotions/simulator/mujoco/simulator.py",
+    "line": 938,
+    "field": "xpos"
+  },
+  {
+    "path": "src/protomotions/simulator/mujoco/simulator.py",
+    "line": 939,
+    "field": "xquat"
+  },
+  {
+    "path": "src/protomotions/simulator/mujoco/simulator.py",
+    "line": 914,
+    "field": "qpos"
+  },
+  {
+    "path": "src/protomotions/simulator/mujoco/simulator.py",
+    "line": 915,
+    "field": "qpos"
+  },
+  {
+    "path": "src/protomotions/simulator/mujoco/simulator.py",
+    "line": 916,
+    "field": "qvel"
+  },
+  {
+    "path": "src/protomotions/simulator/mujoco/simulator.py",
+    "line": 917,
+    "field": "xmat"
+  },
+  {
+    "path": "src/protomotions/simulator/mujoco/simulator.py",
+    "line": 952,
+    "field": "xipos"
+  },
+  {
+    "path": "src/protomotions/simulator/mujoco/simulator.py",
+    "line": 968,
+    "field": "qpos"
+  },
+  {
+    "path": "src/protomotions/simulator/mujoco/simulator.py",
+    "line": 969,
+    "field": "qvel"
+  },
+  {
+    "path": "src/protomotions/simulator/mujoco/simulator.py",
+    "line": 971,
+    "field": "qpos"
+  },
+  {
+    "path": "src/protomotions/simulator/mujoco/simulator.py",
+    "line": 972,
+    "field": "qvel"
+  },
+  {
+    "path": "src/protomotions/simulator/mujoco/simulator.py",
+    "line": 1099,
+    "field": "qpos"
+  },
+  {
+    "path": "src/protomotions/simulator/mujoco/simulator.py",
+    "line": 1100,
+    "field": "qpos"
+  },
+  {
+    "path": "src/protomotions/tests/test_amp_agent_helpers.py",
+    "line": 559,
+    "field": "fill_"
+  },
+  {
+    "path": "src/protomotions/tests/test_amp_agent_helpers.py",
+    "line": 1114,
+    "field": "keys"
+  },
+  {
+    "path": "src/protomotions/tests/test_backend_velocity_contract.py",
+    "line": 33,
+    "field": "qpos"
+  },
+  {
+    "path": "src/protomotions/tests/test_backend_velocity_contract.py",
+    "line": 34,
+    "field": "qvel"
+  },
+  {
+    "path": "src/protomotions/tests/test_backend_velocity_contract.py",
+    "line": 43,
+    "field": "qpos"
+  },
+  {
+    "path": "src/protomotions/tests/test_backend_velocity_contract.py",
+    "line": 43,
+    "field": "qvel"
+  },
+  {
+    "path": "src/protomotions/tests/test_backend_velocity_contract.py",
+    "line": 69,
+    "field": "qvel"
+  },
+  {
+    "path": "src/protomotions/tests/test_backend_velocity_contract.py",
+    "line": 41,
+    "field": "xpos"
+  },
+  {
+    "path": "src/protomotions/tests/test_backend_velocity_contract.py",
+    "line": 45,
+    "field": "xpos"
+  },
+  {
+    "path": "src/protomotions/tests/test_backend_velocity_contract.py",
+    "line": 67,
+    "field": "qvel"
+  },
+  {
+    "path": "src/protomotions/tests/test_base_agent_runtime_helpers.py",
+    "line": 128,
+    "field": "copy_"
+  },
+  {
+    "path": "src/protomotions/tests/test_common_operations.py",
+    "line": 71,
+    "field": "fill_"
+  },
+  {
+    "path": "src/protomotions/tests/test_common_operations.py",
+    "line": 72,
+    "field": "fill_"
+  },
+  {
+    "path": "src/protomotions/tests/test_common_operations.py",
+    "line": 131,
+    "field": "fill_"
+  },
+  {
+    "path": "src/protomotions/tests/test_evaluator_metrics.py",
+    "line": 234,
+    "field": "zero_"
+  },
+  {
+    "path": "src/protomotions/tests/test_masked_mimic_supervised_loss.py",
+    "line": 421,
+    "field": "fill_"
+  },
+  {
+    "path": "src/protomotions/tests/test_masked_mimic_supervised_loss.py",
+    "line": 455,
+    "field": "zero_"
+  },
+  {
+    "path": "src/protomotions/tests/test_prior_peft_agent_helpers.py",
+    "line": 714,
+    "field": "fill_"
+  },
+  {
+    "path": "src/protomotions/tests/test_prior_peft_agent_helpers.py",
+    "line": 715,
+    "field": "fill_"
+  },
+  {
+    "path": "src/protomotions/tests/test_prior_peft_agent_helpers.py",
+    "line": 716,
+    "field": "fill_"
+  },
+  {
+    "path": "src/protomotions/tests/test_prior_peft_agent_helpers.py",
+    "line": 717,
+    "field": "fill_"
+  },
+  {
+    "path": "src/protomotions/tests/test_supervised_agent_flow.py",
+    "line": 596,
+    "field": "zero_"
+  },
+  {
+    "path": "src/protomotions/tests/test_supervised_agent_flow.py",
+    "line": 627,
+    "field": "zero_"
+  },
+  {
+    "path": "src/protomotions/tests/test_supervised_agent_flow.py",
+    "line": 122,
+    "field": "fill_"
+  },
+  {
+    "path": "src/protomotions/tests/test_training_utils.py",
+    "line": 74,
+    "field": "fill_"
+  },
+  {
+    "path": "src/protomotions/tests/test_transformer_peft.py",
+    "line": 441,
+    "field": "fill_"
+  },
+  {
+    "path": "src/protomotions/tests/test_transformer_peft.py",
+    "line": 448,
+    "field": "fill_"
+  }
+]

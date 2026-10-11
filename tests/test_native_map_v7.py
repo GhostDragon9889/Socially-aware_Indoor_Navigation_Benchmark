@@ -429,13 +429,28 @@ def test_v5_description_grid_astar_and_SDF_value_Jacobian_remain_bytewise(tmp_pa
         provider._preflight_record["path"],
         expected_sha256=provider._preflight_record["sha256"],
     )
-    assert (
-        old.admit_native_map(
-            provider._native["record"]["path"],
-            expected_sha256=provider._native["record"]["sha256"],
-        )
-        == provider.describe()
+    old_description = old.admit_native_map(
+        provider._native["record"]["path"],
+        expected_sha256=provider._native["record"]["sha256"],
     )
+    current_description = provider.describe()
+    # The maintained provider adds explicit feature/portable/contact metadata;
+    # numerical map, path and Jacobian contracts remain byte-exact below.
+    added = {"policy_height_mode", "policy_height_padding_claims_walkable_support",
+             "portable_USD_location_derivation", "static_target_contact_report_paths",
+             "static_target_contact_report_threshold_n"}
+    assert set(current_description) - set(old_description) == added
+    assert current_description["policy_height_mode"] == "native_obstacle_cap"
+    assert current_description["policy_height_padding_claims_walkable_support"] is False
+    assert current_description["portable_USD_location_derivation"] is None
+    assert current_description["static_target_contact_report_paths"] == []
+    assert current_description["static_target_contact_report_threshold_n"] == 0.
+    for description in (old_description, current_description):
+        assert "floor+1.8m cap" in description["policy_height_feature"]
+        assert "no exterior support claim" in description["policy_height_feature"]
+    assert {key: value for key, value in old_description.items() if key != "policy_height_feature"} == {
+        key: value for key, value in current_description.items()
+        if key not in added and key != "policy_height_feature"}
     before_grid = _before_module("before_v7_grid", "native_grid_scene.py")
     kwargs = dict(
         origins_xy=[[-3.45, -0.05]],
@@ -446,7 +461,16 @@ def test_v5_description_grid_astar_and_SDF_value_Jacobian_remain_bytewise(tmp_pa
         NativeGridScene.from_provider(provider, **kwargs),
         before_grid.NativeGridScene.from_provider(provider, **kwargs),
     )
-    assert current.describe() == original.describe()
+    before_description, maintained_description = original.describe(), current.describe()
+    added_grid_defaults = {"cyclic_route_lookahead": False, "start_connector_radius_m": 0.,
+        "start_connector_clearance_m": .4, "route_clearance_weight": 0.,
+        "route_comfort_clearance_m": .6}
+    assert set(maintained_description) - set(before_description) == set(added_grid_defaults)
+    assert {key: maintained_description[key] for key in added_grid_defaults} == added_grid_defaults
+    assert "no diagonal corner cutting" in maintained_description["astar"]
+    assert {key: value for key, value in before_description.items() if key != "astar"} == {
+        key: value for key, value in maintained_description.items()
+        if key not in added_grid_defaults and key != "astar"}
     assert np.array_equal(
         current.astar_path([-3.45, -0.05], [2.55, -0.05]),
         original.astar_path([-3.45, -0.05], [2.55, -0.05]),
@@ -475,7 +499,7 @@ def test_v7_fields_do_not_select_new_protocol_without_exact_probe_bytes(tmp_path
     preflight["script"] = file_record(script)
     data["script"] = preflight["script"]
     data["preflight"] = legacy.write_json(Path(provider._preflight_record["path"]), preflight)
-    with pytest.raises(ValueError, match="coplanar|single floor"):
+    with pytest.raises(ValueError, match="coplanar|single floor|low static obstacle"):
         readmit(provider, data)
 
 

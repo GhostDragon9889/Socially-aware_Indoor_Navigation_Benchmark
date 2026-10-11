@@ -26,6 +26,8 @@ from scripts import compare_shared_social_evidence as original  # noqa: E402
 from scripts import evaluate_shared_social_recovery as evaluation  # noqa: E402
 from scripts import own_shared_social_recovery_evaluation as previous_owner  # noqa: E402
 from scripts import run_shared_social_post_training as post  # noqa: E402
+from CrowdSim.humanoid.application import historical_recovery  # noqa: E402
+from social_navigation.artifact_identity import artifact_path, same_artifact, same_recorded_value  # noqa: E402
 
 PLAN_SCHEMA = "shared_social.resumed_recovery_evaluation_plan.v1"
 COMPLETION_SCHEMA = "shared_social.resumed_recovery_evaluation_completion.v1"
@@ -60,6 +62,8 @@ def successful_steps(document, names, status):
 
 def admit_prefix(completion_path, inventory_path):
     """Admit this failed family's actual successful prefix, never its navigation."""
+    completion_path = artifact_path(completion_path, root=ROOT)
+    inventory_path = artifact_path(inventory_path, root=ROOT)
     completion_identity = admission.readonly_identity(completion_path)
     completed = original.read(completion_path)
     admission.require(completed.get("schema") == "shared_social.durable_recovery_evaluation_owner_state.v1"
@@ -69,18 +73,18 @@ def admit_prefix(completion_path, inventory_path):
                       and admission.exact_integer(steps[0].get("actual_exit_code"), 1)
                       and steps[0].get("exit_observation") == "subprocess.Popen.wait",
                       "Require the actual failed post-training owner exit")
-    admission.require(record(steps[0]["log"]["path"]) == steps[0]["log"], "Failed owner log changed")
-    plan_path = Path(completed["plan"]["path"])
-    admission.require(admission.readonly_identity(plan_path) == completed["plan"], "Failed owner plan changed")
-    plan = previous_owner.admit(plan_path)
+    admission.require(same_artifact(record(artifact_path(steps[0]["log"]["path"], root=ROOT)), steps[0]["log"]), "Failed owner log changed")
+    plan_path = artifact_path(completed["plan"]["path"], root=ROOT)
+    admission.require(same_artifact(admission.readonly_identity(plan_path), completed["plan"]), "Failed owner plan changed")
+    plan = previous_owner.admit(plan_path, historical=True)
     inventory_identity = admission.readonly_identity(inventory_path)
     inventory = original.read(inventory_path)
     admission.require(inventory.get("schema") == "shared_social.failed_recovery_evaluation_retained_outputs.v1"
-                      and inventory.get("owner_completion") == completion_identity,
+                      and same_artifact(inventory.get("owner_completion"), completion_identity),
                       "Retained inventory belongs to another failed owner")
     pipeline_identity = inventory["pipeline_execution"]
-    admission.require(Path(pipeline_identity["path"]) == Path(plan["evaluation_output"]) / "execution.json"
-                      and admission.readonly_identity(pipeline_identity["path"]) == pipeline_identity,
+    admission.require(artifact_path(pipeline_identity["path"]) == artifact_path(plan["evaluation_output"]) / "execution.json"
+                      and same_artifact(admission.readonly_identity(pipeline_identity["path"]), pipeline_identity),
                       "Failed pipeline identity changed")
     pipeline = original.bound(pipeline_identity)
     rows = pipeline.get("steps", [])
@@ -90,11 +94,12 @@ def admit_prefix(completion_path, inventory_path):
                       and admission.exact_integer(rows[-1].get("actual_exit_code"), -11),
                       "Only the retained navigation SIGSEGV family can resume here")
     successful_steps({"status": "prefix", "steps": rows[:3]}, PREFIX_NAMES, "prefix")
-    for item in pipeline["sources"] + pipeline["inputs"]:
-        admission.require(record(item["path"]) == item, "Failed pipeline source/input changed")
-    module, _ = evaluation.prepare("post")
-    _, _, expected = module.admit_training(Path(plan["training_receipt"]))
-    admission.require(pipeline["training_execution_admission"] == expected,
+    historical_recovery.verify_sources(pipeline["sources"], historical=True,
+                                       required_paths=historical_recovery.plan_inventory("owner")[:16])
+    historical_recovery.verify_sources(pipeline["inputs"],
+                                       required_paths=historical_recovery.plan_inventory("owner", field="inputs")[:2])
+    _, _, expected = historical_recovery.training_admission(Path(plan["training_receipt"]), stage="post")
+    admission.require(same_recorded_value(pipeline["training_execution_admission"], expected),
                       "Failed prefix admits a different training completion")
     actor, tracking, smoke = [original.bound(row["result"]) for row in rows[:3]]
     admission.require(actor.get("status") == "passed" and smoke.get("status") == "passed"
@@ -109,22 +114,21 @@ def admit_prefix(completion_path, inventory_path):
     admission.require(tracked.get("status") == "passed" and tracked.get("cleanup_succeeded") is True
                       and tracked.get("cleanup_errors") == [], "Full22 exit/result/cleanup disagrees")
     for stage, document in (("actor_cpu", actor), ("tracking_style", tracking), ("tracking", tracked)):
-        module, _ = evaluation.prepare(stage)
-        _, _, expected_stage = module.admit_training(Path(plan["training_receipt"]))
-        admission.require(document.get("training_execution_admission") == expected_stage,
+        _, _, expected_stage = historical_recovery.training_admission(Path(plan["training_receipt"]), stage=stage)
+        admission.require(same_recorded_value(document.get("training_execution_admission"), expected_stage),
                           "Retained prefix stage admits a different checkpoint: " + stage)
-    admission.require(tracking["training_receipt"] == expected["receipt"], "Retained tracking receipt changed")
+    admission.require(same_artifact(tracking["training_receipt"], expected["receipt"]), "Retained tracking receipt changed")
     admission.require(style.get("status") == "passed" and original.bound(measurements["pose45"])["status"] == "passed",
                       "Retained style/pose result disagrees with successful exits")
     retained = []
     for item in inventory["output_inventory"]:
-        path = Path(item["path"])
-        admission.require(path.is_relative_to(Path(plan["evaluation_output"]))
+        path = artifact_path(item["path"])
+        admission.require(path.is_relative_to(artifact_path(plan["evaluation_output"]))
                           and path.stat().st_size == item["bytes"] and item.get("readonly") is True,
                           "Invalid retained output inventory item")
         retained.append(admission.readonly_identity(path))
     admission.require({row["path"] for row in retained} ==
-                      {str(path) for path in Path(plan["evaluation_output"]).rglob("*") if path.is_file()},
+                      {str(path) for path in artifact_path(plan["evaluation_output"]).rglob("*") if path.is_file()},
                       "Retained output inventory is incomplete")
     return {"failed_completion": completion_identity, "failed_pipeline": pipeline_identity,
             "inventory": inventory_identity, "retained_outputs": retained, "successful_prefix_steps": rows[:3],
@@ -133,42 +137,50 @@ def admit_prefix(completion_path, inventory_path):
             "original_navigation_actual_exit_code": -11}
 
 
-def admit_plan(path):
+def admit_plan(path, *, historical=False):
+    path = artifact_path(path, root=ROOT)
     admission.readonly_identity(path)
     plan = original.read(path)
     admission.require(plan.get("schema") == PLAN_SCHEMA and plan.get("GPU_resource_policy") == previous_owner.POLICY,
                       "Require an explicit readonly resumption plan")
     prefix = admit_prefix(Path(plan["prefix"]["failed_completion"]["path"]), Path(plan["prefix"]["inventory"]["path"]))
-    admission.require(prefix == plan["prefix"], "Retained prefix changed after registration")
-    for item in plan["sources"]:
-        admission.require(record(item["path"]) == item, "Resumption source changed: " + item["path"])
-    admission.require(record(post.DIFFUSION) == plan["diffusion"]
+    admission.require(same_recorded_value({**prefix, "training_receipt": str(artifact_path(prefix["training_receipt"]))},
+                                                {**plan["prefix"], "training_receipt": str(artifact_path(plan["prefix"]["training_receipt"]))}), "Retained prefix changed after registration")
+    historical_recovery.verify_sources(plan["sources"], historical=historical,
+                                       required_paths=historical_recovery.plan_inventory("retry"))
+    admission.require(same_artifact(record(post.DIFFUSION), plan["diffusion"])
                       and plan["diffusion"]["sha256"] == post.DIFFUSION_SHA, "Formal Diffusion40k changed")
     return plan
 
 
 def admit_completion(path):
+    path = artifact_path(path, root=ROOT)
     identity = admission.readonly_identity(path)
+    historical = (path == ROOT / "docs/style_improvement_20261008/shared_social_S3R_navigation_retry_v1/completion.json"
+                  and identity["sha256"] == "7de1439ae51b94a9e7957c1d5239988fd201881a527c3788887e1ebd9aca5094")
     completed = original.read(path)
     admission.require(completed.get("schema") == COMPLETION_SCHEMA
                       and completed.get("status") == "completed_resumed_evaluation_quality_unclassified"
                       and completed.get("original_post_pipeline_success_claimed") is False,
                       "Require the actual combined evaluation completion")
-    plan = admit_plan(Path(completed["plan"]["path"]))
-    admission.require(record(completed["plan"]["path"]) == completed["plan"], "Completed resumption plan changed")
+    plan = admit_plan(artifact_path(completed["plan"]["path"], root=ROOT), historical=historical)
+    admission.require(same_artifact(record(artifact_path(completed["plan"]["path"], root=ROOT)), completed["plan"]), "Completed resumption plan changed")
     successful_steps(completed, RETRY_NAMES, "completed_resumed_evaluation_quality_unclassified")
     for row in completed["steps"]:
         admission.require(row.get("exit_observation") == "subprocess.Popen.wait", "Retry exit must come from OS wait")
-        admission.require(record(row["log"]["path"]) == row["log"], "Retry child log changed")
+        admission.require(same_artifact(record(artifact_path(row["log"]["path"], root=ROOT)), row["log"]), "Retry child log changed")
     measurements = {**plan["prefix"]["measurements"],
                     "navigation": completed["steps"][0]["result"],
                     "navigation_CPU_audit": completed["steps"][1]["result"]}
     admission.require(measurements == completed["measurements"], "Combined measurement identities disagree")
     bundle = {key: original.bound(item) for key, item in measurements.items()}
     navigation, audit = bundle["navigation"], bundle["navigation_CPU_audit"]
-    module, _ = evaluation.prepare("navigation")
-    _, _, expected = module.admit_training(Path(plan["prefix"]["training_receipt"]))
-    admission.require(navigation["shared_navigation_migration"]["training_execution_admission"] == expected
+    if historical:
+        _, _, expected = historical_recovery.training_admission(artifact_path(plan["prefix"]["training_receipt"], root=ROOT), stage="navigation")
+    else:
+        module, _ = evaluation.prepare("navigation")
+        _, _, expected = module.admit_training(artifact_path(plan["prefix"]["training_receipt"], root=ROOT))
+    admission.require(same_recorded_value(navigation["shared_navigation_migration"]["training_execution_admission"], expected)
                       and navigation.get("status") == "passed" and navigation.get("cleanup_succeeded") is True
                       and navigation.get("cleanup_errors") == [] and navigation.get("actual_control_steps") == 6000,
                       "Retry navigation checkpoint/budget/result/cleanup disagrees")
@@ -183,7 +195,7 @@ def admit_completion(path):
                       and audit.get("Torch_imported") is False and audit.get("SDK_executed") is False,
                       "Retry original CPU audit budget/lineage disagrees")
     for item in audit["arrays"]:
-        admission.require(record(item["path"]) == item, "Retry audited array changed")
+        admission.require(same_artifact(record(artifact_path(item["path"], root=ROOT)), item), "Retry audited array changed")
     admission.require(record(path) == identity, "Resumption completion changed during admission")
     return bundle, identity
 

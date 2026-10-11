@@ -3,6 +3,7 @@ from copy import deepcopy
 import json
 from pathlib import Path
 import sys
+import subprocess
 import tempfile
 import unittest
 
@@ -22,7 +23,7 @@ class EpisodeNativeTests(unittest.TestCase):
         cls.temporary.cleanup()
 
     def test_all_real_cohorts_and_refusals_preserved(self):
-        matrix, _ = bridge.original.readonly_json(bridge.original.MATRIX)
+        matrix, _ = bridge.original.current_matrix()
         candidate, _ = bridge.admit_registration(self.registration)
         self.assertEqual(len(candidate["cases"]), 156)
         self.assertEqual(candidate["resource_admitted_cohorts"], 144)
@@ -61,7 +62,11 @@ class EpisodeNativeTests(unittest.TestCase):
             self.assertEqual(right["planner"], left["planner"])
             self.assertEqual(right["controls"], left["controls"])
         self.assertFalse(new["episode_native_binding"]["SDK_entry_raw_capture_style_and_metric_math_changed"])
-        self.assertNotIn("torch", sys.modules)
+        child = subprocess.run([sys.executable, "-c",
+            "import sys;from CrowdSim.humanoid.application import episode_native_execution as e;"
+            "e.prepare_case('Office_N03_seed7');assert 'torch' not in sys.modules"], cwd=bridge.ROOT,
+            capture_output=True, text=True)
+        self.assertEqual(child.returncode, 0, child.stderr)
 
     def test_rejected_resource_cannot_be_selected_or_replaced(self):
         with self.assertRaisesRegex(ValueError, "resource rejection"):
@@ -77,10 +82,11 @@ class EpisodeNativeTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "all actual fresh episode"):
             bridge.candidate.validate_owner(actual)
 
-    def test_missing_actual_episode_completion_stops_before_any_exit_publication(self):
-        if bridge.candidate.COMPLETION.exists():
-            self.skipTest("Actual episode completion now exists; incomplete-publication check belongs to the preparation phase")
-        with self.assertRaisesRegex(ValueError, "readonly recovery artifact"):
+    def test_failed_actual_episode_completion_stops_before_exit_publication(self):
+        completed = json.loads(bridge.candidate.COMPLETION.read_text())
+        self.assertEqual(completed["status"], "failed_preserved")
+        self.assertNotEqual(completed["steps"][-1]["actual_exit_code"], 0)
+        with self.assertRaisesRegex(ValueError, "all actual fresh episode"):
             bridge.publish_sdk_exit("Office_N03_seed7", planner="diffusion", controls=30,
                 observation_path=Path(self.temporary.name) / "no_tool_observation.json",
                 owner_completion=bridge.candidate.COMPLETION, registration_path=self.registration)

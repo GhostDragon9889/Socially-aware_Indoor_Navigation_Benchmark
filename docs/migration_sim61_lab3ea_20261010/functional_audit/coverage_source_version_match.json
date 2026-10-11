@@ -1,0 +1,2061 @@
+{
+  "coverage_original": "functional_file_coverage_matrix_final.json",
+  "measurement_run": "current_cpu_final.xml",
+  "scope": "Previous actual statement coverage retained; changed files require their recorded source version to interpret line numbers. Final4293 run did not remeasure coverage.",
+  "same_source_files": 341,
+  "changed_source_files": 1,
+  "files": [
+    {
+      "path": "src/CrowdSim/__init__.py",
+      "measured_source_sha256": "21110771a490396c243d113bb280403dc7c2667c9b7f58d0b95e8cdfa8e90de7",
+      "current_source_sha256": "21110771a490396c243d113bb280403dc7c2667c9b7f58d0b95e8cdfa8e90de7",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/control/__init__.py",
+      "measured_source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current_source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/control/drive.py",
+      "measured_source_sha256": "bbd1407a9e76685df1e06dfb93ff990f33a59f5b2af1ca8ea2313c1635c3acf7",
+      "current_source_sha256": "bbd1407a9e76685df1e06dfb93ff990f33a59f5b2af1ca8ea2313c1635c3acf7",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/crowd_sim.py",
+      "measured_source_sha256": "c5369db88f1a6de4c487a005afec84f4b17fa0cff3a8ab06ec4fcef9b8981ccf",
+      "current_source_sha256": "c5369db88f1a6de4c487a005afec84f4b17fa0cff3a8ab06ec4fcef9b8981ccf",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/flow/__init__.py",
+      "measured_source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current_source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/flow/collect_ppo_buffer.py",
+      "measured_source_sha256": "bd47a2f13c84be1e5d531ce7ab78017edf720f024a4d541c2e0d8e32a4cf7fa2",
+      "current_source_sha256": "bd47a2f13c84be1e5d531ce7ab78017edf720f024a4d541c2e0d8e32a4cf7fa2",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/flow/recover_ppo_buffer.py",
+      "measured_source_sha256": "5de16086ef04fdab75e5210b4e59c568922c24195abde4ebb0c902fc2282fdf9",
+      "current_source_sha256": "5de16086ef04fdab75e5210b4e59c568922c24195abde4ebb0c902fc2282fdf9",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/flow/route_guided_ppo_collector.py",
+      "measured_source_sha256": "aebb288b6f038ba02cacfc84467ca7b124e777c653ea8cf3039bd9ef12bd6ccb",
+      "current_source_sha256": "aebb288b6f038ba02cacfc84467ca7b124e777c653ea8cf3039bd9ef12bd6ccb",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/__init__.py",
+      "measured_source_sha256": "454955f3cd7b9f3c68a4d7a7781c1baab209cff65de66778054e7f0e07fffbfd",
+      "current_source_sha256": "454955f3cd7b9f3c68a4d7a7781c1baab209cff65de66778054e7f0e07fffbfd",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/amass_corpus.py",
+      "measured_source_sha256": "2d4e4f7549aa38f5fd6763de4d3924a9cdd969746682c649ab773f033d747cf7",
+      "current_source_sha256": "2d4e4f7549aa38f5fd6763de4d3924a9cdd969746682c649ab773f033d747cf7",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/amp/__init__.py",
+      "measured_source_sha256": "64083ff917c1c19c8e8985ca13760f4b6ab168247cd070ac8337882e1bdfd835",
+      "current_source_sha256": "64083ff917c1c19c8e8985ca13760f4b6ab168247cd070ac8337882e1bdfd835",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/amp/controller.py",
+      "measured_source_sha256": "b1e56c6392e91e023af63437d74feb28d13a29099ad6708d4c742f08f737e3d2",
+      "current_source_sha256": "b1e56c6392e91e023af63437d74feb28d13a29099ad6708d4c742f08f737e3d2",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/amp/network.py",
+      "measured_source_sha256": "7e00aeea89b8ab46f28fcdcb8fa9daeeae0f5f7f54519fdb10808b22af735d91",
+      "current_source_sha256": "7e00aeea89b8ab46f28fcdcb8fa9daeeae0f5f7f54519fdb10808b22af735d91",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/amp/observations.py",
+      "measured_source_sha256": "000f3980a8f4d3c1fac929c57029dd05a9ce19b1d8ce82423dad273c9315e599",
+      "current_source_sha256": "000f3980a8f4d3c1fac929c57029dd05a9ce19b1d8ce82423dad273c9315e599",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/amp_world.py",
+      "measured_source_sha256": "db47ec648b6b0534b873785694217bdd87f1e4cffae6d4bfefe8e3894e3fc0f5",
+      "current_source_sha256": "db47ec648b6b0534b873785694217bdd87f1e4cffae6d4bfefe8e3894e3fc0f5",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/analysis/__init__.py",
+      "measured_source_sha256": "ed447254c4b8200b7d69ca0e23aee3e7053f012c1e5ca5f33ea6aa27d73313f8",
+      "current_source_sha256": "ed447254c4b8200b7d69ca0e23aee3e7053f012c1e5ca5f33ea6aa27d73313f8",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/analysis/amass_activity.py",
+      "measured_source_sha256": "f04c66d90172af297f5b2b7950eb408cb5bdaa74c663a82b1d50e69a29bb2085",
+      "current_source_sha256": "f04c66d90172af297f5b2b7950eb408cb5bdaa74c663a82b1d50e69a29bb2085",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/analysis/amp_kinematic_controls.py",
+      "measured_source_sha256": "bf5764c98ee6e13680e523254b44d1946588c006edd0e8a290ff14b9ba350352",
+      "current_source_sha256": "bf5764c98ee6e13680e523254b44d1946588c006edd0e8a290ff14b9ba350352",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/analysis/amp_temporal_diagnostic.py",
+      "measured_source_sha256": "a226ea8d950efe03834dcb1a20d89fb447c1bd82f5a12da601aa98c17ced7ce1",
+      "current_source_sha256": "a226ea8d950efe03834dcb1a20d89fb447c1bd82f5a12da601aa98c17ced7ce1",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/analysis/episode_horizons.py",
+      "measured_source_sha256": "6e97891c37499663a0ac47433b07e7d7eb9945442896f21743bf6dfcb91e22e9",
+      "current_source_sha256": "6e97891c37499663a0ac47433b07e7d7eb9945442896f21743bf6dfcb91e22e9",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/analysis/heading_geometry.py",
+      "measured_source_sha256": "de7739fd9dc337b152493d6b49feebe63434e52d95d3d256802c1f515f3cae33",
+      "current_source_sha256": "de7739fd9dc337b152493d6b49feebe63434e52d95d3d256802c1f515f3cae33",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/analysis/joint_velocity_consistency.py",
+      "measured_source_sha256": "0fd65e48ea1eb2783b795662d36c8873e5e7c81b4120d05e32b40ee9f4d2bb33",
+      "current_source_sha256": "0fd65e48ea1eb2783b795662d36c8873e5e7c81b4120d05e32b40ee9f4d2bb33",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/analysis/native_navigation_audit.py",
+      "measured_source_sha256": "20912e077799a5f82ff1126650fe934e298f21a11a615fbd854741f5e0c14cef",
+      "current_source_sha256": "20912e077799a5f82ff1126650fe934e298f21a11a615fbd854741f5e0c14cef",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/analysis/native_navigation_seeded_audit.py",
+      "measured_source_sha256": "b405e4926915abc4f8165d2ff996d15227e218e12d9209555aca349d1e5d7bbd",
+      "current_source_sha256": "b405e4926915abc4f8165d2ff996d15227e218e12d9209555aca349d1e5d7bbd",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/analysis/native_navigation_seeded_style.py",
+      "measured_source_sha256": "42507c0de89ad835883ba02e0b1610e77d59773afbfa52fcbda023d02ab8003b",
+      "current_source_sha256": "42507c0de89ad835883ba02e0b1610e77d59773afbfa52fcbda023d02ab8003b",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/analysis/native_navigation_style.py",
+      "measured_source_sha256": "f0ec149c97e10bc7511fdd7775281d8ee1f28d2b35aaf6e9f73bb7386fd7ff54",
+      "current_source_sha256": "f0ec149c97e10bc7511fdd7775281d8ee1f28d2b35aaf6e9f73bb7386fd7ff54",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/analysis/native_paired_initial.py",
+      "measured_source_sha256": "5a8b1c5da840b42a28e7dbe104a298d346c9fddc1ef1020da923d0afea809e77",
+      "current_source_sha256": "5a8b1c5da840b42a28e7dbe104a298d346c9fddc1ef1020da923d0afea809e77",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/analysis/native_seed_protocol.py",
+      "measured_source_sha256": "ddced7a4da22fcd7738de0b6bf173a0eb80f3e8f4b56d1ebc944cbec1f852c71",
+      "current_source_sha256": "ddced7a4da22fcd7738de0b6bf173a0eb80f3e8f4b56d1ebc944cbec1f852c71",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/analysis/paired_initial.py",
+      "measured_source_sha256": "59135b38ae3bfe73a146055fdcbb5599db7e5ad3e7aa721ac28433fb1fa3a5b1",
+      "current_source_sha256": "59135b38ae3bfe73a146055fdcbb5599db7e5ad3e7aa721ac28433fb1fa3a5b1",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/analysis/procedural_anchoring.py",
+      "measured_source_sha256": "521a056c93b79b5b2df7e46e6192c6f48982cc5258ee244d0b666a2be871754a",
+      "current_source_sha256": "521a056c93b79b5b2df7e46e6192c6f48982cc5258ee244d0b666a2be871754a",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/analysis/support_phases.py",
+      "measured_source_sha256": "d27928fc366edb32d0b06eaafcb83820ce214fb42dfc12f401f8eec6dc67dbe7",
+      "current_source_sha256": "d27928fc366edb32d0b06eaafcb83820ce214fb42dfc12f401f8eec6dc67dbe7",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/analysis/trace_pace_capture.py",
+      "measured_source_sha256": "c9617dfc5180b411d892ec80117e1d93510645e4900e208838a8e8885e0dc015",
+      "current_source_sha256": "c9617dfc5180b411d892ec80117e1d93510645e4900e208838a8e8885e0dc015",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/analysis/tracking_commands.py",
+      "measured_source_sha256": "78b2eaf78d7a7329df870fbace0ceec0d29bb1f121afd023eaf6dcd9267f48e0",
+      "current_source_sha256": "78b2eaf78d7a7329df870fbace0ceec0d29bb1f121afd023eaf6dcd9267f48e0",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/analysis/tracking_error_decomposition.py",
+      "measured_source_sha256": "6e9f067f972f8d2fc6d146c271c589a1b9551e4b8fc795864e00ce5e88432dd9",
+      "current_source_sha256": "6e9f067f972f8d2fc6d146c271c589a1b9551e4b8fc795864e00ce5e88432dd9",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/analysis/trajectory_response.py",
+      "measured_source_sha256": "094f59ebf1ae9e79ef021eecd5068c45907ec57f9922daf88f779803edbdc6d5",
+      "current_source_sha256": "094f59ebf1ae9e79ef021eecd5068c45907ec57f9922daf88f779803edbdc6d5",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/application/__init__.py",
+      "measured_source_sha256": "614c01a824a2be9d8d11a5c8073a37daac091e57e0b0b03157a261c14f5e063f",
+      "current_source_sha256": "614c01a824a2be9d8d11a5c8073a37daac091e57e0b0b03157a261c14f5e063f",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/application/capture.py",
+      "measured_source_sha256": "f08860e785ff4b24c9342b2556b13f0b27a9e2cc5234700ca16e8075cdabd9df",
+      "current_source_sha256": "f08860e785ff4b24c9342b2556b13f0b27a9e2cc5234700ca16e8075cdabd9df",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/application/capture_rgbd.py",
+      "measured_source_sha256": "abf081a028efa9abb8eede1f83eb14c37c71f61215e5d4d528b1a114cf67f353",
+      "current_source_sha256": "abf081a028efa9abb8eede1f83eb14c37c71f61215e5d4d528b1a114cf67f353",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/application/configuration.py",
+      "measured_source_sha256": "64dfa8f399fb4d7731ed24b66f8b5db1d96d9e879d0d72c0a03f4cd747912456",
+      "current_source_sha256": "64dfa8f399fb4d7731ed24b66f8b5db1d96d9e879d0d72c0a03f4cd747912456",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/application/deployment.py",
+      "measured_source_sha256": "3a0f6bf99b04e8f122020a87eef70c40f213cabed2b06a9b97cfc3e3eac8795c",
+      "current_source_sha256": "3a0f6bf99b04e8f122020a87eef70c40f213cabed2b06a9b97cfc3e3eac8795c",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/application/episode_evaluation_admission.py",
+      "measured_source_sha256": "854990a4084c8c74024d6ec373e7f18b2c8bbc9b1217c321e95a383531f3c7d7",
+      "current_source_sha256": "854990a4084c8c74024d6ec373e7f18b2c8bbc9b1217c321e95a383531f3c7d7",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/application/episode_native_execution.py",
+      "measured_source_sha256": "7dbe394507bbdf35a93ea6100f55f7b5fdeaa8d7cd99b6c8bce52c8e5569567b",
+      "current_source_sha256": "7dbe394507bbdf35a93ea6100f55f7b5fdeaa8d7cd99b6c8bce52c8e5569567b",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/application/episode_reference_clock_grid.py",
+      "measured_source_sha256": "7481bee03efa922e1b362883b57cdd0e4b0e57b73f289c23b79ce49855780714",
+      "current_source_sha256": "7481bee03efa922e1b362883b57cdd0e4b0e57b73f289c23b79ce49855780714",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/application/episode_serial_release.py",
+      "measured_source_sha256": "cee53f58c578f6fca02c80749dd3ae05132bc8b07caba364db42623befbc73e1",
+      "current_source_sha256": "cee53f58c578f6fca02c80749dd3ae05132bc8b07caba364db42623befbc73e1",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/application/episode_world_consumers.py",
+      "measured_source_sha256": "776ba187769192ccff4e42aff1f232ce95413c9d23e61a428ff1ac3c13ffecf8",
+      "current_source_sha256": "776ba187769192ccff4e42aff1f232ce95413c9d23e61a428ff1ac3c13ffecf8",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/application/native_deployment.py",
+      "measured_source_sha256": "af708cc18873424ed57b497473f35d17cecc2c3910b15f4c67ef4d8cd5ab49f0",
+      "current_source_sha256": "af708cc18873424ed57b497473f35d17cecc2c3910b15f4c67ef4d8cd5ab49f0",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/application/native_execution_bridge.py",
+      "measured_source_sha256": "a9eccb65600be8b2f3f057ae8b13df297c36da405922398c84f55886e4bcd2a9",
+      "current_source_sha256": "a9eccb65600be8b2f3f057ae8b13df297c36da405922398c84f55886e4bcd2a9",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/application/native_scene_preparation.py",
+      "measured_source_sha256": "3bf9a4413565918f98931291f588e4438dc869ff971d16b79d6afab4da382a43",
+      "current_source_sha256": "3bf9a4413565918f98931291f588e4438dc869ff971d16b79d6afab4da382a43",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/application/preflight.py",
+      "measured_source_sha256": "bd1a961845e84e88aa641f9514f7071d8693236e76ad9b607d1d57a1ec02a440",
+      "current_source_sha256": "bd1a961845e84e88aa641f9514f7071d8693236e76ad9b607d1d57a1ec02a440",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/application/recovery_evaluation_admission.py",
+      "measured_source_sha256": "56af197588e63c323c7910d7e0707f160983900d83ad4752d879c8253babbc62",
+      "current_source_sha256": "56af197588e63c323c7910d7e0707f160983900d83ad4752d879c8253babbc62",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/application/resources.py",
+      "measured_source_sha256": "1a7e130ebcaff396c23238598f92e9407f5de37c0e214a63d4e235d800794bb5",
+      "current_source_sha256": "1a7e130ebcaff396c23238598f92e9407f5de37c0e214a63d4e235d800794bb5",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/application/settings.py",
+      "measured_source_sha256": "5254c5b89d75d3eef52de8b5463db12801e8605cb02bff4d95551963171dc7dc",
+      "current_source_sha256": "5254c5b89d75d3eef52de8b5463db12801e8605cb02bff4d95551963171dc7dc",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/application/state_prior_initialization.py",
+      "measured_source_sha256": "9520b35ddc77ace422d245521a020b6ade8ff791818299a451c2f09dc1351b3b",
+      "current_source_sha256": "9520b35ddc77ace422d245521a020b6ade8ff791818299a451c2f09dc1351b3b",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/contact_monitor.py",
+      "measured_source_sha256": "a821bc58e03d4f38612b823cfaa198ed831ea3aadf8f87b8b9bf13e04ad1a7fd",
+      "current_source_sha256": "a821bc58e03d4f38612b823cfaa198ed831ea3aadf8f87b8b9bf13e04ad1a7fd",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/diffusion/__init__.py",
+      "measured_source_sha256": "80a89ebb21602af0d5f449f7c3c12aedbf5df1caa2a34451a9428a695c8c29dd",
+      "current_source_sha256": "80a89ebb21602af0d5f449f7c3c12aedbf5df1caa2a34451a9428a695c8c29dd",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/diffusion/base_models.py",
+      "measured_source_sha256": "67c4c9958d467b41de46eab1a475018e57687d9a72a31793098be607a925124b",
+      "current_source_sha256": "67c4c9958d467b41de46eab1a475018e57687d9a72a31793098be607a925124b",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/diffusion/batch_utils.py",
+      "measured_source_sha256": "f34b4961c5e8ada66fc4a98b4b8f2548ef6a66d4b21e5119fc757461fe49b424",
+      "current_source_sha256": "f34b4961c5e8ada66fc4a98b4b8f2548ef6a66d4b21e5119fc757461fe49b424",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/diffusion/dynamics.py",
+      "measured_source_sha256": "d189a47db56a0aa9c645e11461e0e5d620fab3e48db485a9e09c05c6b4456fa0",
+      "current_source_sha256": "d189a47db56a0aa9c645e11461e0e5d620fab3e48db485a9e09c05c6b4456fa0",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/diffusion/dynamics_base.py",
+      "measured_source_sha256": "63d9fbdf723239d56639725e1ff1067fe4e7a4628f943e05c81b0b249ce166c3",
+      "current_source_sha256": "63d9fbdf723239d56639725e1ff1067fe4e7a4628f943e05c81b0b249ce166c3",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/diffusion/geometry.py",
+      "measured_source_sha256": "327874863231c1a5a902f302f3ebb15b7e5589585ba9278fb6cdb871bc3ee326",
+      "current_source_sha256": "327874863231c1a5a902f302f3ebb15b7e5589585ba9278fb6cdb871bc3ee326",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/diffusion/guidance.py",
+      "measured_source_sha256": "3df337dac75e958060a0f6be3865c9b73517b8b1296f90f8732354c28f4cc29f",
+      "current_source_sha256": "3df337dac75e958060a0f6be3865c9b73517b8b1296f90f8732354c28f4cc29f",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/diffusion/model.py",
+      "measured_source_sha256": "37e2f4d41155f730b525d564294f248a9224c8fe976a415e054ba8bd4028130d",
+      "current_source_sha256": "37e2f4d41155f730b525d564294f248a9224c8fe976a415e054ba8bd4028130d",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/diffusion/paper.py",
+      "measured_source_sha256": "e287e0c0d1b3dcb1c9f4200c3fd233d12996b82c03a19a0cf3d3479b7f3c471f",
+      "current_source_sha256": "e287e0c0d1b3dcb1c9f4200c3fd233d12996b82c03a19a0cf3d3479b7f3c471f",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/diffusion/planner.py",
+      "measured_source_sha256": "095579e2c91c3faba029a82958a893abc6d323830878da59f0cc8286047e3d21",
+      "current_source_sha256": "095579e2c91c3faba029a82958a893abc6d323830878da59f0cc8286047e3d21",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/diffusion/raster.py",
+      "measured_source_sha256": "5cd506a783ae3c99b4accf55f15e1d36515453e9db7651e6e6ff35d1480bbbda",
+      "current_source_sha256": "5cd506a783ae3c99b4accf55f15e1d36515453e9db7651e6e6ff35d1480bbbda",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/diffusion/refinement.py",
+      "measured_source_sha256": "51286356304d09ce959e8a758e0f4b79a67d84bfca787b8f3e20a008489b5586",
+      "current_source_sha256": "51286356304d09ce959e8a758e0f4b79a67d84bfca787b8f3e20a008489b5586",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/diffusion/temporal.py",
+      "measured_source_sha256": "b6753dccc1676d661ef788320f619947f46ce5f3f7b0a9309c2dd67f5c827b79",
+      "current_source_sha256": "b6753dccc1676d661ef788320f619947f46ce5f3f7b0a9309c2dd67f5c827b79",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/diffusion/tensor_utils.py",
+      "measured_source_sha256": "f8a0094672473cab882e61e9deefdec9f6a4410702f42263444d6b00068f34c6",
+      "current_source_sha256": "f8a0094672473cab882e61e9deefdec9f6a4410702f42263444d6b00068f34c6",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/diffusion/trace_helpers.py",
+      "measured_source_sha256": "365a0789d5d0518509425041bcfa8fe0915141e5c556368e4ea1a6b44be4bb18",
+      "current_source_sha256": "365a0789d5d0518509425041bcfa8fe0915141e5c556368e4ea1a6b44be4bb18",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/evaluation.py",
+      "measured_source_sha256": "b012e2ad950a4ba11e2360f8014d98f48a4cae0fde47d06d7f246919d22fff3c",
+      "current_source_sha256": "b012e2ad950a4ba11e2360f8014d98f48a4cae0fde47d06d7f246919d22fff3c",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/foot_capture.py",
+      "measured_source_sha256": "89c48fde37c05eaa57f4eacf2fb3eb072b087c0d9a46acff3f7d23729f28d39b",
+      "current_source_sha256": "89c48fde37c05eaa57f4eacf2fb3eb072b087c0d9a46acff3f7d23729f28d39b",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/foot_support.py",
+      "measured_source_sha256": "8c9cb88ddcbe55599ebe79abf80ea7a77a85eedfaa17324b937a862b284267e8",
+      "current_source_sha256": "8c9cb88ddcbe55599ebe79abf80ea7a77a85eedfaa17324b937a862b284267e8",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/ground_support_archive.py",
+      "measured_source_sha256": "7cdeaf74e7f17ce859f76bc6cf3378d1a2872ef8801e1a9aa0954601ba328ea3",
+      "current_source_sha256": "7cdeaf74e7f17ce859f76bc6cf3378d1a2872ef8801e1a9aa0954601ba328ea3",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/initial_reference_pool.py",
+      "measured_source_sha256": "455828a04cee094aff3842e2c5992fd85fa48e773cd9d674ba0c5eaa91af2d8a",
+      "current_source_sha256": "455828a04cee094aff3842e2c5992fd85fa48e773cd9d674ba0c5eaa91af2d8a",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/motion_reset.py",
+      "measured_source_sha256": "e455ca0d6b63b82af969323d5b82615eca424ba43ebe00e45259b3007f9fe5f4",
+      "current_source_sha256": "e455ca0d6b63b82af969323d5b82615eca424ba43ebe00e45259b3007f9fe5f4",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/motion_tracking.py",
+      "measured_source_sha256": "da482dcd565d42ef9f6165606428ad510f077bdd68c3fab09c73a840149eac56",
+      "current_source_sha256": "da482dcd565d42ef9f6165606428ad510f077bdd68c3fab09c73a840149eac56",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/orca_corpus.py",
+      "measured_source_sha256": "7b18b23d11509fdcf8a07c57bbba14a8d7d57e000c9651ade5d6b5b79c3a2750",
+      "current_source_sha256": "7b18b23d11509fdcf8a07c57bbba14a8d7d57e000c9651ade5d6b5b79c3a2750",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/physics_views.py",
+      "measured_source_sha256": "1b13d982864a3a2dae6eaebccd15f7ecfdda666c1e1a8dbce4996786a59a0c21",
+      "current_source_sha256": "1b13d982864a3a2dae6eaebccd15f7ecfdda666c1e1a8dbce4996786a59a0c21",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/planning_clock.py",
+      "measured_source_sha256": "899b15b8eac712c9fc04e98657286d870ed58fcd59af0f3aa5c706e2bd1f71d5",
+      "current_source_sha256": "899b15b8eac712c9fc04e98657286d870ed58fcd59af0f3aa5c706e2bd1f71d5",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/power.py",
+      "measured_source_sha256": "41a4f14fb49e19169c37a28022e3137b133a79d435324190c8f267db66354256",
+      "current_source_sha256": "41a4f14fb49e19169c37a28022e3137b133a79d435324190c8f267db66354256",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/reconstruction_scene.py",
+      "measured_source_sha256": "d8264b8cf4ead1289a0de25198a4a875e64b115631a5bcbdc7d5c0e4817cf14f",
+      "current_source_sha256": "d8264b8cf4ead1289a0de25198a4a875e64b115631a5bcbdc7d5c0e4817cf14f",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/run_avoidance_test.py",
+      "measured_source_sha256": "6ab7a0018343e0daeb1f654d0258e3cf0f738f503684209222f2f52bca71a281",
+      "current_source_sha256": "6ab7a0018343e0daeb1f654d0258e3cf0f738f503684209222f2f52bca71a281",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/__init__.py",
+      "measured_source_sha256": "f072b964700c37bc3b6ccc315c3c6cd975871c6faf6323b973aa4edef6b7c262",
+      "current_source_sha256": "f072b964700c37bc3b6ccc315c3c6cd975871c6faf6323b973aa4edef6b7c262",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/amp_inference.py",
+      "measured_source_sha256": "f94a461ff1527ee955d4f34cf972805e13450604988f7d4268f1c2fadd13f88b",
+      "current_source_sha256": "f94a461ff1527ee955d4f34cf972805e13450604988f7d4268f1c2fadd13f88b",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/arm_style.py",
+      "measured_source_sha256": "fbe774160e3f162632dd39c4b69257a9b50a155da1b978d952c921c1fe8ef656",
+      "current_source_sha256": "fbe774160e3f162632dd39c4b69257a9b50a155da1b978d952c921c1fe8ef656",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/body_map_guard.py",
+      "measured_source_sha256": "c37fad1b63355978c833ca38c2583e52afece14d16835b4e41193219390dbf7a",
+      "current_source_sha256": "c37fad1b63355978c833ca38c2583e52afece14d16835b4e41193219390dbf7a",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/checkpoint_contract.py",
+      "measured_source_sha256": "cc44f94f13fb0e4e3a06eacf44c2806293d2bf6778d832372105645d4eeee72a",
+      "current_source_sha256": "cc44f94f13fb0e4e3a06eacf44c2806293d2bf6778d832372105645d4eeee72a",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/dynbench_live.py",
+      "measured_source_sha256": "fc3a838e0760bad0b9a454f811e2a20415a404967c067fb02142a1ea5dc2596b",
+      "current_source_sha256": "fc3a838e0760bad0b9a454f811e2a20415a404967c067fb02142a1ea5dc2596b",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/dynbench_scene.py",
+      "measured_source_sha256": "0f069b3c3ec9c79529232091fb9132b3fa57b16d71532de4c1a26f8f91da496b",
+      "current_source_sha256": "0f069b3c3ec9c79529232091fb9132b3fa57b16d71532de4c1a26f8f91da496b",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/evaluation_actor.py",
+      "measured_source_sha256": "efed61b8c21ee9656463b07c06d035d4789223c8622bdd07d0e8fb3521ca54ec",
+      "current_source_sha256": "efed61b8c21ee9656463b07c06d035d4789223c8622bdd07d0e8fb3521ca54ec",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/keep_right_planning.py",
+      "measured_source_sha256": "1702013d6fdcb008c68cf2772cc1597b1a8f7de29dd3a573997dcb316508dc88",
+      "current_source_sha256": "1702013d6fdcb008c68cf2772cc1597b1a8f7de29dd3a573997dcb316508dc88",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/map_velocity_guard.py",
+      "measured_source_sha256": "2a6e33b0f4a6c5d8ef0358f03e46c3d57408478638190a3bf1fc64b762b3fe71",
+      "current_source_sha256": "2a6e33b0f4a6c5d8ef0358f03e46c3d57408478638190a3bf1fc64b762b3fe71",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/native_cell_grid.py",
+      "measured_source_sha256": "a2b0b64c26ae1053ee3d039a36068c557fc3ec77d31d6d49510d65091f4b9f20",
+      "current_source_sha256": "a2b0b64c26ae1053ee3d039a36068c557fc3ec77d31d6d49510d65091f4b9f20",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/native_contact_report.py",
+      "measured_source_sha256": "4e6ebcafea310a4197e8fb2ecfe6452beb5b87aad90587de1d7954a37f43df32",
+      "current_source_sha256": "4e6ebcafea310a4197e8fb2ecfe6452beb5b87aad90587de1d7954a37f43df32",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/native_framework_shutdown.py",
+      "measured_source_sha256": "0376e1092b46655a6e53bc8b5eb8b28ca660d4000947b073eeb2f3a4a7b524aa",
+      "current_source_sha256": "0376e1092b46655a6e53bc8b5eb8b28ca660d4000947b073eeb2f3a4a7b524aa",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/native_grid_scene.py",
+      "measured_source_sha256": "b5563bd5a509cdb02ae33e57ad34ab7a0524825ad16e481ef631531d59308165",
+      "current_source_sha256": "b5563bd5a509cdb02ae33e57ad34ab7a0524825ad16e481ef631531d59308165",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/native_map_v7.py",
+      "measured_source_sha256": "2b048eaa246a20766fed03541b4702030799cb842947d0dd9ab6dadf6df1c3e9",
+      "current_source_sha256": "2b048eaa246a20766fed03541b4702030799cb842947d0dd9ab6dadf6df1c3e9",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/native_map_v8.py",
+      "measured_source_sha256": "11d2cbdf1fa77c1a2ff02e61aaf249451ee669930e1ec7ef0c4c4425306c6289",
+      "current_source_sha256": "11d2cbdf1fa77c1a2ff02e61aaf249451ee669930e1ec7ef0c4c4425306c6289",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/native_map_v9.py",
+      "measured_source_sha256": "4b13dbac6914d602e3e65917fe2b308b5d3fe15f25d55a397cd49d6748995ece",
+      "current_source_sha256": "4b13dbac6914d602e3e65917fe2b308b5d3fe15f25d55a397cd49d6748995ece",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/native_social_navigation_lifecycle.py",
+      "measured_source_sha256": "18e949987fc3e95d6bf11b9ebd75631f1389151ffe1187cd4915e75d8bfcfeec",
+      "current_source_sha256": "18e949987fc3e95d6bf11b9ebd75631f1389151ffe1187cd4915e75d8bfcfeec",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/native_social_observation_producer.py",
+      "measured_source_sha256": "521d4ef6fa78849c5d3497c979583a2990952669409ae94fa3a1a4f96fd803fa",
+      "current_source_sha256": "521d4ef6fa78849c5d3497c979583a2990952669409ae94fa3a1a4f96fd803fa",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/native_visual_scene.py",
+      "measured_source_sha256": "e8fce8fcb7db21a73b4dbea40b61a80b713952acbb77f914bff62756cfd663ae",
+      "current_source_sha256": "e8fce8fcb7db21a73b4dbea40b61a80b713952acbb77f914bff62756cfd663ae",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/pre_action_observation.py",
+      "measured_source_sha256": "2fe9afc170309edcf1da2ebced1e8db9bae0dfde525dfd4dae8b05262681394b",
+      "current_source_sha256": "2fe9afc170309edcf1da2ebced1e8db9bae0dfde525dfd4dae8b05262681394b",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/relocated_terminal.py",
+      "measured_source_sha256": "35bb104a8e9069d5f6fc3618cb96c3cca2e8aea0d9f5fc0d44c6a994928902dc",
+      "current_source_sha256": "35bb104a8e9069d5f6fc3618cb96c3cca2e8aea0d9f5fc0d44c6a994928902dc",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/route_dwell.py",
+      "measured_source_sha256": "af9696ea6845802a1934fde7a4aec0e99d5fcb93b4c7174a7a46522507cb7e2a",
+      "current_source_sha256": "af9696ea6845802a1934fde7a4aec0e99d5fcb93b4c7174a7a46522507cb7e2a",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/route_progress.py",
+      "measured_source_sha256": "9a0ef97002bee68c191573b29acf4eb37982b8b0df24758e2cf044e891cc441f",
+      "current_source_sha256": "9a0ef97002bee68c191573b29acf4eb37982b8b0df24758e2cf044e891cc441f",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/sdk61_lifecycle.py",
+      "measured_source_sha256": "7b3910ad834808a2d00f4b9a5b2000acd81e172a0e462c6db69a6d8669a1a3e0",
+      "current_source_sha256": "df9258afe4ef56c9a7b32a5931a660fd435b86f7fcf16c0a0a48dfc521ac58a9",
+      "same_source_bytes": false
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/sealed/__init__.py",
+      "measured_source_sha256": "2f3d5e7b409da5c04bb7c47d6c2fe6a6e82779950c8ccfd2095969a46056894f",
+      "current_source_sha256": "2f3d5e7b409da5c04bb7c47d6c2fe6a6e82779950c8ccfd2095969a46056894f",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/sealed/sdk6_terminal.py",
+      "measured_source_sha256": "0e6b2ef97cc2f32612317df162ebba6107b1e276083f9912995badd5f416685e",
+      "current_source_sha256": "0e6b2ef97cc2f32612317df162ebba6107b1e276083f9912995badd5f416685e",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/settled_braking_target.py",
+      "measured_source_sha256": "af3122092358e2a9df2941e835411a06ece3160a1ec79d052ff4a177a88b5713",
+      "current_source_sha256": "af3122092358e2a9df2941e835411a06ece3160a1ec79d052ff4a177a88b5713",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/social_evaluation_lifecycle.py",
+      "measured_source_sha256": "6e28e8ce017b4b41d5a1425a4b9e1ca7e4e0ed04c14b5adff6d060c8f1ce50b7",
+      "current_source_sha256": "6e28e8ce017b4b41d5a1425a4b9e1ca7e4e0ed04c14b5adff6d060c8f1ce50b7",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/social_navigation_lifecycle.py",
+      "measured_source_sha256": "7e4c681cf9e854465868086493cec44576e2de0969c97874d46fe27291679ee6",
+      "current_source_sha256": "7e4c681cf9e854465868086493cec44576e2de0969c97874d46fe27291679ee6",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/social_observation_producer.py",
+      "measured_source_sha256": "4ffaa5a4e9c2d1e9e717ccae33f1978cbeb4a991d91193461af87593750ad40c",
+      "current_source_sha256": "4ffaa5a4e9c2d1e9e717ccae33f1978cbeb4a991d91193461af87593750ad40c",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/social_popart_inference.py",
+      "measured_source_sha256": "d3b5724567acea05dcca7557133b73361553085ef4ebb61c3dfdda72c5ec1344",
+      "current_source_sha256": "d3b5724567acea05dcca7557133b73361553085ef4ebb61c3dfdda72c5ec1344",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/social_popart_training.py",
+      "measured_source_sha256": "66f8d37bd6e515f577c306f009d268111c860d847268626fdf01db0826152493",
+      "current_source_sha256": "66f8d37bd6e515f577c306f009d268111c860d847268626fdf01db0826152493",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/social_training_recovery.py",
+      "measured_source_sha256": "7bb57c09de0df9c3ccd5302d351daab4d47f89e5ce02922d9898c33bb311fd21",
+      "current_source_sha256": "7bb57c09de0df9c3ccd5302d351daab4d47f89e5ce02922d9898c33bb311fd21",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/trace_pace.py",
+      "measured_source_sha256": "759a4f05ea92e857ae35759b74ccf16353de51c1b328995c401689dfbd453a68",
+      "current_source_sha256": "759a4f05ea92e857ae35759b74ccf16353de51c1b328995c401689dfbd453a68",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/trace_pace_lifecycle.py",
+      "measured_source_sha256": "03586009edb7f876c0aa58ba47bfab56ad908381ebe94e66c9a624f7329e1c6a",
+      "current_source_sha256": "03586009edb7f876c0aa58ba47bfab56ad908381ebe94e66c9a624f7329e1c6a",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/trace_pace_measured_lifecycle.py",
+      "measured_source_sha256": "397add53f5d4f7daf0ddee4738a923d34bafef3bab1d59d44a6dd0d3ea93aadd",
+      "current_source_sha256": "397add53f5d4f7daf0ddee4738a923d34bafef3bab1d59d44a6dd0d3ea93aadd",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/trace_pace_native_lifecycle.py",
+      "measured_source_sha256": "8b96bc991fb0f5f92a34c3af2939a126facce85b429b7d577b9721e9ffebfcb0",
+      "current_source_sha256": "8b96bc991fb0f5f92a34c3af2939a126facce85b429b7d577b9721e9ffebfcb0",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/runtime/trace_pace_scope.py",
+      "measured_source_sha256": "cbcf6f8dc8df303bb091c2ae88a8c1a86655c5cbafa693a09aa396316ffa0ad4",
+      "current_source_sha256": "cbcf6f8dc8df303bb091c2ae88a8c1a86655c5cbafa693a09aa396316ffa0ad4",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/simulate.py",
+      "measured_source_sha256": "35098561ee74e2b7290b754ada7bc33f821e33cc4084be4017d12f6fc1371aac",
+      "current_source_sha256": "35098561ee74e2b7290b754ada7bc33f821e33cc4084be4017d12f6fc1371aac",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/style_evaluation.py",
+      "measured_source_sha256": "b09fa58caaf877d89b69ca788538c2808e3a3d8d91410277ea07b5df3bcdaca2",
+      "current_source_sha256": "b09fa58caaf877d89b69ca788538c2808e3a3d8d91410277ea07b5df3bcdaca2",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/training/__init__.py",
+      "measured_source_sha256": "e76d34cc4c654886369a19a2464c41ae38d24db2432a8f6eff25a6d62b6e7f5a",
+      "current_source_sha256": "e76d34cc4c654886369a19a2464c41ae38d24db2432a8f6eff25a6d62b6e7f5a",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/training/amass_curation.py",
+      "measured_source_sha256": "75c6505c2589664651604bd3cb3bc6d656916176c91b82f423b16dcc038b09e8",
+      "current_source_sha256": "75c6505c2589664651604bd3cb3bc6d656916176c91b82f423b16dcc038b09e8",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/training/amass_trajectories.py",
+      "measured_source_sha256": "ddca3403a59422045f051b5d9f653d6f411db1523840ed8bc021fc96ef82566e",
+      "current_source_sha256": "ddca3403a59422045f051b5d9f653d6f411db1523840ed8bc021fc96ef82566e",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/training/contracts.py",
+      "measured_source_sha256": "26c7379ba60842c67f062fa5c1a3459ddfb6e0843e1b4952e1d078aa6f78cdad",
+      "current_source_sha256": "26c7379ba60842c67f062fa5c1a3459ddfb6e0843e1b4952e1d078aa6f78cdad",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/training/episode_mixed_trajectories.py",
+      "measured_source_sha256": "61ec4446472800c4c6ed922194cb42f8d6988cabe732853d865f5386d4793e1a",
+      "current_source_sha256": "61ec4446472800c4c6ed922194cb42f8d6988cabe732853d865f5386d4793e1a",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/training/episode_trajectories.py",
+      "measured_source_sha256": "f4283656f29a31547905ee640316aac63e7ba2cdbcd9321f1763475247a17576",
+      "current_source_sha256": "f4283656f29a31547905ee640316aac63e7ba2cdbcd9321f1763475247a17576",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/training/expert_sampling.py",
+      "measured_source_sha256": "b16984a920f21ca92c3fe01976d9c0453a75bf54d3f46df369984ff27453f9cd",
+      "current_source_sha256": "b16984a920f21ca92c3fe01976d9c0453a75bf54d3f46df369984ff27453f9cd",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/training/kinematic_gait_prior.py",
+      "measured_source_sha256": "e5c30b3324ea6748fb40c2f16484312afb1146c0edc5eb72790913cef05a7d28",
+      "current_source_sha256": "e5c30b3324ea6748fb40c2f16484312afb1146c0edc5eb72790913cef05a7d28",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/training/locomotion_objective.py",
+      "measured_source_sha256": "ddac163eb1722a4a16263aa8a698a72ba11a6fe5691f279b616659b0e0b1288e",
+      "current_source_sha256": "ddac163eb1722a4a16263aa8a698a72ba11a6fe5691f279b616659b0e0b1288e",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/training/manifests.py",
+      "measured_source_sha256": "682d744e6aa6cb7caa38244139104cdc2be1acc7e243f3bdd3cb93e326977036",
+      "current_source_sha256": "682d744e6aa6cb7caa38244139104cdc2be1acc7e243f3bdd3cb93e326977036",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/training/minimum_horizon_curriculum.py",
+      "measured_source_sha256": "817ac3898d540cc18e0f6ab8dd0b50b8ae6ecd2bd8a0f350efbbebd847388ef0",
+      "current_source_sha256": "817ac3898d540cc18e0f6ab8dd0b50b8ae6ecd2bd8a0f350efbbebd847388ef0",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/training/mixed_trajectories.py",
+      "measured_source_sha256": "c79732a675ac737d4ce0aff0d2b76cfa30cebed2d9c115e1a35da39299694d67",
+      "current_source_sha256": "c79732a675ac737d4ce0aff0d2b76cfa30cebed2d9c115e1a35da39299694d67",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/training/pacer_finetune.py",
+      "measured_source_sha256": "845c38669815d145da7b16995b2e0e5bde5fcdb65a1ec0487c87450420c1c87b",
+      "current_source_sha256": "845c38669815d145da7b16995b2e0e5bde5fcdb65a1ec0487c87450420c1c87b",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/training/reachable_selection.py",
+      "measured_source_sha256": "4fe35842d2fcf23ac741e8cacf9c5ed43e9fde4d1f93b185b839662044f78034",
+      "current_source_sha256": "4fe35842d2fcf23ac741e8cacf9c5ed43e9fde4d1f93b185b839662044f78034",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/training/reference.py",
+      "measured_source_sha256": "a9ebda71323a92c7e0373d04b11d429c9e33a278fe59e3d279f57a2d2d0daa65",
+      "current_source_sha256": "a9ebda71323a92c7e0373d04b11d429c9e33a278fe59e3d279f57a2d2d0daa65",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/training/replay.py",
+      "measured_source_sha256": "f023108348cfc0a2045138a97e09453ec6b489a900c2eb6da31467419184d27a",
+      "current_source_sha256": "f023108348cfc0a2045138a97e09453ec6b489a900c2eb6da31467419184d27a",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/training/rewards.py",
+      "measured_source_sha256": "fc595dd9c1b2012aa76f37dcecd4ec5d7dad50fbd923840736a77c24622a6430",
+      "current_source_sha256": "fc595dd9c1b2012aa76f37dcecd4ec5d7dad50fbd923840736a77c24622a6430",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/training/symmetry.py",
+      "measured_source_sha256": "af8dfd1cc04f42c03ee538c16543455466dea7067c6e04c3c494c16ce3e14373",
+      "current_source_sha256": "af8dfd1cc04f42c03ee538c16543455466dea7067c6e04c3c494c16ce3e14373",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/training/task_horizon.py",
+      "measured_source_sha256": "3a9bfd6c811ca194bff3b23ce00e7d581c6302c4f8a8e2a9fffdf1a98a7faf26",
+      "current_source_sha256": "3a9bfd6c811ca194bff3b23ce00e7d581c6302c4f8a8e2a9fffdf1a98a7faf26",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/training/temporal_gait_prior.py",
+      "measured_source_sha256": "b9c064ffc132bf470c9fda3339fdb924e46163cd926c5ae8929d92ee5751bc78",
+      "current_source_sha256": "b9c064ffc132bf470c9fda3339fdb924e46163cd926c5ae8929d92ee5751bc78",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/training/terrain_statistics.py",
+      "measured_source_sha256": "7c07e3a54617d40b72475bc40bf0b728516b7d4166fb99795c8a8bb69b0f78f3",
+      "current_source_sha256": "7c07e3a54617d40b72475bc40bf0b728516b7d4166fb99795c8a8bb69b0f78f3",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/training/trainer.py",
+      "measured_source_sha256": "9e0ed3dcc1d866f03c61084defd75c769af60a589bdfc5e9b7fc100c97ad5039",
+      "current_source_sha256": "9e0ed3dcc1d866f03c61084defd75c769af60a589bdfc5e9b7fc100c97ad5039",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/training/trajectories.py",
+      "measured_source_sha256": "81701988535cf847b8b86979a836ba37089e93553aa4e3fe5ecfc9529d62d2c9",
+      "current_source_sha256": "81701988535cf847b8b86979a836ba37089e93553aa4e3fe5ecfc9529d62d2c9",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/training/validate.py",
+      "measured_source_sha256": "c0d022763a6309c25e243e5195b18b80f6c24a019eadf90aa550362368659328",
+      "current_source_sha256": "c0d022763a6309c25e243e5195b18b80f6c24a019eadf90aa550362368659328",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/training/value_normalization.py",
+      "measured_source_sha256": "e2c6aac084ce0ffd67774c3071824e6d30de7639ba92330a91b2fb089345adc5",
+      "current_source_sha256": "e2c6aac084ce0ffd67774c3071824e6d30de7639ba92330a91b2fb089345adc5",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/training/walking_turn_curriculum.py",
+      "measured_source_sha256": "72e185710e7898ef15b5e7b019a1eb776e716cb5f1d50dc2b078b1e562bfde5f",
+      "current_source_sha256": "72e185710e7898ef15b5e7b019a1eb776e716cb5f1d50dc2b078b1e562bfde5f",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/trajectory/__init__.py",
+      "measured_source_sha256": "a748f716c9ad8eaaa881ee384c46181d44bba01e9813c79a4646b0e8609bc898",
+      "current_source_sha256": "a748f716c9ad8eaaa881ee384c46181d44bba01e9813c79a4646b0e8609bc898",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/trajectory/native_social_force_runtime.py",
+      "measured_source_sha256": "3befbdceed3b29fd33e1860afd1414a15a5621006b655c4ab63c107d80e1bf44",
+      "current_source_sha256": "3befbdceed3b29fd33e1860afd1414a15a5621006b655c4ab63c107d80e1bf44",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/trajectory/social_force.py",
+      "measured_source_sha256": "936b1c9ed2d0328b5b3dc4799a2607ce385d8061a6e48c4c2b063e8c47ef191e",
+      "current_source_sha256": "936b1c9ed2d0328b5b3dc4799a2607ce385d8061a6e48c4c2b063e8c47ef191e",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/trajectory/social_force_runtime.py",
+      "measured_source_sha256": "10f403e35ed717cd755313a4b9411304d4b58fa52786761eed9afafd55a8469f",
+      "current_source_sha256": "10f403e35ed717cd755313a4b9411304d4b58fa52786761eed9afafd55a8469f",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/humanoid/waypoint_weighting.py",
+      "measured_source_sha256": "dd424543c4e5f2c5579b039b3ed3ee5e685a30ec72a9469dcf33321f5469bd51",
+      "current_source_sha256": "dd424543c4e5f2c5579b039b3ed3ee5e685a30ec72a9469dcf33321f5469bd51",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/nav_manager.py",
+      "measured_source_sha256": "96341e2194dc811fe08c438ab3f16a342d6ced58ddeb9911eca53bc04889998b",
+      "current_source_sha256": "96341e2194dc811fe08c438ab3f16a342d6ced58ddeb9911eca53bc04889998b",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/ppo/__init__.py",
+      "measured_source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current_source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/ppo/episode_metrics.py",
+      "measured_source_sha256": "38477d3554147709bdebe8c1c1f431d8cfc16d164f426dd61813655fc184be4b",
+      "current_source_sha256": "38477d3554147709bdebe8c1c1f431d8cfc16d164f426dd61813655fc184be4b",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/ppo/goal_curriculum.py",
+      "measured_source_sha256": "2c005c07f668bc50e4c00b6455e6ce2e2e88f2afd0fb7fddefd29f30a19a7796",
+      "current_source_sha256": "2c005c07f668bc50e4c00b6455e6ce2e2e88f2afd0fb7fddefd29f30a19a7796",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/ppo/ppo_policy.py",
+      "measured_source_sha256": "a3686db781def190a73ea3aa69bef1bba991dd8ea40bdde3ec232786df834987",
+      "current_source_sha256": "a3686db781def190a73ea3aa69bef1bba991dd8ea40bdde3ec232786df834987",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/ppo/reward_model_ppo.py",
+      "measured_source_sha256": "fcbcf39f3bb02803906f04add4767967c66d878860c2ea96d64dfb9a866db059",
+      "current_source_sha256": "fcbcf39f3bb02803906f04add4767967c66d878860c2ea96d64dfb9a866db059",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/ppo/train_ppo.py",
+      "measured_source_sha256": "f0b61d5988c1653d37e0c93c967194993458fe3a6cad586de1c58f83dcb749e8",
+      "current_source_sha256": "f0b61d5988c1653d37e0c93c967194993458fe3a6cad586de1c58f83dcb749e8",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/ppo/train_ppo_finetune.py",
+      "measured_source_sha256": "9eae13646d79428683d2a512209f8b8eff5396f7d9176b887ed5348aefae0447",
+      "current_source_sha256": "9eae13646d79428683d2a512209f8b8eff5396f7d9176b887ed5348aefae0447",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/ppo_policy.py",
+      "measured_source_sha256": "998a1c30c393b919a94eb11996a42c92f11d6bb30aee852030db87abeb5c50ca",
+      "current_source_sha256": "998a1c30c393b919a94eb11996a42c92f11d6bb30aee852030db87abeb5c50ca",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/pref/__init__.py",
+      "measured_source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current_source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/pref/build_offline_preferences.py",
+      "measured_source_sha256": "e7c27ce85cf5b18b5cbedc5eeed27ff0e049fc7c523d76e985ff1851aabc84e0",
+      "current_source_sha256": "e7c27ce85cf5b18b5cbedc5eeed27ff0e049fc7c523d76e985ff1851aabc84e0",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/pref/offline_reward_model.py",
+      "measured_source_sha256": "81f6dea4039df4d29d1506ee588311d0b9fb8fa924a1d50ab87116fc46032163",
+      "current_source_sha256": "81f6dea4039df4d29d1506ee588311d0b9fb8fa924a1d50ab87116fc46032163",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/pref/pref_buffer.py",
+      "measured_source_sha256": "80e65a6155775c323aeabd2ff6c623bed6ac19b43269503a750781991c4a59f8",
+      "current_source_sha256": "80e65a6155775c323aeabd2ff6c623bed6ac19b43269503a750781991c4a59f8",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/pref/pref_collect.py",
+      "measured_source_sha256": "518ac28fc8e8f808c8445b745ff462326a28ad5c1f32b68da0f2fb5250f76d0d",
+      "current_source_sha256": "518ac28fc8e8f808c8445b745ff462326a28ad5c1f32b68da0f2fb5250f76d0d",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/pref/pref_train_reward.py",
+      "measured_source_sha256": "898fed8562d48d9bbff6b8db0fca919fe0af17b7c4f95d7de9f3d5dba5dc2c2f",
+      "current_source_sha256": "898fed8562d48d9bbff6b8db0fca919fe0af17b7c4f95d7de9f3d5dba5dc2c2f",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/pref/reward_model_utils.py",
+      "measured_source_sha256": "1a7b9e956fbb286db739f9bd75e73c6f2c2e3029c4ebddf297d68b6bf40a00af",
+      "current_source_sha256": "1a7b9e956fbb286db739f9bd75e73c6f2c2e3029c4ebddf297d68b6bf40a00af",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/pref/script_teacher.py",
+      "measured_source_sha256": "56748501edd55ee980c777e7e60e7bed9d97ec7961e7ea3bdde34e77b9bc24c1",
+      "current_source_sha256": "56748501edd55ee980c777e7e60e7bed9d97ec7961e7ea3bdde34e77b9bc24c1",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/pref/train_offline_reward.py",
+      "measured_source_sha256": "88078fa845a522c9def4a73a84735cd728c66eca25ff8494a120e940a53be7d9",
+      "current_source_sha256": "88078fa845a522c9def4a73a84735cd728c66eca25ff8494a120e940a53be7d9",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/protomotions_runtime.py",
+      "measured_source_sha256": "8a958d28db8f3b82028baa01545571b0b8c0332c65b06b0a4668efa75eb74bff",
+      "current_source_sha256": "8a958d28db8f3b82028baa01545571b0b8c0332c65b06b0a4668efa75eb74bff",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/scene_setup.py",
+      "measured_source_sha256": "bc5696717b41d2c3763f34438a04b7c73611cc47387b8a9c9039c9bf9d1bf589",
+      "current_source_sha256": "bc5696717b41d2c3763f34438a04b7c73611cc47387b8a9c9039c9bf9d1bf589",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/tools/__init__.py",
+      "measured_source_sha256": "a748f716c9ad8eaaa881ee384c46181d44bba01e9813c79a4646b0e8609bc898",
+      "current_source_sha256": "a748f716c9ad8eaaa881ee384c46181d44bba01e9813c79a4646b0e8609bc898",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/tools/check_action_distribution.py",
+      "measured_source_sha256": "82a727e088187321d8a6afe930557c13390c5284bd96a10e69fb045103670f16",
+      "current_source_sha256": "82a727e088187321d8a6afe930557c13390c5284bd96a10e69fb045103670f16",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/tools/eval_policy.py",
+      "measured_source_sha256": "3417269505e02fdd68dc6db7d25f1e54cffd03b7a9f9fc90148e9be24016746c",
+      "current_source_sha256": "3417269505e02fdd68dc6db7d25f1e54cffd03b7a9f9fc90148e9be24016746c",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/tools/panel_render.py",
+      "measured_source_sha256": "f124e9293617f31f46ac216ac0e4a48304842f02077c64e40785a9f1096df8ae",
+      "current_source_sha256": "f124e9293617f31f46ac216ac0e4a48304842f02077c64e40785a9f1096df8ae",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/tools/render_navigation_fast.py",
+      "measured_source_sha256": "211d5ed9256256349e73e8b965dccb2f4e9c58903c26fe30f24c8837ecd451c0",
+      "current_source_sha256": "211d5ed9256256349e73e8b965dccb2f4e9c58903c26fe30f24c8837ecd451c0",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/tools/smpl_mesh_visualizer.py",
+      "measured_source_sha256": "271d8b2aec5a607b6209a7190048fff7dead1153a8c2d1df5af9cfaadcaf98b0",
+      "current_source_sha256": "271d8b2aec5a607b6209a7190048fff7dead1153a8c2d1df5af9cfaadcaf98b0",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/tools/test_camera_depth.py",
+      "measured_source_sha256": "feb00909f24d29a2fced70ed4be27458b75166e1bbfd6420bff06e0e27adedfa",
+      "current_source_sha256": "feb00909f24d29a2fced70ed4be27458b75166e1bbfd6420bff06e0e27adedfa",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/tools/test_robot_kinematics.py",
+      "measured_source_sha256": "5299b835b0e728d0f9b26789b910c32fbf0187d49bd126e9b233d2f2560345c8",
+      "current_source_sha256": "5299b835b0e728d0f9b26789b910c32fbf0187d49bd126e9b233d2f2560345c8",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/tools/test_robot_obs.py",
+      "measured_source_sha256": "5c03bbdf34d499cf673e9924be2dfd6d3808189114a68a3d054f1c3bdf84efb3",
+      "current_source_sha256": "5c03bbdf34d499cf673e9924be2dfd6d3808189114a68a3d054f1c3bdf84efb3",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/tools/validate_drive_integration.py",
+      "measured_source_sha256": "c98bcc8ba40b0ee4cc94d3c50819b962ee8b86ab60d0d56372355d02392460f4",
+      "current_source_sha256": "c98bcc8ba40b0ee4cc94d3c50819b962ee8b86ab60d0d56372355d02392460f4",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/tools/visualize_paths.py",
+      "measured_source_sha256": "34904fc7e00008b22756a34c3374f7b0daaa7d2a46787d18f0d2309617978500",
+      "current_source_sha256": "34904fc7e00008b22756a34c3374f7b0daaa7d2a46787d18f0d2309617978500",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/utils/__init__.py",
+      "measured_source_sha256": "a748f716c9ad8eaaa881ee384c46181d44bba01e9813c79a4646b0e8609bc898",
+      "current_source_sha256": "a748f716c9ad8eaaa881ee384c46181d44bba01e9813c79a4646b0e8609bc898",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/utils/config_loader.py",
+      "measured_source_sha256": "9c648038002403178f3e748b9fbb8a32193ca2442725649a442afb86402cdb2d",
+      "current_source_sha256": "9c648038002403178f3e748b9fbb8a32193ca2442725649a442afb86402cdb2d",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/utils/humanoid_state_recorder.py",
+      "measured_source_sha256": "8f6c2ba43ec44fc451e5d92693fd4c38d91b7b619297b9e998ea1a1032a9e52e",
+      "current_source_sha256": "8f6c2ba43ec44fc451e5d92693fd4c38d91b7b619297b9e998ea1a1032a9e52e",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/utils/map_metadata.py",
+      "measured_source_sha256": "602ca64a0a4d4b0a6241be399f42cef6dbe9e567d9d5f3d669f1c712a594bd95",
+      "current_source_sha256": "602ca64a0a4d4b0a6241be399f42cef6dbe9e567d9d5f3d669f1c712a594bd95",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/utils/sensor_stream.py",
+      "measured_source_sha256": "be890c85c01773d81d34ab2c9728d3be356b4173fc8abfc0a35bad55562acdeb",
+      "current_source_sha256": "be890c85c01773d81d34ab2c9728d3be356b4173fc8abfc0a35bad55562acdeb",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/utils/vision.py",
+      "measured_source_sha256": "f7f65b973e77fb2a65b55c22085166c6045db25dbb1854537ededa8db9b035c4",
+      "current_source_sha256": "f7f65b973e77fb2a65b55c22085166c6045db25dbb1854537ededa8db9b035c4",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/world/__init__.py",
+      "measured_source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current_source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/world/builder.py",
+      "measured_source_sha256": "d77ceacec025148ffd2e77a8a58900fe7bed19f2e1eb23d17b953683305e617c",
+      "current_source_sha256": "d77ceacec025148ffd2e77a8a58900fe7bed19f2e1eb23d17b953683305e617c",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/world/map.py",
+      "measured_source_sha256": "7fbd29b8f49bd41abe62dd96161d01d6e16757a4506da1a4f0e2deb888a271dd",
+      "current_source_sha256": "7fbd29b8f49bd41abe62dd96161d01d6e16757a4506da1a4f0e2deb888a271dd",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/world/nav_init.py",
+      "measured_source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current_source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/world/planning.py",
+      "measured_source_sha256": "b7719b73e5b3885cf68c61e4ffaaa979a85e356dde64a011f291900d87f16a06",
+      "current_source_sha256": "b7719b73e5b3885cf68c61e4ffaaa979a85e356dde64a011f291900d87f16a06",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/CrowdSim/world/sfm.py",
+      "measured_source_sha256": "88f3274e1bfa2361dd92bb827b7b924d0d7c90d88f4a868ba76913bdfeccfd9c",
+      "current_source_sha256": "88f3274e1bfa2361dd92bb827b7b924d0d7c90d88f4a868ba76913bdfeccfd9c",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/crowdsim_ppo/__init__.py",
+      "measured_source_sha256": "7aabc962295962f97155ba244751b04a1647d60abf81640aa13b4e33e768de77",
+      "current_source_sha256": "7aabc962295962f97155ba244751b04a1647d60abf81640aa13b4e33e768de77",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/crowdsim_ppo/checkpoint.py",
+      "measured_source_sha256": "8875d85a1187c23f475e5f839d096a9a945c740a1e4c29a0eeb8fb6e18aa27b2",
+      "current_source_sha256": "8875d85a1187c23f475e5f839d096a9a945c740a1e4c29a0eeb8fb6e18aa27b2",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/crowdsim_ppo/evaluate.py",
+      "measured_source_sha256": "5c714670aca06d98ede009895d170d165c49379c6f98f5cc6dd75fa622139728",
+      "current_source_sha256": "5c714670aca06d98ede009895d170d165c49379c6f98f5cc6dd75fa622139728",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/crowdsim_ppo/goal_curriculum.py",
+      "measured_source_sha256": "2c005c07f668bc50e4c00b6455e6ce2e2e88f2afd0fb7fddefd29f30a19a7796",
+      "current_source_sha256": "2c005c07f668bc50e4c00b6455e6ce2e2e88f2afd0fb7fddefd29f30a19a7796",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/crowdsim_ppo/pipeline.py",
+      "measured_source_sha256": "adf5d1ee057f2b3167a6998dedfad1c4d57fbb8496ab25fa4c65b10d4a4fceb9",
+      "current_source_sha256": "adf5d1ee057f2b3167a6998dedfad1c4d57fbb8496ab25fa4c65b10d4a4fceb9",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/crowdsim_ppo/point_goal_env.py",
+      "measured_source_sha256": "bdbadd999c14336537148e18cd81463c4aacf93c2065c8609c2531bb994ba4de",
+      "current_source_sha256": "bdbadd999c14336537148e18cd81463c4aacf93c2065c8609c2531bb994ba4de",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/crowdsim_ppo/ppo_policy.py",
+      "measured_source_sha256": "05d29cca958300f0cfd46079e630e63e809fdc16c977b699253281b06bd800d5",
+      "current_source_sha256": "05d29cca958300f0cfd46079e630e63e809fdc16c977b699253281b06bd800d5",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/crowdsim_ppo/train.py",
+      "measured_source_sha256": "40dcfb5eda1b635654665773eba3c1306fd0267964a77dc15c622b57679af789",
+      "current_source_sha256": "40dcfb5eda1b635654665773eba3c1306fd0267964a77dc15c622b57679af789",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/deployment/__init__.py",
+      "measured_source_sha256": "13eacd66e534feccf260e2bb8c07c830b4efd72092af3476e3d07e9aef4140d7",
+      "current_source_sha256": "13eacd66e534feccf260e2bb8c07c830b4efd72092af3476e3d07e9aef4140d7",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/deployment/export_bm_tracker_onnx.py",
+      "measured_source_sha256": "7af53182c34b6670dae2d30a92ba08dd5caded5b7150d61a1a912d301703be91",
+      "current_source_sha256": "7af53182c34b6670dae2d30a92ba08dd5caded5b7150d61a1a912d301703be91",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/deployment/export_tracker_onnx.py",
+      "measured_source_sha256": "533c6a85392a439afb29ebcd759e41759b73da9a112e6fcbcd9d46ce31a4ac97",
+      "current_source_sha256": "533c6a85392a439afb29ebcd759e41759b73da9a112e6fcbcd9d46ce31a4ac97",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/deployment/motion_utils.py",
+      "measured_source_sha256": "c4bd3525a0667e05b0a2bab3b4df845e6e1d12cd8075edac187866624069745c",
+      "current_source_sha256": "c4bd3525a0667e05b0a2bab3b4df845e6e1d12cd8075edac187866624069745c",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/deployment/state_utils.py",
+      "measured_source_sha256": "ac763720451020fed5e52040bb666743495b5634d6afc7e173872451998b3c1f",
+      "current_source_sha256": "ac763720451020fed5e52040bb666743495b5634d6afc7e173872451998b3c1f",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/deployment/test_tracker_mujoco.py",
+      "measured_source_sha256": "e629754177a2c5c7de8dfcd12cff9a8e34e5bf64fc7ae5907f8ec52852d1b144",
+      "current_source_sha256": "e629754177a2c5c7de8dfcd12cff9a8e34e5bf64fc7ae5907f8ec52852d1b144",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/deployment/tracker_inputs.py",
+      "measured_source_sha256": "ca80ca4c994d18025912e6feb5da72953f6d2fd4eff3662b3d8c4a39f1a1e829",
+      "current_source_sha256": "ca80ca4c994d18025912e6feb5da72953f6d2fd4eff3662b3d8c4a39f1a1e829",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/social_navigation/__init__.py",
+      "measured_source_sha256": "b1064eb9fcae08d53f4dc355633a91e980293e2f06d36c7129ff08a9074aca2e",
+      "current_source_sha256": "b1064eb9fcae08d53f4dc355633a91e980293e2f06d36c7129ff08a9074aca2e",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/social_navigation/__main__.py",
+      "measured_source_sha256": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+      "current_source_sha256": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/social_navigation/asset_release.py",
+      "measured_source_sha256": "4eed9e5765db04e2a416d74ce3798e65e840731ae093e5c30ed260a6052fbf1d",
+      "current_source_sha256": "4eed9e5765db04e2a416d74ce3798e65e840731ae093e5c30ed260a6052fbf1d",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/social_navigation/cli.py",
+      "measured_source_sha256": "f2acef8f7254a8b15e9d256683a28256c0c6ffaa28b28f02fa034630d2c54803",
+      "current_source_sha256": "f2acef8f7254a8b15e9d256683a28256c0c6ffaa28b28f02fa034630d2c54803",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/social_navigation/paths.py",
+      "measured_source_sha256": "3d33fe66cd0b8760c2ad6ee8e390e88bd2d32606283c5c1b79bc3cda9443f111",
+      "current_source_sha256": "3d33fe66cd0b8760c2ad6ee8e390e88bd2d32606283c5c1b79bc3cda9443f111",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/social_navigation/portable_usd.py",
+      "measured_source_sha256": "bbc5806eabe4285c2cb4f205a2690aeac35955e8b836dccbe869e6de8af510ec",
+      "current_source_sha256": "bbc5806eabe4285c2cb4f205a2690aeac35955e8b836dccbe869e6de8af510ec",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/social_navigation/preflight.py",
+      "measured_source_sha256": "9bc4971a1033adaff13d9ab42c8b02e5622d0d6bf2fc0d118dc97c0be5ad2601",
+      "current_source_sha256": "9bc4971a1033adaff13d9ab42c8b02e5622d0d6bf2fc0d118dc97c0be5ad2601",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/social_navigation/reproduction.py",
+      "measured_source_sha256": "c805f939298c4e4a308b91c2668d3a17969c2dc401bbe19c254cf302afe74fd7",
+      "current_source_sha256": "c805f939298c4e4a308b91c2668d3a17969c2dc401bbe19c254cf302afe74fd7",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/social_navigation/resource_bindings.py",
+      "measured_source_sha256": "ee711511624c6b5c399c5b2cb11ce4908a3522feb97c9d7ccff765fc47d12461",
+      "current_source_sha256": "ee711511624c6b5c399c5b2cb11ce4908a3522feb97c9d7ccff765fc47d12461",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/social_navigation/runtime_environment.py",
+      "measured_source_sha256": "3685d3b6cd792faa2f617dd58101a3083bbd3bfd1420c193427c758caf109e92",
+      "current_source_sha256": "3685d3b6cd792faa2f617dd58101a3083bbd3bfd1420c193427c758caf109e92",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/social_navigation/sdk_paths.py",
+      "measured_source_sha256": "4285f8ea53c62b9faf73d5f02f7a281a1f060a00b13eba77eff884519bb485ed",
+      "current_source_sha256": "4285f8ea53c62b9faf73d5f02f7a281a1f060a00b13eba77eff884519bb485ed",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/social_navigation/serialized_bank.py",
+      "measured_source_sha256": "687a580d3af86ba48effcdc678f9b53bb51d25e193d3cd9f3c304c510661e2d6",
+      "current_source_sha256": "687a580d3af86ba48effcdc678f9b53bb51d25e193d3cd9f3c304c510661e2d6",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/__init__.py",
+      "measured_source_sha256": "5cb3b4f448bc834954ee1625cca0af86f4212c505ee42070138bf63ea2bdc566",
+      "current_source_sha256": "5cb3b4f448bc834954ee1625cca0af86f4212c505ee42070138bf63ea2bdc566",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/amp/__init__.py",
+      "measured_source_sha256": "e0cb642ef795c18e5f37d739b64db90d1b8729db035d15c94cd096b423e99821",
+      "current_source_sha256": "e0cb642ef795c18e5f37d739b64db90d1b8729db035d15c94cd096b423e99821",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/amp/agent.py",
+      "measured_source_sha256": "b5869065d64ab0619fe27914567eb33a82f0cc2c1007ce705ddb62e998983d33",
+      "current_source_sha256": "b5869065d64ab0619fe27914567eb33a82f0cc2c1007ce705ddb62e998983d33",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/amp/component.py",
+      "measured_source_sha256": "fe486c274f1b3a4145629e1a405bac0561f44564c16250be9de50bbc5aba2384",
+      "current_source_sha256": "fe486c274f1b3a4145629e1a405bac0561f44564c16250be9de50bbc5aba2384",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/amp/config.py",
+      "measured_source_sha256": "bfc0c1190f2664ff1731256c126b0858d387661251d5e1089f62d05af849474d",
+      "current_source_sha256": "bfc0c1190f2664ff1731256c126b0858d387661251d5e1089f62d05af849474d",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/amp/model.py",
+      "measured_source_sha256": "5a0a6e81c7b4c827ae1b2cf0988cd396bc44293056c6aac17b6086c95a3b05ca",
+      "current_source_sha256": "5a0a6e81c7b4c827ae1b2cf0988cd396bc44293056c6aac17b6086c95a3b05ca",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/ase/__init__.py",
+      "measured_source_sha256": "ac08ccab4f0f5b4df80570fed57d9c31b0f1c577a6e0495189f89e91a00b42bc",
+      "current_source_sha256": "ac08ccab4f0f5b4df80570fed57d9c31b0f1c577a6e0495189f89e91a00b42bc",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/ase/agent.py",
+      "measured_source_sha256": "18ba123f3879f74adb09f5e9ffe8feb7e469ffbdfaf32f574e4dc30bd8b2da4e",
+      "current_source_sha256": "18ba123f3879f74adb09f5e9ffe8feb7e469ffbdfaf32f574e4dc30bd8b2da4e",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/ase/config.py",
+      "measured_source_sha256": "5f4d1c71bf6ac4c5713d92f2c39dc6c1b5d673bd98e5af16d3b4ab544921913b",
+      "current_source_sha256": "5f4d1c71bf6ac4c5713d92f2c39dc6c1b5d673bd98e5af16d3b4ab544921913b",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/ase/model.py",
+      "measured_source_sha256": "80d361031213380f0317c6858d47ad6f544ec422ae88317f87d76026158436b4",
+      "current_source_sha256": "80d361031213380f0317c6858d47ad6f544ec422ae88317f87d76026158436b4",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/base_agent/__init__.py",
+      "measured_source_sha256": "84fa7fc8f23d0d542568248281c29ace200aef208d59f2c00d789b2795dffd4b",
+      "current_source_sha256": "84fa7fc8f23d0d542568248281c29ace200aef208d59f2c00d789b2795dffd4b",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/base_agent/agent.py",
+      "measured_source_sha256": "b8f55031814b2d4803e6fabb0d6cac993379ec811e4b485eef1978f9357d1e7f",
+      "current_source_sha256": "b8f55031814b2d4803e6fabb0d6cac993379ec811e4b485eef1978f9357d1e7f",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/base_agent/config.py",
+      "measured_source_sha256": "bf124cc4b0606d182ebe985db2c4b9beed4924808ebe28439b9139d868ad6de6",
+      "current_source_sha256": "bf124cc4b0606d182ebe985db2c4b9beed4924808ebe28439b9139d868ad6de6",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/base_agent/model.py",
+      "measured_source_sha256": "007dc189f4a9bd21628eba1cd22866aa4a1e953dc00bde6f6683e86d26eb564e",
+      "current_source_sha256": "007dc189f4a9bd21628eba1cd22866aa4a1e953dc00bde6f6683e86d26eb564e",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/base_agent/motion_shards.py",
+      "measured_source_sha256": "51a7670d353a05806888346f3ceb1b18ecbf0b858188b0bd6db2e32e38bb2ad9",
+      "current_source_sha256": "51a7670d353a05806888346f3ceb1b18ecbf0b858188b0bd6db2e32e38bb2ad9",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/callbacks/__init__.py",
+      "measured_source_sha256": "5cb3b4f448bc834954ee1625cca0af86f4212c505ee42070138bf63ea2bdc566",
+      "current_source_sha256": "5cb3b4f448bc834954ee1625cca0af86f4212c505ee42070138bf63ea2bdc566",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/callbacks/slurm_autoresume_srun.py",
+      "measured_source_sha256": "39e16ccc1c1921013be120dde7f6838fd52595b3486b0ee7161df6e583e62601",
+      "current_source_sha256": "39e16ccc1c1921013be120dde7f6838fd52595b3486b0ee7161df6e583e62601",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/common/__init__.py",
+      "measured_source_sha256": "5cb3b4f448bc834954ee1625cca0af86f4212c505ee42070138bf63ea2bdc566",
+      "current_source_sha256": "5cb3b4f448bc834954ee1625cca0af86f4212c505ee42070138bf63ea2bdc566",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/common/autoencoder/__init__.py",
+      "measured_source_sha256": "6777a7344ba7ad321ea1803f79f8155087c5482f64f2088f7a5a6944e734f31c",
+      "current_source_sha256": "6777a7344ba7ad321ea1803f79f8155087c5482f64f2088f7a5a6944e734f31c",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/common/autoencoder/config.py",
+      "measured_source_sha256": "63a4ef8beef288d6463328ef8cbaa515e6720392c91149ad43cacb966f1a12a9",
+      "current_source_sha256": "63a4ef8beef288d6463328ef8cbaa515e6720392c91149ad43cacb966f1a12a9",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/common/autoregressive.py",
+      "measured_source_sha256": "3d23f4795000885599c0a13be0a0537c97943756c5651ea8fff6fdc0ed67a2f7",
+      "current_source_sha256": "3d23f4795000885599c0a13be0a0537c97943756c5651ea8fff6fdc0ed67a2f7",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/common/common.py",
+      "measured_source_sha256": "ff248cc0b6ddbce711dfa02c40e8be8001abd1f298abe4b6884e69b2f81ea823",
+      "current_source_sha256": "ff248cc0b6ddbce711dfa02c40e8be8001abd1f298abe4b6884e69b2f81ea823",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/common/config.py",
+      "measured_source_sha256": "95aa92fc46c23e702d62e7e02561ac22f2247ab3a9f81b6e33408e7e6751ddb7",
+      "current_source_sha256": "95aa92fc46c23e702d62e7e02561ac22f2247ab3a9f81b6e33408e7e6751ddb7",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/common/discrete_latent.py",
+      "measured_source_sha256": "881ecfbf365a56d5ef1e2238f917277ea7c69a07bf2a2b752eedc7315bbb1ecf",
+      "current_source_sha256": "881ecfbf365a56d5ef1e2238f917277ea7c69a07bf2a2b752eedc7315bbb1ecf",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/common/fsq.py",
+      "measured_source_sha256": "ff59aecfb3419dded4d3656e90aa002d40f8301f31f72ef187177991fd3de078",
+      "current_source_sha256": "ff59aecfb3419dded4d3656e90aa002d40f8301f31f72ef187177991fd3de078",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/common/fsq_config.py",
+      "measured_source_sha256": "6e6c78deda6abb5c21c41f2097e04d6c8bc8b194a8e674242c2b0907f22de302",
+      "current_source_sha256": "6e6c78deda6abb5c21c41f2097e04d6c8bc8b194a8e674242c2b0907f22de302",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/common/latent.py",
+      "measured_source_sha256": "da3f1fe648977e0d54bfd1cb1996b58a5da6b4cccfd741fae28467beb83fa0ae",
+      "current_source_sha256": "da3f1fe648977e0d54bfd1cb1996b58a5da6b4cccfd741fae28467beb83fa0ae",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/common/mlp.py",
+      "measured_source_sha256": "2181b7049d8204cc6c1981e3199e306d59e3172173d240b3b710503663a74b4f",
+      "current_source_sha256": "2181b7049d8204cc6c1981e3199e306d59e3172173d240b3b710503663a74b4f",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/common/pretrained.py",
+      "measured_source_sha256": "872fbd2449e685b0f0df2f74e39ded8f2e2c555aa1e36e95ea7e5f56d3771db8",
+      "current_source_sha256": "872fbd2449e685b0f0df2f74e39ded8f2e2c555aa1e36e95ea7e5f56d3771db8",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/common/supervision.py",
+      "measured_source_sha256": "258261c1f71db8c7696ec3c068b484e20e0859b4a732abdf3d8d1e91a5345001",
+      "current_source_sha256": "258261c1f71db8c7696ec3c068b484e20e0859b4a732abdf3d8d1e91a5345001",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/common/transformer.py",
+      "measured_source_sha256": "3c140919d041e795961934bb617a5ffe73bcfe4885d2cf23c2c713467f3e934d",
+      "current_source_sha256": "3c140919d041e795961934bb617a5ffe73bcfe4885d2cf23c2c713467f3e934d",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/evaluators/__init__.py",
+      "measured_source_sha256": "532a7c47e7dd133f7d91b9625dfc860db6b478893235790cad8c4197774a2a01",
+      "current_source_sha256": "532a7c47e7dd133f7d91b9625dfc860db6b478893235790cad8c4197774a2a01",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/evaluators/aggregate_metrics.py",
+      "measured_source_sha256": "d54e30e9645618e910645ebae665184b53f20ae28c7289cc749a9ed6307d9c98",
+      "current_source_sha256": "d54e30e9645618e910645ebae665184b53f20ae28c7289cc749a9ed6307d9c98",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/evaluators/base_evaluator.py",
+      "measured_source_sha256": "3e010476dd97c3a5915c2eeddb9de7d0c45339c6fdeba104ca5c3d5932129258",
+      "current_source_sha256": "3e010476dd97c3a5915c2eeddb9de7d0c45339c6fdeba104ca5c3d5932129258",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/evaluators/config.py",
+      "measured_source_sha256": "d5514dbdcb2a2cd0cb3972ce34c4b606700c9d81f0ec46a89cf299d770a41cc0",
+      "current_source_sha256": "d5514dbdcb2a2cd0cb3972ce34c4b606700c9d81f0ec46a89cf299d770a41cc0",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/evaluators/metrics.py",
+      "measured_source_sha256": "c1d409a8bdb64da34cd6c5a3b4d2f3bd946a58c392a614020929468e92d7ff8f",
+      "current_source_sha256": "c1d409a8bdb64da34cd6c5a3b4d2f3bd946a58c392a614020929468e92d7ff8f",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/evaluators/mimic_evaluator.py",
+      "measured_source_sha256": "f3216fcf5c2dc308af985b4d751bc7f10992f1b30b96ca7264648354a850fb3f",
+      "current_source_sha256": "f3216fcf5c2dc308af985b4d751bc7f10992f1b30b96ca7264648354a850fb3f",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/evaluators/smoothness_calculator.py",
+      "measured_source_sha256": "1327e705c3334eaba55421fba70dc95bb3fa1abf31309857c33a266f50aa3d5f",
+      "current_source_sha256": "1327e705c3334eaba55421fba70dc95bb3fa1abf31309857c33a266f50aa3d5f",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/fine_tuning/__init__.py",
+      "measured_source_sha256": "3c927c158d0f96a62a5ea8bf9d637523877a7f4141ac19d37c4c8fc30ae9d69d",
+      "current_source_sha256": "3c927c158d0f96a62a5ea8bf9d637523877a7f4141ac19d37c4c8fc30ae9d69d",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/fine_tuning/agent.py",
+      "measured_source_sha256": "6d5fc0831246f129a9b1ec52dabd31e57e206cbb21ca595fcc4c55407e9f2cd4",
+      "current_source_sha256": "6d5fc0831246f129a9b1ec52dabd31e57e206cbb21ca595fcc4c55407e9f2cd4",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/fine_tuning/config.py",
+      "measured_source_sha256": "a3eb1b2f85e03cb6bab14c257ffdbb1d27373a33fad776e5f51eba2c5b530e11",
+      "current_source_sha256": "a3eb1b2f85e03cb6bab14c257ffdbb1d27373a33fad776e5f51eba2c5b530e11",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/fine_tuning/pretrained_modules.py",
+      "measured_source_sha256": "c391a3618aa89120bf1817bff0eb71c417625e9a9ad3cdaa1ea899abe352a36f",
+      "current_source_sha256": "c391a3618aa89120bf1817bff0eb71c417625e9a9ad3cdaa1ea899abe352a36f",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/mimic/__init__.py",
+      "measured_source_sha256": "5cb3b4f448bc834954ee1625cca0af86f4212c505ee42070138bf63ea2bdc566",
+      "current_source_sha256": "5cb3b4f448bc834954ee1625cca0af86f4212c505ee42070138bf63ea2bdc566",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/mimic/agent_add.py",
+      "measured_source_sha256": "9e68b9499255300419c767830193a01baaeb2fdaae8be0ff0eba7fb2969176e1",
+      "current_source_sha256": "9e68b9499255300419c767830193a01baaeb2fdaae8be0ff0eba7fb2969176e1",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/optimizer/__init__.py",
+      "measured_source_sha256": "bd29e8a721b9cd91077ccd82e607405aba7c9f820486279ec7e5384d87465cf9",
+      "current_source_sha256": "bd29e8a721b9cd91077ccd82e607405aba7c9f820486279ec7e5384d87465cf9",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/optimizer/factory.py",
+      "measured_source_sha256": "b33e11ad54680a8897b7dd2df22aff3dff6cc52828efa3e8b3a5ed24b8a83e0f",
+      "current_source_sha256": "b33e11ad54680a8897b7dd2df22aff3dff6cc52828efa3e8b3a5ed24b8a83e0f",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/optimizer/muon.py",
+      "measured_source_sha256": "85168fb3dbe2d8b7e714b63b1f79a941ff45ccef179bdff97e9c51624583b261",
+      "current_source_sha256": "85168fb3dbe2d8b7e714b63b1f79a941ff45ccef179bdff97e9c51624583b261",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/peft/__init__.py",
+      "measured_source_sha256": "e43563b76cab321339b453e3f413bd6bdb0017b2870a2c25c1a8034912984bae",
+      "current_source_sha256": "e43563b76cab321339b453e3f413bd6bdb0017b2870a2c25c1a8034912984bae",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/peft/actor.py",
+      "measured_source_sha256": "61591c14938d5733b9ed18fd177b935415bfaa23cf8272fe80934b917315e93e",
+      "current_source_sha256": "61591c14938d5733b9ed18fd177b935415bfaa23cf8272fe80934b917315e93e",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/peft/adapters.py",
+      "measured_source_sha256": "0adae1f9d206750d39ac10bf3d500112b94a3081ec467e06b58fb4c971f299be",
+      "current_source_sha256": "0adae1f9d206750d39ac10bf3d500112b94a3081ec467e06b58fb4c971f299be",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/peft/config.py",
+      "measured_source_sha256": "5481ddcfa43dc718fcd13ee81e747db1bf4ecbb6ef279b25e7d0c47a72bda206",
+      "current_source_sha256": "5481ddcfa43dc718fcd13ee81e747db1bf4ecbb6ef279b25e7d0c47a72bda206",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/peft/model.py",
+      "measured_source_sha256": "2604e7e3d16afe9d141257619be54a07c8afc817ddc481f9903812136167f95e",
+      "current_source_sha256": "2604e7e3d16afe9d141257619be54a07c8afc817ddc481f9903812136167f95e",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/peft/prior_agent.py",
+      "measured_source_sha256": "71d10d545a1cb4794a0d41932ac2ce828a4994e6934ec807684a009606f49632",
+      "current_source_sha256": "71d10d545a1cb4794a0d41932ac2ce828a4994e6934ec807684a009606f49632",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/peft/prior_amp_agent.py",
+      "measured_source_sha256": "7f125e7966f6ca054c29f6cc3c47828d6cd78d3a80c67844422a162ceb889ca9",
+      "current_source_sha256": "7f125e7966f6ca054c29f6cc3c47828d6cd78d3a80c67844422a162ceb889ca9",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/peft/prior_amp_config.py",
+      "measured_source_sha256": "e790209d64b6e420e99ebc275f5a1361df2fbf83dd92b4a274bc78cd8349d57e",
+      "current_source_sha256": "e790209d64b6e420e99ebc275f5a1361df2fbf83dd92b4a274bc78cd8349d57e",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/peft/prior_amp_model.py",
+      "measured_source_sha256": "4915dcaaf7d0277c36e0e23c9f3741a973120d5dab337204d46789f85d481ce8",
+      "current_source_sha256": "4915dcaaf7d0277c36e0e23c9f3741a973120d5dab337204d46789f85d481ce8",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/peft/prior_config.py",
+      "measured_source_sha256": "fd18bde91d6c17d7ff8b904e33c7f208b6c7de8d784653edebf35542a26862c5",
+      "current_source_sha256": "fd18bde91d6c17d7ff8b904e33c7f208b6c7de8d784653edebf35542a26862c5",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/peft/prior_setup.py",
+      "measured_source_sha256": "009cd21c7df8042a7094bb4a85fbee3ef8689b6832ba8b2d41799b93b99ccc23",
+      "current_source_sha256": "009cd21c7df8042a7094bb4a85fbee3ef8689b6832ba8b2d41799b93b99ccc23",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/peft/prior_with_peft.py",
+      "measured_source_sha256": "3416c887466190bc3bb21f5af9b42cc83737f6425abc2895adc86e068d301ea3",
+      "current_source_sha256": "3416c887466190bc3bb21f5af9b42cc83737f6425abc2895adc86e068d301ea3",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/peft/sft_agent.py",
+      "measured_source_sha256": "f1ba3663cc473794da500ded97c58fb5bbf268d0d6ab2147b10313e74688a05c",
+      "current_source_sha256": "f1ba3663cc473794da500ded97c58fb5bbf268d0d6ab2147b10313e74688a05c",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/peft/sft_model.py",
+      "measured_source_sha256": "dd1e725bb8699b11299b4d76d6658d521d6079240fe15801108711c429ea2cac",
+      "current_source_sha256": "dd1e725bb8699b11299b4d76d6658d521d6079240fe15801108711c429ea2cac",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/peft/utils/__init__.py",
+      "measured_source_sha256": "b9aa2507a101bdd1788ffa6e7c5392abf0e75b159993ed89a3e7f282ed9f77d7",
+      "current_source_sha256": "b9aa2507a101bdd1788ffa6e7c5392abf0e75b159993ed89a3e7f282ed9f77d7",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/peft/utils/adapter_state.py",
+      "measured_source_sha256": "5789125f43a34b04346238e3bb90959a6a1704036e8ef6ef5c540579d18f60fe",
+      "current_source_sha256": "5789125f43a34b04346238e3bb90959a6a1704036e8ef6ef5c540579d18f60fe",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/peft/utils/frozen_prior_checkpoint.py",
+      "measured_source_sha256": "bb91daf7895ddce8c7002da84ef2b85e9f416a5053c8f56edb8ff4aec8d58a14",
+      "current_source_sha256": "bb91daf7895ddce8c7002da84ef2b85e9f416a5053c8f56edb8ff4aec8d58a14",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/peft/utils/frozen_prior_contract.py",
+      "measured_source_sha256": "32dfd38616034ecfd3b2810cfee12f9e7057533680b450e5b97da21b8a530175",
+      "current_source_sha256": "32dfd38616034ecfd3b2810cfee12f9e7057533680b450e5b97da21b8a530175",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/peft/utils/model_state.py",
+      "measured_source_sha256": "ba61ef7839feb163f0b0219e34c2bf229e151e3eb2d5c7fde0ffdd93ff2fad0a",
+      "current_source_sha256": "ba61ef7839feb163f0b0219e34c2bf229e151e3eb2d5c7fde0ffdd93ff2fad0a",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/ppo/__init__.py",
+      "measured_source_sha256": "5170ae034a60d1bdec9096dbc6afae408dca34811091aff4a8ad085388d8239a",
+      "current_source_sha256": "5170ae034a60d1bdec9096dbc6afae408dca34811091aff4a8ad085388d8239a",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/ppo/agent.py",
+      "measured_source_sha256": "184c44f7cc919734295facdc49ba14178af7b006f0a1ea1a1589efcfb2212278",
+      "current_source_sha256": "184c44f7cc919734295facdc49ba14178af7b006f0a1ea1a1589efcfb2212278",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/ppo/config.py",
+      "measured_source_sha256": "882a7516e67dc4af72295e090344fefc94cf3959082e6e8f5d2acf9db25b17a8",
+      "current_source_sha256": "882a7516e67dc4af72295e090344fefc94cf3959082e6e8f5d2acf9db25b17a8",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/ppo/model.py",
+      "measured_source_sha256": "7a00ff937bce4db83a982261e2e8432a6542a5b8c757837118b75eb8d887927f",
+      "current_source_sha256": "7a00ff937bce4db83a982261e2e8432a6542a5b8c757837118b75eb8d887927f",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/ppo/utils.py",
+      "measured_source_sha256": "41e7bfde0046431c8daa49f93cd915befa372f3e0c8275775f97dc7a80b34f9a",
+      "current_source_sha256": "41e7bfde0046431c8daa49f93cd915befa372f3e0c8275775f97dc7a80b34f9a",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/supervised/__init__.py",
+      "measured_source_sha256": "ec1aae7fc1cedfa068672997ec48c2b04797014df96e9166913da9ec5efaf1ca",
+      "current_source_sha256": "ec1aae7fc1cedfa068672997ec48c2b04797014df96e9166913da9ec5efaf1ca",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/supervised/agent.py",
+      "measured_source_sha256": "26c6533640df71d0e910109cad88a657d640fc2fffa9f93c8454a7b892e82fc1",
+      "current_source_sha256": "26c6533640df71d0e910109cad88a657d640fc2fffa9f93c8454a7b892e82fc1",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/supervised/config.py",
+      "measured_source_sha256": "a545ac32f6f92c552e3936c57de1d7a1a4a1ec0ad74b37e4e7f6d90d4a58c9bc",
+      "current_source_sha256": "a545ac32f6f92c552e3936c57de1d7a1a4a1ec0ad74b37e4e7f6d90d4a58c9bc",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/supervised/expert_utils.py",
+      "measured_source_sha256": "76ec6b96f3199c1c7853c38d7c27d2a3bf170d5406cb6c8e18d6293b4f75a758",
+      "current_source_sha256": "76ec6b96f3199c1c7853c38d7c27d2a3bf170d5406cb6c8e18d6293b4f75a758",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/supervised/latent_prior_config.py",
+      "measured_source_sha256": "16b4944a35b6176a49e73d0ee8c37b6ba39a5948d369f07767a05a3115315ee2",
+      "current_source_sha256": "16b4944a35b6176a49e73d0ee8c37b6ba39a5948d369f07767a05a3115315ee2",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/supervised/latent_prior_model.py",
+      "measured_source_sha256": "ec64804c98b7dd90b23f7cc777982962792ed39351de02a3f50fe0a72dc29e8b",
+      "current_source_sha256": "ec64804c98b7dd90b23f7cc777982962792ed39351de02a3f50fe0a72dc29e8b",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/supervised/masked_mimic_config.py",
+      "measured_source_sha256": "efd7ed35a728bbaae48c28c3745633460d6c4294247f5ef62779573095c4c772",
+      "current_source_sha256": "efd7ed35a728bbaae48c28c3745633460d6c4294247f5ef62779573095c4c772",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/supervised/masked_mimic_model.py",
+      "measured_source_sha256": "503b8e9f96a12a77f3c4d91539575414bc1bb9b8bc5d884e6285247450b702e4",
+      "current_source_sha256": "503b8e9f96a12a77f3c4d91539575414bc1bb9b8bc5d884e6285247450b702e4",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/utils/__init__.py",
+      "measured_source_sha256": "5cb3b4f448bc834954ee1625cca0af86f4212c505ee42070138bf63ea2bdc566",
+      "current_source_sha256": "5cb3b4f448bc834954ee1625cca0af86f4212c505ee42070138bf63ea2bdc566",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/utils/data.py",
+      "measured_source_sha256": "a9aff627982ebcaf8503fd380a55811209e51b2714c9e0ca225e9604aff62b40",
+      "current_source_sha256": "a9aff627982ebcaf8503fd380a55811209e51b2714c9e0ca225e9604aff62b40",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/utils/distributed.py",
+      "measured_source_sha256": "e0fd42afdd2d20243378917c1c9a79291bf4193bfaa67e1e18ec064f89339c43",
+      "current_source_sha256": "e0fd42afdd2d20243378917c1c9a79291bf4193bfaa67e1e18ec064f89339c43",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/utils/metering.py",
+      "measured_source_sha256": "e7f8b7b2ef0d87d82471902bffcfc87ebb19e745b2a137e01b1d952c413b747a",
+      "current_source_sha256": "e7f8b7b2ef0d87d82471902bffcfc87ebb19e745b2a137e01b1d952c413b747a",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/utils/normalization.py",
+      "measured_source_sha256": "d2a01d6be0affbf38ee676a1936412d89ce597c3709cda1b40629d27146ca731",
+      "current_source_sha256": "d2a01d6be0affbf38ee676a1936412d89ce597c3709cda1b40629d27146ca731",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/utils/replay_buffer.py",
+      "measured_source_sha256": "914dddacec8c26b849f4366c739223766b86faea6dd031449570dc0117514bef",
+      "current_source_sha256": "914dddacec8c26b849f4366c739223766b86faea6dd031449570dc0117514bef",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/utils/step_tracker.py",
+      "measured_source_sha256": "770e640a7ae76a509aa8f95a3c6151c257d267f7eed6f1cd58f2087d92d1b9a0",
+      "current_source_sha256": "770e640a7ae76a509aa8f95a3c6151c257d267f7eed6f1cd58f2087d92d1b9a0",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/agents/utils/training.py",
+      "measured_source_sha256": "69f4d7eb279b3f2054eb35a5cba17b58db001792da6f271449a5602b9bfb38f1",
+      "current_source_sha256": "69f4d7eb279b3f2054eb35a5cba17b58db001792da6f271449a5602b9bfb38f1",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/components/__init__.py",
+      "measured_source_sha256": "5cb3b4f448bc834954ee1625cca0af86f4212c505ee42070138bf63ea2bdc566",
+      "current_source_sha256": "5cb3b4f448bc834954ee1625cca0af86f4212c505ee42070138bf63ea2bdc566",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/components/motion_lib.py",
+      "measured_source_sha256": "7f6d1e71ab18d627efc7d3afe2c4e73fb9e0268dcfedced3ddec48baa5e5d5d9",
+      "current_source_sha256": "7f6d1e71ab18d627efc7d3afe2c4e73fb9e0268dcfedced3ddec48baa5e5d5d9",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/components/pose_lib.py",
+      "measured_source_sha256": "92be5981cc26c225208067811de08bdc0bfe50ccb6704ea4a4536fe0e476b239",
+      "current_source_sha256": "92be5981cc26c225208067811de08bdc0bfe50ccb6704ea4a4536fe0e476b239",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/components/scene_lib.py",
+      "measured_source_sha256": "344933acec8c9b1bcf1b0229244e2341b3312e8ba8bf4fee19f56299d535e873",
+      "current_source_sha256": "344933acec8c9b1bcf1b0229244e2341b3312e8ba8bf4fee19f56299d535e873",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/components/terrains/__init__.py",
+      "measured_source_sha256": "5cb3b4f448bc834954ee1625cca0af86f4212c505ee42070138bf63ea2bdc566",
+      "current_source_sha256": "5cb3b4f448bc834954ee1625cca0af86f4212c505ee42070138bf63ea2bdc566",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/components/terrains/config.py",
+      "measured_source_sha256": "498fc6dfe21ef6249bd9dc3fe773e214c519fd2e2c38be97c7f9cce43b649c0e",
+      "current_source_sha256": "498fc6dfe21ef6249bd9dc3fe773e214c519fd2e2c38be97c7f9cce43b649c0e",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/components/terrains/shape_utils.py",
+      "measured_source_sha256": "957ae946faf8ff7e823881c8708ee7c614e2d3e60a4a2ab65177e9a9dccccca5",
+      "current_source_sha256": "957ae946faf8ff7e823881c8708ee7c614e2d3e60a4a2ab65177e9a9dccccca5",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/components/terrains/subterrain.py",
+      "measured_source_sha256": "b1ea2dde472d4445eb73aebc86524a7f4f66b1b6bc2f070c30c06984da786246",
+      "current_source_sha256": "b1ea2dde472d4445eb73aebc86524a7f4f66b1b6bc2f070c30c06984da786246",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/components/terrains/subterrain_generator.py",
+      "measured_source_sha256": "309b3af644669866992e3f36075c375c2e1a0033b7d940eed6e05008d608fe6f",
+      "current_source_sha256": "309b3af644669866992e3f36075c375c2e1a0033b7d940eed6e05008d608fe6f",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/components/terrains/terrain.py",
+      "measured_source_sha256": "dfe3744364862dbd2375e8fbd55594d095257a823ab8a88eafaa1bd4e2827f94",
+      "current_source_sha256": "dfe3744364862dbd2375e8fbd55594d095257a823ab8a88eafaa1bd4e2827f94",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/components/terrains/terrain_utils.py",
+      "measured_source_sha256": "04e2d25b795c48a73076c9914b458180fc471f0269946ee3f99898ca5e55950a",
+      "current_source_sha256": "04e2d25b795c48a73076c9914b458180fc471f0269946ee3f99898ca5e55950a",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/utils/__init__.py",
+      "measured_source_sha256": "5cb3b4f448bc834954ee1625cca0af86f4212c505ee42070138bf63ea2bdc566",
+      "current_source_sha256": "5cb3b4f448bc834954ee1625cca0af86f4212c505ee42070138bf63ea2bdc566",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/utils/baked_fk.py",
+      "measured_source_sha256": "6dd2a03e91fcdd756bdc2d6bd53a64aec93a001c75996a6c043052672724b09a",
+      "current_source_sha256": "6dd2a03e91fcdd756bdc2d6bd53a64aec93a001c75996a6c043052672724b09a",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/utils/checkpoint.py",
+      "measured_source_sha256": "97aeed515c33ab1271c21ba7fbc0f5ab81cdfdb5005f20109fda673cd0570984",
+      "current_source_sha256": "97aeed515c33ab1271c21ba7fbc0f5ab81cdfdb5005f20109fda673cd0570984",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/utils/cli_utils.py",
+      "measured_source_sha256": "d75d7ea5a973cbf2d95be4a0f1a5cf5e94635da7481c8e8076a2af5e19a7bc13",
+      "current_source_sha256": "d75d7ea5a973cbf2d95be4a0f1a5cf5e94635da7481c8e8076a2af5e19a7bc13",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/utils/component_builder.py",
+      "measured_source_sha256": "8c8239ee2b146ea40b413ffb18bf379883ccd41797b09bbaaf1624b358992071",
+      "current_source_sha256": "8c8239ee2b146ea40b413ffb18bf379883ccd41797b09bbaaf1624b358992071",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/utils/config_builder.py",
+      "measured_source_sha256": "109aa628e0acd5430c79886a81e001231a52c44e928a635496ac721ee38c20aa",
+      "current_source_sha256": "109aa628e0acd5430c79886a81e001231a52c44e928a635496ac721ee38c20aa",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/utils/config_utils.py",
+      "measured_source_sha256": "fb39cf4d8c98af52cb216e31bddf5b421e06f8614ffad10725eb468efc40c198",
+      "current_source_sha256": "fb39cf4d8c98af52cb216e31bddf5b421e06f8614ffad10725eb468efc40c198",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/utils/export_utils.py",
+      "measured_source_sha256": "46d726f30315528da45170a4ee93830e908f630130a85fd67f798aada10b323d",
+      "current_source_sha256": "46d726f30315528da45170a4ee93830e908f630130a85fd67f798aada10b323d",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/utils/fabric_config.py",
+      "measured_source_sha256": "7fbb62793fdb28a65804ebfa97cb8041a3e7ddde935fde522e4b5846775c5ef1",
+      "current_source_sha256": "7fbb62793fdb28a65804ebfa97cb8041a3e7ddde935fde522e4b5846775c5ef1",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/utils/hydra_replacement.py",
+      "measured_source_sha256": "1c9a6cb7fea866705a7eee98c555b36de5a81339c70a6709b897eaf88a876ea5",
+      "current_source_sha256": "1c9a6cb7fea866705a7eee98c555b36de5a81339c70a6709b897eaf88a876ea5",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/utils/inference_utils.py",
+      "measured_source_sha256": "d79d4bda6da6bef899702a8498a0e606a3a86a2594b4d5dfec4770c50fc8e8b6",
+      "current_source_sha256": "d79d4bda6da6bef899702a8498a0e606a3a86a2594b4d5dfec4770c50fc8e8b6",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/utils/mesh_utils.py",
+      "measured_source_sha256": "9722614022ed2957881318994825e1c5bff9bd25eed6b47a4eeb295f81e1050d",
+      "current_source_sha256": "9722614022ed2957881318994825e1c5bff9bd25eed6b47a4eeb295f81e1050d",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/utils/motion_interpolation_utils.py",
+      "measured_source_sha256": "5de11616661e0dd70e858b3bb009ba1c5fd10435cd36ae6938d728070b147f9e",
+      "current_source_sha256": "5de11616661e0dd70e858b3bb009ba1c5fd10435cd36ae6938d728070b147f9e",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/utils/odom_corruption.py",
+      "measured_source_sha256": "8f24fae52c7d2748862db9f225bf69fd7a94c22f861cc7b0b1c6bed85ee3fcde",
+      "current_source_sha256": "8f24fae52c7d2748862db9f225bf69fd7a94c22f861cc7b0b1c6bed85ee3fcde",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/utils/pretrained_compat.py",
+      "measured_source_sha256": "f8a0d80988885eab03c93d520ed6d8ec9c5b2e753a90901982a2fc98329e362f",
+      "current_source_sha256": "f8a0d80988885eab03c93d520ed6d8ec9c5b2e753a90901982a2fc98329e362f",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/utils/retargeting_fps.py",
+      "measured_source_sha256": "fd06ce603a92e7230fd1db633e6a1ee9d7ccf3763a5cfc6210bc86b13dc3dc0c",
+      "current_source_sha256": "fd06ce603a92e7230fd1db633e6a1ee9d7ccf3763a5cfc6210bc86b13dc3dc0c",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/utils/robot_heading.py",
+      "measured_source_sha256": "57906313985933964fddc178209c3d7968f509dce6926abd1c8d843a1c3d7797",
+      "current_source_sha256": "57906313985933964fddc178209c3d7968f509dce6926abd1c8d843a1c3d7797",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/utils/rotations.py",
+      "measured_source_sha256": "ef1475d33d6f941ccdea4a612477483db4fad8236ba7786fbe8bf91a65c1cef8",
+      "current_source_sha256": "ef1475d33d6f941ccdea4a612477483db4fad8236ba7786fbe8bf91a65c1cef8",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/utils/simulator_imports.py",
+      "measured_source_sha256": "7f236c0a5bd071996437ce1298c7911975a1527bea5a33bad61d68f7724918e8",
+      "current_source_sha256": "7f236c0a5bd071996437ce1298c7911975a1527bea5a33bad61d68f7724918e8",
+      "same_source_bytes": true
+    },
+    {
+      "path": "src/protomotions/utils/torch_utils.py",
+      "measured_source_sha256": "74bea5066a0f8a9315d737a5ef3462cd3940abf24e8dbc84ffa64c07d3ca7968",
+      "current_source_sha256": "74bea5066a0f8a9315d737a5ef3462cd3940abf24e8dbc84ffa64c07d3ca7968",
+      "same_source_bytes": true
+    }
+  ]
+}

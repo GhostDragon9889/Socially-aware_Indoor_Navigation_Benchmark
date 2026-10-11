@@ -1,0 +1,121 @@
+{
+  "schema": "shared_social.completed_training_CPU_audit.v1",
+  "status": "passed",
+  "reader": {
+    "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/audit_shared_social_popart.py",
+    "bytes": 4775,
+    "sha256": "a75e21686fa2d2efa78346dd507c7edc789224ca33c5c47cf4d4cbd431f2de9f"
+  },
+  "checkpoint": {
+    "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/final_grouped_episode256_v5/step_000002.pt",
+    "bytes": 254088558,
+    "sha256": "84f0f7cc35ed9c495a1c1b90dbbd80de1a60fb45f7ca867388f96f7a9eada50d"
+  },
+  "rollout": {
+    "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/final_grouped_episode256_v5/rollout_update_000002.pt",
+    "bytes": 1018179778,
+    "sha256": "daaa171f7ff87904324dd5ae06e672a55a2cd7864480a8a9620355f4e017e4e9"
+  },
+  "updates": 2,
+  "physical_transitions": 16384,
+  "normalizer_counts": {
+    "self_normalizer": 16384.0,
+    "task_normalizer": 16384.0,
+    "amp_normalizer": 245760.0,
+    "value_normalizer": 16384.0
+  },
+  "finite_tensors_checked": 202,
+  "expert_windows_drawn": 8192,
+  "checkpoint_physical_resume_supported": false,
+  "CUDA_initialized": false,
+  "scope": "Completed-run counts, saved model/Adam/RMS/replay and final rollout consistency; no locomotion quality or paper equivalence claim. Actual process exit must be recorded separately.",
+  "explicit_value_normalization": {
+    "strategy": "scalar_popart_output_preservation_v1",
+    "checkpoint_format": "local.neutral_smpl.social_CNN_PPO_AMP_training.popart.sim61.v2",
+    "parent_trainer": {
+      "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/social_trainer_staging_v1/social_trainer.py",
+      "bytes": 24078,
+      "sha256": "81a6319f2520b3be547f30454c88b088638d559d492bba52fe850d1c1d5ba96e"
+    },
+    "derivation": {
+      "version": "social_popart.sim61.v2",
+      "format": "local.neutral_smpl.social_CNN_PPO_AMP_training.popart.sim61.v2",
+      "derived_sha256": "01129b92f0400659f0d90b7508035a951c31e1f2c9b0db312c19dd78b49ea417",
+      "source_selector_exact_inverse": true,
+      "popart": {
+        "parent_sha256": "81a6319f2520b3be547f30454c88b088638d559d492bba52fe850d1c1d5ba96e",
+        "derived_sha256": "f001564616d74bff0ef1e4c7a93fe92ff41a3ffd58ba75efecd71f23aa94499e",
+        "exact_inverse": true,
+        "replacement_count": 6,
+        "numeric_change": "value RMS output preservation only",
+        "actor_encoder_reward_GAE_sampling_changed": false
+      },
+      "numerical_parent": {
+        "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261003/staged_action_state_prior_v1/proposal/CrowdSim/humanoid/training/trainer.py",
+        "bytes": 37433,
+        "sha256": "707f355acbd8b5d33aa40c3299a2540610ea695ae4bb9705ede3498e27224f9d"
+      },
+      "current_dependencies": [
+        {
+          "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/CrowdSim/humanoid/training/trainer.py",
+          "bytes": 38177,
+          "sha256": "1e5444f62ccc5214e3f635850d4b9b018b457918259ffbb1e999a05148f4eee7"
+        },
+        {
+          "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/CrowdSim/humanoid/amp/observations.py",
+          "bytes": 10586,
+          "sha256": "000f3980a8f4d3c1fac929c57029dd05a9ce19b1d8ce82423dad273c9315e599"
+        }
+      ],
+      "load_runner_tensors_on_CPU": true,
+      "historical_checkpoint_implicitly_admitted": false
+    },
+    "adapter": {
+      "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/CrowdSim/humanoid/runtime/social_popart_training.py",
+      "bytes": 14780,
+      "sha256": "aeea06d7506f09d93284476a2f3d08635fa2dcdb2eb79eced99afa0419c60723"
+    },
+    "helper": {
+      "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/CrowdSim/humanoid/training/value_normalization.py",
+      "bytes": 3446,
+      "sha256": "e2c6aac084ce0ffd67774c3071824e6d30de7639ba92330a91b2fb089345adc5"
+    },
+    "epsilon": 1e-05,
+    "Adam_state_modified": false,
+    "baseline_weights_resumed": false,
+    "author_method_equivalence_claimed": false
+  },
+  "actual_terminal_value_adjustment": {
+    "strategy": "scalar_popart_output_preservation_v1",
+    "epsilon": 1e-05,
+    "old_count": 8192.0,
+    "new_count": 16384.0,
+    "old_mean": 13.21721182751935,
+    "new_mean": 12.686897825391497,
+    "old_scale": 6.790899526857951,
+    "new_scale": 6.556908747293326,
+    "weight_ratio": 1.035686142446502,
+    "optimizer_state_modified": false,
+    "actor_encoder_modified": false,
+    "critic_forward_performed": false,
+    "physical_quality_verified": false
+  },
+  "auditor_source_derivation": {
+    "parent": {
+      "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/audit_shared_social_training.py",
+      "bytes": 6351,
+      "sha256": "4facc6cb9bd960b7fb23ac29bd55035d829106f5548ce97ea3ff528c2e460fba"
+    },
+    "entry": {
+      "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/audit_shared_social_popart.py",
+      "bytes": 4775,
+      "sha256": "a75e21686fa2d2efa78346dd507c7edc789224ca33c5c47cf4d4cbd431f2de9f"
+    },
+    "derivation": {
+      "parent_sha256": "4facc6cb9bd960b7fb23ac29bd55035d829106f5548ce97ea3ff528c2e460fba",
+      "derived_sha256": "00b80be432f7f1366bb3a24963043dd2695fc98b856ca40f76302dec95168b12",
+      "replacement_count": 3,
+      "exact_inverse": true
+    }
+  }
+}

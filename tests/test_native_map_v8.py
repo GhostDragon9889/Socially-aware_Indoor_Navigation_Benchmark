@@ -7,12 +7,13 @@ import sys
 
 import pytest
 import CrowdSim
+from protomotions.repository import repository_root
 
 from CrowdSim.humanoid.runtime.dynbench_scene import file_record
 import test_native_map_v7 as legacy
 
 ROOT = Path(__file__).resolve().parents[1]
-WORKSPACE = Path(CrowdSim.__file__).resolve().parents[1]
+WORKSPACE = repository_root(CrowdSim.__file__)
 
 
 def source_module(name, path):
@@ -187,7 +188,7 @@ def test_v8_dispatch_keeps_old_provider_grid_astar_and_SDF_Jacobian_exact(tmp_pa
 
 def reader_candidate(monkeypatch):
     root = WORKSPACE
-    module = source_module("v8_historical_reader_CPU_contract", ROOT / "docs/style_improvement_20261002/native_map_admission_v7/audit_actual_four_scenes.py")
+    module = source_module("v8_historical_reader_CPU_contract", ROOT / "src/CrowdSim/humanoid/analysis/native_map_audit_reader.py")
     monkeypatch.setattr(module, "ROOT", root)
     monkeypatch.setattr(module, "DOC", root / "docs/style_improvement_20261002/native_map_admission_v7")
     return module
@@ -200,7 +201,7 @@ def test_historical_v7_registration_binds_archive_and_records_later_checkout(mon
 
     def simulated_later_checkout(path):
         record = original(path)
-        if Path(path) == target:
+        if Path(path).resolve() == target.resolve():
             record["sha256"] = "1" * 64
         return record
 

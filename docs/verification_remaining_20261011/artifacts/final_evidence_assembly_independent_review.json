@@ -1,0 +1,99 @@
+{
+  "schema": "independent.final_evidence_assembly_review.v1",
+  "status": "scientific_v2_chain_and_selected_production_receipts_verified",
+  "v1_independent_review": {
+    "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/final_native_pair_independent_review.json",
+    "bytes": 35276,
+    "sha256": "d1d6f5c467d881846b08c54d5f76c87b29eb13a75322d1e383e9f06e19b4c6d9"
+  },
+  "v1_checks": 39,
+  "v2_style": {
+    "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/final_native_pair_style_v2.json",
+    "bytes": 344494,
+    "sha256": "d6419d5afa3d297e38a550219c35ece99e2de2f5a855bcd46f2575b2c9cfa3e3"
+  },
+  "v2_style_execution": {
+    "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/final_native_pair_style_v2_execution.json",
+    "bytes": 122078,
+    "sha256": "62971f68677bd85ed0010744094408438cee5184ee889a948b27788f1f431958"
+  },
+  "v2_DP_raw": {
+    "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/native_final_dp200_raw_v2.json",
+    "bytes": 29251,
+    "sha256": "687539389d3b45ec7394e504372e8b1373f9e4df0843c4d8bd4458e0aff3b3f9"
+  },
+  "v2_DP_CPU_owner": {
+    "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/native_final_dp200_raw_v2_CPU_receipt.json",
+    "bytes": 1104,
+    "sha256": "41ee5d4e933661a20f4c8f1d874c09a10fbeb87e5354d6c6a293370be06da29e"
+  },
+  "v2_DP_raw_base_byte_identical_to_v1": true,
+  "all_style_fields_except_DP_CPU_owner_and_audit_records_exactly_equal_v1": true,
+  "all_raw_fields_except_base_audit_path_exactly_equal_v1": true,
+  "original_SDK_results_and_arrays_unchanged": true,
+  "frozen_reference_initial36_channels_and_all_scientific_metrics_unchanged": true,
+  "style_current_source_bindings_equal_v2": true,
+  "SDK_started_by_reviewer": false,
+  "selected_production": {
+    "production_camera_current_v1": {
+      "result": {
+        "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/production_camera_current_v1/result.json",
+        "bytes": 5196,
+        "sha256": "5ab0ca33064af87ccb1ff0728d91f72f0bd3d8c4b5a82502442fe1f24af76542"
+      },
+      "execution": {
+        "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/production_camera_current_v1_execution.json",
+        "bytes": 121687,
+        "sha256": "9858719994eaf06e1d44f6b20711333c2f7313b9c47e8147356e7c91ebc6eabe"
+      },
+      "actual_exit": 0,
+      "current_production_sources_equal_execution_snapshot": true
+    },
+    "production_camera_component_failure_v1": {
+      "result": {
+        "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/production_camera_component_failure_v1/result.json",
+        "bytes": 6709,
+        "sha256": "8f64d381d33b792fdf1d5b3d15132a1991a9114efbf9c74980c287709f0f8994"
+      },
+      "execution": {
+        "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/production_camera_component_failure_v1_execution.json",
+        "bytes": 121727,
+        "sha256": "ab4fa55ca0f635bf97fdd9d27019ff74d8795d206f7212164325b472a14d5433"
+      },
+      "actual_exit": 1,
+      "current_production_sources_equal_execution_snapshot": true
+    }
+  },
+  "draft_existing_local_links_from_final_docs_location": 40,
+  "coverage_review": {
+    "synthetic_py_label_origins_rehashed": true,
+    "synthetic_physical_line_remapping": false,
+    "export_excludes_synthetic_records_conservatively": true,
+    "not_executed_while_final_CPU_still_running": true
+  },
+  "recommendations": [
+    "Draft currently links raw/stylev1; update final links to raw/stylev2 and retain v1 independent review plus this exact-equivalence proof.",
+    "Replace pending final CPU/static/wheel numbers only from completed final receipts.",
+    "Keep overall_acceptance_passed=False and unexplainedproduction_camera_close_v1 -11; subsequent positive receipts do not prove its root cause fixed."
+  ],
+  "overall_runtime_acceptance_passed": false,
+  "resolved_output_guard_findings": {
+    "component_fault_specificity": "Exact injected-component diagnostic, retained traceback is True, and exact int callback count1 added; producer mutation receipt rejects older initialization fault and5field variants.",
+    "coverage_exact_exit_type": "External actual_returncode now requires exact int0."
+  },
+  "complete_summary.py": {
+    "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/complete_summary.py",
+    "bytes": 6285,
+    "sha256": "2a9c4e7728b186f35f067a03a5cdb1519ac43f5eaefb5f7110d5c6c62ad08e4f"
+  },
+  "export_final_coverage.py": {
+    "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/export_final_coverage.py",
+    "bytes": 4204,
+    "sha256": "8500784e46dbf40d0218bb06d6d5fe883c87f7dcbd50a33e5cee04164936175c"
+  },
+  "summary_fault_admission_review.json": {
+    "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/summary_fault_admission_review.json",
+    "bytes": 684,
+    "sha256": "0b2b056272d38b3337369b627415fab89ce560c6ae1a255d9929965019074dd9"
+  }
+}

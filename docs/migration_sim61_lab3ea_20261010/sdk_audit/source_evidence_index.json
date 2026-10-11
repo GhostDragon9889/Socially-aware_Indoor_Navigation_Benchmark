@@ -1,0 +1,577 @@
+{
+  "schema": "social_navigation.sdk_audit_publication.v1",
+  "generated_utc": "2026-10-11T02:24:25.478984+00:00",
+  "repository_destination": "docs/migration_sim61_lab3ea_20261010/sdk_audit",
+  "original_audit_root": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit",
+  "copied_artifacts": [
+    {
+      "path": "ALL_CODE_AND_VENDOR_AUDIT_ZH.md",
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/ALL_CODE_AND_VENDOR_AUDIT_ZH.md",
+      "original_sha256": "a1d55756cf09f85a6a1834b90ae233d9579727f7b64667acb22852480b980d47",
+      "published_sha256": "3fc3d21c24ef4d3dc5fdde47afb4c4c9d1e84b059d0541129f9c8dc192780cd5",
+      "bytes": 7466,
+      "transformation": "repository-relative project source references and publication footer"
+    },
+    {
+      "path": "HEADLESS_MODAL_SETTING_ZH.md",
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/HEADLESS_MODAL_SETTING_ZH.md",
+      "original_sha256": "53bfc5d0de3686c4f7af66b12b823f86594435fbfd2760c204c38cbbe5b9496a",
+      "published_sha256": "6916fcf3b916b6a48ba0a8bd0c58ad5635a61baabdf131c63b5cf27294696767",
+      "bytes": 1686,
+      "transformation": "repository-relative project source references and publication footer"
+    },
+    {
+      "path": "NATIVE_EXIT_DIAGNOSTIC_ZH.md",
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/NATIVE_EXIT_DIAGNOSTIC_ZH.md",
+      "original_sha256": "8d89f9fc69fdbd0906ce001208c382b18729d76519b48febd3ed9585dba93ea0",
+      "published_sha256": "b8f3e991bf47856e255bd2af88c0da60097e0b2880bb79dd34f479f31dcf67ad",
+      "bytes": 7898,
+      "transformation": "repository-relative project source references and publication footer"
+    },
+    {
+      "path": "NAVDP_API_MIGRATION_ZH.md",
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/NAVDP_API_MIGRATION_ZH.md",
+      "original_sha256": "af88a6245fbfac7a1bd78138152e0259d446060b4828433fab66a7a541c24f2e",
+      "published_sha256": "94fe6eafb609c87079b4c9fc4cbd1576c9dc9ab318758af60b73f34063756bf7",
+      "bytes": 11718,
+      "transformation": "repository-relative project source references and publication footer"
+    },
+    {
+      "path": "NEWTON_MIGRATION_ZH.md",
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/NEWTON_MIGRATION_ZH.md",
+      "original_sha256": "a157f3beed55cf68e0ad379e02a42111692ee41788d4db4ebd77bd4b1ba57840",
+      "published_sha256": "e5b7ad8d6b851b40c93b35476302e76952a7016d82691c2d04d666c38abdb4ce",
+      "bytes": 3829,
+      "transformation": "repository-relative project source references and publication footer"
+    },
+    {
+      "path": "SDK_MIGRATION_AUDIT_ZH.md",
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/SDK_MIGRATION_AUDIT_ZH.md",
+      "original_sha256": "776ba4aa9b9d06ff56b3dee831dfb95ffc37a52b746b5d4759af2c905dc67c33",
+      "published_sha256": "a1671fcee464e5adc290a52be3a11bcb2a36116367beba565e5a9fef446d20af",
+      "bytes": 7892,
+      "transformation": "repository-relative project source references and publication footer"
+    },
+    {
+      "path": "agent_changed_source_files.json",
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/agent_changed_source_files.json",
+      "original_sha256": "254a23943ce8f89c8dc4d6a6bba1b131c84374be352b90c27ced008f2c99b211",
+      "published_sha256": "254a23943ce8f89c8dc4d6a6bba1b131c84374be352b90c27ced008f2c99b211",
+      "bytes": 9369,
+      "transformation": "byte-exact"
+    },
+    {
+      "path": "all_python_duplicate_candidates.json",
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/all_python_duplicate_candidates.json",
+      "original_sha256": "8f19717fe16a12884242a0b1882468313aa03bb2ca24bdfe4592c15c24d7b059",
+      "published_sha256": "8f19717fe16a12884242a0b1882468313aa03bb2ca24bdfe4592c15c24d7b059",
+      "bytes": 2189,
+      "transformation": "byte-exact"
+    },
+    {
+      "path": "all_python_summary.json",
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/all_python_summary.json",
+      "original_sha256": "7efd21ec69bbea70affdb996c08cb2f7011a5b9f4aae8c6075d2f517398f00e7",
+      "published_sha256": "7efd21ec69bbea70affdb996c08cb2f7011a5b9f4aae8c6075d2f517398f00e7",
+      "bytes": 890,
+      "transformation": "byte-exact"
+    },
+    {
+      "path": "final_audit_receipt.json",
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/final_audit_receipt.json",
+      "original_sha256": "fd6ed8f6707a3dc2df4edb634d117674af56ae299e1656180a8f6f4511214778",
+      "published_sha256": "fd6ed8f6707a3dc2df4edb634d117674af56ae299e1656180a8f6f4511214778",
+      "bytes": 2168,
+      "transformation": "byte-exact"
+    },
+    {
+      "path": "final_newton_vendor_cpu.xml",
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/final_newton_vendor_cpu.xml",
+      "original_sha256": "db71050e62ef261c6b08ec0b71466188085f5c73e1fbce355a8e4c79d04c4d17",
+      "published_sha256": "db71050e62ef261c6b08ec0b71466188085f5c73e1fbce355a8e4c79d04c4d17",
+      "bytes": 11424,
+      "transformation": "byte-exact"
+    },
+    {
+      "path": "headless_iommu_setting_sources.json",
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/headless_iommu_setting_sources.json",
+      "original_sha256": "443d9118d13125d4fdfc6c9ffb58ba8e2c79922eaa81721d9b33a1c87752bffc",
+      "published_sha256": "443d9118d13125d4fdfc6c9ffb58ba8e2c79922eaa81721d9b33a1c87752bffc",
+      "bytes": 913,
+      "transformation": "byte-exact"
+    },
+    {
+      "path": "native_crash_objects.json",
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/native_crash_objects.json",
+      "original_sha256": "68e12dbae694bda40ec6d4657cad5b6f0fc7de453ff102a56a2847498d480cc9",
+      "published_sha256": "68e12dbae694bda40ec6d4657cad5b6f0fc7de453ff102a56a2847498d480cc9",
+      "bytes": 8772,
+      "transformation": "byte-exact"
+    },
+    {
+      "path": "native_gdb.log",
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/native_gdb.log",
+      "original_sha256": "4c783715370759e6584c97b039d61e7fedf58a25d2beaf0733f2fb58c9bf7872",
+      "published_sha256": "4c783715370759e6584c97b039d61e7fedf58a25d2beaf0733f2fb58c9bf7872",
+      "bytes": 4453,
+      "transformation": "byte-exact"
+    },
+    {
+      "path": "native_gdb_preclose.log",
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/native_gdb_preclose.log",
+      "original_sha256": "9087c82fd47e1f9ba54461391a7d2845fef3f2612527b14370f5636ba9676b12",
+      "published_sha256": "9087c82fd47e1f9ba54461391a7d2845fef3f2612527b14370f5636ba9676b12",
+      "bytes": 2281,
+      "transformation": "byte-exact"
+    },
+    {
+      "path": "native_gdb_types.log",
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/native_gdb_types.log",
+      "original_sha256": "d0770aa25cac02b8b129f868fc00ee66bc0a3f715ba04cb375756a5f8a61ee7e",
+      "published_sha256": "d0770aa25cac02b8b129f868fc00ee66bc0a3f715ba04cb375756a5f8a61ee7e",
+      "bytes": 8752,
+      "transformation": "byte-exact"
+    },
+    {
+      "path": "native_n1_exit_acceptance.json",
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/native_n1_exit_acceptance.json",
+      "original_sha256": "5c88ebfb5e43e23f4744e7ff7413cb66452c224bc6f08dbdd4208101ee91110c",
+      "published_sha256": "5c88ebfb5e43e23f4744e7ff7413cb66452c224bc6f08dbdd4208101ee91110c",
+      "bytes": 2071,
+      "transformation": "byte-exact"
+    },
+    {
+      "path": "navdp_changes.json",
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/navdp_changes.json",
+      "original_sha256": "2bad3145cbd063cb86cb0dff72e737ab68e2cd5646bfcfbddf3038e14e0fa55b",
+      "published_sha256": "2bad3145cbd063cb86cb0dff72e737ab68e2cd5646bfcfbddf3038e14e0fa55b",
+      "bytes": 5011,
+      "transformation": "byte-exact"
+    },
+    {
+      "path": "navdp_entry_preflight.json",
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/navdp_entry_preflight.json",
+      "original_sha256": "7821525f95f80627085671664169f2a491e34a246d8e757e86a58e6dc41d4a0b",
+      "published_sha256": "7821525f95f80627085671664169f2a491e34a246d8e757e86a58e6dc41d4a0b",
+      "bytes": 343,
+      "transformation": "byte-exact"
+    },
+    {
+      "path": "navdp_live_sdk_cpu.json",
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/navdp_live_sdk_cpu.json",
+      "original_sha256": "13655334b83e761889aeb2cd5953bbfc7413432fc1a8d7c09565186949c39d80",
+      "published_sha256": "13655334b83e761889aeb2cd5953bbfc7413432fc1a8d7c09565186949c39d80",
+      "bytes": 727,
+      "transformation": "byte-exact"
+    },
+    {
+      "path": "navdp_matrix_summary.json",
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/navdp_matrix_summary.json",
+      "original_sha256": "c58f1236eff8ea588219e44e8629fd0be611a643271a18a1b851455b51f2679e",
+      "published_sha256": "c58f1236eff8ea588219e44e8629fd0be611a643271a18a1b851455b51f2679e",
+      "bytes": 109,
+      "transformation": "byte-exact"
+    },
+    {
+      "path": "navdp_namespace_matrix.json",
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/navdp_namespace_matrix.json",
+      "original_sha256": "71cbc66e803afde92da047fd2008abd6ccf5aaccb26554db45bd7ccc914f76f0",
+      "published_sha256": "71cbc66e803afde92da047fd2008abd6ccf5aaccb26554db45bd7ccc914f76f0",
+      "bytes": 33894,
+      "transformation": "byte-exact"
+    },
+    {
+      "path": "navdp_quaternion_changes.json",
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/navdp_quaternion_changes.json",
+      "original_sha256": "b3cd7a84f67d26e1b0fb28ef728a2679978ebdf1384a8e40590db500e34b2c36",
+      "published_sha256": "b3cd7a84f67d26e1b0fb28ef728a2679978ebdf1384a8e40590db500e34b2c36",
+      "bytes": 4629,
+      "transformation": "byte-exact"
+    },
+    {
+      "path": "navdp_resource_snapshot.json",
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/navdp_resource_snapshot.json",
+      "original_sha256": "b153f1760318f57ce13f4414082ec3f55afcd21bd3910f3d53cacbc04bef0a24",
+      "published_sha256": "b153f1760318f57ce13f4414082ec3f55afcd21bd3910f3d53cacbc04bef0a24",
+      "bytes": 466,
+      "transformation": "byte-exact"
+    },
+    {
+      "path": "newton_all_cpu.xml",
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/newton_all_cpu.xml",
+      "original_sha256": "a9d840b0a0a807c4731f3c5323222f447a23ac47e8dda31e5a3c7104afd7b82c",
+      "published_sha256": "a9d840b0a0a807c4731f3c5323222f447a23ac47e8dda31e5a3c7104afd7b82c",
+      "bytes": 6371,
+      "transformation": "byte-exact"
+    },
+    {
+      "path": "newton_cpu.xml",
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/newton_cpu.xml",
+      "original_sha256": "c21c94dd4aab3703526fb46d809c311a873b5b3a06ec7e6424515a0763f46477",
+      "published_sha256": "c21c94dd4aab3703526fb46d809c311a873b5b3a06ec7e6424515a0763f46477",
+      "bytes": 2203,
+      "transformation": "byte-exact"
+    },
+    {
+      "path": "newton_legacy_cpu.xml",
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/newton_legacy_cpu.xml",
+      "original_sha256": "4b2fbb69e7397ab01ffee53619280c0f1eb84d46d58e69a022d8f2d1e94ea692",
+      "published_sha256": "4b2fbb69e7397ab01ffee53619280c0f1eb84d46d58e69a022d8f2d1e94ea692",
+      "bytes": 2203,
+      "transformation": "byte-exact"
+    },
+    {
+      "path": "newton_wrapper_cpu.json",
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/newton_wrapper_cpu.json",
+      "original_sha256": "905562ae79b03bb5f5b9603ab9f21b26b65f905fd0132e6e44a13f67b124a940",
+      "published_sha256": "905562ae79b03bb5f5b9603ab9f21b26b65f905fd0132e6e44a13f67b124a940",
+      "bytes": 998,
+      "transformation": "byte-exact"
+    },
+    {
+      "path": "project_sdk_constructor_calls.json",
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/project_sdk_constructor_calls.json",
+      "original_sha256": "b18c5eb9b02136532e6ebf4a59844ab596ab8c143baaa2a29cddd027fc37f65c",
+      "published_sha256": "b18c5eb9b02136532e6ebf4a59844ab596ab8c143baaa2a29cddd027fc37f65c",
+      "bytes": 23230,
+      "transformation": "byte-exact"
+    },
+    {
+      "path": "project_sdk_data_accesses.json",
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/project_sdk_data_accesses.json",
+      "original_sha256": "86a5bcdbfaf1d552d281b48ad1cbe6a9081ba03681b58002375d0a45fa30507d",
+      "published_sha256": "86a5bcdbfaf1d552d281b48ad1cbe6a9081ba03681b58002375d0a45fa30507d",
+      "bytes": 19556,
+      "transformation": "byte-exact"
+    },
+    {
+      "path": "project_sdk_imports.json",
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/project_sdk_imports.json",
+      "original_sha256": "7b94a99a3da4716e2ad5094e4447be3e76bea26a3e0eb4eb124118a3cea4703b",
+      "published_sha256": "7b94a99a3da4716e2ad5094e4447be3e76bea26a3e0eb4eb124118a3cea4703b",
+      "bytes": 22833,
+      "transformation": "byte-exact"
+    },
+    {
+      "path": "scene_native_crash_objects.json",
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/scene_native_crash_objects.json",
+      "original_sha256": "30bbed1ca15588cac450d871e16a147414a4ec95e742396445fc8ff3236272b5",
+      "published_sha256": "30bbed1ca15588cac450d871e16a147414a4ec95e742396445fc8ff3236272b5",
+      "bytes": 66787,
+      "transformation": "byte-exact"
+    },
+    {
+      "path": "static_summary.json",
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/static_summary.json",
+      "original_sha256": "258a99da2a14e0353546ea4468cbf6a79a8db9ecb741cacd02d6eb33261792b5",
+      "published_sha256": "258a99da2a14e0353546ea4468cbf6a79a8db9ecb741cacd02d6eb33261792b5",
+      "bytes": 511,
+      "transformation": "byte-exact"
+    },
+    {
+      "path": "vendor_changes.json",
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/vendor_changes.json",
+      "original_sha256": "cfdefd0d47bff9b577a0e080259ed35fc95639d01112b017237e12a37e15edfc",
+      "published_sha256": "cfdefd0d47bff9b577a0e080259ed35fc95639d01112b017237e12a37e15edfc",
+      "bytes": 3003,
+      "transformation": "byte-exact"
+    },
+    {
+      "path": "vendor_cpu.xml",
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/vendor_cpu.xml",
+      "original_sha256": "1c2a420bb5df8ac486c1bac63070edb598350ed0df7c6a9660b8908ea55f57a7",
+      "published_sha256": "1c2a420bb5df8ac486c1bac63070edb598350ed0df7c6a9660b8908ea55f57a7",
+      "bytes": 2704,
+      "transformation": "byte-exact"
+    },
+    {
+      "path": "vendor_navdp_cpu.xml",
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/vendor_navdp_cpu.xml",
+      "original_sha256": "51c13a813c56622a87bb34d4bca298394a52c613ff2b5867e00289a23f47274c",
+      "published_sha256": "51c13a813c56622a87bb34d4bca298394a52c613ff2b5867e00289a23f47274c",
+      "bytes": 5300,
+      "transformation": "byte-exact"
+    },
+    {
+      "path": "vendor_navdp_quaternion_cpu.xml",
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/vendor_navdp_quaternion_cpu.xml",
+      "original_sha256": "da9a3e3125afba4a28eb054c614e4db38ddb97851fa62e681cb3103d3986bcf0",
+      "published_sha256": "da9a3e3125afba4a28eb054c614e4db38ddb97851fa62e681cb3103d3986bcf0",
+      "bytes": 6507,
+      "transformation": "byte-exact"
+    },
+    {
+      "path": "gpu_five_actual.xml",
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/runtime/gpu_five_actual.xml",
+      "original_sha256": "0573ae4c24c82505ef1e15f4c1c48ac7bee18dedad9781f8cc6f3cb5a1afbb53",
+      "published_sha256": "0573ae4c24c82505ef1e15f4c1c48ac7bee18dedad9781f8cc6f3cb5a1afbb53",
+      "bytes": 968,
+      "transformation": "byte-exact; parent-run CUDA tests"
+    }
+  ],
+  "generated_artifacts": [
+    {
+      "path": "DOCUMENTATION_DEFAULT_REVIEW_ZH.md",
+      "sha256": "540ef1c9318a77549e99644727f4a1e6c8a7d5aa235bdfa085c74f9c8f27b2e1",
+      "bytes": 2418,
+      "kind": "new compact report or derived snapshot"
+    },
+    {
+      "path": "README.md",
+      "sha256": "cbe54b9c24b60c4f3d939342c07bbc683e7dd56d27e2636ec535cf89f4c4dcca",
+      "bytes": 3676,
+      "kind": "new compact report or derived snapshot"
+    },
+    {
+      "path": "documentation_default_review.json",
+      "sha256": "b25d30f86b2cc68e7f6b2c158287b58005441f8759e051c5dbde60104864b443",
+      "bytes": 4988,
+      "kind": "new compact report or derived snapshot"
+    },
+    {
+      "path": "machine_inventory_compact.json",
+      "sha256": "a5b1ce01b8df1b590c72375255aee3e00ebc5152129a05f51c9181613ed5bd18",
+      "bytes": 2118,
+      "kind": "new compact report or derived snapshot"
+    }
+  ],
+  "external_original_evidence": [
+    {
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/SecondFloor_gdb_1step/planning.json",
+      "bytes": 12489,
+      "sha256": "e5fa306caf2914e6fdb7110032f1e83bbd1282f3919bb7a4b7339e0f5a584f00",
+      "reason_not_copied": "large raw inventory/source/disassembly/full execution artifact or unused diagnostic/patch helper"
+    },
+    {
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/SecondFloor_gdb_1step/result.json",
+      "bytes": 340020,
+      "sha256": "270f66a6d27d83a207d05d279ca3a66fd407c7fe330678cacd9c321f4424edfd",
+      "reason_not_copied": "large raw inventory/source/disassembly/full execution artifact or unused diagnostic/patch helper"
+    },
+    {
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/SecondFloor_gdb_1step_instances/planning.json",
+      "bytes": 12502,
+      "sha256": "502bbc91690c57fb3c9f715c810ce3cc86ccabb6a32e7cfb17699feb77a39ca4",
+      "reason_not_copied": "large raw inventory/source/disassembly/full execution artifact or unused diagnostic/patch helper"
+    },
+    {
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/SecondFloor_gdb_1step_instances/result.json",
+      "bytes": 340047,
+      "sha256": "7bf0c571bb9176921c412d4b919ddb571a3af73a5277337d8bf56745ce0864f9",
+      "reason_not_copied": "large raw inventory/source/disassembly/full execution artifact or unused diagnostic/patch helper"
+    },
+    {
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/all_python_definitions.json",
+      "bytes": 2517618,
+      "sha256": "6d99b2dac29ec788b02b420ffd61c0d6a6516614530e7d22260122af2faf5a7e",
+      "reason_not_copied": "large raw inventory/source/disassembly/full execution artifact or unused diagnostic/patch helper"
+    },
+    {
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/all_python_imports.json",
+      "bytes": 1843849,
+      "sha256": "0df636630f586722b0893747e74ef942567dff24d02bb52fbf8dde6e4c0eea6a",
+      "reason_not_copied": "large raw inventory/source/disassembly/full execution artifact or unused diagnostic/patch helper"
+    },
+    {
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/all_python_inventory.json",
+      "bytes": 359769,
+      "sha256": "684d47075e3ed11775a19d7739219e4fdf9d1a3d70cab8de1db97f23a54267e3",
+      "reason_not_copied": "large raw inventory/source/disassembly/full execution artifact or unused diagnostic/patch helper"
+    },
+    {
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/all_python_scan_final.log",
+      "bytes": 891,
+      "sha256": "fbbba7f273426782087680d0178a5198ad427695e3e3dc9c2286651300e4e55c",
+      "reason_not_copied": "large raw inventory/source/disassembly/full execution artifact or unused diagnostic/patch helper"
+    },
+    {
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/check_navdp_matrix.py",
+      "bytes": 1620,
+      "sha256": "f928700411e34d1b178fb77d1663a42645459501a10d63b10e1d13ee13fac057",
+      "reason_not_copied": "large raw inventory/source/disassembly/full execution artifact or unused diagnostic/patch helper"
+    },
+    {
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/finalize_sdk_report.py",
+      "bytes": 10988,
+      "sha256": "f97b3541fb17eb34a2b21e0a5fec0eb6ecca17782623cd2e311d45d73ff9c6a1",
+      "reason_not_copied": "large raw inventory/source/disassembly/full execution artifact or unused diagnostic/patch helper"
+    },
+    {
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/gdb_cpython_disassembly.txt",
+      "bytes": 17546,
+      "sha256": "c26f886280b494805b0d2ab131a78e4664798ee887d8015f290c856793435153",
+      "reason_not_copied": "large raw inventory/source/disassembly/full execution artifact or unused diagnostic/patch helper"
+    },
+    {
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/gdb_hooks.py",
+      "bytes": 4123,
+      "sha256": "958e82b53cc40eabddc1f963bace7b9f6bb44feec2c16aa2b961f4dad10f9234",
+      "reason_not_copied": "large raw inventory/source/disassembly/full execution artifact or unused diagnostic/patch helper"
+    },
+    {
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/gdb_native_commands.txt",
+      "bytes": 263,
+      "sha256": "47cbe479e2193504907455d1d9bea3da11cef6ab75ec89b16144a6a38a0469bd",
+      "reason_not_copied": "large raw inventory/source/disassembly/full execution artifact or unused diagnostic/patch helper"
+    },
+    {
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/gdb_scene_commands.txt",
+      "bytes": 269,
+      "sha256": "8e1edbe489b91313c3a0269d53799dd1d2262db9198dd3e6dec77ceb502c857b",
+      "reason_not_copied": "large raw inventory/source/disassembly/full execution artifact or unused diagnostic/patch helper"
+    },
+    {
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/gdb_scene_hooks.py",
+      "bytes": 5178,
+      "sha256": "7caef0e0592af0687bbf197254e0d17c28f4035e4ea11c7c0f9fe1fbd057b21c",
+      "reason_not_copied": "large raw inventory/source/disassembly/full execution artifact or unused diagnostic/patch helper"
+    },
+    {
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/gdb_scene_instances.py",
+      "bytes": 7442,
+      "sha256": "3db331213ad38b9b4ec2b9e18c020f8603c03569dbb388eb2382ed500ba1fca8",
+      "reason_not_copied": "large raw inventory/source/disassembly/full execution artifact or unused diagnostic/patch helper"
+    },
+    {
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/gdb_scene_instances_commands.txt",
+      "bytes": 268,
+      "sha256": "8e3c9c54787b6b12460a3f7a3bf8377a2348abce9bbc7bed53bc2e4a6097f878",
+      "reason_not_copied": "large raw inventory/source/disassembly/full execution artifact or unused diagnostic/patch helper"
+    },
+    {
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/gdb_subtype_disassembly.txt",
+      "bytes": 42127,
+      "sha256": "c4917e8fd5955d03a751803fc621d62b39915e446973781dbdba9fac2a8e2c88",
+      "reason_not_copied": "large raw inventory/source/disassembly/full execution artifact or unused diagnostic/patch helper"
+    },
+    {
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/gdb_type_dict_disassembly.txt",
+      "bytes": 2259,
+      "sha256": "b75d67647e82e33edd06d6ba37955a2cd25e86437042f6802e7c2cef2c71685b",
+      "reason_not_copied": "large raw inventory/source/disassembly/full execution artifact or unused diagnostic/patch helper"
+    },
+    {
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/machine_inventory.json",
+      "bytes": 347923,
+      "sha256": "141bc1df5e1eb9c7e68fa477dfa47fb8fcecb70f8bcf23597196dc62f04c6dd7",
+      "reason_not_copied": "large raw inventory/source/disassembly/full execution artifact or unused diagnostic/patch helper"
+    },
+    {
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/navdp_live_sdk_cpu.py",
+      "bytes": 3331,
+      "sha256": "a6cdecadc731f0b169a5f3817d4af78ea5d87aeddca6b3ebd3c74c42c29d1e6e",
+      "reason_not_copied": "large raw inventory/source/disassembly/full execution artifact or unused diagnostic/patch helper"
+    },
+    {
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/patch_navdp.py",
+      "bytes": 6200,
+      "sha256": "1eef05e59f3c58f582288ea308121d8e0b6ad963953f7928f18bfe056c1781a6",
+      "reason_not_copied": "large raw inventory/source/disassembly/full execution artifact or unused diagnostic/patch helper"
+    },
+    {
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/patch_navdp_quaternion.py",
+      "bytes": 4970,
+      "sha256": "9b666e7b55a800cc97a60ae43256ed5176a7eabc10a243f374f3eae8041c5968",
+      "reason_not_copied": "large raw inventory/source/disassembly/full execution artifact or unused diagnostic/patch helper"
+    },
+    {
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/patch_vendor_critical.py",
+      "bytes": 3978,
+      "sha256": "781dac8267fe9861f508aecde5435bfeea1cebbe67501f9fc8f9eb3e15f47b2f",
+      "reason_not_copied": "large raw inventory/source/disassembly/full execution artifact or unused diagnostic/patch helper"
+    },
+    {
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/preclose_native_release.py",
+      "bytes": 1914,
+      "sha256": "11c9da95d47d5d94bc70fa004aea681a6a13e52bb26ebd04f1036a47371fbbdb",
+      "reason_not_copied": "large raw inventory/source/disassembly/full execution artifact or unused diagnostic/patch helper"
+    },
+    {
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/refresh_sdk_final.py",
+      "bytes": 11766,
+      "sha256": "030a8bcf96759ad02fa6aecc89000f8a50f9c0a6df526a2a328c9b92b7d6c15d",
+      "reason_not_copied": "large raw inventory/source/disassembly/full execution artifact or unused diagnostic/patch helper"
+    },
+    {
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/ruff_critical.json",
+      "bytes": 322144,
+      "sha256": "371d4b7a6ca70d48c8ba1effa644e5da30ab8380b86997faf5b70d59cfb7dbf6",
+      "reason_not_copied": "large raw inventory/source/disassembly/full execution artifact or unused diagnostic/patch helper"
+    },
+    {
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/ruff_critical_after.json",
+      "bytes": 311217,
+      "sha256": "c760dcd0e8ca76ddf758aa6b0fa179e0a2a360a4245d1460c8152ebd83a9588d",
+      "reason_not_copied": "large raw inventory/source/disassembly/full execution artifact or unused diagnostic/patch helper"
+    },
+    {
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/run_newton_wrapper_cpu.py",
+      "bytes": 2340,
+      "sha256": "79fe0e703c9e15005d76d7f28f2d70db73005e5c2232d78b788ca1a24111e03d",
+      "reason_not_copied": "large raw inventory/source/disassembly/full execution artifact or unused diagnostic/patch helper"
+    },
+    {
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/scan_all_project_python.py",
+      "bytes": 4701,
+      "sha256": "706751538d085a31ae719d42cdf395aa2c37177b33008f4b79a40d789e44e63f",
+      "reason_not_copied": "large raw inventory/source/disassembly/full execution artifact or unused diagnostic/patch helper"
+    },
+    {
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/scan_sdk.py",
+      "bytes": 6139,
+      "sha256": "2f500d2f8890725c06d55e6df90a282d89f48c877a3de6d5dd4566aa71966a74",
+      "reason_not_copied": "large raw inventory/source/disassembly/full execution artifact or unused diagnostic/patch helper"
+    },
+    {
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/scene_native_gdb.log",
+      "bytes": 1094085,
+      "sha256": "f37b39054469e1ce8b9880dd84319f3ff28e1ce1e852049c4e9daafd36658518",
+      "reason_not_copied": "large raw inventory/source/disassembly/full execution artifact or unused diagnostic/patch helper"
+    },
+    {
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/scene_native_gdb_instances.log",
+      "bytes": 1148180,
+      "sha256": "418e42b7af1b1076cbf3088a311a982b36502c5ce3023db0d1e2d660a8021f48",
+      "reason_not_copied": "large raw inventory/source/disassembly/full execution artifact or unused diagnostic/patch helper"
+    },
+    {
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/sdk_changed_modules.json",
+      "bytes": 592793,
+      "sha256": "8afa9d50235f710adbe9445e13d531ceca79ebf6a651e417d07d47ab7044f4d4",
+      "reason_not_copied": "large raw inventory/source/disassembly/full execution artifact or unused diagnostic/patch helper"
+    },
+    {
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/test_optional_vendor_regressions.py",
+      "bytes": 14886,
+      "sha256": "7ad145c361676f041908235cff4c7de4ad5e865baea8efc688ab00554223b5b8",
+      "reason_not_copied": "large raw inventory/source/disassembly/full execution artifact or unused diagnostic/patch helper"
+    },
+    {
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/documentation_reference_inventory.json",
+      "bytes": 221093,
+      "sha256": "a36032823cd8e2bda4c0e8d072cced885a166c0ed188376852732e6340900fca",
+      "reason_not_copied": "external original document scan or complete physical execution data; compact receipt included"
+    },
+    {
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/sdk_audit/documentation_legacy_reference_candidates.json",
+      "bytes": 169327,
+      "sha256": "5a159cc36528301423bde0f81add34399b2c407d48d9f48b2b211e5947ace89b",
+      "reason_not_copied": "external original document scan or complete physical execution data; compact receipt included"
+    },
+    {
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/physics/SecondFloor_N1_60_07_execution.json",
+      "bytes": 43431,
+      "sha256": "65211a6076bc49914e5203969eb9299c561c9a42e6e8f5ce1242e03200222d76",
+      "reason_not_copied": "external original document scan or complete physical execution data; compact receipt included"
+    },
+    {
+      "original_path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/physics/SecondFloor_N1_60_07/result.json",
+      "bytes": 341142,
+      "sha256": "1a39a9f10fcd332750f9b38b08dc0b92273e2bbb1e02768f7c8c5e395968eec6",
+      "reason_not_copied": "external original document scan or complete physical execution data; compact receipt included"
+    }
+  ],
+  "sdk_source_modified": false,
+  "project_source_modified_by_publication": false,
+  "commit_push": false
+}

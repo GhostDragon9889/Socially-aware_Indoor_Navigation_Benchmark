@@ -1,0 +1,34 @@
+{
+  "name": "social-navigation-isaaclab3-ea-sim61-linux-x86_64",
+  "platform": "linux",
+  "machine": "x86_64",
+  "python": "3.12",
+  "python_recorded": "3.12.13",
+  "isaaclab_commit": "ae37b028ea415c91ea2bc32609efcd759ed2b974",
+  "isaaclab_source_tree": "27e5b57ad0928e0339e121a06be040ae234a99ed",
+  "isaaclab_product_version": "3.0.0",
+  "isaaclab_package_version": "17.0.2",
+  "isaacsim": "6.1.0.0",
+  "torch": "2.11.0+cu128",
+  "numpy": "2.5.1",
+  "warp": "1.16.0",
+  "usd_exchange": "2.3.0",
+  "standalone_usd_version": [
+    0,
+    25,
+    5
+  ],
+  "excluded_packages": [
+    "usd-core"
+  ],
+  "manifest_sha256": "2780d507882950e64ca8f972fcad4c19e74b9681af1d830e0b34fa09e79e116b",
+  "lock_sha256": "97f918117aa15e9574b4cc716c264cf2907271b9b3aef01f2949f4bc04595bdc",
+  "native_overlay": "not_used_on_sim61",
+  "runtime_strategy": "project-owned dependency overlay with installed SDK .pth, no binary provider duplication",
+  "sources": {
+    "lab_docs": "https://isaac-sim.github.io/IsaacLab/v3.0.0-EA/index.html",
+    "lab_repository": "https://github.com/isaac-sim/IsaacLab"
+  },
+  "scope": "Pinned Lab3EA source checkout and Sim6.1.0.0 for Linux x86_64; physical tests recorded separately",
+  "overlay_lock_sha256": "21852f8040a6bdd869066ceb22aa8eb5482217062a9c853e662730bfc4ba6e9c"
+}

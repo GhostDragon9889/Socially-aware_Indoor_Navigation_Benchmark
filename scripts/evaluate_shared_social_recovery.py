@@ -86,13 +86,20 @@ def prepare(stage):
     relative, sha = PARENTS[stage]
     path = ROOT / relative
     parent = record(path)
+    dependency_migration = None
     if parent["sha256"] != sha:
-        raise ValueError("Original recovery evaluation parent changed: " + stage)
+        from CrowdSim.humanoid.runtime.evaluation_source_migration import verify_entry
+        try:
+            dependency_migration = verify_entry(path, sha)
+        except ValueError as error:
+            raise ValueError("Original recovery evaluation parent changed: " + stage) from error
     if stage == "post" and record(budget.__file__)["sha256"] != BUDGET_SHA:
         raise ValueError("Registered-budget derivation source changed")
     source, proof = derive(path.read_text(), stage)
     binding = {"stage": stage, "parent": parent, "entry": record(__file__),
                "admission_source": record(admission.__file__), "derivation": proof}
+    if dependency_migration is not None:
+        binding["dependency_migration"] = dependency_migration
 
     def admit_receipt(receipt_path):
         checkpoint, digest, accepted = admission.admit_training(receipt_path)

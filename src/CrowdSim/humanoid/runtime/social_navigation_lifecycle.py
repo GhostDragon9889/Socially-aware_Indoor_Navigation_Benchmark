@@ -31,6 +31,11 @@ class FourActorNavigationLifecycle(IsolatedTrackingLifecycle):
         report["evaluation_lifecycle"].update(navigation_implementation=record(Path(__file__)),
             contact_enabled_navigation_supported=True, navigation_actor_count=4,
             expected_owned_contact_views=5, expected_SDK_sensor_objects=24)
+        if self._sdk61 is not None:
+            # SDK61Lifecycle validates the loaded backend and releases contacts
+            # before stop; the sealed Sim6.0 sensor teardown must not run here.
+            report["evaluation_lifecycle"]["navigation_release_version"] = "sdk61_owned_contacts.v1"
+            return
         for path, sha in PINS.values():
             if record(path)["sha256"] != sha:
                 raise ValueError("Navigation lifecycle source changed: " + str(path))

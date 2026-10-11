@@ -527,7 +527,10 @@ class PaperAMPTrainer:
 
     @classmethod
     def load(cls, path, *, device="cpu", restore_rng=True):
-        state = torch.load(path, map_location=device, weights_only=True)
+        # Runner bundles contain CPU sampling-generator states even during
+        # CUDA training. Model/optimizer loaders place their own tensors on
+        # the destination device; keep runner restoration device-explicit.
+        state = torch.load(path, map_location="cpu", weights_only=True)
         if state.get("format") != "navisaaclab_method_reconstruction_training" or state.get("version") != cls.checkpoint_version:
             raise ValueError("Checkpoint is not a complete paper reconstruction training bundle")
         trainer = cls(TrainingConfig(**state["config"]), device=device, provenance=state["provenance"])

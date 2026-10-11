@@ -20,21 +20,27 @@ ROOT = repository_root(__file__)
 EXECUTION_SCHEMA = "shared_social.actual_native_navigation_execution.v1"
 AUDIT_SCHEMA = "shared_social.native_scene_registered_controls_CPU_audit.v1"
 HIGH_LEVEL_SHA = "0324267aad60d8c2957ca763e8e62e849e1341aaba950c916e4f9ddd25705ea3"
+CURRENT_HIGH_LEVEL_SHA = "b9a2ae9fcab2bd7cbb67341b33bf0bdd780c67da19df89a3091d8003403ee46c"
 ENTRY = ROOT / "scripts/evaluate_shared_social_native_paired.py"
-ENTRY_SHA = "e25368dcde2b07b0dc6de6e339cd60cf60f20502d46d3e860c96d8cc3edf6e4e"
+ENTRY_SHA = "fcec4cc935ccc57739335ff5d200832655314e9a69482e3bac798cf7016eb502"
 MANIFEST = ROOT / "data/diffusion_amp/amass_style_2848/manifest_labeled_v7.json"
 MANIFEST_SHA = "68d41be28908f28a09c47f7658af39d55fad01b32212bd7c0ced2b1e6b1489ca"
 
 
 def source_bindings():
     current = original.record(original.__file__)
-    if current["sha256"] != HIGH_LEVEL_SHA:
+    if current["sha256"] != CURRENT_HIGH_LEVEL_SHA:
         raise ValueError("Original registered-duration CPU reader changed")
-    sources = {"native_reader": original.record(__file__), "high_level_core": current,
+    sources = {"source_version": "native_raw_CPU.sim61.v2", "historical_high_level_sha256": HIGH_LEVEL_SHA,
+        "native_reader": original.record(__file__), "high_level_core": current,
         "base_core": original.record(original.AUDIT), "response_core": original.record(original.LOCOMOTION)}
     if sources["base_core"]["sha256"] != original.AUDIT_SHA or sources["response_core"]["sha256"] != original.LOCOMOTION_SHA:
         raise ValueError("Original raw/contact/response CPU reader changed")
     sources["transitive"] = original.reader_dependencies()
+    verifier = original.record(ROOT / "src/CrowdSim/humanoid/runtime/native_map_v9.py")
+    if verifier["sha256"] != "e942359bafc1476d21ed4d5e9cda58132d52b8119b4181b7d7f5bf92059b12ef":
+        raise ValueError("Standalone native USD verifier changed")
+    sources["standalone_USD_verifier"] = verifier
     sources["initial"] = initial.source_bindings()
     sources["paired_entry"] = original.record(ENTRY)
     if sources["paired_entry"]["sha256"] != ENTRY_SHA:
@@ -98,7 +104,7 @@ def prepare_kernels(*, actors, controls):
     ], "base_raw_array_kernel")
     base.__dict__.update(_native_actor_count=actors, _native_controls=controls, _native_execution_schema=EXECUTION_SCHEMA)
     exec(compile(source, str(original.AUDIT) + ":native_raw", "exec"), base.__dict__)
-    core = original.load_source(Path(original.__file__), HIGH_LEVEL_SHA)[0]
+    core = original.load_source(Path(original.__file__), CURRENT_HIGH_LEVEL_SHA)[0]
     proofs = [base_proof]
     joint, proof = _function(core, "joint_plan_contract", [
         ('    count = len(plans["actor_ids"])\n',

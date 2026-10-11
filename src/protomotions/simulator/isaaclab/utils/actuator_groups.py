@@ -136,3 +136,24 @@ def resolve_actuator_specs_for_control_type(
             )
         )
     return tuple(specs)
+
+
+def semantic_dof_names_for_articulation(articulation, kinematic_info: KinematicInfo):
+    """Verify the live articulation retains every policy DOF before mapping.
+
+    PhysX calls its per-DOF public axis ``joint_names`` in both Lab versions.
+    A 23-DOF articulation cannot be made compatible with a 69-DOF SMPL policy
+    by expanding labels; reject it and expose the asset/payload mismatch.
+    """
+    names = list(articulation.joint_names)
+    expected = list(kinematic_info.dof_names)
+    if articulation.num_joints != len(expected) or len(names) != len(expected):
+        raise ValueError(
+            f"IsaacLab articulation has {articulation.num_joints} DOFs / {len(names)} names; "
+            f"the policy requires {len(expected)} DOFs. Check the Physics=physx "
+            "variant and MJCF D6 conversion; axis labels cannot repair lost physical DOFs."
+        )
+    mapping = build_isaaclab_joint_name_map(kinematic_info)
+    if len(set(names)) != len(names) or set(names) != set(mapping.backend_to_semantic):
+        raise ValueError(f"IsaacLab DOF names do not match the converted MJCF: {names!r}")
+    return [mapping.backend_to_semantic[name] for name in names]

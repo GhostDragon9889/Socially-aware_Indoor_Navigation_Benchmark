@@ -1,0 +1,84 @@
+{
+  "schema": "shared_social.fresh_episode2000_comparison_registration.v1",
+  "reader": {
+    "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/compare_shared_social_episode_evidence.py",
+    "bytes": 11071,
+    "sha256": "9c76348d081a6ebed3f4f2cbf97aeb103ae6825dc1ac6e2a4d4127b11dad1ac0"
+  },
+  "metric_sources": {
+    "compare_shared_social_evidence.py": {
+      "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/compare_shared_social_evidence.py",
+      "bytes": 14181,
+      "sha256": "b8428fecfe2a130d9c37a28465b5a478b35fdc3f5094fd87d4f13ebb188576af"
+    },
+    "verify_shared_social_evidence_admission.py": {
+      "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/verify_shared_social_evidence_admission.py",
+      "bytes": 19884,
+      "sha256": "af90c342334d7c51df053bab006b191557b7600cb4e6e87f40799b5f22661426"
+    }
+  },
+  "baseline_post_receipt": {
+    "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261005/shared_social_full_epochs_v1/post_training_execution.json",
+    "bytes": 2273,
+    "sha256": "640b0cf7d6152f2be7ecf523eaa20bc5d135642e4ad75f851dfa5a92e213f19f"
+  },
+  "baseline_measurements": {
+    "tracking": {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/diffusion_amp/shared_social_full_epochs_terminal2000_evaluation_v1/tracking_style/full22/result.json",
+      "bytes": 164597,
+      "sha256": "627b4023ebb05cfca129fdd6bed526bea9783f8f716d413650ab8345ef6688a7"
+    },
+    "style90": {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/diffusion_amp/shared_social_full_epochs_terminal2000_evaluation_v1/tracking_style/style/evaluation.json",
+      "bytes": 461884,
+      "sha256": "e088b56f3f318336d8bb8a23040aaa795c611134a3cfb1ec3cc00913a03d6d0a"
+    },
+    "pose45": {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/diffusion_amp/shared_social_full_epochs_terminal2000_evaluation_v1/tracking_style/style/pose45.json",
+      "bytes": 27464,
+      "sha256": "cbf9134f40b5bef5cd3548af87410eb180a903af5b927fe18639355aa4580ecd"
+    },
+    "navigation": {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/diffusion_amp/shared_social_full_epochs_terminal2000_evaluation_v1/navigation200s/result.json",
+      "bytes": 154177,
+      "sha256": "71fb9488a52e19651ad4b26e595f3f10ca04fad31d818f0b29f89536e78b7e88"
+    },
+    "navigation_CPU_audit": {
+      "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/diffusion_amp/shared_social_full_epochs_terminal2000_evaluation_v1/navigation_CPU_array_audit.json",
+      "bytes": 2960,
+      "sha256": "0d475eb43d3e92b1684c2bbe7562e859dc9f07e2ac485902043f745eddd2cc93"
+    }
+  },
+  "baseline_checkpoint": {
+    "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/diffusion_amp/shared_social_full_epochs_pilot2000_v1/step_002000.pt",
+    "bytes": 651035630,
+    "sha256": "950a07f9831188b592cf6bc7c949519c38137d673f0bf794dfa90e4a1dba4f05"
+  },
+  "candidate_owner_plan": {
+    "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261008/shared_social_episode_after_recovery_v4/owner_plan.json",
+    "bytes": 21456,
+    "sha256": "8e8314cb35d40eee4b095ac6a05fd7601e92d57027ba56a0ba20e155e3f79c4d"
+  },
+  "candidate_completion_path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261008/shared_social_episode_after_recovery_v4/completion.json",
+  "candidate_training_receipt_path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261008/shared_social_episode_after_recovery_v4/training_execution.json",
+  "preselected_candidate_checkpoint": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/diffusion_amp/shared_social_episode_reference_pilot2000_v1/step_002000.pt",
+  "comparison_output": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/evaluation/shared_social_episode_historical_comparison_sim61_v1.json",
+  "training_updates_each": 2000,
+  "physical_training_transitions_each": 16384000,
+  "fixed_real_AMASS_training_clips": 2848,
+  "validation_clips": 22,
+  "complete_validation_control_steps_each": 11982,
+  "reference_fitting_changed": false,
+  "failures_filtered": false,
+  "Test34_used": false,
+  "unsupported_or_unmatched_speed_bins": "unknown; excluded from directional aggregate only",
+  "coupled_experiment_changes": [
+    "episode procedural reference ownership and buffer/RNG exposure",
+    "explicit CPU/CUDA 30Hz clock rounding correction"
+  ],
+  "single_variable_causal_experiment_claimed": false,
+  "author_protocol_equivalence_claimed": false,
+  "paper_effect_achieved": false,
+  "default_model_promoted": false,
+  "candidate_evaluation_completed_at_registration": false
+}

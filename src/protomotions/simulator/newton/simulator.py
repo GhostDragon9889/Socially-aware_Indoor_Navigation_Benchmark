@@ -37,12 +37,21 @@ from protomotions.simulator.base_simulator.utils import (
 from protomotions.simulator.newton.randomization_utils import (
     move_friction_tables_to_device,
 )
+from protomotions.simulator.newton.api_compat import (
+    ModelChangeFlags,
+    allocate_contacts,
+    contact_total_forces,
+    count_contact_sensing_objects,
+    create_body_contact_sensor,
+    mujoco_solver_options,
+    position_target_attribute,
+    validate_scene_support,
+)
 import warp as wp
 import newton
 from newton import JointTargetMode
 from newton.selection import ArticulationView
 from newton.sensors import SensorContact
-from newton.solvers import SolverNotifyFlags
 import copy
 import logging
 
@@ -50,7 +59,10 @@ log = logging.getLogger(__name__)
 
 
 wp.config.enable_backward = False
-wp.config.quiet = True
+if hasattr(wp, "LOG_WARNING"):
+    wp.config.log_level = wp.LOG_WARNING
+else:
+    wp.config.quiet = True
 
 
 @wp.kernel
@@ -121,6 +133,7 @@ class NewtonSimulator(Simulator):
             robot_config.kinematic_info,
             getattr(config, "common_three_dof_representation", "exp_map"), "Newton",
         )
+        validate_scene_support(scene_lib, terrain)
         super().__init__(
             config=config,
             robot_config=robot_config,
@@ -188,7 +201,7 @@ class NewtonSimulator(Simulator):
 
             if self.control_type == ControlType.BUILT_IN_PD:
                 self.robot_view.set_attribute(
-                    "joint_target_pos",
+                    position_target_attribute(self.control),
                     self.control,
                     wp.from_torch(zeros, dtype=wp.float32),
                 )
@@ -427,10 +440,11 @@ class NewtonSimulator(Simulator):
             .squeeze(1)
             .clone()
         )
+        root_velocities = self.robot_view.get_root_velocities(self.model)
         self.default_root_velocities = (
-            wp.to_torch(self.robot_view.get_root_velocities(self.model))
-            .squeeze(1)
-            .clone()
+            wp.to_torch(root_velocities).squeeze(1).clone()
+            if root_velocities is not None
+            else torch.zeros(self.num_envs, 6, device=self.device)
         )
         self.default_dof_positions = (
             wp.to_torch(self.robot_view.get_dof_positions(self.model))
@@ -456,6 +470,14 @@ class NewtonSimulator(Simulator):
         self._pd_qd_stride = (6 if is_floating else 0) + num_dofs + num_proj * 6
         self._pd_q_dof_start = 7 if is_floating else 0
         self._pd_qd_dof_start = 6 if is_floating else 0
+        if (
+            self.model.joint_coord_count != self.num_envs * self._pd_q_stride
+            or self.model.joint_dof_count != self.num_envs * self._pd_qd_stride
+        ):
+            raise ValueError(
+                "Newton control requires scalar hinge/slide coordinates in the configured "
+                "DOF order. Ball, distance or additional free joints need a coordinate adapter."
+            )
 
         device_str = (
             str(self.device) if not isinstance(self.device, str) else self.device
@@ -496,30 +518,19 @@ class NewtonSimulator(Simulator):
     def _setup_sim(self) -> None:
         """Creates simulation using config parameters."""
         sim_params = self.config.sim
-        self.solver = newton.solvers.SolverMuJoCo(
-            self.model,
-            solver=sim_params.solver,
-            integrator=sim_params.integrator,
-            njmax=sim_params.njmax,
-            nconmax=sim_params.nconmax,
-            iterations=sim_params.iterations,
-            ls_iterations=sim_params.ls_iterations,
-            ls_parallel=sim_params.ls_parallel,
-            impratio=sim_params.impratio,
-            cone=sim_params.cone,
-            ccd_iterations=sim_params.ccd_iterations,
+        solver_type = newton.solvers.SolverMuJoCo
+        self.solver = solver_type(
+            self.model, **mujoco_solver_options(sim_params, self.device, solver_type)
         )
 
         # Set geom_margin and geom_gap on the MuJoCo Warp model directly.
         # Newton 1.0 removed geom_gap/geom_margin from model.mujoco namespace;
         # set them on solver.mjw_model which is the MuJoCo Warp data.
-        geom_margin = wp.to_torch(self.solver.mjw_model.geom_margin)
-        geom_margin[:] = 0.01
-        self.solver.mjw_model.geom_margin = wp.from_torch(geom_margin, dtype=wp.float32)
-
-        mj_geom_gap = wp.to_torch(self.solver.mjw_model.geom_gap)
-        mj_geom_gap[:] = 0.01
-        self.solver.mjw_model.geom_gap = wp.from_torch(mj_geom_gap, dtype=wp.float32)
+        if self.solver.mjw_model is not None:
+            self.solver.mjw_model.geom_margin.fill_(0.01)
+            self.solver.mjw_model.geom_gap.fill_(0.01)
+        self.solver.mj_model.geom_margin[:] = 0.01
+        self.solver.mj_model.geom_gap[:] = 0.01
 
         self.viewer = None
         if not self.headless:
@@ -613,7 +624,7 @@ class NewtonSimulator(Simulator):
                     "shape_material_restitution", self.model, rest_wp
                 )
 
-                notify_flags |= SolverNotifyFlags.SHAPE_PROPERTIES
+                notify_flags |= ModelChangeFlags.SHAPE_PROPERTIES
                 print(
                     f"[INFO] Applied friction domain randomization to {len(body_indices)} body types"
                 )
@@ -647,7 +658,7 @@ class NewtonSimulator(Simulator):
             # Write back through ArticulationView
             self.robot_view.set_attribute("body_com", self.model, com_wp)
 
-            notify_flags |= SolverNotifyFlags.BODY_INERTIAL_PROPERTIES
+            notify_flags |= ModelChangeFlags.BODY_INERTIAL_PROPERTIES
             print(
                 f"[INFO] Applied center of mass domain randomization to {len(body_indices)} body types"
             )
@@ -688,7 +699,7 @@ class NewtonSimulator(Simulator):
 
             self.robot_view.set_attribute("body_mass", self.model, mass_wp)
             self.robot_view.set_attribute("body_inertia", self.model, inertia_wp)
-            notify_flags |= SolverNotifyFlags.BODY_INERTIAL_PROPERTIES
+            notify_flags |= ModelChangeFlags.BODY_INERTIAL_PROPERTIES
             print(
                 f"[INFO] Applied body mass domain randomization to {len(body_mass['body_indices'])} body types"
             )
@@ -725,7 +736,7 @@ class NewtonSimulator(Simulator):
         self.robot_view.set_attribute("shape_material_mu", self.model, mu_wp)
         if self.terrain is not None and self.terrain.sim_config is not None:
             self.robot_view.set_attribute("shape_material_restitution", self.model, rest_wp)
-        self.solver.notify_model_changed(SolverNotifyFlags.SHAPE_PROPERTIES)
+        self.solver.notify_model_changed(ModelChangeFlags.SHAPE_PROPERTIES)
 
     def _get_sim_body_ordering(self) -> SimBodyOrdering:
         """Returns the ordering of bodies and DOFs in the simulation."""
@@ -755,7 +766,7 @@ class NewtonSimulator(Simulator):
     @staticmethod
     def _count_sensor_sensing_objects(sensor: SensorContact) -> int:
         """Count matched sensing objects across all Newton worlds."""
-        return sum(len(world_objs) for world_objs in getattr(sensor, "sensing_objs", []))
+        return count_contact_sensing_objects(sensor)
 
     @staticmethod
     def _validate_contact_sensor_match(
@@ -782,14 +793,17 @@ class NewtonSimulator(Simulator):
             sensor_body_patterns = self._get_contact_sensor_body_patterns(body_name)
             # Create sensor that detects contacts between this body and anything
             # The sensor will aggregate contacts across all environments
-            sensor = SensorContact(
-                self.model, sensing_obj_bodies=sensor_body_patterns, verbose=False
-            )
+            sensor = create_body_contact_sensor(SensorContact, self.model, sensor_body_patterns)
 
             matched_body_count = self._count_sensor_sensing_objects(sensor)
             self._validate_contact_sensor_match(
                 body_name, sensor_body_patterns, matched_body_count
             )
+            if matched_body_count != self.num_envs:
+                raise ValueError(
+                    f"Contact sensor for '{body_name}' matched {matched_body_count} bodies; "
+                    f"expected exactly one per environment ({self.num_envs})."
+                )
 
             self._contact_sensors[body_name] = sensor
 
@@ -802,8 +816,8 @@ class NewtonSimulator(Simulator):
         )
 
     def _create_contacts(self) -> None:
-        """Create Contacts object via Model.contacts() (Newton 1.0+ API)."""
-        self.contacts = self.model.contacts()
+        """Allocate Contacts after sensors have requested their force fields."""
+        self._collision_pipeline, self.contacts = allocate_contacts(self.model)
 
     def _simulate(self) -> None:
         """Run physics simulation for one frame (decimation substeps)."""
@@ -828,7 +842,9 @@ class NewtonSimulator(Simulator):
             self.state_0, self.state_1 = self.state_1, self.state_0
 
         if self.decimation % 2 != 0:
-            self.state_0.assign(self.state_1)
+            # Preserve the latest output and refresh the graph's input buffer.
+            # Copying the other way discards the final substep on odd decimation.
+            self.state_1.assign(self.state_0)
 
     def _update_contact_sensors(self) -> None:
         """Update contact sensors after physics step. Must be called outside CUDA graph."""
@@ -836,17 +852,9 @@ class NewtonSimulator(Simulator):
             self.solver.update_contacts(self.contacts, self.state_0)
             for body_name, sensor in self._contact_sensors.items():
                 sensor.update(self.state_0, self.contacts)
-                if hasattr(sensor, "net_force") and sensor.net_force is not None:
-                    net_force = wp.to_torch(sensor.net_force).clone()
-                    # net_force shape: (n_sensing_objs, max_readings, 3)
-                    # Sum over readings dimension and reshape to (num_envs, 3)
-                    if net_force.numel() == 0:
-                        net_force = torch.zeros(
-                            self.num_envs, 3, device=self.device
-                        )
-                    else:
-                        net_force = net_force.sum(dim=-2).view(self.num_envs, 3)
-                    self._contact_forces[body_name] = net_force
+                self._contact_forces[body_name] = contact_total_forces(
+                    sensor, self.model, self.num_envs
+                )
 
     def _physics_step(self) -> None:
         """Performs a physics simulation step."""
@@ -1096,9 +1104,12 @@ class NewtonSimulator(Simulator):
         root_transforms = wp.to_torch(
             self.robot_view.get_root_transforms(self.state_0)
         ).squeeze(1)
-        root_velocities = wp.to_torch(
-            self.robot_view.get_root_velocities(self.state_0)
-        ).squeeze(1)
+        root_velocities_wp = self.robot_view.get_root_velocities(self.state_0)
+        root_velocities = (
+            wp.to_torch(root_velocities_wp).squeeze(1)
+            if root_velocities_wp is not None
+            else torch.zeros(self.num_envs, 6, device=self.device)
+        )
 
         root_origin_vel = root_velocities[:, :3] - torch.cross(
             root_velocities[:, 3:], self._root_com_offset_world(root_transforms[:, 3:]), dim=-1
@@ -1187,7 +1198,7 @@ class NewtonSimulator(Simulator):
         a_wp = wp.from_torch(
             pd_targets.unsqueeze(1), dtype=wp.float32, requires_grad=False
         )
-        self.robot_view.set_attribute("joint_target_pos", self.control, a_wp)
+        self.robot_view.set_attribute(position_target_attribute(self.control), self.control, a_wp)
 
     def _apply_simulator_torques(self, torques: torch.Tensor) -> None:
         """Applies torques to the robot DOFs."""
@@ -1414,12 +1425,16 @@ class NewtonSimulator(Simulator):
         self._cam_prev_char_pos = char_root_pos
 
     def close(self) -> None:
-        """Closes the simulator and cleans up resources."""
-        pass
-
-    def _write_viewport_to_file(self, file_name: str) -> None:
-        """Writes viewport to file."""
-        pass
+        """Release the viewer and captured graph; safe after partial setup or twice."""
+        viewer = getattr(self, "viewer", None)
+        try:
+            if viewer is not None:
+                viewer.close()
+        finally:
+            self.viewer = None
+            self.graph = None
+            self.use_cuda_graph = False
+            self._simulation_running = False
 
     def render(self) -> None:
         """Renders the current simulation state."""
@@ -1453,6 +1468,8 @@ class NewtonSimulator(Simulator):
     def _write_viewport_to_file(self, file_name: str) -> None:
         import matplotlib.pyplot as plt
 
+        if self.viewer is None:
+            raise RuntimeError("Newton viewport recording requires a non-headless viewer.")
         viewport = self.viewer.get_frame().numpy()  # [H, W, 3] as uint8
         plt.imsave(file_name, viewport)
 

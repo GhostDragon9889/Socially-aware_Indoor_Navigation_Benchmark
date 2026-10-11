@@ -28,6 +28,10 @@ PARENT_SHA = "c31c87391ab62c2c33369fc437c6b8967546987a505e885b7954ba9349107d8e"
 
 def derive_entry(original):
     replacements = [
+        ('        owned["world"] = factory(*positional, **keywords)\n',
+         '        constructor = (_migration_lifecycle._sdk61.construct_world\n'
+         '                       if _migration_lifecycle._sdk61 is not None else lambda f, *a, **k: f(*a, **k))\n'
+         '        owned["world"] = constructor(factory, *positional, **keywords)\n'),
         ('    result["entry"] = _identity(Path(__file__), readonly=True)\n',
          '    result["parent_entry"] = _identity(Path(__file__), readonly=True)\n'
          '    result["entry"] = _identity(Path(_migration_entry))\n'
@@ -114,6 +118,8 @@ def main(argv=None):
                               _migration_producer_path=social_observation_producer.__file__,
                               _migration_checkpoint_loader=None)
     exec(compile(source, str(PARENT) + ":navigation_migration", "exec"), namespace.__dict__)
+    from CrowdSim.humanoid.runtime.evaluation_source_migration import migrate_pins
+    binding["dependency_migration"] = migrate_pins(namespace)
     if options.check_sources:
         sources = namespace._sources()
         physical, proof = namespace._derive(namespace.DRIVER.read_text())

@@ -337,6 +337,7 @@ def _run_physics(app, args, resources, configuration, report, lifecycle, owner):
             scene_physics_replication=None if scene is None else scene.get("scene_physics_replication"),
         )
         owner.world = world
+        lifecycle.verify_loaded()
         report["physics"] = world.physics_manifest()
         if world.scene_provider is not None:
             report['native_scene_provider'] = world.scene_provider.describe()

@@ -71,6 +71,7 @@ Example usage
 from __future__ import annotations
 
 from typing import Dict, List
+import math
 
 import numpy as np
 
@@ -251,7 +252,28 @@ class MotionPlayer:
         self._body_vel     = np.asarray(data["body_vel"],     dtype=np.float32)
         self._body_ang_vel = np.asarray(data["body_ang_vel"], dtype=np.float32)
         self._control_dt   = float(data["control_dt"])
-        self._num_frames   = int(data["num_frames"])
+        if not math.isfinite(self._control_dt) or self._control_dt <= 0:
+            raise ValueError("Cached control_dt must be positive and finite")
+        count = data["num_frames"]
+        if not isinstance(count, (int, np.integer)) or isinstance(count, (bool, np.bool_)) or count < 1:
+            raise ValueError("Cached num_frames must be a positive integer")
+        self._num_frames = int(count)
+        for name, ndim in (("dof_pos", 2), ("dof_vel", 2), ("body_rot", 3),
+                           ("body_pos", 3), ("body_vel", 3), ("body_ang_vel", 3)):
+            if getattr(self, "_" + name).ndim != ndim:
+                raise ValueError("Invalid cached motion array: " + name)
+        shapes = {
+            "dof_pos": (self._num_frames, self._dof_pos.shape[-1]),
+            "dof_vel": self._dof_pos.shape,
+            "body_rot": (self._num_frames, self._body_pos.shape[-2], 4),
+            "body_pos": (self._num_frames, self._body_pos.shape[-2], 3),
+            "body_vel": self._body_pos.shape,
+            "body_ang_vel": self._body_pos.shape,
+        }
+        for name, expected in shapes.items():
+            value = getattr(self, "_" + name)
+            if value.shape != expected or not np.isfinite(value).all():
+                raise ValueError("Invalid cached motion array: " + name)
         self._cached = True
         print(
             f"[MotionPlayer] Loaded cache: {self._num_frames} frames "
@@ -278,7 +300,9 @@ class MotionPlayer:
             interpolate_quat,
         )
 
-        self._control_dt = control_dt
+        if not math.isfinite(control_dt) or control_dt <= 0:
+            raise ValueError("control_dt must be positive and finite")
+        self._control_dt = float(control_dt)
         self._cached = False
 
         if "length_starts" in data:
@@ -304,6 +328,8 @@ class MotionPlayer:
             # ---- Single-motion file (.motion / .npy via torch.load) ----
             # RobotState dict: fps, dof_pos, dof_vel, rigid_body_pos/rot/vel/ang_vel
             fps    = float(data["fps"])
+            if not math.isfinite(fps) or fps <= 0:
+                raise ValueError("Source fps must be positive and finite")
             src_dt = 1.0 / fps
 
             gts  = data["rigid_body_pos"]     # [nf, num_bodies, 3]
@@ -322,8 +348,14 @@ class MotionPlayer:
             )
 
         # ---- resample to control rate via training-identical interpolation ----
-        num_ctrl_frames = max(1, int(round(motion_length / control_dt)) + 1)
-        ctrl_times = torch.linspace(0.0, motion_length, num_ctrl_frames)
+        if nf < 1 or not math.isfinite(src_dt) or src_dt <= 0:
+            raise ValueError("Raw motion must contain frames at a positive finite source rate")
+        # Keep the declared control clock. linspace stretches the spacing when
+        # duration / control_dt is not an integer and changes tracker inputs.
+        # Include the final query; training interpolation clamps it to the
+        # source endpoint when the duration falls between control ticks.
+        num_ctrl_frames = max(1, math.ceil(motion_length / control_dt) + 1)
+        ctrl_times = torch.arange(num_ctrl_frames, dtype=torch.float32) * control_dt
 
         # Expand to batch dim = 1 so calc_frame_blend works
         motion_len_t  = torch.tensor([motion_length])
@@ -334,7 +366,13 @@ class MotionPlayer:
         f0_list, f1_list, blend_list = [], [], []
         for t in ctrl_times:
             t_t = t.unsqueeze(0)
-            f0, f1, bl = calc_frame_blend(t_t, motion_len_t, num_frames_t, motion_dt_t)
+            if nf == 1:
+                # calc_frame_blend divides by the clip duration, which is zero
+                # for a static single-frame reference.
+                f0 = f1 = torch.zeros(1, dtype=torch.long)
+                bl = torch.zeros(1)
+            else:
+                f0, f1, bl = calc_frame_blend(t_t, motion_len_t, num_frames_t, motion_dt_t)
             f0_list.append(f0)
             f1_list.append(f1)
             blend_list.append(bl)

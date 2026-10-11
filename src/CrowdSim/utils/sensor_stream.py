@@ -4,9 +4,12 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from datetime import datetime
+import math
 from pathlib import Path
 
 import torch
+
+from CrowdSim.control.drive import articulation_torch_view
 
 
 @dataclass
@@ -25,8 +28,8 @@ class RobotCameraRecorder:
         fps: float,
         env_ids: list[int],
     ) -> None:
-        if fps <= 0:
-            raise ValueError(f"robot camera fps must be positive, got {fps}")
+        if not math.isfinite(fps) or fps <= 0:
+            raise ValueError(f"robot camera fps must be finite and positive, got {fps}")
 
         self.env = env
         self.output_dir = output_dir
@@ -44,8 +47,20 @@ class RobotCameraRecorder:
             print(f"[CrowdSim] Robot camera recording stopped: {self.session_dir}")
             return
 
-        self.session_dir = self.output_dir / datetime.now().strftime("%Y%m%d_%H%M%S")
-        self.session_dir.mkdir(parents=True, exist_ok=True)
+        self.output_dir.mkdir(parents=True, exist_ok=True)
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        suffix = 0
+        while True:
+            name = timestamp if suffix == 0 else f"{timestamp}_{suffix:03d}"
+            session_dir = self.output_dir / name
+            try:
+                # Claim a fresh directory atomically, including across processes.
+                session_dir.mkdir(exist_ok=False)
+            except FileExistsError:
+                suffix += 1
+                continue
+            self.session_dir = session_dir
+            break
         self.enabled = True
         self.frame_idx = 0
         self.sim_time = 0.0
@@ -91,7 +106,7 @@ class RobotCameraRecorder:
                 "image_shape": camera.data.image_shape,
                 "intrinsic_matrices": None
                 if camera.data.intrinsic_matrices is None
-                else camera.data.intrinsic_matrices.detach().cpu(),
+                else articulation_torch_view(camera.data.intrinsic_matrices).detach().cpu(),
             },
             self.session_dir / "metadata.pt",
         )
@@ -110,8 +125,8 @@ class RobotCameraRecorder:
             print("[CrowdSim] Camera output is not ready yet; skipping frame.")
             return
 
-        rgb = output["rgb"].detach().cpu()
-        depth = output["distance_to_image_plane"].detach().cpu()
+        rgb = articulation_torch_view(output["rgb"]).detach().cpu()
+        depth = articulation_torch_view(output["distance_to_image_plane"]).detach().cpu()
 
         for env_id in self.env_ids:
             env_dir = self._env_dir(env_id)

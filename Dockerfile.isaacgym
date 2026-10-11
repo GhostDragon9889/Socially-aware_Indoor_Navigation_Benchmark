@@ -38,7 +38,7 @@ RUN wget https://developer.nvidia.com/isaac-gym-preview-4 -O isaacgym.tar.gz \
 RUN cd isaacgym/python && pip install -e .
 
 # Install PyTorch 2.4 with CUDA 12.1
-RUN pip install torch>=2.2 --index-url https://download.pytorch.org/whl/cu121
+RUN pip install "torch>=2.2" --index-url https://download.pytorch.org/whl/cu121
 
 # Copy protomotions requirements
 WORKDIR /workspace/protomotions

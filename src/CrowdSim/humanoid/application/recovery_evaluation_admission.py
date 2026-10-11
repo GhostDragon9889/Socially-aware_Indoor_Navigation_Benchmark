@@ -8,6 +8,7 @@ strict frozen reader before inference; no Torch or simulator is imported here.
 from __future__ import annotations
 
 from protomotions.repository import repository_root
+from social_navigation.artifact_identity import artifact_path, same_artifact, same_recorded_value
 
 import json
 from pathlib import Path
@@ -39,7 +40,7 @@ def exact_integer(value, expected):
 
 
 def readonly_identity(path):
-    path = Path(path)
+    path = artifact_path(path, root=ROOT)
     require(path.is_file() and not path.is_symlink() and not path.stat().st_mode & 0o222,
             "Require an independent readonly recovery artifact: " + str(path))
     return record(path)
@@ -57,13 +58,11 @@ def validate_documents(completion, result, audit, external, identities, numeric)
                     and row.get("status") == "passed" for row in steps),
             "Require both actual recovery child exits observed by OS wait")
     checkpoint = completion.get("checkpoint")
-    require(isinstance(checkpoint, dict)
-            and checkpoint.get("path") == str(RUN / "step_012500.pt")
-            and checkpoint.get("sha256") == CHECKPOINT_SHA
-            and exact_integer(checkpoint.get("bytes"), 651040366),
+    require(same_artifact(checkpoint, {"path": str(RUN / "step_012500.pt"),
+                                      "sha256": CHECKPOINT_SHA, "bytes": 651040366}, root=ROOT),
             "Select only the preselected recovered terminal checkpoint")
-    require(completion.get("training_result") == identities["result"]
-            and completion.get("audit") == identities["audit"],
+    require(same_artifact(completion.get("training_result"), identities["result"], root=ROOT)
+            and same_artifact(completion.get("audit"), identities["audit"], root=ROOT),
             "OS completion and terminal identities disagree")
     for key, count in (("retained_updates", 12000), ("actual_segment_updates", 500),
                        ("effective_total_updates", 12500), ("actual_segment_transitions", 4096000),
@@ -95,13 +94,13 @@ def validate_documents(completion, result, audit, external, identities, numeric)
             and recovery.get("global_training_rng_restored_after_setup") is True,
             "Require the disclosed optimizer recovery and restarted physical state")
     canonical = result.get("canonical_entry", {})
-    require(canonical.get("strategy") == "popart" and canonical.get("migration") == numeric
+    require(canonical.get("strategy") == "popart" and same_recorded_value(canonical.get("migration"), numeric, root=ROOT)
             and recovery.get("binding", {}).get("canonical_binding") == canonical,
             "Recovered numeric family differs from the strict Pop-Art reader")
     require(audit.get("schema") == "shared_social.completed_optimizer_recovery_CPU_audit.v1"
             and audit.get("status") == "passed" and audit.get("CUDA_initialized") is False
             and audit.get("checkpoint") == checkpoint and audit.get("recovery") == recovery
-            and audit.get("explicit_value_normalization") == numeric
+            and same_recorded_value(audit.get("explicit_value_normalization"), numeric, root=ROOT)
             and exact_integer(audit.get("updates"), 12500)
             and exact_integer(audit.get("physical_transitions"), 102400000)
             and exact_integer(audit.get("actual_recovery_segment_updates"), 500)
@@ -112,9 +111,9 @@ def validate_documents(completion, result, audit, external, identities, numeric)
             "Require the complete recovery-specific CPU audit")
     require(external.get("schema") == "shared_social.completed_optimizer_recovery_external_verification.v1"
             and external.get("status") == "passed"
-            and external.get("completion") == identities["completion"]
-            and external.get("result") == identities["result"]
-            and external.get("audit") == identities["audit"]
+            and same_artifact(external.get("completion"), identities["completion"], root=ROOT)
+            and same_artifact(external.get("result"), identities["result"], root=ROOT)
+            and same_artifact(external.get("audit"), identities["audit"], root=ROOT)
             and external.get("checkpoint") == checkpoint
             and exact_integer(external.get("actual_training_child_exit_code"), 0)
             and exact_integer(external.get("actual_CPU_audit_child_exit_code"), 0)
@@ -134,14 +133,20 @@ def completed_documents():
     recovery_binding = documents["result"]["recovery"]["binding"]
     for role in ("registration", "entry", "helper", "configuration"):
         expected = recovery_binding[role]
-        require(record(expected["path"]) == expected, "Actual recovery source/config changed: " + role)
+        require(same_artifact(record(artifact_path(expected["path"], root=ROOT)), expected, root=ROOT),
+                "Actual recovery source/config changed: " + role)
     for role in ("entry", "parent"):
         expected = documents["result"]["canonical_entry"][role]
-        require(record(expected["path"]) == expected, "Canonical recovery ancestor changed: " + role)
-    profile = json.loads(Path(recovery_binding["configuration"]["path"]).read_text())
+        actual = record(artifact_path(expected["path"], root=ROOT))
+        historical_matches = same_artifact(actual, expected, root=ROOT)
+        if not historical_matches and role == "entry":
+            from .historical_recovery import source_record
+            historical_matches = same_artifact(source_record(expected["path"]), expected, root=ROOT)
+        require(historical_matches, "Canonical recovery ancestor changed: " + role)
+    profile = json.loads(artifact_path(recovery_binding["configuration"]["path"], root=ROOT).read_text())
     require(profile == documents["result"]["profile"], "Saved recovery profile differs from registration")
     checkpoint = documents["completion"]["checkpoint"]
-    path = Path(checkpoint["path"])
+    path = artifact_path(checkpoint["path"], root=ROOT)
     require(path.is_file() and not path.is_symlink() and path.stat().st_mode & 0o222 == 0
             and path.stat().st_size == checkpoint["bytes"], "Recovered terminal checkpoint storage changed")
     return documents, identities, numeric
@@ -159,7 +164,7 @@ def receipt_document():
 
 
 def admit_training(receipt_path):
-    path = Path(receipt_path)
+    path = artifact_path(receipt_path, root=ROOT)
     before = readonly_identity(path)
     receipt = json.loads(path.read_text())
     require(receipt.get("schema") == SCHEMA and exact_integer(receipt.get("terminal_exit_code"), 0),
@@ -170,9 +175,13 @@ def admit_training(receipt_path):
                 "audit_identity": identities["audit"], "checkpoint_identity": documents["completion"]["checkpoint"],
                 "external_verification_identity": identities["external_verification"],
                 "physical_world_restarted": True, "original_continuous_S3_run_completed": False}
-    require(receipt == expected and record(path) == before, "Recovery receipt does not bind the actual completion")
+    # The run directory is a declared path; relocate it explicitly. Nested
+    # artifact comparison still checks every stored size, digest and field.
+    relocated = {**receipt, "run_directory": str(artifact_path(receipt["run_directory"], root=ROOT))}
+    require(same_recorded_value(relocated, expected, root=ROOT) and record(path) == before,
+            "Recovery receipt does not bind the actual completion")
     checkpoint = documents["completion"]["checkpoint"]
-    return Path(checkpoint["path"]), checkpoint["sha256"], {
+    return artifact_path(checkpoint["path"], root=ROOT), checkpoint["sha256"], {
         "receipt": before, "result": identities["result"], "audit": identities["audit"],
         "checkpoint": checkpoint, "terminal_exit_code": 0,
         "value_normalization": "popart", "numeric_migration": numeric,

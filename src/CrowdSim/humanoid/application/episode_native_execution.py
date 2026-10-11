@@ -14,23 +14,21 @@ from . import native_execution_bridge as original
 from scripts import compare_shared_social_episode_evidence as candidate
 
 ROOT, record, require = original.ROOT, original.record, original.require
-PARENT_SHA = "a9eccb65600be8b2f3f057ae8b13df297c36da405922398c84f55886e4bcd2a9"
+PARENT_SHA = "249e66e60d5378a4c52e00c35803501059ceb97c22bb03090e8add995aa0a7e6"
 HERE = ROOT / "docs/style_improvement_20261008/shared_social_episode_native_preparation_v1"
-REGISTRATION = HERE / "registration.json"
-OUTPUT_ROOT = ROOT / "output/diffusion_amp/native_episode2000_seeded_registered_v1"
-OLD_OUTPUT_ROOT = ROOT / "output/diffusion_amp/native_S3_seeded_registered_v1"
-SCHEMA = "shared_social.local_native_episode2000_multiseed_registration.v1"
+REGISTRATION = ROOT / "configs/compatibility/episode_sim61/native_registration.json"
+OUTPUT_ROOT = ROOT / "output/diffusion_amp/native_episode2000_seeded_registered_sim61_v2"
+OLD_OUTPUT_ROOT = ROOT / "output/diffusion_amp/native_S3_seeded_registered_sim61_v2"
+SCHEMA = "shared_social.local_native_episode2000_multiseed_registration.sim61.v2"
 
 
 def registration_document():
     require(record(original.__file__)["sha256"] == PARENT_SHA, "Frozen original native exit bridge changed")
     registered, candidate_identity = candidate.admit_registration(candidate.REGISTRATION)
-    matrix, identity = original.readonly_json(original.MATRIX)
-    require(identity["sha256"] == original.MATRIX_SHA
-            and matrix["protocol_source"] == record(original.protocol.__file__)
-            and matrix["sources"] == original.raw.entry.source_bindings(), "Original native registration/source changed")
+    matrix, identity = original.current_matrix()
+    from social_navigation.artifact_identity import artifact_path, same_artifact
     for item in matrix["inputs"]:
-        require(record(item["path"]) == item, "Original native resource registration input changed")
+        require(same_artifact(record(artifact_path(item["path"])), item), "Original native resource registration input changed")
     require(len(matrix["cases"]) == 156 and matrix["resource_admitted_cohorts"] == 144
             and matrix["resource_rejected_cohorts"] == 12 and matrix["scenes"] == list(original.protocol.SCENES)
             and matrix["seeds"] == list(original.protocol.SEEDS), "Preserve all native cohorts and resource refusals")
@@ -107,6 +105,7 @@ def _namespace(registration_path=REGISTRATION):
     exec(compile(source.read_bytes(), str(source) + ":episode_owner_admission", "exec"), namespace.__dict__)
     namespace.MATRIX = Path(registration_path).resolve()
     namespace.MATRIX_SHA = identity["sha256"]
+    namespace.current_matrix = lambda: admit_registration(registration_path)
     namespace.CHECKPOINT = Path(registered["preselected_episode_terminal_checkpoint"])
     namespace.TRAINING_RECEIPT = Path(registered["episode_training_receipt_path"])
     namespace.admit_S3_owner_completion = lambda path: admit_episode_owner_completion(

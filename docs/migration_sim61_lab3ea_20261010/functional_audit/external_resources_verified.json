@@ -1,0 +1,5 @@
+{
+  "amass_train": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/data/diffusion_amp/amass_style_2848/manifest_labeled_v7_train.pt",
+  "amass_validation": "/project/EXP/SangforAndSaut/Assets/motion/amass_smpl_validation.pt",
+  "amass_test": "/project/EXP/SangforAndSaut/Assets/motion/amass_smpl_test.pt"
+}

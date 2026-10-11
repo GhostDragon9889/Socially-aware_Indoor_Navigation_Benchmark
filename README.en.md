@@ -1,10 +1,12 @@
 # Socially-aware_Indoor_Navigation_Benchmark
 
+The latest [verification report and remaining limits](docs/VERIFICATION_REMAINING_20261011_ZH.md) records the complete unfiltered regression, 256-actor training and the PhysX exit-crash fix. Statement coverage is 64.37%; complete feature and model-quality acceptance remains open.
+
 **Reproduce from a clone:** [complete instructions](CLONE_REPRODUCTION.en.md) for SDK bootstrap, resource restoration, fixed AMASS rebuild, four-scene evaluation and recording.
 
 [简体中文](README.md) · **English** · [Documentation](docs/guides/README.md)
 
-An indoor social navigation research project using Isaac Sim 6 / IsaacLab 3, TRACE trajectory diffusion and physical PACER/AMP pedestrians. Core code lives under `src/`; ProtoMotions and CrowdSim import names and upstream attribution are retained.
+The default migration target is **Isaac Sim 6.1.0.0 / IsaacLab 3.0 EA**, using TRACE trajectory diffusion and physical PACER/AMP pedestrians. See [runtime instructions](env/isaaclab3_ea_sim61/README.md). Core code lives under `src/`; ProtoMotions and CrowdSim import names and upstream attribution are retained.
 
 ## Documentation
 
@@ -18,6 +20,8 @@ An indoor social navigation research project using Isaac Sim 6 / IsaacLab 3, TRA
 | Verified local resources and dependencies | [2026-10-10 audit (Chinese)](docs/RESOURCE_DEPENDENCY_MAP_20261010_ZH.md) | [代码结构](docs/codebase/STRUCTURE.md) |
 
 ## Available local results
+
+The Sim6.1 runtime has separately recorded dependency checks, the current full regression suite, real CUDA tests, AMASS AMP training smoke, three-frame RTX capture and four60-second physical scene runs. See the [migration audit](docs/ISAACLAB3_EA_SIM61_MIGRATION_20261011_EN.md). The four60-second videos below retain their historical Sim6.0 identity.
 
 - AMP controllers fine-tuned on genuine local AMASS motions, with scene routes and camera configurations.
 - One continuous 60-second video for each of YOHO, NewMetro, SecondFloor and ThirdFloor, plus physical, posture, speed, spatial stasis and recording checks.
@@ -61,18 +65,19 @@ The selected fine-tuned controllers, training parameters, EVT-EXP robot and four
 
 ## Quick start with an existing environment
 
-Use the pinned Python 3.12 environment. Root `.venv` can link to the adjacent `IsaacLab-Protomotions/.venv`.
+The local root `.venv` still selects the old Sim6.0 SDK. Explicitly select the new project interpreter at `.runtime/isaaclab3_ea_sim61/.venv/bin/python`, which is undergoing physical acceptance. For another matching SDK, create the project overlay using [installation](docs/guides/installation.en.md).
 
 ```bash
 cd /absolute/path/to/Socially-aware_Indoor_Navigation_Benchmark
+export NAV_PY="$PWD/.runtime/isaaclab3_ea_sim61/.venv/bin/python"
 export PYTHONDONTWRITEBYTECODE=1
 export PYTHONPATH="$PWD/src:$PWD${PYTHONPATH:+:$PYTHONPATH}"
-.venv/bin/python -m social_navigation status
-.venv/bin/python -m social_navigation preflight --scene YOHO
-.venv/bin/python -m social_navigation simulate --scene YOHO --steps 1800
+"$NAV_PY" -m social_navigation status
+"$NAV_PY" -m social_navigation preflight --scene YOHO
+"$NAV_PY" -m social_navigation simulate --scene YOHO --steps 60 --output output/sim61_smoke
 ```
 
-Preflight checks resources and native scene configuration. Simulation uses the owning parent launcher and a fresh output directory. 1,800 controls at 30Hz represent 60 physical seconds. Run native jobs serially. For a new machine, follow [installation](docs/guides/installation.en.md) before these commands.
+Preflight checks resources and native scene configuration. Simulation uses the owning parent launcher and a fresh output directory. The short 60-control smoke command does not replace 1,800-control (60-second) quality/recording acceptance. Run native jobs serially. For a new machine, follow [installation](docs/guides/installation.en.md) before these commands.
 
 ## Training, evaluation and recording
 
@@ -99,3 +104,7 @@ Open `Socially-aware_Indoor_Navigation_Benchmark.code-workspace`. Recommended ex
 The project includes [ProtoMotions](https://github.com/NVlabs/ProtoMotions), [TRACE / Trace and Pace](https://github.com/nv-tlabs/trace), PACER and NavIsaacLab-related implementation/adaptations. The [original ProtoMotions README](docs/reference/PROTOMOTIONS_README.md) is preserved.
 
 Retain [LICENSE.md](LICENSE.md), `legal/`, and third-party license files. AMASS, SMPL/SMPL-H, weights and scene assets follow their own terms; body-model assets are excluded from built wheel/sdist distributions.
+
+## Upstream GPC and PEFT
+
+See the [GPC and PEFT guide](docs/source/user_guide/gpc.rst). Humanoid MJCF assets live under `src/protomotions/data/assets/mjcf/` (compatibility path `protomotions/data/assets/mjcf/`). Model cards document supported runtimes and archived checkpoint restrictions.

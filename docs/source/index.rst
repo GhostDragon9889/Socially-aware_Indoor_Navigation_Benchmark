@@ -1,5 +1,5 @@
-ProtoMotions Documentation
-==========================
+Socially-aware Indoor Navigation Benchmark
+==========================================
 
 .. raw:: html
 
@@ -10,10 +10,15 @@ ProtoMotions Documentation
      </video>
    </div>
 
-ProtoMotions is a GPU-accelerated simulation and learning framework for training physically simulated 
-digital humans and humanoid robots. Our mission is to provide a fast prototyping platform for various 
-simulated humanoid learning tasks and environments, bridging efforts across physics-based animation, 
-digital humans, and humanoid robotics.
+The project combines guided diffusion trajectories and physical AMP pedestrians
+for indoor social navigation. The default runtime is IsaacLab 3.0 EA / Isaac Sim
+6.1 with an isolated project overlay. ProtoMotions supplies the underlying
+humanoid simulation and learning modules; upstream attribution and historical
+backend examples remain in this documentation.
+
+The source, locks and migration evidence are kept in the repository. Check the
+migration evidence index and current run receipts when evaluating compatibility,
+video duration or paper performance.
 
 .. raw:: html
 
@@ -22,10 +27,10 @@ digital humans, and humanoid robotics.
        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
      </svg>
      <div style="flex-grow: 1;">
-       <div style="color: white; font-size: 1.1em; font-weight: 600;">ProtoMotions on GitHub</div>
-       <div style="color: #8b949e; font-size: 0.9em;">Star us, report issues, and contribute</div>
+       <div style="color: white; font-size: 1.1em; font-weight: 600;">Socially-aware Indoor Navigation Benchmark on GitHub</div>
+       <div style="color: #8b949e; font-size: 0.9em;">Source, configurations and reproducibility documentation</div>
      </div>
-     <a href="https://github.com/NVlabs/ProtoMotions" target="_blank" rel="noopener noreferrer"
+     <a href="https://github.com/GhostDragon9889/Socially-aware_Indoor_Navigation_Benchmark" target="_blank" rel="noopener noreferrer"
         style="display: inline-block; padding: 8px 20px; background: #238636; color: white; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.95em;">
        View Repository &rarr;
      </a>
@@ -38,7 +43,8 @@ digital humans, and humanoid robotics.
 Key Features
 ------------
 
-* **Multi-Backend**: Fast, scalable simulation with NVIDIA Newton 1.0.0, IsaacGym, IsaacLab, Genesis (GPU), and MuJoCo (CPU) backends
+* **Default runtime**: IsaacLab 3.0 EA / Isaac Sim 6.1, with exact SDK and isolated project dependency locks
+* **Backend references**: ProtoMotions also contains Newton, MuJoCo, Genesis and historical IsaacGym modules; each has a separate environment and validation boundary
 * **Modular Design**: Multiple simulation backends, robot morphologies, RL environments, and algorithms with built-in support. Add your own robot, task, or algorithm with ease
 * **Rich Toolkit**: Built-in procedural terrain generation, motion retargeting (PyRoki-based), scene and object spawning. All scalable to large training runs
 * **State-of-the-Art Algorithms**: GPC/PEFT, MaskedMimic, AMP, ASE, PPO implementations
@@ -52,7 +58,7 @@ Simulator Support
 
    <p>
      <a href="https://pypi.org/project/newton/1.0.0/"><img src="https://img.shields.io/badge/Newton-1.0.0-brightgreen.svg" alt="Newton 1.0.0"></a>
-     <a href="https://github.com/isaac-sim/IsaacLab/commit/4ecd0b036da19ff6ad2bb4d621f886b63e9f6db8"><img src="https://img.shields.io/badge/IsaacLab-3.0-blue.svg" alt="IsaacLab"></a>
+     <a href="https://github.com/isaac-sim/IsaacLab/commit/ae37b028ea415c91ea2bc32609efcd759ed2b974"><img src="https://img.shields.io/badge/IsaacLab-3.0-blue.svg" alt="IsaacLab"></a>
      <a href="https://developer.nvidia.com/isaac-gym"><img src="https://img.shields.io/badge/IsaacGym-Preview_4-blue.svg" alt="IsaacGym"></a>
      <a href="https://github.com/Genesis-Embodied-AI/Genesis"><img src="https://img.shields.io/badge/Genesis-untested-lightgrey.svg" alt="Genesis"></a>
      <a href="https://github.com/google-deepmind/mujoco"><img src="https://img.shields.io/badge/MuJoCo-3.0+-orange.svg" alt="MuJoCo"></a>

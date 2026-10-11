@@ -1,0 +1,2604 @@
+{
+  "frames": [
+    {
+      "name": null,
+      "pc": "0x7ffe94c89290"
+    },
+    {
+      "name": null,
+      "pc": "0x7ffe61ae08ed"
+    },
+    {
+      "name": null,
+      "pc": "0x7ffe61ae781a"
+    },
+    {
+      "name": null,
+      "pc": "0x7ffe6385a99f"
+    },
+    {
+      "name": null,
+      "pc": "0x7fffee4f5aa8"
+    },
+    {
+      "name": null,
+      "pc": "0x7fffee4f63f5"
+    },
+    {
+      "name": "subtype_dealloc",
+      "pc": "0x182d450",
+      "registers": {
+        "rbx": "0x5348360",
+        "r12": "0x1448310",
+        "r13": "0x18019c0",
+        "r14": "0x7ffc48064d0f",
+        "r15": "0x7ffc48064d10",
+        "rbp": "0x7fffffffc1b0"
+      },
+      "object": "0x7ffc4811fe90",
+      "object_type": "SimulationView",
+      "instance_dict_at_crash": [
+        {
+          "key": "_backend",
+          "pointer": "0x7ffc48158ab0",
+          "type": "omni.physics.tensors.bindings._physicsTensors.SimulationView"
+        },
+        {
+          "key": "_frontend",
+          "pointer": "0x7ffc4820a120",
+          "type": "FrontendWarp"
+        },
+        {
+          "key": "_param_device_ordinal",
+          "pointer": "0x1543690",
+          "type": "int"
+        }
+      ],
+      "instance_before_clear": {}
+    },
+    {
+      "name": "dict_dealloc",
+      "pc": "0x1806dd0",
+      "dict": "0x7ffc4806c600",
+      "dict_items_at_crash": [
+        {
+          "key": "device",
+          "pointer": "0x7ffc75874330",
+          "type": "str"
+        },
+        {
+          "key": "_actuator_collection",
+          "pointer": "0x7ffc480a4770",
+          "type": "ActuatorCollection"
+        },
+        {
+          "key": "_joint_pos_target",
+          "pointer": "0x7ffc481505f0",
+          "type": "array"
+        },
+        {
+          "key": "_joint_vel_target",
+          "pointer": "0x7ffc480a4530",
+          "type": "array"
+        },
+        {
+          "key": "_joint_effort_target",
+          "pointer": "0x7ffc480a48c0",
+          "type": "array"
+        },
+        {
+          "key": "_joint_pos_target_ta",
+          "pointer": "0x7ffc480a4ad0",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_joint_vel_target_ta",
+          "pointer": "0x7ffc480a4aa0",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_joint_effort_target_ta",
+          "pointer": "0x7ffc480a4a70",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_root_view",
+          "pointer": "0x7ffc48081300",
+          "type": "weakref.ProxyType"
+        },
+        {
+          "key": "_sim_timestamp",
+          "pointer": "0x7ffc46a640b0",
+          "type": "float"
+        },
+        {
+          "key": "_is_primed",
+          "pointer": "0x142e718",
+          "type": "bool"
+        },
+        {
+          "key": "_fk_timestamp",
+          "pointer": "0x7ffc46a640b0",
+          "type": "float"
+        },
+        {
+          "key": "_read_launch_cache",
+          "pointer": "0x7ffc486c9070",
+          "type": "_WarpLaunchCache"
+        },
+        {
+          "key": "_joint_dof_signs",
+          "pointer": "0x7ffc4819d880",
+          "type": "array"
+        },
+        {
+          "key": "_has_reversed_joints",
+          "pointer": "0x142e738",
+          "type": "bool"
+        },
+        {
+          "key": "_physics_sim_view",
+          "pointer": "0x7ffc4811fe90",
+          "type": "SimulationView"
+        },
+        {
+          "key": "GRAVITY_VEC_W",
+          "pointer": "0x7ffc482c5dc0",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "FORWARD_VEC_B",
+          "pointer": "0x7ffc481cca40",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_default_mass",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_default_inertia",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_default_joint_stiffness",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_default_joint_damping",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_default_joint_armature",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_default_joint_friction_coeff",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_default_joint_viscous_friction_coeff",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_default_joint_pos_limits",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_default_fixed_tendon_stiffness",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_default_fixed_tendon_damping",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_default_fixed_tendon_limit_stiffness",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_default_fixed_tendon_rest_length",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_default_fixed_tendon_offset",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_default_fixed_tendon_pos_limits",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_default_spatial_tendon_stiffness",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_default_spatial_tendon_damping",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_default_spatial_tendon_limit_stiffness",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_default_spatial_tendon_offset",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_num_instances",
+          "pointer": "0x15436d0",
+          "type": "int"
+        },
+        {
+          "key": "_num_joints",
+          "pointer": "0x1543f50",
+          "type": "int"
+        },
+        {
+          "key": "_num_bodies",
+          "pointer": "0x15439b0",
+          "type": "int"
+        },
+        {
+          "key": "_num_fixed_tendons",
+          "pointer": "0x15436b0",
+          "type": "int"
+        },
+        {
+          "key": "_num_spatial_tendons",
+          "pointer": "0x15436b0",
+          "type": "int"
+        },
+        {
+          "key": "_root_link_pose_w",
+          "pointer": "0x7ffc4811f530",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_root_link_vel_w",
+          "pointer": "0x7ffc48151730",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_body_link_pose_w",
+          "pointer": "0x7ffc481514f0",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_body_link_vel_w",
+          "pointer": "0x7ffc48152030",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_body_com_pose_b",
+          "pointer": "0x7ffc48151ca0",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_body_com_pose_b_backend",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_root_com_pose_w",
+          "pointer": "0x7ffc48151be0",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_root_com_vel_w",
+          "pointer": "0x7ffc48151b20",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_body_com_pose_w",
+          "pointer": "0x7ffc48152810",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_body_com_vel_w",
+          "pointer": "0x7ffc481522d0",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_body_com_acc_w",
+          "pointer": "0x7ffc48151ac0",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_root_state_w",
+          "pointer": "0x7ffc48151700",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_root_link_state_w",
+          "pointer": "0x7ffc481520f0",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_root_com_state_w",
+          "pointer": "0x7ffc48150110",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_body_state_w",
+          "pointer": "0x7ffc48150e90",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_body_link_state_w",
+          "pointer": "0x7ffc48150080",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_body_com_state_w",
+          "pointer": "0x7ffc48150200",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_joint_pos",
+          "pointer": "0x7ffc48150380",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_joint_vel",
+          "pointer": "0x7ffc48150710",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_joint_pos_backend",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_joint_vel_backend",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_joint_acc",
+          "pointer": "0x7ffc48071400",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_projected_gravity_b",
+          "pointer": "0x7ffc48152120",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_heading_w",
+          "pointer": "0x7ffc480715b0",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_root_link_lin_vel_b",
+          "pointer": "0x7ffc48071610",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_root_link_ang_vel_b",
+          "pointer": "0x7ffc48071670",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_root_com_lin_vel_b",
+          "pointer": "0x7ffc480716d0",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_root_com_ang_vel_b",
+          "pointer": "0x7ffc48071730",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_jacobian_link_offset",
+          "pointer": "0x15436b0",
+          "type": "int"
+        },
+        {
+          "key": "_num_base_dofs",
+          "pointer": "0x1543770",
+          "type": "int"
+        },
+        {
+          "key": "_jacobian_body_user_to_backend",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_jacobian_joint_user_to_backend",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_body_link_jacobian_w_buf",
+          "pointer": "0x7ffc48151520",
+          "type": "array"
+        },
+        {
+          "key": "_body_com_jacobian_w",
+          "pointer": "0x7ffc480717c0",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_mass_matrix",
+          "pointer": "0x7ffc48071850",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_gravity_compensation_forces",
+          "pointer": "0x7ffc480718b0",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_default_root_pose",
+          "pointer": "0x7ffc48071910",
+          "type": "array"
+        },
+        {
+          "key": "_default_root_vel",
+          "pointer": "0x7ffc48071940",
+          "type": "array"
+        },
+        {
+          "key": "_default_joint_pos",
+          "pointer": "0x7ffc48071970",
+          "type": "array"
+        },
+        {
+          "key": "_default_joint_vel",
+          "pointer": "0x7ffc480719a0",
+          "type": "array"
+        },
+        {
+          "key": "_previous_joint_vel",
+          "pointer": "0x7ffc481cdcd0",
+          "type": "array"
+        },
+        {
+          "key": "_computed_torque",
+          "pointer": "0x7ffc480a4560",
+          "type": "array"
+        },
+        {
+          "key": "_applied_torque",
+          "pointer": "0x7ffc480a4830",
+          "type": "array"
+        },
+        {
+          "key": "_joint_stiffness",
+          "pointer": "0x7ffc48071ac0",
+          "type": "array"
+        },
+        {
+          "key": "_joint_damping",
+          "pointer": "0x7ffc48071af0",
+          "type": "array"
+        },
+        {
+          "key": "_joint_armature",
+          "pointer": "0x7ffc48071b50",
+          "type": "array"
+        },
+        {
+          "key": "_joint_friction_coeff",
+          "pointer": "0x7ffc48071c40",
+          "type": "array"
+        },
+        {
+          "key": "_joint_dynamic_friction_coeff",
+          "pointer": "0x7ffc481502f0",
+          "type": "array"
+        },
+        {
+          "key": "_joint_viscous_friction_coeff",
+          "pointer": "0x7ffc48071c10",
+          "type": "array"
+        },
+        {
+          "key": "_joint_pos_limits",
+          "pointer": "0x7ffc48152330",
+          "type": "array"
+        },
+        {
+          "key": "_joint_vel_limits",
+          "pointer": "0x7ffc48071a60",
+          "type": "array"
+        },
+        {
+          "key": "_joint_effort_limits",
+          "pointer": "0x7ffc48071a90",
+          "type": "array"
+        },
+        {
+          "key": "_joint_stiffness_backend",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_joint_damping_backend",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_joint_armature_backend",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_joint_pos_limits_backend",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_joint_vel_limits_backend",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_joint_effort_limits_backend",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_joint_friction_props_user",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_joint_friction_props_backend",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_soft_joint_pos_limits",
+          "pointer": "0x7ffc481504a0",
+          "type": "array"
+        },
+        {
+          "key": "_soft_joint_vel_limits",
+          "pointer": "0x7ffc480a4800",
+          "type": "array"
+        },
+        {
+          "key": "_fixed_tendon_stiffness",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_fixed_tendon_damping",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_fixed_tendon_limit_stiffness",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_fixed_tendon_rest_length",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_fixed_tendon_offset",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_fixed_tendon_pos_limits",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_spatial_tendon_stiffness",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_spatial_tendon_damping",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_spatial_tendon_limit_stiffness",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_spatial_tendon_offset",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_body_mass",
+          "pointer": "0x7ffc481510a0",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_body_inertia",
+          "pointer": "0x7ffc48072090",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_body_mass_backend",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_body_inertia_backend",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_default_root_state",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_default_root_pose_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_default_root_vel_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_default_joint_pos_ta",
+          "pointer": "0x7ffc48073920",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_default_joint_vel_ta",
+          "pointer": "0x7ffc48151670",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_computed_torque_ta",
+          "pointer": "0x7ffc480a49e0",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_applied_torque_ta",
+          "pointer": "0x7ffc480a4b00",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_joint_stiffness_ta",
+          "pointer": "0x7ffc48170980",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_joint_damping_ta",
+          "pointer": "0x7ffc480a4bc0",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_joint_armature_ta",
+          "pointer": "0x7ffc480a4c20",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_joint_friction_coeff_ta",
+          "pointer": "0x7ffc48151a90",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_joint_dynamic_friction_coeff_ta",
+          "pointer": "0x7ffc480a4cb0",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_joint_viscous_friction_coeff_ta",
+          "pointer": "0x7ffc480a4d10",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_joint_pos_limits_ta",
+          "pointer": "0x7ffc480723c0",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_joint_vel_limits_ta",
+          "pointer": "0x7ffc480a4dd0",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_joint_effort_limits_ta",
+          "pointer": "0x7ffc480a4d70",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_soft_joint_pos_limits_ta",
+          "pointer": "0x7ffc48072390",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_soft_joint_vel_limits_ta",
+          "pointer": "0x7ffc48151d30",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_fixed_tendon_stiffness_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_fixed_tendon_damping_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_fixed_tendon_limit_stiffness_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_fixed_tendon_rest_length_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_fixed_tendon_offset_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_fixed_tendon_pos_limits_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_spatial_tendon_stiffness_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_spatial_tendon_damping_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_spatial_tendon_limit_stiffness_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_spatial_tendon_offset_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_root_link_pose_w_ta",
+          "pointer": "0x7ffc4811f8c0",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_root_link_vel_w_ta",
+          "pointer": "0x7ffc46f5ef30",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_root_com_pose_w_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_root_com_vel_w_ta",
+          "pointer": "0x7ffc46f5f2f0",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_body_link_pose_w_ta",
+          "pointer": "0x7ffc48072000",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_body_link_vel_w_ta",
+          "pointer": "0x7ffc46f941d0",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_body_com_pose_w_ta",
+          "pointer": "0x7ffc46a32660",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_body_com_vel_w_ta",
+          "pointer": "0x7ffc48152600",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_body_com_acc_w_ta",
+          "pointer": "0x7ffc48151490",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_body_com_pose_b_ta",
+          "pointer": "0x7ffc46f941a0",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_body_link_jacobian_w_ta",
+          "pointer": "0x7ffc48151250",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_body_com_jacobian_w_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_mass_matrix_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_gravity_compensation_forces_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_body_mass_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_body_inertia_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_joint_pos_ta",
+          "pointer": "0x7ffc48150440",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_joint_vel_ta",
+          "pointer": "0x7ffc48151a00",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_joint_acc_ta",
+          "pointer": "0x7ffc481aa1e0",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_projected_gravity_b_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_heading_w_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_root_link_lin_vel_b_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_root_link_ang_vel_b_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_root_com_lin_vel_b_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_root_com_ang_vel_b_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_root_link_pos_w_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_root_link_quat_w_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_root_link_lin_vel_w_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_root_link_ang_vel_w_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_root_com_pos_w_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_root_com_quat_w_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_root_com_lin_vel_w_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_root_com_ang_vel_w_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_body_link_pos_w_ta",
+          "pointer": "0x7ffc48152360",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_body_link_quat_w_ta",
+          "pointer": "0x7ffc46f96300",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_body_link_lin_vel_w_ta",
+          "pointer": "0x7ffc46f96000",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_body_link_ang_vel_w_ta",
+          "pointer": "0x7ffc46f96510",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_body_com_pos_w_ta",
+          "pointer": "0x7ffc46a32750",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_body_com_quat_w_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_body_com_lin_vel_w_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_body_com_ang_vel_w_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_body_com_lin_acc_w_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_body_com_ang_acc_w_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_body_com_pos_b_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_body_com_quat_b_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_default_root_state_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_root_state_w_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_root_link_state_w_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_root_com_state_w_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_body_state_w_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_body_link_state_w_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_body_com_state_w_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "joint_names",
+          "pointer": "0x7ffc4815af40",
+          "type": "list"
+        },
+        {
+          "key": "joint_ordering",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "body_names",
+          "pointer": "0x7ffc4814e3c0",
+          "type": "list"
+        },
+        {
+          "key": "body_ordering",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        }
+      ]
+    },
+    {
+      "name": "subtype_dealloc",
+      "pc": "0x182d40e",
+      "registers": {
+        "rbx": "0x7ffc481709b0",
+        "r12": "0x1448310",
+        "r13": "0x18019c0",
+        "r14": "0x7ffc4806c600",
+        "r15": "0x317d23e0",
+        "rbp": "0x7fffffffc280"
+      },
+      "object": "0x7ffc481709b0",
+      "object_type": "ArticulationData",
+      "instance_dict_at_crash": [
+        {
+          "key": "device",
+          "pointer": "0x7ffc75874330",
+          "type": "str"
+        },
+        {
+          "key": "_actuator_collection",
+          "pointer": "0x7ffc480a4770",
+          "type": "ActuatorCollection"
+        },
+        {
+          "key": "_joint_pos_target",
+          "pointer": "0x7ffc481505f0",
+          "type": "array"
+        },
+        {
+          "key": "_joint_vel_target",
+          "pointer": "0x7ffc480a4530",
+          "type": "array"
+        },
+        {
+          "key": "_joint_effort_target",
+          "pointer": "0x7ffc480a48c0",
+          "type": "array"
+        },
+        {
+          "key": "_joint_pos_target_ta",
+          "pointer": "0x7ffc480a4ad0",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_joint_vel_target_ta",
+          "pointer": "0x7ffc480a4aa0",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_joint_effort_target_ta",
+          "pointer": "0x7ffc480a4a70",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_root_view",
+          "pointer": "0x7ffc48081300",
+          "type": "weakref.ProxyType"
+        },
+        {
+          "key": "_sim_timestamp",
+          "pointer": "0x7ffc46a640b0",
+          "type": "float"
+        },
+        {
+          "key": "_is_primed",
+          "pointer": "0x142e718",
+          "type": "bool"
+        },
+        {
+          "key": "_fk_timestamp",
+          "pointer": "0x7ffc46a640b0",
+          "type": "float"
+        },
+        {
+          "key": "_read_launch_cache",
+          "pointer": "0x7ffc486c9070",
+          "type": "_WarpLaunchCache"
+        },
+        {
+          "key": "_joint_dof_signs",
+          "pointer": "0x7ffc4819d880",
+          "type": "array"
+        },
+        {
+          "key": "_has_reversed_joints",
+          "pointer": "0x142e738",
+          "type": "bool"
+        },
+        {
+          "key": "_physics_sim_view",
+          "pointer": "0x7ffc4811fe90",
+          "type": "SimulationView"
+        },
+        {
+          "key": "GRAVITY_VEC_W",
+          "pointer": "0x7ffc482c5dc0",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "FORWARD_VEC_B",
+          "pointer": "0x7ffc481cca40",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_default_mass",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_default_inertia",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_default_joint_stiffness",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_default_joint_damping",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_default_joint_armature",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_default_joint_friction_coeff",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_default_joint_viscous_friction_coeff",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_default_joint_pos_limits",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_default_fixed_tendon_stiffness",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_default_fixed_tendon_damping",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_default_fixed_tendon_limit_stiffness",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_default_fixed_tendon_rest_length",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_default_fixed_tendon_offset",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_default_fixed_tendon_pos_limits",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_default_spatial_tendon_stiffness",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_default_spatial_tendon_damping",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_default_spatial_tendon_limit_stiffness",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_default_spatial_tendon_offset",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_num_instances",
+          "pointer": "0x15436d0",
+          "type": "int"
+        },
+        {
+          "key": "_num_joints",
+          "pointer": "0x1543f50",
+          "type": "int"
+        },
+        {
+          "key": "_num_bodies",
+          "pointer": "0x15439b0",
+          "type": "int"
+        },
+        {
+          "key": "_num_fixed_tendons",
+          "pointer": "0x15436b0",
+          "type": "int"
+        },
+        {
+          "key": "_num_spatial_tendons",
+          "pointer": "0x15436b0",
+          "type": "int"
+        },
+        {
+          "key": "_root_link_pose_w",
+          "pointer": "0x7ffc4811f530",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_root_link_vel_w",
+          "pointer": "0x7ffc48151730",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_body_link_pose_w",
+          "pointer": "0x7ffc481514f0",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_body_link_vel_w",
+          "pointer": "0x7ffc48152030",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_body_com_pose_b",
+          "pointer": "0x7ffc48151ca0",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_body_com_pose_b_backend",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_root_com_pose_w",
+          "pointer": "0x7ffc48151be0",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_root_com_vel_w",
+          "pointer": "0x7ffc48151b20",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_body_com_pose_w",
+          "pointer": "0x7ffc48152810",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_body_com_vel_w",
+          "pointer": "0x7ffc481522d0",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_body_com_acc_w",
+          "pointer": "0x7ffc48151ac0",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_root_state_w",
+          "pointer": "0x7ffc48151700",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_root_link_state_w",
+          "pointer": "0x7ffc481520f0",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_root_com_state_w",
+          "pointer": "0x7ffc48150110",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_body_state_w",
+          "pointer": "0x7ffc48150e90",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_body_link_state_w",
+          "pointer": "0x7ffc48150080",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_body_com_state_w",
+          "pointer": "0x7ffc48150200",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_joint_pos",
+          "pointer": "0x7ffc48150380",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_joint_vel",
+          "pointer": "0x7ffc48150710",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_joint_pos_backend",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_joint_vel_backend",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_joint_acc",
+          "pointer": "0x7ffc48071400",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_projected_gravity_b",
+          "pointer": "0x7ffc48152120",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_heading_w",
+          "pointer": "0x7ffc480715b0",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_root_link_lin_vel_b",
+          "pointer": "0x7ffc48071610",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_root_link_ang_vel_b",
+          "pointer": "0x7ffc48071670",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_root_com_lin_vel_b",
+          "pointer": "0x7ffc480716d0",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_root_com_ang_vel_b",
+          "pointer": "0x7ffc48071730",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_jacobian_link_offset",
+          "pointer": "0x15436b0",
+          "type": "int"
+        },
+        {
+          "key": "_num_base_dofs",
+          "pointer": "0x1543770",
+          "type": "int"
+        },
+        {
+          "key": "_jacobian_body_user_to_backend",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_jacobian_joint_user_to_backend",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_body_link_jacobian_w_buf",
+          "pointer": "0x7ffc48151520",
+          "type": "array"
+        },
+        {
+          "key": "_body_com_jacobian_w",
+          "pointer": "0x7ffc480717c0",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_mass_matrix",
+          "pointer": "0x7ffc48071850",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_gravity_compensation_forces",
+          "pointer": "0x7ffc480718b0",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_default_root_pose",
+          "pointer": "0x7ffc48071910",
+          "type": "array"
+        },
+        {
+          "key": "_default_root_vel",
+          "pointer": "0x7ffc48071940",
+          "type": "array"
+        },
+        {
+          "key": "_default_joint_pos",
+          "pointer": "0x7ffc48071970",
+          "type": "array"
+        },
+        {
+          "key": "_default_joint_vel",
+          "pointer": "0x7ffc480719a0",
+          "type": "array"
+        },
+        {
+          "key": "_previous_joint_vel",
+          "pointer": "0x7ffc481cdcd0",
+          "type": "array"
+        },
+        {
+          "key": "_computed_torque",
+          "pointer": "0x7ffc480a4560",
+          "type": "array"
+        },
+        {
+          "key": "_applied_torque",
+          "pointer": "0x7ffc480a4830",
+          "type": "array"
+        },
+        {
+          "key": "_joint_stiffness",
+          "pointer": "0x7ffc48071ac0",
+          "type": "array"
+        },
+        {
+          "key": "_joint_damping",
+          "pointer": "0x7ffc48071af0",
+          "type": "array"
+        },
+        {
+          "key": "_joint_armature",
+          "pointer": "0x7ffc48071b50",
+          "type": "array"
+        },
+        {
+          "key": "_joint_friction_coeff",
+          "pointer": "0x7ffc48071c40",
+          "type": "array"
+        },
+        {
+          "key": "_joint_dynamic_friction_coeff",
+          "pointer": "0x7ffc481502f0",
+          "type": "array"
+        },
+        {
+          "key": "_joint_viscous_friction_coeff",
+          "pointer": "0x7ffc48071c10",
+          "type": "array"
+        },
+        {
+          "key": "_joint_pos_limits",
+          "pointer": "0x7ffc48152330",
+          "type": "array"
+        },
+        {
+          "key": "_joint_vel_limits",
+          "pointer": "0x7ffc48071a60",
+          "type": "array"
+        },
+        {
+          "key": "_joint_effort_limits",
+          "pointer": "0x7ffc48071a90",
+          "type": "array"
+        },
+        {
+          "key": "_joint_stiffness_backend",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_joint_damping_backend",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_joint_armature_backend",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_joint_pos_limits_backend",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_joint_vel_limits_backend",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_joint_effort_limits_backend",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_joint_friction_props_user",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_joint_friction_props_backend",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_soft_joint_pos_limits",
+          "pointer": "0x7ffc481504a0",
+          "type": "array"
+        },
+        {
+          "key": "_soft_joint_vel_limits",
+          "pointer": "0x7ffc480a4800",
+          "type": "array"
+        },
+        {
+          "key": "_fixed_tendon_stiffness",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_fixed_tendon_damping",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_fixed_tendon_limit_stiffness",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_fixed_tendon_rest_length",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_fixed_tendon_offset",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_fixed_tendon_pos_limits",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_spatial_tendon_stiffness",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_spatial_tendon_damping",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_spatial_tendon_limit_stiffness",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_spatial_tendon_offset",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_body_mass",
+          "pointer": "0x7ffc481510a0",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_body_inertia",
+          "pointer": "0x7ffc48072090",
+          "type": "TimestampedBufferWarp"
+        },
+        {
+          "key": "_body_mass_backend",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_body_inertia_backend",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_default_root_state",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_default_root_pose_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_default_root_vel_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_default_joint_pos_ta",
+          "pointer": "0x7ffc48073920",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_default_joint_vel_ta",
+          "pointer": "0x7ffc48151670",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_computed_torque_ta",
+          "pointer": "0x7ffc480a49e0",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_applied_torque_ta",
+          "pointer": "0x7ffc480a4b00",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_joint_stiffness_ta",
+          "pointer": "0x7ffc48170980",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_joint_damping_ta",
+          "pointer": "0x7ffc480a4bc0",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_joint_armature_ta",
+          "pointer": "0x7ffc480a4c20",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_joint_friction_coeff_ta",
+          "pointer": "0x7ffc48151a90",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_joint_dynamic_friction_coeff_ta",
+          "pointer": "0x7ffc480a4cb0",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_joint_viscous_friction_coeff_ta",
+          "pointer": "0x7ffc480a4d10",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_joint_pos_limits_ta",
+          "pointer": "0x7ffc480723c0",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_joint_vel_limits_ta",
+          "pointer": "0x7ffc480a4dd0",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_joint_effort_limits_ta",
+          "pointer": "0x7ffc480a4d70",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_soft_joint_pos_limits_ta",
+          "pointer": "0x7ffc48072390",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_soft_joint_vel_limits_ta",
+          "pointer": "0x7ffc48151d30",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_fixed_tendon_stiffness_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_fixed_tendon_damping_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_fixed_tendon_limit_stiffness_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_fixed_tendon_rest_length_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_fixed_tendon_offset_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_fixed_tendon_pos_limits_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_spatial_tendon_stiffness_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_spatial_tendon_damping_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_spatial_tendon_limit_stiffness_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_spatial_tendon_offset_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_root_link_pose_w_ta",
+          "pointer": "0x7ffc4811f8c0",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_root_link_vel_w_ta",
+          "pointer": "0x7ffc46f5ef30",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_root_com_pose_w_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_root_com_vel_w_ta",
+          "pointer": "0x7ffc46f5f2f0",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_body_link_pose_w_ta",
+          "pointer": "0x7ffc48072000",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_body_link_vel_w_ta",
+          "pointer": "0x7ffc46f941d0",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_body_com_pose_w_ta",
+          "pointer": "0x7ffc46a32660",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_body_com_vel_w_ta",
+          "pointer": "0x7ffc48152600",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_body_com_acc_w_ta",
+          "pointer": "0x7ffc48151490",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_body_com_pose_b_ta",
+          "pointer": "0x7ffc46f941a0",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_body_link_jacobian_w_ta",
+          "pointer": "0x7ffc48151250",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_body_com_jacobian_w_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_mass_matrix_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_gravity_compensation_forces_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_body_mass_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_body_inertia_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_joint_pos_ta",
+          "pointer": "0x7ffc48150440",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_joint_vel_ta",
+          "pointer": "0x7ffc48151a00",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_joint_acc_ta",
+          "pointer": "0x7ffc481aa1e0",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_projected_gravity_b_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_heading_w_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_root_link_lin_vel_b_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_root_link_ang_vel_b_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_root_com_lin_vel_b_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_root_com_ang_vel_b_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_root_link_pos_w_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_root_link_quat_w_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_root_link_lin_vel_w_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_root_link_ang_vel_w_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_root_com_pos_w_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_root_com_quat_w_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_root_com_lin_vel_w_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_root_com_ang_vel_w_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_body_link_pos_w_ta",
+          "pointer": "0x7ffc48152360",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_body_link_quat_w_ta",
+          "pointer": "0x7ffc46f96300",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_body_link_lin_vel_w_ta",
+          "pointer": "0x7ffc46f96000",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_body_link_ang_vel_w_ta",
+          "pointer": "0x7ffc46f96510",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_body_com_pos_w_ta",
+          "pointer": "0x7ffc46a32750",
+          "type": "ProxyArray"
+        },
+        {
+          "key": "_body_com_quat_w_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_body_com_lin_vel_w_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_body_com_ang_vel_w_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_body_com_lin_acc_w_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_body_com_ang_acc_w_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_body_com_pos_b_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_body_com_quat_b_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_default_root_state_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_root_state_w_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_root_link_state_w_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_root_com_state_w_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_body_state_w_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_body_link_state_w_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_body_com_state_w_ta",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "joint_names",
+          "pointer": "0x7ffc4815af40",
+          "type": "list"
+        },
+        {
+          "key": "joint_ordering",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "body_names",
+          "pointer": "0x7ffc4814e3c0",
+          "type": "list"
+        },
+        {
+          "key": "body_ordering",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        }
+      ],
+      "instance_before_clear": {}
+    },
+    {
+      "name": "dict_dealloc",
+      "pc": "0x1806dd0",
+      "dict": "0x7ffc4807adc0",
+      "dict_items_at_crash": [
+        {
+          "key": "cfg",
+          "pointer": "0x7ffc48446db0",
+          "type": "ArticulationCfg"
+        },
+        {
+          "key": "_check_shapes",
+          "pointer": "0x142e718",
+          "type": "bool"
+        },
+        {
+          "key": "_is_initialized",
+          "pointer": "0x142e738",
+          "type": "bool"
+        },
+        {
+          "key": "stage",
+          "pointer": "0x7ffe6396ace0",
+          "type": "Stage"
+        },
+        {
+          "key": "_initialize_handle",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_invalidate_initialize_handle",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_prim_deletion_handle",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_debug_vis_handle",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_sim_cfg",
+          "pointer": "0x7ffc757f9070",
+          "type": "SimulationCfg"
+        },
+        {
+          "key": "_fixed_tendon_target_dirty",
+          "pointer": "0x142e738",
+          "type": "bool"
+        },
+        {
+          "key": "_ordering_convention_name_cache",
+          "pointer": "0x7ffc4813e980",
+          "type": "dict"
+        },
+        {
+          "key": "_backend",
+          "pointer": "0x7ffff6cba400",
+          "type": "str"
+        },
+        {
+          "key": "_device",
+          "pointer": "0x7ffc75874330",
+          "type": "str"
+        },
+        {
+          "key": "_physics_sim_view",
+          "pointer": "0x7ffc4811fe90",
+          "type": "SimulationView"
+        },
+        {
+          "key": "_root_view",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_data",
+          "pointer": "0x7ffc481709b0",
+          "type": "ArticulationData"
+        },
+        {
+          "key": "_ALL_INDICES",
+          "pointer": "0x7ffc48170d10",
+          "type": "array"
+        },
+        {
+          "key": "_ALL_JOINT_INDICES",
+          "pointer": "0x7ffc48151e20",
+          "type": "array"
+        },
+        {
+          "key": "_ALL_BODY_INDICES",
+          "pointer": "0x7ffc48151f70",
+          "type": "array"
+        },
+        {
+          "key": "_ALL_FIXED_TENDON_INDICES",
+          "pointer": "0x7ffc48150fe0",
+          "type": "array"
+        },
+        {
+          "key": "_ALL_SPATIAL_TENDON_INDICES",
+          "pointer": "0x7ffc48072180",
+          "type": "array"
+        },
+        {
+          "key": "_sim_env_ids",
+          "pointer": "0x7ffc480721e0",
+          "type": "array"
+        },
+        {
+          "key": "_sim_env_ids_views",
+          "pointer": "0x7ffc48166a40",
+          "type": "dict"
+        },
+        {
+          "key": "_cpu_env_ids_all",
+          "pointer": "0x7ffc480722a0",
+          "type": "array"
+        },
+        {
+          "key": "_cpu_env_ids",
+          "pointer": "0x7ffc48072330",
+          "type": "array"
+        },
+        {
+          "key": "_cpu_env_ids_views",
+          "pointer": "0x7ffc48158e00",
+          "type": "dict"
+        },
+        {
+          "key": "_instantaneous_wrench_composer",
+          "pointer": "0x7ffc48072300",
+          "type": "WrenchComposer"
+        },
+        {
+          "key": "_permanent_wrench_composer",
+          "pointer": "0x7ffc48073dd0",
+          "type": "WrenchComposer"
+        },
+        {
+          "key": "_joint_pos_target_backend",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_joint_vel_target_backend",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_joint_effort_target_backend",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_body_wrench_force_backend",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_body_wrench_torque_backend",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_actuator_control",
+          "pointer": "0x7ffc4811fdd0",
+          "type": "PhysxActuatorControl"
+        },
+        {
+          "key": "_selector_cache",
+          "pointer": "0x7ffc480a4710",
+          "type": "_AssetSelectorCache"
+        },
+        {
+          "key": "_physx_actuator_wrapper",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "newton_actuator_adapter",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_implicit_dof_mask",
+          "pointer": "0x1443f80",
+          "type": "NoneType"
+        },
+        {
+          "key": "_has_newton_actuators",
+          "pointer": "0x142e738",
+          "type": "bool"
+        },
+        {
+          "key": "actuators",
+          "pointer": "0x7ffc480a4770",
+          "type": "ActuatorCollection"
+        },
+        {
+          "key": "_has_implicit_actuators",
+          "pointer": "0x142e718",
+          "type": "bool"
+        },
+        {
+          "key": "_fixed_tendon_names",
+          "pointer": "0x7ffc4815ae00",
+          "type": "list"
+        },
+        {
+          "key": "_spatial_tendon_names",
+          "pointer": "0x7ffc48047900",
+          "type": "list"
+        }
+      ]
+    },
+    {
+      "name": "subtype_clear",
+      "pc": "0x186a9aa",
+      "registers": {
+        "rbx": "0x7ffc9eeafe00",
+        "r12": "0x0",
+        "r13": "0x6a20f",
+        "r14": "0x0",
+        "r15": "0x1448310",
+        "rbp": "0x7fffffffc310"
+      },
+      "object": "0x7ffc9eeafe00",
+      "object_type": "Articulation",
+      "instance_dict_at_crash": [],
+      "instance_before_clear": {
+        "object": "0x7ffc9eeafe00",
+        "type": "Articulation",
+        "items": [
+          {
+            "key": "cfg",
+            "pointer": "0x7ffc48446db0",
+            "type": "ArticulationCfg"
+          },
+          {
+            "key": "_check_shapes",
+            "pointer": "0x142e718",
+            "type": "bool"
+          },
+          {
+            "key": "_is_initialized",
+            "pointer": "0x142e738",
+            "type": "bool"
+          },
+          {
+            "key": "stage",
+            "pointer": "0x7ffe6396ace0",
+            "type": "Stage"
+          },
+          {
+            "key": "_initialize_handle",
+            "pointer": "0x1443f80",
+            "type": "NoneType"
+          },
+          {
+            "key": "_invalidate_initialize_handle",
+            "pointer": "0x1443f80",
+            "type": "NoneType"
+          },
+          {
+            "key": "_prim_deletion_handle",
+            "pointer": "0x1443f80",
+            "type": "NoneType"
+          },
+          {
+            "key": "_debug_vis_handle",
+            "pointer": "0x1443f80",
+            "type": "NoneType"
+          },
+          {
+            "key": "_sim_cfg",
+            "pointer": "0x7ffc757f9070",
+            "type": "SimulationCfg"
+          },
+          {
+            "key": "_fixed_tendon_target_dirty",
+            "pointer": "0x142e738",
+            "type": "bool"
+          },
+          {
+            "key": "_ordering_convention_name_cache",
+            "pointer": "0x7ffc4813e980",
+            "type": "dict"
+          },
+          {
+            "key": "_backend",
+            "pointer": "0x7ffff6cba400",
+            "type": "str"
+          },
+          {
+            "key": "_device",
+            "pointer": "0x7ffc75874330",
+            "type": "str"
+          },
+          {
+            "key": "_physics_sim_view",
+            "pointer": "0x7ffc4811fe90",
+            "type": "SimulationView"
+          },
+          {
+            "key": "_root_view",
+            "pointer": "0x1443f80",
+            "type": "NoneType"
+          },
+          {
+            "key": "_data",
+            "pointer": "0x7ffc481709b0",
+            "type": "ArticulationData"
+          },
+          {
+            "key": "_ALL_INDICES",
+            "pointer": "0x7ffc48170d10",
+            "type": "array"
+          },
+          {
+            "key": "_ALL_JOINT_INDICES",
+            "pointer": "0x7ffc48151e20",
+            "type": "array"
+          },
+          {
+            "key": "_ALL_BODY_INDICES",
+            "pointer": "0x7ffc48151f70",
+            "type": "array"
+          },
+          {
+            "key": "_ALL_FIXED_TENDON_INDICES",
+            "pointer": "0x7ffc48150fe0",
+            "type": "array"
+          },
+          {
+            "key": "_ALL_SPATIAL_TENDON_INDICES",
+            "pointer": "0x7ffc48072180",
+            "type": "array"
+          },
+          {
+            "key": "_sim_env_ids",
+            "pointer": "0x7ffc480721e0",
+            "type": "array"
+          },
+          {
+            "key": "_sim_env_ids_views",
+            "pointer": "0x7ffc48166a40",
+            "type": "dict"
+          },
+          {
+            "key": "_cpu_env_ids_all",
+            "pointer": "0x7ffc480722a0",
+            "type": "array"
+          },
+          {
+            "key": "_cpu_env_ids",
+            "pointer": "0x7ffc48072330",
+            "type": "array"
+          },
+          {
+            "key": "_cpu_env_ids_views",
+            "pointer": "0x7ffc48158e00",
+            "type": "dict"
+          },
+          {
+            "key": "_instantaneous_wrench_composer",
+            "pointer": "0x7ffc48072300",
+            "type": "WrenchComposer"
+          },
+          {
+            "key": "_permanent_wrench_composer",
+            "pointer": "0x7ffc48073dd0",
+            "type": "WrenchComposer"
+          },
+          {
+            "key": "_joint_pos_target_backend",
+            "pointer": "0x1443f80",
+            "type": "NoneType"
+          },
+          {
+            "key": "_joint_vel_target_backend",
+            "pointer": "0x1443f80",
+            "type": "NoneType"
+          },
+          {
+            "key": "_joint_effort_target_backend",
+            "pointer": "0x1443f80",
+            "type": "NoneType"
+          },
+          {
+            "key": "_body_wrench_force_backend",
+            "pointer": "0x1443f80",
+            "type": "NoneType"
+          },
+          {
+            "key": "_body_wrench_torque_backend",
+            "pointer": "0x1443f80",
+            "type": "NoneType"
+          },
+          {
+            "key": "_actuator_control",
+            "pointer": "0x7ffc4811fdd0",
+            "type": "PhysxActuatorControl"
+          },
+          {
+            "key": "_selector_cache",
+            "pointer": "0x7ffc480a4710",
+            "type": "_AssetSelectorCache"
+          },
+          {
+            "key": "_physx_actuator_wrapper",
+            "pointer": "0x1443f80",
+            "type": "NoneType"
+          },
+          {
+            "key": "newton_actuator_adapter",
+            "pointer": "0x1443f80",
+            "type": "NoneType"
+          },
+          {
+            "key": "_implicit_dof_mask",
+            "pointer": "0x1443f80",
+            "type": "NoneType"
+          },
+          {
+            "key": "_has_newton_actuators",
+            "pointer": "0x142e738",
+            "type": "bool"
+          },
+          {
+            "key": "actuators",
+            "pointer": "0x7ffc480a4770",
+            "type": "ActuatorCollection"
+          },
+          {
+            "key": "_has_implicit_actuators",
+            "pointer": "0x142e718",
+            "type": "bool"
+          },
+          {
+            "key": "_fixed_tendon_names",
+            "pointer": "0x7ffc4815ae00",
+            "type": "list"
+          },
+          {
+            "key": "_spatial_tendon_names",
+            "pointer": "0x7ffc48047900",
+            "type": "list"
+          }
+        ]
+      }
+    },
+    {
+      "name": "gc_collect_main.llvm",
+      "pc": "0x1869ef9"
+    },
+    {
+      "name": "finalize_modules.llvm",
+      "pc": "0x1955976"
+    },
+    {
+      "name": "Py_FinalizeEx",
+      "pc": "0x19545b0"
+    },
+    {
+      "name": "Py_Exit",
+      "pc": "0x195438d"
+    },
+    {
+      "name": "handle_system_exit[cold]",
+      "pc": "0x1c19c26"
+    },
+    {
+      "name": "_PyErr_PrintEx",
+      "pc": "0x19969f0"
+    },
+    {
+      "name": "_PyRun_SimpleFileObject",
+      "pc": "0x19fc5e8"
+    },
+    {
+      "name": "_PyRun_AnyFileObject",
+      "pc": "0x19fc2dc"
+    },
+    {
+      "name": "pymain_run_file_obj",
+      "pc": "0x19fc278"
+    },
+    {
+      "name": "pymain_run_file",
+      "pc": "0x19fc171"
+    },
+    {
+      "name": "Py_RunMain.warm",
+      "pc": "0x1ae94a3"
+    },
+    {
+      "name": "pymain_main.llvm",
+      "pc": "0x1979298"
+    },
+    {
+      "name": "main",
+      "pc": "0x19790ac"
+    }
+  ]
+}

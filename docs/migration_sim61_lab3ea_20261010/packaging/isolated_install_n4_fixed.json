@@ -1,0 +1,82 @@
+{
+  "module_origins": {
+    "protomotions": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/functional_audit/packaging/.venv/lib/python3.12/site-packages/protomotions/__init__.py",
+    "CrowdSim": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/functional_audit/packaging/.venv/lib/python3.12/site-packages/CrowdSim/__init__.py",
+    "crowdsim_ppo": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/functional_audit/packaging/.venv/lib/python3.12/site-packages/crowdsim_ppo/__init__.py",
+    "social_navigation": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/functional_audit/packaging/.venv/lib/python3.12/site-packages/social_navigation/__init__.py",
+    "deployment": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/functional_audit/packaging/.venv/lib/python3.12/site-packages/deployment/__init__.py"
+  },
+  "entry_points": [
+    {
+      "name": "crowdsim-ppo-eval",
+      "value": "crowdsim_ppo.evaluate:main",
+      "command": [
+        "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/functional_audit/packaging/.venv/bin/crowdsim-ppo-eval",
+        "--help"
+      ],
+      "returncode": 0,
+      "stdout": "usage: crowdsim-ppo-eval [-h] --checkpoint CHECKPOINT [--config CONFIG]\n                         [--episodes EPISODES] [--num-envs NUM_ENVS]\n                         [--device DEVICE]\n\nEvaluate a trained policy in the public PointGoal environment.\n\noptions:\n  -h, --help            show this help message and exit\n  --checkpoint CHECKPOINT\n  --config CONFIG       Configuration JSON (default: bundled PointGoal\n                        settings)\n  --episodes EPISODES\n  --num-envs NUM_ENVS\n  --device DEVICE\n{\"entry\": \"/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/functional_audit/packaging/.venv/bin/crowdsim-ppo-eval\", \"sdk_modules_loaded\": []}\n",
+      "stderr": ""
+    },
+    {
+      "name": "crowdsim-ppo-train",
+      "value": "crowdsim_ppo.train:main",
+      "command": [
+        "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/functional_audit/packaging/.venv/bin/crowdsim-ppo-train",
+        "--help"
+      ],
+      "returncode": 0,
+      "stdout": "usage: crowdsim-ppo-train [-h] [--config CONFIG] [--output OUTPUT]\n                          [--resume RESUME] [--device DEVICE]\n                          [--total-steps TOTAL_STEPS] [--seed SEED]\n\nEnd-to-end PPO training entry point for the public PointGoal example.\n\noptions:\n  -h, --help            show this help message and exit\n  --config CONFIG       Configuration JSON (default: bundled PointGoal\n                        settings)\n  --output OUTPUT\n  --resume RESUME\n  --device DEVICE\n  --total-steps TOTAL_STEPS\n  --seed SEED\n{\"entry\": \"/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/functional_audit/packaging/.venv/bin/crowdsim-ppo-train\", \"sdk_modules_loaded\": []}\n",
+      "stderr": ""
+    },
+    {
+      "name": "protomotions",
+      "value": "protomotions.cli:main",
+      "command": [
+        "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/functional_audit/packaging/.venv/bin/protomotions",
+        "--help"
+      ],
+      "returncode": 0,
+      "stdout": "usage: protomotions [-h] [{info,train-agent,inference-agent}]\n\nProtoMotions command-line tools.\n\npositional arguments:\n  {info,train-agent,inference-agent}\n                        Command to run (default: info).\n\noptions:\n  -h, --help            show this help message and exit\n{\"entry\": \"/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/functional_audit/packaging/.venv/bin/protomotions\", \"sdk_modules_loaded\": []}\n",
+      "stderr": ""
+    },
+    {
+      "name": "protomotions-inference-agent",
+      "value": "protomotions.cli:inference_agent",
+      "command": [
+        "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/functional_audit/packaging/.venv/bin/protomotions-inference-agent",
+        "--help"
+      ],
+      "returncode": 0,
+      "stdout": "usage: inference_agent.py [-h] --checkpoint CHECKPOINT [--full-eval]\n                          [--headless] --simulator SIMULATOR\n                          [--num-envs NUM_ENVS] [--motion-file MOTION_FILE]\n                          [--scenes-file SCENES_FILE]\n                          [--overrides [OVERRIDES ...]]\n                          [--command-source [COMMAND_SOURCE ...]]\n\nTest trained reinforcement learning agent\n\noptions:\n  -h, --help            show this help message and exit\n  --checkpoint CHECKPOINT\n                        Path to checkpoint file to test (default: None)\n  --full-eval           Run full evaluation instead of simple inference\n                        (default: False)\n  --headless            Run simulation in headless mode (default: False)\n  --simulator SIMULATOR\n                        Simulator to use (e.g., 'isaacgym', 'isaaclab',\n                        'newton', 'genesis') (default: None)\n  --num-envs NUM_ENVS   Number of parallel environments to run (default: 1)\n  --motion-file MOTION_FILE\n                        Path to motion file for inference. If not provided,\n                        will use the motion file from the checkpoint.\n                        (default: None)\n  --scenes-file SCENES_FILE\n                        Path to scenes file (optional) (default: None)\n  --overrides [OVERRIDES ...]\n                        Config overrides in format key=value (e.g.,\n                        env.max_episode_length=5000 simulator.headless=True)\n                        (default: [])\n  --command-source [COMMAND_SOURCE ...]\n                        Override task command sources for inference, e.g.\n                        target=keyboard. A bare value applies to the single\n                        target control component. (default: [])\n{\"entry\": \"/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/functional_audit/packaging/.venv/bin/protomotions-inference-agent\", \"sdk_modules_loaded\": []}\n",
+      "stderr": ""
+    },
+    {
+      "name": "protomotions-train-agent",
+      "value": "protomotions.cli:train_agent",
+      "command": [
+        "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/functional_audit/packaging/.venv/bin/protomotions-train-agent",
+        "--help"
+      ],
+      "returncode": 0,
+      "stdout": "usage: train_agent.py [-h] --robot-name ROBOT_NAME --simulator SIMULATOR\n                      --num-envs NUM_ENVS --batch-size BATCH_SIZE\n                      --motion-file MOTION_FILE --experiment-path\n                      EXPERIMENT_PATH --experiment-name EXPERIMENT_NAME\n                      [--scenes-file SCENES_FILE] [--checkpoint CHECKPOINT]\n                      [--use-wandb] [--wandb-project WANDB_PROJECT]\n                      [--use-slurm] [--ngpu NGPU] [--nodes NODES]\n                      [--headless [HEADLESS]] [--seed SEED]\n                      [--torch-deterministic]\n                      [--training-max-steps TRAINING_MAX_STEPS | --training-max-iterations TRAINING_MAX_ITERATIONS]\n                      [--overrides [OVERRIDES ...]] [--create-config-only]\n\nTrain reinforcement learning agent with configurable parameters\n\noptions:\n  -h, --help            show this help message and exit\n  --robot-name ROBOT_NAME\n                        Name of the robot (e.g., 'g1', 'smpl') (default: None)\n  --simulator SIMULATOR\n                        Simulator to use (e.g., 'isaacgym', 'isaaclab',\n                        'newton', 'genesis') (default: None)\n  --num-envs NUM_ENVS   Number of parallel environments to run (default: None)\n  --batch-size BATCH_SIZE\n                        Batch size for training (default: None)\n  --motion-file MOTION_FILE\n                        Path to motion file for training (default: None)\n  --experiment-path EXPERIMENT_PATH\n                        File path to experiment configuration (e.g.,\n                        'examples/train/mimic/mimic_mlp.py') (default: None)\n  --experiment-name EXPERIMENT_NAME\n                        Name of the experiment for logging and checkpointing\n                        (default: None)\n  --scenes-file SCENES_FILE\n                        Path to scenes file (optional) (default: None)\n  --checkpoint CHECKPOINT\n                        Path to checkpoint file to resume from (default: None)\n  --use-wandb           Enable Weights & Biases logging (default: False)\n  --wandb-project WANDB_PROJECT\n                        Weights & Biases project name (default:\n                        physical_animation)\n  --use-slurm           Enable SLURM autoresume functionality (default: False)\n  --ngpu NGPU           Number of GPUs to use for training (default: 1)\n  --nodes NODES         Number of nodes for distributed training (default: 1)\n  --headless [HEADLESS]\n                        Run simulation in headless mode (default: True)\n  --seed SEED           Random seed for reproducibility (default: 0)\n  --torch-deterministic\n                        Enable deterministic PyTorch operations (default:\n                        False)\n  --training-max-steps TRAINING_MAX_STEPS\n                        Maximum number of training steps. Default to 'loads of\n                        steps'. (default: 10000000000000)\n  --training-max-iterations TRAINING_MAX_ITERATIONS\n                        Maximum number of complete training iterations. Each\n                        iteration collects one rollout and performs its\n                        optimization updates. (default: None)\n  --overrides [OVERRIDES ...]\n                        Config overrides in format key=value (e.g.,\n                        env.max_episode_length=1000 simulator.num_envs=4096)\n                        (default: [])\n  --create-config-only  Only create and save config files without training.\n                        Useful for migrating old policy checkpoints when\n                        config system API changes - generate new configs that\n                        are compatible with current code, then load old\n                        weights. (default: False)\n{\"entry\": \"/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/functional_audit/packaging/.venv/bin/protomotions-train-agent\", \"sdk_modules_loaded\": []}\n",
+      "stderr": ""
+    },
+    {
+      "name": "social-navigation",
+      "value": "social_navigation.cli:main",
+      "command": [
+        "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/functional_audit/packaging/.venv/bin/social-navigation",
+        "--help"
+      ],
+      "returncode": 0,
+      "stdout": "usage: social-navigation [-h]\n                         {status,preflight,simulate,train-amp,record,evaluate-speed,evaluate-posture,evaluate-physics,evaluate-stasis,audit-speed,audit-feet,audit-camera,baseline-train,baseline-evaluate}\n                         ...\n\nUnified source-checkout commands; native execution retains its owning\nlauncher.\n\npositional arguments:\n  {status,preflight,simulate,train-amp,record,evaluate-speed,evaluate-posture,evaluate-physics,evaluate-stasis,audit-speed,audit-feet,audit-camera,baseline-train,baseline-evaluate}\n    status              Show project locations and the latest completed\n                        release\n    preflight           Resource-only preflight\n    simulate            Owned native physical execution\n    train-amp           Forward arguments to finetune_pacer_amass_verified.py\n    record              Forward arguments to record_pedestrian_coverage.py\n    evaluate-speed      Forward arguments to\n                        evaluate_trace_pace_speed_coverage.py\n    evaluate-posture    Forward arguments to evaluate_trace_pace_posture.py\n    evaluate-physics    Forward arguments to\n                        evaluate_trace_pace_reliability.py\n    evaluate-stasis     Forward arguments to\n                        evaluate_trace_pace_spatial_stasis.py\n    audit-speed         Forward arguments to audit_trace_pace_substep_speed.py\n    audit-feet          Forward arguments to audit_trace_pace_foot_surface.py\n    audit-camera        Forward arguments to audit_trace_pace_camera_skin.py\n    baseline-train      Simulator-free PointGoal PPO\n    baseline-evaluate   Simulator-free PointGoal PPO\n\noptions:\n  -h, --help            show this help message and exit\n{\"entry\": \"/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/functional_audit/packaging/.venv/bin/social-navigation\", \"sdk_modules_loaded\": []}\n",
+      "stderr": ""
+    }
+  ],
+  "version": "3.1.0",
+  "sdk_modules_loaded": false,
+  "source_repo_on_sys_path": false,
+  "inherits_sdk_and_runtime_dependencies": true,
+  "fresh_sdk_install_proved": false
+}

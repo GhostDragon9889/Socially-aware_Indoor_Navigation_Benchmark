@@ -7,7 +7,7 @@ from isaaclab.terrains.utils import create_prim_from_mesh
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from protomotions.envs.base_interface.isaaclab_utils.robots import (
+    from protomotions.simulator.isaaclab.utils.scene import (
         TrimeshTerrainImporterCfg,
     )
 else:
@@ -21,6 +21,16 @@ class TrimeshTerrainImporter:
         # store inputs
         self.cfg = cfg
         self.device = sim_utils.SimulationContext.instance().device  # type: ignore
+
+        # This is one shared world-space mesh, not a grid of curriculum tiles.
+        # Match the public cloner layout used by InteractiveScene in both Lab 3
+        # checkouts; scene-local resets and sensors query these same origins.
+        from isaaclab.cloner import grid_transforms
+
+        if cfg.env_spacing is None:
+            raise ValueError("Environment spacing must be specified for configuring grid-like origins.")
+        self.terrain_origins = None
+        self.env_origins, _ = grid_transforms(cfg.num_envs, cfg.env_spacing, device=self.device)
 
         # generate the terrain
         # Create the mesh here, after the config has been validated

@@ -102,7 +102,8 @@ def mixed_world(tmp_path):
     def step(value):
         actions.append(value.clone())
 
-    world = SimpleNamespace(corpus=corpus, device=torch.device('cpu'), num_envs=4, history_frames=10,
+    world = SimpleNamespace(align_spawn_heading_to_route=False, initial_reference_max_speed_m_s=None,
+        initial_reference_arm_cone_deg=None, initialize_at_rest=False, corpus=corpus, device=torch.device('cpu'), num_envs=4, history_frames=10,
         episode_steps=300, origins=torch.tensor([[48., 48.], [48., 52.], [52., 48.], [52., 52.]]),
         lower=torch.zeros(69), upper=torch.ones(69), mapping=SimpleNamespace(dof_names=[]),
         simulator=SimpleNamespace(reset_envs=reset, step=step), age=torch.zeros(4, dtype=torch.long),

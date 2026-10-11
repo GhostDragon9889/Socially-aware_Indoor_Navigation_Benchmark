@@ -140,3 +140,92 @@ def test_spawn_writes_native_order_and_stores_same_reset_pose(order):
     torch.testing.assert_close(written[-1][:,:2], poses[:,:2])
     torch.testing.assert_close(quaternion_yaw(written[-1][:,3:7],order), poses[:,2])
     torch.testing.assert_close(env._crowdsim_robot_spawn_poses, written[-1])
+
+
+def test_keyboard_kinematics_uses_xyzw_heading_for_native_velocity_write():
+    from CrowdSim.tools import test_robot_kinematics as keyboard
+
+    wp = pytest.importorskip("warp")
+    proxy = pytest.importorskip("isaaclab.utils.warp.proxy_array").ProxyArray
+    quaternion = proxy(wp.array([[0., 0., math.sqrt(.5), math.sqrt(.5)]],
+                               dtype=wp.quatf, device="cpu"))
+    written = []
+    robot = NS(data=NS(root_quat_w=quaternion),
+               set_joint_velocity_target=lambda *args, **kwargs: None,
+               write_root_velocity_to_sim=lambda values: written.append(values.clone()))
+    keyboard._apply_command(robot, None, 1., .2, "kinematic", "cpu", 1, [0, 1])
+    torch.testing.assert_close(written[0], torch.tensor([[0., 1., 0., 0., 0., .2]]), atol=1e-6, rtol=0)
+
+
+def test_keyboard_wheel_command_uses_differential_drive_geometry_and_limits():
+    from CrowdSim.tools import test_robot_kinematics as keyboard
+
+    config = keyboard.DifferentialDriveConfig(wheel_radius=.2, wheel_base=.4,
+        max_linear_speed=1., max_angular_speed=1., max_wheel_speed=5.)
+    written = []
+    robot = NS(set_joint_velocity_target=lambda value, **kwargs: written.append((value, kwargs)))
+    keyboard._apply_command(robot, config, 2., 2., "wheel", "cpu", 2, [4, 8])
+    # Limited (v, omega) = (1, 1), left/right = (4, 6), then wheel limit = 5.
+    torch.testing.assert_close(written[0][0], torch.tensor([[4., 5.], [4., 5.]]))
+    assert written[0][1] == {"joint_ids": [4, 8]}
+
+
+@pytest.mark.parametrize("key,linear,angular,quit_requested", [
+    ("\x1b[A", .2, 0., False), ("\x1b[B", -.2, 0., False),
+    ("\x1b[C", 0., -.3, False), ("\x1b[D", 0., .3, False),
+    ("\x1b", 0., 0., True),
+])
+def test_keyboard_arrows_change_commands_while_escape_quits(key, linear, angular, quit_requested):
+    from CrowdSim.tools import test_robot_kinematics as keyboard
+
+    driver = keyboard.KeyboardDriver.__new__(keyboard.KeyboardDriver)
+    driver.v = driver.w = 0.
+    driver.quit = driver.reset_pose = False
+    chars = iter(key)
+    driver._read_key = lambda: next(chars, None)
+    driver.poll()
+    assert (driver.v, driver.w, driver.quit) == (linear, angular, quit_requested)
+
+
+def test_keyboard_reset_keeps_spawn_height_and_writes_valid_identity_pose():
+    from CrowdSim.tools import test_robot_kinematics as keyboard
+
+    wp = pytest.importorskip("warp")
+    proxy = pytest.importorskip("isaaclab.utils.warp.proxy_array").ProxyArray
+    default_state = torch.tensor([[4., 5., .4, 0., 0., 0., 1., 0., 0., 0., 0., 0., 0.]])
+    pose, joints = [], []
+    robot = NS(data=NS(default_root_state=proxy(wp.from_torch(default_state)),
+                       default_joint_pos=proxy(wp.array([[.1, -.1]], dtype=wp.float32, device="cpu")),
+                       default_joint_vel=proxy(wp.zeros((1, 2), dtype=wp.float32, device="cpu"))),
+               write_root_pose_to_sim=lambda value: pose.append(value.clone()),
+               write_root_velocity_to_sim=lambda value: None,
+               write_joint_state_to_sim=lambda position, velocity: joints.append((position, velocity)))
+    keyboard._reset_robot(robot, "cpu", 1)
+    torch.testing.assert_close(pose[0], torch.tensor([[0., 0., .4, 0., 0., 0., 1.]]))
+    torch.testing.assert_close(joints[0][0], torch.tensor([[.1, -.1]]))
+    torch.testing.assert_close(joints[0][1], torch.zeros(1, 2))
+    torch.testing.assert_close(default_state[:, :3], torch.tensor([[4., 5., .4]]))
+
+
+@pytest.mark.parametrize("order", ["xyzw", "wxyz"])
+def test_drive_validation_measures_declared_native_turn(monkeypatch, order):
+    from CrowdSim.tools import validate_drive_integration as validation
+
+    wp = pytest.importorskip("warp")
+    proxy = pytest.importorskip("isaaclab.utils.warp.proxy_array").ProxyArray
+    def vectors(values, dtype):
+        return proxy(wp.array(values, dtype=dtype, device="cpu"))
+    data = NS(root_pos_w=vectors([[0., 0., .4]], wp.vec3f),
+              root_quat_w=vectors(yaw_to_quaternion(torch.tensor([.2]), order).tolist(), wp.quatf),
+              root_lin_vel_w=vectors([[0., 0., 0.]], wp.vec3f),
+              root_ang_vel_w=vectors([[0., 0., 0.]], wp.vec3f))
+    def step(action):
+        data.root_quat_w = vectors(yaw_to_quaternion(torch.tensor([.3]), order).tolist(), wp.quatf)
+        return {}, None, None, None, None
+    env = NS(reset=lambda ids: ({}, {}), step=step,
+             simulator=NS(native_quaternion_order=order))
+    nav = NS(robot=NS(data=data), config=NS(device="cpu"), set_robot_rl_actions=lambda command: None)
+    monkeypatch.setattr(validation, "_humanoid_action", lambda *args: torch.zeros(1, 1))
+    distance, yaw_delta, velocity = validation._advance(NS(env=env), nav, np.array([0., .2]), 1)
+    assert yaw_delta == pytest.approx(.1, abs=1e-6)
+    assert distance == 0. and velocity == 0.

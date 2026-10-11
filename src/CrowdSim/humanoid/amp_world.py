@@ -169,10 +169,12 @@ class AMPWorld:
         self.terrain = Terrain(terrain_config, num_envs, self.device)
         scenes = SceneLib(SceneLibConfig(), num_envs, device=self.device, terrain=self.terrain)
         if self.scene_provider is None:
-            self.simulator = PaperPowerSimulator(config, self.robot_config, self.terrain,
+            self.simulator = PaperPowerSimulator.__new__(PaperPowerSimulator)
+            PaperPowerSimulator.__init__(self.simulator, config, self.robot_config, self.terrain,
                                               device=self.device, simulation_app=app, scene_lib=scenes)
         else:
-            self.simulator = NativeScenePowerSimulator(config, self.robot_config, self.terrain,
+            self.simulator = NativeScenePowerSimulator.__new__(NativeScenePowerSimulator)
+            NativeScenePowerSimulator.__init__(self.simulator, config, self.robot_config, self.terrain,
                 device=self.device, simulation_app=app, scene_lib=scenes, scene_provider=self.scene_provider)
         self.simulator.power_source = power_source
         if scene_description is not None:

@@ -80,6 +80,9 @@ class PedestrianContactMonitor:
             raise ValueError("Contact body batching must be an explicit boolean")
         if not world.shared_world:
             raise ValueError("Pairwise fixture contact reporting requires shared physics")
+        # Terminal cleanup must prove the monitor belongs to this exact world
+        # and articulation, including when no floor-capture wrapper is used.
+        self.world, self.robot = world, world.simulator._robot
         from isaaclab.sim.utils import get_current_stage
         from protomotions.simulator.isaaclab.utils.usd_body_paths import resolve_body_prim_paths
         from CrowdSim.humanoid.physics_views import resolve_native_contact_factory

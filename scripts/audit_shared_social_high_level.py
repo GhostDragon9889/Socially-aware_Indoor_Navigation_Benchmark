@@ -58,7 +58,9 @@ def reader_dependencies():
     identities = []
     for relative, sha in DEPENDENCIES:
         identity = record(ROOT / relative)
-        require(identity["sha256"] == sha, "Pinned transitive CPU reader dependency changed: " + relative)
+        if identity["sha256"] != sha:
+            from CrowdSim.humanoid.analysis.cpu_dependency_migration import verify_dependency
+            verify_dependency(ROOT / relative, sha)
         identities.append(identity)
     return identities
 

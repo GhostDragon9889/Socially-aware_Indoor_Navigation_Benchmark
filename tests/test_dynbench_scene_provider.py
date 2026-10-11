@@ -27,7 +27,7 @@ def write_json(path, value):
 def evidence(tmp_path):
     """Tiny mathematical contract fixture, not a generated native scene map."""
     source = tmp_path / "source.usda"
-    source.write_text("#usda 1.0\n")
+    source.write_text('#usda 1.0\ndef Xform "Root" {}\n')
     script = tmp_path / "probe.py"
     script.write_text("# contract fixture only\n")
     overlay = tmp_path / "overlay.usda"
@@ -205,11 +205,24 @@ def test_query_enable_hook_copies_config_and_requires_known_precreate_field(evid
 
 def test_lazy_scene_cfg_removes_only_generated_floor_and_keeps_one_global_source(evidence, monkeypatch):
     scene = provider(evidence)
+    # This branch specifically represents a cold SDK import boundary.
+    monkeypatch.delitem(sys.modules, "isaaclab.sim", raising=False)
     with pytest.raises(RuntimeError, match="Launch Kit"):
         scene.prepare_scene_cfg(SimpleNamespace())
     monkeypatch.setitem(sys.modules, "isaaclab.sim", SimpleNamespace(UsdFileCfg=lambda **kwargs: SimpleNamespace(**kwargs)))
     monkeypatch.setitem(sys.modules, "isaaclab.assets", SimpleNamespace(AssetBaseCfg=lambda **kwargs: SimpleNamespace(**kwargs)))
-    old = SimpleNamespace(terrain="existing terrain", filter_collisions=False, replicate_physics=True, robot="existing robot",
+    # A real CPU USD body-path lookup exercises the current contact filters.
+    from pxr import Usd, UsdGeom, UsdPhysics
+    from CrowdSim.humanoid.amp.observations import PACER_BODY_NAMES
+    robot_usd = evidence.tmp / "robot.usda"
+    stage = Usd.Stage.CreateNew(str(robot_usd))
+    root = UsdGeom.Xform.Define(stage, "/Robot")
+    stage.SetDefaultPrim(root.GetPrim())
+    for body in PACER_BODY_NAMES:
+        UsdPhysics.RigidBodyAPI.Apply(UsdGeom.Xform.Define(stage, "/Robot/" + body).GetPrim())
+    stage.GetRootLayer().Save()
+    old = SimpleNamespace(terrain="existing terrain", filter_collisions=False, replicate_physics=True,
+        robot=SimpleNamespace(spawn=SimpleNamespace(usd_path=str(robot_usd))),
         contact_sensor_L_Toe=SimpleNamespace(filter_prim_paths_expr=["/World/ground/terrain/mesh", "/Root/Wall"]))
     with pytest.raises(ValueError, match="pre-create"):
         scene.prepare_scene_cfg(old)
@@ -217,7 +230,8 @@ def test_lazy_scene_cfg_removes_only_generated_floor_and_keeps_one_global_source
     prepared = scene.prepare_scene_cfg(old)
     assert prepared.terrain is None and not prepared.replicate_physics
     assert prepared.robot == old.robot and old.terrain == "existing terrain" and not hasattr(old, "dynbench_source")
-    assert prepared.contact_sensor_L_Toe.filter_prim_paths_expr == [FLOOR_PATH, "/Root/Wall"]
+    assert prepared.contact_sensor_L_Toe.filter_prim_paths_expr == [FLOOR_PATH, "/Root/Wall"] + [
+        "/World/envs/env_.*/Robot/" + body for body in PACER_BODY_NAMES]
     assert old.contact_sensor_L_Toe.filter_prim_paths_expr == ["/World/ground/terrain/mesh", "/Root/Wall"]
     assert prepared.dynbench_source.spawn.usd_path == evidence.preflight["source"]["path"]
     assert prepared.dynbench_source.spawn.func.__self__ is scene
@@ -441,11 +455,20 @@ def test_spawner_uses_pinned_thread_local_stage_getter_no_global_context_fallbac
         _active_spawn_stage()
 
 
-def test_fixed_SDK_xyzw_spawn_cannot_silently_treat_180degree_X_as_wxyz_identity(evidence):
+def test_fixed_SDK_xyzw_spawn_cannot_silently_treat_180degree_X_as_wxyz_identity(evidence, monkeypatch):
+    from pxr import Usd
+    # The public spawner now owns a real EditContext before calling the
+    # argument validator. Supply that context and verify rejection is atomic.
+    stage = Usd.Stage.CreateInMemory()
+    monkeypatch.setattr(sys.modules[DynBenchSceneProvider.__module__], "_active_spawn_stage", lambda: stage)
+    before = stage.GetRootLayer().ExportToString(), stage.GetSessionLayer().ExportToString()
+    target = stage.GetEditTarget()
     scene = provider(evidence)
     scene.prepare_simulation_cfg(SimpleNamespace(enable_scene_query_support=False))
     with pytest.raises(ValueError, match="one untransformed global"):
         scene._spawn("/__PaperDynBenchSceneProvider", None, orientation=(1., 0., 0., 0.))
+    assert (stage.GetRootLayer().ExportToString(), stage.GetSessionLayer().ExportToString()) == before
+    assert stage.GetEditTarget() == target
 
 
 @pytest.mark.parametrize("name", ["Office", "Warehouse", "Full_Warehouse", "Hospital"])

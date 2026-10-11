@@ -10,7 +10,7 @@ from .dynbench_scene import same_file_record
 
 from copy import deepcopy
 import json
-from social_navigation.resource_bindings import read_json as read_resource_json, resolve_path
+from social_navigation.resource_bindings import read_json as read_resource_json
 import hashlib
 import math
 from pathlib import Path
@@ -27,6 +27,33 @@ def is_v9(data):
 
 
 def _owned_layer_content(provider, data, original_ram):
+    """Keep standalone USD parsing out of CPU-only metric processes."""
+    import os
+    import subprocess
+    import sys
+    if "pxr" in sys.modules:
+        return _parse_owned_layer_content(provider, data, original_ram)
+    source = Path(__file__).resolve()
+    digest = hashlib.sha256(source.read_bytes()).hexdigest()
+    payload = json.dumps({"provider": provider._data, "data": data, "original_ram": original_ram},
+                         allow_nan=False, sort_keys=True)
+    completed = subprocess.run(
+        [sys.executable, "-m", "CrowdSim.humanoid.runtime.native_map_v9"],
+        input=payload, capture_output=True, text=True, timeout=120,
+        env=dict(os.environ, CUDA_VISIBLE_DEVICES=""))
+    if completed.returncode != 0:
+        raise ValueError("Standalone USD content verification failed: " + completed.stderr[-4000:])
+    expected = {"verified": True, "source_sha256": digest,
+                "input_sha256": hashlib.sha256(payload.encode()).hexdigest()}
+    try:
+        actual = json.loads(completed.stdout)
+    except (TypeError, ValueError) as error:
+        raise ValueError("Standalone USD verifier returned invalid evidence") from error
+    if actual != expected or hashlib.sha256(source.read_bytes()).hexdigest() != digest:
+        raise ValueError("Standalone USD verifier source or input identity changed")
+
+
+def _parse_owned_layer_content(provider, data, original_ram):
     """Parse saved USD using standalone OpenUSD; never open an App/context."""
     from pxr import Sdf, Usd, Tf
     source = Sdf.Layer.FindOrOpen(provider._data["source"]["path"])
@@ -339,3 +366,17 @@ def verify_v9(provider, data, *, admitted=False):
             "runtime_time_range_override": deepcopy(data["runtime_time_range_override"]),
             "runtime_stage_composition": deepcopy(data["runtime_stage_composition"]),
             "runtime_stage_attachment": deepcopy(data["runtime_stage_attachment"])}
+
+
+if __name__ == "__main__":
+    import sys
+    from types import SimpleNamespace
+    payload = sys.stdin.read()
+    request = json.loads(payload)
+    _parse_owned_layer_content(SimpleNamespace(_data=request["provider"]),
+                               request["data"], request["original_ram"])
+    if any(name.split(".")[0] in {"torch", "isaacsim", "isaaclab", "omni", "warp"} for name in sys.modules):
+        raise RuntimeError("Standalone USD verifier imported a simulator or tensor runtime")
+    print(json.dumps({"verified": True,
+                      "source_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+                      "input_sha256": hashlib.sha256(payload.encode()).hexdigest()}))

@@ -1,0 +1,1046 @@
+{
+  "schema": "sim61.independent_native_pair_CPU_review.v1",
+  "status": "passed_independent_CPU_review",
+  "SDK_started": false,
+  "CUDA_initialized": false,
+  "style_result": {
+    "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/final_native_pair_style_v1.json",
+    "bytes": 344494,
+    "sha256": "510d5d0367ea511b2750fe42d74e94019bae86e9621c46d3ed67bf1ad5870c1f"
+  },
+  "style_external_execution": {
+    "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/final_native_pair_style_v1_execution.json",
+    "bytes": 121616,
+    "sha256": "cfa36840bedc0ddc8429deb4b0df1d57745d6b9e02b741165bb2cd440f24aee6"
+  },
+  "checks": {
+    "style_external_exit_zero": true,
+    "style_execution_sources_unchanged": true,
+    "style_source_bindings_current": true,
+    "style_entry_identity": true,
+    "full_pair_measurement_flags": true,
+    "diffusion_cohort": true,
+    "diffusion_identity_chain": true,
+    "diffusion_receipt_exits": true,
+    "diffusion_CPU_actual_exit": true,
+    "diffusion_SDK_actual_exit": true,
+    "diffusion_complete_cleanup": true,
+    "diffusion_exposure": true,
+    "diffusion_physical_states.npz_sealed_SHA": true,
+    "diffusion_ground_support.npz_sealed_SHA": true,
+    "diffusion_reference_plans.npz_sealed_SHA": true,
+    "diffusion_inclusive_summary_recomputed": true,
+    "diffusion_fall_endpoints_recomputed": true,
+    "sfm_cohort": true,
+    "sfm_identity_chain": true,
+    "sfm_receipt_exits": true,
+    "sfm_CPU_actual_exit": true,
+    "sfm_SDK_actual_exit": true,
+    "sfm_complete_cleanup": true,
+    "sfm_exposure": true,
+    "sfm_physical_states.npz_sealed_SHA": true,
+    "sfm_ground_support.npz_sealed_SHA": true,
+    "sfm_reference_plans.npz_sealed_SHA": true,
+    "sfm_inclusive_summary_recomputed": true,
+    "sfm_fall_endpoints_recomputed": true,
+    "36_initial_channels_byte_exact": true,
+    "frozen_reference_reloaded_exact": true,
+    "frozen_reference_SHA": true,
+    "diffusion_pose45_exact": true,
+    "sfm_pose45_exact": true,
+    "matched_style90_every_bin_index_and_MMD_exact": true,
+    "no_SDK_import_or_CUDA_initialization": true,
+    "source_bindings_unchanged_at_end": true,
+    "summary_raw_result_identity_guard": true,
+    "summary_style_result_identity_guard": true
+  },
+  "runs": {
+    "diffusion": {
+      "SDK_receipt": {
+        "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/native_final_v4_Office_N03_diffusion_C6000_SDK_receipt.json",
+        "bytes": 2176,
+        "sha256": "7fed86e874a0eb2bbdd857588410704589d28ac2cd9648538e78a1c336af9f92"
+      },
+      "result": {
+        "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/native_final_v4_Office_N03_diffusion_C6000/result.json",
+        "bytes": 2911759,
+        "sha256": "fc40c58040677ab95ecb0183048fc81123a22fa05eab66e54e859fce64c690e2"
+      },
+      "raw_CPU_owner": {
+        "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/native_final_dp200_raw_v1_CPU_receipt.json",
+        "bytes": 1104,
+        "sha256": "60407d66dfd34af2d6545f839ac00eaf765c42042514a915476b748076668e83"
+      },
+      "raw_audit": {
+        "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/native_final_dp200_raw_v1.json",
+        "bytes": 29251,
+        "sha256": "4b16298a630e6895120eed0420112366026a44b10f0cc47d66725c77d4b87e2c"
+      },
+      "raw_base": {
+        "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/native_final_dp200_raw_v1_base.json",
+        "bytes": 3118,
+        "sha256": "fe139b2613b6b10c855b64649be5e338199905ab6594d6f8ef58e3ac74d90776"
+      },
+      "process_observations": [
+        {
+          "identity": {
+            "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/native_final_dp200_raw_v1_execution.json",
+            "bytes": 121564,
+            "sha256": "49c45be4d7e2432e70e7923c02fadb430bfd72737d05e3239c5fb921ed0352e2"
+          },
+          "actual_returncode": 0,
+          "source_changes_during_execution": []
+        },
+        {
+          "identity": {
+            "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/native_final_v4_Office_N03_diffusion_C6000_execution.json",
+            "bytes": 122087,
+            "sha256": "4c1fc852395f67c45606eb1899e405084173e5e2b6bd15a1c5fa289ade015d19"
+          },
+          "actual_returncode": 0,
+          "source_changes_during_execution": [
+            "src/CrowdSim/tools/test_camera_depth.py",
+            "src/CrowdSim/utils/sensor_stream.py",
+            "src/CrowdSim/humanoid/analysis/cpu_dependency_migration.py",
+            "scripts/evaluate_shared_social_navigation_style.py"
+          ]
+        }
+      ],
+      "capture": {
+        "all_capture_frames": 18000,
+        "fall_termination_frames": 581,
+        "fall_termination_interval_endpoints_kept": 581,
+        "fall_termination_frames_without_legal_predecessor": 0,
+        "all_failure_frames_retained_in_capture": true,
+        "failed_episodes_filtered": false,
+        "initial_pose_rows_without_predecessor": 3,
+        "reset_boundary_intervals_excluded": 581,
+        "pose_and_velocity_samples_use_same_episode_interval_endpoints": true,
+        "scope": "Original inclusive interval metric; no success/fall/contact episode filtering"
+      },
+      "inclusive_summary": {
+        "same_episode_transition_count": 17416,
+        "excluded_reset_transitions": 581,
+        "valid_acceleration_triplets": 16832,
+        "chain_scale_m_per_actor": [
+          1.5029661902666642,
+          1.5029662123671625,
+          1.502966196305596
+        ],
+        "physical_root_speed_m_s": {
+          "count": 17416,
+          "mean": 0.9220202401877919,
+          "median": 0.9296785359417269,
+          "p05": 0.2451295674232945,
+          "p95": 1.5825539794512378,
+          "max": 2.6880030093021814
+        },
+        "toe_slide_near_ground_proxy": {
+          "stance_foot_intervals": 27144,
+          "all_foot_intervals": 34832,
+          "speed_m_s": {
+            "count": 27144,
+            "mean": 0.1327038110839051,
+            "median": 0.019919108857645144,
+            "p05": 0.0005117316147852714,
+            "p95": 0.7092848912725238,
+            "max": 5.334050388118198
+          },
+          "sliding_above_threshold_fraction": 0.22800618921308577
+        },
+        "measured_foot_contact_body_origin_speed_m_s": null,
+        "true_body_com_height_available": false,
+        "mass_weighted_joint_origin_height_proxy_available": false,
+        "metrics": {
+          "pelvis_height_m": {
+            "count": 17416,
+            "mean": 0.8020560530142249,
+            "median": 0.862940788269043,
+            "p05": 0.48760636150836945,
+            "p95": 0.9242598712444305,
+            "max": 0.9791454076766968
+          },
+          "pelvis_height_over_chain_scale": {
+            "count": 17416,
+            "mean": 0.5336487628434016,
+            "median": 0.5741584779347839,
+            "p05": 0.32442936033669006,
+            "p95": 0.6149571922806784,
+            "max": 0.6514753289992785
+          },
+          "root_up_z": {
+            "count": 17416,
+            "mean": 0.8698509609945998,
+            "median": 0.9596164848057851,
+            "p05": 0.45159762520102875,
+            "p95": 0.998085023928681,
+            "max": 0.9999996168480374
+          },
+          "local_pose_velocity_rms_chain_s": {
+            "count": 17416,
+            "mean": 0.7764334788962594,
+            "median": 0.6521461456126498,
+            "p05": 0.24503173104876572,
+            "p95": 1.6515793555862779,
+            "max": 16.077870856951957
+          },
+          "local_pose_acceleration_rms_chain_s2": {
+            "count": 16832,
+            "mean": 7.4907245174575925,
+            "median": 4.685140184052358,
+            "p05": 1.2861057175650665,
+            "p95": 20.0653290767857,
+            "max": 465.3477373957851
+          },
+          "toe_slide_near_ground_proxy_m_s": {
+            "count": 15543,
+            "mean": 0.14856622656735566,
+            "median": 0.03715387642815393,
+            "p05": 0.0024228062040313673,
+            "p95": 0.7004506196960903,
+            "max": 3.9792476382408717
+          },
+          "toe_near_ground_proxy_supported": {
+            "count": 17416,
+            "mean": 0.8924552135966927,
+            "median": 1.0,
+            "p05": 0.0,
+            "p95": 1.0,
+            "max": 1.0
+          },
+          "toe_near_ground_proxy_double_support": {
+            "count": 17416,
+            "mean": 0.6661116214974736,
+            "median": 1.0,
+            "p05": 0.0,
+            "p95": 1.0,
+            "max": 1.0
+          },
+          "toe_min_origin_height_m": {
+            "count": 17416,
+            "mean": 0.02683215611373649,
+            "median": 0.01864568702876568,
+            "p05": 0.014571568928658962,
+            "p95": 0.06548639014363289,
+            "max": 0.286347359418869
+          },
+          "toe_origins_below_ground_fraction": {
+            "count": 17416,
+            "mean": 0.0,
+            "median": 0.0,
+            "p05": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          }
+        }
+      },
+      "physical_metrics": {
+        "fall_termination_actor_controls": 581,
+        "route_vertices_reached": [
+          0,
+          0,
+          0
+        ],
+        "static_contact_actor_controls": 0,
+        "peer_contact_actor_controls": 0,
+        "same_episode_root_speed_mean_mps": 0.9220202565193176,
+        "supported_foot_origin_speed_proxy_mean_mps": 0.16210085153579712
+      },
+      "pose45": {
+        "full_inclusive_pose_count": 17416,
+        "clusters": {
+          "50": {
+            "samples_assigned": 17416,
+            "clusters": 50,
+            "occupied_clusters": 48,
+            "coverage_occupied_over_K": 0.96,
+            "normalized_entropy": 0.7506035851537837,
+            "assignment_counts": [
+              12,
+              98,
+              50,
+              71,
+              112,
+              197,
+              815,
+              551,
+              4,
+              165,
+              904,
+              168,
+              27,
+              15,
+              6,
+              2,
+              28,
+              91,
+              23,
+              0,
+              19,
+              71,
+              694,
+              1418,
+              26,
+              38,
+              188,
+              63,
+              8,
+              63,
+              1050,
+              65,
+              551,
+              20,
+              6,
+              15,
+              0,
+              2630,
+              19,
+              42,
+              89,
+              2315,
+              1023,
+              106,
+              19,
+              42,
+              895,
+              986,
+              725,
+              891
+            ],
+            "nearest_center_distance": {
+              "mean": 0.6962432006043201,
+              "median": 0.6401288404749039,
+              "p95": 1.2447011711001137,
+              "max": 1.7264646856269055
+            }
+          },
+          "100": {
+            "samples_assigned": 17416,
+            "clusters": 100,
+            "occupied_clusters": 90,
+            "coverage_occupied_over_K": 0.9,
+            "normalized_entropy": 0.6484623200211538,
+            "assignment_counts": [
+              0,
+              0,
+              14,
+              5,
+              17,
+              2827,
+              1,
+              8,
+              0,
+              2,
+              4,
+              487,
+              12,
+              26,
+              270,
+              3,
+              8,
+              2,
+              1617,
+              78,
+              5,
+              4,
+              335,
+              83,
+              121,
+              16,
+              0,
+              40,
+              51,
+              199,
+              3,
+              1,
+              54,
+              11,
+              138,
+              32,
+              70,
+              20,
+              351,
+              563,
+              557,
+              4,
+              74,
+              180,
+              0,
+              97,
+              78,
+              0,
+              4,
+              768,
+              50,
+              1,
+              3014,
+              5,
+              0,
+              18,
+              31,
+              1,
+              36,
+              2,
+              1047,
+              11,
+              4,
+              8,
+              536,
+              26,
+              1052,
+              2,
+              136,
+              75,
+              3,
+              26,
+              10,
+              7,
+              0,
+              12,
+              2,
+              422,
+              212,
+              30,
+              8,
+              5,
+              61,
+              7,
+              20,
+              14,
+              13,
+              3,
+              23,
+              87,
+              1,
+              0,
+              2,
+              6,
+              0,
+              1117,
+              4,
+              4,
+              1,
+              21
+            ],
+            "nearest_center_distance": {
+              "mean": 0.668963333862461,
+              "median": 0.605448214778836,
+              "p95": 1.2210409924221481,
+              "max": 1.7203059796423725
+            }
+          }
+        },
+        "pose_only_biased_gaussian_MMD2": {
+          "value": 0.21506519249780798,
+          "sigma": 1.0,
+          "dimensions": 45,
+          "estimator": "biased empirical Gaussian MMD squared",
+          "maximum_samples_each": 2048,
+          "generated_samples": 2048,
+          "reference_samples": 2048,
+          "generated_indices_sha256": "9660ea6be8098e21e49e86883ec93d5c78f57a5dd5902240338de1e476248afa",
+          "reference_indices_sha256": "d486ba27801129a52875f1ca9c3706af022b479cb21d417964eeb6898bd4cb87",
+          "sampling": "deterministic evenly spaced indices of inclusive population; no speed/upright/outlier filter"
+        }
+      }
+    },
+    "sfm": {
+      "SDK_receipt": {
+        "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/native_final_v4_Office_N03_sfm_C6000_SDK_receipt.json",
+        "bytes": 2140,
+        "sha256": "2838e18fac5f6e150fcadfa4dfbe4e17e4c1e87c9db913bac8979f4700045197"
+      },
+      "result": {
+        "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/native_final_v4_Office_N03_sfm_C6000/result.json",
+        "bytes": 2924712,
+        "sha256": "2088436c0ba406cb9b9e6fc9025b92e45f834e0975ed024053f522c81278fab1"
+      },
+      "raw_CPU_owner": {
+        "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/native_final_sfm200_raw_v1_CPU_receipt.json",
+        "bytes": 1100,
+        "sha256": "fed65bc6075545cc28fa4df7888b2f5d9e85af78d7241b530446eb522b9a9dcb"
+      },
+      "raw_audit": {
+        "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/native_final_sfm200_raw_v1.json",
+        "bytes": 29176,
+        "sha256": "d406fa812dd021acb485d3911e2ed2467d6037008f223cc7d1271be6489df18f"
+      },
+      "raw_base": {
+        "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/native_final_sfm200_raw_v1_base.json",
+        "bytes": 3074,
+        "sha256": "96afe6b98b00392c8fd8a70fdd0c0b03897c4737d01f418b435afb24110e22b9"
+      },
+      "process_observations": [
+        {
+          "identity": {
+            "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/native_final_sfm200_raw_v1_execution.json",
+            "bytes": 121102,
+            "sha256": "39fd75506a51bb64c458f9e96f7e9aefd8652157cb82a063a03abf8b2efe3081"
+          },
+          "actual_returncode": 0,
+          "source_changes_during_execution": []
+        },
+        {
+          "identity": {
+            "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/native_final_v4_Office_N03_sfm_C6000_execution.json",
+            "bytes": 116294,
+            "sha256": "5c3e923f86976d9002bdae546e3e873047612c91df7b54bcb0b0ec4835b4a429"
+          },
+          "actual_returncode": 0,
+          "source_changes_during_execution": [
+            "src/protomotions/robot_configs/base.py",
+            "src/protomotions/tests/test_robot_config_helpers.py",
+            "src/CrowdSim/tools/test_camera_depth.py",
+            "src/CrowdSim/utils/sensor_stream.py",
+            "src/CrowdSim/humanoid/runtime/grouped_source_migration.py",
+            "scripts/validate_grouped_social.py"
+          ]
+        }
+      ],
+      "capture": {
+        "all_capture_frames": 18000,
+        "fall_termination_frames": 597,
+        "fall_termination_interval_endpoints_kept": 597,
+        "fall_termination_frames_without_legal_predecessor": 0,
+        "all_failure_frames_retained_in_capture": true,
+        "failed_episodes_filtered": false,
+        "initial_pose_rows_without_predecessor": 3,
+        "reset_boundary_intervals_excluded": 597,
+        "pose_and_velocity_samples_use_same_episode_interval_endpoints": true,
+        "scope": "Original inclusive interval metric; no success/fall/contact episode filtering"
+      },
+      "inclusive_summary": {
+        "same_episode_transition_count": 17400,
+        "excluded_reset_transitions": 597,
+        "valid_acceleration_triplets": 16800,
+        "chain_scale_m_per_actor": [
+          1.502966196210155,
+          1.5029661947514925,
+          1.5029662010088394
+        ],
+        "physical_root_speed_m_s": {
+          "count": 17400,
+          "mean": 0.9501660254019895,
+          "median": 0.9514784035713186,
+          "p05": 0.267469484421882,
+          "p95": 1.639444471591705,
+          "max": 2.6541937720082807
+        },
+        "toe_slide_near_ground_proxy": {
+          "stance_foot_intervals": 26570,
+          "all_foot_intervals": 34800,
+          "speed_m_s": {
+            "count": 26570,
+            "mean": 0.1458578165274007,
+            "median": 0.026479082801389758,
+            "p05": 0.0007043303523782066,
+            "p95": 0.7674866005065699,
+            "max": 5.349255469200178
+          },
+          "sliding_above_threshold_fraction": 0.2584493789988709
+        },
+        "measured_foot_contact_body_origin_speed_m_s": null,
+        "true_body_com_height_available": false,
+        "mass_weighted_joint_origin_height_proxy_available": false,
+        "metrics": {
+          "pelvis_height_m": {
+            "count": 17400,
+            "mean": 0.7989881582318367,
+            "median": 0.8596104085445404,
+            "p05": 0.4826348707079887,
+            "p95": 0.9248061120510102,
+            "max": 0.9788815379142761
+          },
+          "pelvis_height_over_chain_scale": {
+            "count": 17400,
+            "mean": 0.5316075369184923,
+            "median": 0.5719426099730326,
+            "p05": 0.32112157402338404,
+            "p95": 0.6153206315819014,
+            "max": 0.651299770635313
+          },
+          "root_up_z": {
+            "count": 17400,
+            "mean": 0.8681363310188759,
+            "median": 0.9582478372604339,
+            "p05": 0.45422769064642377,
+            "p95": 0.9979137951493818,
+            "max": 0.9999964246000628
+          },
+          "local_pose_velocity_rms_chain_s": {
+            "count": 17400,
+            "mean": 0.8093079546007139,
+            "median": 0.6671188230629315,
+            "p05": 0.27635288729707685,
+            "p95": 1.734045689574013,
+            "max": 20.87418308248675
+          },
+          "local_pose_acceleration_rms_chain_s2": {
+            "count": 16800,
+            "mean": 8.002019723724949,
+            "median": 5.014795778839026,
+            "p05": 1.536636218051099,
+            "p95": 21.840065022943485,
+            "max": 630.4214612380482
+          },
+          "toe_slide_near_ground_proxy_m_s": {
+            "count": 15317,
+            "mean": 0.15979500063996424,
+            "median": 0.04753322122452694,
+            "p05": 0.002959971884373146,
+            "p95": 0.7193249562839038,
+            "max": 3.884128898181859
+          },
+          "toe_near_ground_proxy_supported": {
+            "count": 17400,
+            "mean": 0.8802873563218391,
+            "median": 1.0,
+            "p05": 0.0,
+            "p95": 1.0,
+            "max": 1.0
+          },
+          "toe_near_ground_proxy_double_support": {
+            "count": 17400,
+            "mean": 0.6467241379310344,
+            "median": 1.0,
+            "p05": 0.0,
+            "p95": 1.0,
+            "max": 1.0
+          },
+          "toe_min_origin_height_m": {
+            "count": 17400,
+            "mean": 0.028932684380614637,
+            "median": 0.02023827750235796,
+            "p05": 0.014649219997227191,
+            "p95": 0.07270288057625282,
+            "max": 0.26452842354774475
+          },
+          "toe_origins_below_ground_fraction": {
+            "count": 17400,
+            "mean": 0.0,
+            "median": 0.0,
+            "p05": 0.0,
+            "p95": 0.0,
+            "max": 0.0
+          }
+        }
+      },
+      "physical_metrics": {
+        "fall_termination_actor_controls": 597,
+        "route_vertices_reached": [
+          0,
+          0,
+          0
+        ],
+        "static_contact_actor_controls": 0,
+        "peer_contact_actor_controls": 0,
+        "same_episode_root_speed_mean_mps": 0.9501659870147705,
+        "supported_foot_origin_speed_proxy_mean_mps": 0.17333728075027466
+      },
+      "pose45": {
+        "full_inclusive_pose_count": 17400,
+        "clusters": {
+          "50": {
+            "samples_assigned": 17400,
+            "clusters": 50,
+            "occupied_clusters": 49,
+            "coverage_occupied_over_K": 0.98,
+            "normalized_entropy": 0.7411461757296989,
+            "assignment_counts": [
+              19,
+              113,
+              45,
+              32,
+              116,
+              211,
+              713,
+              329,
+              7,
+              174,
+              1586,
+              118,
+              48,
+              23,
+              6,
+              6,
+              28,
+              419,
+              29,
+              2,
+              13,
+              85,
+              433,
+              585,
+              27,
+              29,
+              237,
+              58,
+              5,
+              77,
+              1404,
+              91,
+              883,
+              42,
+              2,
+              20,
+              0,
+              3819,
+              35,
+              57,
+              135,
+              1686,
+              424,
+              173,
+              21,
+              45,
+              724,
+              732,
+              739,
+              795
+            ],
+            "nearest_center_distance": {
+              "mean": 0.6939429086583003,
+              "median": 0.6316482156835243,
+              "p95": 1.25129897152262,
+              "max": 1.8624425126355986
+            }
+          },
+          "100": {
+            "samples_assigned": 17400,
+            "clusters": 100,
+            "occupied_clusters": 89,
+            "coverage_occupied_over_K": 0.89,
+            "normalized_entropy": 0.6637418991628532,
+            "assignment_counts": [
+              0,
+              0,
+              26,
+              7,
+              32,
+              3241,
+              0,
+              11,
+              0,
+              3,
+              9,
+              218,
+              24,
+              47,
+              802,
+              3,
+              13,
+              2,
+              1115,
+              186,
+              13,
+              8,
+              243,
+              109,
+              48,
+              23,
+              0,
+              144,
+              80,
+              61,
+              2,
+              1,
+              53,
+              24,
+              112,
+              67,
+              85,
+              12,
+              480,
+              376,
+              1246,
+              6,
+              78,
+              181,
+              0,
+              31,
+              120,
+              2,
+              4,
+              911,
+              72,
+              1,
+              2446,
+              6,
+              0,
+              23,
+              30,
+              1,
+              63,
+              3,
+              1243,
+              17,
+              3,
+              6,
+              654,
+              32,
+              782,
+              0,
+              255,
+              117,
+              7,
+              54,
+              13,
+              8,
+              0,
+              9,
+              1,
+              272,
+              197,
+              40,
+              8,
+              6,
+              55,
+              5,
+              19,
+              12,
+              17,
+              18,
+              26,
+              43,
+              1,
+              0,
+              2,
+              25,
+              0,
+              517,
+              4,
+              3,
+              1,
+              24
+            ],
+            "nearest_center_distance": {
+              "mean": 0.6728611932459584,
+              "median": 0.6043473958297565,
+              "p95": 1.2244468249762996,
+              "max": 1.7977617160009547
+            }
+          }
+        },
+        "pose_only_biased_gaussian_MMD2": {
+          "value": 0.20187103712936327,
+          "sigma": 1.0,
+          "dimensions": 45,
+          "estimator": "biased empirical Gaussian MMD squared",
+          "maximum_samples_each": 2048,
+          "generated_samples": 2048,
+          "reference_samples": 2048,
+          "generated_indices_sha256": "15724e61829f65e3eb5f0070386c2d8eacd1389bc2112840a8b86c381b63f420",
+          "reference_indices_sha256": "d486ba27801129a52875f1ca9c3706af022b479cb21d417964eeb6898bd4cb87",
+          "sampling": "deterministic evenly spaced indices of inclusive population; no speed/upright/outlier filter"
+        }
+      }
+    }
+  },
+  "initial_pairing": {
+    "status": "native_initial_conditions_matched",
+    "snapshots": [
+      {
+        "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/native_final_v4_Office_N03_diffusion_C6000/paired_initial_condition.json",
+        "bytes": 1383933,
+        "sha256": "8afefea10a8eaac302bca6ed48ad3dac556ce6b3b6ac2261324bb27d04394c8c"
+      },
+      {
+        "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/native_final_v4_Office_N03_sfm_C6000/paired_initial_condition.json",
+        "bytes": 1383927,
+        "sha256": "92f288e09c776a4a122529f904ab1ff44e3538a36ac43e59acde94da4d4ff4c6"
+      }
+    ],
+    "channel_count": 36,
+    "actors": 3,
+    "same_initial_body_map_and_RNG_bytes": true,
+    "same_resources_protocol_and_RNG": true,
+    "capture_kind": "live_original_native_world",
+    "actual_process_exit_verified": false,
+    "navigation_quality_established": false,
+    "author_experiment_reproduced": false
+  },
+  "reference": {
+    "selection_artifact": {
+      "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261002/backward_penalty_style_v1/heldout_reference.json",
+      "bytes": 59581,
+      "sha256": "c274348fc2d58862fa47e7fdb00b136d71e806fc7ac9ef182e87c0f0249f0564"
+    },
+    "loaded_provenance": {
+      "manifest": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/data/diffusion_amp/amass_manifest.json",
+      "manifest_sha256": "4eb6018e83c76408da05c2ca2358b518d4a520ef37d858ed87dc97dca9e7f1e3",
+      "split": "validation",
+      "clips": 22,
+      "diffusion_clips": 20,
+      "source_sha256": "ae0389770ad4a1dfb6d916b80bbe88b8ff89c7ab80a22d71b77597b6c302cf03",
+      "author_clip_list": false,
+      "dof_velocity": {
+        "requested_mode": "legacy_stored",
+        "stored_frame": "parent_joint",
+        "output_frame": "parent_joint",
+        "storage_declarations": {},
+        "stored_frame_assumed": true,
+        "undeclared_storage_assumption": "parent_joint, matching current ProtoMotions AMASS converter; not a guarantee for arbitrary external banks",
+        "conversion": "none"
+      }
+    },
+    "actual_array_hashes": {
+      "body_pos": "e75749065aeb83a11c07c5ea7969b8d46d62086ba522f72a16fcb75a19be29f9",
+      "root_rot": "7b1a03798e0882c67353b90727b974735af26c94a05ef48cb964aab47c5ad8ec"
+    },
+    "parent_disjoint": {
+      "selected_original_sources": 22,
+      "declared_training_original_sources": 1853,
+      "original_source_intersection": 0,
+      "subject_session_independence_proven": false
+    },
+    "Test34_read": false
+  },
+  "frozen_reference_identities": [
+    {
+      "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/evaluate_pedestrian_style.py",
+      "bytes": 29266,
+      "sha256": "82ee083fd16d25ddc39a4c7541d884dfef13a34bb68abc99ba3d45195665f26f"
+    },
+    {
+      "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261002/backward_penalty_style_v1/heldout_reference.json",
+      "bytes": 59581,
+      "sha256": "c274348fc2d58862fa47e7fdb00b136d71e806fc7ac9ef182e87c0f0249f0564"
+    },
+    {
+      "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261002/pose_diversity_candidate_v1/evaluate_pose_diversity.py",
+      "bytes": 17231,
+      "sha256": "208ff775d765b7d046e7e7e8c331dbb2b8d3bfdc4c1567c1df499a584af30bfa"
+    },
+    {
+      "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261002/pose_diversity_candidate_v1/actual_evaluation_v1/reference_basis.npz",
+      "bytes": 54528,
+      "sha256": "b25dffa6612d6202b5faf534381c24a4558f347639b366214ec61f5a2478dcdb"
+    },
+    {
+      "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261002/pose_diversity_candidate_v1/actual_evaluation_v1/evaluation.json",
+      "bytes": 324765,
+      "sha256": "9478afe6b16540f7624867e1d736f30f78399c84177c12d6c9b616bc496c3780"
+    },
+    {
+      "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/data/diffusion_amp/amass_style_2848/manifest_labeled_v7.json",
+      "bytes": 9507694,
+      "sha256": "68d41be28908f28a09c47f7658af39d55fad01b32212bd7c0ced2b1e6b1489ca"
+    },
+    {
+      "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/CrowdSim/humanoid/style_evaluation.py",
+      "bytes": 21327,
+      "sha256": "b09fa58caaf877d89b69ca788538c2808e3a3d8d91410277ea07b5df3bcdaca2"
+    },
+    {
+      "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/data/diffusion_amp/amass_manifest.json",
+      "bytes": 143512,
+      "sha256": "4eb6018e83c76408da05c2ca2358b518d4a520ef37d858ed87dc97dca9e7f1e3"
+    }
+  ],
+  "style90_matched_pair_summary": {
+    "common_supported_bin_count": 5,
+    "equal_common_bin_mean_MMD2": {
+      "diffusion": 0.23147425841335934,
+      "sfm": 0.21094259777851665
+    },
+    "minimum_samples_each": 30,
+    "cap_each": 256,
+    "reference_indices_identical_for_both_arms": true,
+    "unknown_bins_omitted_from_mean": true
+  },
+  "style90_bins": [
+    {
+      "lower_m_s": 0.0,
+      "upper_m_s": 0.1,
+      "generated_counts": {
+        "diffusion": 142,
+        "sfm": 145
+      },
+      "reference_count": 148,
+      "sample_count_each": 142,
+      "status": "supported"
+    },
+    {
+      "lower_m_s": 0.1,
+      "upper_m_s": 0.5,
+      "generated_counts": {
+        "diffusion": 3203,
+        "sfm": 2848
+      },
+      "reference_count": 2251,
+      "sample_count_each": 256,
+      "status": "supported"
+    },
+    {
+      "lower_m_s": 0.5,
+      "upper_m_s": 1.0,
+      "generated_counts": {
+        "diffusion": 6353,
+        "sfm": 6395
+      },
+      "reference_count": 6664,
+      "sample_count_each": 256,
+      "status": "supported"
+    },
+    {
+      "lower_m_s": 1.0,
+      "upper_m_s": 1.5,
+      "generated_counts": {
+        "diffusion": 6323,
+        "sfm": 6252
+      },
+      "reference_count": 5324,
+      "sample_count_each": 256,
+      "status": "supported"
+    },
+    {
+      "lower_m_s": 1.5,
+      "upper_m_s": 2.0,
+      "generated_counts": {
+        "diffusion": 1285,
+        "sfm": 1631
+      },
+      "reference_count": 969,
+      "sample_count_each": 256,
+      "status": "supported"
+    },
+    {
+      "lower_m_s": 2.0,
+      "upper_m_s": 3.0,
+      "generated_counts": {
+        "diffusion": 110,
+        "sfm": 129
+      },
+      "reference_count": 4,
+      "sample_count_each": 4,
+      "status": "unknown_insufficient_samples"
+    },
+    {
+      "lower_m_s": 3.0,
+      "upper_m_s": null,
+      "generated_counts": {
+        "diffusion": 0,
+        "sfm": 0
+      },
+      "reference_count": 0,
+      "sample_count_each": 0,
+      "status": "unknown_insufficient_samples"
+    }
+  ],
+  "complete_summary_script": {
+    "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/complete_summary.py",
+    "bytes": 4536,
+    "sha256": "5bb14409ca0461249e5fc402f89aead32725881c8d78eaae15cb01ab87c2e526"
+  },
+  "summary_binding_review": "Current raw base files and style physical_route_audit results bind the exact selected SDK result files. Summary newly asserts both links. Final summary script was read, not executed; RTX acceptance remains independently required.",
+  "elapsed_s": 19.098952806001762,
+  "scope_limits": [
+    "One Office N03 seed7 local pair:6000 controls/200 seconds per arm; no reviewer SDK execution.",
+    "All581 diffusion and597 SFM fall endpoints retained; both route vertex vectors [0,0,0]. Measurement passed does not establish navigation quality.",
+    "Frozen reference arrays and saved K50/K100 centers reloaded/rehashed without fitting. Original parents disjoint; subject/session independence not proven.",
+    "Matched MMD5 supported speed bins of7, minimum30 cap256, same reference indices for both arms. Insufficient bins explicitly unknown.",
+    "Not execution of registered288-run matrix or reproduction of author experiment/paper effect.",
+    "DP SDK parent receipt records four authorized source edits outside native runtime guard; whole repository immutability during that run is not claimed.",
+    "All-population style90 was not independently recomputed; full matched style90 and pose45 were recomputed exactly after JSON tuple/list normalization."
+  ]
+}

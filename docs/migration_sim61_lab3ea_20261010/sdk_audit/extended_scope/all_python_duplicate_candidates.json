@@ -1,0 +1,98 @@
+[
+  {
+    "path": "third_party/pacer/uhc/khrylib/utils/transformation.py",
+    "scope": "Arcball",
+    "name": "constrain",
+    "first_line": 1696,
+    "later_line": 1701,
+    "later_decorators": [
+      "constrain.setter"
+    ]
+  },
+  {
+    "path": "third_party/pacer/uhc/utils/torch_utils.py",
+    "scope": "<module>",
+    "name": "quaternion_about_axis",
+    "first_line": 220,
+    "later_line": 245,
+    "later_decorators": []
+  },
+  {
+    "path": "third_party/pacer/uhc/utils/torch_utils.py",
+    "scope": "<module>",
+    "name": "quat_from_expmap",
+    "first_line": 232,
+    "later_line": 257,
+    "later_decorators": []
+  },
+  {
+    "path": "third_party/pacer/uhc/utils/transformation.py",
+    "scope": "Arcball",
+    "name": "constrain",
+    "first_line": 1709,
+    "later_line": 1714,
+    "later_decorators": [
+      "constrain.setter"
+    ]
+  },
+  {
+    "path": "third_party/flux/configs/tasks/wheeled_task.py",
+    "scope": "<module>",
+    "name": "DingoSocialNavCfg",
+    "first_line": 871,
+    "later_line": 1561,
+    "later_decorators": [
+      "configclass"
+    ]
+  },
+  {
+    "path": "third_party/flux/configs/tasks/wheeled_task.py",
+    "scope": "<module>",
+    "name": "DingoDynPointGoalCfg",
+    "first_line": 1132,
+    "later_line": 1581,
+    "later_decorators": [
+      "configclass"
+    ]
+  },
+  {
+    "path": "third_party/flux/configs/tasks/wheeled_task.py",
+    "scope": "<module>",
+    "name": "DingoDynExploreCfg",
+    "first_line": 1359,
+    "later_line": 1601,
+    "later_decorators": [
+      "configclass"
+    ]
+  },
+  {
+    "path": "third_party/trace/tbsim/policies/common.py",
+    "scope": "Trajectory",
+    "name": "positions",
+    "first_line": 25,
+    "later_line": 29,
+    "later_decorators": [
+      "positions.setter"
+    ]
+  },
+  {
+    "path": "third_party/trace/tbsim/policies/common.py",
+    "scope": "Trajectory",
+    "name": "yaws",
+    "first_line": 33,
+    "later_line": 37,
+    "later_decorators": [
+      "yaws.setter"
+    ]
+  },
+  {
+    "path": "third_party/trace/tbsim/envs/base.py",
+    "scope": "BaseEnv",
+    "name": "get_info",
+    "first_line": 38,
+    "later_line": 54,
+    "later_decorators": [
+      "abc.abstractmethod"
+    ]
+  }
+]

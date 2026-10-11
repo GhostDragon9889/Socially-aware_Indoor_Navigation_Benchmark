@@ -24,7 +24,7 @@ from scripts.native_shared_social_derivation import derive_native_sfm_driver  # 
 
 NATIVE_PARENT = ROOT / "docs/style_improvement_20261004/social_native_evaluation_staging_v1/evaluate_native_social.py"
 NATIVE_PARENT_SHA = "be9f4126dd9ff26ce6f1f5ebc7ab0da99e012dd2cb9298a34eb326bf7ec25e6d"
-CANONICAL_SHA = "b556de1a9c9c1a6b5984e1484c9a67f490f549f4346649746a84dd7ab9726558"
+CANONICAL_SHA = "b6a40262c061e4b8b53efac8015a2d48f4eae0ea341c305f33de0aec29b5e200"
 
 
 def prepare_entry(*, actors, planner):
@@ -74,6 +74,8 @@ def prepare_entry(*, actors, planner):
         _migration_observation_producer=native_social_observation_producer,
         _migration_producer_path=native_social_observation_producer.__file__, _migration_checkpoint_loader=None)
     exec(compile(derived, str(NATIVE_PARENT) + ":current_migration", "exec"), namespace.__dict__)
+    from CrowdSim.humanoid.runtime.evaluation_source_migration import migrate_pins
+    binding["dependency_migration"] = migrate_pins(namespace)
     if planner == "sfm":
         base_derive = namespace._derive
         namespace._derive = lambda value: derive_native_sfm_driver(value, base_derive)

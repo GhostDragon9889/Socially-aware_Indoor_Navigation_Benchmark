@@ -15,7 +15,7 @@ The current pipeline keeps Diffusion planning, AMP control, training, simulation
 | Training, evaluation, recording and data conversion | `scripts/`, `data/scripts/` |
 | Portable scene profiles, cameras and resource identities | `configs/reproduction/` |
 | Gait priors and completed AMP fine-tuning recipe | `configs/diffusion_amp/four_scene_speed_20261010/` |
-| Exact SDK profile and native shutdown patch | `env/isaaclab3_sim6/` |
+| Default SDK and exact project overlay | `env/isaaclab3_ea_sim61/`; historical `env/isaaclab3_sim6/` |
 | Selected weights, resume checkpoints, EVT robot and four scenes | `resources/releases/pedestrians_20261010/` |
 | SMPL UV and attributed textures | `resources/pedestrian_visuals/` |
 
@@ -34,16 +34,18 @@ export NAV_ROOT="$PWD"
 git lfs install --local
 uv python install 3.12.13
 uv run --no-project --python 3.12.13 python scripts/audit_checkout.py
-uv run --no-project --python 3.12.13 python scripts/bootstrap_reproduction.py install
-export NAV_PY="$NAV_ROOT/.runtime/IsaacLab/.venv/bin/python"
+uv run --no-project --python 3.12.13 python scripts/bootstrap_reproduction.py install --profile isaaclab3_ea_sim61
+export NAV_PY="$NAV_ROOT/.runtime/isaaclab3_ea_sim61/.venv/bin/python"
 export PYTHONPATH="$NAV_ROOT/src:$NAV_ROOT"
 export PYTHONDONTWRITEBYTECODE=1
-"$NAV_PY" -I scripts/isaaclab3_environment.py check
+export NAV_LAB="$NAV_ROOT/.runtime/IsaacLab61"
+"$NAV_PY" -m social_navigation.runtime_environment check --lab-root "$NAV_LAB"
+"$NAV_PY" -I scripts/isaaclab3_environment.py --profile isaaclab3_ea_sim61 check
 ```
 
-Bootstrap pins IsaacLab commit `4ecd0b036da19ff6ad2bb4d621f886b63e9f6db8`, Python 3.12.13, Sim 6.0.0.1, Lab product 3.0.0 (Python package 12.0.0), and Torch 2.11. It derives editable paths and creates an independent native overlay without modifying installed SDK files. Accept NVIDIA's EULA before Kit use; set `OMNI_KIT_ACCEPT_EULA=YES` where required. Do not run `uv sync` inside the stored profile directory.
+Bootstrap defaults to IsaacLab source `ae37b028ea415c91ea2bc32609efcd759ed2b974`, Python 3.12.13, Sim 6.1.0.0, Lab product 3.0.0 (Python package 17.0.2), and Torch 2.11.0+cu128. The SDK lives at `.runtime/IsaacLab61`; project dependencies use a separate `.runtime/isaaclab3_ea_sim61/.venv`. Installed SDK source and binary providers are not modified or duplicated. Accept NVIDIA's EULA before Kit use; set `OMNI_KIT_ACCEPT_EULA=YES` where required. Do not run `uv sync` inside a stored profile directory.
 
-To reuse the matching installed environment, set `NAV_PY` to its interpreter and run `scripts/bootstrap_reproduction.py prepare-native`. A full fresh network installation of the SDK was not repeated in this change. See [dependency details](docs/guides/dependencies.en.md) for the recorded compatibility overrides.
+To reuse a matching installed SDK, run `python3 scripts/bootstrap_reproduction.py prepare-runtime --profile isaaclab3_ea_sim61 --lab-root /absolute/path/to/IsaacLab`, then select the reported project interpreter. The overlay was actually installed and validated locally; a full fresh SDK download was not repeated. See [runtime instructions](env/isaaclab3_ea_sim61/README.md) and [dependencies](docs/guides/dependencies.en.md). Existing four-scene videos retain their historical Sim6.0 identity. New-SDK 60-second dynamics, video and quality validation require independent receipts; migration/import tests do not transfer those results.
 
 ## 2. Restore project resources
 

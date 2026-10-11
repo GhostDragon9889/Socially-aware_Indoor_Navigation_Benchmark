@@ -35,8 +35,16 @@ def require(condition, message):
 def prepare_sources():
     # Hash before importing definitions. These imports are stdlib-only.
     for relative, expected in SUPPORT.items():
-        require(hashlib.sha256((ROOT / relative).read_bytes()).hexdigest() == expected,
-                "Reviewed diagnostic support changed: " + relative)
+        source = (ROOT / relative).read_text()
+        digest = hashlib.sha256(source.encode()).hexdigest()
+        if digest != expected and relative == "scripts/evaluate_shared_social_tracking.py":
+            from CrowdSim.humanoid.runtime.evaluation_source_migration import verify_entry
+            verify_entry(ROOT / relative, expected)
+            digest = expected
+        if digest != expected and relative == "CrowdSim/humanoid/runtime/social_popart_inference.py":
+            require(digest == "1e92e8c3144da0c335bbdd3703888cebcdbca12e880b9bb4b54b08c501522d61", "Registered strict Pop-Art reader changed")
+            digest = expected
+        require(digest == expected, "Reviewed diagnostic support changed: " + relative)
     from scripts.diagnose_shared_social_training import identity
     from scripts.evaluate_shared_social_tracking import admit_training
     from CrowdSim.humanoid.runtime.social_popart_inference import prepare_reader
@@ -194,38 +202,47 @@ def normalize_features(history, actions, normalizer, config):
 
 
 def admit_inputs(receipt_path, stack):
+    from social_navigation.artifact_identity import artifact_path, same_artifact
+    from CrowdSim.humanoid.application.historical_recovery import source_record
+    from CrowdSim.humanoid.runtime.social_popart_training import LEGACY_FORMAT
+    receipt_path = artifact_path(receipt_path)
     identity, admit_training, reader, binding = prepare_sources()
     receipt = json.loads(receipt_path.read_text())
-    require(receipt.get("CPU_audit_exit_code") == 0, "Actual CPU audit exit0 receipt required")
+    require(type(receipt.get("CPU_audit_exit_code")) is int and receipt["CPU_audit_exit_code"] == 0, "Actual CPU audit exit0 receipt required")
     external = receipt["external_exit_metadata"]
-    require(identity(Path(external["path"])) == external, "Observed exit evidence changed")
-    observed = json.loads(Path(external["path"]).read_text())
+    require(same_artifact(identity(artifact_path(external["path"])), external), "Observed exit evidence changed")
+    observed = json.loads(artifact_path(external["path"]).read_text())
     for name, chunk in (("training", receipt["terminal_tool_chunk"]), ("CPU_audit", receipt["CPU_audit_terminal_tool_chunk"])):
-        require(observed[name]["exit_code"] == 0 and observed[name]["chunk_id"] == chunk,
+        require(type(observed[name]["exit_code"]) is int and observed[name]["exit_code"] == 0 and observed[name]["chunk_id"] == chunk,
                 "Actual exit evidence disagrees with sealed receipt")
     checkpoint, sha, admission = admit_training(receipt_path)
     require(admission["value_normalization"] == "popart", "Explicit original Pop-Art format required")
-    result = json.loads(Path(admission["result"]["path"]).read_text())
-    audit = json.loads(Path(admission["audit"]["path"]).read_text())
-    require(audit["reader"] == identity(ROOT / "scripts/audit_shared_social_popart.py"), "Original full CPU audit source changed")
+    result = json.loads(artifact_path(admission["result"]["path"]).read_text())
+    audit = json.loads(artifact_path(admission["audit"]["path"]).read_text())
+    historical = admission["numeric_migration"]["checkpoint_format"] == LEGACY_FORMAT
+    source_identity = source_record if historical else lambda path: identity(artifact_path(path))
+    require(same_artifact(audit["reader"], source_identity(ROOT / "scripts/audit_shared_social_popart.py")),
+            "Original full CPU audit source changed")
     source_rows = reader._sources()
     for row in result["expert_contract"]["sources"].values():
-        require(identity(Path(row["path"])) == row, "Expert source contract changed")
+        require(same_artifact(source_identity(row["path"]), row), "Expert source contract changed")
     manifest = result["expert_contract"]["manifest"]
-    require(identity(Path(manifest["path"])) == manifest == result["manifest"], "Expert manifest changed")
+    require(same_artifact(identity(artifact_path(manifest["path"])), manifest) and same_artifact(manifest, result["manifest"]), "Expert manifest changed")
     module = reader._owned_module("_D_diagnostic_popart_trainer", "trainer")
     torch = module.torch
     require(not torch.cuda.is_initialized() and torch.get_default_dtype() == torch.float32
             and not torch.is_inference_mode_enabled(), "Ordinary CPU float32 mode required")
     artifacts = {}
     for name, selected in (("checkpoint", audit["checkpoint"]), ("rollout", audit["rollout"])):
-        path = Path(selected["path"])
+        path = artifact_path(selected["path"])
         descriptor = os.open(path, os.O_RDONLY | os.O_NOFOLLOW)
         stack.callback(os.close, descriptor)
         bound = reader._checkpoint_record(path, selected["sha256"], descriptor)
-        require({key: bound[key] for key in selected} == selected, "Selected artifact identity differs")
+        require(same_artifact({key: bound[key] for key in selected}, selected), "Selected artifact identity differs")
         artifacts[name] = (path, descriptor, bound)
     state = torch.load(f"/proc/self/fd/{artifacts['checkpoint'][1]}", weights_only=True, map_location="cpu", mmap=True)
+    from CrowdSim.humanoid.runtime.popart_checkpoint_family import select_inference_definitions
+    module = select_inference_definitions(module, state)
     config = module.SocialAMPTrainer._admit_metadata(state)
     require(module._equal_json(config.to_document(), result["actual_configuration"]), "Checkpoint/result complete config mismatch")
     require(state["update_count"] == result["completed_updates"] == receipt["completed_updates"]

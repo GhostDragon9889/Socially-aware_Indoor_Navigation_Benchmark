@@ -1,0 +1,18 @@
+{
+  "train_steps": 128,
+  "resumed_total_steps": 256,
+  "checkpoint_step": 256,
+  "finite_float_tensor_count": 52,
+  "evaluation": {
+    "episodes": 4.0,
+    "success_rate": 0.0,
+    "collision_rate": 0.0,
+    "mean_return": -0.4093385934829712,
+    "mean_episode_length": 40.0
+  },
+  "train_exit0": true,
+  "resume_exit0": true,
+  "evaluate_exit0": true,
+  "module": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/functional_audit/packaging/.venv/lib/python3.12/site-packages/crowdsim_ppo/__init__.py",
+  "scope": "Installed wheel entry points with original repository excluded from sys.path. Small CPU smoke, not quality evidence."
+}

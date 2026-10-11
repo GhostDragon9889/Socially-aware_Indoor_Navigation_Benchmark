@@ -39,7 +39,10 @@ if str(PROJECT_ROOT) not in sys.path:
 
 from CrowdSim.control.drive import (
     DifferentialDriveConfig,
-    ManualDifferentialController,
+    articulation_torch_view,
+    quaternion_yaw,
+    resolve_articulation_quaternion_order,
+    yaw_to_quaternion,
 )
 
 # ---------------------------------------------------------------------------
@@ -169,7 +172,7 @@ class KeyboardDriver:
             ch = self._read_key()
             if ch is None:
                 break
-            if ch in ("q", "Q", "\x1b"):
+            if ch in ("q", "Q"):
                 self.quit = True
                 return
             if ch in ("r", "R"):
@@ -183,6 +186,9 @@ class KeyboardDriver:
                 continue
             if ch == "\x1b":
                 ch2 = self._read_key()
+                if ch2 is None:
+                    self.quit = True
+                    return
                 if ch2 == "[":
                     ch3 = self._read_key()
                     if ch3 == "A":
@@ -237,6 +243,7 @@ def _run_keyboard_loop(env, agent, robot, ctrl, wheel_joint_ids, drive_mode,
     import torch
 
     kbd = KeyboardDriver()
+    quaternion_order = resolve_articulation_quaternion_order(env=env)
 
     print(HELP)
     print(f"[keyboard] env_dt={env_dt:.4f}s  mode={drive_mode}  num_envs={num_envs}")
@@ -258,7 +265,7 @@ def _run_keyboard_loop(env, agent, robot, ctrl, wheel_joint_ids, drive_mode,
             kbd.poll()
 
             if kbd.reset_pose:
-                _reset_robot(robot, device, num_envs)
+                _reset_robot(robot, device, num_envs, quaternion_order=quaternion_order)
                 recorded_positions.clear()
                 step = 0
                 kbd.reset_pose = False
@@ -272,23 +279,23 @@ def _run_keyboard_loop(env, agent, robot, ctrl, wheel_joint_ids, drive_mode,
                 humanoid_action = model_outs.get("mean_action", model_outs["action"])
 
             _apply_command(robot, ctrl, kbd.v, kbd.w, drive_mode,
-                           device, num_envs, wheel_joint_ids)
+                           device, num_envs, wheel_joint_ids, quaternion_order=quaternion_order)
 
             _, _, dones, _, _ = env.step(humanoid_action)
             done_indices = dones.nonzero(as_tuple=False).squeeze(-1)
             step += 1
 
             t = step * env_dt
-            x = float(robot.data.root_pos_w[0, 0].cpu().item())
-            y = float(robot.data.root_pos_w[0, 1].cpu().item())
-            yaw = _yaw_from_quat(robot.data.root_quat_w[0].cpu().numpy())
+            position = articulation_torch_view(robot.data.root_pos_w)[0]
+            x, y = float(position[0]), float(position[1])
+            yaw = _yaw_from_quat(articulation_torch_view(robot.data.root_quat_w)[0], quaternion_order)
             recorded_positions.append((t, x, y, yaw))
 
             if step % status_interval == 0:
                 # Read actual velocity from simulator
-                lin_vel = robot.data.root_lin_vel_w[0, :2].cpu().numpy()
+                lin_vel = articulation_torch_view(robot.data.root_lin_vel_w)[0, :2].cpu().numpy()
                 v_act = float(np.linalg.norm(lin_vel))
-                ω_act = float(robot.data.root_ang_vel_w[0, 2].cpu().item())
+                ω_act = float(articulation_torch_view(robot.data.root_ang_vel_w)[0, 2])
                 kbd.write_raw(
                     f"{t:7.2f} {kbd.v:7.3f} {v_act:7.3f} "
                     f"{kbd.w:7.3f} {ω_act:7.3f} "
@@ -307,13 +314,17 @@ def _run_keyboard_loop(env, agent, robot, ctrl, wheel_joint_ids, drive_mode,
 # Robot control helpers
 # ---------------------------------------------------------------------------
 
-def _apply_command(robot, ctrl: ManualDifferentialController,
+def _apply_command(robot, ctrl: DifferentialDriveConfig,
                    v: float, w: float, drive_mode: str,
-                   device, num_envs: int, joint_ids: list[int]) -> None:
+                   device, num_envs: int, joint_ids: list[int], *, quaternion_order: str = "xyzw") -> None:
     import torch
 
     if drive_mode == "wheel":
-        wheels = ctrl.forward(np.array([v, w], dtype=np.float32))
+        linear = float(np.clip(v, -ctrl.max_linear_speed, ctrl.max_linear_speed))
+        angular = float(np.clip(w, -ctrl.max_angular_speed, ctrl.max_angular_speed))
+        wheels = np.array([linear - .5 * ctrl.wheel_base * angular,
+                           linear + .5 * ctrl.wheel_base * angular]) / ctrl.wheel_radius
+        wheels = np.clip(wheels, -ctrl.max_wheel_speed, ctrl.max_wheel_speed)
         targets = torch.zeros(num_envs, 2, dtype=torch.float32, device=device)
         targets[:, 0] = float(wheels[0])
         targets[:, 1] = float(wheels[1])
@@ -324,7 +335,7 @@ def _apply_command(robot, ctrl: ManualDifferentialController,
             torch.zeros(num_envs, 2, dtype=torch.float32, device=device),
             joint_ids=joint_ids)
         vel = torch.zeros(num_envs, 6, dtype=torch.float32, device=device)
-        yaws = _batch_yaw_from_quat(robot.data.root_quat_w.cpu().numpy())
+        yaws = _batch_yaw_from_quat(articulation_torch_view(robot.data.root_quat_w).cpu().numpy(), quaternion_order)
         for i in range(num_envs):
             vel[i, 0] = v * math.cos(float(yaws[i]))
             vel[i, 1] = v * math.sin(float(yaws[i]))
@@ -332,17 +343,19 @@ def _apply_command(robot, ctrl: ManualDifferentialController,
         robot.write_root_velocity_to_sim(vel)
 
 
-def _reset_robot(robot, device, num_envs: int) -> None:
+def _reset_robot(robot, device, num_envs: int, *, quaternion_order: str = "xyzw") -> None:
     import torch
 
-    poses = torch.zeros(num_envs, 7, dtype=torch.float32, device=device)
-    poses[:, 0] = 1.0
+    # Preserve the asset's spawn height and give every root a unit quaternion.
+    poses = articulation_torch_view(robot.data.default_root_state)[:num_envs, :7].clone().to(device)
+    poses[:, :2] = 0.0
+    poses[:, 3:7] = yaw_to_quaternion(torch.zeros(num_envs, device=device), quaternion_order)
     robot.write_root_pose_to_sim(poses)
     robot.write_root_velocity_to_sim(
         torch.zeros(num_envs, 6, dtype=torch.float32, device=device))
     robot.write_joint_state_to_sim(
-        robot.data.default_joint_pos.clone(),
-        torch.zeros_like(robot.data.default_joint_vel))
+        articulation_torch_view(robot.data.default_joint_pos).clone(),
+        torch.zeros_like(articulation_torch_view(robot.data.default_joint_vel)))
 
 
 def _read_env_dt(env) -> float:
@@ -356,14 +369,12 @@ def _read_env_dt(env) -> float:
     return 1.0 / 30.0
 
 
-def _yaw_from_quat(q: np.ndarray) -> float:
-    w, x, y, z = [float(v) for v in q]
-    return math.atan2(2.0 * (w * z + x * y), 1.0 - 2.0 * (y * y + z * z))
+def _yaw_from_quat(q, order: str = "xyzw") -> float:
+    return float(quaternion_yaw(q, order))
 
 
-def _batch_yaw_from_quat(quats: np.ndarray) -> np.ndarray:
-    w, x, y, z = quats[:, 0], quats[:, 1], quats[:, 2], quats[:, 3]
-    return np.arctan2(2.0 * (w * z + x * y), 1.0 - 2.0 * (y * y + z * z))
+def _batch_yaw_from_quat(quats: np.ndarray, order: str = "xyzw") -> np.ndarray:
+    return quaternion_yaw(quats, order)
 
 
 # ---------------------------------------------------------------------------
@@ -459,7 +470,7 @@ def run(config_path: Path, ppo_config_path: Path | None, num_envs: int,
     print(f"[setup] Robot joints: {list(robot.data.joint_names)}")
 
     # --- Keyboard loop ---
-    ctrl = ManualDifferentialController()
+    ctrl = DifferentialDriveConfig()
     env_dt = _read_env_dt(env)
     interval = max(1, int(round(0.5 / env_dt)))
     recorded: list[tuple[float, float, float, float]] = []

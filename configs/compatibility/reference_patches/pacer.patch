@@ -1,0 +1,176 @@
+diff --git a/pacer/env/tasks/humanoid_amp.py b/pacer/env/tasks/humanoid_amp.py
+index 298a3ba..819081d 100644
+--- a/pacer/env/tasks/humanoid_amp.py
++++ b/pacer/env/tasks/humanoid_amp.py
+@@ -659,7 +659,7 @@ class HumanoidAMP(Humanoid):
+             self._hack_motion_time = 0.0
+ 
+         num_motions = self._motion_lib.num_motions()
+-        motion_ids = np.arange(self.num_envs, dtype=np.int)
++        motion_ids = np.arange(self.num_envs, dtype=np.int64)
+         motion_ids = np.mod(motion_ids, num_motions)
+         # motion_ids[:] = 2
+         motion_times = torch.tensor([self._hack_motion_time] * self.num_envs,
+@@ -752,7 +752,7 @@ class HumanoidAMP(Humanoid):
+         if (not hasattr(self, "_hack_motion_time")):
+             self._hack_motion_time = 0.0
+ 
+-        motion_ids = np.array([0] * self.num_envs, dtype=np.int)
++        motion_ids = np.array([0] * self.num_envs, dtype=np.int64)
+         motion_times = np.array([self._hack_motion_time] * self.num_envs)
+         root_pos, root_rot, dof_pos, root_vel, root_ang_vel, dof_vel, key_pos \
+            = self._motion_lib.get_motion_state(motion_ids, motion_times)
+diff --git a/pacer/env/util/traj_generator.py b/pacer/env/util/traj_generator.py
+index 5628ac8..66f3e95 100644
+--- a/pacer/env/util/traj_generator.py
++++ b/pacer/env/util/traj_generator.py
+@@ -28,7 +28,7 @@ class TrajGenerator():
+         self._verts_flat = torch.zeros((num_envs * num_verts, 3), dtype=torch.float32, device=self._device)
+         self._verts = self._verts_flat.view((num_envs, num_verts, 3))
+ 
+-        env_ids = torch.arange(self.get_num_envs(), dtype=np.int)
++        env_ids = torch.arange(self.get_num_envs(), dtype=torch.long)
+ 
+         # self.traj_data = joblib.load("data/traj/traj_data.pkl")
+         self.heading = torch.zeros(num_envs, 1)
+diff --git a/pacer/learning/amp_network_sept_value_builder.py b/pacer/learning/amp_network_sept_value_builder.py
+index bafec22..6684f70 100644
+--- a/pacer/learning/amp_network_sept_value_builder.py
++++ b/pacer/learning/amp_network_sept_value_builder.py
+@@ -64,7 +64,7 @@ class AMPSeptValueBuilder(AMPSeptBuilder):
+                         torch.nn.init.zeros_(m.bias)
+ 
+             if "people" in task_obs_size_detail:
+-                raise NotImplemented
++                raise NotImplementedError("PACER task value does not support people observations.")
+ 
+             torch.nn.init.uniform_(self._value_logits.weight, -DISC_LOGIT_INIT_SCALE, DISC_LOGIT_INIT_SCALE)
+             torch.nn.init.zeros_(self._value_logits.bias)
+diff --git a/pacer/learning/common_agent.py b/pacer/learning/common_agent.py
+index 3939daa..de36eb6 100644
+--- a/pacer/learning/common_agent.py
++++ b/pacer/learning/common_agent.py
+@@ -22,7 +22,7 @@ from rl_games.common import schedulers
+ from rl_games.common import vecenv
+ 
+ import torch
+-from torch import optim
++from torch import nn, optim
+ 
+ import learning.amp_datasets as amp_datasets
+ 
+@@ -249,7 +249,7 @@ class CommonAgent(a2c_continuous.A2CAgent):
+ 
+         if self.schedule_type == 'standard_epoch':
+             if self.multi_gpu:
+-                av_kls = self.hvd.average_value(torch_ext.mean_list(kls),
++                av_kls = self.hvd.average_value(av_kls,
+                                                 'ep_kls')
+             self.last_lr, self.entropy_coef = self.scheduler.update(
+                 self.last_lr, self.entropy_coef, self.epoch_num, 0,
+diff --git a/pacer/learning/network_builder.py b/pacer/learning/network_builder.py
+index 6c9c10f..0195aec 100644
+--- a/pacer/learning/network_builder.py
++++ b/pacer/learning/network_builder.py
+@@ -1,5 +1,5 @@
+ from rl_games.common import object_factory
+-from rl_games.algos_torch import torch_ext
++from rl_games.algos_torch import torch_ext, layers
+ 
+ import torch
+ import torch.nn as nn
+@@ -529,8 +529,10 @@ class ResidualBlock(nn.Module):
+         self.activate1 = nn.ELU()
+         self.activate2 = nn.ELU()
+         if use_attention:
+-            self.ca = ChannelAttention(channels)
+-            self.sa = SpatialAttention()
++            raise NotImplementedError(
++                "PACER does not vendor the residual ChannelAttention/SpatialAttention blocks. "
++                "Use use_attention=False or provide the original matching implementation."
++            )
+ 
+     def forward(self, x):
+         residual = x
+@@ -840,7 +842,7 @@ class SACBuilder(NetworkBuilder):
+             mlp_init = self.init_factory.create(**self.initializer)
+             for m in self.modules():
+                 if isinstance(m, nn.Conv2d) or isinstance(m, nn.Conv1d):
+-                    cnn_init(m.weight)
++                    mlp_init(m.weight)
+                     if getattr(m, "bias", None) is not None:
+                         torch.nn.init.zeros_(m.bias)
+                 if isinstance(m, nn.Linear):
+diff --git a/pacer/run.py b/pacer/run.py
+index 49b765f..af02209 100644
+--- a/pacer/run.py
++++ b/pacer/run.py
+@@ -17,7 +17,7 @@ from utils.parse_task import parse_task
+ 
+ from rl_games.algos_torch import players
+ from rl_games.algos_torch import torch_ext
+-from rl_games.common import env_configurations, experiment, vecenv
++from rl_games.common import env_configurations, experiment, vecenv, wrappers
+ from rl_games.common.algo_observer import AlgoObserver
+ from rl_games.torch_runner import Runner
+ 
+diff --git a/pacer/utils/flags.py b/pacer/utils/flags.py
+index f333e45..f79abcd 100644
+--- a/pacer/utils/flags.py
++++ b/pacer/utils/flags.py
+@@ -1,4 +1,4 @@
+-__all__ = ['flags', 'summation']
++__all__ = ['flags']
+ 
+ class Flags(object):
+     def __init__(self, items):
+diff --git a/uhc/smpllib/smpl_mujoco.py b/uhc/smpllib/smpl_mujoco.py
+index ed6a09c..d56d103 100644
+--- a/uhc/smpllib/smpl_mujoco.py
++++ b/uhc/smpllib/smpl_mujoco.py
+@@ -464,7 +464,7 @@ class SMPL_M_Renderer(object):
+         try:
+             t = threading.Thread(target=self.show_pose, args=())
+             t.start()
+-        except e as E:
++        except Exception as E:
+             print(E, "gg")
+ 
+ 
+@@ -558,7 +558,7 @@ class SMPL_M_Viewer(object):
+             t = threading.Thread(target=self.show_pose_in_thread,
+                                  args=(return_img, ))
+             t.start()
+-        except e as E:
++        except Exception as E:
+             print(E, "gg")
+ 
+     def set_smpl_pose(self, pose, trans=None, offset_z=0):
+diff --git a/uhc/utils/flags.py b/uhc/utils/flags.py
+index ec4964c..ef9d68c 100644
+--- a/uhc/utils/flags.py
++++ b/uhc/utils/flags.py
+@@ -1,4 +1,4 @@
+-__all__ = ['flags', 'summation']
++__all__ = ['flags']
+ 
+ class Flags(object):
+     def __init__(self, *items):
+diff --git a/uhc/utils/torch_utils.py b/uhc/utils/torch_utils.py
+index 59de230..59da1b6 100644
+--- a/uhc/utils/torch_utils.py
++++ b/uhc/utils/torch_utils.py
+@@ -452,6 +452,13 @@ def de_heading_batch(q):
+ 
+     return quaternion_multiply_batch(q_deheaded_inv, q)
+     
++def de_heading(q):
++    """Remove heading from one wxyz quaternion using the batch implementation."""
++    if q.shape != (4,):
++        raise ValueError("de_heading expects one quaternion with shape (4,).")
++    return de_heading_batch(q.unsqueeze(0)).squeeze(0)
++
++
+ def get_heading_batch(q):
+     hq = q.clone()
+     hq[:, 1] = 0

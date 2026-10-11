@@ -29,6 +29,7 @@ import torch
 import protomotions.simulator.isaaclab.utils.mjcf_to_usd as mjcf_to_usd
 import protomotions.simulator.isaaclab.utils.mjcf_d6_workaround as mjcf_d6_workaround
 import protomotions.simulator.isaaclab.utils.usd_body_paths as usd_body_paths
+from protomotions.utils.pretrained_compat import archived_upstream_reference, require_supported_checkpoint_config
 from protomotions.robot_configs.base import RobotAssetConfig
 from protomotions.robot_configs.g1 import G1RobotConfig
 from protomotions.robot_configs.smpl import SmplRobotConfig
@@ -271,20 +272,31 @@ def test_tracked_resolved_sidecar_yaml_omits_legacy_usd_fields():
     yaml_paths = sorted(artifacts_root.glob("**/resolved_configs*.yaml"))
     # Without this the test would also pass by matching nothing at all.
     assert yaml_paths, f"no resolved_configs*.yaml found under {artifacts_root}"
-    for yaml_path in yaml_paths:
+    current_paths = [path for path in yaml_paths if archived_upstream_reference(path) is None]
+    assert current_paths, "No current-runtime model sidecars were inspected"
+    for yaml_path in current_paths:
         text = yaml_path.read_text()
         assert "usd_asset_file_name:" not in text
         assert "usd_bodies_root_prim_path:" not in text
+    for yaml_path in set(yaml_paths) - set(current_paths):
+        with pytest.raises(RuntimeError, match="Archived upstream reference"):
+            require_supported_checkpoint_config(yaml_path)
 
 
 @pytest.mark.needs_lfs
 def test_tracked_resolved_sidecar_checkpoints_omit_legacy_usd_fields():
     artifacts_root = repository_root(__file__) / "data" / "pretrained_models"
-    for pt_path in artifacts_root.glob("**/resolved_configs*.pt"):
+    paths = list(artifacts_root.glob("**/resolved_configs*.pt"))
+    current_paths = [path for path in paths if archived_upstream_reference(path) is None]
+    assert current_paths, "No current-runtime model sidecars were inspected"
+    for pt_path in current_paths:
         configs = torch.load(pt_path, weights_only=False)
         asset = configs["robot"].asset
         assert not hasattr(asset, "usd_asset_file_name")
         assert not hasattr(asset, "usd_bodies_root_prim_path")
+    for pt_path in set(paths) - set(current_paths):
+        with pytest.raises(RuntimeError, match="Archived upstream reference"):
+            require_supported_checkpoint_config(pt_path)
 
 
 def test_resolve_robot_mjcf_path_and_predicted_usd(tmp_path):
@@ -371,7 +383,10 @@ def test_convert_mjcf_to_usd_caches_and_accepts_factory(tmp_path):
 
     def factory(**cfg_kwargs):
         calls["n"] += 1
-        return dry_run_mjcf_converter_factory(**cfg_kwargs)
+        output = Path(dry_run_mjcf_converter_factory(**cfg_kwargs))
+        output.parent.mkdir(parents=True, exist_ok=True)
+        output.write_text("#usda 1.0")
+        return str(output)
 
     first = convert_mjcf_to_usd(
         str(mjcf),
@@ -436,6 +451,53 @@ def test_convert_mjcf_to_usd_forces_existing_unmarked_output(tmp_path):
     assert stale_path.read_text() == "fresh"
 
 
+@pytest.mark.parametrize("reuse_process_cache", [False, True])
+def test_convert_mjcf_to_usd_rechecks_overwritten_explicit_output(tmp_path, reuse_process_cache):
+    mjcf = tmp_path / "bot.xml"
+    mjcf.write_text("<mujoco/>")
+    cache = {}
+    calls = []
+
+    def factory(**cfg_kwargs):
+        calls.append(cfg_kwargs["self_collision"])
+        output = Path(dry_run_mjcf_converter_factory(**cfg_kwargs))
+        output.parent.mkdir(parents=True, exist_ok=True)
+        output.write_text(str(cfg_kwargs["self_collision"]))
+        return str(output)
+
+    for self_collision in (False, True, False):
+        output = convert_mjcf_to_usd(
+            str(mjcf), converter_factory=factory,
+            cache=cache if reuse_process_cache else {},
+            usd_dir=str(tmp_path / "cache"), self_collision=self_collision,
+        )
+        assert Path(output).read_text() == str(self_collision)
+    assert calls == [False, True, False]
+
+
+def test_convert_mjcf_to_usd_rebuilds_deleted_output_and_marker(tmp_path):
+    mjcf = tmp_path / "bot.xml"
+    mjcf.write_text("<mujoco/>")
+    cache = {}
+    calls = []
+
+    def factory(**cfg_kwargs):
+        calls.append(cfg_kwargs)
+        output = Path(dry_run_mjcf_converter_factory(**cfg_kwargs))
+        output.parent.mkdir(parents=True, exist_ok=True)
+        output.write_text("#usda 1.0")
+        return str(output)
+
+    kwargs = dict(converter_factory=factory, cache=cache, usd_dir=str(tmp_path / "cache"))
+    output = Path(convert_mjcf_to_usd(str(mjcf), **kwargs))
+    output.unlink()
+    for marker in tmp_path.glob(".*.protomotions-complete"):
+        marker.unlink()
+    restored = Path(convert_mjcf_to_usd(str(mjcf), **kwargs))
+    assert restored.is_file()
+    assert len(calls) == 2
+
+
 def test_convert_mjcf_to_usd_fingerprints_dependencies_once(tmp_path, monkeypatch):
     monkeypatch.setenv("HOME", str(tmp_path))
     mjcf = tmp_path / "bot.xml"
@@ -498,7 +560,10 @@ def test_convert_mjcf_to_usd_invalidates_referenced_mesh_changes(tmp_path):
 
     def factory(**cfg_kwargs):
         calls["n"] += 1
-        return dry_run_mjcf_converter_factory(**cfg_kwargs)
+        output = Path(dry_run_mjcf_converter_factory(**cfg_kwargs))
+        output.parent.mkdir(parents=True, exist_ok=True)
+        output.write_text("#usda 1.0")
+        return str(output)
 
     convert_mjcf_to_usd(
         str(mjcf), converter_factory=factory, usd_dir=str(tmp_path / "cache")
@@ -633,6 +698,26 @@ def test_resolve_body_prim_paths_nested_and_flat():
         resolve_body_prim_paths_from_records(
             records, ["visual_only"], default_path="/robot"
         )
+
+
+def test_contact_sensor_path_for_body_at_usd_default_prim(tmp_path):
+    pytest.importorskip("pxr")
+    from pxr import Sdf, Usd, UsdGeom, UsdPhysics
+
+    path = tmp_path / "root_body.usda"
+    stage = Usd.Stage.CreateNew(str(path))
+    root = UsdGeom.Xform.Define(stage, "/pelvis").GetPrim()
+    stage.SetDefaultPrim(root)
+    UsdPhysics.RigidBodyAPI.Apply(root)
+    UsdPhysics.ArticulationRootAPI.Apply(root)
+    stage.GetRootLayer().Save()
+    paths = resolve_body_prim_paths(str(path), ["pelvis"])
+    assert paths == {"pelvis": ""}
+    sensor_path = contact_sensor_prim_path(
+        "pelvis", paths, robot_prim_root="/World/envs/env_0/Robot"
+    )
+    assert Sdf.Path.IsValidPathString(sensor_path)
+    assert sensor_path == "/World/envs/env_0/Robot"
 
 
 def test_resolve_articulation_root_prim_path_nested_and_flat():
@@ -822,11 +907,15 @@ def test_public_install_metadata_targets_isaaclab3_stack():
     pyproject = tomllib.loads((repo_root / "pyproject.toml").read_text())
     requirements = pyproject["project"]["optional-dependencies"]["isaaclab"]
 
-    assert any("isaaclab==12.0.0" in requirement for requirement in requirements)
+    assert any("isaaclab==17.0.2" in requirement for requirement in requirements)
     assert any(
-        "isaacsim[all,extscache]==6.0.0.1" in requirement
+        "isaacsim[all,extscache]==6.1.0.0" in requirement
         for requirement in requirements
     )
+
+    legacy_requirements = pyproject["project"]["optional-dependencies"]["isaaclab6"]
+    assert any("isaaclab==12.0.0" in requirement for requirement in legacy_requirements)
+    assert any("isaacsim[all,extscache]==6.0.0.1" in requirement for requirement in legacy_requirements)
 
     public_docs = [
         repo_root / "README.md",
@@ -840,7 +929,10 @@ def test_public_install_metadata_targets_isaaclab3_stack():
         assert "isaacsim[all]==5.1.0.0" not in source
 
     installation = public_docs[-1].read_text()
-    assert "4ecd0b036da19ff6ad2bb4d621f886b63e9f6db8" in installation
+    # Compare documentation to the real fixed SDK source, not an obsolete revision.
+    from json import loads as json_loads
+    recorded = json_loads((repo_root / "env/isaaclab3_ea_sim61/profile.json").read_text())
+    assert recorded["isaaclab_commit"] in installation
     assert "Python 3.12" in installation
 
     dependency_section = installation.split("IsaacLab as a dependency", 1)[1]

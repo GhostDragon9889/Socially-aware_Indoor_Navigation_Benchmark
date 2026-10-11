@@ -1,128 +1,67 @@
 # Project dependencies
 
-[简体中文](dependencies.zh-CN.md) · [Documentation index](README.md) · Updated: 2026-10-10
+[中文](dependencies.zh-CN.md) · [Guide index](README.md) · Updated 2026-10-10
 
-## 1. Sources of truth
+## Default: IsaacLab 3.0 EA / Isaac Sim 6.1
+
+The [official EA documentation](https://isaac-sim.github.io/IsaacLab/v3.0.0-EA/index.html), pinned source and checked-in locks define the target. Product VERSION, package version and source revision are separate identities.
+
+| Component | Pin |
+| --- | --- |
+| Platform / Python | Linux x86_64 / 3.12.13 |
+| IsaacLab source commit | `ae37b028ea415c91ea2bc32609efcd759ed2b974` |
+| IsaacLab source tree | `27e5b57ad0928e0339e121a06be040ae234a99ed` |
+| Product VERSION / package | `3.0.0` / `isaaclab==17.0.2` |
+| Isaac Sim package | `6.1.0.0` |
+| Torch / NumPy / Warp | `2.11.0+cu128` / `2.5.1` / `1.16.0` |
+| Standalone USD provider | `usd-exchange==2.3.0`; USD `25.5` |
+| Project interpreter | `.runtime/isaaclab3_ea_sim61/.venv/bin/python` |
+
+## Authoritative files and installation boundaries
 
 | File | Purpose |
 | --- | --- |
-| [Root pyproject.toml](../../pyproject.toml) | Distribution, core requirements, backend extras and console commands |
-| [SDK manifest](../../env/isaaclab3_sim6/pyproject.toml) | Complete environment configuration for the IsaacLab checkout root |
-| [SDK uv.lock](../../env/isaaclab3_sim6/uv.lock) | 273 locked packages, origins and wheel hashes |
-| [profile.json](../../env/isaaclab3_sim6/profile.json) | Platform, source revision, versions and manifest/lock hashes |
-| [Standalone PPO package](../../packages/crowdsim-ppo/pyproject.toml) | NumPy/PyTorch navigation baseline without a simulator |
-| [Complete dependency inventory](dependency-inventory.json) | Readable snapshot of declarations and all 273 locked packages |
+| [Root pyproject.toml](../../pyproject.toml) | Core ranges, five source packages and optional backends |
+| [SDK manifest](../../env/isaaclab3_ea_sim61/pyproject.toml), [SDK uv.lock](../../env/isaaclab3_ea_sim61/uv.lock) | Complete snapshot for a new pinned SDK |
+| [profile.json](../../env/isaaclab3_ea_sim61/profile.json) | Source, binary providers and manifest/lock hashes |
+| [Dependency inventory](dependency-inventory-isaaclab3-ea-sim61.json) | Machine-readable SDK, overlay and core declarations |
+| [requirements.overlay.lock](../../env/isaaclab3_ea_sim61/requirements.overlay.lock) | 32 exact project additions |
+| [Runtime instructions](../../env/isaaclab3_ea_sim61/README.md) | Reuse, install and read-only validation |
+| [Constraint receipt](../../env/isaaclab3_ea_sim61/runtime_constraints_receipt.txt) | Observed visible packages, not a standalone SDK installation lock |
 
-The root requirements are version ranges, not a complete environment lock. `requirements_isaaclab.txt` is a supplementary list. Use the SDK manifest, lock and profile together for physical pedestrians.
+The SDK and project additions use separate virtual environments. A project `.pth` references SDK site-packages and source while prioritizing this checkout's `src/`. Torch, NumPy, Warp, MuJoCo, Isaac packages and USD providers are not installed twice. Installed SDK files are not changed. Validation checks provider origins, 169 USD RECORD entries, default overlay dependencies and 18 project core requirements: 116 requirements satisfied locally. Failure preserves the selected `.venv`; changes to the SDK, lock or checkout path reject an old receipt.
 
-## 2. Pinned physical pedestrian environment
+## Project additions
 
-| Item | Pinned value |
-| --- | --- |
-| Platform | Linux x86_64 |
-| Python | 3.12; local recorded version 3.12.13 |
-| IsaacLab source | `4ecd0b036da19ff6ad2bb4d621f886b63e9f6db8` |
-| IsaacLab product / Python package version | `3.0.0` / `12.0.0` |
-| Isaac Sim Python package | `6.0.0.1` |
-| This project | `3.1.0` |
-
-The pinned IsaacLab revision is a development commit, not the `v3.0.0-beta2` tag. Official [beta2](https://github.com/isaac-sim/IsaacLab/releases/tag/v3.0.0-beta2) supports Sim 6.0; this project still requires the exact commit. [3.0 EA](https://github.com/isaac-sim/IsaacLab/releases/tag/v3.0.0-EA) requires Sim 6.1, so the shared “3.0” label does not establish compatibility.
-
-
-### Actual local state update (2026-10-10)
-
-The SDK manifest/lock SHAs match the snapshots, all 272 nonvirtual locked versions match, and all 18 project core constraints are satisfied. `uv pip check` still reports the three overrides below. Current SDK HEAD is `5951d48dde083986489957a7b108ad48a46822a7` (dependency configuration commit), while the profile records `4ecd0b...`. Only manifest/lock changed between those commits; SDK source is unchanged, but `apply` still rejects the current HEAD through its exact commit gate. Package versions, 234 USD RECORD files and the standalone round-trip passed `check`. These checks have distinct scopes.
-
-The separate `/project/EXP/IsaacLab` uses Sim6.1/package17.0.2 and lacks seven project core packages, with two further core version conflicts. See the [comprehensive audit (Chinese)](../RESOURCE_DEPENDENCY_MAP_20261010_ZH.md) and [machine-readable inventory](../resource_audit_20261010/inventory.json).
-
-### Selected locked versions
-
-These values come directly from the repository lock, not from an audit of another machine.
-
-| Package | Locked version |
-| --- | --- |
-| `isaaclab` | `12.0.0` |
-| `isaacsim` | `6.0.0.1` |
-| `torch` | `2.11.0+cu128` |
-| `torchvision` | `0.26.0+cu128` |
-| `torchaudio` | `2.11.0+cu128` |
-| `numpy` | `2.3.1` |
-| `scipy` | `1.17.0` |
-| `lightning` | `2.5.6` |
-| `tensordict` | `0.9.0` |
-| `wandb` | `0.23.0` |
-| `usd-exchange` | `3.0.0` |
-| `mujoco-usd-converter` | `0.2.0` |
-| `urdf-usd-converter` | `0.1.2` |
-| `smplx` | `0.1.28` |
-| `chumpy` | `0.70` |
-| `opencv-python-headless` | `4.13.0.90` |
-| `pillow` | `12.1.1` |
-| `moviepy` | `1.0.3` |
-| `imageio-ffmpeg` | `0.6.0` |
-| `rtree` | `1.4.1` |
-| `scikit-image` | `0.26.0` |
-| `trimesh` | `4.11.1` |
-| `numba` | `0.64.0` |
-| `warp-lang` | `1.15.0.dev20260626` |
-| `newton` | `1.4.0.dev0` |
-| `newton-usd-schemas` | `0.5.0` |
-| `coverage` | `7.6.1` |
-| `pytest` | `9.0.3` |
-
-## 3. Core Python requirements
-
-| Declaration in the root pyproject.toml |
-| --- |
-| `dm-control>=1.0` |
-| `easydict>=1.10` |
-| `lightning>=2.3,<2.6` |
-| `matplotlib>=3.6` |
-| `moviepy>=1.0.3,<2.0.0.dev0; python_version >= '3.9'` |
-| `numpy>=1.21.1` |
-| `omegaconf==2.3.0` |
-| `PyYAML>=6` |
-| `rich>=13` |
-| `rtree>=1.2,<2` |
-| `scikit-image>=0.19` |
-| `scipy>=1.8` |
-| `tensordict>=0.5,<0.10` |
-| `termcolor>=1.1` |
-| `tensorboardX>=2.6` |
-| `torch>=2.2` |
-| `trimesh>=4.4` |
-| `wandb>=0.15,<0.24` |
-
-Torch/TensorDict/Lightning support policies and training; NumPy/SciPy/image libraries support data and evaluation; MuJoCo/dm-control/Trimesh/Rtree support motion, geometry and conversion; OmegaConf/PyYAML handle configuration; MoviePy/image tools handle video; W&B/TensorBoardX handle logging.
-
-## 4. Extras and separate environments
-
-| Install target | Purpose | Guidance |
+| Package | Exact version | Role |
 | --- | --- | --- |
-| `isaaclab` | Physical pedestrian backend | Establish the pinned SDK environment before installing this checkout editable |
-| `crowd` | Pillow and GUI OpenCV helpers | The SDK lock chooses headless OpenCV; avoid installing both OpenCV providers |
-| `dev` | pytest, ONNX export, build and publishing tools | Select tools for the task |
-| `docs` | Upstream Sphinx tools | These bilingual guides are Markdown |
-| `mujoco` / `newton` / `genesis` | Other upstream simulator backends | Use separate environments and their requirements; the four-scene results do not validate these backends |
-| `isaacgym` | Legacy upstream interface; empty extra | This extra does not install the IsaacGym SDK |
-| `packages/crowdsim-ppo` | PointGoal PPO baseline | NumPy ≥1.24, Torch ≥2.2, Python ≥3.10 only |
+| `omegaconf` / `hydra-core` | `2.3.0` / `1.3.2` | Project and saved configurations |
+| `tensordict` | `0.9.0` | Policy tensors and batches |
+| `lightning` / `pytorch-lightning` | `2.5.6` / `2.5.6` | Training |
+| `wandb` / `protobuf` | `0.23.0` / `6.33.6` | Logging and SDK compatibility |
+| `dm-control` / `dm-env` | `1.0.44` / `1.6` | MuJoCo motion and kinematics |
+| `smplx` / `chumpy` | `0.1.28` / `0.70` | Licensed SMPL parsing and skinning |
+| `scikit-image` | `0.26.0` | Image processing and evaluation |
+| `moviepy` / `imageio-ffmpeg` | `1.0.3` / `0.6.0` | Video handling |
+| `easydict` / `termcolor` | `1.13` / `3.3.0` | Reference controller settings and logging |
+| `pytest` | `9.0.3` | CPU functionality tests |
 
-Do not run root-level `uv sync --all-extras` inside the SDK environment. Backend conflicts and Torch requirements differ. Synchronize the complete SDK snapshot from the IsaacLab workspace.
+The overlay lock contains the full list. `dm-control==1.0.40` failed with a missing `flex_bandwidth` on the target MuJoCo 3.11. The [official 1.0.44 release](https://github.com/google-deepmind/dm_control/releases/tag/1.0.44) passed actual CPU contact, stepping, copy and reset checks. Successful imports alone do not establish this compatibility.
 
-## 5. Compatibility settings to preserve
+## Physics and asset contracts
 
-- Standalone Python uses `usd-exchange==3.0.0`; `usd-core` is excluded. They overwrite the same `pxr` files; see the [official usd-exchange package](https://pypi.org/project/usd-exchange/3.0.0/).
-- Standalone USD is `26.8`; the recorded local Kit runtime loaded `25.11`. The environment `check` validates a standalone process, not Kit's USD version.
-- The manifest overrides Newton, schemas and coverage. Known `uv pip check` differences against Sim metadata are `newton==1.4.0.dev0`, `newton-usd-schemas==0.5.0`, and `coverage==7.6.1`. Compare actual diagnostics; investigate additional conflicts rather than accepting any nonzero result.
-- Keep the Linux x86_64 `tool.uv.environments` restriction and platform conditions. They avoid impossible cross-platform `pytetwild` resolution branches.
-- `--locked` checks manifest/lock consistency; `--frozen` skips that check and is not a conflict repair. See [uv's synchronization documentation](https://docs.astral.sh/uv/concepts/projects/sync/).
+- Preserve trained AMP dynamics explicitly: `use_newton_actuators=False`, `enable_external_forces_every_iteration=False`.
+- The new importer defaults root USD to `Physics=physics`; robot spawning and path inspection explicitly select `physx`, preserving SMPL's 24 bodies and 69 DOFs.
+- Warp/ProxyArray/Torch conversions use explicit views; state writes and targets use current official `_index` methods.
+- The [upstream reference registry](../../data/pretrained_models/upstream_reference_registry.json) archives only two old NavIsaacLab branch-specific configs as unsupported. Original weights/sidecars remain intact. Current TRACE/PACER and local fine-tuned releases are outside this exclusion.
+- Software and CPU checks do not certify new-SDK four-scene 60-second physics, videos or paper performance. Existing four-scene recordings used Sim 6.0. New runs require their own exits, states and quality reports.
 
-## 6. System tools and external resources
+## System tools and other backends
 
-Physical runs require Git/Git LFS, uv, an NVIDIA driver and hardware meeting the [Sim 6.0 requirements](https://docs.isaacsim.omniverse.nvidia.com/6.0.0/installation/requirements.html). Video tools invoke `ffmpeg` and `ffprobe`; the Python `imageio-ffmpeg` package alone does not ensure both system commands exist. Pip installation requires Python 3.12 and Linux GLIBC ≥2.35; see [NVIDIA's installation guide](https://docs.isaacsim.omniverse.nvidia.com/6.0.0/installation/install_python.html).
+Install Git/Git LFS, uv, NVIDIA drivers and compatible hardware following the [Isaac Sim 6.1 requirements](https://docs.isaacsim.omniverse.nvidia.com/6.1.0/installation/requirements.html). Recording requires system `ffmpeg` and `ffprobe`; Python video packages do not provide proof that both commands are available. AMASS, SMPL parameters, weights, scenes and materials are external resources: see [configuration](configuration.en.md).
 
-AMASS, SMPL models, TRACE/PACER weights, scene USD/materials, native query maps and historical execution evidence are separate resources. Continue with [configuration](configuration.en.md) after installing packages.
+The default `isaaclab` extra targets the new stack; `isaaclab6` targets Lab12/Sim6.0. The [old snapshot](../../env/isaaclab3_sim6/README.md), dependency inventory and historical experiments remain for replay. Do not run root `uv sync --all-extras` inside the SDK or runtime: MuJoCo, Newton, Genesis, IsaacGym and the standalone PPO baseline have separate environment boundaries.
 
-The public PACER downloader additionally uses `gdown==6.2.0` and `requests`; prefer a separate download environment. Consult root `LICENSE.md`, `legal/`, and reference repositories for data/model license files.
+The root metadata supports Python3.12 and limits uv universal resolution to Linux x86_64. Its Lab packages use portable pinned official Git subdirectories; Sim6.1 explicitly declares `tinyobjloader==2.0.0rc13`. All six simulator extras have pairwise conflicts. Real uv metadata resolution with both pinned Git sources passed under the default prerelease policy; this dry-run does not install or validate their physics. Root MoviePy ranges allow the supported 1/2 writer APIs, while this runtime remains locked to1.0.3. The historical standalone `newton[sim]==1.0.0` extra selects Warp1.12 and is separate from the SDK-owned Newton1.5.2 / Warp1.16 stack.
 
-Next: [Installation](installation.en.md) → [Configuration](configuration.en.md) → [Usage](usage.en.md).
+Next: [installation](installation.en.md) → [configuration](configuration.en.md) → [usage](usage.en.md).

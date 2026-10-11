@@ -106,8 +106,10 @@ def main(argv=None):
     args = parser.parse_args(argv)
     admission.require(not args.output.exists(), "Preserve previous comparisons; use a new output")
     kernel, entry, strict_source = record(original.__file__), record(__file__), record(strict.__file__)
-    admission.require(kernel["sha256"] == KERNEL_SHA, "Original independent comparison kernel changed")
-    admission.require(strict_source["sha256"] == STRICT_SHA, "Original source/population/sampling admission changed")
+    from CrowdSim.humanoid.analysis.cpu_dependency_migration import verify_dependency
+    migrations = [verify_dependency(source["path"], sha)
+                  for source, sha in ((kernel, KERNEL_SHA), (strict_source, STRICT_SHA))
+                  if source["sha256"] != sha]
     baseline_receipt = record(args.baseline_post_receipt)
     baseline, before_ids = strict.admit_post(args.baseline_post_receipt)
     candidate, completion = admit_recovery_evaluation(args.recovery_completion)
@@ -129,6 +131,7 @@ def main(argv=None):
     admission.require("torch" not in sys.modules, "Independent JSON comparison must remain simulator-free")
     report = {"schema": "shared_social.completed_recovery_independent_comparison.v1", "status": "passed_comparison",
               "recorded_at_utc": datetime.now(timezone.utc).isoformat(), "reader": entry, "metric_kernel": kernel,
+              "reader_migrations": migrations,
               "strict_source_population_sampling_admission": strict_source, "verified_artifacts": artifacts,
               "baseline_post_receipt": baseline_receipt, "recovery_evaluation_completion": completion,
               "comparison": comparison, "display_key_bridge": {"baseline": "shared2000", "candidate": "S3_R12500",

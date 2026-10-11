@@ -25,11 +25,17 @@ class Path_Planner():
         self.map_resolution = float(map_resolution)
         self.step_size_m = float(step_size_m)
         self.clearance_m = float(clearance_m)
+        if not np.isfinite(self.map_resolution) or self.map_resolution <= 0:
+            raise ValueError("map_resolution must be positive and finite")
+        if not np.isfinite(self.step_size_m) or self.step_size_m <= 0:
+            raise ValueError("step_size_m must be positive and finite")
+        if not np.isfinite(self.clearance_m) or self.clearance_m < 0:
+            raise ValueError("clearance_m must be nonnegative and finite")
         self.step_px = max(1, int(round(self.step_size_m / self.map_resolution)))
         # ``clearance_m`` is a radius around occupied cells, not a kernel
         # width.  The previous square kernel of clearance/res pixels provided
         # only about half the requested clearance on each side.
-        self.dilate_px = max(1, int(np.ceil(self.clearance_m / self.map_resolution)))
+        self.dilate_px = max(0, int(np.ceil(self.clearance_m / self.map_resolution)))
         self.smooth = smooth
         self.map_dialate = self.post_proc_map(map_free)
         self.map_size = self.map_dialate.shape
@@ -60,6 +66,13 @@ class Path_Planner():
 
         start = tuple(start)
         goal = tuple(goal)
+        for node in (start, goal):
+            if len(node) != 2 or any(not isinstance(value, (int, np.integer)) or isinstance(value, (bool, np.bool_)) for value in node):
+                raise ValueError("A* endpoints must contain two integer grid coordinates")
+            if any(value < 0 or value >= limit for value, limit in zip(node, self.map_size)):
+                return None
+            if self.map_dialate[node] != 0:
+                return None
 
         cache_key = (start, goal)
         if cache_key in self._astar_path_cache:
@@ -77,6 +90,12 @@ class Path_Planner():
 
                 # 使用B样条平滑控制点路径
                 smoothed_path = self.smooth_with_b_spline(control_points, path.shape[0])
+                raster = np.rint(smoothed_path).astype(np.int64)
+                # Splines can cut occupied corners or overshoot map bounds.
+                # Preserve the verified A* route when smoothing is unsafe.
+                if any(not self._edge_is_free(tuple(a), tuple(b))
+                       for a, b in zip(raster[:-1], raster[1:])) or not self._edge_is_free(tuple(raster[0]), tuple(raster[0])):
+                    smoothed_path = control_points.copy()
                 print('[Astar] Found b-spline path with: ', smoothed_path.shape)
 
                 # 可视化结果
@@ -174,8 +193,9 @@ class Path_Planner():
     def _edge_is_free(self, start, goal):
         y0, x0 = int(start[0]), int(start[1])
         dy, dx = int(goal[0]) - y0, int(goal[1]) - x0
-        if max(abs(dy), abs(dx)) <= 1:
-            return True
+        if max(abs(dy), abs(dx)) == 0:
+            return bool(0 <= y0 < self.map_size[0] and 0 <= x0 < self.map_size[1]
+                        and self.map_dialate[y0, x0] == 0)
         key = (dy, dx)
         offsets = self._edge_offset_cache.get(key)
         if offsets is None:
@@ -187,7 +207,19 @@ class Path_Planner():
             )
             self._edge_offset_cache[key] = offsets
         rows, cols = offsets
-        return bool(np.all(self.map_dialate[y0 + rows, x0 + cols] == 0))
+        if (np.any(y0 + rows < 0) or np.any(y0 + rows >= self.map_size[0])
+                or np.any(x0 + cols < 0) or np.any(x0 + cols >= self.map_size[1])):
+            return False
+        if np.any(self.map_dialate[y0 + rows, x0 + cols] != 0):
+            return False
+        if dy and dx:
+            diagonal = (np.diff(rows) != 0) & (np.diff(cols) != 0)
+            # A segment touching the corner of an occupied cell is blocked.
+            # Check both adjacent cells for every rasterized diagonal move.
+            if (np.any(self.map_dialate[y0 + rows[:-1][diagonal], x0 + cols[1:][diagonal]] != 0)
+                    or np.any(self.map_dialate[y0 + rows[1:][diagonal], x0 + cols[:-1][diagonal]] != 0)):
+                return False
+        return True
 
     def reconstruct_path(self, parent, start, goal):
 
@@ -219,13 +251,13 @@ class Path_Planner():
         length_sq = (dx2 ** 2 + dy2 ** 2) ** 1.5
 
         # 计算曲率，避免除零错误
-        curvatures = np.divide(2 * area, length_sq, where=length_sq != 0)
+        curvatures = np.divide(2 * area, length_sq, out=np.zeros_like(length_sq, dtype=np.float64), where=length_sq != 0)
 
         return curvatures
 
     def select_control_points(self, path, curvature_threshold=0.2):
         curvatures = self.calculate_curvature(path)
-        control_points = []  # 始终包括起点 path[0]
+        control_points = [path[0]]  # 始终包括起点 path[0]
         j = 0
         for i, curv in enumerate(curvatures):
             if curv > curvature_threshold:
@@ -242,7 +274,16 @@ class Path_Planner():
 
     def smooth_with_b_spline(self, control_points, num):
 
-        tck, u = splprep(control_points.T, s=0)  # 使用B样条拟合
+        control_points = np.asarray(control_points, dtype=np.float64)
+        if control_points.ndim != 2 or control_points.shape[1] != 2 or not len(control_points):
+            raise ValueError("Spline control_points must be a nonempty [N,2] array")
+        if not np.isfinite(control_points).all() or not isinstance(num, (int, np.integer)) or num < 1:
+            raise ValueError("Spline points must be finite and num positive")
+        keep = np.r_[True, np.any(np.diff(control_points, axis=0) != 0, axis=1)]
+        control_points = control_points[keep]
+        if len(control_points) == 1:
+            return np.repeat(control_points, num, axis=0)
+        tck, u = splprep(control_points.T, s=0, k=min(3, len(control_points) - 1))
         x = np.linspace(0, 1, num)
         new_points = splev(x, tck)  # 插值100个点
         return np.array(new_points).T

@@ -10,6 +10,8 @@ import math
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
+from social_navigation.artifact_identity import artifact_path, same_artifact
+
 ROOT = Path(__file__).resolve().parents[1]
 PLAN = ROOT / "docs/style_improvement_20261008/shared_social_episode_after_recovery_v4/owner_plan.json"
 PLAN_SHA = "8e8314cb35d40eee4b095ac6a05fd7601e92d57027ba56a0ba20e155e3f79c4d"
@@ -76,12 +78,12 @@ def read_status(plan_path=PLAN):
     plan = json.loads(payload)
     selected = plan["stages"][-1]
     runtime = selected["runtime"]
-    run = Path(selected["output_directory"])
+    run = artifact_path(selected["output_directory"], root=ROOT)
     configuration = json.loads((run / "resolved_configuration.json").read_text())
     require(configuration["entry_profile"]["runtime"] == runtime, "Saved runtime differs from the registered plan")
     state_path = plan_path.parent / "owner_state.json"
     state = json.loads(state_path.read_text())
-    require(state["plan"] == {"path": str(plan_path), "bytes": len(payload), "sha256": PLAN_SHA},
+    require(same_artifact(state["plan"], {"path": str(plan_path), "bytes": len(payload), "sha256": PLAN_SHA}, root=ROOT),
             "Owner state selects another plan")
     rows, incomplete = read_metrics(run / "metrics.jsonl", runtime)
     step = next((item for item in state.get("steps", []) if item["name"] == "pilot2000_training"), {})

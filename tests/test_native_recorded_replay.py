@@ -144,7 +144,8 @@ def test_visual_composition_uses_passed_stage_without_context_or_physics(evidenc
     old_has_api = Prim.HasAPI
     monkeypatch.setattr(Prim, "HasAPI", lambda prim, schema: old_has_api(prim, "CollisionAPI" if schema is CollisionAPI else schema))
     from types import SimpleNamespace
-    pxr = SimpleNamespace(Sdf=SimpleNamespace(Layer=SimpleNamespace(FindOrOpen=lambda path: SimpleNamespace(rootPrims=[SimpleNamespace(path="/Root")]))),
+    from pxr import Sdf, UsdUtils
+    pxr = SimpleNamespace(Sdf=Sdf, UsdUtils=UsdUtils,
         Usd=SimpleNamespace(PrimRange=SimpleNamespace(Stage=lambda value, predicate: value.Traverse()), TraverseInstanceProxies=lambda: None),
         UsdGeom=SimpleNamespace(Mesh=Mesh, GetStageUpAxis=lambda value: "Z", GetStageMetersPerUnit=lambda value: 1.),
         UsdPhysics=SimpleNamespace(Scene="Scene", CollisionAPI=CollisionAPI, RigidBodyAPI="RigidBodyAPI"))

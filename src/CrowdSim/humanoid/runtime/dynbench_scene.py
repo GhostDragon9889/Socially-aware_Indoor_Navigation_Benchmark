@@ -479,6 +479,14 @@ class DynBenchSceneProvider:
         return result
 
     def _spawn(self, prim_path, cfg, translation=None, orientation=None, **kwargs):
+        # The Lab 3 USD cloner reads the root layer after global spawns. Keep
+        # this provider's session overrides from redirecting later robot writes.
+        from pxr import Usd
+        stage = _active_spawn_stage()
+        with Usd.EditContext(stage, stage.GetEditTarget()):
+            return self._spawn_in_session(prim_path, cfg, translation, orientation, **kwargs)
+
+    def _spawn_in_session(self, prim_path, cfg, translation=None, orientation=None, **kwargs):
         """Compose entire source as a session sublayer, preserving original /Root paths."""
         del cfg, kwargs
         if (prim_path != SCENE_MARKER_PATH or self._spawned or not self._query_hook_applied

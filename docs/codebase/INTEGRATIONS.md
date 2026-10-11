@@ -1,4 +1,7 @@
 # External Integrations
+
+> **当前默认环境（2026-10-11）**：IsaacLab 3.0 EA（包 17.0.2）/ IsaacSim 6.1.0，使用项目独立 overlay。迁移与实际测试见[迁移审查](../ISAACLAB3_EA_SIM61_MIGRATION_20261011_ZH.md)。下列 2026-10-10 SDK、依赖缺口、远程账户和实验记录保留其当时身份，不能据此推断当前 SDK 或账户状态。
+
 审查：2026-10-10；基于本机文件、安装元数据、AST 和 SHA。此次未启动 Kit、训练或物理重测。完整机器清单见 [inventory.json](../resource_audit_20261010/inventory.json)。
 
 ## Core Sections (Required)

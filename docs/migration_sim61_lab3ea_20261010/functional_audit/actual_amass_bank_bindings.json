@@ -1,0 +1,26 @@
+{
+  "train": {
+    "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/data/diffusion_amp/amass_style_2848/manifest_labeled_v7_train.pt",
+    "bytes": 1155817682,
+    "sha256": "46e0241108e200409c08d1115a270205fe0b6ce827e366a06e8a09f6a2cc82c0",
+    "manifest_sha256": "46e0241108e200409c08d1115a270205fe0b6ce827e366a06e8a09f6a2cc82c0",
+    "manifest_bytes": 1155817682,
+    "match": true
+  },
+  "validation": {
+    "path": "/project/EXP/SangforAndSaut/Assets/motion/amass_smpl_validation.pt",
+    "bytes": 678009566,
+    "sha256": "ae0389770ad4a1dfb6d916b80bbe88b8ff89c7ab80a22d71b77597b6c302cf03",
+    "manifest_sha256": "ae0389770ad4a1dfb6d916b80bbe88b8ff89c7ab80a22d71b77597b6c302cf03",
+    "manifest_bytes": 678009566,
+    "match": true
+  },
+  "test": {
+    "path": "/project/EXP/SangforAndSaut/Assets/motion/amass_smpl_test.pt",
+    "bytes": 65614188,
+    "sha256": "ae3e55e7ab6934919f769e95a141fa1e97b0d305d1b96ce7503ea8fff49d9f23",
+    "manifest_sha256": "ae3e55e7ab6934919f769e95a141fa1e97b0d305d1b96ce7503ea8fff49d9f23",
+    "manifest_bytes": 65614188,
+    "match": true
+  }
+}

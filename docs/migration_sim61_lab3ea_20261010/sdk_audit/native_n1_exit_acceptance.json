@@ -1,0 +1,56 @@
+{
+  "schema": "crowdsim.trace_pace_actual_execution.v1",
+  "status": "completed",
+  "actual_returncode": 0,
+  "actual_returncode_source": "subprocess.Popen.wait",
+  "duration_seconds": 65.82192289499653,
+  "sources_unchanged": true,
+  "inputs_unchanged": true,
+  "result_sha256": "1a39a9f10fcd332750f9b38b08dc0b92273e2bbb1e02768f7c8c5e395968eec6",
+  "child": {
+    "status": "passed",
+    "actual_controls": 60,
+    "falls": 0,
+    "cleanup_succeeded": true,
+    "cleanup_errors": [],
+    "displacement_m": [
+      1.1426231861114502
+    ],
+    "mean_speed_m_s": [
+      0.592026948928833
+    ],
+    "SDK_owned_borrowed_simulation_view_aliases_released": [
+      "articulation",
+      "articulation_data",
+      "sensor:contact_sensor_Pelvis",
+      "sensor:contact_sensor_L_Hip",
+      "sensor:contact_sensor_R_Hip",
+      "sensor:contact_sensor_Torso",
+      "sensor:contact_sensor_L_Knee",
+      "sensor:contact_sensor_R_Knee",
+      "sensor:contact_sensor_Spine",
+      "sensor:contact_sensor_L_Ankle",
+      "sensor:contact_sensor_R_Ankle",
+      "sensor:contact_sensor_Chest",
+      "sensor:contact_sensor_L_Toe",
+      "sensor:contact_sensor_R_Toe",
+      "sensor:contact_sensor_Neck",
+      "sensor:contact_sensor_L_Thorax",
+      "sensor:contact_sensor_R_Thorax",
+      "sensor:contact_sensor_Head",
+      "sensor:contact_sensor_L_Shoulder",
+      "sensor:contact_sensor_R_Shoulder",
+      "sensor:contact_sensor_L_Elbow",
+      "sensor:contact_sensor_R_Elbow",
+      "sensor:contact_sensor_L_Wrist",
+      "sensor:contact_sensor_R_Wrist",
+      "sensor:contact_sensor_L_Hand",
+      "sensor:contact_sensor_R_Hand"
+    ],
+    "SDK_owned_borrowed_simulation_view_alias_identity_verified": true,
+    "public_backend_view_live_before_App_close": false,
+    "SDK_terminal_timeline_aliases_released_before_App_close": true
+  },
+  "source_receipt": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/physics/SecondFloor_N1_60_07_execution.json",
+  "scope": "60 control steps; not 60 simulation seconds or all scenes/camera/long training"
+}

@@ -114,13 +114,16 @@ def test_helper_creates_only_temporary_network_not_trainer_optimizer_or_replay(b
     monkeypatch.setattr(replay, "AMPPolicyReplay", lambda *a, **kw: pytest.fail("RNG helper created replay"))
     before = rng_state()
     try:
+        # Ensure a distinct input RNG state; a deterministic reset is idempotent.
+        torch.manual_seed(177)
+        prior_torch = torch.get_rng_state().clone()
         result = prepare_legacy_evaluation_rng(actor.config)
         assert result["temporary_CPU_PaperAMPNetwork_parameters"] > 1000000
         assert not result["trainer_created"] and not result["optimizer_created"] and not result["replay_created"]
         assert random.random() == random.Random(7).random()
         expected_numpy = np.random.RandomState(7)
         assert np.random.rand() == expected_numpy.rand()
-        assert not torch.equal(before[2], torch.get_rng_state())
+        assert not torch.equal(prior_torch, torch.get_rng_state())
     finally:
         random.setstate(before[0])
         np.random.set_state(before[1])

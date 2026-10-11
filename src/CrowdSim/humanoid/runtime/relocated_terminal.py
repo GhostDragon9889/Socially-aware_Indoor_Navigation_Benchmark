@@ -7,9 +7,12 @@ from pathlib import Path
 import tempfile
 
 from social_navigation.sdk_paths import relocate_sdk_path
+from protomotions.repository import repository_root
 
 
 def derive_relocated_checkout(source, legacy_root, canonical_root):
+    if Path(legacy_root).resolve() != repository_root(__file__):
+        raise ValueError("Source path must resolve to this exact checkout")
     canonical_root = Path(canonical_root).resolve()
     offsets = [0]
     for line in source.splitlines(keepends=True):

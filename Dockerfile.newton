@@ -43,7 +43,7 @@ ENV PATH="/workspace/.venv/bin:$PATH"
 RUN uv pip install pip
 
 # Install PyTorch with CUDA 12.4
-RUN uv pip install torch>=2.2 --index-url https://download.pytorch.org/whl/cu124
+RUN uv pip install "torch>=2.2" --index-url https://download.pytorch.org/whl/cu124
 
 # Install Newton 1.0 from PyPI (includes warp-lang, mujoco, mujoco-warp, viewer deps)
 RUN uv pip install "newton[examples]==1.0.0"

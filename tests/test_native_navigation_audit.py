@@ -232,7 +232,7 @@ def test_formal_admission_rejects_old_fixture_or_missing_actual_exit_before_reso
 
 
 def test_source_drift_is_rejected(monkeypatch):
-    monkeypatch.setattr(native, "HIGH_LEVEL_SHA", "0" * 64)
+    monkeypatch.setattr(native, "CURRENT_HIGH_LEVEL_SHA", "0" * 64)
     with pytest.raises(ValueError, match="registered-duration"):
         native.prepare_kernels(actors=3, controls=30)
 

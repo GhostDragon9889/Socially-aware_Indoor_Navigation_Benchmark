@@ -2,6 +2,8 @@
 
 [简体中文](configuration.zh-CN.md) · [Documentation index](README.md) · Updated: 2026-10-10
 
+The default targets Lab3.0 EA/Sim6.1 with a separate project overlay. Existing SDKs can supply their real path during installation. A historical root `.venv` link does not establish the new environment; existing model releases and results require fresh acceptance measurements.
+
 ## 1. Working directory and environment variables
 
 Use the pinned environment from [installation](installation.en.md), starting at the checkout root:
@@ -9,8 +11,8 @@ Use the pinned environment from [installation](installation.en.md), starting at 
 ```bash
 cd /absolute/path/to/Socially-aware_Indoor_Navigation_Benchmark
 export NAV_ROOT="$PWD"
-export NAV_LAB_ROOT="$(cd ../IsaacLab-Protomotions && pwd)"
-export NAV_PY="$NAV_LAB_ROOT/.venv/bin/python"
+export NAV_LAB_ROOT="$NAV_ROOT/.runtime/IsaacLab61"
+export NAV_PY="$NAV_ROOT/.runtime/isaaclab3_ea_sim61/.venv/bin/python"
 export PYTHONDONTWRITEBYTECODE=1
 export PYTHONPATH="$NAV_ROOT/src:$NAV_ROOT${PYTHONPATH:+:$PYTHONPATH}"
 "$NAV_PY" -m social_navigation status
@@ -201,7 +203,7 @@ The low-level resource preflight checks model/manifest identity only. Unified `s
 
 ## 6. VS Code and configuration maintenance
 
-Open root `Socially-aware_Indoor_Navigation_Benchmark.code-workspace` and select `.venv/bin/python`. `.vscode/settings.json` supplies source paths and excludes data/generated directories; `launch.json` and `tasks.json` expose status, preflight, baseline and native commands. A debugger still needs the same resource configuration and SDK environment.
+Open root `Socially-aware_Indoor_Navigation_Benchmark.code-workspace` and select `.runtime/isaaclab3_ea_sim61/.venv/bin/python`. `.vscode/settings.json` supplies source paths and excludes data/generated directories; `launch.json` and `tasks.json` expose status, preflight, baseline and native commands. A debugger still needs the same resource configuration and SDK environment.
 
 Update `profile.json` hashes with manifest/lock changes, then run the environment checker. When changing a file listed in the upstream mapping, maintain its Git blob record and retain the initial merge value for traceability. Keep generated data, credentials and training weights outside the source publication manifest.
 

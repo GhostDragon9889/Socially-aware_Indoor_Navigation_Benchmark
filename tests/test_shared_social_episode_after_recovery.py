@@ -101,14 +101,20 @@ class EpisodeAfterRecoveryTests(unittest.TestCase):
                     self.assertIsNone(unchanged._DEPS)
         self.assertEqual(before, {key: release.record(pin[0]) for key, pin in consumers.PINS.items()})
 
-    def test_failed_smoke_output_is_preserved_and_only_retry_output_changes(self):
+    def test_sim61_outputs_are_distinct_and_all_historical_profiles_preserved(self):
+        from social_navigation.artifact_identity import same_artifact, artifact_path
+        before = release.record(release.PLAN)
         original = json.loads(release.PLAN.read_text())["stages"]
         actual = release.stages()
-        self.assertEqual(actual[1:], original[1:])
-        self.assertEqual({key: item for key, item in actual[0].items() if key != "output_directory"},
-                         {key: item for key, item in original[0].items() if key != "output_directory"})
-        self.assertNotEqual(actual[0]["output_directory"], original[0]["output_directory"])
-        self.assertTrue((Path(original[0]["output_directory"]) / "result.json").is_file())
+        self.assertEqual(len(actual), 3)
+        for old, new in zip(original, actual, strict=True):
+            self.assertEqual({k: v for k, v in old.items() if k not in {"profile", "output_directory"}},
+                             {k: v for k, v in new.items() if k not in {"profile", "output_directory"}})
+            self.assertTrue(same_artifact(old["profile"], new["profile"]))
+            self.assertNotEqual(artifact_path(old["output_directory"]), Path(new["output_directory"]))
+            self.assertIn("sim61", new["output_directory"])
+            self.assertTrue((artifact_path(old["output_directory"]) / "result.json").is_file())
+        self.assertEqual(before, release.record(release.PLAN))
 
     def test_actual_probe_loads_declared_clock_derivations_without_changing_source(self):
         module, binding, _ = training.prepare_training(self.path, "smoke8")

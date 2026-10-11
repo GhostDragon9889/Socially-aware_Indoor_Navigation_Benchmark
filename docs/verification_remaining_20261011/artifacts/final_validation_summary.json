@@ -1,0 +1,317 @@
+{
+  "schema": "sim61.current_verification_index.v1",
+  "completed_utc": "2026-10-11T10:11:38.110877+00:00",
+  "test_summary": {
+    "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/final_test_summary.json",
+    "bytes": 42323,
+    "sha256": "54d53d214679956a768af8c613b9bdb6f36496734668be21a8c5723d65f96f32"
+  },
+  "unique_test_counts": {
+    "passed": 4988,
+    "skipped": 2
+  },
+  "additional_CPU_subtests": 130,
+  "coverage": {
+    "files": 617,
+    "statements": 71695,
+    "covered_statements": 46149,
+    "line_percent": 64.36850547457982,
+    "branches": 21690,
+    "covered_branches": 11856,
+    "branch_percent": 54.66113416320885,
+    "function_ranges": 4639,
+    "function_ranges_without_body_execution": 1234,
+    "scope": "src and scripts; excludes tests, SDK, third_party, docs and dynamic source outside the measured tree; function body statements are not feature assertions",
+    "actual_runs": [
+      "final_cpu_v11",
+      "final_gpu_tests_v2",
+      "final_grouped_episode256_v5",
+      "final_grouped_future256_v5",
+      "final_isaaclab_benchmark_v5",
+      "final_tracking_lifecycle_v3",
+      "native_final_dp200_raw_v3",
+      "final_native_pair_style_v3",
+      "production_physx_fixed_v3",
+      "native_terminal_Office_N03_sfm_C30"
+    ],
+    "excluded_synthetic_code_objects": [
+      "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/audit_shared_social_high_level.py:native_raw",
+      "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/audit_shared_social_inference.py:recovery_admission",
+      "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/audit_shared_social_native.py:owned_CLI",
+      "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/audit_shared_social_native.py:seeded_main",
+      "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/audit_shared_social_navigation.py:native_raw",
+      "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/diagnose_shared_social_locomotion.py:native_raw",
+      "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/diagnose_shared_social_locomotion.py:registered_duration",
+      "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/evaluate_shared_social_native.py:explicit_seed_CLI",
+      "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/evaluate_shared_social_native.py:explicit_seed_main",
+      "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/evaluate_shared_social_native_style.py:owned_CLI",
+      "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/evaluate_shared_social_native_style.py:seeded_main",
+      "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/evaluate_shared_social_navigation.py:recovery_admission",
+      "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/evaluate_shared_social_tracking.py:recovery_admission",
+      "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/run_shared_social_evaluation.py:recovery_admission",
+      "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/run_shared_social_post_training.py:recovery_admission",
+      "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/run_shared_social_post_training.py:registered_budget",
+      "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/CrowdSim/humanoid/analysis/native_navigation_audit.py:seeded_admission",
+      "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/CrowdSim/humanoid/analysis/native_navigation_style.py:seeded_admission",
+      "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/CrowdSim/humanoid/analysis/paired_initial.py:native_count",
+      "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/CrowdSim/humanoid/application/native_execution_bridge.py:episode_owner_admission",
+      "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/CrowdSim/humanoid/runtime/sealed/sdk6_terminal.py:relocated_checkout",
+      "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/CrowdSim/humanoid/runtime/sealed/sdk6_terminal.py:single_asset",
+      "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/CrowdSim/humanoid/training/episode_mixed_trajectories.py:explicit_float64_clock",
+      "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/CrowdSim/humanoid/training/episode_trajectories.py:explicit_float64_clock"
+    ]
+  },
+  "coverage_identity": {
+    "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/coverage_summary.json",
+    "bytes": 4237,
+    "sha256": "2dbe54f8af110e7442978dd6aecc3d33b463e4a0253de2bdb0372104ce5ef839"
+  },
+  "native_pair": {
+    "sfm": {
+      "native": {
+        "receipt": {
+          "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/native_final_v4_Office_N03_sfm_C6000_execution.json",
+          "bytes": 116294,
+          "sha256": "5c3e923f86976d9002bdae546e3e873047612c91df7b54bcb0b0ec4835b4a429"
+        },
+        "actual_exit": 0,
+        "expected_exit": 0,
+        "elapsed_s": 1521.4892091140064,
+        "source_changes_during_execution": [
+          "src/protomotions/robot_configs/base.py",
+          "src/protomotions/tests/test_robot_config_helpers.py",
+          "src/CrowdSim/tools/test_camera_depth.py",
+          "src/CrowdSim/utils/sensor_stream.py",
+          "src/CrowdSim/humanoid/runtime/grouped_source_migration.py",
+          "scripts/validate_grouped_social.py"
+        ]
+      },
+      "result": {
+        "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/native_final_v4_Office_N03_sfm_C6000/result.json",
+        "bytes": 2924712,
+        "sha256": "2088436c0ba406cb9b9e6fc9025b92e45f834e0975ed024053f522c81278fab1"
+      },
+      "raw_audit": {
+        "receipt": {
+          "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/native_final_sfm200_raw_v1_execution.json",
+          "bytes": 121102,
+          "sha256": "39fd75506a51bb64c458f9e96f7e9aefd8652157cb82a063a03abf8b2efe3081"
+        },
+        "actual_exit": 0,
+        "expected_exit": 0,
+        "elapsed_s": 22.623164411998005,
+        "source_changes_during_execution": []
+      },
+      "raw_base": {
+        "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/native_final_sfm200_raw_v1_base.json",
+        "bytes": 3074,
+        "sha256": "96afe6b98b00392c8fd8a70fdd0c0b03897c4737d01f418b435afb24110e22b9"
+      },
+      "metrics": {
+        "fall_termination_actor_controls": 597,
+        "static_contact_actor_controls": 0,
+        "peer_contact_actor_controls": 0,
+        "route_vertices_reached": [
+          0,
+          0,
+          0
+        ],
+        "same_episode_root_speed_mean_mps": 0.9501659870147705,
+        "supported_foot_origin_speed_proxy_mean_mps": 0.17333728075027466
+      }
+    },
+    "diffusion": {
+      "native": {
+        "receipt": {
+          "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/native_final_v4_Office_N03_diffusion_C6000_execution.json",
+          "bytes": 122087,
+          "sha256": "4c1fc852395f67c45606eb1899e405084173e5e2b6bd15a1c5fa289ade015d19"
+        },
+        "actual_exit": 0,
+        "expected_exit": 0,
+        "elapsed_s": 1779.2790664290078,
+        "source_changes_during_execution": [
+          "src/CrowdSim/tools/test_camera_depth.py",
+          "src/CrowdSim/utils/sensor_stream.py",
+          "src/CrowdSim/humanoid/analysis/cpu_dependency_migration.py",
+          "scripts/evaluate_shared_social_navigation_style.py"
+        ]
+      },
+      "result": {
+        "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/native_final_v4_Office_N03_diffusion_C6000/result.json",
+        "bytes": 2911759,
+        "sha256": "fc40c58040677ab95ecb0183048fc81123a22fa05eab66e54e859fce64c690e2"
+      },
+      "raw_audit": {
+        "receipt": {
+          "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/native_final_dp200_raw_v3_execution.json",
+          "bytes": 122277,
+          "sha256": "0c913657bbace1e3ae4b0de3b7dd5d8ebe1feddd59943ce5bcd0a3906abd41a4"
+        },
+        "actual_exit": 0,
+        "expected_exit": 0,
+        "elapsed_s": 34.68454147099692,
+        "source_changes_during_execution": []
+      },
+      "raw_base": {
+        "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/native_final_dp200_raw_v3_base.json",
+        "bytes": 3118,
+        "sha256": "fe139b2613b6b10c855b64649be5e338199905ab6594d6f8ef58e3ac74d90776"
+      },
+      "metrics": {
+        "fall_termination_actor_controls": 581,
+        "static_contact_actor_controls": 0,
+        "peer_contact_actor_controls": 0,
+        "route_vertices_reached": [
+          0,
+          0,
+          0
+        ],
+        "same_episode_root_speed_mean_mps": 0.9220202565193176,
+        "supported_foot_origin_speed_proxy_mean_mps": 0.16210085153579712
+      }
+    }
+  },
+  "paired_style": {
+    "execution": {
+      "receipt": {
+        "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/final_native_pair_style_v3_execution.json",
+        "bytes": 122328,
+        "sha256": "ec2fb8bbc219f76fd4b5fd2f025b78f864025f26aa715f771409f26c81c5b62a"
+      },
+      "actual_exit": 0,
+      "expected_exit": 0,
+      "elapsed_s": 67.79447458600043,
+      "source_changes_during_execution": []
+    },
+    "result": {
+      "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/final_native_pair_style_v3.json",
+      "bytes": 344494,
+      "sha256": "5492adf93f4d40dec383a9090ee91ee8f745df608e1f7673eb79faa59fe800f4"
+    }
+  },
+  "production_close_and_RTX_camera": {
+    "execution": {
+      "receipt": {
+        "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/production_physx_fixed_v3_execution.json",
+        "bytes": 121998,
+        "sha256": "376cbf9e5ca649d54a87e656477f3f425460af5c8c65abbcfd036c69db9e9a99"
+      },
+      "actual_exit": 0,
+      "expected_exit": 0,
+      "elapsed_s": 48.0318509459903,
+      "source_changes_during_execution": []
+    },
+    "result": {
+      "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/production_physx_fixed_v3/result.json",
+      "bytes": 5556,
+      "sha256": "a45dd9f0c9f0444afff2916abce31a5a57e4b543348e973bd39b4b56682671d1"
+    },
+    "center_depth_m": [
+      2.5,
+      2.5
+    ]
+  },
+  "expected_component_failure": {
+    "execution": {
+      "receipt": {
+        "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/production_physx_component_failure_v3_execution.json",
+        "bytes": 122041,
+        "sha256": "1b0f03c0f8bd74e213750b8f0b0c973eb104856e5810b285b9b65d285b884be7"
+      },
+      "actual_exit": 1,
+      "expected_exit": 1,
+      "elapsed_s": 48.02528028200322,
+      "source_changes_during_execution": []
+    },
+    "result": {
+      "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/production_physx_component_failure_v3/result.json",
+      "bytes": 7063,
+      "sha256": "84c87c737da6722e7ca7cb6e1396700163688d306babf51f3476dfad49fb769b"
+    }
+  },
+  "production_native_exit_issue": {
+    "issue": "PhysX static Python list destructor after Python finalization",
+    "status": "fixed_for_the_exact_reviewed_binding",
+    "root_cause_established": true,
+    "binding_sha256": "8feacb575951aa814dbda988b4e83bf8f3230167b0b4856c1e1e44e3f6a28354",
+    "static_cache_offset": "0x193640",
+    "destructor_offset": "0x10b7a0",
+    "initial_failure": {
+      "receipt": {
+        "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/production_camera_close_v1_execution.json",
+        "bytes": 121551,
+        "sha256": "8b0b80b9ebe5645250dfbacd187f19fa38a7e0d26cd7b4582dd97dcc777191d2"
+      },
+      "actual_exit": -11,
+      "expected_exit": -11,
+      "elapsed_s": 48.99118287800229,
+      "source_changes_during_execution": []
+    },
+    "initial_child_result": {
+      "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/production_camera_close_v1/result.json",
+      "bytes": 5196,
+      "sha256": "909f68b79c1153b62969846fc1670a85a09e3d2921bf528710616ffb3bde0560"
+    },
+    "direct_pre_fix_reproduction": {
+      "receipt": {
+        "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/production_camera_bounded_01_execution.json",
+        "bytes": 121832,
+        "sha256": "66c13a6632c8b5a80d07d74f40b290e6bbce275909243c3e95a87eeb1ec3cd06"
+      },
+      "actual_exit": -11,
+      "expected_exit": -11,
+      "elapsed_s": 48.947689337001066,
+      "source_changes_during_execution": []
+    },
+    "late_attached_pre_fix_reproduction": {
+      "receipt": {
+        "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/production_camera_late_attach_03_execution.json",
+        "bytes": 122108,
+        "sha256": "18bdb467b9b52aa24cb8b4dfe12656fd2391e063d8882dbf2c3838c17adaa06e"
+      },
+      "actual_exit": -11,
+      "expected_exit": -11,
+      "elapsed_s": 53.378442351997364,
+      "source_changes_during_execution": []
+    },
+    "native_stack": {
+      "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/production_camera_late_attach_03.gdb.log",
+      "bytes": 2307,
+      "sha256": "279563da611371b3c9dd769f0e55e52c7f665d0aece30aa5f28840846e20fb95"
+    },
+    "native_stack_location": "libc __run_exit_handlers -> omni.physx.bindings._physx -> list_dealloc -> _PyObject_Free",
+    "fixed_native_destructor_execution": {
+      "receipt": {
+        "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/production_physx_destructor_v3_execution.json",
+        "bytes": 122353,
+        "sha256": "de4fc2c24cd4892676d1a80349d6ec83e4a5d57db38066aeb9c6b57e923bde39"
+      },
+      "actual_exit": 0,
+      "expected_exit": 0,
+      "elapsed_s": 52.27869713299151,
+      "source_changes_during_execution": []
+    },
+    "fixed_native_destructor_breakpoint": {
+      "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/physx_cache_destructor_terminal_v3.json",
+      "bytes": 146,
+      "sha256": "bac5fbb24dba310ae88341f6e1a6e31fe7a5edb4b007d25d186ee2424ef6d6ed"
+    },
+    "note": "The cache owns the clone exclusion list. Clear exactly its reference under the GIL before full App.close; a late C++ destructor breakpoint verified the pointer is zero. Other binary builds are rejected before memory access."
+  },
+  "selected_regression_checks_passed": true,
+  "overall_acceptance_passed": false,
+  "all_project_lines_and_features_verified": false,
+  "bug_free_guarantee": false,
+  "model_quality_acceptance_passed": false,
+  "grouped_full_physical_resume_implemented": false,
+  "scope_limits": [
+    "Measured source coverage is below 100%; static parsing is not dynamic execution.",
+    "Validation AMP checkpoints are short-trained; 22-clip and native 200-second runs contain falls and do not meet tracking/navigation quality.",
+    "Registered 288-run experimental matrix and 2000-update pilot have not been executed as those registered experiments.",
+    "Single-GPU validation; multi-GPU/multi-host and GUI/VR/real-robot acceptance are not established.",
+    "Two legacy IsaacGym test nodes remain skipped; other simulator backends are not fully certified.",
+    "Historical failed/interrupted process observations are retained in execution_inventory_current.json.",
+    "The terminal PhysX cache workaround is specific to the exact inspected Linux/CPython3.12 binding; unknown builds are rejected."
+  ]
+}

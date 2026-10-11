@@ -2,6 +2,8 @@
 
 [简体中文](usage.zh-CN.md) · [Documentation index](README.md) · Updated: 2026-10-10
 
+The default targets Lab3.0 EA/Sim6.1 with a separate project overlay. Existing SDKs can supply their real path during installation. A historical root `.venv` link does not establish the new environment; existing model releases and results require fresh acceptance measurements.
+
 ## 1. Method and modules
 
 The four-scene deployment uses public TRACE trajectory diffusion and a state-only PACER AMP controller fine-tuned on local AMASS. Planned trajectories enter policy observations; AMP outputs PD position targets and PhysX advances pedestrians. Simulation does not move roots along prescribed paths or interpolate joint poses. Recording subsequently replays measured physical poses with camera cuts.
@@ -25,8 +27,8 @@ Complete [installation](installation.en.md) and [configuration](configuration.en
 ```bash
 cd /absolute/path/to/Socially-aware_Indoor_Navigation_Benchmark
 export NAV_ROOT="$PWD"
-export NAV_LAB_ROOT="$(cd ../IsaacLab-Protomotions && pwd)"
-export NAV_PY="$NAV_LAB_ROOT/.venv/bin/python"
+export NAV_LAB_ROOT="$NAV_ROOT/.runtime/IsaacLab61"
+export NAV_PY="$NAV_ROOT/.runtime/isaaclab3_ea_sim61/.venv/bin/python"
 export PYTHONDONTWRITEBYTECODE=1
 export PYTHONPATH="$NAV_ROOT/src:$NAV_ROOT${PYTHONPATH:+:$PYTHONPATH}"
 "$NAV_PY" -m social_navigation status

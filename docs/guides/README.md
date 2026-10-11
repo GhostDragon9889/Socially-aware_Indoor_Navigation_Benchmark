@@ -1,6 +1,6 @@
 # 项目文档 / Project documentation
 
-更新 / Updated: **2026-10-10**。中文和英文指南覆盖相同范围，命令示例保持一致。
+更新 / Updated: **2026-10-11**。中文和英文指南覆盖相同范围，命令示例保持一致。
 The Chinese and English guides cover the same scope and use matching command examples.
 
 | 主题 / Topic | 中文 | English |
@@ -18,8 +18,9 @@ The Chinese and English guides cover the same scope and use matching command exa
 - [实际资源与依赖全面审查 / Verified resource and dependency audit (Chinese)](../RESOURCE_DEPENDENCY_MAP_20261010_ZH.md)
 - [机器清单 / Machine-readable actual inventory](../resource_audit_20261010/inventory.json)
 - [代码结构与依赖分层 / Codebase map](../codebase/STRUCTURE.md)
-- [273 包依赖快照 / 273-package dependency inventory](dependency-inventory.json)
-- [SDK manifest](../../env/isaaclab3_sim6/pyproject.toml)、[lock](../../env/isaaclab3_sim6/uv.lock)、[profile](../../env/isaaclab3_sim6/profile.json)
+- [当前 Lab3 EA / Sim6.1 依赖清单 / Current dependency inventory](dependency-inventory-isaaclab3-ea-sim61.json)
+- [默认 SDK manifest](../../env/isaaclab3_ea_sim61/pyproject.toml)、[lock](../../env/isaaclab3_ea_sim61/uv.lock)、[profile](../../env/isaaclab3_ea_sim61/profile.json)、[项目 overlay lock](../../env/isaaclab3_ea_sim61/requirements.overlay.lock)
+- [历史 Sim6.0 273 包快照 / Historical 273-package snapshot](dependency-inventory.json) 与 [旧 SDK profile](../../env/isaaclab3_sim6/profile.json)
 - [四场景配置 / Four-scene configuration](../../configs/diffusion_amp/four_scene_speed_20261010/)
 - [项目结构 / Detailed structure (Chinese)](../PROJECT_STRUCTURE_ZH.md)
 - [四场景实测记录 / Recorded local four-scene results (Chinese)](../FOUR_SCENE_SPEED_20261010_ZH.md)

@@ -41,6 +41,25 @@ def expert_for(trainer, count=20):
             torch.zeros(count, 69))
 
 
+@pytest.mark.skipif(not torch.cuda.is_available(), reason="Requires a real CUDA checkpoint destination")
+def test_gpu_resume_preserves_cpu_runner_rng_and_moves_optimizer_state(tmp_path):
+    trainer = PaperAMPTrainer(tiny_config())
+    trainer.update(rollout_for(trainer), *expert_for(trainer))
+    generator = torch.Generator(device="cpu").manual_seed(42)
+    runner = {"corpus_rng": generator.get_state(), "physical": {"root_pos": torch.zeros(4, 3)}}
+    path = tmp_path / "cpu_runner.pt"
+    trainer.save(path, runner_state=runner)
+    resumed, restored_runner = PaperAMPTrainer.load(path, device="cuda:0", restore_rng=False)
+    # CPU sampling generators cannot consume RNG state relocated to the GPU.
+    generator.set_state(restored_runner["corpus_rng"])
+    assert next(resumed.model.parameters()).device.type == "cuda"
+    assert resumed.optimizer.state
+    for state in resumed.optimizer.state.values():
+        assert state["exp_avg"].device.type == "cuda"
+        assert state["exp_avg_sq"].device.type == "cuda"
+    resumed.restore_rng()
+
+
 def test_real_optimizer_update_changes_policy_critic_discriminator_and_reports_finite_losses():
     trainer = PaperAMPTrainer(tiny_config())
     rollout = rollout_for(trainer)

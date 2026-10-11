@@ -1,0 +1,12 @@
+{
+  "command": [
+    "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/.venv/bin/python",
+    "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/evaluate_shared_social_tracking.py",
+    "--execution-receipt",
+    "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/grouped_episode256_v1_receipt.json",
+    "--output",
+    "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/full22_episode256_v1"
+  ],
+  "actual_exit_code": 0,
+  "elapsed_s": 322.2634393710032
+}

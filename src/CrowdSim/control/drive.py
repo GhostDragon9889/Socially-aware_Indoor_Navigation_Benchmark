@@ -180,6 +180,8 @@ class DriveController:
         values = actions.detach().cpu().numpy() if isinstance(actions, torch.Tensor) else np.asarray(actions, dtype=np.float32)
         if values.shape != (self.config.num_robots, 2):
             raise ValueError(f"Expected ({self.config.num_robots}, 2) actions, got {values.shape}")
+        if not np.isfinite(values).all():
+            raise ValueError("Robot action values must be finite")
         self._prev_actions[:] = self._actions
         self._actions[:] = np.clip(values, -1.0, 1.0)
 

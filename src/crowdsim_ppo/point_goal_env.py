@@ -40,6 +40,16 @@ class PointGoalBatchEnv:
     def __init__(self, config: PointGoalEnvConfig, device: torch.device) -> None:
         if config.num_envs <= 0 or config.num_neighbors < 0:
             raise ValueError("num_envs must be positive and num_neighbors nonnegative")
+        if isinstance(config.max_episode_steps, bool) or not isinstance(config.max_episode_steps, int) or config.max_episode_steps <= 0:
+            raise ValueError("max_episode_steps must be a positive integer")
+        for field in ("dt", "goal_radius", "collision_radius"):
+            value = getattr(config, field)
+            if not math.isfinite(value) or value <= 0:
+                raise ValueError(f"{field} must be positive and finite")
+        for field in ("max_linear_velocity", "max_angular_velocity", "neighbor_speed"):
+            value = getattr(config, field)
+            if not math.isfinite(value) or value < 0:
+                raise ValueError(f"{field} must be nonnegative and finite")
         self.config = config
         self.device = device
         n, k = config.num_envs, config.num_neighbors
@@ -162,7 +172,13 @@ class PointGoalBatchEnv:
 
     def step(
         self, action: torch.Tensor
-    ) -> tuple[tuple[torch.Tensor, ...], torch.Tensor, torch.Tensor, dict[str, torch.Tensor]]:
+    ) -> tuple[tuple[torch.Tensor, ...], torch.Tensor, torch.Tensor,
+               dict[str, torch.Tensor | tuple[torch.Tensor, ...]]]:
+        if not isinstance(action, torch.Tensor) or action.shape != (self.num_envs, 2):
+            shape = getattr(action, "shape", None)
+            raise ValueError(f"action must have shape ({self.num_envs}, 2), got {shape}")
+        if not torch.isfinite(action).all():
+            raise ValueError("action values must be finite")
         action = torch.stack(
             (action[:, 0].clamp(0.0, 1.0), action[:, 1].clamp(-1.0, 1.0)),
             dim=-1,
@@ -209,9 +225,11 @@ class PointGoalBatchEnv:
             "episode_return": terminal_return,
             "episode_length": terminal_length,
             "goal_distance": distance,
+            # Preserve the transition's final state before automatic reset so
+            # time limits can bootstrap from the correct critic observation.
+            "terminal_observation": self.observe(),
         }
-        self.reset(done)
-        return self.observe(), reward, done, info
+        return self.reset(done), reward, done, info
 
     @staticmethod
     def _wrap_angle(angle: torch.Tensor) -> torch.Tensor:

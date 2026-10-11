@@ -1,0 +1,52 @@
+{
+  "newton": "1.5.2",
+  "warp": "1.16.0",
+  "torch": "2.11.0+cu128",
+  "device": "cpu",
+  "cases": [
+    {
+      "robot": "g1",
+      "fix_base_link": false,
+      "num_envs": 1,
+      "status": "pass",
+      "joint_coords": 36,
+      "joint_dofs": 35,
+      "body_count": 33,
+      "control_target": "joint_target_q",
+      "dof_shape": [
+        1,
+        29
+      ],
+      "body_shape": [
+        1,
+        33,
+        3
+      ],
+      "root_velocity_finite": true,
+      "num_contact_sensors": 0,
+      "elapsed_s": 6.858069633999548
+    },
+    {
+      "robot": "g1",
+      "fix_base_link": true,
+      "num_envs": 1,
+      "status": "pass",
+      "joint_coords": 29,
+      "joint_dofs": 29,
+      "body_count": 33,
+      "control_target": "joint_target_q",
+      "dof_shape": [
+        1,
+        29
+      ],
+      "body_shape": [
+        1,
+        33,
+        3
+      ],
+      "root_velocity_finite": true,
+      "num_contact_sensors": 0,
+      "elapsed_s": 0.8112963770036004
+    }
+  ]
+}

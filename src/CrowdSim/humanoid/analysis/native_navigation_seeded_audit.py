@@ -10,12 +10,13 @@ from pathlib import Path
 from types import ModuleType
 
 from . import native_navigation_audit as frozen
+from .cpu_dependency_migration import verify_reader
 from scripts import evaluate_shared_social_native_seeded as entry
 
 ROOT, original, initial = frozen.ROOT, frozen.original, frozen.initial
 MANIFEST, MANIFEST_SHA = frozen.MANIFEST, frozen.MANIFEST_SHA
 ENTRY = ROOT / "scripts/evaluate_shared_social_native_seeded.py"
-ENTRY_SHA = "22c22bc27a32c4e9529cd3fa7a30ecd1ca97de0427f3bebe4efecc045f3d1f47"
+ENTRY_SHA = "6a318599242ae701ad54ffb59f5229ecfcd07c893e70ea42961540ed80858367"
 FROZEN = ROOT / "CrowdSim/humanoid/analysis/native_navigation_audit.py"
 FROZEN_SHA = "f80f005bb2796bf37168281f243ab462ee207223609b735656a41b7febe9fe8b"
 EXECUTION_SCHEMA = "shared_social.actual_native_seeded_navigation_execution.v1"
@@ -25,11 +26,13 @@ _protocol = frozen._protocol
 
 def source_bindings():
     record, require = original.record, original.require
-    require(Path(frozen.__file__).resolve() == FROZEN and record(FROZEN)["sha256"] == FROZEN_SHA
+    migration = verify_reader(FROZEN, FROZEN_SHA)
+    require(Path(frozen.__file__).resolve() == FROZEN.resolve()
             and Path(entry.__file__).resolve() == ENTRY and record(ENTRY)["sha256"] == ENTRY_SHA,
             "Frozen raw kernel or registered seeded entry changed")
     sources = frozen.source_bindings()
-    return {**sources, "native_reader": record(__file__), "seed7_native_reader": record(FROZEN),
+    return {**sources, "reader_migration": migration,
+            "native_reader": record(__file__), "seed7_native_reader": record(FROZEN),
             "seed7_paired_entry": sources["paired_entry"], "paired_entry": record(ENTRY),
             "seed_entry_sources": entry.source_bindings()}
 

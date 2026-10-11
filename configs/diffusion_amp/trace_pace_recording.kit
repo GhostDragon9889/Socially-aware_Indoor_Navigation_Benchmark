@@ -11,6 +11,8 @@ version = "1.0.0"
 "omni.kit.material.library" = {}
 "omni.kit.viewport.rtx" = {}
 "omni.kit.hydra_texture" = {}
+# Sim6.1 Replicator imports usdrt.population from this SDK extension.
+"omni.hydra.usdrt_delegate" = {}
 
 [settings]
 app.name = "IsaacSim Pedestrian Recording"
@@ -28,6 +30,8 @@ app.updateOrder.checkForHydraRenderComplete = 1000
 app.runLoops.main.rateLimitEnabled = false
 renderer.enabled = "rtx"
 renderer.multiGpu.enabled = false
+# Match the official Lab headless experience: suppress a blocking startup popup.
+persistent.renderer.startupMessageDisplayed = true
 rtx.hydra.readTransformsFromFabricInRenderDelegate = false
 rtx.rendermode = "RealTimePathTracing"
 rtx.rtpt.maxBounces = 3

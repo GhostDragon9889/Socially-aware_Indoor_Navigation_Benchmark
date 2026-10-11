@@ -1,3 +1,5 @@
+> **2026-10-11 迁移入口：** 当前默认为 IsaacLab 3.0 EA（包17.0.2）／IsaacSim 6.1.0.0，项目 `.venv` 指向独立 SDK overlay。请先阅读[迁移报告](ISAACLAB3_EA_SIM61_MIGRATION_20261011_ZH.md)。下列旧 SDK 版本、缺包诊断、训练/评估和视频结果是原日期的历史快照，不能当作新环境验收。新 SDK 依赖缺口已在 overlay 修复；本轮真实运行与剩余边界以迁移报告为准。
+
 # GitHub 源码仓库（2026-10-10）
 
 项目及工作区名称：`Socially-aware_Indoor_Navigation_Benchmark`。
@@ -48,7 +50,7 @@ git log -5 --oneline
    固定提交和许可证位置见 `configs/reference_repositories.json`。
    获取参考源码不等于获得权重或授权数据。
 
-3. 按 [环境说明](../env/isaaclab3_sim6/README.md) 安装已固定的 IsaacLab/Isaac Sim 环境。
+3. 按 [环境说明](../env/isaaclab3_ea_sim61/README.md) 安装已固定的 IsaacLab/Isaac Sim 环境。
    环境快照应应用到 IsaacLab 工作区；将 `.venv` 链接到准备好的环境，并安装本项目。
 
 4. 按 [数据集位置](DATASET_LOCATIONS_ZH.md)、[AMASS 准备](AMASS_PREPARATION_ZH.md)、

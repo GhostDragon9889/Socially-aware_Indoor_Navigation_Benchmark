@@ -139,6 +139,25 @@ def test_handle_model_grad_clipping_can_fail_or_ignore_large_finite_grads():
     assert large_grad_model.weight.grad.item() == 2_000_000.0
 
 
+@pytest.mark.parametrize("fail_on_bad_grads", [False, True])
+def test_infinite_gradients_are_rejected_even_without_magnitude_checks_or_clipping(fail_on_bad_grads):
+    model = nn.Linear(1, 1, bias=False)
+    model.weight.grad = torch.full_like(model.weight, float("inf"))
+    kwargs = dict(
+        config=_grad_config(check_grad_mag=False, gradient_clip_val=0.0,
+                            fail_on_bad_grads=fail_on_bad_grads),
+        fabric=None, model=model, optimizer=torch.optim.SGD(model.parameters(), lr=0.1),
+        model_name="actor",
+    )
+    if fail_on_bad_grads:
+        with pytest.raises(ValueError, match="gradient in actor"):
+            handle_model_grad_clipping(**kwargs)
+    else:
+        metrics = handle_model_grad_clipping(**kwargs)
+        assert metrics["actor/bad_grads_count"] == 1
+        assert torch.equal(model.weight.grad, torch.zeros_like(model.weight))
+
+
 def test_handle_model_grad_clipping_uses_fabric_when_available():
     model = nn.Linear(2, 1, bias=False)
     model.weight.grad = torch.full_like(model.weight, 5.0)
@@ -186,6 +205,16 @@ def test_aggregate_scalar_metrics_single_rank_uses_local_values():
     )
 
     assert metrics == {"loss": 2.0, "scalar": 7.0, "count": 4.0, "phase": "eval"}
+
+
+@pytest.mark.parametrize("shape", [(), (1,), (1, 1)])
+def test_distributed_metrics_weight_single_element_tensors_without_broadcasting_ranks(shape):
+    def all_gather(value):
+        return torch.stack([value, value * 3])
+
+    fabric = SimpleNamespace(world_size=2, device=torch.device("cpu"), all_gather=all_gather)
+    result = aggregate_scalar_metrics({"loss": torch.ones(shape)}, fabric, weight=2)
+    assert result["loss"] == 2.5
 
 
 def test_get_activation_func_returns_modules_and_functionals_and_rejects_unknowns():

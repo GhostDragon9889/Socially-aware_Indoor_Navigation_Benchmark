@@ -9,7 +9,8 @@
     "**/data/**",
     "**/third_party/**",
     "**/.venv/**",
-    "**/build/**"
+    "**/build/**",
+    "**/.runtime/**"
   ],
   "python.testing.pytestEnabled": true,
   "python.testing.unittestEnabled": false,
@@ -38,7 +39,8 @@
     "**/output/**": true,
     "**/data/**": true,
     "**/third_party/**": true,
-    "**/.venv/**": true
+    "**/.venv/**": true,
+    "**/.runtime/**": true
   },
   "search.exclude": {
     "output/**": true,
@@ -51,7 +53,8 @@
     "FLUX/**": true,
     "NavDP/**": true,
     "pyroki/**": true,
-    "usd_convert/**": true
+    "usd_convert/**": true,
+    "**/.runtime/**": true
   },
   "editor.formatOnSave": false,
   "python.envFile": "${workspaceFolder}/.vscode/test.env"

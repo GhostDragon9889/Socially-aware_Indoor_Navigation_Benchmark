@@ -12,6 +12,7 @@ from types import SimpleNamespace
 import numpy as np
 
 from CrowdSim.humanoid.analysis import native_navigation_audit as raw
+from .cpu_dependency_migration import verify_reader
 from scripts import evaluate_shared_social_navigation_style as metric
 
 ROOT = raw.ROOT
@@ -28,7 +29,13 @@ SOURCES = (
 
 def source_bindings():
     records = [metric.record(ROOT / name) for name, _ in SOURCES]
-    metric.require(all(row["sha256"] == sha for row, (_, sha) in zip(records, SOURCES, strict=True)),
+    try:
+        migrations = [verify_reader(ROOT / name, sha) for row, (name, sha) in zip(records, SOURCES, strict=True)
+                      if row["sha256"] != sha]
+    except ValueError as error:
+        raise ValueError("Original native raw or frozen style source changed") from error
+    metric.require(all(row["sha256"] == sha or any(proof["current_sha256"] == row["sha256"] for proof in migrations)
+                       for row, (_, sha) in zip(records, SOURCES, strict=True)),
                    "Original native raw or frozen style source changed")
     frozen = metric.frozen
     reference_records = [metric.record(path) for path in
@@ -37,7 +44,8 @@ def source_bindings():
                 frozen.BASIS_EVALUATION_SHA, raw.MANIFEST_SHA)
     metric.require(all(row["sha256"] == sha for row, sha in zip(reference_records, expected, strict=True)),
                    "Frozen held-out style resources or fixed2848 manifest changed")
-    return {"native_style_reader": metric.record(__file__), "unchanged_style_and_raw_sources": records,
+    return {"native_style_reader": metric.record(__file__), "reader_migrations": migrations,
+            "unchanged_style_and_raw_sources": records,
             "frozen_reference_resources": reference_records, "native_raw_kernels": raw.source_bindings()}
 
 

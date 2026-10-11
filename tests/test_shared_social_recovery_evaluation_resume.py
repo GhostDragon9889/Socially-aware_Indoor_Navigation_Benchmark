@@ -1,5 +1,7 @@
 """Actual prefix admission and fail-closed resumption exits, without SDK."""
 from copy import deepcopy
+import subprocess
+import sys
 import unittest
 from unittest.mock import patch
 
@@ -62,8 +64,14 @@ class ResumedRecoveryEvaluationTests(unittest.TestCase):
             resume.admit_completion(self.completion)
 
     def test_resume_cold_admission_does_not_import_sdk(self):
-        self.assertNotIn("torch", resume.sys.modules)
-        self.assertNotIn("isaacsim", resume.sys.modules)
+        checked = subprocess.run([sys.executable, "-c", """
+from scripts import resume_shared_social_recovery_evaluation as resume
+here = resume.ROOT / 'docs/style_improvement_20261008/shared_social_S3R_evaluation_v2'
+resume.admit_prefix(here / 'completion.json', here / 'failed_output_inventory.json')
+assert 'torch' not in resume.sys.modules
+assert 'isaacsim' not in resume.sys.modules
+"""], cwd=resume.ROOT, capture_output=True, text=True)
+        self.assertEqual(checked.returncode, 0, checked.stderr)
 
 
 if __name__ == "__main__":

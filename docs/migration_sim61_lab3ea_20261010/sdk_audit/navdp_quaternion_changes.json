@@ -1,0 +1,92 @@
+[
+  {
+    "path": "third_party/navdp/configs/tasks/wheeled_task.py",
+    "before_sha256": "669646803ea39a3cc7983f25f4703f7e94202d458ab26d58472fd3c985be1af5",
+    "after_sha256": "f75e4b62186d636012ad83063192168c5fad0f57692a73a96806c3cee678e11b"
+  },
+  {
+    "path": "third_party/navdp/baselines/x-navdp/src/environment/tasks/event_utils.py",
+    "before_sha256": "25523277b1727739c47a15e636872d02332c07ea08be146cf6dca735297f5d38",
+    "after_sha256": "4206732438ff88af5ede81877b118c779dee715208b17595b0e592e40d33282b"
+  },
+  {
+    "path": "third_party/navdp/teleop_imagegoal_wheeled.py",
+    "before_sha256": "a9639f570cc59594b4f99522f055bd08768c842cb19b0c3c86febaecf68b0cc7",
+    "after_sha256": "25d669a0fe2298896f06d63db1061f51c946489841dc302d41fa4c0195ba8d09"
+  },
+  {
+    "path": "third_party/navdp/eval_startgoal_wheeled.py",
+    "before_sha256": "775f7ab668c36fb7a57d9d0213ca7bdb39b77a363f8e93e8a792d6e7fbf6a6e0",
+    "after_sha256": "cb0a1f09af2b20af6a18dc3c61fa8e33222e0de63759c2d1ae7306413c1e1087"
+  },
+  {
+    "path": "third_party/navdp/teleop_pointgoal_wheeled.py",
+    "before_sha256": "75fd72f189fe35787a9608903f1f969afa1af2bc5149f5fbed490004f66b965e",
+    "after_sha256": "e2ace00759d6c4115ac6cc94349dcfd37734cf4313188d14c191fdd147c56118"
+  },
+  {
+    "path": "third_party/navdp/teleop_nogoal_wheeled.py",
+    "before_sha256": "3d93e8e517a5121c155559b176a3e64a8fa20d13b47dbe0e4079e5ae47c29a24",
+    "after_sha256": "ed3bc0c703b3e7032153b91564d0423d2526e7eb9526eea3577964e9e3b708e4"
+  },
+  {
+    "path": "third_party/navdp/eval_nogoal_wheeled.py",
+    "before_sha256": "5d02563dc24e84a0c7c787101f1204499eda496519c4643b9a1fa76a5148496c",
+    "after_sha256": "c96a80b1db6d91c0cb9cc70713a4fac734636777843e2ae0ae62228b8daf5e99"
+  },
+  {
+    "path": "third_party/navdp/eval_pointgoal_wheeled.py",
+    "before_sha256": "7be9549445b0c91e6f4780a2f77ec948e88aa44ad76114f33403c45b1a9d090c",
+    "after_sha256": "eb5685fcbd363da2939a5a90b89827411135b8696a04c3f2f0c41e319dd5ad48"
+  },
+  {
+    "path": "third_party/navdp/eval_imagegoal_wheeled.py",
+    "before_sha256": "f6b79581b7cc2e0ac2872a0d31e6938a1f70c880119ec083fe5e94c845b372db",
+    "after_sha256": "1cf2ba019ae29b431cb14cd4915504cc1538a117ffecb876b9b1f7e83a19d7a1"
+  },
+  {
+    "path": "third_party/navdp/configs/robots/dingo_config.py",
+    "before_sha256": "a64e99d0aea925d853d8c2f9337d6e078ef76f33c443304453e085b392b6e8b5",
+    "after_sha256": "3d6497a52362256ef9f82598c48f98cf399002253fb25d3b29b804786b1ebcdf"
+  },
+  {
+    "path": "third_party/navdp/baselines/x-navdp/src/environment/robots/dingo_config.py",
+    "before_sha256": "e1a327ffe95d4749fa0b8430b86a1cc33e04efa8d4bae36a068dad167a3ebf23",
+    "after_sha256": "4792e4c6857950f9cfdd364e8e92f468b7b507c2df61358fdf9a79661829ff52"
+  },
+  {
+    "path": "third_party/navdp/baselines/x-navdp/src/environment/robots/go2_config.py",
+    "before_sha256": "55166ebf1ac1bd7ed95e030ae1d2249105d6903d93c503aa5155ddf4bfbd14e1",
+    "after_sha256": "99372168b025771a59c6b936717bffc7cd41edd2c8dbcbde11ea2a13616ca63e"
+  },
+  {
+    "path": "third_party/navdp/baselines/x-navdp/src/environment/robots/g1_config.py",
+    "before_sha256": "eee58f97d83513a51899c296d181100ea0029aca9a097aa46f854468cbf167a4",
+    "after_sha256": "f783ee97751f867c0ce372692fd06bf07b78dcea2f1af2fd58adb763886d5039"
+  },
+  {
+    "path": "third_party/navdp/baselines/x-navdp/src/environment/tasks/observation_utils.py",
+    "before_sha256": "aa89ab177c1221c4e0f8ed84da7212d546dae098e65399ff2bbd7708c109dee4",
+    "after_sha256": "8001f51c2e93bf6c0d163e2f177392466826f6c01f95cc751d2e748c942b85db"
+  },
+  {
+    "path": "third_party/navdp/baselines/x-navdp/src/environment/tasks/reward_utils.py",
+    "before_sha256": "293d4f560a5caf629392fc96247a5fad1d435cfd136f69d2cf9bb474bdb804a7",
+    "after_sha256": "64eb4378b3933dd3e6077f80e06f48f1168b0da6cdac63df7bf6a9d34a772976"
+  },
+  {
+    "path": "third_party/navdp/baselines/x-navdp/src/training/worker.py",
+    "before_sha256": "29b9bff0cafd94e8084ab71c264ccf833496b6c3b23afe7fd941ae442793a693",
+    "after_sha256": "3225f26b27f5e7f8abc7303b2fd695a3957eef102578e2187b0d71d1ee4ced59"
+  },
+  {
+    "path": "third_party/navdp/baselines/x-navdp/eval/scripts/evaluate_pointgoal.py",
+    "before_sha256": "38c942ecfd2fe5c7c397ca8c71c03e6655d764fc3752a6a3eff7d87a24561bb4",
+    "after_sha256": "fae9aa5c71602bbab025125b2f767e83a87daf5ba9abf18693717bafb8d349a1"
+  },
+  {
+    "path": "third_party/navdp/baselines/x-navdp/train.py",
+    "before_sha256": "e86e3bfbe77b92fb53ed3b28b241f462683f2edee1a63c262578070dcf6b9695",
+    "after_sha256": "5300c6aa52d1e8e51314be30ec3e1c4a7298a33919a72e99147f854cb864f834"
+  }
+]

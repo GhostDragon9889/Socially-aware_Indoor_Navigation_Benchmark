@@ -808,10 +808,22 @@ class PPO(BaseAgent):
                 else:
                     advantages_denorm = advantages_clamped * adv_std_safe
 
-                # Update EMA on GPU 0 using de-normalized clamped advantages
+                # Include every rank and weight unequal rollout sizes correctly.
+                batch_mean = advantages_denorm.mean()
+                batch_var = advantages_denorm.var(unbiased=False)
+                batch_count = advantages_denorm.numel()
+                if self.fabric.world_size > 1:
+                    all_means = self.fabric.all_gather(batch_mean)
+                    all_vars = self.fabric.all_gather(batch_var)
+                    all_counts = self.fabric.all_gather(batch_count)
+                    if self.fabric.global_rank == 0:
+                        batch_mean, batch_var, _ = combine_moments(
+                            all_means, all_vars, all_counts
+                        )
+
+                # Update EMA on rank 0 using de-normalized clamped advantages.
                 if self.fabric.global_rank == 0:
-                    batch_mean = advantages_denorm.mean()
-                    batch_std = advantages_denorm.std(unbiased=False) + 1e-8
+                    batch_std = torch.sqrt(batch_var) + 1e-8
                     # EMA update: new = alpha * batch + (1 - alpha) * old
                     ema_alpha = self.config.advantage_normalization.ema_alpha
                     self.adv_mean_ema = (
@@ -822,9 +834,13 @@ class PPO(BaseAgent):
                     )
 
                 # Broadcast EMA stats from GPU 0 to all GPUs
-                if self.fabric.world_size > 1 and torch.distributed.is_initialized():
-                    torch.distributed.broadcast(self.adv_mean_ema, src=0)
-                    torch.distributed.broadcast(self.adv_std_ema, src=0)
+                if self.fabric.world_size > 1:
+                    self.adv_mean_ema = self.fabric.broadcast(
+                        self.adv_mean_ema, src=0
+                    ).to(self.device)
+                    self.adv_std_ema = self.fabric.broadcast(
+                        self.adv_std_ema, src=0
+                    ).to(self.device)
 
                 # Store advantage normalization stats for logging
                 adv_norm_log["adv_norm/mean_ema"] = self.adv_mean_ema.item()

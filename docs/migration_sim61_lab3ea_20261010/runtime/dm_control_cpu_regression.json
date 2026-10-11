@@ -1,0 +1,18 @@
+{
+  "dm_control": "1.0.44",
+  "mujoco": "3.11.0",
+  "numpy": "2.5.1",
+  "python_provider": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/runtime/.venv/bin/python",
+  "dm_control_provider": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/runtime/.venv/lib/python3.12/site-packages/dm_control/mjcf/__init__.py",
+  "mujoco_provider": "/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/mujoco/__init__.py",
+  "steps": 1000,
+  "timestep": 0.002,
+  "freefall_z": 0.8018380000000003,
+  "freefall_expected": 0.8037999999999996,
+  "settled_z": 0.09963281815747682,
+  "contacts": 1,
+  "reset_passed": true,
+  "copy_passed": true,
+  "device": "cpu",
+  "Kit_or_GPU_started": false
+}

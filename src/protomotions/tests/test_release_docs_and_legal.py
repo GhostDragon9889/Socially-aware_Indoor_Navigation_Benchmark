@@ -133,7 +133,9 @@ def test_pyproject_discovers_only_protomotions_code_packages():
     package_finder = pyproject["tool"]["setuptools"]["packages"]["find"]
     package_data = pyproject["tool"]["setuptools"]["package-data"]["protomotions"]
 
-    assert package_finder["include"] == ["protomotions", "protomotions.*"]
+    roots = ("protomotions", "CrowdSim", "crowdsim_ppo", "social_navigation", "deployment")
+    assert package_finder["where"] == ["src"]
+    assert package_finder["include"] == [name for root in roots for name in (root, root + ".*")]
     assert package_finder["namespaces"] is False
     assert "protomotions.tests" in package_finder["exclude"]
     assert "data/assets/**/*" in package_data
@@ -154,13 +156,14 @@ def test_setup_discovers_protomotions_subpackages():
     package_finder = pyproject["tool"]["setuptools"]["packages"]["find"]
     discovered = set(
         find_packages(
-            where=str(REPO_ROOT),
+            where=str(REPO_ROOT / package_finder["where"][0]),
             include=package_finder["include"],
             exclude=package_finder["exclude"],
         )
     )
 
     for expected in (
+        "CrowdSim", "crowdsim_ppo", "social_navigation", "deployment",
         "protomotions.agents",
         "protomotions.components",
         "protomotions.envs",
@@ -175,6 +178,8 @@ def test_setup_discovers_protomotions_subpackages():
         assert expected in discovered, f"{expected} would not ship in the wheel"
 
     assert "protomotions.tests" not in discovered
+    assert "CrowdSim.tests" not in discovered
+    assert not any(name.split(".")[0] in {"FLUX", "NavDP", "PACER", "tests"} for name in discovered)
 
 
 def test_every_protomotions_subpackage_has_init_so_it_ships():

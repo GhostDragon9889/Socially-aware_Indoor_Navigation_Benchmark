@@ -31,9 +31,11 @@ def read(path):
 
 
 def bound(identity):
-    if record(identity["path"]) != identity:
+    from social_navigation.artifact_identity import artifact_path, same_artifact
+    path = artifact_path(identity["path"])
+    if not same_artifact(record(path), identity):
         raise ValueError("Recorded artifact changed: " + identity["path"])
-    return read(identity["path"])
+    return read(path)
 
 
 def require(condition, message):

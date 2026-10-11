@@ -1,16 +1,18 @@
 Installation
 ============
 
-ProtoMotions supports five simulation backends: IsaacGym, IsaacLab, Genesis, Newton, and MuJoCo. 
-You can install the simulation of your choice, and the simulation backend is selected via the configuration file.
+The benchmark defaults to IsaacLab 3.0 EA / Isaac Sim 6.1 with an isolated
+project runtime. Its source package supports Python 3.12 on Linux x86_64.
+The other backend sections retain upstream or historical environment references;
+backend availability and physics must be verified separately.
 
-**Tested Versions:**
+**Backend references and migration target:**
 
 .. raw:: html
 
    <p>
      <a href="https://pypi.org/project/newton/1.0.0/"><img src="https://img.shields.io/badge/Newton-1.0.0-brightgreen.svg" alt="Newton"></a>
-     <a href="https://github.com/isaac-sim/IsaacLab/commit/4ecd0b036da19ff6ad2bb4d621f886b63e9f6db8"><img src="https://img.shields.io/badge/IsaacLab-3.0-blue.svg" alt="IsaacLab"></a>
+     <a href="https://github.com/isaac-sim/IsaacLab/commit/ae37b028ea415c91ea2bc32609efcd759ed2b974"><img src="https://img.shields.io/badge/IsaacLab-3.0-blue.svg" alt="IsaacLab"></a>
      <a href="https://developer.nvidia.com/isaac-gym"><img src="https://img.shields.io/badge/IsaacGym-Preview_4-blue.svg" alt="IsaacGym"></a>
      <a href="https://github.com/Genesis-Embodied-AI/Genesis"><img src="https://img.shields.io/badge/Genesis-untested-lightgrey.svg" alt="Genesis"></a>
      <a href="https://github.com/google-deepmind/mujoco"><img src="https://img.shields.io/badge/MuJoCo-3.0+-orange.svg" alt="MuJoCo"></a>
@@ -36,7 +38,7 @@ Which installation path?
      - Genesis is experimental.
    * - IsaacLab
      - **Pinned source checkout**
-     - IsaacLab 12.0.0 with Isaac Sim 6.0 requires Python 3.12 and Linux x86_64.
+     - IsaacLab 17.0.2 / product 3.0 EA with Isaac Sim 6.1.0.0; Python 3.12, Linux x86_64.
    * - IsaacGym
      - **Source checkout only**
      - IsaacGym is not distributed on PyPI: you download it from NVIDIA and
@@ -61,10 +63,14 @@ files are checked out and not still Git LFS pointer files. Pointer files start
 with ``version https://git-lfs.github.com/spec/v1`` and can cause errors such as
 ``is not a valid usda layer`` when IsaacLab loads robot assets.
 
-Using ProtoMotions as a dependency (uv)
----------------------------------------
+Upstream ProtoMotions as a dependency (uv)
+------------------------------------------
 
-Install ProtoMotions directly from Git. Robot meshes and USD assets are Git LFS
+These upstream package examples do not install the benchmark scenes, local
+models or CrowdSim reproduction configuration. Follow the benchmark IsaacLab
+bootstrap below for the default runtime.
+
+Install upstream ProtoMotions directly from Git. Robot meshes and USD assets are Git LFS
 objects, so the source must be fetched with LFS enabled — ``lfs = true``
 requires uv 0.11.32+:
 
@@ -111,9 +117,9 @@ IsaacLab as a dependency
 
 The supported IsaacLab stack is a pinned source workspace rather than a
 standalone ProtoMotions dependency resolution. Follow the IsaacLab procedure
-below to create its Python 3.12 ``.venv``, then install ProtoMotions into that
-environment. A plain ``uv add protomotions[isaaclab]`` in a separate project
-does not install the required IsaacLab source revision.
+below to create the SDK and its separate project overlay. The controlled
+bootstrap validates the SDK source, exact locks, binary providers and project
+requirements. A package extra alone does not reproduce this environment.
 
 Choose Your Simulator(s)
 ------------------------
@@ -121,7 +127,9 @@ Choose Your Simulator(s)
 IsaacGym
 ~~~~~~~~
 
-IsaacGym requires **Python 3.8**.
+IsaacGym requires **Python 3.8**. Use a compatible historical upstream
+ProtoMotions checkout for this section; the current benchmark source package
+requires Python 3.12.
 
 1. Create a conda environment:
 
@@ -153,38 +161,38 @@ IsaacGym requires **Python 3.8**.
 IsaacLab
 ~~~~~~~~
 
-ProtoMotions targets IsaacLab 12.0.0 and Isaac Sim 6.0 from public IsaacLab
-commit ``4ecd0b036da19ff6ad2bb4d621f886b63e9f6db8``. This stack requires
-**Python 3.12**. Install the pinned IsaacLab source checkout before
-ProtoMotions so its workspace packages and simulator dependencies are present.
+The benchmark defaults to IsaacLab 3.0 EA source
+``ae37b028ea415c91ea2bc32609efcd759ed2b974`` (Python package 17.0.2) with
+Isaac Sim 6.1.0.0 and Python 3.12.13. Use the checked-in SDK manifest/lock and
+project overlay, rather than installing broad optional groups into an SDK.
 
-1. Clone and select the supported IsaacLab revision:
+From the benchmark source root, install a new SDK/runtime:
 
-   .. code-block:: bash
+.. code-block:: bash
 
-      git clone https://github.com/isaac-sim/IsaacLab.git
-      cd IsaacLab
-      git checkout 4ecd0b036da19ff6ad2bb4d621f886b63e9f6db8
+   uv python install 3.12.13
+   uv run --no-project --python 3.12.13 python scripts/bootstrap_reproduction.py install --profile isaaclab3_ea_sim61
+   export NAV_LAB="$PWD/.runtime/IsaacLab61"
+   export NAV_PY="$PWD/.runtime/isaaclab3_ea_sim61/.venv/bin/python"
+   "$NAV_PY" -m social_navigation.runtime_environment check --lab-root "$NAV_LAB"
 
-2. Create the pinned IsaacLab environment and install its Isaac Sim extra:
+Reuse a matching installed SDK with
+``python3 scripts/bootstrap_reproduction.py prepare-runtime --profile
+isaaclab3_ea_sim61 --lab-root /absolute/path/to/IsaacLab``. This creates a
+project-owned overlay and preserves the SDK's source and binary providers.
+Accept NVIDIA's EULA before launching Kit.
 
-   .. code-block:: bash
+The root ``isaaclab`` extra names the new stack; ``isaaclab6`` identifies
+historical Lab 12 / Sim 6.0 dependencies. These package versions are sourced from
+pinned IsaacLab Git subdirectories for uv metadata resolution, and are not a
+replacement for the SDK workspace lock. Simulator extras are mutually exclusive.
+The frozen old SDK profile references the earlier project extra and cannot be
+fresh-installed or reapplied against migrated source; reuse an already installed
+matching legacy SDK only. Original old locks and receipts remain unchanged.
 
-      uv sync --extra isaacsim
-      source .venv/bin/activate
-
-3. Install ProtoMotions and dependencies:
-
-   .. code-block:: bash
-
-      uv pip install -e "/path/to/protomotions[isaaclab]" \
-        --extra-index-url https://pypi.nvidia.com
-      uv pip install -r /path/to/protomotions/requirements_isaaclab.txt
-
-.. note::
-
-   IsaacLab/IsaacSim may prompt for NVIDIA EULA acceptance on first use. Accept
-   it interactively before running unattended headless jobs.
+Existing Sim6.0 recordings retain their original environment identity. The new
+runtime is installed and undergoing independent physical acceptance; dependency
+or CPU checks alone do not establish 60-second gait or paper performance.
 
 Genesis (Experimental)
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -207,10 +215,15 @@ Genesis requires **Python 3.10**.
       pip install -e /path/to/protomotions
       pip install -r /path/to/protomotions/requirements_genesis.txt
 
-Newton
-~~~~~~~~~~~~~
+Newton (standalone historical environment)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Newton is a GPU-accelerated physics simulator built on NVIDIA Warp, now available on PyPI.
+The default Lab3EA SDK already supplies Newton 1.5.2 and Warp 1.16. Reuse the
+project SDK overlay to test that backend; do not install the root historical
+``newton`` extra into it. The separate Newton 1.0 instructions below retain the
+upstream standalone environment, not the benchmark's Sim6.1 profile.
+
+Newton is a GPU-accelerated physics simulator built on NVIDIA Warp, available on PyPI.
 For full installation details, see the `Newton Installation Guide <https://newton-physics.github.io/newton/1.0.0/guide/installation.html>`__.
 
 **Requirements**: Python 3.10+ (3.11+ recommended), NVIDIA GPU (compute capability >= 5.0), driver 545+
@@ -227,9 +240,9 @@ For full installation details, see the `Newton Installation Guide <https://newto
    .. code-block:: bash
 
       pip install torch --index-url https://download.pytorch.org/whl/cu124
-      pip install "newton[examples]==1.0.0"
+      pip install "newton[sim]==1.0.0"
 
-   Use ``newton[sim]==1.0.0`` instead of ``newton[examples]==1.0.0`` if you only need headless mode (no viewer).
+   ``newton[examples]`` and importers can add a second ``usd-core`` provider. Keep that optional GUI environment separate from IsaacLab/Isaac Sim.
 
 3. Install ProtoMotions and dependencies:
 

@@ -1,0 +1,94 @@
+{
+  "generated_utc": "2026-10-11T02:24:25.478984+00:00",
+  "scope": "Root Markdown, docs Markdown/RST/TXT, environment README files; reference candidates were scanned, selected current-facing documents were read. No source/runtime/docs owned by other agents changed.",
+  "scanned_files": 835,
+  "files_with_legacy_candidates": 268,
+  "candidate_lines": 561,
+  "candidate_is_bug": false,
+  "reviewed_current_documents": [
+    {
+      "path": "README.md",
+      "sha256": "cb8c8c867fccc684597dba11bb74faea3ab052a15e5cf3530362db27bed78f0d",
+      "classification": "current_default_verified",
+      "finding": "New 6.1 installation and explicit historical Sim6.0 results."
+    },
+    {
+      "path": "CLONE_REPRODUCTION.md",
+      "sha256": "0f476ad1dedf75207e29a234d733a919898be98f79d686b2727a71060e5afb0c",
+      "classification": "current_default_verified",
+      "finding": "Current target profile; no automatic legacy default."
+    },
+    {
+      "path": "FULL_PIPELINE.md",
+      "sha256": "b8a2fa3f1650f5023b64d74756e9679ff85f6ed852681a2431868920f0f02264",
+      "classification": "current_banner_verified",
+      "finding": "Line33 now directs new runs to 6.1; old commands beneath that banner are historical."
+    },
+    {
+      "path": "docs/codebase/STACK.md",
+      "sha256": "bf1449ec9baa3bdc6703eb54a29f6b21d2f884beb0ef6aa9c25d9c275ef85f65",
+      "classification": "historical_snapshot_needs_current_pointer",
+      "finding": "Lines8/42/69/98 describe old physical runtime and pre-migration dependency gap as current stack."
+    },
+    {
+      "path": "docs/codebase/TESTING.md",
+      "sha256": "1c5d3e6b73517f65cd2d72a0f48af5c2b883c631f52f307347345a5f9e0740c0",
+      "classification": "default_command_ambiguity",
+      "finding": "Lines12/15/16 use root .venv interpreter without an explicit legacy label or current NAV_PY."
+    },
+    {
+      "path": "docs/codebase/INTEGRATIONS.md",
+      "sha256": "2b09756655aa0e268065ed9b080e4f69213a0e82913d254d8da99b09f433b541",
+      "classification": "historical_snapshot_needs_current_pointer",
+      "finding": "Core SDK integration row still names IsaacLab-Protomotions."
+    },
+    {
+      "path": "docs/PROJECT_STRUCTURE_ZH.md",
+      "sha256": "be786eaf115a1c9f2758cfde8ecf97108228b570129e5c2077da989c60cf864c",
+      "classification": "default_command_ambiguity",
+      "finding": "Line64 describes verified .venv as default interpreter; current VSCode/runtime profile differs."
+    },
+    {
+      "path": "docs/RESOURCE_DEPENDENCY_MAP_20261010_ZH.md",
+      "sha256": "c689c2a1dabd67dcd292880bc225bb16cff2a889c8e023f2e672d2071e563269",
+      "classification": "historical_snapshot_needs_current_pointer",
+      "finding": "Line29 calls old profile current; line45 pre-migration missing modules and conflict claim need a historical label."
+    },
+    {
+      "path": "docs/GITHUB_SOURCE_ZH.md",
+      "sha256": "3d007f5f2508f3e7259f11d3f29b0415277de02606acda8ae4144f58d8705756",
+      "classification": "clone_instruction_ambiguity",
+      "finding": "Old environment profile in clone preparation is a publication-time record, not the new default installation."
+    },
+    {
+      "path": "docs/SHARED_SOCIAL_EVALUATION_PROTOCOL_ZH.md",
+      "sha256": "3af6b09e12dc22192e9932a897c974993ff2ee13e2ccf158308b1883120e8786",
+      "classification": "historical_protocol_needs_current_pointer",
+      "finding": "Line3 targets Sim6.0.0.1. Preserve original experiment protocol, distinguish current migration."
+    },
+    {
+      "path": "docs/SHARED_SOCIAL_AMP_CURRENT_ZH.md",
+      "sha256": "8bd9a70d6a957618a4b6e35d3543b94f9dc90e1c6514b2fedc27ed95032ebc54",
+      "classification": "current_named_page_needs_migration_pointer",
+      "finding": "Top result remains the four 60s Sim6.0 experiments; no 6.1 acceptance should be inferred."
+    },
+    {
+      "path": "docs/CURRENT_REPRODUCTION_ZH.md",
+      "sha256": "7cdfca301e609abbc1699de1303b2b9e2ca7b7563d97a33fd5bab05fc772309a",
+      "classification": "current_named_page_needs_migration_pointer",
+      "finding": "Top YOHO result and later native failures are historical Sim6.0 evidence; preserve chronology."
+    },
+    {
+      "path": "docs/STRUCTURE_AND_EVALUATION_CURRENT_ZH.md",
+      "sha256": "431ea09a18302da74624ccbcd9a3097c52f8aae73fffa9ef33e17da5ce70f071",
+      "classification": "historical_scope_explicit",
+      "finding": "Dated2026-10-03 history is explicit, but its current pointer chain still leads to old experiment summaries."
+    }
+  ],
+  "history_policy": "Dated Sim6.0 experiments, original commands, metrics, videos and failures retain their actual SDK identity. A literal old SDK string is not automatically a defect.",
+  "new_default": {
+    "profile": "env/isaaclab3_ea_sim61/profile.json",
+    "interpreter": ".runtime/isaaclab3_ea_sim61/.venv/bin/python"
+  },
+  "bilingual_guides_review": "docs/guides installation, configuration, usage and dependency pages explicitly target6.1 and label old6.0 snapshot; no incorrect default found."
+}

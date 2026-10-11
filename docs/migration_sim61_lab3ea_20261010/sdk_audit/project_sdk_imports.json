@@ -1,0 +1,1072 @@
+[
+  {
+    "path": "scripts/probe_paper_foot_support.py",
+    "line": 742,
+    "module": "isaaclab.sim.utils",
+    "name": "get_current_stage",
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "scripts/probe_paper_scene_maps.py",
+    "line": 1154,
+    "module": "omni.physx",
+    "name": null,
+    "module_found": {
+      "target": null,
+      "legacy": null
+    }
+  },
+  {
+    "path": "scripts/probe_paper_scene_maps.py",
+    "line": 1155,
+    "module": "omni.timeline",
+    "name": null,
+    "module_found": {
+      "target": null,
+      "legacy": null
+    }
+  },
+  {
+    "path": "scripts/probe_paper_scene_maps.py",
+    "line": 1156,
+    "module": "omni.usd",
+    "name": null,
+    "module_found": {
+      "target": null,
+      "legacy": null
+    }
+  },
+  {
+    "path": "scripts/probe_paper_scene_maps.py",
+    "line": 1157,
+    "module": "isaaclab.sim",
+    "name": "SimulationCfg",
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "scripts/probe_paper_scene_maps.py",
+    "line": 1157,
+    "module": "isaaclab.sim",
+    "name": "SimulationContext",
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "scripts/probe_paper_scene_maps.py",
+    "line": 1158,
+    "module": "isaaclab.sim.utils.stage",
+    "name": "create_new_stage",
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "scripts/probe_paper_scene_maps.py",
+    "line": 1159,
+    "module": "isaaclab_physx.physics",
+    "name": "PhysxCfg",
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "scripts/probe_paper_scene_maps.py",
+    "line": 1160,
+    "module": "isaacsim.asset.gen.omap.bindings",
+    "name": "_omap",
+    "module_found": {
+      "target": null,
+      "legacy": null
+    }
+  },
+  {
+    "path": "scripts/probe_paper_scene_maps.py",
+    "line": 1570,
+    "module": "isaaclab.app",
+    "name": "AppLauncher",
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "scripts/probe_paper_scene_maps.py",
+    "line": 1576,
+    "module": "omni.kit.app",
+    "name": null,
+    "module_found": {
+      "target": null,
+      "legacy": null
+    }
+  },
+  {
+    "path": "scripts/replay_paper_pedestrians.py",
+    "line": 160,
+    "module": "omni.usd",
+    "name": null,
+    "module_found": {
+      "target": null,
+      "legacy": null
+    }
+  },
+  {
+    "path": "scripts/replay_paper_pedestrians.py",
+    "line": 161,
+    "module": "omni.replicator.core",
+    "name": null,
+    "module_found": {
+      "target": null,
+      "legacy": null
+    }
+  },
+  {
+    "path": "scripts/replay_paper_pedestrians.py",
+    "line": 312,
+    "module": "omni.usd",
+    "name": null,
+    "module_found": {
+      "target": null,
+      "legacy": null
+    }
+  },
+  {
+    "path": "scripts/replay_paper_pedestrians.py",
+    "line": 339,
+    "module": "omni.timeline",
+    "name": null,
+    "module_found": {
+      "target": null,
+      "legacy": null
+    }
+  },
+  {
+    "path": "scripts/replay_paper_pedestrians.py",
+    "line": 340,
+    "module": "omni.usd",
+    "name": null,
+    "module_found": {
+      "target": null,
+      "legacy": null
+    }
+  },
+  {
+    "path": "scripts/replay_paper_pedestrians.py",
+    "line": 501,
+    "module": "isaacsim",
+    "name": "SimulationApp",
+    "module_found": {
+      "target": null,
+      "legacy": null
+    }
+  },
+  {
+    "path": "scripts/resolve_paper_scene_assets.py",
+    "line": 25,
+    "module": "omni.kit.app",
+    "name": "get_app",
+    "module_found": {
+      "target": null,
+      "legacy": null
+    }
+  },
+  {
+    "path": "scripts/resolve_paper_scene_assets.py",
+    "line": 33,
+    "module": "isaacsim.storage.native",
+    "name": "get_assets_root_path",
+    "module_found": {
+      "target": null,
+      "legacy": null
+    }
+  },
+  {
+    "path": "scripts/resolve_paper_scene_assets.py",
+    "line": 33,
+    "module": "isaacsim.storage.native",
+    "name": "path_join",
+    "module_found": {
+      "target": null,
+      "legacy": null
+    }
+  },
+  {
+    "path": "scripts/run_trace_pace.py",
+    "line": 353,
+    "module": "isaaclab.sim.utils",
+    "name": "get_current_stage",
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "scripts/train_paper_amp.py",
+    "line": 61,
+    "module": "omni.physx",
+    "name": null,
+    "module_found": {
+      "target": null,
+      "legacy": null
+    }
+  },
+  {
+    "path": "scripts/train_paper_amp.py",
+    "line": 249,
+    "module": "isaaclab.sim.utils",
+    "name": "get_current_stage",
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/CrowdSim/control/drive.py",
+    "line": 393,
+    "module": "omni.usd",
+    "name": null,
+    "module_found": {
+      "target": null,
+      "legacy": null
+    }
+  },
+  {
+    "path": "src/CrowdSim/humanoid/amp_world.py",
+    "line": 179,
+    "module": "isaaclab.sim",
+    "name": null,
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/CrowdSim/humanoid/amp_world.py",
+    "line": 189,
+    "module": "omni.physx",
+    "name": null,
+    "module_found": {
+      "target": null,
+      "legacy": null
+    }
+  },
+  {
+    "path": "src/CrowdSim/humanoid/contact_monitor.py",
+    "line": 83,
+    "module": "isaaclab.sim.utils",
+    "name": "get_current_stage",
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/CrowdSim/humanoid/runtime/dynbench_live.py",
+    "line": 32,
+    "module": "isaaclab.sim",
+    "name": null,
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/CrowdSim/humanoid/runtime/dynbench_scene.py",
+    "line": 327,
+    "module": "isaaclab.sim",
+    "name": null,
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/CrowdSim/humanoid/runtime/dynbench_scene.py",
+    "line": 455,
+    "module": "isaaclab.assets",
+    "name": "AssetBaseCfg",
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/CrowdSim/humanoid/runtime/dynbench_scene.py",
+    "line": 456,
+    "module": "isaaclab.sim",
+    "name": "UsdFileCfg",
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/CrowdSim/humanoid/runtime/sealed/sdk6_terminal.py",
+    "line": 670,
+    "module": "omni.kit.app",
+    "name": null,
+    "module_found": {
+      "target": null,
+      "legacy": null
+    }
+  },
+  {
+    "path": "src/CrowdSim/humanoid/runtime/sealed/sdk6_terminal.py",
+    "line": 727,
+    "module": "isaaclab.sim",
+    "name": null,
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/CrowdSim/humanoid/runtime/sealed/sdk6_terminal.py",
+    "line": 728,
+    "module": "isaaclab.assets",
+    "name": "AssetBaseCfg",
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/CrowdSim/humanoid/runtime/sealed/sdk6_terminal.py",
+    "line": 729,
+    "module": "isaaclab.scene",
+    "name": "InteractiveScene",
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/CrowdSim/humanoid/runtime/sealed/sdk6_terminal.py",
+    "line": 730,
+    "module": "isaaclab_physx.physics",
+    "name": "PhysxCfg",
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/CrowdSim/humanoid/simulate.py",
+    "line": 45,
+    "module": "omni.replicator.core",
+    "name": null,
+    "module_found": {
+      "target": null,
+      "legacy": null
+    }
+  },
+  {
+    "path": "src/CrowdSim/humanoid/simulate.py",
+    "line": 46,
+    "module": "isaaclab_physx.renderers.isaac_rtx_renderer_utils",
+    "name": "ensure_rtx_hydra_engine_attached",
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/CrowdSim/humanoid/simulate.py",
+    "line": 85,
+    "module": "isaaclab",
+    "name": null,
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/CrowdSim/nav_manager.py",
+    "line": 1099,
+    "module": "isaaclab.sim",
+    "name": null,
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/CrowdSim/nav_manager.py",
+    "line": 1100,
+    "module": "isaaclab.markers",
+    "name": "VisualizationMarkers",
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/CrowdSim/nav_manager.py",
+    "line": 1100,
+    "module": "isaaclab.markers",
+    "name": "VisualizationMarkersCfg",
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/CrowdSim/nav_manager.py",
+    "line": 2502,
+    "module": "omni.usd",
+    "name": null,
+    "module_found": {
+      "target": null,
+      "legacy": null
+    }
+  },
+  {
+    "path": "src/CrowdSim/ppo/train_ppo.py",
+    "line": 606,
+    "module": "omni.kit.app",
+    "name": null,
+    "module_found": {
+      "target": null,
+      "legacy": null
+    }
+  },
+  {
+    "path": "src/CrowdSim/ppo/train_ppo_finetune.py",
+    "line": 462,
+    "module": "omni.kit.app",
+    "name": null,
+    "module_found": {
+      "target": null,
+      "legacy": null
+    }
+  },
+  {
+    "path": "src/CrowdSim/protomotions_runtime.py",
+    "line": 302,
+    "module": "omni.log",
+    "name": null,
+    "module_found": {
+      "target": null,
+      "legacy": null
+    }
+  },
+  {
+    "path": "src/CrowdSim/protomotions_runtime.py",
+    "line": 56,
+    "module": "isaaclab.utils.assets",
+    "name": "ISAAC_NUCLEUS_DIR",
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/CrowdSim/protomotions_runtime.py",
+    "line": 63,
+    "module": "isaaclab.utils.assets",
+    "name": "ISAAC_NUCLEUS_DIR",
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/CrowdSim/scene_setup.py",
+    "line": 276,
+    "module": "omni.usd",
+    "name": null,
+    "module_found": {
+      "target": null,
+      "legacy": null
+    }
+  },
+  {
+    "path": "src/CrowdSim/scene_setup.py",
+    "line": 291,
+    "module": "omni.usd",
+    "name": null,
+    "module_found": {
+      "target": null,
+      "legacy": null
+    }
+  },
+  {
+    "path": "src/CrowdSim/scene_setup.py",
+    "line": 354,
+    "module": "isaaclab.sim",
+    "name": null,
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/CrowdSim/scene_setup.py",
+    "line": 355,
+    "module": "isaaclab.actuators",
+    "name": "ImplicitActuatorCfg",
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/CrowdSim/scene_setup.py",
+    "line": 356,
+    "module": "isaaclab.assets",
+    "name": "ArticulationCfg",
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/CrowdSim/scene_setup.py",
+    "line": 356,
+    "module": "isaaclab.assets",
+    "name": "AssetBaseCfg",
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/CrowdSim/scene_setup.py",
+    "line": 357,
+    "module": "isaaclab.sensors",
+    "name": "CameraCfg",
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/CrowdSim/scene_setup.py",
+    "line": 357,
+    "module": "isaaclab.sensors",
+    "name": "RayCasterCfg",
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/CrowdSim/scene_setup.py",
+    "line": 357,
+    "module": "isaaclab.sensors",
+    "name": "patterns",
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/CrowdSim/scene_setup.py",
+    "line": 496,
+    "module": "omni.usd",
+    "name": null,
+    "module_found": {
+      "target": null,
+      "legacy": null
+    }
+  },
+  {
+    "path": "src/CrowdSim/scene_setup.py",
+    "line": 534,
+    "module": "omni.usd",
+    "name": null,
+    "module_found": {
+      "target": null,
+      "legacy": null
+    }
+  },
+  {
+    "path": "src/CrowdSim/scene_setup.py",
+    "line": 631,
+    "module": "omni.usd",
+    "name": null,
+    "module_found": {
+      "target": null,
+      "legacy": null
+    }
+  },
+  {
+    "path": "src/CrowdSim/scene_setup.py",
+    "line": 731,
+    "module": "omni.usd",
+    "name": null,
+    "module_found": {
+      "target": null,
+      "legacy": null
+    }
+  },
+  {
+    "path": "src/CrowdSim/scene_setup.py",
+    "line": 615,
+    "module": "omni.kit.app",
+    "name": null,
+    "module_found": {
+      "target": null,
+      "legacy": null
+    }
+  },
+  {
+    "path": "src/CrowdSim/tools/eval_policy.py",
+    "line": 465,
+    "module": "omni.kit.app",
+    "name": null,
+    "module_found": {
+      "target": null,
+      "legacy": null
+    }
+  },
+  {
+    "path": "src/CrowdSim/tools/smpl_mesh_visualizer.py",
+    "line": 504,
+    "module": "omni.usd",
+    "name": null,
+    "module_found": {
+      "target": null,
+      "legacy": null
+    }
+  },
+  {
+    "path": "src/CrowdSim/world/builder.py",
+    "line": 199,
+    "module": "omni.kit.app",
+    "name": null,
+    "module_found": {
+      "target": null,
+      "legacy": null
+    }
+  },
+  {
+    "path": "src/CrowdSim/world/builder.py",
+    "line": 164,
+    "module": "isaaclab.sim",
+    "name": null,
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/CrowdSim/world/map.py",
+    "line": 513,
+    "module": "isaaclab.sim",
+    "name": null,
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/CrowdSim/world/map.py",
+    "line": 514,
+    "module": "isaaclab.markers",
+    "name": "VisualizationMarkers",
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/CrowdSim/world/map.py",
+    "line": 514,
+    "module": "isaaclab.markers",
+    "name": "VisualizationMarkersCfg",
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/simulator.py",
+    "line": 9,
+    "module": "isaaclab.sim",
+    "name": null,
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/simulator.py",
+    "line": 12,
+    "module": "isaaclab.scene",
+    "name": "InteractiveScene",
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/simulator.py",
+    "line": 13,
+    "module": "isaaclab.sim",
+    "name": "SimulationContext",
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/simulator.py",
+    "line": 14,
+    "module": "isaaclab_physx.physics",
+    "name": "PhysxCfg",
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/simulator.py",
+    "line": 15,
+    "module": "isaaclab.markers",
+    "name": "VisualizationMarkers",
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/simulator.py",
+    "line": 16,
+    "module": "isaaclab.markers",
+    "name": "VisualizationMarkersCfg",
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/simulator.py",
+    "line": 17,
+    "module": "isaaclab.utils.assets",
+    "name": "ISAAC_NUCLEUS_DIR",
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/simulator.py",
+    "line": 1168,
+    "module": "omni.kit.viewport.utility",
+    "name": "get_active_viewport",
+    "module_found": {
+      "target": null,
+      "legacy": null
+    }
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/simulator.py",
+    "line": 1168,
+    "module": "omni.kit.viewport.utility",
+    "name": "capture_viewport_to_file",
+    "module_found": {
+      "target": null,
+      "legacy": null
+    }
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/simulator.py",
+    "line": 119,
+    "module": "omni.kit.app",
+    "name": null,
+    "module_found": {
+      "target": null,
+      "legacy": null
+    }
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/simulator.py",
+    "line": 344,
+    "module": "omni.appwindow",
+    "name": null,
+    "module_found": {
+      "target": null,
+      "legacy": null
+    }
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/simulator.py",
+    "line": 345,
+    "module": "isaaclab.devices.keyboard.se2_keyboard",
+    "name": "Se2Keyboard",
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/simulator.py",
+    "line": 346,
+    "module": "isaaclab.devices.keyboard.se2_keyboard_cfg",
+    "name": "Se2KeyboardCfg",
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/utils/mjcf_to_usd.py",
+    "line": 243,
+    "module": "omni.kit.app",
+    "name": null,
+    "module_found": {
+      "target": null,
+      "legacy": null
+    }
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/utils/mjcf_to_usd.py",
+    "line": 252,
+    "module": "isaaclab.sim.converters",
+    "name": "MjcfConverter",
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/utils/mjcf_to_usd.py",
+    "line": 252,
+    "module": "isaaclab.sim.converters",
+    "name": "MjcfConverterCfg",
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/utils/perspective_viewer.py",
+    "line": 31,
+    "module": "omni.kit.viewport.utility.camera_state",
+    "name": "ViewportCameraState",
+    "module_found": {
+      "target": null,
+      "legacy": null
+    }
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/utils/perspective_viewer.py",
+    "line": 50,
+    "module": "omni.kit.viewport.utility.camera_state",
+    "name": "ViewportCameraState",
+    "module_found": {
+      "target": null,
+      "legacy": null
+    }
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/utils/perspective_viewer.py",
+    "line": 17,
+    "module": "omni.kit.viewport.utility",
+    "name": "get_active_viewport",
+    "module_found": {
+      "target": null,
+      "legacy": null
+    }
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/utils/scene.py",
+    "line": 7,
+    "module": "isaaclab.sim",
+    "name": null,
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/utils/scene.py",
+    "line": 8,
+    "module": "isaaclab.assets",
+    "name": "ArticulationCfg",
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/utils/scene.py",
+    "line": 8,
+    "module": "isaaclab.assets",
+    "name": "AssetBaseCfg",
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/utils/scene.py",
+    "line": 8,
+    "module": "isaaclab.assets",
+    "name": "RigidObjectCfg",
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/utils/scene.py",
+    "line": 9,
+    "module": "isaaclab.actuators",
+    "name": "ImplicitActuatorCfg",
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/utils/scene.py",
+    "line": 9,
+    "module": "isaaclab.actuators",
+    "name": "IdealPDActuatorCfg",
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/utils/scene.py",
+    "line": 10,
+    "module": "isaaclab.utils.configclass",
+    "name": "configclass",
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/utils/scene.py",
+    "line": 11,
+    "module": "isaaclab.scene",
+    "name": "InteractiveSceneCfg",
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/utils/scene.py",
+    "line": 12,
+    "module": "isaaclab.sensors",
+    "name": "ContactSensorCfg",
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/utils/scene.py",
+    "line": 13,
+    "module": "isaaclab.terrains.terrain_importer_cfg",
+    "name": "TerrainImporterCfg",
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/utils/usd_only_scene.py",
+    "line": 9,
+    "module": "isaaclab.scene",
+    "name": "InteractiveScene",
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/utils/usd_only_scene.py",
+    "line": 15,
+    "module": "isaaclab.cloner.replicate_session",
+    "name": "REPLICATION_QUEUE",
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/utils/usd_only_scene.py",
+    "line": 45,
+    "module": "isaaclab.cloner.replicate_session",
+    "name": "REPLICATION_QUEUE",
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/utils/usd_only_scene.py",
+    "line": 46,
+    "module": "isaaclab_physx.cloner.replicate",
+    "name": "PhysxReplicateContext",
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/utils/usd_utils.py",
+    "line": 5,
+    "module": "isaaclab.sim",
+    "name": null,
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/protomotions/simulator/isaaclab/utils/usd_utils.py",
+    "line": 6,
+    "module": "isaaclab.terrains.utils",
+    "name": "create_prim_from_mesh",
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/protomotions/tests/test_backend_velocity_contract.py",
+    "line": 92,
+    "module": "isaaclab.utils.warp.proxy_array",
+    "name": "ProxyArray",
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  },
+  {
+    "path": "src/protomotions/train_agent.py",
+    "line": 840,
+    "module": "omni.log",
+    "name": null,
+    "module_found": {
+      "target": null,
+      "legacy": null
+    }
+  },
+  {
+    "path": "src/protomotions/utils/simulator_imports.py",
+    "line": 90,
+    "module": "isaaclab.app",
+    "name": "AppLauncher",
+    "module_found": {
+      "target": true,
+      "legacy": true
+    }
+  }
+]

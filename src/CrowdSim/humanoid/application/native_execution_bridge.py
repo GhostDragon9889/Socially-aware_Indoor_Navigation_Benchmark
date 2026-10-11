@@ -13,11 +13,13 @@ import shlex
 from CrowdSim.humanoid.analysis import native_navigation_seeded_audit as raw
 from CrowdSim.humanoid.analysis import native_navigation_seeded_style as style
 from CrowdSim.humanoid.analysis import native_seed_protocol as protocol
+from scripts.compare_shared_social_evidence import bound
 
 ROOT, record, require = raw.ROOT, raw.original.record, raw.original.require
-PYTHON = ROOT.parent / "IsaacLab-Protomotions/.venv/bin/python"
+PYTHON = ROOT / ".venv/bin/python"
 MATRIX = ROOT / "docs/style_improvement_20261006/shared_social_native_seeded_preparation_v1/registered_S3_native_matrix.json"
 MATRIX_SHA = "e8a72e6d0971459eac68ac499a2f05b6253cda7804502afea6b5dc591730d50d"
+CURRENT_MATRIX_SHA = "29423976c0e6d40e940ca2ba057950aeefa8c4fbc927046324791ce132af44c2"
 S3 = ROOT / "docs/style_improvement_20261005/shared_social_budget12500_v1"
 TRAINING_RECEIPT = S3 / "budget12500_execution.json"
 CHECKPOINT = ROOT / "output/diffusion_amp/shared_social_budget12500_v1/step_012500.pt"
@@ -37,12 +39,25 @@ def readonly_json(path):
     return value, identity
 
 
+def current_matrix():
+    """Admit the whole current matrix before selecting any individual case."""
+    from . import native_matrix_migration
+    historical, original_identity = readonly_json(MATRIX)
+    require(original_identity["sha256"] == MATRIX_SHA, "Exact native156 pre-registration changed")
+    matrix, identity = readonly_json(native_matrix_migration.MATRIX)
+    require(identity["sha256"] == CURRENT_MATRIX_SHA
+            and matrix["registration_migration"]["historical_matrix"] == original_identity
+            and matrix["registration_migration"]["adapter"] == record(native_matrix_migration.__file__)
+            and matrix["protocol_source"] == record(protocol.__file__)
+            and matrix["sources"] == raw.entry.source_bindings(),
+            "Current native156 registration or sources changed")
+    return matrix, identity
+
+
 def prepare_case(case_id):
     from CrowdSim.humanoid.application.native_deployment import preflight_native_scene
 
-    matrix, identity = readonly_json(MATRIX)
-    require(identity["sha256"] == MATRIX_SHA and matrix["protocol_source"] == record(protocol.__file__)
-        and matrix["sources"] == raw.entry.source_bindings(), "Exact native156 pre-registration or sources changed")
+    matrix, identity = current_matrix()
     selected = [row for row in matrix["cases"] if row["case_id"] == case_id]
     require(len(selected) == 1, "Select exactly one pre-registered native case")
     case = selected[0]
@@ -118,12 +133,12 @@ def admit_S3_owner_completion(certificate_path):
         and certificate.get("completed_exec_cell_id") == "581" and certificate.get("completion_observed_by_root") is True
         and certificate.get("owner_source") == owner_source and owner_source["sha256"] == OWNER_SHA,
         "Require externally observed S3 owner completion; training receipt alone does not release its later GPU stages")
-    owner = style.metric.bound(certificate["terminal_owner_state"])
+    owner = bound(certificate["terminal_owner_state"])
     require(owner["stage"] == "completed_measurements_quality_unclassified" and owner["training_exit_observed"] is True
         and type(owner["training_terminal"]["exit_code"]) is int and owner["training_terminal"]["exit_code"] == 0,
         "S3 training and its serial post-evaluation owner are not complete")
     checkpoint, sha, training = admit_training(TRAINING_RECEIPT)
-    result = style.metric.bound(training["result"])
+    result = bound(training["result"])
     require(checkpoint == CHECKPOINT and result["completed_updates"] == 12500
         and result["actual_training_transitions"] == 102400000 and training["value_normalization"] == "popart",
         "Require the complete preselected S3 terminal candidate, never an intermediate or S1 checkpoint")
@@ -148,6 +163,17 @@ def _write_new(path, value):
     return record(path)
 
 
+def navigation_summary(result, actors):
+    """Publish driver counts for the independent raw-array cross-check."""
+    falls, arrivals = result.get("fall_resets"), result.get("route_vertices_reached")
+    require(type(actors) is int and 3 <= actors <= 15
+            and type(falls) is int and falls >= 0
+            and type(arrivals) is list and len(arrivals) == actors
+            and all(type(value) is int and value >= 0 for value in arrivals),
+            "Require complete integer navigation termination and route summaries")
+    return {"fall_resets": falls, "route_vertices_reached": list(arrivals)}
+
+
 def publish_sdk_exit(case_id, *, planner, controls, observation_path, owner_completion):
     admitted = admit_S3_owner_completion(owner_completion)
     plan = prepare_case(case_id)
@@ -165,6 +191,7 @@ def publish_sdk_exit(case_id, *, planner, controls, observation_path, owner_comp
     result = json.loads(result_path.read_text())
     require(result["shared_navigation_migration"]["training_execution_admission"] == admitted["training"],
             "Actual native SDK used another terminal AMP candidate")
+    receipt.update(navigation_summary(result, plan["case"]["actors"]))
     receipt.update(result=record(result_path), raw_arrays=[record(Path(stage["output"]) / name) for name in
         ("physical_states.npz", "ground_support.npz", "reference_plans.npz")])
     identity = _write_new(stage["SDK_receipt"], receipt)

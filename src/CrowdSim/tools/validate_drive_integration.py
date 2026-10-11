@@ -22,19 +22,10 @@ PROJECT_ROOT = repository_root(__file__)
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from protomotions.utils.simulator_imports import import_simulator_before_torch  # noqa: E402
+def _yaw(quat, order: str = "xyzw") -> float:
+    from CrowdSim.control.drive import quaternion_yaw
 
-import_simulator_before_torch("isaaclab")
-
-import torch  # noqa: E402
-
-from CrowdSim.utils.config_loader import load_config  # noqa: E402
-from CrowdSim.world.builder import build_env  # noqa: E402
-
-
-def _yaw(quat: torch.Tensor) -> float:
-    w, x, y, z = (float(value) for value in quat.detach().cpu())
-    return math.atan2(2.0 * (w * z + x * y), 1.0 - 2.0 * (y * y + z * z))
+    return float(quaternion_yaw(quat, order))
 
 
 def _angle_delta(end: float, start: float) -> float:
@@ -42,6 +33,8 @@ def _angle_delta(end: float, start: float) -> float:
 
 
 def _humanoid_action(runtime, observation):
+    import torch
+
     agent = runtime.agent
     observation = agent.add_agent_info_to_obs(observation)
     observation_td = agent.obs_dict_to_tensordict(observation)
@@ -51,11 +44,15 @@ def _humanoid_action(runtime, observation):
 
 
 def _advance(runtime, nav, action: np.ndarray, steps: int) -> tuple[float, float, float]:
+    import torch
+    from CrowdSim.control.drive import articulation_torch_view, resolve_articulation_quaternion_order
+
     env = runtime.env
     observation, _ = env.reset(None)
     robot = nav.robot
-    start_xy = robot.data.root_pos_w[0, :2].detach().cpu().numpy().copy()
-    start_yaw = _yaw(robot.data.root_quat_w[0])
+    order = resolve_articulation_quaternion_order(env=env, config=nav.config)
+    start_xy = articulation_torch_view(robot.data.root_pos_w)[0, :2].detach().cpu().numpy().copy()
+    start_yaw = _yaw(articulation_torch_view(robot.data.root_quat_w)[0], order)
     max_post_step_root_velocity = 0.0
 
     command = torch.as_tensor(action[None], dtype=torch.float32, device=nav.config.device)
@@ -63,16 +60,16 @@ def _advance(runtime, nav, action: np.ndarray, steps: int) -> tuple[float, float
         humanoid_action = _humanoid_action(runtime, observation)
         nav.set_robot_rl_actions(command)
         observation, _, _, _, _ = env.step(humanoid_action)
-        physical_linear = torch.linalg.vector_norm(robot.data.root_lin_vel_w[0, :2])
-        physical_angular = torch.abs(robot.data.root_ang_vel_w[0, 2])
+        physical_linear = torch.linalg.vector_norm(articulation_torch_view(robot.data.root_lin_vel_w)[0, :2])
+        physical_angular = torch.abs(articulation_torch_view(robot.data.root_ang_vel_w)[0, 2])
         max_post_step_root_velocity = max(
             max_post_step_root_velocity,
             float(physical_linear),
             float(physical_angular),
         )
 
-    end_xy = robot.data.root_pos_w[0, :2].detach().cpu().numpy().copy()
-    end_yaw = _yaw(robot.data.root_quat_w[0])
+    end_xy = articulation_torch_view(robot.data.root_pos_w)[0, :2].detach().cpu().numpy().copy()
+    end_yaw = _yaw(articulation_torch_view(robot.data.root_quat_w)[0], order)
     return (
         float(np.linalg.norm(end_xy - start_xy)),
         _angle_delta(end_yaw, start_yaw),
@@ -87,6 +84,8 @@ def _track_root_velocity_writes(robot) -> dict[str, float]:
     solving.  That is physical response, not duplicate command integration.
     The regression invariant is that DriveController itself only writes zero.
     """
+    import torch
+
     original = robot.write_root_velocity_to_sim
     tracker = {"maximum": 0.0}
 
@@ -106,6 +105,15 @@ def main() -> None:
     parser.add_argument("--steps", type=int, default=10)
     parser.add_argument("--tolerance", type=float, default=0.12)
     args = parser.parse_args()
+    if args.steps < 1:
+        parser.error("--steps must be positive")
+    if not math.isfinite(args.tolerance) or args.tolerance < 0:
+        parser.error("--tolerance must be finite and nonnegative")
+
+    from protomotions.utils.simulator_imports import import_simulator_before_torch
+    import_simulator_before_torch("isaaclab")
+    from CrowdSim.utils.config_loader import load_config
+    from CrowdSim.world.builder import build_env
 
     config = copy.deepcopy(load_config(PROJECT_ROOT / args.config))
     navigation = config.setdefault("navigation", {})

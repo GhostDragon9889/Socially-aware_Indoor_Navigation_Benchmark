@@ -1,3 +1,5 @@
+> **2026-10-11 迁移入口：** 当前默认为 IsaacLab 3.0 EA（包17.0.2）／IsaacSim 6.1.0.0，项目 `.venv` 指向独立 SDK overlay。请先阅读[迁移报告](ISAACLAB3_EA_SIM61_MIGRATION_20261011_ZH.md)。下列旧 SDK 版本、缺包诊断、训练/评估和视频结果是原日期的历史快照，不能当作新环境验收。新 SDK 依赖缺口已在 overlay 修复；本轮真实运行与剩余边界以迁移报告为准。
+
 > 2026-10-10：项目已重命名为 **Socially-aware_Indoor_Navigation_Benchmark**，核心源码迁至 `src/`。
 > 入口与目录说明见 [项目结构](PROJECT_STRUCTURE_ZH.md)；历史路径通过兼容链接保留。
 

@@ -16,6 +16,7 @@ from CrowdSim.humanoid.application import episode_reference_clock_grid as clock_
 from CrowdSim.humanoid.runtime.social_evaluation_lifecycle import record
 from scripts import resume_shared_social_recovery_evaluation as resumed
 from scripts import train_shared_social_episode_reference as candidate
+from social_navigation.artifact_identity import artifact_path, same_artifact
 
 ROOT = candidate.ROOT
 SCHEMA = "shared_social.episode_candidate_after_optimizer_recovery_release.v1"
@@ -37,9 +38,10 @@ def stages():
     recovery.require([row["stage"] for row in plan["stages"]] == ["smoke8", "smoke256", "pilot2000"],
                      "Keep the registered complete episode candidate stage order")
     stages = plan["stages"]
-    # Keep the failed smoke8_v1 directory. Only its retry uses a fresh path;
-    # the unused larger stages retain the independent evaluation registration.
-    stages[0] = {**stages[0], "output_directory": str(ROOT / "output/diffusion_amp/shared_social_episode_reference_smoke8_v3")}
+    # Sim61 training has independent destinations; historical runs are evidence.
+    for row in stages:
+        row["profile"] = {**row["profile"], "path": str(artifact_path(row["profile"]["path"]))}
+        row["output_directory"] = str(ROOT / "output/diffusion_amp" / ("shared_social_episode_reference_" + row["stage"] + "_sim61_v1"))
     return stages
 
 
@@ -54,9 +56,9 @@ def release_document():
     comparison = json.loads(COMPARISON.read_text())
     observed = json.loads(OBSERVATION.read_text())
     recovery.require(comparison.get("status") == "passed_comparison"
-                     and comparison.get("recovery_evaluation_completion") == evidence[EVALUATION]
-                     and observed.get("comparison") == evidence[COMPARISON]
-                     and observed.get("resumed_evaluation_completion") == evidence[EVALUATION]
+                     and same_artifact(comparison.get("recovery_evaluation_completion"), evidence[EVALUATION])
+                     and same_artifact(observed.get("comparison"), evidence[COMPARISON])
+                     and same_artifact(observed.get("resumed_evaluation_completion"), evidence[EVALUATION])
                      and all(recovery.exact_integer(observed.get(key), 0) for key in (
                          "actual_navigation_child_exit_code", "actual_original_CPU_audit_child_exit_code",
                          "actual_CPU_comparison_exit_code"))
@@ -66,7 +68,7 @@ def release_document():
     module._sources()
     for row in stages():
         _, profile = module._profile(Path(row["profile"]["path"]))
-        recovery.require(profile == row["profile"], "Candidate registered profile changed")
+        recovery.require(same_artifact(profile, row["profile"]), "Candidate registered profile changed")
     return {"schema": SCHEMA, "recovery_training_completion": identities["completion"],
             "recovered_checkpoint": documents["completion"]["checkpoint"],
             "completed_evaluation": evidence[EVALUATION], "completed_comparison": evidence[COMPARISON],

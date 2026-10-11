@@ -20,11 +20,12 @@ sys.path.insert(0, str(ROOT))
 from scripts import compare_shared_social_evidence as kernel  # noqa: E402
 from scripts import verify_shared_social_evidence_admission as strict  # noqa: E402
 from scripts import own_shared_social_episode_pipeline as owner  # noqa: E402
+from social_navigation.artifact_identity import artifact_path
 from scripts import evaluate_shared_social_tracking as child_admission  # noqa: E402
 
 HERE = ROOT / "docs/style_improvement_20261008/shared_social_episode_comparison_preparation_v1"
-REGISTRATION = HERE / "registration.json"
-OUTPUT = HERE / "result.json"
+REGISTRATION = ROOT / "configs/compatibility/episode_sim61/comparison.json"
+OUTPUT = ROOT / "output/evaluation/shared_social_episode_historical_comparison_sim61_v1.json"
 BASELINE = ROOT / "docs/style_improvement_20261005/shared_social_full_epochs_v1/post_training_execution.json"
 BASELINE_SHA = "640b0cf7d6152f2be7ecf523eaa20bc5d135642e4ad75f851dfa5a92e213f19f"
 PLAN = ROOT / "docs/style_improvement_20261008/shared_social_episode_after_recovery_v4/owner_plan.json"
@@ -52,14 +53,16 @@ def registration_document():
     sources = {}
     for path, sha in PINS.items():
         sources[path.name] = kernel.record(path)
-        require(sources[path.name]["sha256"] == sha, "Original metric/admission source changed")
+        if sources[path.name]["sha256"] != sha:
+            from CrowdSim.humanoid.analysis.cpu_dependency_migration import verify_dependency
+            verify_dependency(path, sha)
     baseline = readonly(BASELINE)
     require(baseline["sha256"] == BASELINE_SHA, "Fixed same-budget S2 owner receipt changed")
     bundle, measurements = strict.admit_post(BASELINE)
     training = kernel.bound(bundle["tracking"]["training_execution_admission"]["result"])
     require(training["completed_updates"] == 2000 and training["actual_training_transitions"] == 16384000,
             "Retain the full same-budget fresh2000 baseline")
-    plan = owner.admit_plan(PLAN)
+    plan = owner.admit_plan(PLAN, historical=True)
     plan_identity = readonly(PLAN)
     require(plan_identity["sha256"] == PLAN_SHA, "Select the actual registered episode candidate owner plan")
     selected = plan["stages"][-1]
@@ -70,7 +73,7 @@ def registration_document():
             "baseline_checkpoint": bundle["tracking"]["training_execution_admission"]["checkpoint"],
             "candidate_owner_plan": plan_identity, "candidate_completion_path": str(COMPLETION),
             "candidate_training_receipt_path": str(RECEIPT),
-            "preselected_candidate_checkpoint": str(Path(selected["output_directory"]) / "step_002000.pt"),
+            "preselected_candidate_checkpoint": str(artifact_path(selected["output_directory"]) / "step_002000.pt"),
             "comparison_output": str(OUTPUT), "training_updates_each": 2000,
             "physical_training_transitions_each": 16384000, "fixed_real_AMASS_training_clips": 2848,
             "validation_clips": 22, "complete_validation_control_steps_each": 11982,
@@ -118,7 +121,7 @@ def admit_candidate(registered):
     completed = kernel.read(COMPLETION)
     validate_owner(completed)
     require(completed.get("plan") == registered["candidate_owner_plan"], "Completed candidate owner selects another plan")
-    plan = owner.admit_plan(PLAN)
+    plan = owner.admit_plan(PLAN, historical=True)
     full_module = owner.evaluation.prepare_pipeline(plan["serial_release"]["path"])
     checkpoint, _, full = full_module.admit_training(RECEIPT)
     base_checkpoint, _, base = child_admission.admit_training(RECEIPT)

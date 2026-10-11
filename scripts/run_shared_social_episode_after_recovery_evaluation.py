@@ -30,7 +30,7 @@ def validate_training_owner(document):
 
 def prepare_pipeline(release_path):
     release.admit_release(release_path)
-    registration, _ = admission.admit_registration()
+    registration, _ = admission.admit_registration(admission.CURRENT_TRAINING_REGISTRATION)
     module = original.prepare_pipeline(registration)
     _, training_binding, _ = training.prepare_training(release_path, "pilot2000")
     parent_admit = module.admit_training
@@ -78,7 +78,7 @@ def main(argv=None):
     if args.execution_receipt is None:
         parser.error("--execution-receipt is required")
     return module.main(["--execution-receipt", str(args.execution_receipt.resolve()),
-                        "--registration", str(admission.REGISTRATION), "--output", str(admission.OUTPUT)])
+                        "--registration", str(admission.CURRENT_TRAINING_REGISTRATION), "--output", str(admission.CURRENT_OUTPUT)])
 
 
 if __name__ == "__main__":

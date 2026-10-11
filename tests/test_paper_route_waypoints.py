@@ -33,16 +33,23 @@ def open_scene():
     (3.7, [[1091215783, 1091043328], [1086324736, 1097265566],
            [1097125069, 1086324736], [1098383360, 1098354008]]),
 ])
-def test_legacy_frozen_float_bits_and_timed_endpoint_exact(scene, lookahead, bits):
-    # Captured from the original source before this change, not recomputed by
-    # the new helper. Includes non-grid starts and a reached route vertex.
+def test_corner_safe_route_migrates_old_bits_and_retains_exact_timed_endpoint(scene, lookahead, bits):
+    # Retain the old algorithm's bits as evidence of the intended migration.
+    # That algorithm accepted diagonal corner cuts; restoring those outputs
+    # would regress the independent grid-corner collision tests.
     positions = torch.tensor([[6., 6.], [6.113, 17.928], [18., 6.], [17.876, 18.057]])
     original = positions.clone()
     indices = torch.tensor([0, 2, 1, 3])
     scene.lookahead = lookahead
     goal, updated, reached = scene.route_goal(positions, indices)
     points, timed_updated, timed_reached = scene.route_waypoints(positions, indices)
-    assert goal.view(torch.int32).tolist() == bits
+    assert goal.view(torch.int32).tolist() != bits
+    assert bool(torch.isfinite(points).all()) and not scene.occupied(points).any()
+    polyline = torch.cat((positions[:, None], points), dim=1)
+    fractions = torch.linspace(0, 1, 101)[None, None, :, None]
+    dense = polyline[:, :-1, None] + fractions * (polyline[:, 1:, None] - polyline[:, :-1, None])
+    assert not scene.occupied(dense).any()
+    assert torch.all(torch.linalg.vector_norm(goal - positions, dim=-1) <= lookahead + 1e-5)
     assert torch.equal(points[:, -1], goal)
     assert torch.equal(timed_updated, updated) and torch.equal(timed_reached, reached)
     assert torch.equal(positions, original)
@@ -65,7 +72,7 @@ def test_same_one_astar_path_supplies_all_timestamps(scene, monkeypatch):
 
 
 def test_route_samples_follow_obstacle_detour(scene):
-    scene.lookahead = 20.
+    scene.lookahead = 24.  # The safer corner-free A* detour exceeds 20m.
     times = torch.linspace(.125, 5, 40)
     points, _, _ = scene.route_waypoints(scene.origins[:1], torch.tensor([0]), times=times)
     assert not scene.occupied(points).any()
@@ -209,8 +216,11 @@ def test_recovery_connector_cannot_cross_a_physical_thin_wall():
     scene.sizes = scene.tensor([[.1, 12, 2]])
     assert not scene._connector_avoids_cuboids(torch.tensor([2., 2.]).numpy(),
                                                torch.tensor([2.25, 2.]).numpy())
-    assert scene._connector_avoids_cuboids(torch.tensor([2., 2.]).numpy(),
-                                          torch.tensor([1.75, 2.]).numpy())
+    # The root at2m already intersects the .35m body envelope around this wall.
+    assert not scene._connector_avoids_cuboids(torch.tensor([2., 2.]).numpy(),
+                                              torch.tensor([1.75, 2.]).numpy())
+    assert scene._connector_avoids_cuboids(torch.tensor([1.6, 2.]).numpy(),
+                                          torch.tensor([1.3, 2.]).numpy())
 
 
 @pytest.mark.parametrize("radius", [-.01, .751, float("nan"), float("inf"), True])

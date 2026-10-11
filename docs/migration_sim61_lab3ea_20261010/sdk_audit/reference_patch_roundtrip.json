@@ -1,0 +1,40 @@
+{
+  "schema": "migration.optional_reference_source_roundtrip.v1",
+  "source_checkouts": "local pinned git commit trees, no remote fetch, no new commits",
+  "clean_apply_files": 40,
+  "initial_check_read_only": true,
+  "patches_exact_current_source_bytes": true,
+  "repeated_apply_idempotent": true,
+  "foreign_modifications_rejected_and_preserved": true,
+  "case_results": [
+    {
+      "action": "check",
+      "expected_returncode": 0,
+      "actual_returncode": 0,
+      "stdout": "{\n  \"action\": \"check\",\n  \"repositories\": [\n    {\n      \"repository\": \"navdp\",\n      \"base_commit\": \"bff5eb8857f50e082243fb455d312409daabc3aa\",\n      \"status\": \"ready_to_apply\",\n      \"files\": 24\n    },\n    {\n      \"repository\": \"flux\",\n      \"base_commit\": \"21898204e68d97e06dadfc391acba3effd12847d\",\n      \"status\": \"ready_to_apply\",\n      \"files\": 6\n    },\n    {\n      \"repository\": \"pacer\",\n      \"base_commit\": \"baeb6241f03fc9d78370a64e3c2dcef9d830d97f\",\n      \"status\": \"ready_to_apply\",\n      \"files\": 10\n    }\n  ],\n  \"commits_or_pushes\": false\n}\n",
+      "stderr": ""
+    },
+    {
+      "action": "apply",
+      "expected_returncode": 0,
+      "actual_returncode": 0,
+      "stdout": "{\n  \"action\": \"apply\",\n  \"repositories\": [\n    {\n      \"repository\": \"navdp\",\n      \"base_commit\": \"bff5eb8857f50e082243fb455d312409daabc3aa\",\n      \"status\": \"applied_and_verified\",\n      \"files\": 24\n    },\n    {\n      \"repository\": \"flux\",\n      \"base_commit\": \"21898204e68d97e06dadfc391acba3effd12847d\",\n      \"status\": \"applied_and_verified\",\n      \"files\": 6\n    },\n    {\n      \"repository\": \"pacer\",\n      \"base_commit\": \"baeb6241f03fc9d78370a64e3c2dcef9d830d97f\",\n      \"status\": \"applied_and_verified\",\n      \"files\": 10\n    }\n  ],\n  \"commits_or_pushes\": false\n}\n",
+      "stderr": ""
+    },
+    {
+      "action": "apply",
+      "expected_returncode": 0,
+      "actual_returncode": 0,
+      "stdout": "{\n  \"action\": \"apply\",\n  \"repositories\": [\n    {\n      \"repository\": \"navdp\",\n      \"base_commit\": \"bff5eb8857f50e082243fb455d312409daabc3aa\",\n      \"status\": \"already_patched\",\n      \"files\": 24\n    },\n    {\n      \"repository\": \"flux\",\n      \"base_commit\": \"21898204e68d97e06dadfc391acba3effd12847d\",\n      \"status\": \"already_patched\",\n      \"files\": 6\n    },\n    {\n      \"repository\": \"pacer\",\n      \"base_commit\": \"baeb6241f03fc9d78370a64e3c2dcef9d830d97f\",\n      \"status\": \"already_patched\",\n      \"files\": 10\n    }\n  ],\n  \"commits_or_pushes\": false\n}\n",
+      "stderr": ""
+    },
+    {
+      "action": "check",
+      "expected_returncode": 1,
+      "actual_returncode": 1,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/apply_reference_compat.py\", line 72, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/scripts/apply_reference_compat.py\", line 53, in main\n    raise ValueError(f'{row[\"name\"]}: mixed or foreign modifications; preserved')\nValueError: navdp: mixed or foreign modifications; preserved\n"
+    }
+  ],
+  "full_native_baseline_execution": false
+}

@@ -1,0 +1,8 @@
+{
+  "v2_sha256": "d6419d5afa3d297e38a550219c35ece99e2de2f5a855bcd46f2575b2c9cfa3e3",
+  "v3_sha256": "5492adf93f4d40dec383a9090ee91ee8f745df608e1f7673eb79faa59fe800f4",
+  "all_numeric_nonidentity_leaves_identical": true,
+  "numeric_leaves_compared": 10605,
+  "measurement_source_functions_unchanged": true,
+  "scope": "Exact equality of every numeric JSON leaf outside full artifact identity dictionaries; complements the earlier independent recomputation, does not re-run it or recertify physical model quality."
+}

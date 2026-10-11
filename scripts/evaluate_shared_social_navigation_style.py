@@ -38,8 +38,10 @@ def require(condition, message):
 
 
 def bound(identity):
-    require(record(identity["path"]) == identity, "Recorded input changed: " + identity["path"])
-    return json.loads(Path(identity["path"]).read_text())
+    from social_navigation.artifact_identity import artifact_path, same_artifact
+    path = artifact_path(identity["path"], root=ROOT)
+    require(same_artifact(record(path), identity, root=ROOT), "Recorded input changed: " + identity["path"])
+    return json.loads(path.read_text())
 
 
 def validate_planner(name, result):
@@ -177,11 +179,14 @@ def load_frozen_reference():
             and artifact["metric_spec"] == json.loads(json.dumps(asdict(StyleSpec()))),
             "Only frozen validation selection with the original metric spec is admitted")
     document = bound(artifact["manifest"])
+    from social_navigation.artifact_identity import artifact_path
+    manifest = artifact_path(artifact["manifest"]["path"], root=ROOT)
+    identities.append(record(manifest))
     training = json.loads(MANIFEST.read_text())
     require(len(training["splits"]["train"]["clips"]) == 2848, "Require fixed2848 training")
     assert_parent_split_disjoint(document)
     disjoint = tool.assert_heldout_disjoint(artifact["selection"], training, document)
-    body, rotation, hashes, provenance = tool.load_reference(Path(artifact["manifest"]["path"]), artifact["selection"])
+    body, rotation, hashes, provenance = tool.load_reference(manifest, artifact["selection"])
     require(hashes == artifact["actual_selected_array_sha256"], "Frozen held-out reference arrays changed")
     resets = np.zeros(body.shape[:2], dtype=bool)
     resets[0] = True

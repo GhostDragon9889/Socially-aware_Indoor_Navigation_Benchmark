@@ -69,23 +69,17 @@ def test_control_type_and_asset_validation():
         RobotAssetConfig(asset_file_name="robot.urdf")
 
 
-def test_control_config_converts_dict_overrides(monkeypatch):
-    class _ControlInfo:
-        @staticmethod
-        def from_dict(data):
-            return SimpleNamespace(converted=data)
-
-    monkeypatch.setattr(robot_base, "ControlInfo", _ControlInfo)
-
+def test_control_config_converts_dict_overrides():
+    ready = pose_lib.ControlInfo(damping=1.)
     config = ControlConfig(
         override_control_info={
             "joint": {"stiffness": 10.0},
-            "ready": SimpleNamespace(value=1),
+            "ready": ready,
         }
     )
 
-    assert config.override_control_info["joint"].converted == {"stiffness": 10.0}
-    assert config.override_control_info["ready"].value == 1
+    assert config.override_control_info["joint"] == pose_lib.ControlInfo(stiffness=10.)
+    assert config.override_control_info["ready"] is ready
 
 
 def test_robot_config_post_init_resolves_anchor_defaults_and_abstract_body_names(monkeypatch):

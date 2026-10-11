@@ -21,6 +21,8 @@ sys.path.insert(0, str(ROOT))
 from CrowdSim.humanoid.runtime.social_evaluation_lifecycle import IsolatedTrackingLifecycle, record  # noqa: E402
 from CrowdSim.humanoid.runtime import social_observation_producer  # noqa: E402
 from CrowdSim.humanoid.runtime import social_popart_training  # noqa: E402
+from CrowdSim.humanoid.runtime.popart_checkpoint_family import admit_binding  # noqa: E402
+from social_navigation.artifact_identity import artifact_path, same_artifact, same_recorded_value  # noqa: E402
 
 PARENT = ROOT / "docs/style_improvement_20261004/social_tracking_evaluation_staging_v1/evaluate_social_tracking.py"
 PARENT_SHA = "79fd24b23bb3e4883e24c03532f6af989970140d9e4dfbca156da7dbbe1a40df"
@@ -33,6 +35,8 @@ def load_reference_functions():
     spec = importlib.util.spec_from_file_location("_shared_tracking_reference", PARENT)
     parent = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(parent)
+    from CrowdSim.humanoid.runtime.evaluation_source_migration import migrate_pins
+    dependency_migration = migrate_pins(parent)
     bindings, sources = parent._sources()
     derived, derivation = parent.derive(sources["original"].decode())
     namespace = {"__file__": str(PARENT), "__name__": "_shared_tracking_functions",
@@ -42,34 +46,38 @@ def load_reference_functions():
         "_social_partial_capture": lambda *args: None}
     exec(compile(derived, str(PARENT) + ":full22_derived", "exec"), namespace)
     return parent, namespace, {"parent": identity, "sources": bindings, "derivation": derivation,
-                               "entry": record(Path(__file__))}
+                               "entry": record(Path(__file__)), "dependency_migration": dependency_migration}
 
 
 def admit_training(receipt_path):
     """Metadata admission only. The receipt records the external process exit."""
+    receipt_path = artifact_path(receipt_path, root=ROOT)
     receipt = json.loads(receipt_path.read_text())
-    if receipt.get("schema") != "shared_social.actual_training_execution.v1" or receipt.get("terminal_exit_code") != 0:
+    if receipt.get("schema") != "shared_social.actual_training_execution.v1" or (type(receipt.get("terminal_exit_code")) is not int or receipt["terminal_exit_code"] != 0):
         raise ValueError("Require an actual successful training-process exit receipt")
-    run = Path(receipt["run_directory"]).resolve()
+    run = artifact_path(receipt["run_directory"], root=ROOT).resolve()
     result_path = run / "result.json"
-    if record(result_path) != receipt["result_identity"]:
+    if not same_artifact(record(result_path), receipt["result_identity"], root=ROOT):
         raise ValueError("Training terminal result changed")
     result = json.loads(result_path.read_text())
-    if (result["status"] != "passed_local_training" or not result["cleanup_succeeded"]
-            or result["cleanup_errors"] or not result["source_profile_before_after_equal"]):
+    if (result["status"] != "passed_local_training" or result["cleanup_succeeded"] is not True
+            or result["cleanup_errors"] != [] or result["source_profile_before_after_equal"] is not True
+            or type(result["completed_updates"]) is not int or result["completed_updates"] < 1
+            or type(result["actual_training_transitions"]) is not int or result["actual_training_transitions"] < 1):
         raise ValueError("Training did not complete with owned cleanup")
-    audit_path = Path(receipt["audit_identity"]["path"])
-    if record(audit_path) != receipt["audit_identity"]:
+    audit_path = artifact_path(receipt["audit_identity"]["path"], root=ROOT)
+    if not same_artifact(record(audit_path), receipt["audit_identity"], root=ROOT):
         raise ValueError("Training CPU audit changed")
     audit = json.loads(audit_path.read_text())
     if (audit["schema"] != "shared_social.completed_training_CPU_audit.v1" or audit["status"] != "passed"
             or audit["CUDA_initialized"] is not False
+            or type(audit["updates"]) is not int or type(audit["physical_transitions"]) is not int
             or audit["updates"] != result["completed_updates"]
             or audit["physical_transitions"] != result["actual_training_transitions"]
-            or audit["checkpoint"] != receipt["checkpoint_identity"]):
+            or not same_artifact(audit["checkpoint"], receipt["checkpoint_identity"], root=ROOT)):
         raise ValueError("Training CPU audit/result/selected checkpoint disagree")
     expected = run / f"step_{result['completed_updates']:06d}.pt"
-    checkpoint = Path(audit["checkpoint"]["path"])
+    checkpoint = artifact_path(audit["checkpoint"]["path"], root=ROOT)
     if checkpoint != expected or checkpoint.is_symlink() or checkpoint.stat().st_mode & 0o222:
         raise ValueError("Select the independent readonly terminal checkpoint of the audited run")
     if result["completed_updates"] != result["profile"]["runtime"]["updates"]:
@@ -78,10 +86,19 @@ def admit_training(receipt_path):
     strategy = "legacy" if canonical is None else canonical.get("value_normalization")
     numeric = audit.get("explicit_value_normalization")
     if strategy == "popart":
-        binding = social_popart_training.describe()
-        if (canonical.get("numeric_migration") != binding or numeric != binding
-                or record(canonical["entry"]["path"]) != canonical["entry"]
-                or canonical.get("World_collector_expert_physics_changed") is not False):
+        binding = admit_binding(canonical.get("numeric_migration"))
+        from CrowdSim.humanoid.application.historical_recovery import source_record
+        entry_record = record(artifact_path(canonical["entry"]["path"], root=ROOT))
+        if (binding["checkpoint_format"] == social_popart_training.LEGACY_FORMAT
+                and not same_artifact(entry_record, canonical["entry"], root=ROOT)):
+            entry_record = source_record(canonical["entry"]["path"])
+        legacy = binding["checkpoint_format"] == social_popart_training.LEGACY_FORMAT
+        physical_binding = (canonical.get("World_collector_expert_physics_changed") is False if legacy else
+            canonical.get("World_collector_expert_algorithms_changed") is False
+            and canonical.get("grouped_runtime_migration", {}).get("schema") == "shared_social.grouped_source_migration.sim61.v2")
+        if (not same_recorded_value(numeric, binding, root=ROOT)
+                or not same_artifact(entry_record, canonical["entry"], root=ROOT)
+                or not physical_binding):
             raise ValueError("Pop-Art training entry, numeric source and CPU audit disagree")
     elif strategy != "legacy" or numeric is not None or canonical is not None and canonical.get("numeric_migration") is not None:
         raise ValueError("Unknown or inconsistent value-normalization checkpoint family")
@@ -172,7 +189,8 @@ def main(argv=None):
         config = SimpleNamespace(expert_dof_velocity_frame="child_joint") if actor is None else actor.config
         corpus, velocity = reference["create_tracking_corpus"](config, args.manifest, "validation", device="cuda:0", seed=args.seed)
         layout = reference["_reference_layout"](corpus, rows, args.maximum_terrain_extent_m)
-        world = AMPWorld(app, corpus, num_envs=1, shared_world=False,
+        constructor = getattr(lifecycle._sdk61, "construct_world", lambda factory, *a, **k: factory(*a, **k))
+        world = constructor(AMPWorld, app, corpus, num_envs=1, shared_world=False,
             episode_steps=max(row["tracking_window"]["available_steps"] for row in rows) + 1,
             terrain_extent_m=layout["terrain_extent_m"], spawn_margin_m=layout["spawn_margin_m"])
         training_result = json.loads(Path(admission["result"]["path"]).read_text())

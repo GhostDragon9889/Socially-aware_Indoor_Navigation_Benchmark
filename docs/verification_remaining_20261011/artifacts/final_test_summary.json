@@ -1,0 +1,731 @@
+{
+  "schema": "verification.unique_pytest_nodes.v1",
+  "CPU_run": "final_cpu_v11",
+  "GPU_run": "final_gpu_tests_v2",
+  "CPU_xml": {
+    "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/final_cpu_v11.xml",
+    "bytes": 768717,
+    "sha256": "8e2c9d073fa970f8c180b5a3ea76fea385f069426350639bc80670d360b62d88"
+  },
+  "GPU_xml": {
+    "path": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/verification_remaining_20261011/final_gpu_tests_v2.xml",
+    "bytes": 1262,
+    "sha256": "b64d4cca6b6e81c1bcd91e4dc39d0bc04ac5390ac6145e288c279bb94e51f20d"
+  },
+  "CPU_counts": {
+    "passed": 4981,
+    "skipped": 9
+  },
+  "CPU_additional_subtests": 130,
+  "GPU_nodes_replacing_CPU_skips": 7,
+  "GPU_additional_subtests": 0,
+  "unique_counts": {
+    "passed": 4988,
+    "skipped": 2
+  },
+  "unique_ordinary_nodes": 4990,
+  "original_98_rows": [
+    {
+      "original_node": "tests/test_native_execution_bridge.py::test_fixed_native_case_plan_uses_same_seed_and_candidate_without_creating_outputs[Office_N03_seed19-3-19]",
+      "current_node": "tests/test_native_execution_bridge.py::test_fixed_native_case_plan_uses_same_seed_and_candidate_without_creating_outputs[Office_N03_seed19-3-19]",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_native_execution_bridge.py::test_fixed_native_case_plan_uses_same_seed_and_candidate_without_creating_outputs[Warehouse_N15_seed42-15-42]",
+      "current_node": "tests/test_native_execution_bridge.py::test_fixed_native_case_plan_uses_same_seed_and_candidate_without_creating_outputs[Warehouse_N15_seed42-15-42]",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_native_execution_bridge.py::test_original_hospital_rejections_cannot_be_turned_into_commands[Hospital_N12_seed7]",
+      "current_node": "tests/test_native_execution_bridge.py::test_original_hospital_rejections_cannot_be_turned_into_commands[Hospital_N12_seed7]",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_native_execution_bridge.py::test_original_hospital_rejections_cannot_be_turned_into_commands[Hospital_N13_seed19]",
+      "current_node": "tests/test_native_execution_bridge.py::test_original_hospital_rejections_cannot_be_turned_into_commands[Hospital_N13_seed19]",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_native_execution_bridge.py::test_original_hospital_rejections_cannot_be_turned_into_commands[Hospital_N14_seed42]",
+      "current_node": "tests/test_native_execution_bridge.py::test_original_hospital_rejections_cannot_be_turned_into_commands[Hospital_N14_seed42]",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_native_execution_bridge.py::test_original_hospital_rejections_cannot_be_turned_into_commands[Hospital_N15_seed7]",
+      "current_node": "tests/test_native_execution_bridge.py::test_original_hospital_rejections_cannot_be_turned_into_commands[Hospital_N15_seed7]",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_native_execution_bridge.py::test_an_actual_completed_S1_checkpoint_cannot_fill_the_S3_slot",
+      "current_node": "tests/test_native_execution_bridge.py::test_an_actual_completed_S1_checkpoint_cannot_fill_the_S3_slot",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_native_execution_bridge.py::test_source_preflight_CLI_is_fresh_CPU_and_creates_no_simulation_outputs",
+      "current_node": "tests/test_native_execution_bridge.py::test_source_preflight_CLI_is_fresh_CPU_and_creates_no_simulation_outputs",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_native_paired_initial.py::test_fresh_native_paired_source_CLI_does_not_import_torch_or_start_SDK[3-diffusion]",
+      "current_node": "tests/test_native_paired_initial.py::test_fresh_native_paired_source_CLI_does_not_import_torch_or_start_SDK[3-diffusion]",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_native_paired_initial.py::test_fresh_native_paired_source_CLI_does_not_import_torch_or_start_SDK[15-sfm]",
+      "current_node": "tests/test_native_paired_initial.py::test_fresh_native_paired_source_CLI_does_not_import_torch_or_start_SDK[15-sfm]",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_native_seed_protocol.py::test_explicit_seed_source_CLI_is_fresh_and_does_not_import_Torch_or_SDK[diffusion-3-19]",
+      "current_node": "tests/test_native_seed_protocol.py::test_explicit_seed_source_CLI_is_fresh_and_does_not_import_Torch_or_SDK[diffusion-3-19]",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_native_seed_protocol.py::test_explicit_seed_source_CLI_is_fresh_and_does_not_import_Torch_or_SDK[sfm-15-42]",
+      "current_node": "tests/test_native_seed_protocol.py::test_explicit_seed_source_CLI_is_fresh_and_does_not_import_Torch_or_SDK[sfm-15-42]",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_native_seed_protocol.py::test_actual_CPU_registration_retains_all_cases_and_only_plans_future_SDK_runs",
+      "current_node": "tests/test_native_seed_protocol.py::test_actual_CPU_registration_retains_all_cases_and_only_plans_future_SDK_runs",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_native_shared_social_evaluation.py::test_source_composition_has_explicit_native_actor_and_owner_contract[3-diffusion]",
+      "current_node": "tests/test_native_shared_social_evaluation.py::test_source_composition_has_explicit_native_actor_and_owner_contract[3-diffusion]",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_native_shared_social_evaluation.py::test_source_composition_has_explicit_native_actor_and_owner_contract[15-diffusion]",
+      "current_node": "tests/test_native_shared_social_evaluation.py::test_source_composition_has_explicit_native_actor_and_owner_contract[15-diffusion]",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_native_shared_social_evaluation.py::test_source_composition_has_explicit_native_actor_and_owner_contract[3-sfm]",
+      "current_node": "tests/test_native_shared_social_evaluation.py::test_source_composition_has_explicit_native_actor_and_owner_contract[3-sfm]",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_native_shared_social_evaluation.py::test_source_composition_has_explicit_native_actor_and_owner_contract[15-sfm]",
+      "current_node": "tests/test_native_shared_social_evaluation.py::test_source_composition_has_explicit_native_actor_and_owner_contract[15-sfm]",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_native_shared_social_evaluation.py::test_source_cli_in_fresh_process_has_no_torch_or_sdk[diffusion-3]",
+      "current_node": "tests/test_native_shared_social_evaluation.py::test_source_cli_in_fresh_process_has_no_torch_or_sdk[diffusion-3]",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_native_shared_social_evaluation.py::test_source_cli_in_fresh_process_has_no_torch_or_sdk[sfm-15]",
+      "current_node": "tests/test_native_shared_social_evaluation.py::test_source_cli_in_fresh_process_has_no_torch_or_sdk[sfm-15]",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_native_tool_owner.py::test_serial_plan_retains_fixed_stage_order_and_exact_commands",
+      "current_node": "tests/test_native_tool_owner.py::test_serial_plan_retains_fixed_stage_order_and_exact_commands",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_native_tool_owner.py::test_compact_owner_view_retains_every_executable_command_and_failure_publication",
+      "current_node": "tests/test_native_tool_owner.py::test_compact_owner_view_retains_every_executable_command_and_failure_publication",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_native_tool_owner.py::test_rejected_hospital_cases_cannot_become_serial_plans[Hospital_N12_seed7]",
+      "current_node": "tests/test_native_tool_owner.py::test_rejected_hospital_cases_cannot_become_serial_plans[Hospital_N12_seed7]",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_native_tool_owner.py::test_rejected_hospital_cases_cannot_become_serial_plans[Hospital_N13_seed19]",
+      "current_node": "tests/test_native_tool_owner.py::test_rejected_hospital_cases_cannot_become_serial_plans[Hospital_N13_seed19]",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_native_tool_owner.py::test_rejected_hospital_cases_cannot_become_serial_plans[Hospital_N14_seed42]",
+      "current_node": "tests/test_native_tool_owner.py::test_rejected_hospital_cases_cannot_become_serial_plans[Hospital_N14_seed42]",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_native_tool_owner.py::test_rejected_hospital_cases_cannot_become_serial_plans[Hospital_N15_seed7]",
+      "current_node": "tests/test_native_tool_owner.py::test_rejected_hospital_cases_cannot_become_serial_plans[Hospital_N15_seed7]",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_native_tool_owner.py::test_registered_commands_are_cold_reproduced_and_tampering_rejected",
+      "current_node": "tests/test_native_tool_owner.py::test_registered_commands_are_cold_reproduced_and_tampering_rejected",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_native_tool_owner.py::test_execution_preflight_refuses_missing_S3_completion_without_creating_native_outputs",
+      "current_node": "tests/test_native_tool_owner.py::test_execution_preflight_refuses_missing_S3_completion_without_creating_native_outputs",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_episode_after_recovery.py::EpisodeAfterRecoveryTests::test_actual_consumers_accept_only_the_explicit_episode_world",
+      "current_node": "tests/test_shared_social_episode_after_recovery.py::EpisodeAfterRecoveryTests::test_actual_consumers_accept_only_the_explicit_episode_world",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_episode_after_recovery.py::EpisodeAfterRecoveryTests::test_actual_probe_loads_declared_clock_derivations_without_changing_source",
+      "current_node": "tests/test_shared_social_episode_after_recovery.py::EpisodeAfterRecoveryTests::test_actual_probe_loads_declared_clock_derivations_without_changing_source",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_episode_after_recovery.py::EpisodeAfterRecoveryTests::test_actual_release_keeps_original_interruption_and_new_family",
+      "current_node": "tests/test_shared_social_episode_after_recovery.py::EpisodeAfterRecoveryTests::test_actual_release_keeps_original_interruption_and_new_family",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_episode_after_recovery.py::EpisodeAfterRecoveryTests::test_facade_returns_the_original_factory_result_and_preserves_inputs",
+      "current_node": "tests/test_shared_social_episode_after_recovery.py::EpisodeAfterRecoveryTests::test_facade_returns_the_original_factory_result_and_preserves_inputs",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_episode_after_recovery.py::EpisodeAfterRecoveryTests::test_failed_smoke_output_is_preserved_and_only_retry_output_changes",
+      "current_node": "tests/test_shared_social_episode_after_recovery.py::EpisodeAfterRecoveryTests::test_sim61_outputs_are_distinct_and_all_historical_profiles_preserved",
+      "status": "passed",
+      "migration_note": "All three Sim61 outputs are distinct; historical profiles compare exact artifact identity, all other stage fields unchanged, all historical result files and plan identity preserved. The intentional output migration replaces the old only-first-retry expectation.",
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_episode_after_recovery.py::EpisodeAfterRecoveryTests::test_fresh_profiles_and_training_sources_are_preserved",
+      "current_node": "tests/test_shared_social_episode_after_recovery.py::EpisodeAfterRecoveryTests::test_fresh_profiles_and_training_sources_are_preserved",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_episode_after_recovery.py::EpisodeAfterRecoveryTests::test_modified_continuous_claim_or_checkpoint_rejected",
+      "current_node": "tests/test_shared_social_episode_after_recovery.py::EpisodeAfterRecoveryTests::test_modified_continuous_claim_or_checkpoint_rejected",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_episode_after_recovery.py::EpisodeAfterRecoveryTests::test_stage_budget_and_cleanup_have_to_match",
+      "current_node": "tests/test_shared_social_episode_after_recovery.py::EpisodeAfterRecoveryTests::test_stage_budget_and_cleanup_have_to_match",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_episode_after_recovery.py::EpisodeAfterRecoveryTests::test_training_owner_rejects_missing_failed_bool_and_reordered_exits",
+      "current_node": "tests/test_shared_social_episode_after_recovery.py::EpisodeAfterRecoveryTests::test_training_owner_rejects_missing_failed_bool_and_reordered_exits",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_episode_after_recovery.py::EpisodeAfterRecoveryTests::test_unregistered_stage_rejected",
+      "current_node": "tests/test_shared_social_episode_after_recovery.py::EpisodeAfterRecoveryTests::test_unregistered_stage_rejected",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_episode_comparison.py::EpisodeComparisonTests::test_actual_registration_selects_same_budget_and_preserves_unknowns",
+      "current_node": "tests/test_shared_social_episode_comparison.py::EpisodeComparisonTests::test_actual_registration_selects_same_budget_and_preserves_unknowns",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_episode_evaluation.py::EpisodeTerminalContracts::test_actual_exit_and_audit_admission_cannot_be_skipped",
+      "current_node": "tests/test_shared_social_episode_evaluation.py::EpisodeTerminalContracts::test_actual_exit_and_audit_admission_cannot_be_skipped",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_episode_evaluation.py::EpisodeTerminalContracts::test_changed_runtime_source_or_import_origin_rejected",
+      "current_node": "tests/test_shared_social_episode_evaluation.py::EpisodeTerminalContracts::test_changed_runtime_source_or_import_origin_rejected",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_episode_evaluation.py::EpisodeTerminalContracts::test_compatible_popart_family_is_insufficient_for_candidate_selection",
+      "current_node": "tests/test_shared_social_episode_evaluation.py::EpisodeTerminalContracts::test_compatible_popart_family_is_insufficient_for_candidate_selection",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_episode_evaluation.py::EpisodeTerminalContracts::test_future81_cannot_enter_the_episode31_experiment",
+      "current_node": "tests/test_shared_social_episode_evaluation.py::EpisodeTerminalContracts::test_future81_cannot_enter_the_episode31_experiment",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_episode_evaluation.py::EpisodeTerminalContracts::test_incomplete_exposure_or_foreign_output_rejected",
+      "current_node": "tests/test_shared_social_episode_evaluation.py::EpisodeTerminalContracts::test_incomplete_exposure_or_foreign_output_rejected",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_episode_evaluation.py::EpisodeTerminalContracts::test_live_root_reference_cannot_enter_as_episode_reference",
+      "current_node": "tests/test_shared_social_episode_evaluation.py::EpisodeTerminalContracts::test_live_root_reference_cannot_enter_as_episode_reference",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_episode_evaluation.py::EpisodeTerminalContracts::test_old_periodic_reference_cannot_be_relabelled",
+      "current_node": "tests/test_shared_social_episode_evaluation.py::EpisodeTerminalContracts::test_old_periodic_reference_cannot_be_relabelled",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_episode_evaluation.py::EpisodeTerminalContracts::test_private_parent_keeps_original_child_paths_and_globals",
+      "current_node": "tests/test_shared_social_episode_evaluation.py::EpisodeTerminalContracts::test_private_parent_keeps_original_child_paths_and_globals",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_episode_evaluation.py::EpisodeTerminalContracts::test_readonly_registration_drift_is_rejected",
+      "current_node": "tests/test_shared_social_episode_evaluation.py::EpisodeTerminalContracts::test_readonly_registration_drift_is_rejected",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_episode_evaluation.py::EpisodeTerminalContracts::test_registered_candidate_metadata_fixture_matches",
+      "current_node": "tests/test_shared_social_episode_evaluation.py::EpisodeTerminalContracts::test_registered_candidate_metadata_fixture_matches",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_episode_evaluation.py::EpisodeTerminalContracts::test_repeated_cold_admission_releases_its_owned_private_helper",
+      "current_node": "tests/test_shared_social_episode_evaluation.py::EpisodeTerminalContracts::test_repeated_cold_admission_releases_its_owned_private_helper",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_episode_evaluation.py::EpisodeTerminalContracts::test_second_namespace_is_fresh_and_source_list_is_not_shared",
+      "current_node": "tests/test_shared_social_episode_evaluation.py::EpisodeTerminalContracts::test_second_namespace_is_fresh_and_source_list_is_not_shared",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_episode_native.py::EpisodeNativeTests::test_all_real_cohorts_and_refusals_preserved",
+      "current_node": "tests/test_shared_social_episode_native.py::EpisodeNativeTests::test_all_real_cohorts_and_refusals_preserved",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_episode_native.py::EpisodeNativeTests::test_another_completion_path_cannot_release_training",
+      "current_node": "tests/test_shared_social_episode_native.py::EpisodeNativeTests::test_another_completion_path_cannot_release_training",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_episode_native.py::EpisodeNativeTests::test_missing_actual_episode_completion_stops_before_any_exit_publication",
+      "current_node": "tests/test_shared_social_episode_native.py::EpisodeNativeTests::test_failed_actual_episode_completion_stops_before_exit_publication",
+      "status": "passed",
+      "migration_note": "The actual historical completion now exists but failed. Test requires failed_preserved plus nonzero last exit, verifies native publication refusal and absence of new exit receipt; no longer skips when completion exists.",
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_episode_native.py::EpisodeNativeTests::test_native_command_changes_only_selected_receipt_and_outputs",
+      "current_node": "tests/test_shared_social_episode_native.py::EpisodeNativeTests::test_native_command_changes_only_selected_receipt_and_outputs",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_episode_native.py::EpisodeNativeTests::test_original_observer_keeps_failed_exits_and_rejects_inferred_success",
+      "current_node": "tests/test_shared_social_episode_native.py::EpisodeNativeTests::test_original_observer_keeps_failed_exits_and_rejects_inferred_success",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_episode_native.py::EpisodeNativeTests::test_private_namespace_keeps_original_certificate_guard",
+      "current_node": "tests/test_shared_social_episode_native.py::EpisodeNativeTests::test_private_namespace_keeps_original_certificate_guard",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_episode_native.py::EpisodeNativeTests::test_real_S2_completion_cannot_release_episode_native",
+      "current_node": "tests/test_shared_social_episode_native.py::EpisodeNativeTests::test_real_S2_completion_cannot_release_episode_native",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_episode_native.py::EpisodeNativeTests::test_rejected_resource_cannot_be_selected_or_replaced",
+      "current_node": "tests/test_shared_social_episode_native.py::EpisodeNativeTests::test_rejected_resource_cannot_be_selected_or_replaced",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_episode_native.py::EpisodeNativeTests::test_tampered_resource_rejection_cannot_enter_private_namespace",
+      "current_node": "tests/test_shared_social_episode_native.py::EpisodeNativeTests::test_tampered_resource_rejection_cannot_enter_private_namespace",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_episode_reference_entry.py::test_actual_private_package_replacement_and_World_type_source_admission",
+      "current_node": "tests/test_shared_social_episode_reference_entry.py::test_actual_private_package_replacement_and_World_type_source_admission",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_episode_reference_entry.py::test_World_actual_admission_condition_rejects_wrong_type_source_or_configuration[original_type]",
+      "current_node": "tests/test_shared_social_episode_reference_entry.py::test_World_actual_admission_condition_rejects_wrong_type_source_or_configuration[original_type]",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_episode_reference_entry.py::test_World_actual_admission_condition_rejects_wrong_type_source_or_configuration[real_future]",
+      "current_node": "tests/test_shared_social_episode_reference_entry.py::test_World_actual_admission_condition_rejects_wrong_type_source_or_configuration[real_future]",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_episode_reference_entry.py::test_World_actual_admission_condition_rejects_wrong_type_source_or_configuration[AMASS_future]",
+      "current_node": "tests/test_shared_social_episode_reference_entry.py::test_World_actual_admission_condition_rejects_wrong_type_source_or_configuration[AMASS_future]",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_episode_reference_entry.py::test_World_actual_admission_condition_rejects_wrong_type_source_or_configuration[actors]",
+      "current_node": "tests/test_shared_social_episode_reference_entry.py::test_World_actual_admission_condition_rejects_wrong_type_source_or_configuration[actors]",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_episode_reference_entry.py::test_World_actual_admission_condition_rejects_wrong_type_source_or_configuration[device]",
+      "current_node": "tests/test_shared_social_episode_reference_entry.py::test_World_actual_admission_condition_rejects_wrong_type_source_or_configuration[device]",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_episode_reference_entry.py::test_World_actual_admission_condition_rejects_wrong_type_source_or_configuration[origin]",
+      "current_node": "tests/test_shared_social_episode_reference_entry.py::test_World_actual_admission_condition_rejects_wrong_type_source_or_configuration[origin]",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_episode_reference_entry.py::test_World_actual_admission_condition_rejects_wrong_type_source_or_configuration[already_bound]",
+      "current_node": "tests/test_shared_social_episode_reference_entry.py::test_World_actual_admission_condition_rejects_wrong_type_source_or_configuration[already_bound]",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_episode_reference_entry.py::test_World_actual_admission_condition_rejects_wrong_type_source_or_configuration[episode_cap]",
+      "current_node": "tests/test_shared_social_episode_reference_entry.py::test_World_actual_admission_condition_rejects_wrong_type_source_or_configuration[episode_cap]",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_episode_reference_entry.py::test_World_actual_admission_condition_rejects_wrong_type_source_or_configuration[buffer_cap]",
+      "current_node": "tests/test_shared_social_episode_reference_entry.py::test_World_actual_admission_condition_rejects_wrong_type_source_or_configuration[buffer_cap]",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_episode_reference_entry.py::test_replacing_a_used_curriculum_fails_before_reimport_or_RNG_reset",
+      "current_node": "tests/test_shared_social_episode_reference_entry.py::test_replacing_a_used_curriculum_fails_before_reimport_or_RNG_reset",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_episode_reference_entry.py::test_registered_profiles_retain_original_training_and_runtime_fields[smoke.json]",
+      "current_node": "tests/test_shared_social_episode_reference_entry.py::test_registered_profiles_retain_original_training_and_runtime_fields[smoke.json]",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_episode_reference_entry.py::test_registered_profiles_retain_original_training_and_runtime_fields[smoke256.json]",
+      "current_node": "tests/test_shared_social_episode_reference_entry.py::test_registered_profiles_retain_original_training_and_runtime_fields[smoke256.json]",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_episode_reference_entry.py::test_registered_profiles_retain_original_training_and_runtime_fields[training.json]",
+      "current_node": "tests/test_shared_social_episode_reference_entry.py::test_registered_profiles_retain_original_training_and_runtime_fields[training.json]",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_episode_reference_entry.py::test_identical_profile_at_unregistered_location_is_rejected",
+      "current_node": "tests/test_shared_social_episode_reference_entry.py::test_identical_profile_at_unregistered_location_is_rejected",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_episode_reference_entry.py::test_fresh_source_preflight_imports_neither_Torch_nor_SDK",
+      "current_node": "tests/test_shared_social_episode_reference_entry.py::test_fresh_source_preflight_imports_neither_Torch_nor_SDK",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_episode_reference_entry.py::test_missing_whole_owner_certificate_is_rejected_without_Torch_SDK_or_output",
+      "current_node": "tests/test_shared_social_episode_reference_entry.py::test_missing_whole_owner_certificate_is_rejected_without_Torch_SDK_or_output",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_evaluation_preparation.py::SharedEvaluationPreparationTests::test_full22_functions_load_without_sdk_or_torch",
+      "current_node": "tests/test_shared_social_evaluation_preparation.py::SharedEvaluationPreparationTests::test_full22_functions_load_without_sdk_or_torch",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_minimum_horizon_entry.py::test_actual_private_package_replacement_and_World_type_source_admission",
+      "current_node": "tests/test_shared_social_minimum_horizon_entry.py::test_actual_private_package_replacement_and_World_type_source_admission",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_minimum_horizon_entry.py::test_World_actual_admission_condition_rejects_wrong_type_source_or_configuration[original_type]",
+      "current_node": "tests/test_shared_social_minimum_horizon_entry.py::test_World_actual_admission_condition_rejects_wrong_type_source_or_configuration[original_type]",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_minimum_horizon_entry.py::test_World_actual_admission_condition_rejects_wrong_type_source_or_configuration[real_future]",
+      "current_node": "tests/test_shared_social_minimum_horizon_entry.py::test_World_actual_admission_condition_rejects_wrong_type_source_or_configuration[real_future]",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_minimum_horizon_entry.py::test_World_actual_admission_condition_rejects_wrong_type_source_or_configuration[AMASS_future]",
+      "current_node": "tests/test_shared_social_minimum_horizon_entry.py::test_World_actual_admission_condition_rejects_wrong_type_source_or_configuration[AMASS_future]",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_minimum_horizon_entry.py::test_World_actual_admission_condition_rejects_wrong_type_source_or_configuration[actors]",
+      "current_node": "tests/test_shared_social_minimum_horizon_entry.py::test_World_actual_admission_condition_rejects_wrong_type_source_or_configuration[actors]",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_minimum_horizon_entry.py::test_World_actual_admission_condition_rejects_wrong_type_source_or_configuration[device]",
+      "current_node": "tests/test_shared_social_minimum_horizon_entry.py::test_World_actual_admission_condition_rejects_wrong_type_source_or_configuration[device]",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_minimum_horizon_entry.py::test_World_actual_admission_condition_rejects_wrong_type_source_or_configuration[origin]",
+      "current_node": "tests/test_shared_social_minimum_horizon_entry.py::test_World_actual_admission_condition_rejects_wrong_type_source_or_configuration[origin]",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_minimum_horizon_entry.py::test_World_actual_admission_condition_rejects_wrong_type_source_or_configuration[already_bound]",
+      "current_node": "tests/test_shared_social_minimum_horizon_entry.py::test_World_actual_admission_condition_rejects_wrong_type_source_or_configuration[already_bound]",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_minimum_horizon_entry.py::test_replacing_a_used_curriculum_fails_before_reimport_or_RNG_reset",
+      "current_node": "tests/test_shared_social_minimum_horizon_entry.py::test_replacing_a_used_curriculum_fails_before_reimport_or_RNG_reset",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_minimum_horizon_entry.py::test_registered_profiles_retain_original_training_and_runtime_fields[smoke.json]",
+      "current_node": "tests/test_shared_social_minimum_horizon_entry.py::test_registered_profiles_retain_original_training_and_runtime_fields[smoke.json]",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_minimum_horizon_entry.py::test_registered_profiles_retain_original_training_and_runtime_fields[smoke256.json]",
+      "current_node": "tests/test_shared_social_minimum_horizon_entry.py::test_registered_profiles_retain_original_training_and_runtime_fields[smoke256.json]",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_minimum_horizon_entry.py::test_registered_profiles_retain_original_training_and_runtime_fields[training.json]",
+      "current_node": "tests/test_shared_social_minimum_horizon_entry.py::test_registered_profiles_retain_original_training_and_runtime_fields[training.json]",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_minimum_horizon_entry.py::test_identical_profile_at_unregistered_location_is_rejected",
+      "current_node": "tests/test_shared_social_minimum_horizon_entry.py::test_identical_profile_at_unregistered_location_is_rejected",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_minimum_horizon_entry.py::test_fresh_source_preflight_imports_neither_Torch_nor_SDK",
+      "current_node": "tests/test_shared_social_minimum_horizon_entry.py::test_fresh_source_preflight_imports_neither_Torch_nor_SDK",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_minimum_horizon_entry.py::test_missing_whole_owner_certificate_is_rejected_without_Torch_SDK_or_output",
+      "current_node": "tests/test_shared_social_minimum_horizon_entry.py::test_missing_whole_owner_certificate_is_rejected_without_Torch_SDK_or_output",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_recovery_evaluation_resume.py::ResumedRecoveryEvaluationTests::test_completed_original_owner_is_not_this_resume_family",
+      "current_node": "tests/test_shared_social_recovery_evaluation_resume.py::ResumedRecoveryEvaluationTests::test_completed_original_owner_is_not_this_resume_family",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_recovery_evaluation_resume.py::ResumedRecoveryEvaluationTests::test_owner_exit_must_be_actual_integer_one",
+      "current_node": "tests/test_shared_social_recovery_evaluation_resume.py::ResumedRecoveryEvaluationTests::test_owner_exit_must_be_actual_integer_one",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_recovery_evaluation_resume.py::ResumedRecoveryEvaluationTests::test_previous_failure_is_not_a_completed_resumption",
+      "current_node": "tests/test_shared_social_recovery_evaluation_resume.py::ResumedRecoveryEvaluationTests::test_previous_failure_is_not_a_completed_resumption",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_recovery_evaluation_resume.py::ResumedRecoveryEvaluationTests::test_real_prefix_keeps_successes_and_the_failed_exit",
+      "current_node": "tests/test_shared_social_recovery_evaluation_resume.py::ResumedRecoveryEvaluationTests::test_real_prefix_keeps_successes_and_the_failed_exit",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_recovery_evaluation_resume.py::ResumedRecoveryEvaluationTests::test_resume_cold_admission_does_not_import_sdk",
+      "current_node": "tests/test_shared_social_recovery_evaluation_resume.py::ResumedRecoveryEvaluationTests::test_resume_cold_admission_does_not_import_sdk",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    },
+    {
+      "original_node": "tests/test_shared_social_recovery_evaluation_resume.py::ResumedRecoveryEvaluationTests::test_steps_require_order_budget_and_real_exits",
+      "current_node": "tests/test_shared_social_recovery_evaluation_resume.py::ResumedRecoveryEvaluationTests::test_steps_require_order_budget_and_real_exits",
+      "status": "passed",
+      "migration_note": null,
+      "final_status": "passed"
+    }
+  ],
+  "CPU_source_changes_during_execution": [],
+  "skips": [
+    {
+      "classname": "src.protomotions.tests.test_isaacgym_friction_mode",
+      "name": "test_isaacgym_variants_initialize_baseline_friction[None-0.75]",
+      "status": "skipped",
+      "reason": "could not import 'isaacgym': No module named 'isaacgym'"
+    },
+    {
+      "classname": "src.protomotions.tests.test_isaacgym_friction_mode",
+      "name": "test_isaacgym_variants_initialize_baseline_friction[friction_table1-0.45]",
+      "status": "skipped",
+      "reason": "could not import 'isaacgym': No module named 'isaacgym'"
+    }
+  ],
+  "scope": "Configured complete pytest collection; ordinary nodes deduplicated, subtests reported separately; source-byte consistency of measured GPU files is checked by coverage export."
+}

@@ -76,6 +76,18 @@ def train(args: argparse.Namespace) -> Path:
                     obs, neighbors=neighbors, neighbor_mask=neighbor_mask
                 )
             next_state, reward, done, info = env.step(action)
+            timeouts = info["timeout"]
+            if timeouts.any():
+                terminal_obs, terminal_neighbors, terminal_mask = info["terminal_observation"]
+                with torch.no_grad():
+                    terminal_value = trainer.value(
+                        terminal_obs[timeouts], neighbors=terminal_neighbors[timeouts],
+                        neighbor_mask=terminal_mask[timeouts],
+                    )
+                # Keep done=True to stop GAE at the reset boundary, but include
+                # the final state's value when the episode only hit its limit.
+                reward = reward.clone()
+                reward[timeouts] += trainer.config.gamma * terminal_value
             buffer.add(
                 obs, raw_action, log_prob, reward, done, value,
                 neighbors=neighbors, neighbor_mask=neighbor_mask,

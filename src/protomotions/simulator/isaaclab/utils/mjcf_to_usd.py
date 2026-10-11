@@ -15,8 +15,10 @@ Real conversion imports IsaacLab converters only inside
 from __future__ import annotations
 
 import hashlib
+import json
 import os
 import xml.etree.ElementTree as ET
+from importlib import metadata
 from pathlib import Path
 from typing import Any, Callable, Dict, Mapping, MutableMapping, Optional, Tuple, Union
 
@@ -30,7 +32,23 @@ from protomotions.robot_configs.base import RobotAssetConfig
 _CONVERSION_CACHE: Dict[Tuple[Any, ...], str] = {}
 
 ConverterFactory = Callable[..., str]
-_MJCF_CONVERTER_CACHE_VERSION = "isaaclab3-d6-workaround-v2"
+_MJCF_CONVERTER_CACHE_VERSION = "isaaclab3-d6-workaround-v3-sdk-isolated"
+
+
+def _sdk_converter_versions() -> Tuple[Tuple[str, str], ...]:
+    """Separate generated USD caches across installed SDK/importer revisions.
+
+    Metadata lookup does not import Kit. Missing distributions are explicit so
+    CPU-only path/config tests can still use a stable namespace.
+    """
+    versions = []
+    for distribution in ("isaaclab", "isaacsim", "isaacsim-asset"):
+        try:
+            version = metadata.version(distribution)
+        except metadata.PackageNotFoundError:
+            version = "uninstalled"
+        versions.append((distribution, version))
+    return tuple(versions)
 
 
 def _absolute_path(path: Union[os.PathLike, str]) -> str:
@@ -65,6 +83,7 @@ def default_usd_cache_dir(mjcf_path: str, options: Mapping[str, Any]) -> str:
         repr(
             (
                 _MJCF_CONVERTER_CACHE_VERSION,
+                _sdk_converter_versions(),
                 abs_mjcf,
                 _mjcf_fingerprint(abs_mjcf),
                 _normalized_options(options),
@@ -132,6 +151,7 @@ def conversion_cache_key(
             if include_source_fingerprint
             else None
         ),
+        _sdk_converter_versions(),
     )
 
 
@@ -211,27 +231,36 @@ def _conversion_coordination_paths(
     usd_dir: str, cache_key: Tuple[Any, ...]
 ) -> Tuple[Path, Path]:
     output_dir = Path(_absolute_path(usd_dir))
-    key_digest = hashlib.sha1(repr(cache_key).encode("utf-8")).hexdigest()[:16]
+    asset_stem = Path(str(cache_key[1])).stem
     lock_path = output_dir.with_name(f".{output_dir.name}.protomotions.lock")
+    # Each explicit output path has one current owner. Separate markers per
+    # cache key would all claim success after another option overwrote the USD.
     marker_path = output_dir.with_name(
-        f".{output_dir.name}.{key_digest}.protomotions-complete"
+        f".{output_dir.name}.{asset_stem}.protomotions-complete"
     )
     return lock_path, marker_path
 
 
-def _completed_conversion(marker_path: Path) -> Optional[str]:
+def _completed_conversion(marker_path: Path, cache_key: Tuple[Any, ...]) -> Optional[str]:
     try:
-        usd_path = _absolute_path(marker_path.read_text().strip())
-    except (OSError, ValueError):
+        record = json.loads(marker_path.read_text())
+        if record["cache_key"] != repr(cache_key):
+            return None
+        usd_path = _absolute_path(record["usd_path"])
+    except (OSError, ValueError, TypeError, KeyError):
         return None
     return usd_path if Path(usd_path).is_file() else None
 
 
-def _publish_completed_conversion(marker_path: Path, usd_path: str) -> None:
+def _publish_completed_conversion(
+    marker_path: Path, usd_path: str, cache_key: Tuple[Any, ...]
+) -> None:
     temporary_marker = marker_path.with_name(
         f"{marker_path.name}.{os.getpid()}.tmp"
     )
-    temporary_marker.write_text(usd_path)
+    temporary_marker.write_text(
+        json.dumps({"usd_path": usd_path, "cache_key": repr(cache_key)})
+    )
     os.replace(temporary_marker, marker_path)
 
 
@@ -313,28 +342,27 @@ def convert_mjcf_to_usd(
         include_source_fingerprint=not uses_default_cache,
     )
     cache_store = _CONVERSION_CACHE if cache is None else cache
-    if key in cache_store and not force_usd_conversion:
-        return cache_store[key]
-
+    if converter_factory is None:
+        if os.environ.get("PROTOMOTIONS_ISAACLAB_MJCF_DRY_RUN"):
+            converter_factory = dry_run_mjcf_converter_factory
+        else:
+            converter_factory = default_mjcf_converter_factory
     lock_path, marker_path = _conversion_coordination_paths(
         cfg_kwargs["usd_dir"], key
     )
     lock_path.parent.mkdir(parents=True, exist_ok=True)
     with FileLock(lock_path):
-        if key in cache_store and not force_usd_conversion:
-            return cache_store[key]
-
         if not force_usd_conversion:
-            completed_path = _completed_conversion(marker_path)
+            completed_path = _completed_conversion(marker_path, key)
             if completed_path is not None:
                 cache_store[key] = completed_path
                 return completed_path
-
-        if converter_factory is None:
-            if os.environ.get("PROTOMOTIONS_ISAACLAB_MJCF_DRY_RUN"):
-                converter_factory = dry_run_mjcf_converter_factory
-            else:
-                converter_factory = default_mjcf_converter_factory
+            if (
+                key in cache_store
+                and converter_factory is dry_run_mjcf_converter_factory
+            ):
+                # Only the explicit dry run is allowed to cache a missing USD.
+                return cache_store[key]
 
         factory_kwargs = cfg_kwargs
         if not force_usd_conversion:
@@ -349,10 +377,14 @@ def convert_mjcf_to_usd(
                 # reuse a USD generated before the repair was installed.
                 factory_kwargs = {**cfg_kwargs, "force_usd_conversion": True}
 
+        # A failed conversion may leave partially rewritten files. Withdraw the
+        # previous owner's completion record before touching the shared output.
+        marker_path.unlink(missing_ok=True)
+        cache_store.pop(key, None)
         usd_path = _absolute_path(converter_factory(**factory_kwargs))
         cache_store[key] = usd_path
         if Path(usd_path).is_file():
-            _publish_completed_conversion(marker_path, usd_path)
+            _publish_completed_conversion(marker_path, usd_path, key)
         return usd_path
 
 

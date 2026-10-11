@@ -23,7 +23,7 @@ from importlib import metadata
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-PROFILE_DIR = REPO_ROOT / "env" / "isaaclab3_sim6"
+PROFILE_DIR = REPO_ROOT / "env" / os.environ.get("SOCIAL_NAVIGATION_SDK_PROFILE", "isaaclab3_ea_sim61")
 PROFILE = json.loads((PROFILE_DIR / "profile.json").read_text())
 
 
@@ -61,6 +61,8 @@ def check_current() -> dict:
         "torch": PROFILE["torch"],
         "usd-exchange": PROFILE["usd_exchange"],
     }
+    if "numpy" in PROFILE:
+        expected.update({"numpy": PROFILE["numpy"], "warp-lang": PROFILE["warp"]})
     versions = {name: metadata.version(name) for name in expected}
     if versions != expected:
         raise RuntimeError(f"Package versions differ: {versions}; expected {expected}")
@@ -122,10 +124,17 @@ def check_current() -> dict:
 
 
 def apply_profile(lab_root: Path, sync: bool, *, fresh: bool = False) -> None:
+    if PROFILE_DIR.name == "isaaclab3_sim6":
+        raise RuntimeError(
+            "The frozen Sim6.0 manifest references the historical project[isaaclab] "
+            "extra and must not be reapplied to migrated source. Reuse the matching "
+            "installed SDK with bootstrap_reproduction.py prepare-runtime --profile "
+            "isaaclab3_sim6; original manifest, lock and SDK files are preserved."
+        )
     require_checkout(lab_root)
     python = lab_root / ".venv" / "bin" / "python"
     if not fresh and (not python.is_file() or installed_sim(python) != PROFILE["isaacsim"]):
-        raise RuntimeError("This command requires an existing .venv with Isaac Sim 6.0.0.1 installed")
+        raise RuntimeError(f"This command requires an existing .venv with Isaac Sim {PROFILE['isaacsim']} installed")
     for name, key in [("pyproject.toml", "manifest_sha256"), ("uv.lock", "lock_sha256")]:
         if sha256(PROFILE_DIR / name) != PROFILE[key]:
             raise RuntimeError(f"Stored profile {name} changed without updating its hash")
@@ -149,19 +158,24 @@ def apply_profile(lab_root: Path, sync: bool, *, fresh: bool = False) -> None:
             cwd=lab_root,
             check=True,
         )
-        subprocess.run([str(python), "-I", str(Path(__file__).resolve()), "check"], check=True)
+        subprocess.run([str(python), "-I", str(Path(__file__).resolve()), "--profile", PROFILE_DIR.name, "check"], check=True)
     else:
         print("Environment packages have not changed. Use apply --sync to synchronize.")
 
 
 def main() -> None:
+    global PROFILE_DIR, PROFILE
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--profile", choices=("isaaclab3_ea_sim61", "isaaclab3_sim6"),
+                        default=os.environ.get("SOCIAL_NAVIGATION_SDK_PROFILE", "isaaclab3_ea_sim61"))
     commands = parser.add_subparsers(dest="command", required=True)
     commands.add_parser("check", help="Verify installed packages, USD hashes and file read/write")
     apply = commands.add_parser("apply", help="Apply the recorded workspace manifest and lock")
-    apply.add_argument("--lab-root", type=Path, default=REPO_ROOT.parent / "IsaacLab-Protomotions")
+    apply.add_argument("--lab-root", type=Path, default=REPO_ROOT / ".runtime/IsaacLab61")
     apply.add_argument("--sync", action="store_true", help="Synchronize existing environment and restore USD files")
     args = parser.parse_args()
+    PROFILE_DIR = REPO_ROOT / "env" / args.profile
+    PROFILE = json.loads((PROFILE_DIR / "profile.json").read_text())
     if args.command == "check":
         print(json.dumps(check_current(), ensure_ascii=False, indent=2))
     else:

@@ -1,0 +1,22 @@
+{
+  "schema": "migration.amp_checkpoint_roundtrip.v1",
+  "status": "passed",
+  "loaded_full_training_bundle": true,
+  "floating_tensors_finite": {
+    "model": 23,
+    "optimizer": 48,
+    "discriminator_optimizer": 18,
+    "normalizers": 12,
+    "runner_state": 10,
+    "policy_replay": 2
+  },
+  "update_count": 12,
+  "physical_transitions": 3072,
+  "inference_actor_critic_exact_cpu_equality": true,
+  "wrong_default_public_sha_rejected": true,
+  "rng_restore_deferred": true,
+  "gpu_physical_resume_performed": false,
+  "physics_solver_caches_saved": false,
+  "checkpoint_sha256": "f327a4896fae5324d3d40763884c3786294e54e66f0f50652ec4d0c1d8cc8e66",
+  "export_sha256": "eac028b22fc2c2a99af42862dc3d53ec8eb4fc8fe9f287f0dea5852151be76c8"
+}

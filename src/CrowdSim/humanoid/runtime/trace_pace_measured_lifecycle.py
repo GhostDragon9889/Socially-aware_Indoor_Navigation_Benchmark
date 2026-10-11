@@ -28,6 +28,8 @@ class TracePaceMeasuredLifecycle(IsolatedTrackingLifecycle):
 
     def __init__(self, report):
         super().__init__(report)
+        if self._sdk61 is not None:
+            return
         self.contact_refs = self.borrowed_refs = self.sensor_refs = ()
         report["evaluation_lifecycle"].update(navigation_implementation=record(Path(__file__)),
             contact_enabled_navigation_supported=True, navigation_actor_count=None,
@@ -173,6 +175,8 @@ class TracePaceMeasuredLifecycle(IsolatedTrackingLifecycle):
         self.report["contact_release_cuda_barriers"] = 2
 
     def close(self, app, world, producer=None):
+        if self._sdk61 is not None:
+            return self._sdk61.close(app, world, producer)
         try:
             self._release_contacts_before_stop(world)
         except BaseException as error:

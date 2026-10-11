@@ -80,7 +80,12 @@ def _isaaclab_methods():
     names = {'_get_simulator_bodies_state', '_get_simulator_root_state',
              '_set_simulator_env_state', '_apply_root_velocity_impulse'}
     methods = [n for n in cls.body if isinstance(n, ast.FunctionDef) and n.name in names]
-    namespace = dict(torch=torch, wp=wp, Optional=Optional, RobotState=RobotState,
+    from protomotions.simulator.isaaclab.utils.runtime_compat import (
+        as_torch, write_root_link_state, write_root_link_velocity,
+    )
+    namespace = dict(torch=torch, wp=wp, as_torch=as_torch, write_root_link_state=write_root_link_state,
+                     write_root_link_velocity=write_root_link_velocity,
+                     Optional=Optional, RobotState=RobotState,
                      RootOnlyState=RootOnlyState, ResetState=ResetState, ObjectState=ObjectState)
     from protomotions.simulator.base_simulator.simulator_state import StateConversion
     namespace['StateConversion'] = StateConversion
@@ -102,6 +107,8 @@ def test_isaaclab3_actual_methods_use_link_velocity_and_writes():
         body_link_ang_vel_w=_proxy([[[0, 0, 2], [0, 0, 2]]], wp.vec3f),
         body_lin_vel_w=_proxy([[[99, 99, 99], [99, 99, 99]]], wp.vec3f),
         root_pos_w=_proxy([[0, 0, 0]], wp.vec3f),
+        body_com_pos_b=_proxy([[[0, 0, 0], [.4, 0, 0]]], wp.vec3f),
+        root_link_quat_w=_proxy([[0, 0, 0, 1]], wp.quatf),
         root_quat_w=_proxy([[0, 0, 0, 1]], wp.quatf),
         root_link_lin_vel_w=_proxy([[.1, 0, 0]], wp.vec3f),
         root_link_ang_vel_w=_proxy([[0, 0, 2]], wp.vec3f),
@@ -109,10 +116,10 @@ def test_isaaclab3_actual_methods_use_link_velocity_and_writes():
     )
     robot = SimpleNamespace(
         data=data,
-        write_root_link_state_to_sim=lambda value, ids: calls.append(('state', value.clone(), ids)),
-        write_root_link_velocity_to_sim=lambda value, **kw: calls.append(('velocity', value.clone(), kw)),
-        set_joint_position_target=lambda *a, **k: None,
-        write_joint_state_to_sim=lambda *a, **k: None,
+        write_root_link_pose_to_sim_index=lambda *, root_pose, **kw: calls.append(('pose', root_pose.clone(), kw)),
+        write_root_com_velocity_to_sim_index=lambda *, root_velocity, **kw: calls.append(('velocity', root_velocity.clone(), kw)),
+        set_joint_position_target_index=lambda *a, **k: None,
+        write_joint_state_to_sim_index=lambda *a, **k: None,
     )
     sim = SimpleNamespace(_robot=robot, num_envs=1, _num_bodies=2)
     methods = _isaaclab_methods()
@@ -125,8 +132,10 @@ def test_isaaclab3_actual_methods_use_link_velocity_and_writes():
                        dof_pos=torch.zeros(1, 1), dof_vel=torch.zeros(1, 1))
     methods['_set_simulator_env_state'](sim, reset, env_ids=torch.tensor([0]))
     methods['_apply_root_velocity_impulse'](sim, torch.zeros(1, 3), torch.tensor([[0., 0., 1.]]), torch.tensor([0]))
-    assert [call[0] for call in calls] == ['state', 'velocity']
-    torch.testing.assert_close(calls[1][1], torch.tensor([[.1, 0., 0., 0., 0., 3.]]))
+    assert [call[0] for call in calls] == ['pose', 'velocity', 'velocity']
+    torch.testing.assert_close(calls[0][1], torch.cat([root.root_pos, root.root_rot], dim=-1))
+    torch.testing.assert_close(calls[1][1], torch.cat([root.root_vel, root.root_ang_vel], dim=-1))
+    torch.testing.assert_close(calls[2][1], torch.tensor([[.1, 0., 0., 0., 0., 3.]]))
 
 
 def test_newton_real_gpu_link_velocities_match_rigid_rotation():

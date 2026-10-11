@@ -9,6 +9,7 @@ import json
 from pathlib import Path
 
 from scripts import evaluate_shared_social_native_seeded as entry
+from social_navigation.artifact_identity import artifact_path, same_artifact
 
 ROOT = entry.ROOT
 SEEDS = (7, 19, 42)
@@ -55,11 +56,12 @@ def validate_cohort(cohort, registration):
 
 def build_registration(output_root):
     from CrowdSim.humanoid.application.native_deployment import preflight_native_scene
+    from CrowdSim.humanoid.application.native_scene_migration import configuration
     entry.source_bindings()
     documents, inputs = load_registered_inputs()
     cohort, original, training = documents
     validate_cohort(cohort, original)
-    checkpoint = Path(training["checkpoint_preselected"])
+    checkpoint = artifact_path(training["checkpoint_preselected"], root=ROOT)
     if (training["updates"] != 12500 or training["seed"] != 7 or training["fresh_initialization"] is not True
             or checkpoint != ROOT / "output/diffusion_amp/shared_social_budget12500_v1/step_012500.pt"
             or training["training_manifest"]["sha256"] != "68d41be28908f28a09c47f7658af39d55fad01b32212bd7c0ced2b1e6b1489ca"):
@@ -71,11 +73,13 @@ def build_registration(output_root):
         if row["status"] == "CPU_resource_admitted":
             for key in ("configuration", "proof"):
                 identity = row[key]
-                if entry.record(identity["path"]) != identity:
+                if not same_artifact(entry.record(artifact_path(identity["path"], root=ROOT)), identity, root=ROOT):
                     raise ValueError("Original admitted native configuration/proof changed")
                 inputs.append(identity)
-            resource = preflight_native_scene(row["configuration"]["path"], actors=row["actors"])
-            if (resource["configuration_file"] != row["configuration"]
+            selected, migration = configuration(row["configuration"])
+            resource = preflight_native_scene(selected["path"], actors=row["actors"])
+            resource["configuration_migration"] = migration
+            if (not same_artifact(resource["configuration_file"], selected, root=ROOT)
                     or resource["configuration"]["scene"] != row["scene"]):
                 raise ValueError("Re-admitted native scene differs from its original resource cohort")
             resources.append({"scene": row["scene"], "actors": row["actors"], "actual_CPU_request": resource})
@@ -89,7 +93,8 @@ def build_registration(output_root):
                     "actual_SDK_exit_observed": False, "actual_initial_pairing_verified": False,
                     "actual_raw_style_or_quality_evaluated": False}
             if resource:
-                case["scene_configuration"] = row["configuration"]
+                case["scene_configuration"] = resource["configuration_file"]
+                case["scene_configuration_migration"] = migration
                 case["paired_exposure_actor_controls"] = 2 * 6000 * row["actors"]
                 case["arms"] = [{"planner": planner, "seed": seed,
                     "output": str(output_root / case["case_id"] / planner), "control_steps": 6000,
@@ -101,9 +106,9 @@ def build_registration(output_root):
                 case["clearance_or_spacing_reduced"] = False
                 case["replacement_scene_or_resampling"] = False
             cases.append(case)
-    if any(entry.record(row["path"]) != row for row in inputs):
+    if any(not same_artifact(entry.record(artifact_path(row["path"], root=ROOT)), row, root=ROOT) for row in inputs):
         raise ValueError("Native matrix registration inputs changed")
-    return {"schema": "shared_social.local_native_multiseed_registration.v1",
+    return {"schema": "shared_social.local_native_multiseed_registration.sim61.v2",
         "status": "registered_CPU_resources_actual_execution_pending", "sources": entry.source_bindings(),
         "protocol_source": entry.record(__file__), "inputs": inputs, "seeds": list(SEEDS), "scenes": list(SCENES),
         "case_order": "Original scene-major N3..15 order, then seed7/19/42; both DP/SFM arms per admitted cohort",

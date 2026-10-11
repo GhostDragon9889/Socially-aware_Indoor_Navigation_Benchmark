@@ -120,7 +120,7 @@ def test_real_png_yaml_export_has_meter_origin_and_provenance(tmp_path):
     output = tmp_path / "maps"
     args = Namespace(output=output, assets=assets.parent, worker="Office", allow_incomplete=False,
                      inventory_only=False, resolution=.1, margin=.1, height_min=.15, height_max=1.8,
-                     ground_height=None, extent_mode="floor-support", max_cells=100_000)
+                     ground_height=None, extent_mode="floor-support", max_cells=100_000, native_bounds_quantum_m=None, triangle_projection=False)
     result = generate_scene(args)
     assert result["status"] == "prototype_ready_for_physx_review"
     metadata = yaml.safe_load((output / "Office/occupancy.yaml").read_text())

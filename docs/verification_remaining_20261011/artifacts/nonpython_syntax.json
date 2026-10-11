@@ -1,0 +1,1134 @@
+{
+  "scope": "configs env packages scripts src tests examples tools .github and root TOML; syntax only, no container/C++ build or asset/runtime claim",
+  "counts": {
+    ".yml": 2,
+    ".toml": 5,
+    ".json": 118,
+    ".yaml": 55,
+    ".sh": 4,
+    ".js": 2
+  },
+  "failures": [],
+  "files": [
+    {
+      "path": ".github/workflows/deploy-docs.yml",
+      "sha256": "4a374965f1c2231e1d259f7c9da59068addb5412c622da2d48941ceaa5b05fe4",
+      "kind": ".yml",
+      "syntax": "passed"
+    },
+    {
+      "path": ".github/workflows/public-ci.yml",
+      "sha256": "f28d5d9cde8645ca9ea140dac5d1476d4a1724dc776912be18bed71b11eb8535",
+      "kind": ".yml",
+      "syntax": "passed"
+    },
+    {
+      "path": ".gitleaks.toml",
+      "sha256": "58ec2980e97389ae746b9fe4eab821c63f2aa2792e3e7715770002df0d7fa58b",
+      "kind": ".toml",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/episode_sim61/comparison.json",
+      "sha256": "27e65ec957704c54ffd4ac56488964e1d9cdc9dbb30c26e1e9b778f2e9d83a32",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/episode_sim61/current_training_evaluation.json",
+      "sha256": "570389c058a849840047b4271074da0cfe97c43bcc2d89bd31d227cea1e47917",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/episode_sim61/historical_training_evaluation.json",
+      "sha256": "9a802fc2019258b6e473fe3a3fb5922157ec2e20bd98f9bb85a080741fb0153a",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/episode_sim61/native_registration.json",
+      "sha256": "3fa7464ef80ccc79e107a47b648f6fffe64f6522c2f5bb01e8a655a49c833f74",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/grouped_social_sim61_sources.json",
+      "sha256": "7b213a6a91c084b0ba0f35fb40823b85fab527343330acd04fc256ce50918baf",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/native_seeded_sim61/registered_S3_native_matrix.json",
+      "sha256": "29423976c0e6d40e940ca2ba057950aeefa8c4fbc927046324791ce132af44c2",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/native_seeded_sim61/scenes/Full_Warehouse_N03.json",
+      "sha256": "4551a0177661b8cbaa570d222a794aa97e386853ab9c715933f4d060ea53fdf5",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/native_seeded_sim61/scenes/Full_Warehouse_N04.json",
+      "sha256": "9cdd8d510989aded7b26f3aea983d2acb531e27336c09962539c174141c7f927",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/native_seeded_sim61/scenes/Full_Warehouse_N05.json",
+      "sha256": "823f81b479063e7da7641088a8ef2955e0074dd90b13372a606fb97321f3e48e",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/native_seeded_sim61/scenes/Full_Warehouse_N06.json",
+      "sha256": "75d9fd8c56bfb8dbacc373c5fc0a644cf1992cb66c4d328e0201b7bd1b284766",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/native_seeded_sim61/scenes/Full_Warehouse_N07.json",
+      "sha256": "d7ef9022fdbfde8096ce87f5bb25ef621b0c632eb909006ab3d06ee29ea1adc0",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/native_seeded_sim61/scenes/Full_Warehouse_N08.json",
+      "sha256": "992f3e337f111cc20e0fcb8cad9307bb2c3fbf33ec6726e98dfa6c7ee7ea7873",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/native_seeded_sim61/scenes/Full_Warehouse_N09.json",
+      "sha256": "6868e9ea134f521f83f8e5aac1dfce4ea32caad0893a83a40f8a1de2971dfb40",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/native_seeded_sim61/scenes/Full_Warehouse_N10.json",
+      "sha256": "bd5530b17e4bdbb38a732ed518d313fc4065e0ff1969886b3b63b7ca772efc3f",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/native_seeded_sim61/scenes/Full_Warehouse_N11.json",
+      "sha256": "e63f85f7a7c896600f7448239453492c24c49e3b6d12c649a159b2b37e8ff148",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/native_seeded_sim61/scenes/Full_Warehouse_N12.json",
+      "sha256": "9353461d59a320bb7cf4e8360adadaa28def6d160d62a4797b6181a2018131e6",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/native_seeded_sim61/scenes/Full_Warehouse_N13.json",
+      "sha256": "bf44e694b0e2f10343ad6d707f166b540ecf6d60fe31919ea77b1fc2560829e3",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/native_seeded_sim61/scenes/Full_Warehouse_N14.json",
+      "sha256": "b4fcd6f7e8c52f88b8e3c34132bc0b727a65273a34e404596ab6185c1b985cf1",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/native_seeded_sim61/scenes/Full_Warehouse_N15.json",
+      "sha256": "9bdab2b87bd1d3ea21d164ecd5638fcb4b5e25fad828ad7ba4f39b00af5fde77",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/native_seeded_sim61/scenes/Hospital_N03.json",
+      "sha256": "f9d222f0e670f3c6da022d465221eccf4296072e5dc9ffad80754b777c136119",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/native_seeded_sim61/scenes/Hospital_N04.json",
+      "sha256": "4aa8c8b5a6606ebd8ce32e8bcdf9238b018b2216e6fef5e9b6ba15bd37601abb",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/native_seeded_sim61/scenes/Hospital_N05.json",
+      "sha256": "c028066a3a692bc302f18d621db3fe9616fc4fd26e20b80f1b33bdde0ada0e91",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/native_seeded_sim61/scenes/Hospital_N06.json",
+      "sha256": "f866c8fb0a3a6817661d70bd9d4008a4df3b8c3654de3ef7d347bcadd397c324",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/native_seeded_sim61/scenes/Hospital_N07.json",
+      "sha256": "fa447834a91de65788914eb5882341fcdfcf3ac7137daa14e8f46c04cac64c1b",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/native_seeded_sim61/scenes/Hospital_N08.json",
+      "sha256": "ecc21de6fd17573312f897a9872110d54f9086acf4156f1ab5e6334212212301",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/native_seeded_sim61/scenes/Hospital_N09.json",
+      "sha256": "1d911028deec44ed812a914943767641e9d185321d425e3ccfe4bf032511e9b0",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/native_seeded_sim61/scenes/Hospital_N10.json",
+      "sha256": "5f467256d8f418c869514722b9ad45955234579c58d2b0827266b95d8ba38fe3",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/native_seeded_sim61/scenes/Hospital_N11.json",
+      "sha256": "47dc13078c68154e8153c44d0b219e61c699a7d3eb0545f3596f951656de37e7",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/native_seeded_sim61/scenes/Office_N03.json",
+      "sha256": "cf6edf37fed2cd1b807708d0726e45e894ae3d464c80e8e1ca0e906c27f30281",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/native_seeded_sim61/scenes/Office_N04.json",
+      "sha256": "400e990e5c2deceaff4172fc6a77f63887a57ba4e4beb6e5c0c5223908ebe1bf",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/native_seeded_sim61/scenes/Office_N05.json",
+      "sha256": "84286046ad11c27156ba5f5c6ca2d016c087c98657ff62eac53d5bd0a0c577a6",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/native_seeded_sim61/scenes/Office_N06.json",
+      "sha256": "a6a7b4f4edafc237b6fce89d2f1f8d18db7fa70b095b0b24a406eadce38e283b",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/native_seeded_sim61/scenes/Office_N07.json",
+      "sha256": "89cfaa70b973fc9bf5c04407f1a0614eaa87cbf21a2ae40ca102508d3322b90a",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/native_seeded_sim61/scenes/Office_N08.json",
+      "sha256": "52f6a02e0d505569d21df084ac1dfd1b70d2a7a85fc1fb385a03bf46c6846ff6",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/native_seeded_sim61/scenes/Office_N09.json",
+      "sha256": "a077e020b89b40bf2966a2c71fcf130d00abd91491593b62e9a2954371e41ca6",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/native_seeded_sim61/scenes/Office_N10.json",
+      "sha256": "2f8953346de23831998f943dcfc6235b145b04e614dd6017ab26f9b9385f51f5",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/native_seeded_sim61/scenes/Office_N11.json",
+      "sha256": "4d30b820a233adab3c0baff77b271a0d5243be177ea54cfb42925bca4e34d736",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/native_seeded_sim61/scenes/Office_N12.json",
+      "sha256": "3bc69e28ce82b3b2f5281581d5c1a19860958965164bf37dfdd7027e98670265",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/native_seeded_sim61/scenes/Office_N13.json",
+      "sha256": "8addce5567cf94b623b07f2eab732e1034456424ac5f8c273c04b8fa9a84031d",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/native_seeded_sim61/scenes/Office_N14.json",
+      "sha256": "28d40339a0a318ccd500384d97852392bb4bb65290cd2b6d597331545b110b58",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/native_seeded_sim61/scenes/Office_N15.json",
+      "sha256": "b8d9299445f2782eecd47d5f7e60d82e13ef62a2d1701bbcd053126f63447daf",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/native_seeded_sim61/scenes/Warehouse_N03.json",
+      "sha256": "6bd7b4cdc917d9440517ef8d092bb7f076d12ef1fc1a536c9b401421a8c07b80",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/native_seeded_sim61/scenes/Warehouse_N04.json",
+      "sha256": "1b78d63c81f606f34a97c468e59616c3d3e3f4939186da405cb5de4c63012293",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/native_seeded_sim61/scenes/Warehouse_N05.json",
+      "sha256": "6acea28801c8cfca73222063bc64eb718acb06cd9e7189c29d65fa6283fa6cc2",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/native_seeded_sim61/scenes/Warehouse_N06.json",
+      "sha256": "2de5715e1f8cbff5c59e2145ffd887b84b45d87aff25eab590fa8e31b09a5d47",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/native_seeded_sim61/scenes/Warehouse_N07.json",
+      "sha256": "9df854fc9476ca374dc81752f801e263eba45ec7d333c2148bffae0f4a12a629",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/native_seeded_sim61/scenes/Warehouse_N08.json",
+      "sha256": "350e2a19006c680cc42252abdd6536cb756693134598241efa8b35c78af356bb",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/native_seeded_sim61/scenes/Warehouse_N09.json",
+      "sha256": "1db352b44d631f23887b9b5fccf7ffb9b2f1218ca6717f7fa7bcb94bbb2139b7",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/native_seeded_sim61/scenes/Warehouse_N10.json",
+      "sha256": "239e5662adbd74c28c966fbb58063cba692bd046e5be9d88afb1e8a495780d23",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/native_seeded_sim61/scenes/Warehouse_N11.json",
+      "sha256": "b2515defb0a091ac102410732fa46e449df17b0bad5b66486469f586935b440f",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/native_seeded_sim61/scenes/Warehouse_N12.json",
+      "sha256": "b47aba53461e6424562ef34423cf626c88c63dc109c9fc8da1baea14a951a4a6",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/native_seeded_sim61/scenes/Warehouse_N13.json",
+      "sha256": "bf858e7077daa4294e987a50146137e88b9e625efac4e1a19489309a1ddeb2fd",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/native_seeded_sim61/scenes/Warehouse_N14.json",
+      "sha256": "9a7ad9e281b49e6b763e3600a33e297c35bfeeb2a02400a3a4dbe4399b3aac03",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/native_seeded_sim61/scenes/Warehouse_N15.json",
+      "sha256": "ae63c09ed198964a996a51e6d4f5b1070a2d3ae7b57bc9d93fceef21ee90c0a2",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/compatibility/reference_patches/manifest.json",
+      "sha256": "c73e874d68611d27b7d26dc7721fb9dd13f55e353f335cf143e4b51a0db3a69e",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/crowdsim/analysis/ppo_fixed_route_100.yaml",
+      "sha256": "71780485d86a4b97ab7714e5b4c83a35df8f3e4b695c6d0b0cf1ede44b182e1c",
+      "kind": ".yaml",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/crowdsim/collect/ppo.yaml",
+      "sha256": "8d513b617816c806809f15c82f1ee4f3464e6c0524f10e5b9aa4c996451fd689",
+      "kind": ".yaml",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/crowdsim/env.yaml",
+      "sha256": "5eb3e027555e64582fb043e0411a0d4445e5b12a52ed762afcd0a25511df679b",
+      "kind": ".yaml",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/crowdsim/pedestrian.yaml",
+      "sha256": "757b930c47d6ddcf053f97ad89bb047b37d62d6c04b8c8e840503ae3213556bc",
+      "kind": ".yaml",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/crowdsim/reward_model_ppo.yaml",
+      "sha256": "7480c13964e0e1bff96c7b3f03735db27ac65eef20155f59be9c7723742139e3",
+      "kind": ".yaml",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/crowdsim/scenes/bidirectional_open.yaml",
+      "sha256": "855ff0d0366d3218713537e2c35c2c1c7e93fe2733ef114b5c212169b7629e24",
+      "kind": ".yaml",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/crowdsim/scenes/dynabench_full_warehouse.yaml",
+      "sha256": "7921532220b5b26115f22d009e4eaa4e251484b583bf280873538cdd5de8791a",
+      "kind": ".yaml",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/crowdsim/scenes/dynabench_hospital.yaml",
+      "sha256": "e3337a388de09e92740b2ad04c005d2f5bc92ee4604eca5f84bf2c6908ec8b1b",
+      "kind": ".yaml",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/crowdsim/scenes/dynabench_office.yaml",
+      "sha256": "2e684e6e1837fa0a6f5c154a8ac53ff25dc42a386f7adb633a53b4624274c732",
+      "kind": ".yaml",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/crowdsim/scenes/dynabench_warehouse.yaml",
+      "sha256": "2457f76c76a9adc9bb406b33d6aa8fec99faa43e26baf43eb42c4bf13a436914",
+      "kind": ".yaml",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/crowdsim/scenes/pedestrian_open.yaml",
+      "sha256": "6210b11a23930044f018bd5ef9f37a3d4226acf85f15fe3a64cb7bb7154ec668",
+      "kind": ".yaml",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/crowdsim/scenes/warehouse.yaml",
+      "sha256": "6146e4c3e281f8a42c663654796b19cd4bd729f31c264dd41ecbff5c83d6c32e",
+      "kind": ".yaml",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/amass_curation.yaml",
+      "sha256": "2a2e92f24c509942c49c3ae58a2ddde05580d686ea58bee5dfe8be71f5f5a169",
+      "kind": ".yaml",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/amass_curation_labeled.yaml",
+      "sha256": "d7507fff0b16324e0e1345bac33d0f64178e3d2a348a4644a1efb81350d08764",
+      "kind": ".yaml",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/amp_independent_curriculum.yaml",
+      "sha256": "1c44dd0d77edeab0a3b37ffb1a8f7643ba93199bf3911ad923c4fa97dfc02a69",
+      "kind": ".yaml",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/amp_pacer_adaptation.yaml",
+      "sha256": "cb30619b0c16ba4602f61ecdcf39824ba90f737882f3b1778afae3a74e638aa6",
+      "kind": ".yaml",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/amp_style_amass_backward_penalty.yaml",
+      "sha256": "a8893d6f63b2937bfd0028175395758301dd0baff46ba95a67926e627016b066",
+      "kind": ".yaml",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/amp_style_amass_replay.yaml",
+      "sha256": "bdf0ade1123795e4160fc6979cc5d605d842ba171459429c3803e41f32cca67b",
+      "kind": ".yaml",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/amp_style_amass_root_curriculum.yaml",
+      "sha256": "23b265fd2955b879ff76e2c429d9280f1ab48d53919bf63ab52546967f6ca988",
+      "kind": ".yaml",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/amp_style_amass_stratified_experts.yaml",
+      "sha256": "f8f6bf2cb66380cadd859b8c2b9808a89a583996290cc914eccb916b2a1eadfb",
+      "kind": ".yaml",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/amp_style_mixed_amass_procedural.yaml",
+      "sha256": "631f372cebe3c4ac6e87e67c333cda85d4a80a960b962ac9d1d8c483430068d9",
+      "kind": ".yaml",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/amp_style_mixed_state_action.yaml",
+      "sha256": "6963d3429079ef7ea5613fb468e9e8ac742d7508ef1bf2d9d105b156ceca2aab",
+      "kind": ".yaml",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/amp_style_mixed_state_action_state_prior_pacer_reward.yaml",
+      "sha256": "6d76dbfad6bc3827904af7efaf2fea7849ba5f5ff441971745ea17501b7f1bae",
+      "kind": ".yaml",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/amp_style_mixed_state_action_state_prior_terrain_protected.yaml",
+      "sha256": "220f6d38d4cd71d8cc26f045bf2f3f842661ecc7f69875c11e4a8ee6df39e7c2",
+      "kind": ".yaml",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/amp_style_mixed_state_action_terrain_protected.yaml",
+      "sha256": "a73f91ef997997f9e890a43aef61f3abd19e25efb3feab052d042fd62133082e",
+      "kind": ".yaml",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_speed_20261010/NewMetro_cameras.json",
+      "sha256": "49b1ca8827284707860d2d170e68dc5eb791f5d8bc795a4f7d28b970f26140c2",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_speed_20261010/NewMetro_profile.json",
+      "sha256": "c81ceb72d359f4a1b6af51d43de66714d33cb24999f557ebc839a008046da20a",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_speed_20261010/NewMetro_scene.yaml",
+      "sha256": "5a93d922a9bf9457208d009f14e34b4e6fb1e09611967340e6cb5d69b7d1220e",
+      "kind": ".yaml",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_speed_20261010/SecondFloor_cameras.json",
+      "sha256": "89337ac99df87a06811387ff077f69285db12815f9acb4d488f1cf6d6f524827",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_speed_20261010/SecondFloor_profile.json",
+      "sha256": "6f8b33f4a7ea45a612a059ffc814fcb04c279643d403c9983a812114ffc2aee6",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_speed_20261010/SecondFloor_scene.yaml",
+      "sha256": "b0b56d2a1a89320858b219c9451fe8e6d771201b7de2ffb8f2d62c09f9d96da6",
+      "kind": ".yaml",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_speed_20261010/ThirdFloor_cameras.json",
+      "sha256": "aa40bf33ca42c74e84ea5f9a1f939fe5570405bf55bc2c2616f1414ac2f0ff6e",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_speed_20261010/ThirdFloor_profile.json",
+      "sha256": "0ddb3ad3d9727b8b6f58c5568774ab9b7b422d67331a91996c7da24ec33f01bb",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_speed_20261010/ThirdFloor_scene.yaml",
+      "sha256": "a378c35c5f594a848e8316bb87399466952604725155dab17ce899a77333b80a",
+      "kind": ".yaml",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_speed_20261010/YOHO_cameras.json",
+      "sha256": "2193bde63b13acea449f7f4cf8fef1652895fdb395e7f6d1d7229c20f7234b89",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_speed_20261010/YOHO_profile.json",
+      "sha256": "472e2d27a36439855befaae2d381426ea941b4505f64fd576032a6cecc5e6dde",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_speed_20261010/YOHO_scene.yaml",
+      "sha256": "b4f7d5513d91c597fc347078940f4d77d8f3ea43904d505582f35944a2a6bc84",
+      "kind": ".yaml",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_speed_20261010/gait_conservative_prior_v3.json",
+      "sha256": "4cc64b2f7924b64643d562697a2c455ec6dfbe801f4cd04991992175d0e83f52",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_speed_20261010/locomotion_conservative128_v3.json",
+      "sha256": "8b6bf3517184cb370e21c06bf434954e0ee1ec3e78e539d92fbf155270cdbdae",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_speed_20261010/temporal_speed_prior_v1.json",
+      "sha256": "c1cfd48538df4469d0cd5bf85b206044b047c28d6f024027b861bff5ffab4cec",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_speed_20261010/walking_conservative_windows_v3.json",
+      "sha256": "e9d871feda9e30d5851558b314564cb095e67f7580756949b3dbd95be541e463",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_walking_20261009/NewMetro_cameras.json",
+      "sha256": "81aa639eef3c77ea785d5ccdcc64f88f55cfcef151e7018d0fa3cbc90124fa23",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_walking_20261009/NewMetro_profile.json",
+      "sha256": "2fd5bebbd24cdf8bc916058e71a2e5dda2de2b156ffb8fbf1e4842e35104512b",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_walking_20261009/NewMetro_scene.yaml",
+      "sha256": "b5e91ae9f01750bfb567818fd9eb5e4916ec9407ee0d56cec377100153816460",
+      "kind": ".yaml",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_walking_20261009/SecondFloor_cameras.json",
+      "sha256": "89337ac99df87a06811387ff077f69285db12815f9acb4d488f1cf6d6f524827",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_walking_20261009/SecondFloor_profile.json",
+      "sha256": "1c1a44fb01abcce085779ae19328f9be86da61ce44fe2fb85b12caa3bcdfbe73",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_walking_20261009/SecondFloor_scene.yaml",
+      "sha256": "3998230fa1cb41e696f967b6b898e888c6d6eb037da2c77df5bd28157c6770e2",
+      "kind": ".yaml",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_walking_20261009/ThirdFloor_cameras.json",
+      "sha256": "aa40bf33ca42c74e84ea5f9a1f939fe5570405bf55bc2c2616f1414ac2f0ff6e",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_walking_20261009/ThirdFloor_profile.json",
+      "sha256": "1c1a44fb01abcce085779ae19328f9be86da61ce44fe2fb85b12caa3bcdfbe73",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_walking_20261009/ThirdFloor_scene.yaml",
+      "sha256": "7cf31b191bd1bd99078be25923afc865664a2b0d2d26f8318422be48b0d99e5a",
+      "kind": ".yaml",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_walking_20261009/YOHO_cameras.json",
+      "sha256": "10b36c5726bac1d41b9590a554aa74a68640df9af0c5e2044c176b0ed6f1c459",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_walking_20261009/YOHO_profile.json",
+      "sha256": "2fd5bebbd24cdf8bc916058e71a2e5dda2de2b156ffb8fbf1e4842e35104512b",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_walking_20261009/YOHO_scene.yaml",
+      "sha256": "14d0c2f8bae7e5f7b7d89e4789ba98b6df46eabbe27fa56ee2fdd76f05a8214d",
+      "kind": ".yaml",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_walking_20261009/gait_prior_compact_v3.json",
+      "sha256": "d3d33f64b4ec0a6701e517e9f69fdcaf9b5e834090bffaf8f0c94d2cd9c336cf",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_walking_20261009/locomotion_walking_turn_v9.json",
+      "sha256": "1affadd086ea934cfdd01c19a191dc5320d669abdaba0da2a1b72a5be6acde7c",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_walking_20261009/temporal_gait_prior_v2.json",
+      "sha256": "4f5365a93ed0ddf31deb0a18baaf9c13851296b3ad56a70e79160c26c6290a28",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/four_scene_walking_20261009/walking_reset_windows_v9.json",
+      "sha256": "e9d871feda9e30d5851558b314564cb095e67f7580756949b3dbd95be541e463",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/locomotion_finetune_v1.json",
+      "sha256": "38e86b2fa47eb8c8a22f34ea257e273d2cee5df3112d69521ce45e4c47d7db79",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/locomotion_finetune_v2.json",
+      "sha256": "27cf98cf28b9d06df43527a31752cfe1e606f63376a24ad98b6669f94d9de22f",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/locomotion_upperbody_v2.json",
+      "sha256": "ab38c330602d399581c9171707adbd13a2131e0fbd1f73ebdfea590a45d6108e",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/method_reconstruction.yaml",
+      "sha256": "4b177f233c7409694ee8a14a7f1830105b7e56606d3b3bacca5d95b1e9256c6d",
+      "kind": ".yaml",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/native_warehouse_pedestrians_15_clearance08_v1.yaml",
+      "sha256": "286b714239147166b1fd19d4b1db665cbdad8801e962f66f8ace608812f8dd45",
+      "kind": ".yaml",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/native_warehouse_pedestrians_clearance08_v1.yaml",
+      "sha256": "2432ef639cd08a51a8ec7331f1e9110adf2858a86c2b5bbd62611b7a0ca71b56",
+      "kind": ".yaml",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/native_warehouse_pedestrians_v1.yaml",
+      "sha256": "29a33f1e299095328f7ac24d1a9b321b76168e4c2c67d38e3b89526d86a2b523",
+      "kind": ".yaml",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/reference_weights.yaml",
+      "sha256": "c3a17852732f3f1b0627766d501bc50acf01f7af4f6207e7ee55e9d978fe2322",
+      "kind": ".yaml",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/shared_flat_validation.yaml",
+      "sha256": "a0c630d4a0fe17870daa0a02e528b4cb495da304ef3b7457aeb785319452492b",
+      "kind": ".yaml",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/shared_obstacle_timed_validation.yaml",
+      "sha256": "7971206da6fd50d9981dafd068b6005f326c6e7b6a8768e5a717aeb517573e9f",
+      "kind": ".yaml",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/shared_obstacle_trace_pace_circulation.yaml",
+      "sha256": "f801add8392565657d2f24dc8ff2ce428974c3016a9e28a43944e05e4633eacc",
+      "kind": ".yaml",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/shared_obstacle_trace_pace_keep_right.yaml",
+      "sha256": "9a199040a6a61847c4135088a20c7b6993a7fa432d682ecafe1d04a5915196fa",
+      "kind": ".yaml",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/shared_obstacle_trace_pace_reciprocal.yaml",
+      "sha256": "f907b5fd45e19cc33e00976c3ed6a0e5caf668fa95a0efb4ae20c9b28d18e6fb",
+      "kind": ".yaml",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/shared_obstacle_trace_pace_walking.yaml",
+      "sha256": "013f860ce952f84cf6118b3f6a95095abae302a1a3b8b2f35161a2dfc684e739",
+      "kind": ".yaml",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/shared_obstacle_trace_pace_wide.yaml",
+      "sha256": "3b614a51afaf909a9c637776a9d6c6e5ed04e6e9a63a76fa9539f0dc9e74a983",
+      "kind": ".yaml",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/shared_obstacle_validation.yaml",
+      "sha256": "1c8e868f7ac06c7c889b421b768dc77fb0012c25101f9374bc518a4d7a5d3398",
+      "kind": ".yaml",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/strict_author_experiment.yaml",
+      "sha256": "ebb78490999a6c9065359d70f8eef0ee87c95c4a9fea59498342ecee46d690b6",
+      "kind": ".yaml",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/trace_pace_amass_finetuned.json",
+      "sha256": "92f1120cd65ca806d9f88f55bda9be558c6c374dfe2e1325822505dd1b834dad",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/trace_pace_amass_finetuned_candidate.json",
+      "sha256": "43ff2be23a0b394e751110f42ce0b8c2cc9489ba767ae4ba58f8bb9819f654d8",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/trace_pace_crowd.json",
+      "sha256": "f2d4ba415ba293cc787dfee6ab1440bcfd3f57e029cb836c28369d0f893a7892",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/trace_pace_crowd_circulation.json",
+      "sha256": "f8a9ae6bbaa17a0231a02b40d22fa5642f599bc5573c84ba2cfddc7cb1c7e18f",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/trace_pace_crowd_guarded.json",
+      "sha256": "c686775cfbd686958a95f37a02e45036f4ce64c8e267b7bd1e91f6f1ca99ad38",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/trace_pace_crowd_locomotion.json",
+      "sha256": "f8a9ae6bbaa17a0231a02b40d22fa5642f599bc5573c84ba2cfddc7cb1c7e18f",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/trace_pace_crowd_walking.json",
+      "sha256": "2af39bcb4a0630328c436ee1a1600f1016b5903fada56218170457fc2fc62ad2",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/trace_pace_reliable.json",
+      "sha256": "76b9cb443dce2956823f77b2103f80ff3de49c89f997ba56f0c2922ab4cc8c41",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/trace_pace_warehouse_locomotion_v1.json",
+      "sha256": "ed4ee7e9f2ee356f567ad0e10cee838fc20bf1f526f300d2d4f97e8cefd4afa9",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/trace_pace_yoho_upperbody_v1.json",
+      "sha256": "07632e6b52453554c4271a4274ce3729e7ab423cd0c67ef2cc5964150b253aca",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/warehouse_trace_pace_speed_v1.yaml",
+      "sha256": "fbfbf4d2edd4fd65e589a78b913f7aa57552acebcaa3bf0b28697dea1691a0e0",
+      "kind": ".yaml",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/warehouse_trace_pace_v1.yaml",
+      "sha256": "c54679f92e87f6de533a9978982836f25d5ce9c6bfa11a8de7ffd9fa3598ae3b",
+      "kind": ".yaml",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/diffusion_amp/yoho_pedestrians_v1.yaml",
+      "sha256": "8302797996b5f974685056131d34d33ee80046b75c0de469625ec197f6e81563",
+      "kind": ".yaml",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/point_goal.json",
+      "sha256": "81391e785455b582fbff03ccbceac73b7413b46a49ed74eecc4757d5e59a67d6",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/publication/external_source_assets.json",
+      "sha256": "920b8c284524db959b27cd34a48b13119b9f6de8615f84948dd8798d052c2884",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/publication/source_manifest.json",
+      "sha256": "ba5b053d1b6da5a8c3609c43e7213d5a3ebdda39acc48b170de04e653fffbc0b",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/reference_repositories.json",
+      "sha256": "cdecfcac0a74a21ea6a25b8a1f30ab2802cbbab7ebc41c2987bec830a08bd2ad",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/reproduction/amass_containers/test.json",
+      "sha256": "d5d285a40ad820e36bb39c47113d6b139e73b4c2c78f7801a092b0ae76fdb238",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/reproduction/amass_containers/train.json",
+      "sha256": "e0d0933312103b40dfcd95c852695db2fe3c570965b30d314071501063427abf",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/reproduction/amass_containers/validation.json",
+      "sha256": "16c7801a34692dfc2ed21cd1e208156e2afb826bf9493d213328963ba509fc73",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/reproduction/four_scene/NewMetro_cameras.json",
+      "sha256": "49b1ca8827284707860d2d170e68dc5eb791f5d8bc795a4f7d28b970f26140c2",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/reproduction/four_scene/NewMetro_profile.json",
+      "sha256": "c64f742235ed04d5fd695e37e853a7b6b2d0ecf5b7b0de8298194c271e0b3919",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/reproduction/four_scene/NewMetro_scene.yaml",
+      "sha256": "e1ef3ef25d97eb48a8cca70ef93dba5fcc104ae87574e37b80bf40c518d79e36",
+      "kind": ".yaml",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/reproduction/four_scene/SecondFloor_cameras.json",
+      "sha256": "89337ac99df87a06811387ff077f69285db12815f9acb4d488f1cf6d6f524827",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/reproduction/four_scene/SecondFloor_profile.json",
+      "sha256": "ab5523b83ad8efe6647a6461724f252694c6172736146880931ecc310fecbfaf",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/reproduction/four_scene/SecondFloor_scene.yaml",
+      "sha256": "b3297d10de9253e850f86e547db5e1205010d6d0fd6e357bc5fe90d6c5bed52b",
+      "kind": ".yaml",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/reproduction/four_scene/ThirdFloor_cameras.json",
+      "sha256": "aa40bf33ca42c74e84ea5f9a1f939fe5570405bf55bc2c2616f1414ac2f0ff6e",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/reproduction/four_scene/ThirdFloor_profile.json",
+      "sha256": "f06e9902b80790bd568979124779660bc144768108c3aff30b4667e7af845982",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/reproduction/four_scene/ThirdFloor_scene.yaml",
+      "sha256": "e5e4abfe22b548370368c28ba60ad7c26e8f217178a8160502ff58713553e4af",
+      "kind": ".yaml",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/reproduction/four_scene/YOHO_cameras.json",
+      "sha256": "2193bde63b13acea449f7f4cf8fef1652895fdb395e7f6d1d7229c20f7234b89",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/reproduction/four_scene/YOHO_profile.json",
+      "sha256": "bef5eda2f9f0d95872457ee38afdf67b5aa5f337bf34611ac7e227ef8a22d022",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/reproduction/four_scene/YOHO_scene.yaml",
+      "sha256": "d8ee65ef260d34d56371ae06441495f833b5724e00ed12883744a3a8a7f0ed36",
+      "kind": ".yaml",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/reproduction/four_scene/camera_actors.json",
+      "sha256": "e1a928b1619a692938b2c955ef5a761d16926b9e8edb63c99e59623e6019e111",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/reproduction/resource_bindings.json",
+      "sha256": "1ef88fefc430bb971105787366e753d7860a7753e9d78df6eef25f45653675af",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/upstream/protomotions_maintenance_20261011.json",
+      "sha256": "a5ae7bde6f86182bbc4b21922bcb61f9b0b140a5f1c4432f3084e50b38e8d06b",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "configs/upstream/protomotions_merge_20261010.json",
+      "sha256": "baac9b2a7d25b79c9f652e0d1b61873c2b7c2f9082b7c39a46e94be9bd46f153",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "env/isaaclab3_ea_sim61/profile.json",
+      "sha256": "a0b4f0c269bc51d734e2e410425dea44c126bfafc199b829bd2fdd85a94a9e7c",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "env/isaaclab3_ea_sim61/pyproject.toml",
+      "sha256": "2780d507882950e64ca8f972fcad4c19e74b9681af1d830e0b34fa09e79e116b",
+      "kind": ".toml",
+      "syntax": "passed"
+    },
+    {
+      "path": "env/isaaclab3_sim6/native_shutdown/original_build_manifest.json",
+      "sha256": "713c477db243b9c72081beec906fc30d67143cfd61ec4ca3eb61f95c0489c980",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "env/isaaclab3_sim6/native_shutdown/source_review.json",
+      "sha256": "a6901351e97ce092cd2b328265c2e7b14225188c64892879d8bb87064fd59f5d",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "env/isaaclab3_sim6/native_shutdown/standalone_build_arguments.json",
+      "sha256": "ad85c92dc51bc6c0e0e2bc32139867b79f795ff9663eb286fa7c887b903c7dc8",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "env/isaaclab3_sim6/profile.json",
+      "sha256": "75057698b0c7913a0d8be2b05f01d70ae671c0f576feabe1f507e5c2da5150ca",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "env/isaaclab3_sim6/pyproject.toml",
+      "sha256": "29f54eddb1f577fcb214875b2cfd011fb821de60ee56143978fb535296c4bd96",
+      "kind": ".toml",
+      "syntax": "passed"
+    },
+    {
+      "path": "examples/data/rigv1-vaulting/proto/rigv1-vaulting.yaml",
+      "sha256": "5eedf6a49e3f7e410ad8e1256c634dcb20ee004bb621b1c314932f77e3354346",
+      "kind": ".yaml",
+      "syntax": "passed"
+    },
+    {
+      "path": "packages/crowdsim-ppo/pyproject.toml",
+      "sha256": "0f81a94754bbc375cda5fb5efb4935ee517c37e90ed7fe9cbea310f4bc1781cd",
+      "kind": ".toml",
+      "syntax": "passed"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "69f89568881108ce518ac8d8c2a9d880684e18a97f9594712714bb672708b750",
+      "kind": ".toml",
+      "syntax": "passed"
+    },
+    {
+      "path": "scripts/cluster/lepton_train_loop.sh",
+      "sha256": "1aea57d38342fdd9ca8b4d8c2525fcb248bdbe7947be0934a01923b6421cc32a",
+      "kind": ".sh",
+      "syntax": "passed"
+    },
+    {
+      "path": "scripts/retarget_amass_to_robot.sh",
+      "sha256": "623c0e19bcd37814ab1b058cc6669be1daa0ad8c3abe99852dbd56f071011ffb",
+      "kind": ".sh",
+      "syntax": "passed"
+    },
+    {
+      "path": "scripts/retarget_single_motion_to_robot.sh",
+      "sha256": "963a7cad4711ec2b3f3c5fd24d7587b2daa643118aa1c1cd1e5471b6754c4c2f",
+      "kind": ".sh",
+      "syntax": "passed"
+    },
+    {
+      "path": "scripts/shared_social_native_tool_owner.js",
+      "sha256": "d75bcde8965c243086b8b0d2a90f2df3c73d8be02454f233359ab9b354929aa8",
+      "kind": ".js",
+      "syntax_engine": "functions.exec V8 (production execution environment)",
+      "verification": "Existing actual V8 syntax/contract execution; exact current source SHA reverified",
+      "syntax": "passed"
+    },
+    {
+      "path": "src/CrowdSim/scripts/run_pref_pipeline.sh",
+      "sha256": "8e17cea9cf39c514d7560e059be673286bce0db4ba5829c04e288be177aa9cdc",
+      "kind": ".sh",
+      "syntax": "passed"
+    },
+    {
+      "path": "src/crowdsim_ppo/configs/point_goal.json",
+      "sha256": "81391e785455b582fbff03ccbceac73b7413b46a49ed74eecc4757d5e59a67d6",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "tests/fixtures/paper_deployment_navigation_arguments.json",
+      "sha256": "257b60b902c00c2ff7a08fb37c814755a9fc9701136bf10c88638b9d6c774157",
+      "kind": ".json",
+      "syntax": "passed"
+    },
+    {
+      "path": "tests/native_tool_owner_CPU_contracts.js",
+      "sha256": "c886625a3ef8392de224b2d1c5c634846a580df32319acf7d7db1b910507dbad",
+      "kind": ".js",
+      "syntax_engine": "functions.exec V8 (production execution environment)",
+      "verification": "Existing actual V8 syntax/contract execution; exact current source SHA reverified",
+      "syntax": "passed"
+    }
+  ]
+}

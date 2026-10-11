@@ -7,7 +7,7 @@ name = "Socially-aware_Indoor_Navigation_Benchmark"
 version = "3.1.0"
 description = "Socially-aware_Indoor_Navigation_Benchmark with diffusion trajectories and physical AMP pedestrians"
 readme = { file = "README.md", content-type = "text/markdown" }
-requires-python = ">=3.12"
+requires-python = ">=3.12,<3.13"
 license = { file = "LICENSE.md" }
 authors = [
   { name = "Chen Tessler" },
@@ -36,7 +36,7 @@ dependencies = [
   "easydict>=1.10",
   "lightning>=2.3,<2.6",
   "matplotlib>=3.6",
-  "moviepy>=1.0.3,<2.0.0.dev0; python_version >= '3.9'",
+  "moviepy>=1.0.3,<3",
   "numpy>=1.21.1",
   "omegaconf==2.3.0",
   "PyYAML>=6",
@@ -74,10 +74,15 @@ mujoco = [
   "tensordict==0.9.0",
   "wandb==0.23.0",
 ]
+# Standalone historical Newton 1.0 / Warp1.12 backend. Do not install in the
+# default Lab3EA/Sim6.1 SDK: that SDK supplies Newton1.5.2/Warp1.16 and owns
+# its numeric and USD providers. This extra selects headless sim dependencies;
+# the examples/importers extras can introduce a second usd-core provider.
 newton = [
   "dm-control==1.0.37",
   "mujoco==3.5.0",
-  "newton[examples]==1.0.0",
+  "newton[sim]==1.0.0",
+  "moviepy>=1.0.3,<2",
   "warp-lang==1.12.0",
   "mujoco-warp==3.5.0.2",
   "newton-actuators==0.1.0",
@@ -93,6 +98,20 @@ isaacgym = []
 # stack. Platform markers remain because Isaac Sim publishes Linux x86_64
 # wheels only.
 isaaclab = [
+  "isaaclab==17.0.2; sys_platform == 'linux' and platform_machine == 'x86_64'",
+  "isaacsim[all,extscache]==6.1.0.0; sys_platform == 'linux' and platform_machine == 'x86_64'",
+  # Explicit pre-release dependency required by Sim6.1 under uv default policy.
+  "tinyobjloader==2.0.0rc13; sys_platform == 'linux' and platform_machine == 'x86_64'",
+  "onnxruntime>=1.17",
+  "tensordict==0.9.0",
+  "torch>=2.11,<2.12; sys_platform == 'linux' and platform_machine == 'x86_64'",
+  "torchaudio>=2.11,<2.12; sys_platform == 'linux' and platform_machine == 'x86_64'",
+  "torchvision>=0.26,<0.27; sys_platform == 'linux' and platform_machine == 'x86_64'",
+  "wandb==0.23.0",
+]
+
+# Existing Sim 6.0 deployments; the primary profile uses Lab3 EA / Sim6.1.
+isaaclab6 = [
   "isaaclab==12.0.0; sys_platform == 'linux' and platform_machine == 'x86_64'",
   "isaacsim[all,extscache]==6.0.0.1; sys_platform == 'linux' and platform_machine == 'x86_64'",
   "onnxruntime>=1.17",
@@ -111,7 +130,7 @@ genesis = [
   "PyOpenGL==3.1.4",
   "tensordict==0.9.0",
   "torch==2.5.0",
-  "wandb==0.15.12",
+  "wandb==0.23.0",
 ]
 docs = [
   "myst-parser",
@@ -249,45 +268,32 @@ markers = [
 ]
 
 [tool.uv]
+# The benchmark SDK profile is validated on Linux x86_64 / Python3.12.
+environments = ["sys_platform == 'linux' and platform_machine == 'x86_64'"]
+# Every pair of simulator environments is exclusive, including both Lab stacks.
+# Select exactly one backend; SDK snapshots remain separate from this manifest.
 conflicts = [
-  [
-    { extra = "mujoco" },
-    { extra = "newton" },
-  ],
-  [
-    { extra = "mujoco" },
-    { extra = "isaacgym" },
-  ],
-  [
-    { extra = "mujoco" },
-    { extra = "isaaclab" },
-  ],
-  [
-    { extra = "mujoco" },
-    { extra = "genesis" },
-  ],
-  [
-    { extra = "newton" },
-    { extra = "isaacgym" },
-  ],
-  [
-    { extra = "newton" },
-    { extra = "isaaclab" },
-  ],
-  [
-    { extra = "newton" },
-    { extra = "genesis" },
-  ],
-  [
-    { extra = "isaaclab" },
-    { extra = "isaacgym" },
-  ],
-  [
-    { extra = "isaacgym" },
-    { extra = "genesis" },
-  ],
-  [
-    { extra = "isaaclab" },
-    { extra = "genesis" },
-  ],
+  [{ extra = "mujoco" }, { extra = "newton" }],
+  [{ extra = "mujoco" }, { extra = "isaacgym" }],
+  [{ extra = "mujoco" }, { extra = "isaaclab" }],
+  [{ extra = "mujoco" }, { extra = "isaaclab6" }],
+  [{ extra = "mujoco" }, { extra = "genesis" }],
+  [{ extra = "newton" }, { extra = "isaacgym" }],
+  [{ extra = "newton" }, { extra = "isaaclab" }],
+  [{ extra = "newton" }, { extra = "isaaclab6" }],
+  [{ extra = "newton" }, { extra = "genesis" }],
+  [{ extra = "isaacgym" }, { extra = "isaaclab" }],
+  [{ extra = "isaacgym" }, { extra = "isaaclab6" }],
+  [{ extra = "isaacgym" }, { extra = "genesis" }],
+  [{ extra = "isaaclab" }, { extra = "isaaclab6" }],
+  [{ extra = "isaaclab" }, { extra = "genesis" }],
+  [{ extra = "isaaclab6" }, { extra = "genesis" }],
+]
+
+[tool.uv.sources]
+# These Lab package versions come from the pinned monorepo source, not PyPI.
+# Full SDK dependencies still require the dedicated SDK manifest/lock/profile.
+isaaclab = [
+  { git = "https://github.com/isaac-sim/IsaacLab.git", rev = "ae37b028ea415c91ea2bc32609efcd759ed2b974", subdirectory = "source/isaaclab", extra = "isaaclab" },
+  { git = "https://github.com/isaac-sim/IsaacLab.git", rev = "4ecd0b036da19ff6ad2bb4d621f886b63e9f6db8", subdirectory = "source/isaaclab", extra = "isaaclab6" },
 ]

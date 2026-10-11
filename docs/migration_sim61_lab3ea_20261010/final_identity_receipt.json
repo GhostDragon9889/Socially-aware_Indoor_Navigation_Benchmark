@@ -1,0 +1,42 @@
+{
+  "schema": "migration.final_identity.v1",
+  "SDKs": [
+    {
+      "label": "target",
+      "root": "/project/EXP/IsaacLab",
+      "git_head": "ae37b028ea415c91ea2bc32609efcd759ed2b974",
+      "source_tree": "27e5b57ad0928e0339e121a06be040ae234a99ed",
+      "pyproject_sha256": "2780d507882950e64ca8f972fcad4c19e74b9681af1d830e0b34fa09e79e116b",
+      "uv_lock_sha256": "97f918117aa15e9574b4cc716c264cf2907271b9b3aef01f2949f4bc04595bdc",
+      "tracked_dirty": "M uv.lock",
+      "same_baseline": {
+        "git_head": true,
+        "source_tree": true,
+        "pyproject_sha256": true,
+        "uv_lock_sha256": true,
+        "tracked_dirty": true
+      }
+    },
+    {
+      "label": "legacy",
+      "root": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions",
+      "git_head": "5951d48dde083986489957a7b108ad48a46822a7",
+      "source_tree": "4deaa3ceb8fb3fb4d5895b3d7dfb38040fda7677",
+      "pyproject_sha256": "29f54eddb1f577fcb214875b2cfd011fb821de60ee56143978fb535296c4bd96",
+      "uv_lock_sha256": "5f732db95993c4f770fd01d975b5e517ba3e34333a1a0399477cc6a0ab924c6e",
+      "tracked_dirty": "",
+      "same_baseline": {
+        "git_head": true,
+        "source_tree": true,
+        "pyproject_sha256": true,
+        "uv_lock_sha256": true,
+        "tracked_dirty": true
+      }
+    }
+  ],
+  "project_head": "bb48a0b79d5b73cde6c3ba85163737e1fec8a194",
+  "project_commits_created": false,
+  "pushes_performed": false,
+  "project_pyproject_sha256": "69f89568881108ce518ac8d8c2a9d880684e18a97f9594712714bb672708b750",
+  "project_manifest_sha256": "0951383af19c5a08e1a5f0a00f2baed73272b963038492cc2aaa8ce451e13810"
+}

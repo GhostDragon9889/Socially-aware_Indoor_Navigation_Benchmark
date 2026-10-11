@@ -19,6 +19,7 @@ from protomotions.simulator.isaaclab.utils.actuator_groups import (
 from protomotions.simulator.isaaclab.utils.mjcf_to_usd import convert_robot_mjcf_to_usd
 from protomotions.simulator.isaaclab.utils.usd_body_paths import (
     contact_sensor_prim_path,
+    physx_usd_variant_selection,
     resolve_robot_prim_paths,
 )
 from protomotions.simulator.isaaclab.config import IsaacLabSimulatorConfig
@@ -168,6 +169,7 @@ class SceneCfg(InteractiveSceneCfg):
             articulation_root_prim_path=articulation_root_prim_path,
             spawn=sim_utils.UsdFileCfg(
                 usd_path=robot_usd_path,
+                variants=physx_usd_variant_selection(robot_usd_path),
                 activate_contact_sensors=activate_contact_sensors,
                 rigid_props=sim_utils.RigidBodyPropertiesCfg(
                     disable_gravity=robot_config.asset.disable_gravity,
@@ -232,7 +234,9 @@ class SceneCfg(InteractiveSceneCfg):
                 diffuse_color=(0.32, 0.36, 0.40), roughness=0.85,
             )
 
-            vertices = terrain.vertices
+            # Scene construction must not shift the caller's terrain on
+            # every rebuild (e.g. a fresh evaluation scene).
+            vertices = terrain.vertices.copy()
             height_offset = terrain.sim_config.height_offset
             vertices[..., 2] += height_offset
 

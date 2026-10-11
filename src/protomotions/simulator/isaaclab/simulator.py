@@ -29,7 +29,7 @@ import numpy as np
 from typing import Dict, List, Any, Optional, Tuple
 from protomotions.simulator.isaaclab.utils.scene import SceneCfg
 from protomotions.simulator.isaaclab.utils.actuator_groups import (
-    build_isaaclab_joint_name_map,
+    semantic_dof_names_for_articulation,
 )
 from protomotions.simulator.isaaclab.config import (
     IsaacLabSimulatorConfig,
@@ -39,6 +39,11 @@ from protomotions.simulator.isaaclab.utils.collision_baking import (
     ensure_baked_collision_usd,
 )
 from protomotions.simulator.isaaclab.utils.materials import set_material_friction
+from protomotions.simulator.isaaclab.utils.runtime_compat import (
+    as_torch,
+    write_root_link_state,
+    write_root_link_velocity,
+)
 from protomotions.simulator.base_simulator.simulator import Simulator
 from protomotions.simulator.base_simulator.utils import get_friction_bucket_count
 from protomotions.simulator.base_simulator.config import (
@@ -98,7 +103,12 @@ class IsaacLabSimulator(Simulator):
             device=str(device),
             dt=1.0 / self.config.sim.fps,
             render_interval=self.config.sim.decimation,
+            # Keep existing AMP checkpoints on the same host actuator path.
+            # Lab 3 EA / Sim 6.1 changes the SDK default to native actuators.
+            use_newton_actuators=False,
             physics=PhysxCfg(
+                # Sim 6.1 defaults to True; preserve the trained force integration.
+                enable_external_forces_every_iteration=False,
                 solver_type=self.config.sim.physx.solver_type,
                 max_position_iteration_count=self.config.sim.physx.num_position_iterations,
                 max_velocity_iteration_count=self.config.sim.physx.num_velocity_iterations,
@@ -129,9 +139,12 @@ class IsaacLabSimulator(Simulator):
 
         if self.config.scene_physics_replication is False:
             from protomotions.simulator.isaaclab.utils.usd_only_scene import USDOnlyInteractiveScene
-            self._scene = USDOnlyInteractiveScene(scene_cfg)
+            scene_type = USDOnlyInteractiveScene
         else:
-            self._scene = InteractiveScene(scene_cfg)
+            scene_type = InteractiveScene
+        # Own partial construction before a provider/asset spawn can raise.
+        self._scene = scene_type.__new__(scene_type)
+        scene_type.__init__(self._scene, scene_cfg)
         if not self.headless:
             self._setup_keyboard()
         print("[INFO]: Setup complete...")
@@ -344,9 +357,10 @@ class IsaacLabSimulator(Simulator):
             import omni.appwindow  # noqa: F401 — needed by Se2Keyboard
             from isaaclab.devices.keyboard.se2_keyboard import Se2Keyboard
             from isaaclab.devices.keyboard.se2_keyboard_cfg import Se2KeyboardCfg
+            from .utils.sdk61_owned_close import owned_keyboard_class
 
             cfg = Se2KeyboardCfg(sim_device=str(self.device))
-            self.keyboard_interface = Se2Keyboard(cfg=cfg)
+            self.keyboard_interface = owned_keyboard_class(Se2Keyboard)(cfg=cfg)
         except (ImportError, AttributeError, RuntimeError) as e:
             log.warning(f"Keyboard setup skipped: {e}")
             self.keyboard_interface = None
@@ -438,13 +452,13 @@ class IsaacLabSimulator(Simulator):
             )
             for obj_idx, object in enumerate(self._object):
                 objects_start_pos[:, :7] = self._initial_scene_pos[:, obj_idx, :]
-                object.write_root_link_state_to_sim(objects_start_pos)
+                write_root_link_state(object, objects_start_pos)
 
         self._apply_domain_randomization_if_needed()
 
     def _apply_domain_randomization_if_needed(self) -> None:
         all_env_ids = torch.arange(self.config.num_envs, dtype=torch.int)
-        materials = wp.to_torch(self._robot.root_view.get_material_properties()).clone()
+        materials = as_torch(self._robot.root_view.get_material_properties()).clone()
         set_material_friction(
             materials,
             static_friction=self.config.default_robot_friction,
@@ -532,12 +546,17 @@ class IsaacLabSimulator(Simulator):
             and "center_of_mass" in self._domain_randomization
         ):
             # get the current com of the bodies (num_assets, num_bodies)
-            coms = wp.to_torch(self._robot.root_view.get_coms()).clone()
+            coms = as_torch(self._robot.root_view.get_coms()).clone()
 
-            # Randomize the com in range
-            coms[
-                :, self._domain_randomization["center_of_mass"]["body_indices"], :3
-            ] += self._domain_randomization["center_of_mass"]["com"].to(coms.device)
+            # Source body indices use semantic MJCF ordering; live PhysX
+            # links can have a different order after conversion.
+            com_dr = self._domain_randomization["center_of_mass"]
+            body_names = [
+                self.robot_config.kinematic_info.body_names[index]
+                for index in com_dr["body_indices"]
+            ]
+            body_ids, _ = self._robot.find_bodies(body_names, preserve_order=True)
+            coms[:, body_ids, :3] += com_dr["com"].to(coms.device)
 
             # Set the new COMs.
             self._robot.root_view.set_coms(
@@ -563,14 +582,18 @@ class IsaacLabSimulator(Simulator):
                 0, num_buckets, (self.num_envs,), device=self.device
             )
             masses = body_mass["mass"].to(self.device)[bucket_ids]
+            # Lab 3 updates body_mass in place and snapshots default_mass lazily.
+            # Capture the selected pre-write values before changing the masses.
+            previous_mass = as_torch(self._robot.data.body_mass)[
+                env_ids[:, None], body_ids
+            ].clone()
+            previous_inertia = as_torch(self._robot.data.body_inertia)[
+                env_ids[:, None], body_ids
+            ].clone()
+            inertias = previous_inertia * (masses / previous_mass)[..., None]
             self._robot.set_masses_index(
                 masses=masses, body_ids=body_ids, env_ids=env_ids
             )
-
-            default_mass = self._robot.data.default_mass.torch
-            default_inertia = self._robot.data.default_inertia.torch
-            ratios = masses / default_mass[env_ids[:, None], body_ids]
-            inertias = default_inertia[env_ids[:, None], body_ids] * ratios[..., None]
             self._robot.set_inertias_index(
                 inertias=inertias, body_ids=body_ids, env_ids=env_ids
             )
@@ -599,7 +622,7 @@ class IsaacLabSimulator(Simulator):
         for obj_idx, object_view in enumerate(self._object):
             materials = None
             coms = (
-                wp.to_torch(object_view.root_view.get_coms()).clone()
+                as_torch(object_view.root_view.get_coms()).clone()
                 if apply_center_of_mass
                 else None
             )
@@ -611,7 +634,7 @@ class IsaacLabSimulator(Simulator):
                 if material_kwargs:
                     if materials is None:
                         materials = (
-                            wp.to_torch(object_view.root_view.get_material_properties())
+                            as_torch(object_view.root_view.get_material_properties())
                             .clone()
                             .to("cpu")
                         )
@@ -664,11 +687,11 @@ class IsaacLabSimulator(Simulator):
 
     def _apply_simulator_pd_targets(self, pd_targets: torch.Tensor) -> None:
         """Applies PD position targets using IsaacLab's internal PD controller."""
-        self._robot.set_joint_position_target(pd_targets.detach(), joint_ids=None)
+        self._robot.set_joint_position_target_index(target=pd_targets.detach(), joint_ids=None)
 
     def _apply_simulator_torques(self, torques: torch.Tensor) -> None:
         """Applies torques to the robot DOFs."""
-        self._robot.set_joint_effort_target(torques.detach(), joint_ids=None)
+        self._robot.set_joint_effort_target_index(target=torques.detach(), joint_ids=None)
 
     def _set_simulator_env_state(
         self,
@@ -693,12 +716,13 @@ class IsaacLabSimulator(Simulator):
             ],
             dim=-1,
         )
-        self._robot.write_root_link_state_to_sim(init_root_state, env_ids)
-        self._robot.set_joint_position_target(
-            new_states.dof_pos, joint_ids=None, env_ids=env_ids
+        write_root_link_state(self._robot, init_root_state, env_ids=env_ids)
+        self._robot.set_joint_position_target_index(
+            target=new_states.dof_pos, joint_ids=None, env_ids=env_ids
         )
-        self._robot.write_joint_state_to_sim(
-            new_states.dof_pos, new_states.dof_vel, None, env_ids
+        self._robot.write_joint_state_to_sim_index(
+            position=new_states.dof_pos, velocity=new_states.dof_vel,
+            joint_ids=None, env_ids=env_ids
         )
         if new_object_states is not None and len(self._object) > 0:
             init_object_root_state = torch.cat(
@@ -711,8 +735,9 @@ class IsaacLabSimulator(Simulator):
                 dim=-1,
             ).reshape(len(env_ids), self.scene_lib.num_objects_per_scene, 13)
             for object_idx in range(len(self._object)):
-                self._object[object_idx].write_root_link_state_to_sim(
-                    init_object_root_state[:, object_idx], env_ids
+                write_root_link_state(
+                    self._object[object_idx], init_object_root_state[:, object_idx],
+                    env_ids=env_ids
                 )
 
     # =====================================================
@@ -725,18 +750,9 @@ class IsaacLabSimulator(Simulator):
         Returns:
             SimBodyOrdering: An object containing the body names and DOF names.
         """
-        joint_names = build_isaaclab_joint_name_map(
-            self.robot_config.kinematic_info
+        semantic_joint_names = semantic_dof_names_for_articulation(
+            self._robot, self.robot_config.kinematic_info
         )
-        try:
-            semantic_joint_names = [
-                joint_names.backend_to_semantic[name]
-                for name in self._robot.joint_names
-            ]
-        except KeyError as error:
-            raise ValueError(
-                f"Unexpected IsaacLab joint name: {error.args[0]}"
-            ) from error
 
         return SimBodyOrdering(
             body_names=self._robot.body_names,
@@ -755,12 +771,12 @@ class IsaacLabSimulator(Simulator):
         Returns:
             RobotState: The state of the bodies.
         """
-        isaacsim_bodies_positions = wp.to_torch(self._robot.data.body_pos_w).clone()
-        isaacsim_bodies_rotations = wp.to_torch(self._robot.data.body_quat_w).clone()
+        isaacsim_bodies_positions = as_torch(self._robot.data.body_pos_w).clone()
+        isaacsim_bodies_rotations = as_torch(self._robot.data.body_quat_w).clone()
         # Link poses and velocities must share the actor-frame origin. Lab's
         # historical body_lin_vel_w alias is explicitly COM velocity.
-        isaacsim_bodies_velocities = wp.to_torch(self._robot.data.body_link_lin_vel_w).clone()
-        isaacsim_bodies_ang_velocities = wp.to_torch(
+        isaacsim_bodies_velocities = as_torch(self._robot.data.body_link_lin_vel_w).clone()
+        isaacsim_bodies_ang_velocities = as_torch(
             self._robot.data.body_link_ang_vel_w
         ).clone()
 
@@ -801,7 +817,7 @@ class IsaacLabSimulator(Simulator):
         Returns:
             torch.Tensor: The DOF forces.
         """
-        isaacsim_dof_forces = wp.to_torch(self._robot.data.applied_torque).clone()
+        isaacsim_dof_forces = as_torch(self._robot.data.applied_torque).clone()
         if env_ids is not None:
             isaacsim_dof_forces = isaacsim_dof_forces[env_ids]
         return RobotState(
@@ -820,8 +836,8 @@ class IsaacLabSimulator(Simulator):
         Returns:
             RobotState: The DOF state.
         """
-        isaacsim_dof_pos = wp.to_torch(self._robot.data.joint_pos).clone()
-        isaacsim_dof_vel = wp.to_torch(self._robot.data.joint_vel).clone()
+        isaacsim_dof_pos = as_torch(self._robot.data.joint_pos).clone()
+        isaacsim_dof_vel = as_torch(self._robot.data.joint_vel).clone()
         if env_ids is not None:
             isaacsim_dof_pos = isaacsim_dof_pos[env_ids]
             isaacsim_dof_vel = isaacsim_dof_vel[env_ids]
@@ -842,7 +858,7 @@ class IsaacLabSimulator(Simulator):
                                               in IsaacLab's DOF ordering.
         """
         # Extract limits from the robot data
-        dof_limits = wp.to_torch(self._robot.data.joint_pos_limits).clone()
+        dof_limits = as_torch(self._robot.data.joint_pos_limits).clone()
         # IsaacLab stores limits as [num_envs, num_dofs, 2], we take from first env
         return dof_limits[0, :, 0].to(self.device), dof_limits[0, :, 1].to(self.device)
 
@@ -873,7 +889,7 @@ class IsaacLabSimulator(Simulator):
                 contact_sensor = self._contact_sensor_map[body_name]
                 # net_forces_w has shape [num_envs, 1, 3], extract the single body dimension
                 rigid_body_contact_forces[:, body_idx, :] = (
-                    wp.to_torch(contact_sensor.data.net_forces_w).clone()[:, 0, :]
+                    as_torch(contact_sensor.data.net_forces_w).clone()[:, 0, :]
                 )
 
         if env_ids is not None:
@@ -901,7 +917,7 @@ class IsaacLabSimulator(Simulator):
             for obj_idx in range(self.scene_lib.num_objects_per_scene):
                 if self._object_contact_sensor[obj_idx] is not None:
                     object_forces.append(
-                        wp.to_torch(
+                        as_torch(
                             self._object_contact_sensor[obj_idx].data.force_matrix_w
                         ).clone()
                     )
@@ -916,9 +932,10 @@ class IsaacLabSimulator(Simulator):
                             dtype=torch.float,
                         )
                     )
+            forces = torch.cat(object_forces, dim=1)
             if env_ids is not None:
-                object_forces = object_forces[env_ids]
-            return torch.cat(object_forces, dim=1)
+                forces = forces[env_ids]
+            return forces
         else:
             return_tensor = torch.zeros(
                 self.num_envs, 1, 1, 3, device=self.device, dtype=torch.float
@@ -939,10 +956,10 @@ class IsaacLabSimulator(Simulator):
         Returns:
             RootOnlyState: The robot's root state.
         """
-        isaacsim_root_pos = wp.to_torch(self._robot.data.root_pos_w).clone()
-        isaacsim_root_rot = wp.to_torch(self._robot.data.root_quat_w).clone()
-        isaacsim_root_vel = wp.to_torch(self._robot.data.root_link_lin_vel_w).clone()
-        isaacsim_root_ang_vel = wp.to_torch(self._robot.data.root_link_ang_vel_w).clone()
+        isaacsim_root_pos = as_torch(self._robot.data.root_pos_w).clone()
+        isaacsim_root_rot = as_torch(self._robot.data.root_quat_w).clone()
+        isaacsim_root_vel = as_torch(self._robot.data.root_link_lin_vel_w).clone()
+        isaacsim_root_ang_vel = as_torch(self._robot.data.root_link_ang_vel_w).clone()
         if env_ids is not None:
             isaacsim_root_pos = isaacsim_root_pos[env_ids]
             isaacsim_root_rot = isaacsim_root_rot[env_ids]
@@ -968,22 +985,34 @@ class IsaacLabSimulator(Simulator):
         Returns:
             ObjectState: The objects' root state.
         """
+        if not self._object:
+            # Empty scenes have a valid zero-object state, including subsets.
+            positions = torch.empty(self.num_envs, 0, 3, device=self.device)
+            rotations = torch.empty(self.num_envs, 0, 4, device=self.device)
+            if env_ids is not None:
+                positions = positions[env_ids]
+                rotations = rotations[env_ids]
+            return ObjectState(
+                root_pos=positions, root_rot=rotations,
+                root_vel=positions.clone(), root_ang_vel=positions.clone(),
+                state_conversion=StateConversion.SIMULATOR,
+            )
         isaacsim_root_pos = []
         isaacsim_root_rot = []
         isaacsim_root_vel = []
         isaacsim_root_ang_vel = []
         for obj_idx in range(len(self._object)):
             isaacsim_root_pos.append(
-                wp.to_torch(self._object[obj_idx].data.root_pos_w).clone()
+                as_torch(self._object[obj_idx].data.root_pos_w).clone()
             )
             isaacsim_root_rot.append(
-                wp.to_torch(self._object[obj_idx].data.root_quat_w).clone()
+                as_torch(self._object[obj_idx].data.root_quat_w).clone()
             )
             isaacsim_root_vel.append(
-                wp.to_torch(self._object[obj_idx].data.root_link_lin_vel_w).clone()
+                as_torch(self._object[obj_idx].data.root_link_lin_vel_w).clone()
             )
             isaacsim_root_ang_vel.append(
-                wp.to_torch(self._object[obj_idx].data.root_link_ang_vel_w).clone()
+                as_torch(self._object[obj_idx].data.root_link_ang_vel_w).clone()
             )
         isaacsim_root_pos = torch.stack(isaacsim_root_pos, dim=1)
         isaacsim_root_rot = torch.stack(isaacsim_root_rot, dim=1)
@@ -1009,7 +1038,7 @@ class IsaacLabSimulator(Simulator):
         Returns:
             int: Number of actors per environment.
         """
-        root_pos = wp.to_torch(self._robot.data.root_pos_w)
+        root_pos = as_torch(self._robot.data.root_pos_w)
         return root_pos.shape[0] // self.num_envs
 
     # =====================================================
@@ -1023,11 +1052,11 @@ class IsaacLabSimulator(Simulator):
         env_ids: torch.Tensor,
     ) -> None:
         """Apply velocity impulse to robot root by adding to current velocities."""
-        current_vel = wp.to_torch(self._robot.data.root_link_vel_w)[env_ids]
+        current_vel = as_torch(self._robot.data.root_link_vel_w)[env_ids]
         new_vel = current_vel.clone()
         new_vel[:, :3] += linear_velocity
         new_vel[:, 3:6] += angular_velocity
-        self._robot.write_root_link_velocity_to_sim(new_vel, env_ids=env_ids)
+        write_root_link_velocity(self._robot, new_vel, env_ids=env_ids)
 
     # =====================================================
     # Projectile Implementation
@@ -1038,7 +1067,7 @@ class IsaacLabSimulator(Simulator):
         pos_list = []
         rot_list = []
         for pid in range(n_proj):
-            state = wp.to_torch(self._projectile_objects[pid].data.root_state_w)
+            state = as_torch(self._projectile_objects[pid].data.root_state_w)
             pos_list.append(state[:, 0:3])
             # IsaacLab 3 uses xyzw natively — no conversion needed
             rot_list.append(state[:, 3:7])
@@ -1080,8 +1109,8 @@ class IsaacLabSimulator(Simulator):
                 ],
                 dim=-1,
             )
-            self._projectile_objects[pid.item()].write_root_link_state_to_sim(
-                state, env_ids=eids
+            write_root_link_state(
+                self._projectile_objects[pid.item()], state, env_ids=eids
             )
 
     # =====================================================
@@ -1178,6 +1207,9 @@ class IsaacLabSimulator(Simulator):
         Close the simulation application and perform cleanup.
         """
         super().close()
+        from .utils.sdk61_owned_close import close_owned_simulator
+        if close_owned_simulator(self):
+            return
         exit_code = getattr(self, "_shutdown_exit_code", 0)
         if exit_code:
             self._simulation_app.close(exit_code=exit_code)

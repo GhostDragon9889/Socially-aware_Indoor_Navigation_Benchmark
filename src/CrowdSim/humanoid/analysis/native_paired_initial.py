@@ -36,19 +36,54 @@ PINS = {"CrowdSim.humanoid.runtime.dynbench_scene":
         "CrowdSim.humanoid.application.native_deployment":
             ("CrowdSim/humanoid/application/native_deployment.py", "af708cc18873424ed57b497473f35d17cecc2c3910b15f4c67ef4d8cd5ab49f0")}
 
+# Match the versioned native SFM scene providers. This is a new capture
+# provenance boundary; an archived v1 capture cannot certify these providers.
+SOURCE_VERSION = "native_initial.current_scene_sources.v2"
+CURRENT_SCENE_SHA = {
+    "CrowdSim.humanoid.application.native_deployment": "a3a8097e5d63b03e5f96f24e6246c333b2103f3628c6209139e2aff2c564cd96",
+    "CrowdSim.humanoid.runtime.dynbench_scene": "68bd2171ad9707c3f280c374d73538b8c532764a42e1f90335c6375090595d28",
+    "CrowdSim.humanoid.runtime.native_grid_scene": "b5563bd5a509cdb02ae33e57ad34ab7a0524825ad16e481ef631531d59308165",
+}
+
+
+def restore_core_location(source):
+    """Prove whole-file equality to the N4 core after undoing its root lookup."""
+    if hashlib.sha256(source.encode()).hexdigest() == PARENT_SHA:
+        return source
+    restored = source
+    for current, historical in (
+        ("from protomotions.repository import repository_root\n\n", ""),
+        ("ROOT = repository_root(__file__)", "ROOT = Path(__file__).resolve().parents[3]"),
+    ):
+        if restored.count(current) != 1:
+            raise ValueError("Require the exact fixed N4 initial collector location migration")
+        restored = restored.replace(current, historical, 1)
+    if hashlib.sha256(restored.encode()).hexdigest() != PARENT_SHA:
+        raise ValueError("Require the exact fixed N4 initial collector location inverse")
+    return restored
+
 
 def source_bindings():
     parent = original._identity(PARENT)
-    if parent["sha256"] != PARENT_SHA:
-        raise ValueError("Fixed initial-state core changed")
-    result = {"core": parent, "native_reader": original._identity(__file__)}
+    try:
+        restore_core_location(PARENT.read_text())
+    except ValueError as error:
+        raise ValueError("Fixed initial-state core changed") from error
+    result = {"core": parent, "native_reader": original._identity(__file__),
+              "source_version": SOURCE_VERSION, "historical_core_sha256": PARENT_SHA,
+              "core_location_exact_inverse": True,
+              "historical_scene_sha256": {role: row[1] for role, row in PINS.items()}}
     capture = original._identity(ROOT / "CrowdSim/humanoid/foot_capture.py")
     if capture["sha256"] != original.FOOT_CAPTURE_SHA:
         raise ValueError("Native initial foot capture changed")
     result["foot_capture"] = capture
+    portable = original._identity(ROOT / "src/social_navigation/portable_usd.py")
+    if portable["sha256"] != "a72a52ee08d5341f322b01907cd8ba407e5fc582399ad1bfd686c4b4e320a7b3":
+        raise ValueError("Portable USD pairing source changed")
+    result["portable_USD_pairing"] = portable
     for role, (name, sha) in PINS.items():
         row = original._identity(ROOT / name)
-        if row["sha256"] != sha:
+        if row["sha256"] != CURRENT_SCENE_SHA.get(role, sha):
             raise ValueError("Native initial dependency changed: " + role)
         result[role] = row
     return result
@@ -56,8 +91,7 @@ def source_bindings():
 
 def derive_count_core(source):
     """Explicit reversible boundary/count edits; RNG and copy math retained."""
-    if hashlib.sha256(source.encode()).hexdigest() != PARENT_SHA:
-        raise ValueError("Require the exact fixed N4 initial collector")
+    restore_core_location(source)
     replacements = [
         ('    if (world.num_envs != 4 or not world.shared_world or world.scene_provider is not None\n'
          '            or world.validation_scene is None or ground_capture.world is not world):\n',
@@ -94,7 +128,9 @@ def derive_count_core(source):
     if helpers(source) != helpers(derived):
         raise ValueError("Native count adapter changed a copy/RNG/archive/matching helper")
     compile(derived, "native_initial_count_core", "exec")
-    return derived, {"parent_sha256": PARENT_SHA, "literal_seams": len(replacements),
+    return derived, {"parent_sha256": hashlib.sha256(source.encode()).hexdigest(),
+                     "historical_parent_sha256": PARENT_SHA, "core_location_exact_inverse": True,
+                     "literal_seams": len(replacements),
                      "literal_occurrences": sum(row[2] for row in replacements), "exact_inverse": True,
                      "unchanged_helpers_AST_equal": True, "changed_functions": sorted(changed),
                      "derived_sha256": hashlib.sha256(derived.encode()).hexdigest(),
@@ -242,7 +278,7 @@ def capture_initial_condition(world, ground_capture, output, report, args, prove
     sources = source_bindings()
     for name, (relative, _) in PINS.items():
         module = sys.modules.get(name)
-        if module is None or Path(getattr(module, "__file__", "")).resolve() != ROOT / relative:
+        if module is None or Path(getattr(module, "__file__", "")).resolve() != (ROOT / relative).resolve():
             raise ValueError("Actual native snapshot module origin differs: " + name)
     provider, scene = world.scene_provider, world.validation_scene
     if (type(provider) is not DynBenchSceneProvider or type(scene) is not NativeGridScene
@@ -261,7 +297,14 @@ def capture_initial_condition(world, ground_capture, output, report, args, prove
         return arrays, clock
 
     def pairing(selected_report, selected_args, description, clock, rng_metadata, selected_provenance):
-        contract = core_contract(selected_report, selected_args, description, clock, rng_metadata, selected_provenance)
+        contract = deepcopy(core_contract(selected_report, selected_args, description, clock, rng_metadata, selected_provenance))
+        from social_navigation.portable_usd import stable_layer_receipts
+        stable = stable_layer_receipts(provider._portable_layers, provider._portable_usd_receipt,
+                                       source_records=provider._data['layers'])
+        for bound_provider in (contract['scene']['provider'], contract['physics']['scene_geometry']['provider']):
+            if bound_provider['portable_USD_location_derivation'] != provider._portable_usd_receipt:
+                raise ValueError('Initial USD description differs from its live owner')
+            bound_provider['portable_USD_location_derivation'] = deepcopy(stable)
         contract.update(native_protocol=native_protocol(actors, scene), native_resources=deepcopy(request),
                         native_sources=deepcopy(sources), native_count_derivation=proof)
         return contract

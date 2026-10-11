@@ -2,6 +2,8 @@
 
 [English](configuration.en.md) · [文档目录](README.md) · 更新：2026-10-10
 
+默认目标为 Lab3.0 EA/Sim6.1，先创建项目独立 overlay。已有 SDK 可在安装步骤中显式指定实际路径；不要把根 `.venv` 的历史链接当作新环境证明。以下既有模型与历史结果仍须在新 SDK 重新测量验收。
+
 ## 1. 运行目录和环境变量
 
 使用[安装指南](installation.zh-CN.md)中的固定环境，从源码根运行：
@@ -9,8 +11,8 @@
 ```bash
 cd /absolute/path/to/Socially-aware_Indoor_Navigation_Benchmark
 export NAV_ROOT="$PWD"
-export NAV_LAB_ROOT="$(cd ../IsaacLab-Protomotions && pwd)"
-export NAV_PY="$NAV_LAB_ROOT/.venv/bin/python"
+export NAV_LAB_ROOT="$NAV_ROOT/.runtime/IsaacLab61"
+export NAV_PY="$NAV_ROOT/.runtime/isaaclab3_ea_sim61/.venv/bin/python"
 export PYTHONDONTWRITEBYTECODE=1
 export PYTHONPATH="$NAV_ROOT/src:$NAV_ROOT${PYTHONPATH:+:$PYTHONPATH}"
 "$NAV_PY" -m social_navigation status
@@ -201,7 +203,7 @@ PY
 
 ## 6. VS Code 和配置维护
 
-打开根 `Socially-aware_Indoor_Navigation_Benchmark.code-workspace`，选择 `.venv/bin/python`。`.vscode/settings.json` 提供 src 导入路径、排除数据/产物目录；`launch.json` 和 `tasks.json` 提供状态、预检、基线和原生入口。终端变量不等于被调试程序的全部配置；调试仍需相同的资源路径和 SDK 环境。
+打开根 `Socially-aware_Indoor_Navigation_Benchmark.code-workspace`，选择 `.runtime/isaaclab3_ea_sim61/.venv/bin/python`。`.vscode/settings.json` 提供 src 导入路径、排除数据/产物目录；`launch.json` 和 `tasks.json` 提供状态、预检、基线和原生入口。终端变量不等于被调试程序的全部配置；调试仍需相同的资源路径和 SDK 环境。
 
 更新 manifest/lock 时同步更新 `profile.json` 的哈希并运行环境检查；更新被上游映射清单记录的文件时维护对应 Git blob 记录，保留原合并值的追溯字段。生成结果、授权数据、凭据和训练权重保持在源码发布清单之外。
 

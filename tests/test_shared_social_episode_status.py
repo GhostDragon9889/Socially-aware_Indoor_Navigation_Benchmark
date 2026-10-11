@@ -3,6 +3,7 @@ from copy import deepcopy
 import json
 from pathlib import Path
 import sys
+import subprocess
 import tempfile
 import unittest
 from unittest.mock import patch
@@ -65,7 +66,12 @@ class EpisodeStatusTests(unittest.TestCase):
         self.assertFalse(report["execution_success_or_quality_inferred_from_progress"])
         self.assertFalse(report["training_started_or_restarted"])
         self.assertFalse(report["weights_loaded"])
-        self.assertNotIn("torch", sys.modules)
+        # Other tests may already have imported Torch in this pytest process.
+        cold = subprocess.run([sys.executable, "-c",
+            "import sys; from scripts.shared_social_episode_status import read_status; "
+            "read_status(); assert 'torch' not in sys.modules"],
+            cwd=status.ROOT, capture_output=True, text=True)
+        self.assertEqual(cold.returncode, 0, cold.stderr)
 
     def test_reused_owner_pid_removes_live_claim_and_eta(self):
         observer_path = status.ROOT / "docs/style_improvement_20261008/shared_social_episode_comparison_preparation_v1/comparison_owner_state.json"

@@ -1,0 +1,6 @@
+{
+  "destructor_offset": "0x10b7a0",
+  "static_owner_slot_offset": "0x193640",
+  "cached_pointer": 0,
+  "cache_released_before_Cxx_atexit": true
+}

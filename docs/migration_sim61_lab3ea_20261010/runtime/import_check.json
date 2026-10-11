@@ -1,0 +1,122 @@
+[
+  {
+    "module": "torch",
+    "status": "ok",
+    "file": "/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/torch/__init__.py",
+    "version": "2.11.0+cu128"
+  },
+  {
+    "module": "numpy",
+    "status": "ok",
+    "file": "/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/numpy/__init__.py",
+    "version": "2.5.1"
+  },
+  {
+    "module": "warp",
+    "status": "ok",
+    "file": "/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/warp/__init__.py",
+    "version": "1.16.0"
+  },
+  {
+    "module": "omegaconf",
+    "status": "ok",
+    "file": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/runtime/.venv/lib/python3.12/site-packages/omegaconf/__init__.py",
+    "version": "2.3.0"
+  },
+  {
+    "module": "hydra",
+    "status": "ok",
+    "file": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/runtime/.venv/lib/python3.12/site-packages/hydra/__init__.py",
+    "version": "1.3.2"
+  },
+  {
+    "module": "tensordict",
+    "status": "ok",
+    "file": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/runtime/.venv/lib/python3.12/site-packages/tensordict/__init__.py",
+    "version": "0.9.0"
+  },
+  {
+    "module": "google.protobuf",
+    "status": "ok",
+    "file": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/runtime/.venv/lib/python3.12/site-packages/google/protobuf/__init__.py",
+    "version": "6.33.6"
+  },
+  {
+    "module": "wandb",
+    "status": "ok",
+    "file": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/runtime/.venv/lib/python3.12/site-packages/wandb/__init__.py",
+    "version": "0.23.0"
+  },
+  {
+    "module": "lightning",
+    "status": "ok",
+    "file": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/runtime/.venv/lib/python3.12/site-packages/lightning/__init__.py",
+    "version": "2.5.6"
+  },
+  {
+    "module": "dm_control.mjcf",
+    "status": "ok",
+    "file": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/runtime/.venv/lib/python3.12/site-packages/dm_control/mjcf/__init__.py",
+    "version": null
+  },
+  {
+    "module": "skimage",
+    "status": "ok",
+    "file": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/runtime/.venv/lib/python3.12/site-packages/skimage/__init__.py",
+    "version": "0.26.0"
+  },
+  {
+    "module": "cv2",
+    "status": "ok",
+    "file": "/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/cv2/__init__.py",
+    "version": "4.14.0"
+  },
+  {
+    "module": "smplx",
+    "status": "ok",
+    "file": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/runtime/.venv/lib/python3.12/site-packages/smplx/__init__.py",
+    "version": null
+  },
+  {
+    "module": "protomotions.components.pose_lib",
+    "status": "ok",
+    "file": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/protomotions/components/pose_lib.py",
+    "version": null
+  },
+  {
+    "module": "protomotions.robot_configs.base",
+    "status": "ok",
+    "file": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/protomotions/robot_configs/base.py",
+    "version": null
+  },
+  {
+    "module": "protomotions.simulator.isaaclab.config",
+    "status": "ok",
+    "file": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/protomotions/simulator/isaaclab/config.py",
+    "version": null
+  },
+  {
+    "module": "protomotions.simulator.isaaclab.utils.mjcf_to_usd",
+    "status": "ok",
+    "file": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/protomotions/simulator/isaaclab/utils/mjcf_to_usd.py",
+    "version": null
+  },
+  {
+    "module": "protomotions.agents.amp.agent",
+    "status": "ok",
+    "file": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/protomotions/agents/amp/agent.py",
+    "version": null
+  },
+  {
+    "module": "CrowdSim.humanoid.diffusion",
+    "status": "ok",
+    "file": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/CrowdSim/humanoid/diffusion/__init__.py",
+    "version": null
+  },
+  {
+    "module": "crowdsim_ppo.evaluate",
+    "status": "ok",
+    "file": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/crowdsim_ppo/evaluate.py",
+    "version": null
+  }
+]

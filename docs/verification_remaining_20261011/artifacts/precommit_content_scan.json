@@ -1,0 +1,5 @@
+{
+  "files_checked": 471,
+  "credential_pattern_findings": [],
+  "scope": "Known credential formats in changed/untracked files; no guarantee of complete secret detection."
+}

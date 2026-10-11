@@ -7,6 +7,7 @@ from types import ModuleType
 
 from . import native_navigation_seeded_audit as raw
 from . import native_navigation_style as frozen
+from .cpu_dependency_migration import verify_reader
 
 ROOT, metric = raw.ROOT, frozen.metric
 OWNER_SCHEMA = "shared_social.actual_native_seeded_raw_CPU_audit_execution.v1"
@@ -19,10 +20,12 @@ RAW_SHA = "b405e4926915abc4f8165d2ff996d15227e218e12d9209555aca349d1e5d7bbd"
 
 
 def source_bindings():
-    metric.require(Path(frozen.__file__).resolve() == FROZEN and metric.record(FROZEN)["sha256"] == FROZEN_SHA
+    migrations = [verify_reader(FROZEN, FROZEN_SHA), verify_reader(raw.__file__, RAW_SHA)]
+    metric.require(Path(frozen.__file__).resolve() == FROZEN.resolve()
         and metric.record(RAW_CLI)["sha256"] == RAW_CLI_SHA
-        and metric.record(raw.__file__)["sha256"] == RAW_SHA, "Frozen style or seeded raw admission source changed")
-    return {"native_seeded_style_reader": metric.record(__file__), "frozen_seed7_style_reader": metric.record(FROZEN),
+        , "Frozen style or seeded raw admission source changed")
+    return {"native_seeded_style_reader": metric.record(__file__), "reader_migrations": migrations,
+            "frozen_seed7_style_reader": metric.record(FROZEN),
             "unchanged_style_and_reference_bindings": frozen.source_bindings(),
             "seeded_raw_CLI": metric.record(RAW_CLI), "seeded_raw_kernels": raw.source_bindings()}
 

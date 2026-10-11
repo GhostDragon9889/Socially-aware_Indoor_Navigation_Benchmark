@@ -5,6 +5,7 @@
 
 from types import SimpleNamespace
 
+import pytest
 import torch
 from torch import nn
 
@@ -114,6 +115,31 @@ def test_combine_moments_carries_odd_batch_through_pairwise_reduction():
     assert torch.allclose(mean, values.mean().view(1))
     assert torch.allclose(var, values.var(unbiased=False).view(1))
     assert count == 5
+
+
+def test_combine_moments_preserves_large_training_sample_counts():
+    previous_count = 2**24
+    mean, var, count = combine_moments(
+        [torch.tensor([1.0], dtype=torch.float64), torch.tensor([3.0], dtype=torch.float64)],
+        [torch.tensor([2.0], dtype=torch.float64), torch.tensor([0.0], dtype=torch.float64)],
+        [previous_count, 1],
+    )
+    assert count.item() == previous_count + 1
+    expected_mean = (previous_count + 3.0) / (previous_count + 1)
+    expected_var = (previous_count * (2.0 + (1.0 - expected_mean) ** 2)
+                    + (3.0 - expected_mean) ** 2) / (previous_count + 1)
+    assert mean.item() == pytest.approx(expected_mean, abs=1e-14)
+    assert var.item() == pytest.approx(expected_var, abs=1e-14)
+
+
+@pytest.mark.parametrize("ema_decay", [None, 0.5])
+def test_running_mean_std_supports_scalar_observations(ema_decay):
+    rms = RunningMeanStd(_fabric(), shape=None, device="cpu", ema_decay=ema_decay)
+    values = torch.tensor([1.0, 3.0, 5.0])
+    rms.record_moments(values)
+    assert rms.mean.shape == ()
+    assert torch.isfinite(rms.mean) and torch.isfinite(rms.var)
+    torch.testing.assert_close(rms.normalize(rms.normalize(values), un_norm=True), values)
 
 
 def test_running_mean_std_lazy_init_records_and_round_trips_normalized_values():

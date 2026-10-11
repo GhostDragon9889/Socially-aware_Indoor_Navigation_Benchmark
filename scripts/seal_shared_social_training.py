@@ -15,7 +15,8 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from CrowdSim.humanoid.runtime.social_evaluation_lifecycle import record  # noqa: E402
-from CrowdSim.humanoid.runtime import social_popart_training  # noqa: E402
+from CrowdSim.humanoid.runtime.popart_checkpoint_family import admit_binding  # noqa: E402
+from social_navigation.artifact_identity import same_recorded_value  # noqa: E402
 
 
 def main():
@@ -29,7 +30,8 @@ def main():
     external = json.loads(args.exit_metadata.read_text())
     if (external.get("schema") != "shared_social.observed_training_and_audit_exits.v1"
             or external.get("run_directory") != str(run)
-            or any(external.get(key, {}).get("exit_code") != 0 for key in ("training", "CPU_audit"))):
+            or any(type(external.get(key, {}).get("exit_code")) is not int
+                   or external[key]["exit_code"] != 0 for key in ("training", "CPU_audit"))):
         raise ValueError("Require the external owner's actual successful training and CPU audit exits")
     result_path = run / "result.json"
     result = json.loads(result_path.read_text())
@@ -38,13 +40,12 @@ def main():
     updates = result["completed_updates"]
     checkpoint = run / f"step_{updates:06d}.pt"
     rollout = run / f"rollout_update_{updates:06d}.pt"
-    numeric = social_popart_training.describe()
+    numeric = admit_binding(result["canonical_entry"]["numeric_migration"])
     if (result.get("status") != "passed_local_training" or result.get("cleanup_succeeded") is not True
             or result.get("cleanup_errors") or result.get("source_profile_before_after_equal") is not True
             or result["profile"]["runtime"]["updates"] != updates
-            or result["canonical_entry"]["numeric_migration"] != numeric
             or audit.get("status") != "passed" or audit.get("CUDA_initialized") is not False
-            or audit.get("updates") != updates or audit.get("explicit_value_normalization") != numeric
+            or audit.get("updates") != updates or not same_recorded_value(audit.get("explicit_value_normalization"), numeric)
             or audit.get("physical_transitions") != result["actual_training_transitions"]
             or audit.get("checkpoint") != record(checkpoint) or audit.get("rollout") != record(rollout)):
         raise ValueError("Terminal result, actual CPU audit and Pop-Art identities disagree")

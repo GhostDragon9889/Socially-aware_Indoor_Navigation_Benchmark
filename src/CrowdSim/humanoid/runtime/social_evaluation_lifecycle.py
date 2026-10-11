@@ -76,6 +76,10 @@ class IsolatedTrackingLifecycle:
 
     def __init__(self, report):
         self.report = report
+        from .sdk61_lifecycle import SDK61Lifecycle, uses_sim61
+        self._sdk61 = SDK61Lifecycle(report) if uses_sim61() else None
+        if self._sdk61 is not None:
+            return
         identity = record(TERMINAL)
         if identity["sha256"] != TERMINAL_SHA:
             raise ValueError("Sealed native lifecycle helper changed")
@@ -86,7 +90,7 @@ class IsolatedTrackingLifecycle:
             __relocate_sdk_path__=lambda value: relocate_sdk_path(value, root=ROOT))
         original_source = TERMINAL.read_text()
         relocated_source, path_derivation = derive_relocated_checkout(
-            original_source, ROOT.parent / "ProtoMotions", ROOT)
+            original_source, ROOT, ROOT)
         exec(compile(relocated_source, str(TERMINAL) + ":relocated_checkout", "exec"), self.terminal.__dict__)
         self.terminal.OVERLAY_KIT_ARGS = overlay_kit_arguments(
             ROOT.parent / "ProtoMotions", self.terminal.OVERLAY)
@@ -104,9 +108,14 @@ class IsolatedTrackingLifecycle:
 
     @property
     def kit_args(self):
+        if self._sdk61 is not None:
+            return self._sdk61.kit_args
         return "--/app/renderer/enabled=false --/renderer/enabled=false " + self.terminal.OVERLAY_KIT_ARGS
 
     def verify_loaded(self):
+        if self._sdk61 is not None:
+            self._sdk61.report = self.report
+            return self._sdk61.verify_loaded()
         self.terminal._verify_loaded_overlay(self.report)
 
     def _detach_world(self, world, producer):
@@ -136,6 +145,9 @@ class IsolatedTrackingLifecycle:
 
     def close(self, app, world, producer=None, *, native_guard=None):
         """Attempt every terminal phase; report cleanup errors without hiding failure."""
+        if self._sdk61 is not None:
+            self._sdk61.report = self.report
+            return self._sdk61.close(app, world, producer)
         report, sim, refs = self.report, None, ()
         errors = report["cleanup_errors"]
 

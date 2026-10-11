@@ -71,6 +71,15 @@ def prepare_native_runtime(root: Path):
     SDK and repository locations are derived separately by the terminal adapter.
     """
     from .sdk_paths import sim_root
+    from importlib import metadata
+    if metadata.version('isaacsim') == '6.1.0.0':
+        from CrowdSim.humanoid.runtime.sdk61_lifecycle import SDK61Lifecycle
+        report = {}
+        SDK61Lifecycle(report)
+        return {'status': 'stock_sim61_runtime', 'files': 0,
+                'native_overlay_loaded': False, 'installed_SDK_changed': False,
+                'runtime_versions': report['evaluation_lifecycle']['runtime_versions'],
+                'physics_rerun': False}
     bundle = root / 'env/isaaclab3_sim6/native_shutdown'
     manifest_path = bundle / 'original_build_manifest.json'
     manifest = json.loads(manifest_path.read_text())

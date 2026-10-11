@@ -22,6 +22,8 @@ sys.path.insert(0, str(ROOT))
 from CrowdSim.humanoid.application import recovery_evaluation_admission as admission  # noqa: E402
 from CrowdSim.humanoid.runtime.social_evaluation_lifecycle import record  # noqa: E402
 from scripts import run_shared_social_budget_evaluation as budget  # noqa: E402
+from CrowdSim.humanoid.application import historical_recovery  # noqa: E402
+from social_navigation.artifact_identity import artifact_path, same_recorded_value  # noqa: E402
 
 SCHEMA = "shared_social.durable_recovery_evaluation_owner_plan.v1"
 POLICY = {"minimum_free_memory_MiB": 4096, "preserve_existing_processes": True}
@@ -41,23 +43,27 @@ def write_json(path, document):
     temporary.replace(path)
 
 
-def admit(plan_path):
+def admit(plan_path, *, historical=False):
+    plan_path = artifact_path(plan_path, root=ROOT)
     admission.readonly_identity(plan_path)
     plan = json.loads(plan_path.read_text())
     admission.require(plan.get("schema") == SCHEMA and plan.get("GPU_resource_policy") == POLICY,
                       "Require an explicit readonly recovered-model evaluation plan")
-    for item in plan["sources"] + plan["inputs"]:
-        admission.require(record(item["path"]) == item, "Evaluation owner source/input changed: " + item["path"])
-    checkpoint, _, accepted = admission.admit_training(Path(plan["training_receipt"]))
-    registration = json.loads(Path(plan["registration"]).read_text())
-    config = json.loads(Path(registration["configuration"]["path"]).read_text())
+    historical_recovery.verify_sources(plan["sources"], historical=historical,
+                                       required_paths=historical_recovery.plan_inventory("owner"))
+    historical_recovery.verify_sources(plan["inputs"],
+                                       required_paths=historical_recovery.plan_inventory("owner", field="inputs"))
+    admit_training = historical_recovery.training_admission if historical else admission.admit_training
+    checkpoint, _, accepted = admit_training(artifact_path(plan["training_receipt"], root=ROOT))
+    registration = json.loads(artifact_path(plan["registration"], root=ROOT).read_text())
+    config = json.loads(artifact_path(registration["configuration"]["path"], root=ROOT).read_text())
     budget.registered_budget(registration, config)
-    admission.require(registration["run_directory"] == str(checkpoint.parent)
+    admission.require(artifact_path(registration["run_directory"]) == checkpoint.parent
                       and registration["preselected_checkpoint"] == checkpoint.name
-                      and registration.get("recovery_execution_admission") == accepted
+                      and same_recorded_value(registration.get("recovery_execution_admission"), accepted)
                       and registration.get("evaluation_output") == plan["evaluation_output"],
                       "Evaluation plan does not select the complete recovered terminal model")
-    preflight = json.loads(Path(plan["preflight_execution"]).read_text())
+    preflight = json.loads(artifact_path(plan["preflight_execution"], root=ROOT).read_text())
     admission.require(preflight.get("status") == "passed" and preflight.get("SDK_started") is False
                       and [step.get("stage") for step in preflight.get("steps", [])] == ["tracking", "navigation"]
                       and all(admission.exact_integer(step.get("actual_exit_code"), 0)

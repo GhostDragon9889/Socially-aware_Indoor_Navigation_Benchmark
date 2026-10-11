@@ -2,7 +2,11 @@
 from copy import deepcopy
 import json
 import sys
+import subprocess
 import unittest
+import tempfile
+from pathlib import Path
+from unittest.mock import patch
 
 from scripts import compare_shared_social_episode_evidence as comparison
 
@@ -19,7 +23,11 @@ class EpisodeComparisonTests(unittest.TestCase):
         self.assertFalse(registered["single_variable_causal_experiment_claimed"])
         self.assertFalse(registered["author_protocol_equivalence_claimed"])
         self.assertFalse(registered["Test34_used"])
-        self.assertNotIn("torch", sys.modules)
+        child = subprocess.run([sys.executable, "-c",
+            "import sys;from scripts import compare_shared_social_episode_evidence as c;"
+            "c.registration_document();assert 'torch' not in sys.modules"], cwd=comparison.ROOT,
+            capture_output=True, text=True)
+        self.assertEqual(child.returncode, 0, child.stderr)
 
     def test_completed_baseline_is_not_a_candidate_owner_completion(self):
         actual = json.loads(comparison.BASELINE.read_text())
@@ -27,11 +35,16 @@ class EpisodeComparisonTests(unittest.TestCase):
             comparison.validate_owner(actual)
 
     def test_missing_candidate_is_rejected_before_comparison_or_output(self):
-        self.assertFalse(comparison.COMPLETION.exists())
-        self.assertFalse(comparison.OUTPUT.exists())
-        with self.assertRaisesRegex(ValueError, "readonly recovery artifact"):
-            comparison.admit_candidate(comparison.registration_document())
-        self.assertFalse(comparison.OUTPUT.exists())
+        # A missing-candidate contract must not depend on whether an actual
+        # historical run has since completed on this developer machine.
+        with tempfile.TemporaryDirectory() as directory:
+            completion = Path(directory) / "missing-completion.json"
+            output = Path(directory) / "comparison"
+            with patch.object(comparison, "COMPLETION", completion), patch.object(comparison, "OUTPUT", output):
+                self.assertFalse(completion.exists())
+                with self.assertRaisesRegex(ValueError, "readonly recovery artifact"):
+                    comparison.admit_candidate({})
+                self.assertFalse(output.exists())
 
     def test_owner_contract_rejects_failed_missing_inferred_or_reordered_exits(self):
         # Synthetic contract fixture, never an actual completion document.

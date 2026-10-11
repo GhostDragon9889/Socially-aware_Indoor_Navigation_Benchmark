@@ -138,7 +138,7 @@ class ControlConfig:
             override_control_info = {}
             for key, value in self.override_control_info.items():
                 if isinstance(value, dict):
-                    override_control_info[key] = ControlInfo.from_dict(value)
+                    override_control_info[key] = ControlInfo(**value)
                 else:
                     override_control_info[key] = value
             self.override_control_info = override_control_info

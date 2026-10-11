@@ -1,0 +1,22 @@
+{
+  "command": [
+    "uv",
+    "lock",
+    "--project",
+    "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/install_metadata_audit/resolve_local",
+    "--dry-run",
+    "--python",
+    "/project/EXP/IsaacLab/.venv/bin/python",
+    "--index",
+    "https://pypi.nvidia.com",
+    "--index-strategy",
+    "unsafe-best-match",
+    "--prerelease",
+    "allow"
+  ],
+  "exit_code": 1,
+  "elapsed_seconds": 13.933251180998923,
+  "source_mode": "exact installed pinned SDK source metadata; not remote source retrieval",
+  "sdk_mutated": false,
+  "dry_run": true
+}

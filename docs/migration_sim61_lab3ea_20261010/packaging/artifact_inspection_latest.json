@@ -1,0 +1,16 @@
+[
+  {
+    "path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/functional_audit/packaging/dist_latest/socially_aware_indoor_navigation_benchmark-3.1.0-py3-none-any.whl",
+    "sha256": "6f5ce2bf4794c87b58d427eca390f99823d510b9b9f61d906608f786d152721e",
+    "bytes": 41112747,
+    "members": 683,
+    "usd_scene_implementation_exact_canonical": true
+  },
+  {
+    "path": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/functional_audit/packaging/dist_latest/socially_aware_indoor_navigation_benchmark-3.1.0.tar.gz",
+    "sha256": "f4d3344501a679aa9f984efedd6e13ebb56f65514442b1b698524e2c80778377",
+    "bytes": 52460141,
+    "members": 2806,
+    "current_source_configs_patches_and_evidence_exact": true
+  }
+]

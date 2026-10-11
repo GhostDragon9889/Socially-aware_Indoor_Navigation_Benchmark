@@ -1954,18 +1954,39 @@ class BaseEnv:
     def close(self) -> None:
         """Release control-component and env-owned UI handles, then close
         the simulator. Safe to call multiple times."""
-        control_manager = getattr(self, "control_manager", None)
-        if control_manager is not None:
-            for component in control_manager.components.values():
+        from contextlib import ExitStack, contextmanager
+        import sys
+
+        @contextmanager
+        def close_component(component):
+            try:
+                yield
+            finally:
                 component.close()
 
-        ui = getattr(self, "_key_bindings", None)
-        if ui is not None:
-            ui.unregister_all()
-            self._key_bindings = None
-
-        simulator = getattr(self, "simulator", None)
-        if simulator is not None:
-            close = getattr(simulator, "close", None)
-            if callable(close):
-                close()
+        try:
+            components = ExitStack()
+            try:
+                control_manager = getattr(self, "control_manager", None)
+                if control_manager is not None:
+                    for component in reversed(tuple(control_manager.components.values())):
+                        components.enter_context(close_component(component))
+            finally:
+                # Include an exception already active in the caller's finally.
+                components.__exit__(*sys.exc_info())
+        finally:
+            try:
+                ui = getattr(self, "_key_bindings", None)
+                if ui is not None:
+                    try:
+                        ui.unregister_all()
+                    finally:
+                        self._key_bindings = None
+            finally:
+                # Run after ExitStack has unwound so simulator cleanup sees
+                # the active exception and can release its native traceback refs.
+                simulator = getattr(self, "simulator", None)
+                if simulator is not None:
+                    close = getattr(simulator, "close", None)
+                    if callable(close):
+                        close()

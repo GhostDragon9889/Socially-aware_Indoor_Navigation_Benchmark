@@ -25,8 +25,13 @@ PARENT_SHA = "4facc6cb9bd960b7fb23ac29bd55035d829106f5548ce97ea3ff528c2e460fba"
 def derive_auditor(source):
     replacements = (
         ('    assert state["format"] == "local.neutral_smpl.social_CNN_PPO_AMP_training.v1"\n',
+         '    from CrowdSim.humanoid.runtime.popart_checkpoint_family import admit_binding as _select_popart\n'
+         '    from social_navigation.artifact_identity import same_recorded_value as _same_popart\n'
+         '    _popart_binding = _select_popart(state["social_training_contract"]["value_normalization"])\n'
          '    assert state["format"] == _popart_binding["checkpoint_format"]\n'
-         '    assert state["social_training_contract"]["value_normalization"] == _popart_binding\n'),
+         '    canonical = result["canonical_entry"]\n'
+         '    assert not ("numeric_migration" in canonical and "migration" in canonical)\n'
+         '    assert _same_popart(canonical.get("numeric_migration", canonical.get("migration")), _popart_binding)\n'),
         ('    assert metric_rows[-1]["actual_normalizer_counts"] == actual_counts\n',
          '    assert metric_rows[-1]["actual_normalizer_counts"] == actual_counts\n'
          '    adjustment = metric_rows[-1]["value_normalization"]\n'
@@ -37,7 +42,7 @@ def derive_auditor(source):
         ('    assert report["CUDA_initialized"] is False\n',
          '    assert report["CUDA_initialized"] is False\n'
          '    assert identity(Path(__file__)) == _auditor_binding["entry"]\n'
-         '    assert _describe_popart() == _popart_binding\n'
+         '    assert _select_popart(_popart_binding) == _popart_binding\n'
          '    report["explicit_value_normalization"] = _popart_binding\n'
          '    report["actual_terminal_value_adjustment"] = adjustment\n'
          '    report["auditor_source_derivation"] = _auditor_binding\n'),
