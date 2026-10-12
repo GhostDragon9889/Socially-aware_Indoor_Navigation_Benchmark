@@ -89,7 +89,7 @@ def test_native_sfm_source_version_keeps_exact_historical_method_inverse():
     assert proof['fixture_location_exact_inverse']
     assert proof['historical_actor_method_bytes_equal']
     assert proof['historical_fixture_sha256'] == HISTORICAL_PINS['fixture_bridge'][1]
-    assert source_bindings()['source_version'] == 'native_sfm.current_scene_sources.v2'
+    assert source_bindings()['source_version'] == 'native_sfm.current_scene_sources.v3'
     with pytest.raises(ValueError, match='exact source-bound'):
         derive_actor_methods(source + '\n# unregistered source change\n')
 

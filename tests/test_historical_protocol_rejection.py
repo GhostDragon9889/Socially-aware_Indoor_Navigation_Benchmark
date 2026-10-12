@@ -49,7 +49,7 @@ def test_sim61_contact_source_cannot_satisfy_the_sealed_sim60_hash():
 def test_registered_current_sfm_accepts_live_source_and_rejects_unregistered_edit():
     from CrowdSim.humanoid.trajectory import native_social_force_runtime as current
     bindings = current.source_bindings()
-    assert bindings["source_version"] == "native_sfm.current_scene_sources.v2"
+    assert bindings["source_version"] == "native_sfm.current_scene_sources.v3"
     source = (current.ROOT / current.PINS["fixture_bridge"][0]).read_text()
     _, proof = current.derive_actor_methods(source)
     assert proof["historical_actor_method_bytes_equal"] and proof["fixture_location_exact_inverse"]

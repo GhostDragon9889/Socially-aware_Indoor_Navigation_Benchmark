@@ -18,6 +18,13 @@ import numpy as np
 
 
 PUBLIC_SFM_SHA256 = "88f3274e1bfa2361dd92bb827b7b924d0d7c90d88f4a868ba76913bdfeccfd9c"
+# Reviewed FOV/diagnostic repairs; the default no-FOV force methods remain
+# AST-identical to the original. Both exact revisions retain distinct identities.
+MAINTAINED_SFM_SHA256 = "0d3162d0c1dcf5b7bbba79b02dcc60625bc088f47c0277a672ed71232b3c9d17"
+VERIFIED_SFM_REVISIONS = {
+    PUBLIC_SFM_SHA256: "public_original",
+    MAINTAINED_SFM_SHA256: "benchmark_fov_diagnostics_20261012",
+}
 PUBLIC_SFM_URL = (
     "https://github.com/yh83305/NavIsaaclab2.0/blob/"
     "d742f0c5b421bbc281e2112e7e50427e0336c16a/CrowdSim/world/sfm.py"
@@ -69,9 +76,10 @@ class SourceBinding:
     def bind_sfm(cls, path):
         source = Path(path).resolve()
         data = source.read_bytes()
-        if _sha(data) != PUBLIC_SFM_SHA256:
-            raise ValueError("SFM source does not match the exact verified public implementation")
-        return cls(str(source), len(data), PUBLIC_SFM_SHA256)
+        digest = _sha(data)
+        if digest not in VERIFIED_SFM_REVISIONS:
+            raise ValueError("SFM source does not match an exact verified implementation revision")
+        return cls(str(source), len(data), digest)
 
     def verify(self):
         try:
@@ -79,7 +87,7 @@ class SourceBinding:
         except OSError as error:
             raise RuntimeError("Bound SFM source changed or became unavailable") from error
         if (len(data) != self.bytes or _sha(data) != self.sha256
-                or self.sha256 != PUBLIC_SFM_SHA256):
+                or self.sha256 not in VERIFIED_SFM_REVISIONS):
             raise RuntimeError("Bound SFM source changed")
 
 
@@ -298,6 +306,7 @@ class SocialForceTrajectoryGenerator:
         return {"schema": "local.public_sfm.joint_future.v1", "mode": "public_method_reconstruction",
                 "author_private_configuration": False, "source_url": PUBLIC_SFM_URL,
                 "sources": [asdict(s) for s in self.sources], "parameters": asdict(self.parameters),
+                "implementation_revisions": [VERIFIED_SFM_REVISIONS[s.sha256] for s in self.sources],
                 "seed": self.seed, "rng_consumed": False, "grid": self.grid.describe(),
                 "internal_dt_s": self.parameters.integration_dt_s, "output_hz": 10,
                 "output_frames": 51, "horizon_s": 5., "future_offsets_s": (np.arange(1, 11) / 2).tolist(),

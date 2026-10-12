@@ -4690,14 +4690,14 @@
     {
       "path": "src/CrowdSim/humanoid/trajectory/native_social_force_runtime.py",
       "mode": "100644",
-      "bytes": 17387,
-      "sha256": "9328de70a4e4361d59f7023e17cad556c8f919931c6808f0472f8645b6fdacdb"
+      "bytes": 17509,
+      "sha256": "4ce7040cae9fd12a0276aacda3faf3961e875b84b3d8bbda95c65c4324fce1e2"
     },
     {
       "path": "src/CrowdSim/humanoid/trajectory/social_force.py",
       "mode": "100644",
-      "bytes": 21232,
-      "sha256": "936b1c9ed2d0328b5b3dc4799a2607ce385d8061a6e48c4c2b063e8c47ef191e"
+      "bytes": 21750,
+      "sha256": "fb4db41bbc1f4b6ca59774c7a9f80faf58662d123b3758557e48fe73deebb784"
     },
     {
       "path": "src/CrowdSim/humanoid/trajectory/social_force_runtime.py",
@@ -5164,8 +5164,8 @@
     {
       "path": "src/CrowdSim/world/sfm.py",
       "mode": "100644",
-      "bytes": 10471,
-      "sha256": "88f3274e1bfa2361dd92bb827b7b924d0d7c90d88f4a868ba76913bdfeccfd9c"
+      "bytes": 11959,
+      "sha256": "0d3162d0c1dcf5b7bbba79b02dcc60625bc088f47c0277a672ed71232b3c9d17"
     },
     {
       "path": "src/README.md",
@@ -8261,7 +8261,7 @@
       "path": "tests/test_historical_protocol_rejection.py",
       "mode": "100644",
       "bytes": 3254,
-      "sha256": "9a7a9c117664e717129f178959a92974538ab5d87ce3560e3381d57af3ba1b09"
+      "sha256": "7b4531308d39a81450b3e6ba920e41ccd81dc390398fd83465d5abe3e8d01daa"
     },
     {
       "path": "tests/test_initial_reference_pool.py",
@@ -8303,7 +8303,7 @@
       "path": "tests/test_migration_functional_contracts.py",
       "mode": "100644",
       "bytes": 7375,
-      "sha256": "d92bdeb0b872a3656752f5f31780bd49f9935e54fc72101c957773b2db00695a"
+      "sha256": "07fc158f3ac25320b9079ddf44922a1f4a4982c64e6fbb606cd7462609e3b80d"
     },
     {
       "path": "tests/test_minimum_horizon_curriculum.py",
@@ -8966,10 +8966,22 @@
       "sha256": "69d7c2fa2223f523fcfbc1aeafa168ca86089651c28d6e5942b596a9678f17e8"
     },
     {
+      "path": "tests/test_social_force_diagnostics.py",
+      "mode": "100644",
+      "bytes": 4592,
+      "sha256": "8eef23e7f3a8d7416d3a480fe73cb320b7dda2366ccd75c16e052ff266b535dc"
+    },
+    {
+      "path": "tests/test_social_force_field_of_view.py",
+      "mode": "100644",
+      "bytes": 2986,
+      "sha256": "3b305bb3665e0a5247e530f35dd506add3d66e39c651a1e2f99c29f3366496e4"
+    },
+    {
       "path": "tests/test_social_force_trajectory.py",
       "mode": "100644",
-      "bytes": 14573,
-      "sha256": "442960ed466b17b8c5d9c87c63bb17f3b2bd318ce1b0e7a28fa70840bb7fb3a1"
+      "bytes": 16474,
+      "sha256": "4d2bc7a8af12399501171fd78d531fb8dc214fdb21a0ae055381bfd487c7ae40"
     },
     {
       "path": "tests/test_social_navigation_cli.py",
@@ -9104,6 +9116,6 @@
       "sha256": "e0522d022dfb0a8469c74d304a511b2c18e359ef83a8b0b6df85bbd6567b1993"
     }
   ],
-  "total_files": 1515,
-  "total_bytes": 22453899
+  "total_files": 1517,
+  "total_bytes": 22465506
 }

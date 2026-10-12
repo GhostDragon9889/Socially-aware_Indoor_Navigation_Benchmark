@@ -64,7 +64,8 @@ class Social_Force:
 
             return nbrs_idx, nbrs_dis, nbrs_pos, nbrs_relvel
 
-        cos_angles = np.dot(-nbrs_relpos, curr_dir)
+        # relpos is neighbor-minus-ego; positive projection is in front.
+        cos_angles = np.dot(nbrs_relpos, curr_dir)
 
         # 筛选在视野范围内的邻居（夹角在±90度内，即cos值>0）
         in_fov = cos_angles >= 0
@@ -72,18 +73,19 @@ class Social_Force:
         fov_nbrs_idx = near_nbrs_idx[in_fov]
         fov_nbrs_dis = nbrs_dis[in_fov]
         fov_nbrs_relpos = nbrs_relpos[in_fov]
+        fov_nbrs_relvel = nbrs_relvel[in_fov]
         
         if len(fov_nbrs_idx) > 5:
             sorted_indices = np.argsort(fov_nbrs_dis)[:5]          
             nbrs_idx = fov_nbrs_idx[sorted_indices]
             nbrs_dis = fov_nbrs_dis[sorted_indices]
             nbrs_pos = fov_nbrs_relpos[sorted_indices]
-            nbrs_vel = nbrs_relvel[sorted_indices]
+            nbrs_vel = fov_nbrs_relvel[sorted_indices]
         else:
             nbrs_idx = fov_nbrs_idx
             nbrs_dis = fov_nbrs_dis
             nbrs_pos = fov_nbrs_relpos
-            nbrs_vel = nbrs_relvel
+            nbrs_vel = fov_nbrs_relvel
 
         return nbrs_idx, nbrs_dis, nbrs_pos, nbrs_vel
 
@@ -202,7 +204,7 @@ def load_image(img_path,scale=1/3):
     return binary_img
 
 # 可视化函数
-def visualize_simulation(distance_field, path, start, goal):
+def visualize_simulation(distance_field, path, start, goal, show=True):
     plt.imshow(distance_field, cmap='gray_r')
     plt.plot(start[1], start[0], 'gx')
     plt.plot(goal[1], goal[0], 'rx')
@@ -211,81 +213,82 @@ def visualize_simulation(distance_field, path, start, goal):
     path = np.array(path)
     plt.plot(path[:,1], path[:,0])
     
-    plt.show()
+    if show:
+        plt.show()
 
 def visualize_gradient(distance_field, grad_map, stride=10, scale=30):
-    """
-    可视化梯度场
-    :param distance_field: 距离场矩阵
-    :param grad_x: x方向梯度分量
-    :param grad_y: y方向梯度分量 
-    :param stride: 箭头间隔像素数（控制密度）
-    :param scale: 箭头缩放系数（控制长度）
-    """
-    
-    # 假设 map_data 的形状为 (rows, cols)
-    rows, cols = map_data.shape
-
-    # 生成网格时交换维度顺序
-    x_grid, y_grid = np.mgrid[0:rows:1, 0:cols:1]  # x对应行，y对应列
-    
-    # 下采样
+    """Plot world-space gradients in the image's downward-positive row frame."""
+    rows, cols = distance_field.shape
+    if stride <= 0 or grad_map.shape != (2, rows, cols):
+        raise ValueError("Gradient diagnostic requires positive stride and shape (2, H, W)")
+    x_grid, y_grid = np.mgrid[0:rows:1, 0:cols:1]
     mask = (x_grid % stride == 0) & (y_grid % stride == 0)
-    x_sub = x_grid[mask]
-    y_sub = y_grid[mask]
-    
-    # 提取梯度分量（已按坐标系方向调整）
-    gx_sub = grad_map[x_sub, y_sub]
-    gy_sub = grad_map[x_sub, y_sub]
-    
-    # 绘制时翻转y轴方向（保持原点在左上角）
+    x_sub, y_sub = x_grid[mask], y_grid[mask]
+    gx_sub = grad_map[0, x_sub, y_sub]
+    gy_sub = grad_map[1, x_sub, y_sub]
     plt.imshow(distance_field, cmap='gray_r')
-    # plt.quiver(y_sub, x_sub, gy_sub, gx_sub,  # 交换x/y显示位置
-    #            angles='xy', scale_units='xy', scale=scale,
-    #            color='red', width=0.002)
-    
+    return plt.quiver(y_sub, x_sub, gx_sub, -gy_sub,
+                      angles='xy', scale_units='xy', scale=scale, color='red')
+
+
+def main(argv=None):
+    """Run the current SFM API on an occupancy map; this is a CPU diagnostic."""
+    import argparse
+    import json
+    import torch
+    from CrowdSim.nav_manager import CrowdNavigationConfig
+    from CrowdSim.world.map import NavigationTask
+
+    parser = argparse.ArgumentParser(description=main.__doc__)
+    parser.add_argument("--map", type=Path, default=Path(__file__).resolve().parents[1] / "maps/World0.png")
+    parser.add_argument("--resolution", type=float, default=.1)
+    parser.add_argument("--steps", type=int, default=200)
+    parser.add_argument("--headless", action="store_true")
+    parser.add_argument("--output", type=Path)
+    args = parser.parse_args(argv)
+    if args.steps <= 0:
+        parser.error("steps must be positive")
+    if not np.isfinite(args.resolution) or args.resolution <= 0:
+        parser.error("resolution must be positive and finite")
+    if args.headless:
+        plt.switch_backend("Agg")
+    config = CrowdNavigationConfig(args.map, args.resolution, 206, 1, 0, torch.device("cpu"),
+                                   min_start_goal_distance=2., max_start_goal_distance=4.)
+    task = NavigationTask(config, 1)
+    distance = cv2.distanceTransform(task.free_mask.astype(np.uint8), cv2.DIST_L2, 5) * args.resolution
+    controller = Social_Force(distance, {
+        "env": {"dt": .1, "safe_distance": .9, "neighbor_radius": 4., "reach_distance": .2},
+        "agent": {"radius": config.agent_radius, "max_vel": config.max_speed},
+        "map": {"resolution": args.resolution},
+    })
+    position, goal = task.starts_xy[0].copy(), task.goals_xy[0]
+    velocity = np.zeros(2, dtype=np.float32)
+    path = [position.copy()]
+    waypoint = 1
+    empty = (np.empty(0, dtype=int), np.empty(0), np.empty((0, 2)), np.empty((0, 2)))
+    for _ in range(args.steps):
+        while waypoint < len(task.paths_xy[0]) - 1 and np.linalg.norm(position - task.paths_xy[0][waypoint]) <= .45:
+            waypoint += 1
+        pixel = np.clip(task.world_to_pixel(position), [0, 0], [task.height - 1, task.width - 1])
+        velocity, _ = controller.get_action((position, pixel, velocity, task.paths_xy[0][waypoint]), empty)
+        position = position + velocity * controller.dt
+        path.append(position.copy())
+        if np.linalg.norm(position - goal) <= config.goal_tolerance:
+            break
+    fig = plt.figure()
+    try:
+        pixels = task.world_to_pixel(np.asarray(path))
+        visualize_simulation(distance, pixels, pixels[0], task.world_to_pixel(goal), show=not args.headless)
+        if args.output:
+            args.output.parent.mkdir(parents=True, exist_ok=True)
+            fig.savefig(args.output)
+    finally:
+        plt.close(fig)
+    print(json.dumps({"simulated_steps": len(path) - 1,
+                      "reached": bool(np.linalg.norm(position - goal) <= config.goal_tolerance),
+                      "physics_executed": False}))
+    return 0
+
 
 if __name__ == "__main__":
-    # 初始化环境
-    image_path = Path(__file__).resolve().parents[1] / "maps" / "World0.png"
-    map_data = load_image(image_path)
-    sfm = Social_Force(map_data)
-   
-    
-    # 设置起点和终点
-    start = np.array([160.0, 170.0])    # 起始坐标（x,y）
-    goal = np.array([680, 600])/3   # 目标坐标（x,y）
-
-    plt.figure()
-    
-    
-    # 运动模拟参数
-    dt = 0.1           # 时间步长
-    max_steps = 1000    # 最大迭代次数
-    position = start.copy()
-    path = [position.copy()]
-    
-    # 开始仿真
-    for _ in range(max_steps):
-        # 计算作用力
-        force,af,rf = sfm.compute_forces(position, goal)
-        
-        # 更新位置
-        position += force * dt
-        
-        # 记录路径
-        path.append(position.copy())
-        
-        # 可视化结果
-        plt.cla()
-        plt.arrow(position[1], position[0], af[1], af[0], color='red')
-        plt.arrow(position[1], position[0], rf[1], rf[0], color='blue')
-        plt.arrow(position[1], position[0], force[1], force[0], color='green')
-
-
-        # 终止条件检查
-        if np.linalg.norm(position - goal) < 1.0:
-            print("Goal reached!")
-            break
-
-    visualize_simulation(sfm.distance_field, path, start, goal)
+    raise SystemExit(main())

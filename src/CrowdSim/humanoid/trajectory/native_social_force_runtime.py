@@ -34,9 +34,10 @@ HISTORICAL_PINS = {
 # Version the live source boundary separately from sealed October 6 evidence.
 # These are exact approved current implementation hashes, never permissive
 # fallbacks. Old reports retain HISTORICAL_PINS and cannot certify this version.
-SOURCE_VERSION = "native_sfm.current_scene_sources.v2"
+SOURCE_VERSION = "native_sfm.current_scene_sources.v3"
 PINS = {
     **HISTORICAL_PINS,
+    "force_math": (HISTORICAL_PINS["force_math"][0], "fb4db41bbc1f4b6ca59774c7a9f80faf58662d123b3758557e48fe73deebb784"),
     "deployment": (HISTORICAL_PINS["deployment"][0], "a3a8097e5d63b03e5f96f24e6246c333b2103f3628c6209139e2aff2c564cd96"),
     "fixture_bridge": (HISTORICAL_PINS["fixture_bridge"][0], "10f403e35ed717cd755313a4b9411304d4b58fa52786761eed9afafd55a8469f"),
     "provider": (HISTORICAL_PINS["provider"][0], "68bd2171ad9707c3f280c374d73538b8c532764a42e1f90335c6375090595d28"),

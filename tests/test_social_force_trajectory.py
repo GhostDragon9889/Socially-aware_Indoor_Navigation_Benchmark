@@ -9,6 +9,7 @@ import numpy as np
 import pytest
 
 from CrowdSim.humanoid.trajectory.social_force import (
+    MAINTAINED_SFM_SHA256, PUBLIC_SFM_SHA256, VERIFIED_SFM_REVISIONS,
     SFMParameters, SocialForceTrajectoryGenerator, SourceBinding, StaticDistanceGrid,
 )
 
@@ -281,3 +282,48 @@ def test_cpu_child_process_exits_without_loading_torch_or_sdk():
     result = subprocess.run([sys.executable, "-B", "-c", code], cwd=ROOT, text=True, capture_output=True, timeout=30)
     assert result.returncode == 0, result.stderr
     assert result.stdout.strip() == "CPU_ONLY_EXIT_OK"
+
+def test_reviewed_source_preserves_original_disabled_fov_equations_and_labels_its_revision(
+    tmp_path,
+):
+    original = subprocess.check_output(
+        ["git", "show", "65d1bbe9:src/CrowdSim/world/sfm.py"], cwd=ROOT
+    )
+    assert hashlib.sha256(original).hexdigest() == PUBLIC_SFM_SHA256
+    assert hashlib.sha256(PUBLIC.read_bytes()).hexdigest() == MAINTAINED_SFM_SHA256
+
+    def methods(raw):
+        cls = next(
+            node
+            for node in ast.parse(raw).body
+            if isinstance(node, ast.ClassDef) and node.name == "Social_Force"
+        )
+        return {
+            node.name: ast.dump(node, include_attributes=False)
+            for node in cls.body
+            if isinstance(node, ast.FunctionDef)
+        }
+
+    before, after = methods(original), methods(PUBLIC.read_bytes())
+    assert set(before) == set(after)
+    for name in ("__init__", "compute_gradient", "compute_forces", "get_action"):
+        assert before[name] == after[name]
+    assert before["fov_filter"] != after["fov_filter"]
+    historical = tmp_path / "original.py"
+    historical.write_bytes(original)
+    bound = SourceBinding.bind_sfm(historical)
+    assert bound.sha256 == PUBLIC_SFM_SHA256
+    bound.verify()
+    assert generator().describe()["implementation_revisions"] == [
+        VERIFIED_SFM_REVISIONS[MAINTAINED_SFM_SHA256]
+    ]
+    historical.write_bytes(PUBLIC.read_bytes())
+    with pytest.raises(RuntimeError, match="source changed"):
+        bound.verify()  # Another allowed revision cannot replace the bound one.
+
+
+def test_unregistered_sfm_revision_is_rejected_at_bind_time(tmp_path):
+    source = tmp_path / "unreviewed.py"
+    source.write_bytes(PUBLIC.read_bytes() + b"\n# unreviewed modification\n")
+    with pytest.raises(ValueError, match="exact verified"):
+        SourceBinding.bind_sfm(source)
