@@ -24,8 +24,8 @@ from CrowdSim.humanoid.runtime import social_popart_training  # noqa: E402
 from CrowdSim.humanoid.runtime.popart_checkpoint_family import admit_binding  # noqa: E402
 from social_navigation.artifact_identity import artifact_path, same_artifact, same_recorded_value  # noqa: E402
 
-PARENT = ROOT / "docs/style_improvement_20261004/social_tracking_evaluation_staging_v1/evaluate_social_tracking.py"
-PARENT_SHA = "79fd24b23bb3e4883e24c03532f6af989970140d9e4dfbca156da7dbbe1a40df"
+PARENT = ROOT / "resources/runtime_sources/style_improvement_20261004/social_tracking_evaluation_staging_v1/evaluate_social_tracking.py"
+PARENT_SHA = "e4f055c46024c842a1e4b215aef71d65df9d775e1a196e0e9c0567199b76fee7"
 
 
 def load_reference_functions():
@@ -87,11 +87,7 @@ def admit_training(receipt_path):
     numeric = audit.get("explicit_value_normalization")
     if strategy == "popart":
         binding = admit_binding(canonical.get("numeric_migration"))
-        from CrowdSim.humanoid.application.historical_recovery import source_record
         entry_record = record(artifact_path(canonical["entry"]["path"], root=ROOT))
-        if (binding["checkpoint_format"] == social_popart_training.LEGACY_FORMAT
-                and not same_artifact(entry_record, canonical["entry"], root=ROOT)):
-            entry_record = source_record(canonical["entry"]["path"])
         legacy = binding["checkpoint_format"] == social_popart_training.LEGACY_FORMAT
         physical_binding = (canonical.get("World_collector_expert_physics_changed") is False if legacy else
             canonical.get("World_collector_expert_algorithms_changed") is False

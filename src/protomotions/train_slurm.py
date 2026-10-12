@@ -26,7 +26,7 @@ BEFORE USING:
    Keys are listed in SITE_DEFAULTS below; any you omit keep their default.
 
        login_node: login.mycluster.edu
-       base_dir: /scratch/{account}/experiments
+       base_dir: experiments/{account}
        account: my_allocation
        partition: gpu
        container_mounts: /scratch:/scratch:rw
@@ -126,17 +126,17 @@ SITE_DEFAULTS = {
     # Base directory for experiments on the cluster filesystem. May contain
     # "{account}", substituted with --account, which is how a site with
     # per-allocation directories keeps one entry here instead of one per team.
-    "base_dir": "/path/to/your/experiments/directory",
+    "base_dir": "YOUR_EXPERIMENT_DIRECTORY",
     # Container images, Singularity .sif or Enroot .sqsh, keyed by simulator.
     "container_images": {
-        "isaacgym": "/path/to/containers/isaacgym.sqsh",
-        "isaaclab": "/path/to/containers/isaaclab.sqsh",
-        "newton": "/path/to/containers/newton.sqsh",
+        "isaacgym": "YOUR_ISAACGYM_CONTAINER",
+        "isaaclab": "YOUR_ISAACLAB_CONTAINER",
+        "newton": "YOUR_NEWTON_CONTAINER",
     },
     # Python executable inside each container.
     "python_executables": {
         "isaacgym": "python",
-        "isaaclab": "/workspace/isaaclab/isaaclab.sh -p",  # Isaac Lab wrapper
+        "isaaclab": "python3 scripts/run_external_python.py",  # Isaac Lab wrapper
         "newton": "python",
     },
     # Default SLURM account (your allocation/project).
@@ -144,7 +144,7 @@ SITE_DEFAULTS = {
     # Default SLURM partitions, comma-separated.
     "partition": "gpu",
     # Filesystem mounts for the container.
-    "container_mounts": "/scratch:/scratch:rw",
+    "container_mounts": "",
     # Job array size for auto-resume: N tasks run sequentially (one at a time),
     # each up to --slurm-time, so total walltime is N x --slurm-time. A site with
     # long jobs sets this once here; --array-size / --srun-repeat override it.
@@ -749,25 +749,12 @@ def build_job_command(args, exp_folder, python_path, passthrough_args=None):
     experiment-contributed, e.g. gpc/prior.py's --tracker-checkpoint); they are
     forwarded verbatim to train_agent.py, which does know them.
     """
-    # Simulator-specific install. The IsaacLab container's PATH points at a venv
-    # whose bare `python`/`pip` are not runnable, so pip must go through
-    # `isaaclab.sh -p -m pip`; a plain `pip install` there fails with exit 127.
-    if args.simulator == "isaaclab":
-        ilab_pip = "/workspace/isaaclab/isaaclab.sh -p -m pip"
-        # NB: no `pip install --upgrade wandb` here. The image's wandb already
-        # satisfies protomotions' pin (<0.24); an unpinned upgrade pulls whatever
-        # shipped that day (wandb 0.29 violates the pin and drags click to 8.5,
-        # which conflicts with isaacsim-kernel's click==8.1.7). Bake a specific
-        # wandb into the image if a newer one is genuinely needed.
-        install_cmds = (
-            f"({ilab_pip} uninstall -y protomotions || true) && "
-            f"{ilab_pip} install -e . --no-deps"
-        )
-    else:
-        install_cmds = (
-            "(pip uninstall -y protomotions 2>/dev/null || true) && "
-            "pip install -e . --no-dependencies"
-        )
+    # Each staged checkout binds the externally provisioned SDK; project
+    # additions are installed by uv, never into the SDK interpreter itself.
+    install_cmds = (
+        'python3 scripts/bootstrap_reproduction.py configure '
+        '--lab-root "${ISAACLAB_ROOT:?Set ISAACLAB_ROOT to the mounted SDK}"'
+    )
 
     # IsaacLab lazily bootstraps a shared pip env when AppLauncher first starts;
     # warm it once on local rank 0 so the node's ranks do not race on it.

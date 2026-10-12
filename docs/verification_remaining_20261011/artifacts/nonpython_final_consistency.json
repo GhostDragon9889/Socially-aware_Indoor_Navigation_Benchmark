@@ -1,8 +1,0 @@
-{
-  "verified_at_utc": "2026-10-11T10:30:04.205928+00:00",
-  "files": 186,
-  "current_source_sha_all_match": true,
-  "source_changes": [],
-  "syntax_failures": 0,
-  "scope": "configs env packages scripts src tests examples tools .github and root TOML; syntax only, no container/C++ build or asset/runtime claim"
-}

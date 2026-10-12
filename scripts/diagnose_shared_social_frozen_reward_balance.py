@@ -15,8 +15,8 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from scripts.diagnose_shared_social_training import identity  # noqa: E402
 
-DIAGNOSTIC = ROOT / "docs/style_improvement_20261008/shared_social_S3R_kinematic_discriminator_CPU_v1/result.json"
-DIAGNOSTIC_SHA = "47176172911a0d2cfc8bea545ccf1df7ac431681cf7a82c8f0f64d867fda447b"
+DIAGNOSTIC = ROOT / "resources/runtime_sources/style_improvement_20261008/shared_social_S3R_kinematic_discriminator_CPU_v1/result.json"
+DIAGNOSTIC_SHA = "7bde143b7f5c9d5021f7710171bc540d1936e52706bfa7063b986603c5704e40"
 TRAINING = ROOT / "output/diffusion_amp/shared_social_budget12500_recovery_training_v2/result.json"
 TRAINING_SHA = "87bf93cbe6c67a2d9e852cd7b8d9b095de525fe97019e6747fab4ec1427467bb"
 REWARDS = ROOT / "CrowdSim/humanoid/training/rewards.py"

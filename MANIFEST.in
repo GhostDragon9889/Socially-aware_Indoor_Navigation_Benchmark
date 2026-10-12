@@ -1,6 +1,5 @@
 include LICENSE.md README.md pyproject.toml FULL_PIPELINE.md
 recursive-include legal *.txt
-include requirements_*.txt
 recursive-include src *.py *.md *.json *.yaml *.sh
 include src/CrowdSim/humanoid/diffusion/LICENSE.trace
 include src/CrowdSim/humanoid/diffusion/LICENSE.diffuser
@@ -14,10 +13,9 @@ recursive-include tests *.py *.js
 recursive-include data/scripts *.py *.sh *.yaml
 recursive-include packages *.toml *.md
 include packages/crowdsim-ppo/LICENSE
-recursive-include env/isaaclab3_sim6 *.toml *.lock *.json *.md
 recursive-include env/isaaclab3_ea_sim61 *.toml *.lock *.json *.md *.txt
+recursive-include resources/runtime_sources *.py *.txt *.json *.yaml *.npz
 recursive-include docs *.md
-recursive-include docs/migration_sim61_lab3ea_20261010 *.json *.xml *.txt *.gz
 # Licensed SMPL body assets remain local and are never redistributed.
 recursive-exclude src/protomotions/data/assets/mesh/smpl *
 exclude src/protomotions/data/assets/mjcf/smpl*

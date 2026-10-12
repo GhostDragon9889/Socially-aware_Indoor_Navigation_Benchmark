@@ -903,40 +903,13 @@ def test_low_level_converter_exposes_output_directory_contract():
 
 
 def test_public_install_metadata_targets_isaaclab3_stack():
-    repo_root = repository_root(__file__)
-    pyproject = tomllib.loads((repo_root / "pyproject.toml").read_text())
-    requirements = pyproject["project"]["optional-dependencies"]["isaaclab"]
-
-    assert any("isaaclab==17.0.2" in requirement for requirement in requirements)
-    assert any(
-        "isaacsim[all,extscache]==6.1.0.0" in requirement
-        for requirement in requirements
-    )
-
-    legacy_requirements = pyproject["project"]["optional-dependencies"]["isaaclab6"]
-    assert any("isaaclab==12.0.0" in requirement for requirement in legacy_requirements)
-    assert any("isaacsim[all,extscache]==6.0.0.1" in requirement for requirement in legacy_requirements)
-
-    public_docs = [
-        repo_root / "README.md",
-        repo_root / "docs" / "source" / "index.rst",
-        repo_root / "docs" / "source" / "getting_started" / "installation.rst",
-    ]
-    for path in public_docs:
-        source = path.read_text()
-        assert "IsaacLab-2.3.2" not in source
-        assert "isaaclab[isaacsim,all]==2.3.2.post1" not in source
-        assert "isaacsim[all]==5.1.0.0" not in source
-
-    installation = public_docs[-1].read_text()
-    # Compare documentation to the real fixed SDK source, not an obsolete revision.
     from json import loads as json_loads
-    recorded = json_loads((repo_root / "env/isaaclab3_ea_sim61/profile.json").read_text())
-    assert recorded["isaaclab_commit"] in installation
-    assert "Python 3.12" in installation
-
-    dependency_section = installation.split("IsaacLab as a dependency", 1)[1]
-    dependency_section = dependency_section.split("Choose Your Simulator(s)", 1)[0]
-    assert 'requires-python = "==3.11.*"' not in dependency_section
-    assert '"torch==2.7.0"' not in dependency_section
-    assert "pytorch-cu128" not in dependency_section
+    repo_root = repository_root(__file__)
+    metadata = tomllib.loads((repo_root / "pyproject.toml").read_text())
+    assert not {"isaaclab", "isaaclab6", "isaacgym", "mujoco", "newton", "genesis"}.intersection(
+        metadata["project"]["optional-dependencies"])
+    profile = json_loads((repo_root / "env/isaaclab3_ea_sim61/profile.json").read_text())
+    assert profile["isaacsim"] == "6.1.0.0" and profile["isaaclab_product_version"] == "3.0.0"
+    install = (repo_root / "docs/source/getting_started/installation.rst").read_text()
+    assert "bootstrap_reproduction.py configure" in install and "bootstrap_reproduction.py install" in install
+    assert not (repo_root / "env/isaaclab3_sim6").exists()

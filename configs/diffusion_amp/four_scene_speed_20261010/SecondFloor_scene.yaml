@@ -3,11 +3,11 @@
   "scene": "SecondFloor",
   "scene_physics_replication": false,
   "preflight": {
-    "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/preflight.json",
+    "path": "project:output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/preflight.json",
     "sha256": "5a1ad2fc1490663723af6a34b55568ac4d21d8f3f2cc60ff02c634bce8305e44"
   },
   "native_map": {
-    "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/result.json",
+    "path": "project:output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/result.json",
     "sha256": "eefb098caf3b13b09c7e5e9eedb26a19f8c6b9de43fe8875c7fdcafcee963a84"
   },
   "probe_script_snapshot": {

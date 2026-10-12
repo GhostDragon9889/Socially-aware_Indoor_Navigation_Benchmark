@@ -3,11 +3,11 @@
   "scene": "NewMetro",
   "scene_physics_replication": false,
   "preflight": {
-    "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_NewMetro_cell_v1/NewMetro/preflight.json",
+    "path": "project:output/scene_maps/gait_NewMetro_cell_v1/NewMetro/preflight.json",
     "sha256": "5c41bb6923563b2cff652f5f7d1b410d876bcfb2056d676c3f8deac4d3496a3c"
   },
   "native_map": {
-    "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_NewMetro_cell_v1/NewMetro/result.json",
+    "path": "project:output/scene_maps/gait_NewMetro_cell_v1/NewMetro/result.json",
     "sha256": "be3eb091b94a5bba4737b4c75419ef060c6691ccbb17cc652ab195a9d1aab7fc"
   },
   "probe_script_snapshot": {

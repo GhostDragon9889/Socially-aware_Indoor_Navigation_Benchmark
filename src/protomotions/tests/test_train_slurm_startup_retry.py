@@ -303,7 +303,7 @@ GOLDEN_DEFAULT_SCRIPT = """#!/bin/bash
 
 # Job array enables automatic resume: if job times out, next array task continues
 
-stdbuf -oL -eL srun --container-image=/img.sqsh --no-container-mount-home --container-mounts=/scratch:/scratch:rw /bin/bash -c 'JOB_CMD_PLACEHOLDER'
+stdbuf -oL -eL srun --container-image=/img.sqsh --no-container-mount-home --container-mounts= /bin/bash -c 'JOB_CMD_PLACEHOLDER'
 """
 
 

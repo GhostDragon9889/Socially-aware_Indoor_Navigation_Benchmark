@@ -19,7 +19,7 @@ from CrowdSim.humanoid.runtime.social_evaluation_lifecycle import record  # noqa
 from scripts import evaluate_shared_social_native as native_entry  # noqa: E402
 
 PARENT = ROOT / "scripts/evaluate_shared_social_native.py"
-PARENT_SHA = "cc3c16f134703c108c7862fc81011d748a88cac481c7d53f3c861806b7603f49"
+PARENT_SHA = "dcc6033320430b381a9843a95e9f34005fbf54748a813d798d3cc228ebbf0f11"
 
 
 def derive_driver(original, base_derive, *, planner):

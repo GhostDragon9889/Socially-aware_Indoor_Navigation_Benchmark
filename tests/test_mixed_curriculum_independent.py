@@ -227,4 +227,4 @@ def test_complete_control_loop_ast_equals_frozen_before_mixed():
         from runner_branch_contract import training_branch
         return ast.dump(training_branch(loops[0]), include_attributes=False)
     assert control(ROOT/"scripts/train_paper_amp.py") == control(
-        ROOT/"docs/style_improvement_20261002/mixed_curriculum_before/scripts/train_paper_amp.py")
+        ROOT/"resources/runtime_sources/style_improvement_20261002/mixed_curriculum_before/scripts/train_paper_amp.py")

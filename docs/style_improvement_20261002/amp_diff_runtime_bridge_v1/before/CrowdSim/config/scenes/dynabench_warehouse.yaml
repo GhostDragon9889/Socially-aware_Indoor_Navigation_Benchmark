@@ -1,7 +1,0 @@
-prim_path: /World/Scene
-z_offset: 0.0
-scene_usd: ../Assets/DynBench/isaacsim_scene/Warehouse/warehouse.usd
-scene_map: ../Assets/DynBench/isaacsim_scene/Warehouse/map/occupancy.yaml
-static_obstacles: true
-remove_prims: []
-objects: {}

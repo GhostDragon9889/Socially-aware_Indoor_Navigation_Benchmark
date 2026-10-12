@@ -2,15 +2,15 @@
   "schema": "crowdsim.native_pedestrian_scene.v1",
   "scene": "Warehouse",
   "preflight": {
-    "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/native_reference_warehouse_floor_owner_v5/Warehouse/preflight.json",
+    "path": "project:output/scene_maps/native_reference_warehouse_floor_owner_v5/Warehouse/preflight.json",
     "sha256": "8c1e74362597c9409dce0743af74a2be7c340b51cbe73d06eac148a3f54002f1"
   },
   "native_map": {
-    "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/native_reference_warehouse_floor_owner_v5/Warehouse/result.json",
+    "path": "project:output/scene_maps/native_reference_warehouse_floor_owner_v5/Warehouse/result.json",
     "sha256": "9ac1a312d3b86697014f74f496e32de0328d1aaffe70e77e965c1de2becb5b29"
   },
   "probe_script_snapshot": {
-    "path": "/project/EXP/SangforAndSaut/ProtoMotions/docs/style_improvement_20261002/native_runtime_epoch_v5/probe_paper_scene_maps.py",
+    "path": "project:resources/runtime_sources/style_improvement_20261002/native_runtime_epoch_v5/probe_paper_scene_maps.py",
     "sha256": "16f845af4d315cd9328d7e1ebdf68317b64192947b5f49df07b3942b4f2f9c0d"
   },
   "clearance_m": 0.35,

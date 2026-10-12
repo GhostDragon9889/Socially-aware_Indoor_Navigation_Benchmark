@@ -80,7 +80,7 @@ def test_native_visual_admission_rejects_stale_missing_or_mixed_provenance(evide
 
 
 def test_old_cuboid_default_preflight_exactly_matches_frozen_before_bytes():
-    before = ROOT / "docs/style_improvement_20261002/native_recorded_replay_v1/before/scripts/replay_paper_pedestrians.py"
+    before = ROOT / "resources/runtime_sources/style_improvement_20261002/native_recorded_replay_v1/before/scripts/replay_paper_pedestrians.py"
     spec = importlib.util.spec_from_file_location("before_recorded_replay", before)
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)

@@ -385,11 +385,13 @@ def test_initial_link_checks_every_registered_anchor_counter_episode_and_actor(a
         call(plans)
 
 
-def test_native_validator_uses_the_actual_driver_argument_ABI():
+def test_native_validator_uses_the_actual_driver_argument_ABI(tmp_path):
     from CrowdSim.humanoid.application.configuration import parse_amp_args
-    path = native.ROOT / "docs/style_improvement_20261005/shared_social_native_initial_preparation_v3/diffusion_N3_preflight.log"
-    preflight = json.loads(path.read_text())
-    args = vars(parse_amp_args(preflight["driver_arguments"]))
+    checkpoint = tmp_path / "metadata_only_not_weights.ckpt"
+    checkpoint.write_bytes(b"CPU argument contract only; never deserialized")
+    args = vars(parse_amp_args(["--num-envs", "3", "--evaluate-steps", "30",
+        "--manifest", str(native.MANIFEST), "--diffusion-checkpoint", str(checkpoint), "--resume", str(checkpoint), "--pairwise-contacts", "--measure-ground-support",
+        "--power-source", "projected_joint_effort_substep_mean"]))
     assert "native_dynbench" not in args
     assert args["num_envs"] == 3 and args["evaluate_steps"] == 30
     receipt, result, request, snapshot = declaration_fixture(3, 30, "diffusion")

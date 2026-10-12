@@ -24,6 +24,7 @@ def load_resolved_configs_from_checkpoint(
     prefer_inference: bool = False,
 ):
     """Load resolved configs from the directory containing a checkpoint."""
+    require_supported_checkpoint_config(checkpoint_path)
     checkpoint_dir = Path(checkpoint_path).parent
     config_names = (
         ("resolved_configs_inference.pt", "resolved_configs.pt")

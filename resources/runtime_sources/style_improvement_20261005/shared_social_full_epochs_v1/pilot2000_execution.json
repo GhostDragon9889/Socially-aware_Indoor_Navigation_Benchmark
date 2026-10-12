@@ -1,0 +1,41 @@
+{
+  "schema": "shared_social.actual_training_execution.v1",
+  "status": "completed_training_and_CPU_audit",
+  "recorded_at_utc": "2026-10-05T09:56:04.334275+00:00",
+  "terminal_exit_code": 0,
+  "terminal_tool_chunk": "4d7dfa",
+  "terminal_session_id": 35913,
+  "CPU_audit_exit_code": 0,
+  "CPU_audit_terminal_tool_chunk": "6e8be8",
+  "run_directory": "project:output/diffusion_amp/shared_social_full_epochs_pilot2000_v1",
+  "external_exit_metadata": {
+    "path": "project:resources/runtime_sources/style_improvement_20261005/shared_social_full_epochs_v1/pilot2000_observed_exits.json",
+    "bytes": 853,
+    "sha256": "c740929724ccecb0d450c8bb8df1956bf3ecb43028250243af430e418b3a4961"
+  },
+  "result_identity": {
+    "path": "project:output/diffusion_amp/shared_social_full_epochs_pilot2000_v1/result.json",
+    "bytes": 180426,
+    "sha256": "3c3a4b8f3c58349cf50bf5e1caf8fd65aa3ac27a0a34ecd8f5863ae1daf90f32"
+  },
+  "checkpoint_identity": {
+    "path": "project:output/diffusion_amp/shared_social_full_epochs_pilot2000_v1/step_002000.pt",
+    "bytes": 651035630,
+    "sha256": "950a07f9831188b592cf6bc7c949519c38137d673f0bf794dfa90e4a1dba4f05"
+  },
+  "audit_identity": {
+    "path": "project:resources/runtime_sources/style_improvement_20261005/shared_social_full_epochs_v1/pilot2000_CPU_audit.json",
+    "bytes": 4117,
+    "sha256": "cb63729b5bcb010ea2b89cd1c48eae1bc179e5d4e788afec10a20b97133de7f9"
+  },
+  "completed_updates": 2000,
+  "actual_training_transitions": 16384000,
+  "actual_expert_windows_drawn": 8192000,
+  "sealing_entry": {
+    "path": "project:scripts/seal_shared_social_training.py",
+    "bytes": 4553,
+    "sha256": "de2a76ebc8c4abdc38ebbea081f3f7523357461f7405c844912d38ac8d789eaf"
+  },
+  "quality_or_author_equivalence_established": false,
+  "default_model_promoted": false
+}

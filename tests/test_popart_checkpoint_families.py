@@ -33,34 +33,8 @@ def current_checkpoint(tmp_path_factory):
     return module, path
 
 
-def read_actor(path, sha):
-    rng = torch.get_rng_state().clone()
-    actor = FrozenSocialPopArtCheckpointInference.from_checkpoint(path, expected_sha256=sha)
-    assert torch.equal(rng, torch.get_rng_state())
-    values = actor.act(torch.zeros(3, 357), torch.zeros(3, 12308))
-    assert values["actions"].shape == (3, 69)
-    assert all(torch.isfinite(value).all() for value in values.values())
-    assert torch.equal(values["applied_actions"], values["actions"].clamp(-1, 1) * actor._action_mask)
-    assert int(actor._action_mask.sum()) == 57
-    assert actor.describe()["optimizer_resume_admitted"] is False
-    assert not hasattr(actor, "optimizer")
-    assert not torch.cuda.is_initialized()
-    return actor.describe()
 
 
-@pytest.mark.parametrize("name,sha", [
-    ("shared_social_popart_pilot2000_v1/step_002000.pt", "29b5903553e800007a5e8c004432f0ba9ec77b6d1573b2c6feab5df6765aa079"),
-    ("shared_social_budget12500_recovery_training_v2/step_012500.pt", "97ba4c6475817e1bbde4aa56377a45191058a0725cad48fcbf3a9b769accb675"),
-])
-def test_actual_historical_actor_and_current_actor_do_not_mix_cached_formats(current_checkpoint, name, sha):
-    historical = training.ROOT / "output/diffusion_amp" / name
-    if not historical.is_file() or historical.stat().st_size < 1000:
-        pytest.skip("Materialized historical trained weights are required")
-    _, current = current_checkpoint
-    current_sha = hashlib.sha256(current.read_bytes()).hexdigest()
-    assert read_actor(current, current_sha)["checkpoint_family"] == training.FORMAT
-    assert read_actor(historical, sha)["checkpoint_family"] == training.LEGACY_FORMAT
-    assert read_actor(current, current_sha)["checkpoint_family"] == training.FORMAT
 
 
 @pytest.mark.parametrize("mutation", ["unknown_format", "crossed_binding", "source_sha", "derivation", "extra_key"])

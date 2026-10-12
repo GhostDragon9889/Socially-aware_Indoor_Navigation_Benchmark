@@ -1,0 +1,44 @@
+{
+  "schema": "shared_social.actual_post_training_owner_exit.v1",
+  "actual_exit_code": 0,
+  "terminal_tool_chunk": "c57118",
+  "owner_source": {
+    "path": "project:resources/runtime_sources/style_improvement_20261005/shared_social_evaluation_v1/popart_terminal_tool_owner_v2.js",
+    "bytes": 9722,
+    "sha256": "c294379970ccca79ac76362bd493ec7518b96780c8e2d5339de690390c25e41d"
+  },
+  "pipeline": {
+    "path": "project:output/diffusion_amp/shared_social_popart_terminal2000_evaluation_v1/execution.json",
+    "bytes": 15442,
+    "sha256": "7023658d068317064da477e03ad6d339d3861de7704d1f24ac7055ac5ef0ac5b"
+  },
+  "measurements": {
+    "tracking": {
+      "path": "project:output/diffusion_amp/shared_social_popart_terminal2000_evaluation_v1/tracking_style/full22/result.json",
+      "bytes": 171024,
+      "sha256": "8aac1e102b1d5a9726a419f517a3d6ba18b9b5acf7c9f3d321d56898b4478cda"
+    },
+    "style90": {
+      "path": "project:output/diffusion_amp/shared_social_popart_terminal2000_evaluation_v1/tracking_style/style/evaluation.json",
+      "bytes": 452588,
+      "sha256": "393f54a9e5251772908fa255d553bb49c21c6e1663ceab74583739b66179a2b4"
+    },
+    "pose45": {
+      "path": "project:output/diffusion_amp/shared_social_popart_terminal2000_evaluation_v1/tracking_style/style/pose45.json",
+      "bytes": 27348,
+      "sha256": "b9bcecf8ebfb7180c4829dbdf521f504ff431b130514e9c12ed6b2e8e91744bc"
+    },
+    "navigation": {
+      "path": "project:output/diffusion_amp/shared_social_popart_terminal2000_evaluation_v1/navigation200s/result.json",
+      "bytes": 154078,
+      "sha256": "20dbe728dfd2d751d5368ea72c5b50b262c91ed8e4890f338258be2a1614f074"
+    },
+    "navigation_CPU_audit": {
+      "path": "project:output/diffusion_amp/shared_social_popart_terminal2000_evaluation_v1/navigation_CPU_array_audit.json",
+      "bytes": 2937,
+      "sha256": "a017e8e2c1135dc8c75e4edae64787602970f09ecff6084be46a91e8a9636c4b"
+    }
+  },
+  "quality_or_author_equivalence_established": false,
+  "recorded_at_utc": "2026-10-05T01:48:48.906Z"
+}

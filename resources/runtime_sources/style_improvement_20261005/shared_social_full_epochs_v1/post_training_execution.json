@@ -1,0 +1,44 @@
+{
+  "schema": "shared_social.actual_post_training_owner_exit.v1",
+  "actual_exit_code": 0,
+  "terminal_tool_chunk": "00e051",
+  "owner_source": {
+    "path": "project:resources/runtime_sources/style_improvement_20261005/shared_social_full_epochs_v1/terminal_tool_owner.js",
+    "bytes": 12699,
+    "sha256": "017f6aa27e00989bbe65c8c31bac09d520aadf49506b5a631254f1d1f03a7814"
+  },
+  "pipeline": {
+    "path": "project:output/diffusion_amp/shared_social_full_epochs_terminal2000_evaluation_v1/execution.json",
+    "bytes": 15510,
+    "sha256": "5794cecf46667e7e11e57703c0579370a033969fe4df212144755a428164477e"
+  },
+  "measurements": {
+    "tracking": {
+      "path": "project:output/diffusion_amp/shared_social_full_epochs_terminal2000_evaluation_v1/tracking_style/full22/result.json",
+      "bytes": 164597,
+      "sha256": "627b4023ebb05cfca129fdd6bed526bea9783f8f716d413650ab8345ef6688a7"
+    },
+    "style90": {
+      "path": "project:output/diffusion_amp/shared_social_full_epochs_terminal2000_evaluation_v1/tracking_style/style/evaluation.json",
+      "bytes": 461884,
+      "sha256": "e088b56f3f318336d8bb8a23040aaa795c611134a3cfb1ec3cc00913a03d6d0a"
+    },
+    "pose45": {
+      "path": "project:output/diffusion_amp/shared_social_full_epochs_terminal2000_evaluation_v1/tracking_style/style/pose45.json",
+      "bytes": 27464,
+      "sha256": "cbf9134f40b5bef5cd3548af87410eb180a903af5b927fe18639355aa4580ecd"
+    },
+    "navigation": {
+      "path": "project:output/diffusion_amp/shared_social_full_epochs_terminal2000_evaluation_v1/navigation200s/result.json",
+      "bytes": 154177,
+      "sha256": "71fb9488a52e19651ad4b26e595f3f10ca04fad31d818f0b29f89536e78b7e88"
+    },
+    "navigation_CPU_audit": {
+      "path": "project:output/diffusion_amp/shared_social_full_epochs_terminal2000_evaluation_v1/navigation_CPU_array_audit.json",
+      "bytes": 2960,
+      "sha256": "0d475eb43d3e92b1684c2bbe7562e859dc9f07e2ac485902043f745eddd2cc93"
+    }
+  },
+  "quality_or_author_equivalence_established": false,
+  "recorded_at_utc": "2026-10-05T10:17:27.683Z"
+}

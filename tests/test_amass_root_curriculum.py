@@ -15,7 +15,7 @@ from CrowdSim.humanoid.training.amass_trajectories import AMASSRootTrajectoryCur
 
 
 ROOT = Path(__file__).resolve().parents[1]
-BEFORE = ROOT/'docs/style_improvement_20261002/amass_root_curriculum_before'
+BEFORE = ROOT/'resources/runtime_sources/style_improvement_20261002/amass_root_curriculum_before'
 
 
 def corpus(tmp_path, seed=19, counts=(91, 169)):

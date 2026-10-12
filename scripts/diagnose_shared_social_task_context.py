@@ -22,10 +22,10 @@ sys.path.insert(0, str(ROOT))
 from scripts.diagnose_shared_social_expert_coverage import admit_diagnostic, bound, identity, require  # noqa: E402
 
 PINNED = {
-    "scripts/diagnose_shared_social_expert_coverage.py": "53d6e82b41cb0f75c7683b83e42253e2fdd6d8da5f80e3d22b381179d2bdd514",
-    "docs/style_improvement_20261004/social_world_lifetime_dependency_migration_v1/social_rollout_collector.py": "4497ed99f0424a33148a31c137d2c7f705acd9a72f32b8eae6e66c833b321898",
-    "docs/style_improvement_20261004/shared_group_world_owned_lifetime_revision_v2/shared_group_world.py": "e76182d2be5a3fa4dad19a04d71275d91929ce3ea2d63a1c23f081aa1a59880b",
-    "docs/style_improvement_20261004/social_task_observation_staging_v1/social_task_observation.py": "6975d95f369e2c00f1fa2ef34474e14164c36c82f70e4fb83a925335ee276ee1",
+    "scripts/diagnose_shared_social_expert_coverage.py": "e7a1742d68b7d27847643055aefa38e0426da292559693e55452ab4204768b9f",
+    "resources/runtime_sources/style_improvement_20261004/social_world_lifetime_dependency_migration_v1/social_rollout_collector.py": "6ec9b85585487dc78080253b049de426d2181fc4b38f21080ba3f4deeb530edb",
+    "resources/runtime_sources/style_improvement_20261004/shared_group_world_owned_lifetime_revision_v2/shared_group_world.py": "709e9fa0347f0860244e8edc78098ff83376b7e799093d37b4722e1362fdd96f",
+    "resources/runtime_sources/style_improvement_20261004/social_task_observation_staging_v1/social_task_observation.py": "6975d95f369e2c00f1fa2ef34474e14164c36c82f70e4fb83a925335ee276ee1",
     "CrowdSim/humanoid/amp/observations.py": "a64dc2eba5c132cf68a248f2324ea20446dd264a2ea8f9f139faae4738f9aeba",
     "CrowdSim/humanoid/training/mixed_trajectories.py": "c79732a675ac737d4ce0aff0d2b76cfa30cebed2d9c115e1a35da39299694d67",
     "CrowdSim/humanoid/training/expert_sampling.py": "b16984a920f21ca92c3fe01976d9c0453a75bf54d3f46df369984ff27453f9cd",

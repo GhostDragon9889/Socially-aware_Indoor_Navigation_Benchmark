@@ -37,7 +37,7 @@ def test_incomplete_identity_is_not_admitted(value):
 
 
 def test_additional_provenance_is_compared_and_sdk_paths_are_not_relocated(tmp_path):
-    record = {'path': '/project/EXP/SangforAndSaut/IsaacLab-Protomotions/a.py',
+    record = {'path': str(tmp_path.parent / 'external_sdk/a.py'),
               'bytes': 1, 'sha256': 'a' * 64, 'source_version': 'v1'}
     assert artifact_path(record['path'], root=tmp_path) == Path(record['path'])
     assert same_artifact(record, dict(record))

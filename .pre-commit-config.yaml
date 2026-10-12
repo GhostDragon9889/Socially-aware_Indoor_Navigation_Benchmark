@@ -16,7 +16,8 @@ exclude: |
     exps/.*|
     wandb/.*|
     newton_source/.*|
-    env_isaaclab/.*
+    env_isaaclab/.*|
+    resources/runtime_sources/.*
   )$
 
 repos:

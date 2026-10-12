@@ -1,0 +1,49 @@
+{
+  "schema": "babel.train_semantic_overlay.actual_root_CPU_receipt.v1",
+  "source": {
+    "path": "project:resources/runtime_sources/style_improvement_20261004/babel_train_semantics_v1/join_train_semantics.py",
+    "bytes": 18735,
+    "sha256": "1f682f591db603bc48e632497f2d3ae9e3ed06b62655a0b81eec65874e56f279",
+    "mode": "0o444",
+    "nlink": 1
+  },
+  "source_freeze_actual_chunk": "baff23",
+  "independent_source_review_required": [],
+  "actual_launch_chunk": "eca9b5",
+  "actual_tool_session_id": 68758,
+  "actual_completion_chunk": "a88240",
+  "actual_exit_code": 0,
+  "command": [
+    "lab:.venv/bin/python",
+    "resources/runtime_sources/style_improvement_20261004/babel_train_semantics_v1/join_train_semantics.py",
+    "--output",
+    "resources/runtime_sources/style_improvement_20261004/babel_train_semantics_v1/actual_train_semantic_overlay.json"
+  ],
+  "environment": {
+    "CUDA_VISIBLE_DEVICES": "",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "actual_reader_elapsed_seconds": null,
+  "elapsed_not_recorded_by_CLI": true,
+  "whole_overlay_audit_actual_chunk": "296829",
+  "original_train_rows_and_order_equal": true,
+  "all_2848_parent_and_label_references_checked": true,
+  "overlay": {
+    "path": "project:resources/runtime_sources/style_improvement_20261004/babel_train_semantics_v1/actual_train_semantic_overlay.json",
+    "bytes": 37531278,
+    "sha256": "09e16f40f6cefa283c6366589577ad0af1b2aa8123dc032af3f65893ab7889b1",
+    "mode": "0o444",
+    "nlink": 1
+  },
+  "stdout": {
+    "path": "project:resources/runtime_sources/style_improvement_20261004/babel_train_semantics_v1/actual_CPU_stdout.log",
+    "bytes": 1017,
+    "sha256": "203853007a1f810e826d4b81627ee22f6a7d5ad586fe87cdf77c66394ebc7a51",
+    "mode": "0o444",
+    "nlink": 1
+  },
+  "models_or_motion_arrays_loaded": false,
+  "sampling_or_kinematic_classes_changed": false,
+  "author_2848_list_recovered": false,
+  "physical_effect_proven": false
+}

@@ -1,0 +1,1588 @@
+{
+  "schema": "navisaaclab.heldout_style_reference.v1",
+  "manifest": {
+    "path": "project:data/diffusion_amp/amass_manifest.json",
+    "bytes": 143512,
+    "sha256": "4eb6018e83c76408da05c2ca2358b518d4a520ef37d858ed87dc97dca9e7f1e3"
+  },
+  "selection": {
+    "split": "validation",
+    "seed": 7,
+    "windows": [
+      {
+        "motion_id": 260,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_Catwalk001_poses.motion",
+        "start_frame": 183,
+        "stop_frame_exclusive": 244
+      },
+      {
+        "motion_id": 247,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0017/0017_RunningOnBench002_poses.motion",
+        "start_frame": 53,
+        "stop_frame_exclusive": 114
+      },
+      {
+        "motion_id": 242,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0005/0005_Jogging001_poses.motion",
+        "start_frame": 221,
+        "stop_frame_exclusive": 282
+      },
+      {
+        "motion_id": 257,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_DanceTurns002_poses.motion",
+        "start_frame": 91,
+        "stop_frame_exclusive": 152
+      },
+      {
+        "motion_id": 1,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S3/Jog_3_poses.motion",
+        "start_frame": 130,
+        "stop_frame_exclusive": 191
+      },
+      {
+        "motion_id": 19,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S2/Walking_3_poses.motion",
+        "start_frame": 280,
+        "stop_frame_exclusive": 341
+      },
+      {
+        "motion_id": 260,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_Catwalk001_poses.motion",
+        "start_frame": 1,
+        "stop_frame_exclusive": 62
+      },
+      {
+        "motion_id": 234,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0008/0008_Walking002_poses.motion",
+        "start_frame": 555,
+        "stop_frame_exclusive": 616
+      },
+      {
+        "motion_id": 4,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S3/Jog_1_poses.motion",
+        "start_frame": 489,
+        "stop_frame_exclusive": 550
+      },
+      {
+        "motion_id": 4,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S3/Jog_1_poses.motion",
+        "start_frame": 287,
+        "stop_frame_exclusive": 348
+      },
+      {
+        "motion_id": 254,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_Walking001_poses.motion",
+        "start_frame": 143,
+        "stop_frame_exclusive": 204
+      },
+      {
+        "motion_id": 20,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S2/Jog_3_poses.motion",
+        "start_frame": 92,
+        "stop_frame_exclusive": 153
+      },
+      {
+        "motion_id": 247,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0017/0017_RunningOnBench002_poses.motion",
+        "start_frame": 15,
+        "stop_frame_exclusive": 76
+      },
+      {
+        "motion_id": 261,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_Moonwalk001_poses.motion",
+        "start_frame": 180,
+        "stop_frame_exclusive": 241
+      },
+      {
+        "motion_id": 234,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0008/0008_Walking002_poses.motion",
+        "start_frame": 341,
+        "stop_frame_exclusive": 402
+      },
+      {
+        "motion_id": 242,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0005/0005_Jogging001_poses.motion",
+        "start_frame": 157,
+        "stop_frame_exclusive": 218
+      },
+      {
+        "motion_id": 235,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0008/0008_Walking001_poses.motion",
+        "start_frame": 743,
+        "stop_frame_exclusive": 804
+      },
+      {
+        "motion_id": 254,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_Walking001_poses.motion",
+        "start_frame": 374,
+        "stop_frame_exclusive": 435
+      },
+      {
+        "motion_id": 247,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0017/0017_RunningOnBench002_poses.motion",
+        "start_frame": 37,
+        "stop_frame_exclusive": 98
+      },
+      {
+        "motion_id": 20,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S2/Jog_3_poses.motion",
+        "start_frame": 330,
+        "stop_frame_exclusive": 391
+      },
+      {
+        "motion_id": 234,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0008/0008_Walking002_poses.motion",
+        "start_frame": 145,
+        "stop_frame_exclusive": 206
+      },
+      {
+        "motion_id": 257,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_DanceTurns002_poses.motion",
+        "start_frame": 65,
+        "stop_frame_exclusive": 126
+      },
+      {
+        "motion_id": 257,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_DanceTurns002_poses.motion",
+        "start_frame": 249,
+        "stop_frame_exclusive": 310
+      },
+      {
+        "motion_id": 4,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S3/Jog_1_poses.motion",
+        "start_frame": 26,
+        "stop_frame_exclusive": 87
+      },
+      {
+        "motion_id": 26,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S2/Walking_1_poses.motion",
+        "start_frame": 14,
+        "stop_frame_exclusive": 75
+      },
+      {
+        "motion_id": 10,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S1/Walking_3_poses.motion",
+        "start_frame": 386,
+        "stop_frame_exclusive": 447
+      },
+      {
+        "motion_id": 261,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_Moonwalk001_poses.motion",
+        "start_frame": 188,
+        "stop_frame_exclusive": 249
+      },
+      {
+        "motion_id": 254,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_Walking001_poses.motion",
+        "start_frame": 433,
+        "stop_frame_exclusive": 494
+      },
+      {
+        "motion_id": 257,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_DanceTurns002_poses.motion",
+        "start_frame": 256,
+        "stop_frame_exclusive": 317
+      },
+      {
+        "motion_id": 26,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S2/Walking_1_poses.motion",
+        "start_frame": 213,
+        "stop_frame_exclusive": 274
+      },
+      {
+        "motion_id": 14,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S1/Jog_1_poses.motion",
+        "start_frame": 310,
+        "stop_frame_exclusive": 371
+      },
+      {
+        "motion_id": 23,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S2/Jog_1_poses.motion",
+        "start_frame": 91,
+        "stop_frame_exclusive": 152
+      },
+      {
+        "motion_id": 261,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_Moonwalk001_poses.motion",
+        "start_frame": 4,
+        "stop_frame_exclusive": 65
+      },
+      {
+        "motion_id": 4,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S3/Jog_1_poses.motion",
+        "start_frame": 118,
+        "stop_frame_exclusive": 179
+      },
+      {
+        "motion_id": 261,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_Moonwalk001_poses.motion",
+        "start_frame": 280,
+        "stop_frame_exclusive": 341
+      },
+      {
+        "motion_id": 259,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_DanceTurns001_poses.motion",
+        "start_frame": 24,
+        "stop_frame_exclusive": 85
+      },
+      {
+        "motion_id": 247,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0017/0017_RunningOnBench002_poses.motion",
+        "start_frame": 22,
+        "stop_frame_exclusive": 83
+      },
+      {
+        "motion_id": 234,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0008/0008_Walking002_poses.motion",
+        "start_frame": 2,
+        "stop_frame_exclusive": 63
+      },
+      {
+        "motion_id": 244,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0005/0005_Walking001_poses.motion",
+        "start_frame": 923,
+        "stop_frame_exclusive": 984
+      },
+      {
+        "motion_id": 245,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0005/0005_BackwardsWalk001_poses.motion",
+        "start_frame": 38,
+        "stop_frame_exclusive": 99
+      },
+      {
+        "motion_id": 235,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0008/0008_Walking001_poses.motion",
+        "start_frame": 199,
+        "stop_frame_exclusive": 260
+      },
+      {
+        "motion_id": 261,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_Moonwalk001_poses.motion",
+        "start_frame": 356,
+        "stop_frame_exclusive": 417
+      },
+      {
+        "motion_id": 11,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S1/Jog_3_poses.motion",
+        "start_frame": 374,
+        "stop_frame_exclusive": 435
+      },
+      {
+        "motion_id": 260,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_Catwalk001_poses.motion",
+        "start_frame": 248,
+        "stop_frame_exclusive": 309
+      },
+      {
+        "motion_id": 247,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0017/0017_RunningOnBench002_poses.motion",
+        "start_frame": 38,
+        "stop_frame_exclusive": 99
+      },
+      {
+        "motion_id": 0,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S3/Walking_3_poses.motion",
+        "start_frame": 393,
+        "stop_frame_exclusive": 454
+      },
+      {
+        "motion_id": 234,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0008/0008_Walking002_poses.motion",
+        "start_frame": 61,
+        "stop_frame_exclusive": 122
+      },
+      {
+        "motion_id": 14,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S1/Jog_1_poses.motion",
+        "start_frame": 337,
+        "stop_frame_exclusive": 398
+      },
+      {
+        "motion_id": 247,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0017/0017_RunningOnBench002_poses.motion",
+        "start_frame": 30,
+        "stop_frame_exclusive": 91
+      },
+      {
+        "motion_id": 244,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0005/0005_Walking001_poses.motion",
+        "start_frame": 969,
+        "stop_frame_exclusive": 1030
+      },
+      {
+        "motion_id": 247,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0017/0017_RunningOnBench002_poses.motion",
+        "start_frame": 21,
+        "stop_frame_exclusive": 82
+      },
+      {
+        "motion_id": 245,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0005/0005_BackwardsWalk001_poses.motion",
+        "start_frame": 149,
+        "stop_frame_exclusive": 210
+      },
+      {
+        "motion_id": 4,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S3/Jog_1_poses.motion",
+        "start_frame": 36,
+        "stop_frame_exclusive": 97
+      },
+      {
+        "motion_id": 245,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0005/0005_BackwardsWalk001_poses.motion",
+        "start_frame": 96,
+        "stop_frame_exclusive": 157
+      },
+      {
+        "motion_id": 244,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0005/0005_Walking001_poses.motion",
+        "start_frame": 359,
+        "stop_frame_exclusive": 420
+      },
+      {
+        "motion_id": 11,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S1/Jog_3_poses.motion",
+        "start_frame": 110,
+        "stop_frame_exclusive": 171
+      },
+      {
+        "motion_id": 23,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S2/Jog_1_poses.motion",
+        "start_frame": 302,
+        "stop_frame_exclusive": 363
+      },
+      {
+        "motion_id": 23,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S2/Jog_1_poses.motion",
+        "start_frame": 140,
+        "stop_frame_exclusive": 201
+      },
+      {
+        "motion_id": 242,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0005/0005_Jogging001_poses.motion",
+        "start_frame": 278,
+        "stop_frame_exclusive": 339
+      },
+      {
+        "motion_id": 23,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S2/Jog_1_poses.motion",
+        "start_frame": 218,
+        "stop_frame_exclusive": 279
+      },
+      {
+        "motion_id": 26,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S2/Walking_1_poses.motion",
+        "start_frame": 251,
+        "stop_frame_exclusive": 312
+      },
+      {
+        "motion_id": 26,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S2/Walking_1_poses.motion",
+        "start_frame": 264,
+        "stop_frame_exclusive": 325
+      },
+      {
+        "motion_id": 242,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0005/0005_Jogging001_poses.motion",
+        "start_frame": 192,
+        "stop_frame_exclusive": 253
+      },
+      {
+        "motion_id": 261,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_Moonwalk001_poses.motion",
+        "start_frame": 61,
+        "stop_frame_exclusive": 122
+      },
+      {
+        "motion_id": 242,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0005/0005_Jogging001_poses.motion",
+        "start_frame": 125,
+        "stop_frame_exclusive": 186
+      },
+      {
+        "motion_id": 20,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S2/Jog_3_poses.motion",
+        "start_frame": 80,
+        "stop_frame_exclusive": 141
+      },
+      {
+        "motion_id": 1,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S3/Jog_3_poses.motion",
+        "start_frame": 174,
+        "stop_frame_exclusive": 235
+      },
+      {
+        "motion_id": 257,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_DanceTurns002_poses.motion",
+        "start_frame": 39,
+        "stop_frame_exclusive": 100
+      },
+      {
+        "motion_id": 23,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S2/Jog_1_poses.motion",
+        "start_frame": 358,
+        "stop_frame_exclusive": 419
+      },
+      {
+        "motion_id": 260,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_Catwalk001_poses.motion",
+        "start_frame": 62,
+        "stop_frame_exclusive": 123
+      },
+      {
+        "motion_id": 0,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S3/Walking_3_poses.motion",
+        "start_frame": 356,
+        "stop_frame_exclusive": 417
+      },
+      {
+        "motion_id": 0,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S3/Walking_3_poses.motion",
+        "start_frame": 159,
+        "stop_frame_exclusive": 220
+      },
+      {
+        "motion_id": 234,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0008/0008_Walking002_poses.motion",
+        "start_frame": 591,
+        "stop_frame_exclusive": 652
+      },
+      {
+        "motion_id": 4,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S3/Jog_1_poses.motion",
+        "start_frame": 406,
+        "stop_frame_exclusive": 467
+      },
+      {
+        "motion_id": 235,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0008/0008_Walking001_poses.motion",
+        "start_frame": 98,
+        "stop_frame_exclusive": 159
+      },
+      {
+        "motion_id": 257,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_DanceTurns002_poses.motion",
+        "start_frame": 343,
+        "stop_frame_exclusive": 404
+      },
+      {
+        "motion_id": 234,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0008/0008_Walking002_poses.motion",
+        "start_frame": 639,
+        "stop_frame_exclusive": 700
+      },
+      {
+        "motion_id": 244,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0005/0005_Walking001_poses.motion",
+        "start_frame": 1006,
+        "stop_frame_exclusive": 1067
+      },
+      {
+        "motion_id": 261,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_Moonwalk001_poses.motion",
+        "start_frame": 230,
+        "stop_frame_exclusive": 291
+      },
+      {
+        "motion_id": 19,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S2/Walking_3_poses.motion",
+        "start_frame": 46,
+        "stop_frame_exclusive": 107
+      },
+      {
+        "motion_id": 242,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0005/0005_Jogging001_poses.motion",
+        "start_frame": 54,
+        "stop_frame_exclusive": 115
+      },
+      {
+        "motion_id": 253,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0007/0007_Walking001_poses.motion",
+        "start_frame": 857,
+        "stop_frame_exclusive": 918
+      },
+      {
+        "motion_id": 14,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S1/Jog_1_poses.motion",
+        "start_frame": 344,
+        "stop_frame_exclusive": 405
+      },
+      {
+        "motion_id": 1,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S3/Jog_3_poses.motion",
+        "start_frame": 78,
+        "stop_frame_exclusive": 139
+      },
+      {
+        "motion_id": 23,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S2/Jog_1_poses.motion",
+        "start_frame": 327,
+        "stop_frame_exclusive": 388
+      },
+      {
+        "motion_id": 261,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_Moonwalk001_poses.motion",
+        "start_frame": 259,
+        "stop_frame_exclusive": 320
+      },
+      {
+        "motion_id": 242,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0005/0005_Jogging001_poses.motion",
+        "start_frame": 162,
+        "stop_frame_exclusive": 223
+      },
+      {
+        "motion_id": 1,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S3/Jog_3_poses.motion",
+        "start_frame": 163,
+        "stop_frame_exclusive": 224
+      },
+      {
+        "motion_id": 261,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_Moonwalk001_poses.motion",
+        "start_frame": 166,
+        "stop_frame_exclusive": 227
+      },
+      {
+        "motion_id": 11,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S1/Jog_3_poses.motion",
+        "start_frame": 175,
+        "stop_frame_exclusive": 236
+      },
+      {
+        "motion_id": 247,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0017/0017_RunningOnBench002_poses.motion",
+        "start_frame": 2,
+        "stop_frame_exclusive": 63
+      },
+      {
+        "motion_id": 261,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_Moonwalk001_poses.motion",
+        "start_frame": 354,
+        "stop_frame_exclusive": 415
+      },
+      {
+        "motion_id": 242,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0005/0005_Jogging001_poses.motion",
+        "start_frame": 133,
+        "stop_frame_exclusive": 194
+      },
+      {
+        "motion_id": 253,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0007/0007_Walking001_poses.motion",
+        "start_frame": 506,
+        "stop_frame_exclusive": 567
+      },
+      {
+        "motion_id": 234,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0008/0008_Walking002_poses.motion",
+        "start_frame": 218,
+        "stop_frame_exclusive": 279
+      },
+      {
+        "motion_id": 26,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S2/Walking_1_poses.motion",
+        "start_frame": 311,
+        "stop_frame_exclusive": 372
+      },
+      {
+        "motion_id": 1,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S3/Jog_3_poses.motion",
+        "start_frame": 10,
+        "stop_frame_exclusive": 71
+      },
+      {
+        "motion_id": 247,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0017/0017_RunningOnBench002_poses.motion",
+        "start_frame": 22,
+        "stop_frame_exclusive": 83
+      },
+      {
+        "motion_id": 254,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_Walking001_poses.motion",
+        "start_frame": 14,
+        "stop_frame_exclusive": 75
+      },
+      {
+        "motion_id": 259,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_DanceTurns001_poses.motion",
+        "start_frame": 14,
+        "stop_frame_exclusive": 75
+      },
+      {
+        "motion_id": 26,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S2/Walking_1_poses.motion",
+        "start_frame": 401,
+        "stop_frame_exclusive": 462
+      },
+      {
+        "motion_id": 4,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S3/Jog_1_poses.motion",
+        "start_frame": 403,
+        "stop_frame_exclusive": 464
+      },
+      {
+        "motion_id": 253,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0007/0007_Walking001_poses.motion",
+        "start_frame": 395,
+        "stop_frame_exclusive": 456
+      },
+      {
+        "motion_id": 1,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S3/Jog_3_poses.motion",
+        "start_frame": 227,
+        "stop_frame_exclusive": 288
+      },
+      {
+        "motion_id": 26,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S2/Walking_1_poses.motion",
+        "start_frame": 362,
+        "stop_frame_exclusive": 423
+      },
+      {
+        "motion_id": 247,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0017/0017_RunningOnBench002_poses.motion",
+        "start_frame": 20,
+        "stop_frame_exclusive": 81
+      },
+      {
+        "motion_id": 1,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S3/Jog_3_poses.motion",
+        "start_frame": 256,
+        "stop_frame_exclusive": 317
+      },
+      {
+        "motion_id": 19,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S2/Walking_3_poses.motion",
+        "start_frame": 219,
+        "stop_frame_exclusive": 280
+      },
+      {
+        "motion_id": 259,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_DanceTurns001_poses.motion",
+        "start_frame": 43,
+        "stop_frame_exclusive": 104
+      },
+      {
+        "motion_id": 259,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_DanceTurns001_poses.motion",
+        "start_frame": 63,
+        "stop_frame_exclusive": 124
+      },
+      {
+        "motion_id": 235,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0008/0008_Walking001_poses.motion",
+        "start_frame": 571,
+        "stop_frame_exclusive": 632
+      },
+      {
+        "motion_id": 254,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_Walking001_poses.motion",
+        "start_frame": 430,
+        "stop_frame_exclusive": 491
+      },
+      {
+        "motion_id": 261,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_Moonwalk001_poses.motion",
+        "start_frame": 61,
+        "stop_frame_exclusive": 122
+      },
+      {
+        "motion_id": 26,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S2/Walking_1_poses.motion",
+        "start_frame": 387,
+        "stop_frame_exclusive": 448
+      },
+      {
+        "motion_id": 19,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S2/Walking_3_poses.motion",
+        "start_frame": 1,
+        "stop_frame_exclusive": 62
+      },
+      {
+        "motion_id": 242,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0005/0005_Jogging001_poses.motion",
+        "start_frame": 214,
+        "stop_frame_exclusive": 275
+      },
+      {
+        "motion_id": 253,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0007/0007_Walking001_poses.motion",
+        "start_frame": 748,
+        "stop_frame_exclusive": 809
+      },
+      {
+        "motion_id": 245,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0005/0005_BackwardsWalk001_poses.motion",
+        "start_frame": 34,
+        "stop_frame_exclusive": 95
+      },
+      {
+        "motion_id": 257,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_DanceTurns002_poses.motion",
+        "start_frame": 170,
+        "stop_frame_exclusive": 231
+      },
+      {
+        "motion_id": 257,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_DanceTurns002_poses.motion",
+        "start_frame": 331,
+        "stop_frame_exclusive": 392
+      },
+      {
+        "motion_id": 261,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_Moonwalk001_poses.motion",
+        "start_frame": 5,
+        "stop_frame_exclusive": 66
+      },
+      {
+        "motion_id": 259,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_DanceTurns001_poses.motion",
+        "start_frame": 76,
+        "stop_frame_exclusive": 137
+      },
+      {
+        "motion_id": 234,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0008/0008_Walking002_poses.motion",
+        "start_frame": 536,
+        "stop_frame_exclusive": 597
+      },
+      {
+        "motion_id": 260,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_Catwalk001_poses.motion",
+        "start_frame": 150,
+        "stop_frame_exclusive": 211
+      },
+      {
+        "motion_id": 1,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S3/Jog_3_poses.motion",
+        "start_frame": 315,
+        "stop_frame_exclusive": 376
+      },
+      {
+        "motion_id": 14,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S1/Jog_1_poses.motion",
+        "start_frame": 141,
+        "stop_frame_exclusive": 202
+      },
+      {
+        "motion_id": 11,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S1/Jog_3_poses.motion",
+        "start_frame": 145,
+        "stop_frame_exclusive": 206
+      },
+      {
+        "motion_id": 260,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_Catwalk001_poses.motion",
+        "start_frame": 106,
+        "stop_frame_exclusive": 167
+      },
+      {
+        "motion_id": 4,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S3/Jog_1_poses.motion",
+        "start_frame": 110,
+        "stop_frame_exclusive": 171
+      },
+      {
+        "motion_id": 23,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S2/Jog_1_poses.motion",
+        "start_frame": 128,
+        "stop_frame_exclusive": 189
+      },
+      {
+        "motion_id": 19,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S2/Walking_3_poses.motion",
+        "start_frame": 304,
+        "stop_frame_exclusive": 365
+      },
+      {
+        "motion_id": 259,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_DanceTurns001_poses.motion",
+        "start_frame": 69,
+        "stop_frame_exclusive": 130
+      },
+      {
+        "motion_id": 261,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_Moonwalk001_poses.motion",
+        "start_frame": 137,
+        "stop_frame_exclusive": 198
+      },
+      {
+        "motion_id": 10,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S1/Walking_3_poses.motion",
+        "start_frame": 203,
+        "stop_frame_exclusive": 264
+      },
+      {
+        "motion_id": 1,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S3/Jog_3_poses.motion",
+        "start_frame": 413,
+        "stop_frame_exclusive": 474
+      },
+      {
+        "motion_id": 11,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S1/Jog_3_poses.motion",
+        "start_frame": 326,
+        "stop_frame_exclusive": 387
+      },
+      {
+        "motion_id": 11,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S1/Jog_3_poses.motion",
+        "start_frame": 719,
+        "stop_frame_exclusive": 780
+      },
+      {
+        "motion_id": 10,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S1/Walking_3_poses.motion",
+        "start_frame": 386,
+        "stop_frame_exclusive": 447
+      },
+      {
+        "motion_id": 260,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_Catwalk001_poses.motion",
+        "start_frame": 152,
+        "stop_frame_exclusive": 213
+      },
+      {
+        "motion_id": 259,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_DanceTurns001_poses.motion",
+        "start_frame": 109,
+        "stop_frame_exclusive": 170
+      },
+      {
+        "motion_id": 253,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0007/0007_Walking001_poses.motion",
+        "start_frame": 686,
+        "stop_frame_exclusive": 747
+      },
+      {
+        "motion_id": 242,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0005/0005_Jogging001_poses.motion",
+        "start_frame": 165,
+        "stop_frame_exclusive": 226
+      },
+      {
+        "motion_id": 257,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_DanceTurns002_poses.motion",
+        "start_frame": 173,
+        "stop_frame_exclusive": 234
+      },
+      {
+        "motion_id": 260,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_Catwalk001_poses.motion",
+        "start_frame": 257,
+        "stop_frame_exclusive": 318
+      },
+      {
+        "motion_id": 23,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S2/Jog_1_poses.motion",
+        "start_frame": 152,
+        "stop_frame_exclusive": 213
+      },
+      {
+        "motion_id": 247,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0017/0017_RunningOnBench002_poses.motion",
+        "start_frame": 55,
+        "stop_frame_exclusive": 116
+      },
+      {
+        "motion_id": 4,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S3/Jog_1_poses.motion",
+        "start_frame": 42,
+        "stop_frame_exclusive": 103
+      },
+      {
+        "motion_id": 14,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S1/Jog_1_poses.motion",
+        "start_frame": 268,
+        "stop_frame_exclusive": 329
+      },
+      {
+        "motion_id": 10,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S1/Walking_3_poses.motion",
+        "start_frame": 389,
+        "stop_frame_exclusive": 450
+      },
+      {
+        "motion_id": 235,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0008/0008_Walking001_poses.motion",
+        "start_frame": 710,
+        "stop_frame_exclusive": 771
+      },
+      {
+        "motion_id": 253,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0007/0007_Walking001_poses.motion",
+        "start_frame": 231,
+        "stop_frame_exclusive": 292
+      },
+      {
+        "motion_id": 254,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_Walking001_poses.motion",
+        "start_frame": 381,
+        "stop_frame_exclusive": 442
+      },
+      {
+        "motion_id": 245,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0005/0005_BackwardsWalk001_poses.motion",
+        "start_frame": 169,
+        "stop_frame_exclusive": 230
+      },
+      {
+        "motion_id": 19,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S2/Walking_3_poses.motion",
+        "start_frame": 230,
+        "stop_frame_exclusive": 291
+      },
+      {
+        "motion_id": 4,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S3/Jog_1_poses.motion",
+        "start_frame": 386,
+        "stop_frame_exclusive": 447
+      },
+      {
+        "motion_id": 260,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_Catwalk001_poses.motion",
+        "start_frame": 284,
+        "stop_frame_exclusive": 345
+      },
+      {
+        "motion_id": 19,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S2/Walking_3_poses.motion",
+        "start_frame": 106,
+        "stop_frame_exclusive": 167
+      },
+      {
+        "motion_id": 244,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0005/0005_Walking001_poses.motion",
+        "start_frame": 443,
+        "stop_frame_exclusive": 504
+      },
+      {
+        "motion_id": 253,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0007/0007_Walking001_poses.motion",
+        "start_frame": 187,
+        "stop_frame_exclusive": 248
+      },
+      {
+        "motion_id": 10,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S1/Walking_3_poses.motion",
+        "start_frame": 38,
+        "stop_frame_exclusive": 99
+      },
+      {
+        "motion_id": 234,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0008/0008_Walking002_poses.motion",
+        "start_frame": 144,
+        "stop_frame_exclusive": 205
+      },
+      {
+        "motion_id": 19,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S2/Walking_3_poses.motion",
+        "start_frame": 293,
+        "stop_frame_exclusive": 354
+      },
+      {
+        "motion_id": 254,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_Walking001_poses.motion",
+        "start_frame": 397,
+        "stop_frame_exclusive": 458
+      },
+      {
+        "motion_id": 244,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0005/0005_Walking001_poses.motion",
+        "start_frame": 125,
+        "stop_frame_exclusive": 186
+      },
+      {
+        "motion_id": 253,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0007/0007_Walking001_poses.motion",
+        "start_frame": 557,
+        "stop_frame_exclusive": 618
+      },
+      {
+        "motion_id": 259,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_DanceTurns001_poses.motion",
+        "start_frame": 58,
+        "stop_frame_exclusive": 119
+      },
+      {
+        "motion_id": 10,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S1/Walking_3_poses.motion",
+        "start_frame": 446,
+        "stop_frame_exclusive": 507
+      },
+      {
+        "motion_id": 234,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0008/0008_Walking002_poses.motion",
+        "start_frame": 446,
+        "stop_frame_exclusive": 507
+      },
+      {
+        "motion_id": 23,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S2/Jog_1_poses.motion",
+        "start_frame": 113,
+        "stop_frame_exclusive": 174
+      },
+      {
+        "motion_id": 4,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S3/Jog_1_poses.motion",
+        "start_frame": 590,
+        "stop_frame_exclusive": 651
+      },
+      {
+        "motion_id": 253,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0007/0007_Walking001_poses.motion",
+        "start_frame": 430,
+        "stop_frame_exclusive": 491
+      },
+      {
+        "motion_id": 14,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S1/Jog_1_poses.motion",
+        "start_frame": 391,
+        "stop_frame_exclusive": 452
+      },
+      {
+        "motion_id": 26,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S2/Walking_1_poses.motion",
+        "start_frame": 263,
+        "stop_frame_exclusive": 324
+      },
+      {
+        "motion_id": 1,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S3/Jog_3_poses.motion",
+        "start_frame": 79,
+        "stop_frame_exclusive": 140
+      },
+      {
+        "motion_id": 253,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0007/0007_Walking001_poses.motion",
+        "start_frame": 57,
+        "stop_frame_exclusive": 118
+      },
+      {
+        "motion_id": 245,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0005/0005_BackwardsWalk001_poses.motion",
+        "start_frame": 102,
+        "stop_frame_exclusive": 163
+      },
+      {
+        "motion_id": 0,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S3/Walking_3_poses.motion",
+        "start_frame": 404,
+        "stop_frame_exclusive": 465
+      },
+      {
+        "motion_id": 247,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0017/0017_RunningOnBench002_poses.motion",
+        "start_frame": 48,
+        "stop_frame_exclusive": 109
+      },
+      {
+        "motion_id": 259,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_DanceTurns001_poses.motion",
+        "start_frame": 89,
+        "stop_frame_exclusive": 150
+      },
+      {
+        "motion_id": 257,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_DanceTurns002_poses.motion",
+        "start_frame": 46,
+        "stop_frame_exclusive": 107
+      },
+      {
+        "motion_id": 260,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_Catwalk001_poses.motion",
+        "start_frame": 267,
+        "stop_frame_exclusive": 328
+      },
+      {
+        "motion_id": 247,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0017/0017_RunningOnBench002_poses.motion",
+        "start_frame": 48,
+        "stop_frame_exclusive": 109
+      },
+      {
+        "motion_id": 253,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0007/0007_Walking001_poses.motion",
+        "start_frame": 810,
+        "stop_frame_exclusive": 871
+      },
+      {
+        "motion_id": 259,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_DanceTurns001_poses.motion",
+        "start_frame": 63,
+        "stop_frame_exclusive": 124
+      },
+      {
+        "motion_id": 254,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_Walking001_poses.motion",
+        "start_frame": 433,
+        "stop_frame_exclusive": 494
+      },
+      {
+        "motion_id": 19,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S2/Walking_3_poses.motion",
+        "start_frame": 14,
+        "stop_frame_exclusive": 75
+      },
+      {
+        "motion_id": 10,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S1/Walking_3_poses.motion",
+        "start_frame": 22,
+        "stop_frame_exclusive": 83
+      },
+      {
+        "motion_id": 26,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S2/Walking_1_poses.motion",
+        "start_frame": 8,
+        "stop_frame_exclusive": 69
+      },
+      {
+        "motion_id": 14,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S1/Jog_1_poses.motion",
+        "start_frame": 157,
+        "stop_frame_exclusive": 218
+      },
+      {
+        "motion_id": 247,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0017/0017_RunningOnBench002_poses.motion",
+        "start_frame": 14,
+        "stop_frame_exclusive": 75
+      },
+      {
+        "motion_id": 260,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_Catwalk001_poses.motion",
+        "start_frame": 54,
+        "stop_frame_exclusive": 115
+      },
+      {
+        "motion_id": 261,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_Moonwalk001_poses.motion",
+        "start_frame": 229,
+        "stop_frame_exclusive": 290
+      },
+      {
+        "motion_id": 14,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S1/Jog_1_poses.motion",
+        "start_frame": 24,
+        "stop_frame_exclusive": 85
+      },
+      {
+        "motion_id": 19,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S2/Walking_3_poses.motion",
+        "start_frame": 189,
+        "stop_frame_exclusive": 250
+      },
+      {
+        "motion_id": 4,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S3/Jog_1_poses.motion",
+        "start_frame": 101,
+        "stop_frame_exclusive": 162
+      },
+      {
+        "motion_id": 4,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S3/Jog_1_poses.motion",
+        "start_frame": 416,
+        "stop_frame_exclusive": 477
+      },
+      {
+        "motion_id": 1,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S3/Jog_3_poses.motion",
+        "start_frame": 9,
+        "stop_frame_exclusive": 70
+      },
+      {
+        "motion_id": 234,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0008/0008_Walking002_poses.motion",
+        "start_frame": 210,
+        "stop_frame_exclusive": 271
+      },
+      {
+        "motion_id": 242,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0005/0005_Jogging001_poses.motion",
+        "start_frame": 267,
+        "stop_frame_exclusive": 328
+      },
+      {
+        "motion_id": 257,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_DanceTurns002_poses.motion",
+        "start_frame": 219,
+        "stop_frame_exclusive": 280
+      },
+      {
+        "motion_id": 245,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0005/0005_BackwardsWalk001_poses.motion",
+        "start_frame": 202,
+        "stop_frame_exclusive": 263
+      },
+      {
+        "motion_id": 26,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S2/Walking_1_poses.motion",
+        "start_frame": 273,
+        "stop_frame_exclusive": 334
+      },
+      {
+        "motion_id": 11,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S1/Jog_3_poses.motion",
+        "start_frame": 448,
+        "stop_frame_exclusive": 509
+      },
+      {
+        "motion_id": 14,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S1/Jog_1_poses.motion",
+        "start_frame": 119,
+        "stop_frame_exclusive": 180
+      },
+      {
+        "motion_id": 253,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0007/0007_Walking001_poses.motion",
+        "start_frame": 530,
+        "stop_frame_exclusive": 591
+      },
+      {
+        "motion_id": 23,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S2/Jog_1_poses.motion",
+        "start_frame": 14,
+        "stop_frame_exclusive": 75
+      },
+      {
+        "motion_id": 14,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S1/Jog_1_poses.motion",
+        "start_frame": 500,
+        "stop_frame_exclusive": 561
+      },
+      {
+        "motion_id": 234,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0008/0008_Walking002_poses.motion",
+        "start_frame": 649,
+        "stop_frame_exclusive": 710
+      },
+      {
+        "motion_id": 259,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_DanceTurns001_poses.motion",
+        "start_frame": 104,
+        "stop_frame_exclusive": 165
+      },
+      {
+        "motion_id": 0,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S3/Walking_3_poses.motion",
+        "start_frame": 26,
+        "stop_frame_exclusive": 87
+      },
+      {
+        "motion_id": 242,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0005/0005_Jogging001_poses.motion",
+        "start_frame": 96,
+        "stop_frame_exclusive": 157
+      },
+      {
+        "motion_id": 257,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_DanceTurns002_poses.motion",
+        "start_frame": 129,
+        "stop_frame_exclusive": 190
+      },
+      {
+        "motion_id": 10,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S1/Walking_3_poses.motion",
+        "start_frame": 84,
+        "stop_frame_exclusive": 145
+      },
+      {
+        "motion_id": 19,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S2/Walking_3_poses.motion",
+        "start_frame": 201,
+        "stop_frame_exclusive": 262
+      },
+      {
+        "motion_id": 4,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S3/Jog_1_poses.motion",
+        "start_frame": 489,
+        "stop_frame_exclusive": 550
+      },
+      {
+        "motion_id": 19,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S2/Walking_3_poses.motion",
+        "start_frame": 100,
+        "stop_frame_exclusive": 161
+      },
+      {
+        "motion_id": 245,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0005/0005_BackwardsWalk001_poses.motion",
+        "start_frame": 215,
+        "stop_frame_exclusive": 276
+      },
+      {
+        "motion_id": 26,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S2/Walking_1_poses.motion",
+        "start_frame": 330,
+        "stop_frame_exclusive": 391
+      },
+      {
+        "motion_id": 19,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S2/Walking_3_poses.motion",
+        "start_frame": 41,
+        "stop_frame_exclusive": 102
+      },
+      {
+        "motion_id": 257,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_DanceTurns002_poses.motion",
+        "start_frame": 312,
+        "stop_frame_exclusive": 373
+      },
+      {
+        "motion_id": 253,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0007/0007_Walking001_poses.motion",
+        "start_frame": 815,
+        "stop_frame_exclusive": 876
+      },
+      {
+        "motion_id": 234,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0008/0008_Walking002_poses.motion",
+        "start_frame": 133,
+        "stop_frame_exclusive": 194
+      },
+      {
+        "motion_id": 242,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0005/0005_Jogging001_poses.motion",
+        "start_frame": 163,
+        "stop_frame_exclusive": 224
+      },
+      {
+        "motion_id": 23,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S2/Jog_1_poses.motion",
+        "start_frame": 236,
+        "stop_frame_exclusive": 297
+      },
+      {
+        "motion_id": 14,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S1/Jog_1_poses.motion",
+        "start_frame": 380,
+        "stop_frame_exclusive": 441
+      },
+      {
+        "motion_id": 254,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_Walking001_poses.motion",
+        "start_frame": 45,
+        "stop_frame_exclusive": 106
+      },
+      {
+        "motion_id": 26,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S2/Walking_1_poses.motion",
+        "start_frame": 274,
+        "stop_frame_exclusive": 335
+      },
+      {
+        "motion_id": 1,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S3/Jog_3_poses.motion",
+        "start_frame": 274,
+        "stop_frame_exclusive": 335
+      },
+      {
+        "motion_id": 260,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_Catwalk001_poses.motion",
+        "start_frame": 241,
+        "stop_frame_exclusive": 302
+      },
+      {
+        "motion_id": 247,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0017/0017_RunningOnBench002_poses.motion",
+        "start_frame": 48,
+        "stop_frame_exclusive": 109
+      },
+      {
+        "motion_id": 20,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S2/Jog_3_poses.motion",
+        "start_frame": 109,
+        "stop_frame_exclusive": 170
+      },
+      {
+        "motion_id": 1,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S3/Jog_3_poses.motion",
+        "start_frame": 313,
+        "stop_frame_exclusive": 374
+      },
+      {
+        "motion_id": 19,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S2/Walking_3_poses.motion",
+        "start_frame": 278,
+        "stop_frame_exclusive": 339
+      },
+      {
+        "motion_id": 234,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0008/0008_Walking002_poses.motion",
+        "start_frame": 604,
+        "stop_frame_exclusive": 665
+      },
+      {
+        "motion_id": 10,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S1/Walking_3_poses.motion",
+        "start_frame": 121,
+        "stop_frame_exclusive": 182
+      },
+      {
+        "motion_id": 20,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S2/Jog_3_poses.motion",
+        "start_frame": 8,
+        "stop_frame_exclusive": 69
+      },
+      {
+        "motion_id": 234,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0008/0008_Walking002_poses.motion",
+        "start_frame": 440,
+        "stop_frame_exclusive": 501
+      },
+      {
+        "motion_id": 245,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0005/0005_BackwardsWalk001_poses.motion",
+        "start_frame": 53,
+        "stop_frame_exclusive": 114
+      },
+      {
+        "motion_id": 10,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S1/Walking_3_poses.motion",
+        "start_frame": 422,
+        "stop_frame_exclusive": 483
+      },
+      {
+        "motion_id": 244,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0005/0005_Walking001_poses.motion",
+        "start_frame": 1051,
+        "stop_frame_exclusive": 1112
+      },
+      {
+        "motion_id": 259,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_DanceTurns001_poses.motion",
+        "start_frame": 46,
+        "stop_frame_exclusive": 107
+      },
+      {
+        "motion_id": 10,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S1/Walking_3_poses.motion",
+        "start_frame": 189,
+        "stop_frame_exclusive": 250
+      },
+      {
+        "motion_id": 259,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_DanceTurns001_poses.motion",
+        "start_frame": 55,
+        "stop_frame_exclusive": 116
+      },
+      {
+        "motion_id": 261,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_Moonwalk001_poses.motion",
+        "start_frame": 266,
+        "stop_frame_exclusive": 327
+      },
+      {
+        "motion_id": 244,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0005/0005_Walking001_poses.motion",
+        "start_frame": 112,
+        "stop_frame_exclusive": 173
+      },
+      {
+        "motion_id": 242,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0005/0005_Jogging001_poses.motion",
+        "start_frame": 108,
+        "stop_frame_exclusive": 169
+      },
+      {
+        "motion_id": 257,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_DanceTurns002_poses.motion",
+        "start_frame": 54,
+        "stop_frame_exclusive": 115
+      },
+      {
+        "motion_id": 11,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S1/Jog_3_poses.motion",
+        "start_frame": 486,
+        "stop_frame_exclusive": 547
+      },
+      {
+        "motion_id": 245,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0005/0005_BackwardsWalk001_poses.motion",
+        "start_frame": 207,
+        "stop_frame_exclusive": 268
+      },
+      {
+        "motion_id": 235,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0008/0008_Walking001_poses.motion",
+        "start_frame": 281,
+        "stop_frame_exclusive": 342
+      },
+      {
+        "motion_id": 19,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S2/Walking_3_poses.motion",
+        "start_frame": 119,
+        "stop_frame_exclusive": 180
+      },
+      {
+        "motion_id": 245,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0005/0005_BackwardsWalk001_poses.motion",
+        "start_frame": 134,
+        "stop_frame_exclusive": 195
+      },
+      {
+        "motion_id": 19,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S2/Walking_3_poses.motion",
+        "start_frame": 69,
+        "stop_frame_exclusive": 130
+      },
+      {
+        "motion_id": 247,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0017/0017_RunningOnBench002_poses.motion",
+        "start_frame": 14,
+        "stop_frame_exclusive": 75
+      },
+      {
+        "motion_id": 11,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/HumanEva/S1/Jog_3_poses.motion",
+        "start_frame": 242,
+        "stop_frame_exclusive": 303
+      },
+      {
+        "motion_id": 257,
+        "source_path": "/project/EXP/SangforAndSaut/Assets/motion/processed/smpl/SFU/0018/0018_DanceTurns002_poses.motion",
+        "start_frame": 186,
+        "stop_frame_exclusive": 247
+      }
+    ],
+    "window_frames": 61,
+    "window_duration_s": 2.0,
+    "eligible_clips": 22,
+    "excluded_short_clips": 0,
+    "sampling": "uniform clip then uniform valid contiguous window, with replacement; overlaps are not independent observations"
+  },
+  "metric_spec": {
+    "dt_s": 0.03333333333333333,
+    "ground_height_m": 0.0,
+    "toe_near_ground_height_m": 0.12,
+    "toe_vertical_speed_max_m_s": 0.2,
+    "toe_sliding_speed_threshold_m_s": 0.1,
+    "motion_velocity_time_scale_s": 0.1,
+    "motion_kernel_sigma": 1.0,
+    "speed_bin_lower_edges_m_s": [
+      0.0,
+      0.1,
+      0.5,
+      1.0,
+      1.5,
+      2.0,
+      3.0
+    ]
+  },
+  "actual_selected_array_sha256": {
+    "body_pos": "e75749065aeb83a11c07c5ea7969b8d46d62086ba522f72a16fcb75a19be29f9",
+    "root_rot": "7b1a03798e0882c67353b90727b974735af26c94a05ef48cb964aab47c5ad8ec"
+  },
+  "source": {
+    "manifest": "project:data/diffusion_amp/amass_manifest.json",
+    "manifest_sha256": "4eb6018e83c76408da05c2ca2358b518d4a520ef37d858ed87dc97dca9e7f1e3",
+    "split": "validation",
+    "clips": 22,
+    "diffusion_clips": 20,
+    "source_sha256": "ae0389770ad4a1dfb6d916b80bbe88b8ff89c7ab80a22d71b77597b6c302cf03",
+    "author_clip_list": false
+  },
+  "package_hash_recomputed": false,
+  "model_selection_role": "validation for iterative choices; test scores historically exposed, not a pristine blind test"
+}

@@ -16,7 +16,7 @@ from types import ModuleType
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 CANONICAL = ROOT / "scripts/evaluate_shared_social_navigation.py"
-CANONICAL_SHA = "b556de1a9c9c1a6b5984e1484c9a67f490f549f4346649746a84dd7ab9726558"
+CANONICAL_SHA = "0e21b47d7d983851f1cf39349e3cb44476fec7381a476fa48df98f29f088d097"
 
 
 def derive_driver(original, base_derive):

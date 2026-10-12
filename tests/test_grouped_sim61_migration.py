@@ -138,8 +138,8 @@ def test_pin_tuple_cannot_drop_readonly_declaration():
 
 def test_writer_parent_source_is_bound_without_sdk_import():
     described = migration.describe()
-    row = migration.manifest()["dependencies"][
-        "/project/EXP/IsaacLab/source/isaaclab/isaaclab/assets/articulation/base_articulation.py"]
+    from social_navigation.sdk_paths import lab_root
+    row = migration.manifest()["dependencies"][str(lab_root() / "source/isaaclab/isaaclab/assets/articulation/base_articulation.py")]
     assert row["bytes"] > 0 and len(row["sha256"]) == 64
     assert described["runtime_executed"] is False
     assert described["old_lifecycle_certificate_reused"] is False
@@ -167,3 +167,22 @@ def test_unknown_dependency_bytes_never_auto_refresh(role):
     pins[role] = tuple(changed)
     with pytest.raises(ValueError, match="Unreviewed grouped dependency"):
         migration.pins_for(entry.WORLD, pins)
+
+
+@pytest.mark.parametrize('module_name', ['expert_batch.py', 'social_rollout_collector.py'])
+@pytest.mark.parametrize('world_index', [0, 1, 2])
+def test_each_registered_world_can_be_selected_by_both_consumers(module_name, world_index):
+    inventory = migration.manifest()
+    key = next(name for name in inventory['modules'] if name.endswith('/' + module_name))
+    spec = inventory['modules'][key]
+    declarations = {role: tuple(row) for role, row in spec['pins'].items()}
+    choice = inventory['world_choices'][world_index]
+    declarations['world'] = tuple(choice[:len(declarations['world'])])
+    selected = migration.pins_for(migration.ROOT / key, declarations)
+    world_path = migration._path(choice[0])
+    assert migration._path(selected['world'][0]) == world_path
+    identity = migration.record(world_path)
+    assert selected['world'][1:3] == (identity['bytes'], identity['sha256'])
+    changed = {**declarations, 'world': (*declarations['world'][:2], '0' * 64, *declarations['world'][3:])}
+    with pytest.raises(ValueError, match='Unreviewed grouped dependency declaration: world'):
+        migration.pins_for(migration.ROOT / key, changed)

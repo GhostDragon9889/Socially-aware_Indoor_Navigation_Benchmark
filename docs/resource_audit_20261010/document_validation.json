@@ -1,9 +1,0 @@
-{
-  "seven_documents_complete": true,
-  "local_links_checked": 261,
-  "broken_local_links": [],
-  "json_valid": true,
-  "collector_syntax_valid": true,
-  "selected_resource_assertions": "passed",
-  "scope": "Documentation and file/metadata integrity only; no full pytest, Kit or physics."
-}

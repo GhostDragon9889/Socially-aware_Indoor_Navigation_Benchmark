@@ -18,7 +18,7 @@ import traceback
 import weakref
 
 ROOT = Path(__file__).resolve().parents[3]
-STAGES = ROOT / "docs/style_improvement_20261004"
+STAGES = ROOT / "resources/runtime_sources/style_improvement_20261004"
 FACTORY = STAGES / "group_articulation_scene_staging_v1/group_scene.py"
 BRIDGE = STAGES / "group_articulation_tensor_bridge_staging_v1/tensor_bridge.py"
 FACTORY_SHA = "88e5a8d289a3a3d8329107faaca857f03cf38a5c640985af84b7b3658f6916b6"
@@ -201,7 +201,7 @@ def _release_terminal_timeline_caches(owned_sim, report, *, phase):
     then retain the original private terminal Timeline release.
     No SDK files/methods/Base state are patched; another App/context is unsupported.
     """
-    expected = {'lab': ('isaaclab_physx.physics.physx_manager', '/project/EXP/SangforAndSaut/IsaacLab-Protomotions/source/isaaclab_physx/isaaclab_physx/physics/physx_manager.py', 34974, 'd83ef1b3a375dbbdbd538f7e5f552064ee57528ae7b35b9ba58719fd8a4cfda5'), 'base': ('isaaclab.physics.physics_manager', '/project/EXP/SangforAndSaut/IsaacLab-Protomotions/source/isaaclab/isaaclab/physics/physics_manager.py', 20828, '3a88544d96df6dc02a17a611529b5fd8bc58c2e251b4323be9cbc7d0bc7a5b47'), 'context': ('isaaclab.sim.simulation_context', '/project/EXP/SangforAndSaut/IsaacLab-Protomotions/source/isaaclab/isaaclab/sim/simulation_context.py', 42425, '8c5d73af45f82b0d5c36b05a1c293094319c5d17a75f75a2fe679c382334ea89'), 'core': ('isaacsim.core.simulation_manager.impl.simulation_manager', '/project/EXP/SangforAndSaut/ProtoMotions/output/native_sdk_overlay/simulation_manager_shutdown_v1/isaacsim.core.simulation_manager/isaacsim/core/simulation_manager/impl/simulation_manager.py', 79181, 'f95259051bb494ca1cf85ec3cfebdce61b4ec5f24cad49cf0ea295ccc0024f8e'), 'extension': ('isaacsim.core.simulation_manager.impl.extension', '/project/EXP/SangforAndSaut/ProtoMotions/output/native_sdk_overlay/simulation_manager_shutdown_v1/isaacsim.core.simulation_manager/isaacsim/core/simulation_manager/impl/extension.py', 3364, '8c4ef108ce939ed8a485540e719af2517aba7a2401a1de6d0848a06a457b3ea1')}
+    expected = {'lab': ('isaaclab_physx.physics.physx_manager', 'lab:source/isaaclab_physx/isaaclab_physx/physics/physx_manager.py', 34974, 'd83ef1b3a375dbbdbd538f7e5f552064ee57528ae7b35b9ba58719fd8a4cfda5'), 'base': ('isaaclab.physics.physics_manager', 'lab:source/isaaclab/isaaclab/physics/physics_manager.py', 20828, '3a88544d96df6dc02a17a611529b5fd8bc58c2e251b4323be9cbc7d0bc7a5b47'), 'context': ('isaaclab.sim.simulation_context', 'lab:source/isaaclab/isaaclab/sim/simulation_context.py', 42425, '8c5d73af45f82b0d5c36b05a1c293094319c5d17a75f75a2fe679c382334ea89'), 'core': ('isaacsim.core.simulation_manager.impl.simulation_manager', 'project:output/native_sdk_overlay/simulation_manager_shutdown_v1/isaacsim.core.simulation_manager/isaacsim/core/simulation_manager/impl/simulation_manager.py', 79181, 'f95259051bb494ca1cf85ec3cfebdce61b4ec5f24cad49cf0ea295ccc0024f8e'), 'extension': ('isaacsim.core.simulation_manager.impl.extension', 'project:output/native_sdk_overlay/simulation_manager_shutdown_v1/isaacsim.core.simulation_manager/isaacsim/core/simulation_manager/impl/extension.py', 3364, '8c4ef108ce939ed8a485540e719af2517aba7a2401a1de6d0848a06a457b3ea1')}
     method_origins = {'lab': {'close': ('PhysxManager.close', 424, True)}, 'base': {'close': ('PhysicsManager.close', 436, True)}, 'context': {'instance': ('SimulationContext.instance', 98, True), 'clear_instance': ('SimulationContext.clear_instance', 812, True)}, 'core': {'_shutdown': ('SimulationManager._shutdown', 361, True), '_reset': ('SimulationManager._reset', 380, True), 'enable_all_default_callbacks': ('SimulationManager.enable_all_default_callbacks', 1381, True), 'enable_default_callbacks': ('SimulationManager.enable_default_callbacks', 1329, True), 'invalidate_physics': ('SimulationManager.invalidate_physics', 728, True)}, 'extension': {'on_shutdown': ('Extension.on_shutdown', 80, False)}}
     classes, records = {}, {}
     owned_manager = resolved_manager = manager_proxy = None
@@ -233,7 +233,7 @@ def _release_terminal_timeline_caches(owned_sim, report, *, phase):
                         or Path(function.__code__.co_filename).resolve() != Path(filename)
                         or function.__code__.co_firstlineno != first_line):
                     raise RuntimeError("Terminal compatibility bound-method origin mismatch: " + key + "." + method_name)
-        resolver_expected = {'resolver': ('isaaclab.utils.string', '/project/EXP/SangforAndSaut/IsaacLab-Protomotions/source/isaaclab/isaaclab/utils/string.py', 22809, '8943b90128542370fbecdfe4de1561722ff85901dc699b6051b50c1b7e43266f'), 'configclass': ('isaaclab.utils.configclass', '/project/EXP/SangforAndSaut/IsaacLab-Protomotions/source/isaaclab/isaaclab/utils/configclass.py', 26964, '3d782b38e8a0d9d10d9d8ad3bf8e86bcd3731f1f84be4e296a6dfd4d40e644d4'), 'cfg': ('isaaclab_physx.physics.physx_manager_cfg', '/project/EXP/SangforAndSaut/IsaacLab-Protomotions/source/isaaclab_physx/isaaclab_physx/physics/physx_manager_cfg.py', 9949, 'a09ae907d6e46cf466e0b764be56753e6e1e554755aa1ea5fa3ac4863d70aed3')}
+        resolver_expected = {'resolver': ('isaaclab.utils.string', 'lab:source/isaaclab/isaaclab/utils/string.py', 22809, '8943b90128542370fbecdfe4de1561722ff85901dc699b6051b50c1b7e43266f'), 'configclass': ('isaaclab.utils.configclass', 'lab:source/isaaclab/isaaclab/utils/configclass.py', 26964, '3d782b38e8a0d9d10d9d8ad3bf8e86bcd3731f1f84be4e296a6dfd4d40e644d4'), 'cfg': ('isaaclab_physx.physics.physx_manager_cfg', 'lab:source/isaaclab_physx/isaaclab_physx/physics/physx_manager_cfg.py', 9949, 'a09ae907d6e46cf466e0b764be56753e6e1e554755aa1ea5fa3ac4863d70aed3')}
         resolver_origins = {"resolver": (("string_to_callable", 152),
             ("ResolvableString._resolve", 207), ("ResolvableString.__getattr__", 246)),
             "configclass": (("configclass", 36), ("_field_module_dir", 188),
@@ -362,7 +362,7 @@ def _release_terminal_timeline_caches(owned_sim, report, *, phase):
                     or function.__code__.co_firstlineno != first_line):
                 raise RuntimeError("Scene backend property/constructor origin mismatch")
         tensor_expected = ("omni.physics.tensors.api",
-            "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/extscache/omni.physics.tensors-110.1.11+110.1.1.lx64.r.cp312.u7f4/omni/physics/tensors/api.py",
+            "sim:extscache/omni.physics.tensors-110.1.11+110.1.1.lx64.r.cp312.u7f4/omni/physics/tensors/api.py",
             382927, "b913fdb1a3c0cf04b62aa01d6ceaf7d96cfe577a510d0e02b71485018661c903")
         tensor_module = sys.modules.get(tensor_expected[0])
         if tensor_module is None or not getattr(tensor_module, "__file__", None):
@@ -485,11 +485,11 @@ def _release_owned_asset_simulation_views(owned_sim, assets, report):
     Root-view presence is observed, never assumed from callback ordering.
     """
     expected = {
-        "context": ("isaaclab.sim.simulation_context", "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/source/isaaclab/isaaclab/sim/simulation_context.py", 42425, "8c5d73af45f82b0d5c36b05a1c293094319c5d17a75f75a2fe679c382334ea89", "SimulationContext"),
-        "lab": ("isaaclab_physx.physics.physx_manager", "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/source/isaaclab_physx/isaaclab_physx/physics/physx_manager.py", 34974, "d83ef1b3a375dbbdbd538f7e5f552064ee57528ae7b35b9ba58719fd8a4cfda5", "PhysxManager"),
-        "articulation": ("isaaclab_physx.assets.articulation.articulation", "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/source/isaaclab_physx/isaaclab_physx/assets/articulation/articulation.py", 224858, "2cbd53ccbebb7a7b038bed2b612b65e41d6674a4791beec68d84336d7bd00a87", "Articulation"),
-        "data": ("isaaclab_physx.assets.articulation.articulation_data", "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/source/isaaclab_physx/isaaclab_physx/assets/articulation/articulation_data.py", 95901, "6579e5b3efcd13d113cda141945cd055a4d0b86a069f0a80fc2c73c4cfe4163b", "ArticulationData"),
-        "tensor_API": ("omni.physics.tensors.api", "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/extscache/omni.physics.tensors-110.1.11+110.1.1.lx64.r.cp312.u7f4/omni/physics/tensors/api.py", 382927, "b913fdb1a3c0cf04b62aa01d6ceaf7d96cfe577a510d0e02b71485018661c903", "SimulationView")}
+        "context": ("isaaclab.sim.simulation_context", "lab:source/isaaclab/isaaclab/sim/simulation_context.py", 42425, "8c5d73af45f82b0d5c36b05a1c293094319c5d17a75f75a2fe679c382334ea89", "SimulationContext"),
+        "lab": ("isaaclab_physx.physics.physx_manager", "lab:source/isaaclab_physx/isaaclab_physx/physics/physx_manager.py", 34974, "d83ef1b3a375dbbdbd538f7e5f552064ee57528ae7b35b9ba58719fd8a4cfda5", "PhysxManager"),
+        "articulation": ("isaaclab_physx.assets.articulation.articulation", "lab:source/isaaclab_physx/isaaclab_physx/assets/articulation/articulation.py", 224858, "2cbd53ccbebb7a7b038bed2b612b65e41d6674a4791beec68d84336d7bd00a87", "Articulation"),
+        "data": ("isaaclab_physx.assets.articulation.articulation_data", "lab:source/isaaclab_physx/isaaclab_physx/assets/articulation/articulation_data.py", 95901, "6579e5b3efcd13d113cda141945cd055a4d0b86a069f0a80fc2c73c4cfe4163b", "ArticulationData"),
+        "tensor_API": ("omni.physics.tensors.api", "sim:extscache/omni.physics.tensors-110.1.11+110.1.1.lx64.r.cp312.u7f4/omni/physics/tensors/api.py", 382927, "b913fdb1a3c0cf04b62aa01d6ceaf7d96cfe577a510d0e02b71485018661c903", "SimulationView")}
     origins = {
         "context": (("instance", 98, True), ("stop", 772, False), ("is_playing", 780, False), ("is_stopped", 784, False)),
         "lab": (("get_scene_data_backend", 347, True),),

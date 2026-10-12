@@ -1,5 +1,0 @@
-{
-  "pid": 2978318,
-  "reason": "Wait for all physical experiments and final source repairs before exclusive GPU retry",
-  "no_test_child_started": true
-}

@@ -6,10 +6,9 @@ from pathlib import Path
 
 from protomotions.repository import repository_root
 
-LEGACY_PROJECT = "/project/EXP/SangforAndSaut/ProtoMotions"
-LEGACY_LAB = "/project/EXP/SangforAndSaut/IsaacLab-Protomotions"
-PUBLISHED_PROJECT = "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark"
-PUBLISHED_LAB = "/project/EXP/IsaacLab"
+# Portable resource namespaces; machine locations are supplied at runtime.
+LEGACY_PROJECT = PUBLISHED_PROJECT = "project:"
+LEGACY_LAB = PUBLISHED_LAB = "lab:"
 
 
 def lab_root():
@@ -45,19 +44,31 @@ def sim_root():
 
 
 def relocate_sdk_path(value, *, root=None):
+    """Resolve portable references and recorded checkout names without host paths."""
     value = str(value)
     root = Path(root or repository_root()).resolve()
-    if Path(value).is_absolute() and Path(value).is_relative_to(root):
-        return value
-    for prefix in (LEGACY_LAB, PUBLISHED_LAB):
-        site_prefix = prefix + "/.venv/lib/python3.12/site-packages/isaacsim/"
-        if value.startswith(site_prefix):
-            return str(sim_root() / value[len(site_prefix):])
-        if value.startswith(prefix + "/"):
-            return str(lab_root() / value[len(prefix) + 1:])
-    for prefix in (LEGACY_PROJECT, PUBLISHED_PROJECT):
-        if value.startswith(prefix + "/"):
-            return str(root / value[len(prefix) + 1:])
+    for prefix, provider in (("project:", lambda: root), ("lab:", lab_root), ("sim:", sim_root)):
+        if value.startswith(prefix):
+            relative = Path(value[len(prefix):].lstrip("/"))
+            if ".." in relative.parts:
+                raise ValueError("Resource reference contains parent traversal")
+            return str(provider() / relative)
+    path = Path(value)
+    if path.is_absolute():
+        if path.is_relative_to(root):
+            return value
+        # Read old serialized metadata by complete directory components only.
+        # No installation location from the original workstation is embedded.
+        for name in ("IsaacLab", "IsaacLab-Protomotions"):
+            if name in path.parts:
+                relative = Path(*path.parts[path.parts.index(name) + 1:])
+                parts = relative.parts
+                if "site-packages" in parts and "isaacsim" in parts:
+                    return str(sim_root() / Path(*parts[parts.index("isaacsim") + 1:]))
+                return str(lab_root() / relative)
+        for name in ("ProtoMotions", "Socially-aware_Indoor_Navigation_Benchmark"):
+            if name in path.parts:
+                return str(root / Path(*path.parts[path.parts.index(name) + 1:]))
     return value
 
 

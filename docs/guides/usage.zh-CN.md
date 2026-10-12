@@ -2,7 +2,7 @@
 
 [English](usage.en.md) · [文档目录](README.md) · 更新：2026-10-10
 
-默认目标为 Lab3.0 EA/Sim6.1。先[配置外部 SDK 或在项目内完整安装](external_sdk.zh-CN.md)，项目直接使用该 SDK 的解释器，附加包保存在项目目录。历史结果与本轮实测范围见[核验报告](../EXTERNAL_SDK_VERIFICATION_20261011_ZH.md)。
+默认目标为 Lab3.0 EA/Sim6.1。先[配置外部 SDK 或在项目内完整安装](external_sdk.zh-CN.md)，项目直接使用该 SDK 的解释器，附加包保存在项目目录。历史结果与本轮实测范围见[核验报告](../validation.md)。
 
 ## 1. 方法与模块
 
@@ -25,7 +25,7 @@ NavIsaacLab 的五状态 Diffusion / history-plus-action AMP 方法重建入口�
 先完成[安装](installation.zh-CN.md)和[配置](configuration.zh-CN.md)。
 
 ```bash
-cd /absolute/path/to/Socially-aware_Indoor_Navigation_Benchmark
+cd Socially-aware_Indoor_Navigation_Benchmark
 export NAV_ROOT="$PWD"
 export NAV_LAB_ROOT="$(python3 -c 'import json; print(json.load(open(".runtime/external_sdk.json"))["lab_root"])')"
 export ISAACLAB_ROOT="$NAV_LAB_ROOT"
@@ -140,7 +140,7 @@ CUDA_VISIBLE_DEVICES= "$NAV_PY" -m social_navigation audit-feet \
 | 空间停留 | 连续完整 5s 根位置窗口的空间范围判断，最长停留 ≤10s |
 | 脚部表面 | 实际姿态下中性 SMPL 皮肤对声明支持面，不等于测量接触斑滑移/切向摩擦 |
 
-风格 MMD/固定聚类覆盖及冻结验证动作属于独立风格分析；通过速度/安全筛查不等于更自然或优于论文。历史验证 22 条已用于选型，不应称作新的未见测试；测试 34 条应保持独立。详细本地口径见[四场景实测说明](../FOUR_SCENE_SPEED_20261010_ZH.md)。
+风格 MMD/固定聚类覆盖及冻结验证动作属于独立风格分析；通过速度/安全筛查不等于更自然或优于论文。历史验证 22 条已用于选型，不应称作新的未见测试；测试 34 条应保持独立。详细本地口径见[四场景实测说明](../validation.md)。
 
 ## 6. 相机与 60 秒录像
 

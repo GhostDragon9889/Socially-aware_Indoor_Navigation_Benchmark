@@ -1,0 +1,36 @@
+{
+  "schema": "local.neutral_smpl.shared_social_entry_profile.v1",
+  "purpose": "local_shared_training_pilot2000_not_author_complete_budget",
+  "runtime": {
+    "actors": 256,
+    "updates": 12500,
+    "rollout_controls": 32,
+    "episode_controls": 300,
+    "floor_size_m": 512.0,
+    "env_spacing_m": 8.0,
+    "checkpoint_every_updates": 500,
+    "archive_every_updates": 500,
+    "archive_controls_before_reset": false,
+    "seed": 7
+  },
+  "training": {
+    "learning_rate": 2e-05,
+    "discriminator_learning_rate": 1e-05,
+    "update_epochs": 6,
+    "minibatch_size": 4096,
+    "discriminator_batch_size": 4096,
+    "discriminator_updates_per_update": 2,
+    "discriminator_replay_capacity": 65536,
+    "discriminator_replay_keep_probability": 0.01,
+    "discriminator_replay_fraction": 0.5,
+    "target_kl": null,
+    "amp_reward_scale": 2.0,
+    "amp_reward_weight": 1.0,
+    "task_reward_weight": 0.5,
+    "direction_mode": "backwards_penalty",
+    "amp_normalization": "per_frame",
+    "expert_dof_velocity_frame": "child_joint",
+    "expert_sampling": null,
+    "warm_start_normalizer_count_cap": null
+  }
+}

@@ -12,7 +12,7 @@ from protomotions.utils.rotations import quat_apply
 
 @pytest.mark.parametrize('route', ['direct_load', 'world_child'])
 def test_grouped_reset_writes_com_velocity_for_link_state_and_preserves_other_groups(route):
-    path = migration.ROOT / 'docs/style_improvement_20261004/group_articulation_state_adapter_staging_v1/state_adapter.py'
+    path = migration.ROOT / 'resources/runtime_sources/style_improvement_20261004/group_articulation_state_adapter_staging_v1/state_adapter.py'
     name = '_grouped_velocity_' + route
     if route == 'direct_load':
         module = migration.load(path, name, migration.record(path))
@@ -87,7 +87,7 @@ def test_grouped_reset_writes_com_velocity_for_link_state_and_preserves_other_gr
 
 
 def test_grouped_velocity_derivation_rejects_changed_helper(monkeypatch):
-    path = migration.ROOT / 'docs/style_improvement_20261004/group_articulation_state_adapter_staging_v1/state_adapter.py'
+    path = migration.ROOT / 'resources/runtime_sources/style_improvement_20261004/group_articulation_state_adapter_staging_v1/state_adapter.py'
     helper = migration.ROOT / 'src/protomotions/simulator/isaaclab/utils/runtime_compat.py'
     original_read = Path.read_bytes
     monkeypatch.setattr(Path, 'read_bytes', lambda p: b'unreviewed helper' if p == helper else original_read(p))

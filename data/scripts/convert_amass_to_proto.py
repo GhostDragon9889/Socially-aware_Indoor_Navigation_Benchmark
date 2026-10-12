@@ -1,6 +1,7 @@
 # SPDX-FileCopyrightText: Copyright (c) 2025-2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
 # SPDX-License-Identifier: Apache-2.0
 
+import tempfile
 import os
 from pathlib import Path
 import pickle
@@ -41,7 +42,7 @@ from protomotions.components.pose_lib import (
 
 from contact_detection import compute_contact_labels_from_pos_and_vel
 
-TMP_SMPL_DIR = "/tmp/smpl"
+TMP_SMPL_DIR = os.path.join(tempfile.gettempdir(), "smpl")
 
 
 app = typer.Typer(pretty_exceptions_enable=False)

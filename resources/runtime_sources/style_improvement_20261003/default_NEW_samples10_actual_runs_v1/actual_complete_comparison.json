@@ -1,0 +1,2374 @@
+{
+  "schema": "default_NEW.samples10.actual_complete_comparison.v1",
+  "status": "observed_actual_closed_results",
+  "completed_utc": "2026-10-03T11:28:29.650329+00:00",
+  "execution_source": {
+    "path": "project:resources/runtime_sources/style_improvement_20261003/default_NEW_samples10_actual_runs_v1/summarize_actual_comparison.py",
+    "bytes": 7391,
+    "sha256": "4c22274a61115988f1bc7acb998cfa663885fc7b7cb044c4030f5ac019dfbc0a"
+  },
+  "original_idle_source": {
+    "path": "project:resources/runtime_sources/style_improvement_20261002/summarize_navigation_style.py",
+    "bytes": 30889,
+    "sha256": "ee0d13c3f345cf11aa2981002c21b070bf53eb4b6129d86d4a6f851443ac56d7"
+  },
+  "original_idle_function_called_unmodified": true,
+  "runs": {
+    "OLD63e_S1": {
+      "actual_GPU_owner": {
+        "path": "project:resources/runtime_sources/style_improvement_20261003/default_newDP_physical_actual_runs_v1/fixture_old_actual_launch.json",
+        "bytes": 9876,
+        "sha256": "5eecb3747d59ed144db2e07593dc38c42785e42ccfd0c588519b77020144dfb8"
+      },
+      "actual_CPU_owner": {
+        "path": "project:resources/runtime_sources/style_improvement_20261003/default_newDP_physical_actual_runs_v1/fixture_old_CPU_actual_launch.json",
+        "bytes": 11399,
+        "sha256": "e9717fdb26cfa5810871d3a01b2d4baa94a8c16d3dc0543597e3d0321636f281"
+      },
+      "actual_raw_audit": {
+        "path": "project:resources/runtime_sources/style_improvement_20261003/default_newDP_physical_actual_runs_v1/fixture_old_audit.json",
+        "bytes": 42164,
+        "sha256": "0fb845a3664353f35d70659420671eea9b82d5477d5300f75db391fdf8f535ce"
+      },
+      "result": {
+        "path": "project:output/diffusion_amp/default_oldDP_fixture200s_v1/result.json",
+        "bytes": 138499,
+        "sha256": "06927909c9282cb2ceeb753302db46db3e97991802dc54d2b7f92928015f6f8a"
+      },
+      "original_raw_counts": {
+        "controls": 6000,
+        "actors": 4,
+        "control_actor_frames": 24000,
+        "physics_substeps": 24000,
+        "substep_actor_frames": 96000,
+        "foot_substep_observations": 384000,
+        "control_hz": 30,
+        "physics_hz": 120,
+        "duration_s": 200.0,
+        "first_before_submitted_step": 0,
+        "last_completed_submitted_step": 24000,
+        "native_engine_time_observed": false,
+        "falls": 0,
+        "terminated_actor_frames": 0,
+        "time_limits": 0,
+        "reset_actor_frames_after_initial": 0,
+        "route_vertices_reached": [
+          2,
+          8,
+          6,
+          5
+        ]
+      },
+      "original_contact_counts": {
+        "field_names": [
+          "static_contact",
+          "peer_contact",
+          "static_contact_max_force_n",
+          "peer_contact_max_force_n"
+        ],
+        "floor_excluded": true,
+        "static_contact_actor_frames": 0,
+        "peer_contact_actor_frames": 0,
+        "peer_contact_unordered_pair_frames": 0,
+        "maximum_static_force_n": 0.0,
+        "maximum_peer_force_n": 0.0,
+        "raw_peer_force_matrix_not_archived": true,
+        "boundary": "Independent raw peer-force reconstruction unavailable; published original fields checked for shape, semantics and thresholds."
+      },
+      "route_vertices_total": 21,
+      "physical_zero_gate_passed": true,
+      "whole_original_idle_diagnostics": {
+        "idle_definition": "same-episode frame-to-frame root XY displacement speed <0.1 m/s; reset intervals excluded",
+        "time_semantics": "source frame i is post control i, t=(i+1)/30; interval [i,i+1] spans 1/30 seconds",
+        "global_goal_field_semantics": "in timed_path, global_goal_xy is current five-metre A* lookahead endpoint; route_vertex_xy is the actual route vertex",
+        "all_saved_plan_target_phase_checks_passed": true,
+        "geometry_definition": "signed root-XY point distance to declared cuboid AABBs; not body/capsule clearance or measured contact",
+        "terrain_normalizer_causality_established": false,
+        "per_actor": [
+          {
+            "actor": 0,
+            "valid_same_episode_intervals": 5999,
+            "idle_intervals": 3486,
+            "idle_duration_s": 116.2,
+            "idle_fraction": 0.5810968494749125,
+            "strict_idle_segments": 38,
+            "longest_idle": {
+              "before_interval_source_frame": 4013,
+              "last_interval_source_frame": 5161,
+              "interval_count": 1148,
+              "duration_s": 38.266666666666666,
+              "start_time_s": 133.8,
+              "end_time_s": 172.06666666666666,
+              "start_xy": [
+                8.813383102416992,
+                15.739567756652832
+              ],
+              "end_xy": [
+                8.838581085205078,
+                15.704757690429688
+              ],
+              "net_displacement_m": 0.04297300370056046,
+              "physical_displacement_speed_mps": {
+                "count": 1148,
+                "mean": 0.020091687560313265,
+                "median": 0.016735731570441385,
+                "p95": 0.04520106975805863,
+                "max": 0.08646049695084566,
+                "min": 0.0009226521776159533
+              },
+              "native_end_substep_root_speed_mps": {
+                "count": 1149,
+                "mean": 0.021197610419920687,
+                "median": 0.018207639455795288,
+                "p95": 0.0453603185713291,
+                "max": 0.09767123311758041,
+                "min": 9.775567741598934e-05
+              },
+              "executed_target_error_m": {
+                "count": 1149,
+                "mean": 0.04226932144010433,
+                "median": 0.041343277350870636,
+                "p95": 0.06827522944743741,
+                "max": 0.10498513500556739,
+                "min": 0.000980106271795343
+              },
+              "raw_next_step_target_error_m": {
+                "count": 1149,
+                "mean": 0.03674646755992314,
+                "median": 0.031742141934712115,
+                "p95": 0.07401026008528883,
+                "max": 0.09753458178023891,
+                "min": 0.0014631791516445487
+              },
+              "executed_reference_speed_mps": {
+                "count": 1149,
+                "mean": 0.12116245531134172,
+                "median": 0.11464987695217133,
+                "p95": 0.22867042720317837,
+                "max": 0.3844202756881714,
+                "min": 0.004785072989761829
+              },
+              "A_star_lookahead_endpoint_distance_m": {
+                "count": 1149,
+                "mean": 4.526026793527375,
+                "median": 4.5270859756391735,
+                "p95": 4.542820348949279,
+                "max": 4.5791082083368995,
+                "min": 4.489765833961352
+              },
+              "actual_route_vertex_distance_m": {
+                "count": 1149,
+                "mean": 13.357650101959779,
+                "median": 13.357805554297954,
+                "p95": 13.370307818305342,
+                "max": 13.400310747580367,
+                "min": 13.335996211680058
+              },
+              "double_support_fraction_120Hz": 1.0,
+              "no_foot_support_fraction_120Hz": 0.0,
+              "minimum_root_point_to_any_AABB_distance_m": 2.0518063894768366,
+              "minimum_root_point_to_central_AABB_distance_m": 2.0518063894768366,
+              "saved_replans_in_segment": 83,
+              "raw_plan_half_second_displacement_m": {
+                "count": 83,
+                "mean": 0.03417753067029357,
+                "median": 0.0338395299608362,
+                "p95": 0.052808694577417895,
+                "max": 0.058013173704161605,
+                "min": 0.016767199811579255
+              },
+              "raw_plan_five_second_displacement_m": {
+                "count": 83,
+                "mean": 0.9932730328625474,
+                "median": 0.7862291315613471,
+                "p95": 2.2186326325405346,
+                "max": 3.0511438699445237,
+                "min": 0.48262061495217407
+              },
+              "raw_plan_half_second_progress_toward_lookahead_m": {
+                "count": 83,
+                "mean": 0.033016482773793474,
+                "median": 0.0330178596881438,
+                "p95": 0.05276701871345918,
+                "max": 0.057511200960482296,
+                "min": 0.010869627573278641
+              },
+              "raw_plan_five_second_progress_toward_lookahead_m": {
+                "count": 83,
+                "mean": 0.9108682620975457,
+                "median": 0.7633660037174811,
+                "p95": 1.8982661949641528,
+                "max": 2.992593458788495,
+                "min": 0.3774278271693152
+              },
+              "raw_plan_five_second_endpoint_residual_to_lookahead_m": {
+                "count": 83,
+                "mean": 3.650878640775597,
+                "median": 3.7704634306620015,
+                "p95": 4.0348355652737595,
+                "max": 4.664538914509743,
+                "min": 1.6304240050954064
+              },
+              "raw_plan_five_second_path_length_m": {
+                "count": 83,
+                "mean": 1.4707901990525305,
+                "median": 1.2283448752760227,
+                "p95": 2.7115967223602175,
+                "max": 3.62258424555747,
+                "min": 1.0546517842102139
+              },
+              "adapted_reference_five_second_net_displacement_m": {
+                "count": 83,
+                "mean": 0.9457491903534703,
+                "median": 0.7555847149528119,
+                "p95": 2.226617553139751,
+                "max": 3.0304649362956964,
+                "min": 0.4371766783395466
+              }
+            }
+          },
+          {
+            "actor": 1,
+            "valid_same_episode_intervals": 5999,
+            "idle_intervals": 302,
+            "idle_duration_s": 10.066666666666666,
+            "idle_fraction": 0.050341723620603435,
+            "strict_idle_segments": 38,
+            "longest_idle": {
+              "before_interval_source_frame": 5698,
+              "last_interval_source_frame": 5751,
+              "interval_count": 53,
+              "duration_s": 1.7666666666666666,
+              "start_time_s": 189.96666666666667,
+              "end_time_s": 191.73333333333332,
+              "start_xy": [
+                14.386683464050293,
+                15.33195686340332
+              ],
+              "end_xy": [
+                14.442477226257324,
+                15.288749694824219
+              ],
+              "net_displacement_m": 0.07056772150096423,
+              "physical_displacement_speed_mps": {
+                "count": 53,
+                "mean": 0.0511284459470252,
+                "median": 0.05363105613383034,
+                "p95": 0.08250671907739199,
+                "max": 0.0951056788802254,
+                "min": 0.0035481298823381415
+              },
+              "native_end_substep_root_speed_mps": {
+                "count": 54,
+                "mean": 0.05432075782920475,
+                "median": 0.05413569137454033,
+                "p95": 0.09456191211938855,
+                "max": 0.10479629039764404,
+                "min": 0.01102299615740776
+              },
+              "executed_target_error_m": {
+                "count": 54,
+                "mean": 0.05261278796064816,
+                "median": 0.049915424635912004,
+                "p95": 0.08847279374083067,
+                "max": 0.089896131879309,
+                "min": 0.021736060685803908
+              },
+              "raw_next_step_target_error_m": {
+                "count": 54,
+                "mean": 0.02658137138937245,
+                "median": 0.022156950967121905,
+                "p95": 0.056256678810735664,
+                "max": 0.08161130434622384,
+                "min": 0.002586397976788418
+              },
+              "executed_reference_speed_mps": {
+                "count": 54,
+                "mean": 0.12140831475456555,
+                "median": 0.12570321932435036,
+                "p95": 0.19508621394634246,
+                "max": 0.2419264316558838,
+                "min": 0.019384972751140594
+              },
+              "A_star_lookahead_endpoint_distance_m": {
+                "count": 54,
+                "mean": 4.61922822781652,
+                "median": 4.622015733557211,
+                "p95": 4.6338092099423305,
+                "max": 4.63480582372027,
+                "min": 4.53868833339496
+              },
+              "actual_route_vertex_distance_m": {
+                "count": 54,
+                "mean": 9.970924051995626,
+                "median": 9.966185698635432,
+                "p95": 10.00611132912593,
+                "max": 10.007251069946085,
+                "min": 9.944679936124029
+              },
+              "double_support_fraction_120Hz": 1.0,
+              "no_foot_support_fraction_120Hz": 0.0,
+              "minimum_root_point_to_any_AABB_distance_m": 1.3511105318051708,
+              "minimum_root_point_to_central_AABB_distance_m": 1.3511105318051708,
+              "saved_replans_in_segment": 5,
+              "raw_plan_half_second_displacement_m": {
+                "count": 5,
+                "mean": 0.06472029341218574,
+                "median": 0.05341701178756235,
+                "p95": 0.10244972859569347,
+                "max": 0.10876125460327818,
+                "min": 0.04017229474484511
+              },
+              "raw_plan_five_second_displacement_m": {
+                "count": 5,
+                "mean": 3.434469144838407,
+                "median": 3.3605474540680778,
+                "p95": 5.086225210704443,
+                "max": 5.206975747621036,
+                "min": 1.8675254992375865
+              },
+              "raw_plan_half_second_progress_toward_lookahead_m": {
+                "count": 5,
+                "mean": 0.0596446080340173,
+                "median": 0.04395009387355517,
+                "p95": 0.09359276408938717,
+                "max": 0.09781808374956244,
+                "min": 0.03930602937394398
+              },
+              "raw_plan_five_second_progress_toward_lookahead_m": {
+                "count": 5,
+                "mean": 3.3911936128159406,
+                "median": 3.3302316234053246,
+                "p95": 5.02515083838434,
+                "max": 5.15392710648656,
+                "min": 1.8416113830796736
+              },
+              "raw_plan_five_second_endpoint_residual_to_lookahead_m": {
+                "count": 5,
+                "mean": 1.7084398282786193,
+                "median": 1.3772934711658822,
+                "p95": 2.748532464289045,
+                "max": 2.8050722715814564,
+                "min": 0.908413561130586
+              },
+              "raw_plan_five_second_path_length_m": {
+                "count": 5,
+                "mean": 3.93254009950956,
+                "median": 3.8233605158460113,
+                "p95": 5.8471208262317065,
+                "max": 5.977159206803643,
+                "min": 2.142452920855706
+              },
+              "adapted_reference_five_second_net_displacement_m": {
+                "count": 5,
+                "mean": 3.360251802316531,
+                "median": 3.2793524023727705,
+                "p95": 4.92300024663014,
+                "max": 4.996667542840598,
+                "min": 1.8375526378678368
+              }
+            }
+          },
+          {
+            "actor": 2,
+            "valid_same_episode_intervals": 5999,
+            "idle_intervals": 906,
+            "idle_duration_s": 30.2,
+            "idle_fraction": 0.1510251708618103,
+            "strict_idle_segments": 90,
+            "longest_idle": {
+              "before_interval_source_frame": 3448,
+              "last_interval_source_frame": 3605,
+              "interval_count": 157,
+              "duration_s": 5.233333333333333,
+              "start_time_s": 114.96666666666667,
+              "end_time_s": 120.2,
+              "start_xy": [
+                18.03306770324707,
+                19.317768096923828
+              ],
+              "end_xy": [
+                18.05316734313965,
+                19.412687301635742
+              ],
+              "net_displacement_m": 0.09702397099146977,
+              "physical_displacement_speed_mps": {
+                "count": 157,
+                "mean": 0.02708645821958297,
+                "median": 0.02061215639345687,
+                "p95": 0.067607908960811,
+                "max": 0.09809904926200698,
+                "min": 0.00334874150582875
+              },
+              "native_end_substep_root_speed_mps": {
+                "count": 158,
+                "mean": 0.030480323521467515,
+                "median": 0.02268693409860134,
+                "p95": 0.07724102027714254,
+                "max": 0.14453452825546265,
+                "min": 0.002054202603176236
+              },
+              "executed_target_error_m": {
+                "count": 158,
+                "mean": 0.059144432805669264,
+                "median": 0.060008050538823576,
+                "p95": 0.07366250693863993,
+                "max": 0.07827086459300132,
+                "min": 0.034477372590233604
+              },
+              "raw_next_step_target_error_m": {
+                "count": 158,
+                "mean": 0.06770629952794677,
+                "median": 0.05486175661221424,
+                "p95": 0.11162098891922113,
+                "max": 0.12004853998019835,
+                "min": 0.03622469850666447
+              },
+              "executed_reference_speed_mps": {
+                "count": 158,
+                "mean": 0.11282009494054733,
+                "median": 0.11156290397047997,
+                "p95": 0.20527508109807968,
+                "max": 0.26684680581092834,
+                "min": 0.01085277833044529
+              },
+              "A_star_lookahead_endpoint_distance_m": {
+                "count": 158,
+                "mean": 4.874510271764131,
+                "median": 4.799014619565237,
+                "p95": 5.0123457003996394,
+                "max": 5.022339698198712,
+                "min": 4.7382710248952495
+              },
+              "actual_route_vertex_distance_m": {
+                "count": 158,
+                "mean": 13.375327979581897,
+                "median": 13.376481900642943,
+                "p95": 13.40655814010654,
+                "max": 13.412792677807154,
+                "min": 13.317809150023143
+              },
+              "double_support_fraction_120Hz": 0.9683544039726257,
+              "no_foot_support_fraction_120Hz": 0.0,
+              "minimum_root_point_to_any_AABB_distance_m": 2.3873126983642563,
+              "minimum_root_point_to_central_AABB_distance_m": 6.674151079473364,
+              "saved_replans_in_segment": 11,
+              "raw_plan_half_second_displacement_m": {
+                "count": 11,
+                "mean": 0.05835132154428599,
+                "median": 0.05795797775829754,
+                "p95": 0.06290949537070126,
+                "max": 0.06677185252058898,
+                "min": 0.05497940705318797
+              },
+              "raw_plan_five_second_displacement_m": {
+                "count": 11,
+                "mean": 0.19418691450043177,
+                "median": 0.1797326306380786,
+                "p95": 0.3093573273889042,
+                "max": 0.39097811861297366,
+                "min": 0.12090862404929835
+              },
+              "raw_plan_half_second_progress_toward_lookahead_m": {
+                "count": 11,
+                "mean": -0.04824217246340128,
+                "median": -0.0477453497434243,
+                "p95": -0.04437568308571885,
+                "max": -0.043631026919265965,
+                "min": -0.057057074263873915
+              },
+              "raw_plan_five_second_progress_toward_lookahead_m": {
+                "count": 11,
+                "mean": -0.1028469364015116,
+                "median": -0.09935502787829623,
+                "p95": -0.052453618534212765,
+                "max": -0.04046462586990911,
+                "min": -0.16941732999022163
+              },
+              "raw_plan_five_second_endpoint_residual_to_lookahead_m": {
+                "count": 11,
+                "mean": 4.970170765226607,
+                "median": 4.913009551110831,
+                "p95": 5.125191121174659,
+                "max": 5.162207778543335,
+                "min": 4.836829697000161
+              },
+              "raw_plan_five_second_path_length_m": {
+                "count": 11,
+                "mean": 0.974003038240912,
+                "median": 0.9498729399863136,
+                "p95": 1.1254134363790176,
+                "max": 1.2510097777808473,
+                "min": 0.9149758687363807
+              },
+              "adapted_reference_five_second_net_displacement_m": {
+                "count": 11,
+                "mean": 0.22077334859302947,
+                "median": 0.20867610129707878,
+                "p95": 0.30502075545510204,
+                "max": 0.31829463864809765,
+                "min": 0.1296700074047067
+              }
+            }
+          },
+          {
+            "actor": 3,
+            "valid_same_episode_intervals": 5999,
+            "idle_intervals": 1149,
+            "idle_duration_s": 38.3,
+            "idle_fraction": 0.19153192198699784,
+            "strict_idle_segments": 91,
+            "longest_idle": {
+              "before_interval_source_frame": 3565,
+              "last_interval_source_frame": 3823,
+              "interval_count": 258,
+              "duration_s": 8.6,
+              "start_time_s": 118.86666666666666,
+              "end_time_s": 127.46666666666667,
+              "start_xy": [
+                10.157971382141113,
+                8.402470588684082
+              ],
+              "end_xy": [
+                10.171915054321289,
+                8.4177885055542
+              ],
+              "net_displacement_m": 0.0207138738797944,
+              "physical_displacement_speed_mps": {
+                "count": 258,
+                "mean": 0.0405655611378376,
+                "median": 0.041141620592092,
+                "p95": 0.07619746779411349,
+                "max": 0.0938539249707785,
+                "min": 0.003459472478740044
+              },
+              "native_end_substep_root_speed_mps": {
+                "count": 259,
+                "mean": 0.04214515918452278,
+                "median": 0.04072975739836693,
+                "p95": 0.0779690571129322,
+                "max": 0.09663216769695282,
+                "min": 0.0005983712617307901
+              },
+              "executed_target_error_m": {
+                "count": 259,
+                "mean": 0.0692463412605111,
+                "median": 0.06698838132387028,
+                "p95": 0.11520734652276893,
+                "max": 0.1307210117255821,
+                "min": 0.007951643175313274
+              },
+              "raw_next_step_target_error_m": {
+                "count": 259,
+                "mean": 0.05082691821635115,
+                "median": 0.04282065619331163,
+                "p95": 0.10130245335125776,
+                "max": 0.10749537956826781,
+                "min": 0.00370919558658231
+              },
+              "executed_reference_speed_mps": {
+                "count": 259,
+                "mean": 0.15506499424993878,
+                "median": 0.1529456079006195,
+                "p95": 0.2632027387619018,
+                "max": 0.40027570724487305,
+                "min": 0.012723124586045742
+              },
+              "A_star_lookahead_endpoint_distance_m": {
+                "count": 259,
+                "mean": 4.538018550901028,
+                "median": 4.5288465947159,
+                "p95": 4.611908368033809,
+                "max": 4.617035207556594,
+                "min": 4.505362091127033
+              },
+              "actual_route_vertex_distance_m": {
+                "count": 259,
+                "mean": 10.438419294030773,
+                "median": 10.438577875254408,
+                "p95": 10.457406636881538,
+                "max": 10.459507484378916,
+                "min": 10.419170489890078
+              },
+              "double_support_fraction_120Hz": 0.9990347623825073,
+              "no_foot_support_fraction_120Hz": 0.0,
+              "minimum_root_point_to_any_AABB_distance_m": 1.5623016357421875,
+              "minimum_root_point_to_central_AABB_distance_m": 1.5623016357421875,
+              "saved_replans_in_segment": 18,
+              "raw_plan_half_second_displacement_m": {
+                "count": 18,
+                "mean": 0.06072042119404164,
+                "median": 0.05948456954959298,
+                "p95": 0.08524200843366515,
+                "max": 0.09586070985838063,
+                "min": 0.030204082226015887
+              },
+              "raw_plan_five_second_displacement_m": {
+                "count": 18,
+                "mean": 2.7150692867338595,
+                "median": 1.5936522964927957,
+                "p95": 5.838119470372548,
+                "max": 5.882639812154629,
+                "min": 0.6508435322886764
+              },
+              "raw_plan_half_second_progress_toward_lookahead_m": {
+                "count": 18,
+                "mean": 0.05159769527191184,
+                "median": 0.04220927278160548,
+                "p95": 0.08488632130322205,
+                "max": 0.09577789782700707,
+                "min": 0.023657061477012548
+              },
+              "raw_plan_five_second_progress_toward_lookahead_m": {
+                "count": 18,
+                "mean": 2.596847878191062,
+                "median": 1.5008080213579584,
+                "p95": 5.75192518738598,
+                "max": 5.797568753301876,
+                "min": 0.48820503393442627
+              },
+              "raw_plan_five_second_endpoint_residual_to_lookahead_m": {
+                "count": 18,
+                "mean": 2.6241512757013603,
+                "median": 3.0378212991914006,
+                "p95": 4.1235450585045905,
+                "max": 4.1241180366962045,
+                "min": 0.6994629824277194
+              },
+              "raw_plan_five_second_path_length_m": {
+                "count": 18,
+                "mean": 3.375311264288104,
+                "median": 1.8783314059590261,
+                "p95": 7.036641607265479,
+                "max": 7.106570677873107,
+                "min": 1.2292086099090003
+              },
+              "adapted_reference_five_second_net_displacement_m": {
+                "count": 18,
+                "mean": 2.4347880041665704,
+                "median": 1.5145218209846363,
+                "p95": 4.848585956490864,
+                "max": 4.89037830288768,
+                "min": 0.5334102067738161
+              }
+            }
+          }
+        ],
+        "requested_actor0_snapshots": [
+          {
+            "time_s": 90,
+            "source_frame": 2699,
+            "actor": 0,
+            "root_xy": [
+              8.818520545959473,
+              15.709527969360352
+            ],
+            "executed_target_xy": [
+              8.827840805053711,
+              15.745210647583008
+            ],
+            "raw_next_step_target_xy": [
+              8.855436325073242,
+              15.712956428527832
+            ],
+            "executed_reference_velocity_xy": [
+              0.09012328088283539,
+              -0.14755800366401672
+            ],
+            "A_star_lookahead_endpoint_xy": [
+              13.260185241699219,
+              14.75
+            ],
+            "actual_route_vertex_xy": [
+              18.0,
+              6.0
+            ],
+            "root_point_AABB_distances_m": [
+              2.0780711196552515,
+              6.618520545959473,
+              12.981479454040526,
+              13.509527969360352,
+              6.090472030639647
+            ],
+            "double_support_fraction": 1.0
+          },
+          {
+            "time_s": 105,
+            "source_frame": 3149,
+            "actor": 0,
+            "root_xy": [
+              8.81654167175293,
+              15.714428901672363
+            ],
+            "executed_target_xy": [
+              8.828584671020508,
+              15.753446578979492
+            ],
+            "raw_next_step_target_xy": [
+              8.848999977111816,
+              15.721776008605957
+            ],
+            "executed_reference_velocity_xy": [
+              0.05264750495553017,
+              -0.1831798553466797
+            ],
+            "A_star_lookahead_endpoint_xy": [
+              13.26585578918457,
+              14.75
+            ],
+            "actual_route_vertex_xy": [
+              18.0,
+              6.0
+            ],
+            "root_point_AABB_distances_m": [
+              2.0832282816789083,
+              6.61654167175293,
+              12.98345832824707,
+              13.514428901672364,
+              6.085571098327636
+            ],
+            "double_support_fraction": 1.0
+          },
+          {
+            "time_s": 120,
+            "source_frame": 3599,
+            "actor": 0,
+            "root_xy": [
+              8.828470230102539,
+              15.705124855041504
+            ],
+            "executed_target_xy": [
+              8.86038589477539,
+              15.724770545959473
+            ],
+            "raw_next_step_target_xy": [
+              8.854049682617188,
+              15.710317611694336
+            ],
+            "executed_reference_velocity_xy": [
+              -0.001496240496635437,
+              -0.09632717072963715
+            ],
+            "A_star_lookahead_endpoint_xy": [
+              13.252595901489258,
+              14.75
+            ],
+            "actual_route_vertex_xy": [
+              18.0,
+              6.0
+            ],
+            "root_point_AABB_distances_m": [
+              2.0687998388042055,
+              6.62847023010254,
+              12.97152976989746,
+              13.505124855041505,
+              6.094875144958495
+            ],
+            "double_support_fraction": 1.0
+          }
+        ],
+        "saved_plans": {
+          "path": "project:output/diffusion_amp/default_oldDP_fixture200s_v1/reference_plans.npz",
+          "bytes": 5103331,
+          "sha256": "62a86797f78ef88f19a42f5236b45b8964118b34e9857d07382484c846224625"
+        }
+      },
+      "pooled_valid_idle_intervals": 5843,
+      "pooled_legal_intervals": 23996,
+      "pooled_idle_fraction": 0.24349891648608102,
+      "fall_events": [],
+      "actors_with_falls": [],
+      "GPU_elapsed_seconds": 806.4039588290034,
+      "CPU_raw_elapsed_seconds": 4.028183307003928,
+      "all_failed_contact_idle_reset_samples_retained": true
+    },
+    "NEWb563_S1": {
+      "actual_GPU_owner": {
+        "path": "project:resources/runtime_sources/style_improvement_20261003/default_newDP_physical_actual_runs_v1/fixture_new_actual_launch.json",
+        "bytes": 13549,
+        "sha256": "e31f690ed0e42bb3987805195b69da6d5fe3d892aa9e33041196e6ff96604055"
+      },
+      "actual_CPU_owner": {
+        "path": "project:resources/runtime_sources/style_improvement_20261003/default_newDP_physical_actual_runs_v1/fixture_new_CPU_actual_launch.json",
+        "bytes": 13598,
+        "sha256": "ebdbf67cd3ff730d612d60eda43cfc153519534e8ce28229f31105e32bc27b93"
+      },
+      "actual_raw_audit": {
+        "path": "project:resources/runtime_sources/style_improvement_20261003/default_newDP_physical_actual_runs_v1/fixture_new_audit.json",
+        "bytes": 46963,
+        "sha256": "efe7f896ce2eac0b43e05ccf6546441a60e18c4c6530d8544c49a72ca33ca00f"
+      },
+      "result": {
+        "path": "project:output/diffusion_amp/default_newDP_fixture200s_v1/result.json",
+        "bytes": 138923,
+        "sha256": "864ce64677b97a2d0edb0ea8fac755a821d77fb44f2c34ca6c39e50fb8941d21"
+      },
+      "original_raw_counts": {
+        "controls": 6000,
+        "actors": 4,
+        "control_actor_frames": 24000,
+        "physics_substeps": 24000,
+        "substep_actor_frames": 96000,
+        "foot_substep_observations": 384000,
+        "control_hz": 30,
+        "physics_hz": 120,
+        "duration_s": 200.0,
+        "first_before_submitted_step": 0,
+        "last_completed_submitted_step": 24000,
+        "native_engine_time_observed": false,
+        "falls": 1,
+        "terminated_actor_frames": 1,
+        "time_limits": 0,
+        "reset_actor_frames_after_initial": 1,
+        "route_vertices_reached": [
+          6,
+          1,
+          2,
+          0
+        ]
+      },
+      "original_contact_counts": {
+        "field_names": [
+          "static_contact",
+          "peer_contact",
+          "static_contact_max_force_n",
+          "peer_contact_max_force_n"
+        ],
+        "floor_excluded": true,
+        "static_contact_actor_frames": 0,
+        "peer_contact_actor_frames": 140,
+        "peer_contact_unordered_pair_frames": 70,
+        "maximum_static_force_n": 0.0,
+        "maximum_peer_force_n": 1288.4229736328125,
+        "raw_peer_force_matrix_not_archived": true,
+        "boundary": "Independent raw peer-force reconstruction unavailable; published original fields checked for shape, semantics and thresholds."
+      },
+      "route_vertices_total": 9,
+      "physical_zero_gate_passed": false,
+      "whole_original_idle_diagnostics": {
+        "idle_definition": "same-episode frame-to-frame root XY displacement speed <0.1 m/s; reset intervals excluded",
+        "time_semantics": "source frame i is post control i, t=(i+1)/30; interval [i,i+1] spans 1/30 seconds",
+        "global_goal_field_semantics": "in timed_path, global_goal_xy is current five-metre A* lookahead endpoint; route_vertex_xy is the actual route vertex",
+        "all_saved_plan_target_phase_checks_passed": true,
+        "geometry_definition": "signed root-XY point distance to declared cuboid AABBs; not body/capsule clearance or measured contact",
+        "terrain_normalizer_causality_established": false,
+        "per_actor": [
+          {
+            "actor": 0,
+            "valid_same_episode_intervals": 5999,
+            "idle_intervals": 501,
+            "idle_duration_s": 16.7,
+            "idle_fraction": 0.08351391898649775,
+            "strict_idle_segments": 103,
+            "longest_idle": {
+              "before_interval_source_frame": 4784,
+              "last_interval_source_frame": 4830,
+              "interval_count": 46,
+              "duration_s": 1.5333333333333334,
+              "start_time_s": 159.5,
+              "end_time_s": 161.03333333333333,
+              "start_xy": [
+                8.805532455444336,
+                9.147201538085938
+              ],
+              "end_xy": [
+                8.799348831176758,
+                9.147043228149414
+              ],
+              "net_displacement_m": 0.006185650420011073,
+              "physical_displacement_speed_mps": {
+                "count": 46,
+                "mean": 0.04259818874621377,
+                "median": 0.039316066755693845,
+                "p95": 0.06891038863387747,
+                "max": 0.08027735723088965,
+                "min": 0.010915955523868327
+              },
+              "native_end_substep_root_speed_mps": {
+                "count": 47,
+                "mean": 0.045791517988347664,
+                "median": 0.04323821887373924,
+                "p95": 0.07933874800801274,
+                "max": 0.13054776191711426,
+                "min": 0.0002642313775140792
+              },
+              "executed_target_error_m": {
+                "count": 47,
+                "mean": 0.12461699419728398,
+                "median": 0.10947500633894786,
+                "p95": 0.18323641230816895,
+                "max": 0.18478588315898514,
+                "min": 0.07077666894076802
+              },
+              "raw_next_step_target_error_m": {
+                "count": 47,
+                "mean": 0.06998462498336232,
+                "median": 0.07398148948796099,
+                "p95": 0.10935048044086502,
+                "max": 0.1473433492731825,
+                "min": 0.01473499179038557
+              },
+              "executed_reference_speed_mps": {
+                "count": 47,
+                "mean": 0.21055396228156825,
+                "median": 0.20144692063331604,
+                "p95": 0.433029046654701,
+                "max": 0.5800038576126099,
+                "min": 0.005937325768172741
+              },
+              "A_star_lookahead_endpoint_distance_m": {
+                "count": 47,
+                "mean": 4.484083235463416,
+                "median": 4.4834646905804165,
+                "p95": 4.5027428904972195,
+                "max": 4.561051984913784,
+                "min": 4.465669237441996
+              },
+              "actual_route_vertex_distance_m": {
+                "count": 47,
+                "mean": 9.708169619122204,
+                "median": 9.70566448576083,
+                "p95": 9.719933510849277,
+                "max": 9.723983906311732,
+                "min": 9.698855053638658
+              },
+              "double_support_fraction_120Hz": 1.0,
+              "no_foot_support_fraction_120Hz": 0.0,
+              "minimum_root_point_to_any_AABB_distance_m": 1.459498805618392,
+              "minimum_root_point_to_central_AABB_distance_m": 1.459498805618392,
+              "saved_replans_in_segment": 4,
+              "raw_plan_half_second_displacement_m": {
+                "count": 4,
+                "mean": 0.10998597691841258,
+                "median": 0.10990748179095823,
+                "p95": 0.11474481095270833,
+                "max": 0.1155228071491458,
+                "min": 0.10460613694258802
+              },
+              "raw_plan_five_second_displacement_m": {
+                "count": 4,
+                "mean": 5.017397194356356,
+                "median": 5.05891492280046,
+                "p95": 5.164717658425553,
+                "max": 5.166818792000068,
+                "min": 4.784940139824434
+              },
+              "raw_plan_half_second_progress_toward_lookahead_m": {
+                "count": 4,
+                "mean": 0.06332123525100206,
+                "median": 0.0650916627134556,
+                "p95": 0.07681296408697792,
+                "max": 0.07781814597503542,
+                "min": 0.04528346960206165
+              },
+              "raw_plan_five_second_progress_toward_lookahead_m": {
+                "count": 4,
+                "mean": 5.016823440229382,
+                "median": 5.058000939018896,
+                "p95": 5.164058659489239,
+                "max": 5.1663517865995665,
+                "min": 4.7849400962801685
+              },
+              "raw_plan_five_second_endpoint_residual_to_lookahead_m": {
+                "count": 4,
+                "mean": 0.5347273762308253,
+                "median": 0.5801677144750993,
+                "p95": 0.6954935325613223,
+                "max": 0.7015571332068458,
+                "min": 0.27701694276625694
+              },
+              "raw_plan_five_second_path_length_m": {
+                "count": 4,
+                "mean": 5.402392815690965,
+                "median": 5.398234711151701,
+                "p95": 5.6194067387228905,
+                "max": 5.641311777607598,
+                "min": 5.171790062852861
+              },
+              "adapted_reference_five_second_net_displacement_m": {
+                "count": 4,
+                "mean": 4.9016134196947405,
+                "median": 4.879495034568578,
+                "p95": 5.028613380682694,
+                "max": 5.045138456284479,
+                "min": 4.802325153357325
+              }
+            }
+          },
+          {
+            "actor": 1,
+            "valid_same_episode_intervals": 5999,
+            "idle_intervals": 3979,
+            "idle_duration_s": 132.63333333333333,
+            "idle_fraction": 0.6632772128688115,
+            "strict_idle_segments": 57,
+            "longest_idle": {
+              "before_interval_source_frame": 4703,
+              "last_interval_source_frame": 5566,
+              "interval_count": 863,
+              "duration_s": 28.766666666666666,
+              "start_time_s": 156.8,
+              "end_time_s": 185.56666666666666,
+              "start_xy": [
+                18.211923599243164,
+                5.735814571380615
+              ],
+              "end_xy": [
+                18.220603942871094,
+                5.703178405761719
+              ],
+              "net_displacement_m": 0.033770810943816267,
+              "physical_displacement_speed_mps": {
+                "count": 863,
+                "mean": 0.015358507691324902,
+                "median": 0.01310148598692548,
+                "p95": 0.03716574454346309,
+                "max": 0.09686455443054763,
+                "min": 0.0008414520933066983
+              },
+              "native_end_substep_root_speed_mps": {
+                "count": 864,
+                "mean": 0.01713794867312875,
+                "median": 0.014040078967809677,
+                "p95": 0.04107207860797637,
+                "max": 0.10953448712825775,
+                "min": 0.00031056615989655256
+              },
+              "executed_target_error_m": {
+                "count": 864,
+                "mean": 0.09617972970432058,
+                "median": 0.09520586186933039,
+                "p95": 0.11364904868441393,
+                "max": 0.13735589752768324,
+                "min": 0.07574604442078611
+              },
+              "raw_next_step_target_error_m": {
+                "count": 864,
+                "mean": 0.06974474357139392,
+                "median": 0.07603300308452948,
+                "p95": 0.08859640252811199,
+                "max": 0.12505752723353128,
+                "min": 0.01265615274678389
+              },
+              "executed_reference_speed_mps": {
+                "count": 864,
+                "mean": 0.1503173846264232,
+                "median": 0.14152693003416061,
+                "p95": 0.2523521319031715,
+                "max": 0.4399949908256531,
+                "min": 0.018369847908616066
+              },
+              "A_star_lookahead_endpoint_distance_m": {
+                "count": 864,
+                "mean": 4.987641715533225,
+                "median": 4.98867964921474,
+                "p95": 4.991750112853063,
+                "max": 4.997799528435928,
+                "min": 4.9399475637213355
+              },
+              "actual_route_vertex_distance_m": {
+                "count": 864,
+                "mean": 12.296530084956567,
+                "median": 12.29903000640713,
+                "p95": 12.301331681991458,
+                "max": 12.302772641546067,
+                "min": 12.249069452479715
+              },
+              "double_support_fraction_120Hz": 1.0,
+              "no_foot_support_fraction_120Hz": 0.0,
+              "minimum_root_point_to_any_AABB_distance_m": 3.4990957260131834,
+              "minimum_root_point_to_central_AABB_distance_m": 5.98090431529568,
+              "saved_replans_in_segment": 58,
+              "raw_plan_half_second_displacement_m": {
+                "count": 58,
+                "mean": 0.07415368305139525,
+                "median": 0.07386134300340118,
+                "p95": 0.07797106885098821,
+                "max": 0.08612394952115326,
+                "min": 0.06831157010099768
+              },
+              "raw_plan_five_second_displacement_m": {
+                "count": 58,
+                "mean": 0.5656675772868881,
+                "median": 0.5657722643919674,
+                "p95": 0.6212215717498225,
+                "max": 0.7237899413527366,
+                "min": 0.48486346552990933
+              },
+              "raw_plan_half_second_progress_toward_lookahead_m": {
+                "count": 58,
+                "mean": 0.020279385848409652,
+                "median": 0.018113215561096636,
+                "p95": 0.03839030116715916,
+                "max": 0.06352008552361132,
+                "min": 0.012623117295092927
+              },
+              "raw_plan_five_second_progress_toward_lookahead_m": {
+                "count": 58,
+                "mean": -0.41160142972014485,
+                "median": -0.45718958768486434,
+                "p95": -0.11141164902285049,
+                "max": 0.4301707333884363,
+                "min": -0.5496248683957959
+              },
+              "raw_plan_five_second_endpoint_residual_to_lookahead_m": {
+                "count": 58,
+                "mean": 5.411749505772108,
+                "median": 5.45498993572383,
+                "p95": 5.522527331733274,
+                "max": 5.554754837212385,
+                "min": 4.577845499453243
+              },
+              "raw_plan_five_second_path_length_m": {
+                "count": 58,
+                "mean": 0.8263569813051599,
+                "median": 0.7787067610402598,
+                "p95": 1.2539022388706842,
+                "max": 1.5504628035566281,
+                "min": 0.7307599747406393
+              },
+              "adapted_reference_five_second_net_displacement_m": {
+                "count": 58,
+                "mean": 0.5318582942971408,
+                "median": 0.5317730250698753,
+                "p95": 0.5907827071867313,
+                "max": 0.6603703476115717,
+                "min": 0.3932797163992493
+              }
+            }
+          },
+          {
+            "actor": 2,
+            "valid_same_episode_intervals": 5999,
+            "idle_intervals": 1123,
+            "idle_duration_s": 37.43333333333333,
+            "idle_fraction": 0.18719786631105184,
+            "strict_idle_segments": 175,
+            "longest_idle": {
+              "before_interval_source_frame": 3764,
+              "last_interval_source_frame": 3810,
+              "interval_count": 46,
+              "duration_s": 1.5333333333333334,
+              "start_time_s": 125.5,
+              "end_time_s": 127.03333333333333,
+              "start_xy": [
+                14.769257545471191,
+                8.746062278747559
+              ],
+              "end_xy": [
+                14.738322257995605,
+                8.710291862487793
+              ],
+              "net_displacement_m": 0.047291803630164594,
+              "physical_displacement_speed_mps": {
+                "count": 46,
+                "mean": 0.04160672948670898,
+                "median": 0.041751066665132536,
+                "p95": 0.07378197226795005,
+                "max": 0.07670404661150547,
+                "min": 0.0035349556582139714
+              },
+              "native_end_substep_root_speed_mps": {
+                "count": 47,
+                "mean": 0.040092280867727516,
+                "median": 0.03536323085427284,
+                "p95": 0.06844889745116232,
+                "max": 0.11980024725198746,
+                "min": 0.009387140162289143
+              },
+              "executed_target_error_m": {
+                "count": 47,
+                "mean": 0.09344913267746252,
+                "median": 0.09198334380303176,
+                "p95": 0.11434356290824389,
+                "max": 0.11635557694607425,
+                "min": 0.07395355434510913
+              },
+              "raw_next_step_target_error_m": {
+                "count": 47,
+                "mean": 0.06819622485191552,
+                "median": 0.0715105390196712,
+                "p95": 0.10604742857138304,
+                "max": 0.12666173403187553,
+                "min": 0.009780762161355615
+              },
+              "executed_reference_speed_mps": {
+                "count": 47,
+                "mean": 0.12118450593837399,
+                "median": 0.1201508566737175,
+                "p95": 0.21449812054634093,
+                "max": 0.2653747498989105,
+                "min": 0.010364440269768238
+              },
+              "A_star_lookahead_endpoint_distance_m": {
+                "count": 47,
+                "mean": 4.683132857954428,
+                "median": 4.684228594163127,
+                "p95": 4.694022809184376,
+                "max": 4.694181002869407,
+                "min": 4.661219299244225
+              },
+              "actual_route_vertex_distance_m": {
+                "count": 47,
+                "mean": 9.825910321352609,
+                "median": 9.827952818261933,
+                "p95": 9.844642678468713,
+                "max": 9.845670062156634,
+                "min": 9.801246477673837
+              },
+              "double_support_fraction_120Hz": 1.0,
+              "no_foot_support_fraction_120Hz": 0.0,
+              "minimum_root_point_to_any_AABB_distance_m": 1.4710345709686448,
+              "minimum_root_point_to_central_AABB_distance_m": 1.4710345709686448,
+              "saved_replans_in_segment": 4,
+              "raw_plan_half_second_displacement_m": {
+                "count": 4,
+                "mean": 0.11998772954412015,
+                "median": 0.11102011368567774,
+                "p95": 0.16246382218908,
+                "max": 0.1703959144277936,
+                "min": 0.08751477637733152
+              },
+              "raw_plan_five_second_displacement_m": {
+                "count": 4,
+                "mean": 5.534911118483459,
+                "median": 5.772103894591014,
+                "p95": 6.10396559553396,
+                "max": 6.156915820247248,
+                "min": 4.438520864504561
+              },
+              "raw_plan_half_second_progress_toward_lookahead_m": {
+                "count": 4,
+                "mean": 0.05285569615631111,
+                "median": 0.04091748083776569,
+                "p95": 0.10159906913875025,
+                "max": 0.11005986211015234,
+                "min": 0.01952796083956071
+              },
+              "raw_plan_five_second_progress_toward_lookahead_m": {
+                "count": 4,
+                "mean": 5.490340797735707,
+                "median": 5.727402262783761,
+                "p95": 6.0707512436634525,
+                "max": 6.128532877079938,
+                "min": 4.378025788295367
+              },
+              "raw_plan_five_second_endpoint_residual_to_lookahead_m": {
+                "count": 4,
+                "mean": 1.2246810126019834,
+                "median": 1.275620921001416,
+                "p95": 1.5267107335861285,
+                "max": 1.556534746819028,
+                "min": 0.7909474615860737
+              },
+              "raw_plan_five_second_path_length_m": {
+                "count": 4,
+                "mean": 6.430326313024288,
+                "median": 6.487032182383821,
+                "p95": 7.450156336878669,
+                "max": 7.611333851743303,
+                "min": 5.1359070355862055
+              },
+              "adapted_reference_five_second_net_displacement_m": {
+                "count": 4,
+                "mean": 4.888214130434362,
+                "median": 5.057867565365786,
+                "p95": 5.185983199790057,
+                "max": 5.19389784247727,
+                "min": 4.243223548528604
+              }
+            }
+          },
+          {
+            "actor": 3,
+            "valid_same_episode_intervals": 5998,
+            "idle_intervals": 1604,
+            "idle_duration_s": 53.46666666666667,
+            "idle_fraction": 0.2674224741580527,
+            "strict_idle_segments": 275,
+            "longest_idle": {
+              "before_interval_source_frame": 1771,
+              "last_interval_source_frame": 1816,
+              "interval_count": 45,
+              "duration_s": 1.5,
+              "start_time_s": 59.06666666666667,
+              "end_time_s": 60.56666666666667,
+              "start_xy": [
+                9.413331985473633,
+                15.401505470275879
+              ],
+              "end_xy": [
+                9.431107521057129,
+                15.40328311920166
+              ],
+              "net_displacement_m": 0.017864201660960588,
+              "physical_displacement_speed_mps": {
+                "count": 45,
+                "mean": 0.03880639855977622,
+                "median": 0.03511146630421954,
+                "p95": 0.08015610994664707,
+                "max": 0.08739001037912499,
+                "min": 0.0028214096436475784
+              },
+              "native_end_substep_root_speed_mps": {
+                "count": 46,
+                "mean": 0.043288087968350104,
+                "median": 0.03587939776480198,
+                "p95": 0.09839860908687115,
+                "max": 0.10771962255239487,
+                "min": 0.0023719812743365765
+              },
+              "executed_target_error_m": {
+                "count": 46,
+                "mean": 0.06285142831253983,
+                "median": 0.05351975895225479,
+                "p95": 0.10071483298636265,
+                "max": 0.1199820221040948,
+                "min": 0.0410035136789874
+              },
+              "raw_next_step_target_error_m": {
+                "count": 46,
+                "mean": 0.04570375040750446,
+                "median": 0.04557614672956925,
+                "p95": 0.07120279178377129,
+                "max": 0.1076301391779109,
+                "min": 0.008147435932191494
+              },
+              "executed_reference_speed_mps": {
+                "count": 46,
+                "mean": 0.15978098359039944,
+                "median": 0.15556885302066803,
+                "p95": 0.3509458228945732,
+                "max": 0.3793342709541321,
+                "min": 0.012275244109332561
+              },
+              "A_star_lookahead_endpoint_distance_m": {
+                "count": 46,
+                "mean": 4.412017541435867,
+                "median": 4.414965423764059,
+                "p95": 4.431543916946794,
+                "max": 4.437220379123363,
+                "min": 4.3901814361642
+              },
+              "actual_route_vertex_distance_m": {
+                "count": 46,
+                "mean": 9.993989238267199,
+                "median": 9.992427592625539,
+                "p95": 10.004524203172322,
+                "max": 10.009706900849679,
+                "min": 9.982379582021334
+              },
+              "double_support_fraction_120Hz": 1.0,
+              "no_foot_support_fraction_120Hz": 0.0,
+              "minimum_root_point_to_any_AABB_distance_m": 1.502786785600136,
+              "minimum_root_point_to_central_AABB_distance_m": 1.502786785600136,
+              "saved_replans_in_segment": 3,
+              "raw_plan_half_second_displacement_m": {
+                "count": 3,
+                "mean": 0.08256919095703504,
+                "median": 0.08639247846783771,
+                "p95": 0.10456300629302351,
+                "max": 0.10658195382915527,
+                "min": 0.05473314057411213
+              },
+              "raw_plan_five_second_displacement_m": {
+                "count": 3,
+                "mean": 5.177340526247281,
+                "median": 5.379817669892055,
+                "p95": 5.448225925535858,
+                "max": 5.455826842829613,
+                "min": 4.696377066020176
+              },
+              "raw_plan_half_second_progress_toward_lookahead_m": {
+                "count": 3,
+                "mean": 0.03355443264258214,
+                "median": 0.024420796165009015,
+                "p95": 0.05250413881621364,
+                "max": 0.05562451022190304,
+                "min": 0.02061799154083437
+              },
+              "raw_plan_five_second_progress_toward_lookahead_m": {
+                "count": 3,
+                "mean": 5.1622086922079715,
+                "median": 5.3694146786646515,
+                "p95": 5.420377961232869,
+                "max": 5.426040548184893,
+                "min": 4.6911708497743705
+              },
+              "raw_plan_five_second_endpoint_residual_to_lookahead_m": {
+                "count": 3,
+                "mean": 0.8450266794614828,
+                "median": 0.9950590998491422,
+                "p95": 1.1626374210486643,
+                "max": 1.1812572345152779,
+                "min": 0.35876370402002844
+              },
+              "raw_plan_five_second_path_length_m": {
+                "count": 3,
+                "mean": 5.453567017050972,
+                "median": 5.664721291570825,
+                "p95": 5.737036973623725,
+                "max": 5.74507204940738,
+                "min": 4.95090771017471
+              },
+              "adapted_reference_five_second_net_displacement_m": {
+                "count": 3,
+                "mean": 4.741896344018412,
+                "median": 4.68050869983864,
+                "p95": 4.868727710731293,
+                "max": 4.88964093416381,
+                "min": 4.655539398052786
+              }
+            }
+          }
+        ],
+        "requested_actor0_snapshots": [
+          {
+            "time_s": 90,
+            "source_frame": 2699,
+            "actor": 0,
+            "root_xy": [
+              5.899662017822266,
+              7.09155797958374
+            ],
+            "executed_target_xy": [
+              5.636294364929199,
+              7.035797119140625
+            ],
+            "raw_next_step_target_xy": [
+              5.722157001495361,
+              7.038926124572754
+            ],
+            "executed_reference_velocity_xy": [
+              0.4516400098800659,
+              1.1290435791015625
+            ],
+            "A_star_lookahead_endpoint_xy": [
+              8.5,
+              10.4617919921875
+            ],
+            "actual_route_vertex_xy": [
+              18.0,
+              18.0
+            ],
+            "root_point_AABB_distances_m": [
+              5.027107175524746,
+              3.6996620178222654,
+              15.900337982177733,
+              4.891557979583741,
+              14.708442020416259
+            ],
+            "double_support_fraction": 0.0
+          },
+          {
+            "time_s": 105,
+            "source_frame": 3149,
+            "actor": 0,
+            "root_xy": [
+              8.287116050720215,
+              11.143367767333984
+            ],
+            "executed_target_xy": [
+              8.256887435913086,
+              11.127297401428223
+            ],
+            "raw_next_step_target_xy": [
+              8.261540412902832,
+              11.159090042114258
+            ],
+            "executed_reference_velocity_xy": [
+              -0.17433954775333405,
+              0.6480101943016052
+            ],
+            "A_star_lookahead_endpoint_xy": [
+              10.25136947631836,
+              14.75
+            ],
+            "actual_route_vertex_xy": [
+              18.0,
+              18.0
+            ],
+            "root_point_AABB_distances_m": [
+              1.7128839492797852,
+              6.0871160507202156,
+              13.512883949279784,
+              8.943367767333985,
+              10.656632232666015
+            ],
+            "double_support_fraction": 0.0
+          },
+          {
+            "time_s": 120,
+            "source_frame": 3599,
+            "actor": 0,
+            "root_xy": [
+              18.305261611938477,
+              18.280588150024414
+            ],
+            "executed_target_xy": [
+              18.216737747192383,
+              18.274824142456055
+            ],
+            "raw_next_step_target_xy": [
+              18.227676391601562,
+              18.289535522460938
+            ],
+            "executed_reference_velocity_xy": [
+              0.7839788794517517,
+              0.42786726355552673
+            ],
+            "A_star_lookahead_endpoint_xy": [
+              13.140716552734375,
+              18.0
+            ],
+            "actual_route_vertex_xy": [
+              6.0,
+              18.0
+            ],
+            "root_point_AABB_distances_m": [
+              6.07113765758614,
+              16.105261611938474,
+              3.494738388061522,
+              16.08058815002441,
+              3.5194118499755844
+            ],
+            "double_support_fraction": 0.0
+          }
+        ],
+        "saved_plans": {
+          "path": "project:output/diffusion_amp/default_newDP_fixture200s_v1/reference_plans.npz",
+          "bytes": 4986429,
+          "sha256": "c232cdff37c2da6f4cdb0ffc53194c71ce838d586c0afd6bdd5aff49134de241"
+        }
+      },
+      "pooled_valid_idle_intervals": 7207,
+      "pooled_legal_intervals": 23995,
+      "pooled_idle_fraction": 0.3003542404667639,
+      "fall_events": [
+        {
+          "source_frame": 4254,
+          "completed_control": 4255,
+          "derived_time_s": 141.83333333333334,
+          "actor": 3,
+          "episode_id": 1
+        }
+      ],
+      "actors_with_falls": [
+        3
+      ],
+      "GPU_elapsed_seconds": 828.3571267130028,
+      "CPU_raw_elapsed_seconds": 5.485801611997886,
+      "all_failed_contact_idle_reset_samples_retained": true
+    },
+    "NEWb563_S10": {
+      "actual_GPU_owner": {
+        "path": "project:resources/runtime_sources/style_improvement_20261003/default_NEW_samples10_actual_runs_v1/fixture_new_actual_launch.json",
+        "bytes": 14696,
+        "sha256": "3149294b67cb1b9ccab56d613bd9c27d93c6b3da5557be852006312ef9949dcb"
+      },
+      "actual_CPU_owner": {
+        "path": "project:resources/runtime_sources/style_improvement_20261003/default_NEW_samples10_actual_runs_v1/fixture_new_CPU_actual_launch.json",
+        "bytes": 19965,
+        "sha256": "7a0a17739fe30acb304b04908193c5b6b6832cd5873cb4db095b95a3cd732a8e"
+      },
+      "actual_raw_audit": {
+        "path": "project:resources/runtime_sources/style_improvement_20261003/default_NEW_samples10_actual_runs_v1/fixture_new_audit.json",
+        "bytes": 51119,
+        "sha256": "bde73195eecfc718052a1fbe5228fa879ff404b8fd8f50a22de3b3def7c39321"
+      },
+      "result": {
+        "path": "project:output/diffusion_amp/default_newDP_samples10_fixture200s_v1/result.json",
+        "bytes": 138983,
+        "sha256": "d1a448facf7094299e43436bd35628b4c834122936bdc329c9fc66eaf26f4aef"
+      },
+      "original_raw_counts": {
+        "controls": 6000,
+        "actors": 4,
+        "control_actor_frames": 24000,
+        "physics_substeps": 24000,
+        "substep_actor_frames": 96000,
+        "foot_substep_observations": 384000,
+        "control_hz": 30,
+        "physics_hz": 120,
+        "duration_s": 200.0,
+        "first_before_submitted_step": 0,
+        "last_completed_submitted_step": 24000,
+        "native_engine_time_observed": false,
+        "falls": 3,
+        "terminated_actor_frames": 3,
+        "time_limits": 0,
+        "reset_actor_frames_after_initial": 3,
+        "route_vertices_reached": [
+          6,
+          2,
+          8,
+          2
+        ]
+      },
+      "original_contact_counts": {
+        "field_names": [
+          "static_contact",
+          "peer_contact",
+          "static_contact_max_force_n",
+          "peer_contact_max_force_n"
+        ],
+        "floor_excluded": true,
+        "static_contact_actor_frames": 0,
+        "peer_contact_actor_frames": 512,
+        "peer_contact_unordered_pair_frames": 279,
+        "maximum_static_force_n": 0.0,
+        "maximum_peer_force_n": 1069.25244140625,
+        "raw_peer_force_matrix_not_archived": true,
+        "boundary": "Independent raw peer-force reconstruction unavailable; published original fields checked for shape, semantics and thresholds."
+      },
+      "route_vertices_total": 18,
+      "physical_zero_gate_passed": false,
+      "whole_original_idle_diagnostics": {
+        "idle_definition": "same-episode frame-to-frame root XY displacement speed <0.1 m/s; reset intervals excluded",
+        "time_semantics": "source frame i is post control i, t=(i+1)/30; interval [i,i+1] spans 1/30 seconds",
+        "global_goal_field_semantics": "in timed_path, global_goal_xy is current five-metre A* lookahead endpoint; route_vertex_xy is the actual route vertex",
+        "all_saved_plan_target_phase_checks_passed": true,
+        "geometry_definition": "signed root-XY point distance to declared cuboid AABBs; not body/capsule clearance or measured contact",
+        "terrain_normalizer_causality_established": false,
+        "per_actor": [
+          {
+            "actor": 0,
+            "valid_same_episode_intervals": 5998,
+            "idle_intervals": 488,
+            "idle_duration_s": 16.266666666666666,
+            "idle_fraction": 0.08136045348449483,
+            "strict_idle_segments": 94,
+            "longest_idle": {
+              "before_interval_source_frame": 1790,
+              "last_interval_source_frame": 1836,
+              "interval_count": 46,
+              "duration_s": 1.5333333333333334,
+              "start_time_s": 59.7,
+              "end_time_s": 61.233333333333334,
+              "start_xy": [
+                8.738005638122559,
+                14.351606369018555
+              ],
+              "end_xy": [
+                8.833373069763184,
+                14.331500053405762
+              ],
+              "net_displacement_m": 0.09746389559857807,
+              "physical_displacement_speed_mps": {
+                "count": 46,
+                "mean": 0.06746917377020316,
+                "median": 0.07511053826855602,
+                "p95": 0.09525141136264269,
+                "max": 0.09820994600899233,
+                "min": 0.009366737460214105
+              },
+              "native_end_substep_root_speed_mps": {
+                "count": 47,
+                "mean": 0.07294691825642231,
+                "median": 0.07555711269378662,
+                "p95": 0.10197343826293945,
+                "max": 0.12517350912094116,
+                "min": 0.02457265555858612
+              },
+              "executed_target_error_m": {
+                "count": 47,
+                "mean": 0.08023082714364106,
+                "median": 0.0770739757178558,
+                "p95": 0.11870567904079526,
+                "max": 0.14362318631652754,
+                "min": 0.0544811377007374
+              },
+              "raw_next_step_target_error_m": {
+                "count": 47,
+                "mean": 0.03786915622259391,
+                "median": 0.024384627964199226,
+                "p95": 0.10360706213329222,
+                "max": 0.13690623023162973,
+                "min": 0.0035895415740081586
+              },
+              "executed_reference_speed_mps": {
+                "count": 47,
+                "mean": 0.14093581392885524,
+                "median": 0.12512889504432678,
+                "p95": 0.24627317786216735,
+                "max": 0.3105563819408417,
+                "min": 0.018806027248501778
+              },
+              "A_star_lookahead_endpoint_distance_m": {
+                "count": 47,
+                "mean": 4.762687185079019,
+                "median": 4.764909760070929,
+                "p95": 4.776385558898959,
+                "max": 4.776933231736978,
+                "min": 4.743153626908241
+              },
+              "actual_route_vertex_distance_m": {
+                "count": 47,
+                "mean": 12.428841174637768,
+                "median": 12.42666985307757,
+                "p95": 12.466499380289944,
+                "max": 12.471321842630829,
+                "min": 12.387128094035479
+              },
+              "double_support_fraction_120Hz": 1.0,
+              "no_foot_support_fraction_120Hz": 0.0,
+              "minimum_root_point_to_any_AABB_distance_m": 1.2128110651547506,
+              "minimum_root_point_to_central_AABB_distance_m": 1.2128110651547506,
+              "saved_replans_in_segment": 3,
+              "raw_plan_half_second_displacement_m": {
+                "count": 3,
+                "mean": 0.10441974899573536,
+                "median": 0.1007827143260753,
+                "p95": 0.11360301646953466,
+                "max": 0.1150274944854746,
+                "min": 0.09744903817565623
+              },
+              "raw_plan_five_second_displacement_m": {
+                "count": 3,
+                "mean": 6.057852021882138,
+                "median": 6.141023879558207,
+                "p95": 6.290052534054571,
+                "max": 6.306611273443057,
+                "min": 5.725920912645153
+              },
+              "raw_plan_half_second_progress_toward_lookahead_m": {
+                "count": 3,
+                "mean": 0.09465175245753928,
+                "median": 0.09129988213860576,
+                "p95": 0.10808162231270592,
+                "max": 0.10994626010982816,
+                "min": 0.0827091151241839
+              },
+              "raw_plan_five_second_progress_toward_lookahead_m": {
+                "count": 3,
+                "mean": 6.036100456641191,
+                "median": 6.12022345698359,
+                "p95": 6.256529278326449,
+                "max": 6.2716743695867665,
+                "min": 5.716403543353216
+              },
+              "raw_plan_five_second_endpoint_residual_to_lookahead_m": {
+                "count": 3,
+                "mean": 1.3678048308413464,
+                "median": 1.446215666414855,
+                "p95": 1.617180150380475,
+                "max": 1.6361762041544328,
+                "min": 1.0210226219547514
+              },
+              "raw_plan_five_second_path_length_m": {
+                "count": 3,
+                "mean": 6.656672178482304,
+                "median": 6.702740331689995,
+                "p95": 6.982606427072223,
+                "max": 7.01370265989247,
+                "min": 6.253573543864449
+              },
+              "adapted_reference_five_second_net_displacement_m": {
+                "count": 3,
+                "mean": 5.528478194396041,
+                "median": 5.609602763859336,
+                "p95": 5.614140431509695,
+                "max": 5.6146446168041795,
+                "min": 5.361187202524608
+              }
+            }
+          },
+          {
+            "actor": 1,
+            "valid_same_episode_intervals": 5999,
+            "idle_intervals": 2594,
+            "idle_duration_s": 86.46666666666667,
+            "idle_fraction": 0.43240540090015,
+            "strict_idle_segments": 178,
+            "longest_idle": {
+              "before_interval_source_frame": 1698,
+              "last_interval_source_frame": 1812,
+              "interval_count": 114,
+              "duration_s": 3.8,
+              "start_time_s": 56.63333333333333,
+              "end_time_s": 60.43333333333333,
+              "start_xy": [
+                13.97215461730957,
+                15.499485969543457
+              ],
+              "end_xy": [
+                13.97569751739502,
+                15.513470649719238
+              ],
+              "net_displacement_m": 0.01442648330794325,
+              "physical_displacement_speed_mps": {
+                "count": 114,
+                "mean": 0.03832144702495559,
+                "median": 0.03703958382481483,
+                "p95": 0.0739363628002985,
+                "max": 0.09230676767642461,
+                "min": 0.006205518545650852
+              },
+              "native_end_substep_root_speed_mps": {
+                "count": 115,
+                "mean": 0.039209437179986546,
+                "median": 0.03635353967547417,
+                "p95": 0.0809896469116211,
+                "max": 0.10364653915166855,
+                "min": 0.005535920616239309
+              },
+              "executed_target_error_m": {
+                "count": 115,
+                "mean": 0.03693115249897173,
+                "median": 0.034227837686662946,
+                "p95": 0.06871273174258494,
+                "max": 0.07891071266876656,
+                "min": 0.011405961808539667
+              },
+              "raw_next_step_target_error_m": {
+                "count": 115,
+                "mean": 0.021310013860140992,
+                "median": 0.017969613665528957,
+                "p95": 0.049091259967039204,
+                "max": 0.06807436992271912,
+                "min": 0.000758306023446955
+              },
+              "executed_reference_speed_mps": {
+                "count": 115,
+                "mean": 0.13657791204750538,
+                "median": 0.12240686267614365,
+                "p95": 0.2721440106630325,
+                "max": 0.3298215866088867,
+                "min": 0.01926775835454464
+              },
+              "A_star_lookahead_endpoint_distance_m": {
+                "count": 115,
+                "mean": 4.605288422070138,
+                "median": 4.603319090081322,
+                "p95": 4.620283969395793,
+                "max": 4.621360294502072,
+                "min": 4.5924428718223504
+              },
+              "actual_route_vertex_distance_m": {
+                "count": 115,
+                "mean": 10.339216292907802,
+                "median": 10.34113466005931,
+                "p95": 10.352572567401268,
+                "max": 10.354446042871844,
+                "min": 10.318128324091226
+              },
+              "double_support_fraction_120Hz": 1.0,
+              "no_foot_support_fraction_120Hz": 0.0,
+              "minimum_root_point_to_any_AABB_distance_m": 1.497262954711914,
+              "minimum_root_point_to_central_AABB_distance_m": 1.497262954711914,
+              "saved_replans_in_segment": 7,
+              "raw_plan_half_second_displacement_m": {
+                "count": 7,
+                "mean": 0.04832245805248623,
+                "median": 0.045967684114894304,
+                "p95": 0.07757667324772147,
+                "max": 0.08047844897757161,
+                "min": 0.02071278380317567
+              },
+              "raw_plan_five_second_displacement_m": {
+                "count": 7,
+                "mean": 5.687664071405341,
+                "median": 5.674687652347799,
+                "p95": 6.4346412330261105,
+                "max": 6.562325519617237,
+                "min": 4.906810886093042
+              },
+              "raw_plan_half_second_progress_toward_lookahead_m": {
+                "count": 7,
+                "mean": 0.04311813330838265,
+                "median": 0.04497062575792711,
+                "p95": 0.06455398277652205,
+                "max": 0.06540113257807717,
+                "min": 0.012428485323207153
+              },
+              "raw_plan_five_second_progress_toward_lookahead_m": {
+                "count": 7,
+                "mean": 5.685580153628144,
+                "median": 5.6712555640707984,
+                "p95": 6.43356220520803,
+                "max": 6.560867346012752,
+                "min": 4.89781743277072
+              },
+              "raw_plan_five_second_endpoint_residual_to_lookahead_m": {
+                "count": 7,
+                "mean": 1.1077743584044517,
+                "median": 1.0899296736736253,
+                "p95": 1.837651076731604,
+                "max": 1.9638284407109818,
+                "min": 0.41181275170739373
+              },
+              "raw_plan_five_second_path_length_m": {
+                "count": 7,
+                "mean": 6.628628668111621,
+                "median": 6.505888327822929,
+                "p95": 7.587359826448504,
+                "max": 7.799054809482323,
+                "min": 5.7735813294283
+              },
+              "adapted_reference_five_second_net_displacement_m": {
+                "count": 7,
+                "mean": 5.097605818989492,
+                "median": 5.0180924334292065,
+                "p95": 5.3823966095363955,
+                "max": 5.432102897652853,
+                "min": 4.8562642766773685
+              }
+            }
+          },
+          {
+            "actor": 2,
+            "valid_same_episode_intervals": 5999,
+            "idle_intervals": 559,
+            "idle_duration_s": 18.633333333333333,
+            "idle_fraction": 0.09318219703283881,
+            "strict_idle_segments": 48,
+            "longest_idle": {
+              "before_interval_source_frame": 4849,
+              "last_interval_source_frame": 4951,
+              "interval_count": 102,
+              "duration_s": 3.4,
+              "start_time_s": 161.66666666666666,
+              "end_time_s": 165.06666666666666,
+              "start_xy": [
+                18.061378479003906,
+                19.255962371826172
+              ],
+              "end_xy": [
+                18.02028465270996,
+                19.361433029174805
+              ],
+              "net_displacement_m": 0.11319347207780872,
+              "physical_displacement_speed_mps": {
+                "count": 102,
+                "mean": 0.05331121915027912,
+                "median": 0.05539544748065843,
+                "p95": 0.07106029309564456,
+                "max": 0.09050869500793332,
+                "min": 0.013775877491980629
+              },
+              "native_end_substep_root_speed_mps": {
+                "count": 103,
+                "mean": 0.05147326260226444,
+                "median": 0.052219562232494354,
+                "p95": 0.0706824705004692,
+                "max": 0.10097852349281311,
+                "min": 0.013168081641197205
+              },
+              "executed_target_error_m": {
+                "count": 103,
+                "mean": 0.11902145749305641,
+                "median": 0.12393900230398297,
+                "p95": 0.15225506453903462,
+                "max": 0.15902747397094144,
+                "min": 0.056092356853890815
+              },
+              "raw_next_step_target_error_m": {
+                "count": 103,
+                "mean": 0.09040967174076087,
+                "median": 0.09413018680247984,
+                "p95": 0.14340500727522834,
+                "max": 0.17219696874530876,
+                "min": 0.010646680313663772
+              },
+              "executed_reference_speed_mps": {
+                "count": 103,
+                "mean": 0.15947767358851953,
+                "median": 0.1478198766708374,
+                "p95": 0.31573290824890127,
+                "max": 0.49006184935569763,
+                "min": 0.01395463664084673
+              },
+              "A_star_lookahead_endpoint_distance_m": {
+                "count": 103,
+                "mean": 4.988924458338747,
+                "median": 4.994195393198317,
+                "p95": 5.0168098761841,
+                "max": 5.0213091331925614,
+                "min": 4.928128059949489
+              },
+              "actual_route_vertex_distance_m": {
+                "count": 103,
+                "mean": 13.303475204826267,
+                "median": 13.294296632190626,
+                "p95": 13.354014354820432,
+                "max": 13.361448426733494,
+                "min": 13.25610447005289
+              },
+              "double_support_fraction_120Hz": 0.9611650705337524,
+              "no_foot_support_fraction_120Hz": 0.0,
+              "minimum_root_point_to_any_AABB_distance_m": 2.438566970825194,
+              "minimum_root_point_to_central_AABB_distance_m": 6.638378482308597,
+              "saved_replans_in_segment": 7,
+              "raw_plan_half_second_displacement_m": {
+                "count": 7,
+                "mean": 0.09060571370454906,
+                "median": 0.08422589729911042,
+                "p95": 0.11534475644002522,
+                "max": 0.11957604387695689,
+                "min": 0.07246008903355784
+              },
+              "raw_plan_five_second_displacement_m": {
+                "count": 7,
+                "mean": 0.5710958257760896,
+                "median": 0.4384101158301277,
+                "p95": 0.8807246190920047,
+                "max": 0.955783117520075,
+                "min": 0.35382109472754625
+              },
+              "raw_plan_half_second_progress_toward_lookahead_m": {
+                "count": 7,
+                "mean": 0.030055304650422335,
+                "median": -0.000438833608645557,
+                "p95": 0.08549872808419773,
+                "max": 0.08961204792024316,
+                "min": -0.002955568798090043
+              },
+              "raw_plan_five_second_progress_toward_lookahead_m": {
+                "count": 7,
+                "mean": -0.13933105551694036,
+                "median": -0.3483006502230639,
+                "p95": 0.45349387954692066,
+                "max": 0.6048214247498608,
+                "min": -0.43610527304742863
+              },
+              "raw_plan_five_second_endpoint_residual_to_lookahead_m": {
+                "count": 7,
+                "mean": 5.150389038969829,
+                "median": 5.342616758094707,
+                "p95": 5.429447244231355,
+                "max": 5.433280034098672,
+                "min": 4.397805289469569
+              },
+              "raw_plan_five_second_path_length_m": {
+                "count": 7,
+                "mean": 1.3279142575167566,
+                "median": 1.3485862975152378,
+                "p95": 2.372060095604611,
+                "max": 2.6113581715103544,
+                "min": 0.6842890446468796
+              },
+              "adapted_reference_five_second_net_displacement_m": {
+                "count": 7,
+                "mean": 0.6082536468755394,
+                "median": 0.4744702053831783,
+                "p95": 0.9973056930516092,
+                "max": 1.0701080223862454,
+                "min": 0.41408355270569336
+              }
+            }
+          },
+          {
+            "actor": 3,
+            "valid_same_episode_intervals": 5997,
+            "idle_intervals": 1047,
+            "idle_duration_s": 34.9,
+            "idle_fraction": 0.1745872936468234,
+            "strict_idle_segments": 180,
+            "longest_idle": {
+              "before_interval_source_frame": 5686,
+              "last_interval_source_frame": 5725,
+              "interval_count": 39,
+              "duration_s": 1.3,
+              "start_time_s": 189.56666666666666,
+              "end_time_s": 190.86666666666667,
+              "start_xy": [
+                15.485297203063965,
+                14.428789138793945
+              ],
+              "end_xy": [
+                15.535263061523438,
+                14.413660049438477
+              ],
+              "net_displacement_m": 0.05220609501119398,
+              "physical_displacement_speed_mps": {
+                "count": 39,
+                "mean": 0.05298924247518821,
+                "median": 0.05232006102868099,
+                "p95": 0.0954021718797412,
+                "max": 0.0969752623132774,
+                "min": 0.011712351464069072
+              },
+              "native_end_substep_root_speed_mps": {
+                "count": 40,
+                "mean": 0.051207448518835005,
+                "median": 0.05090181529521942,
+                "p95": 0.08630217909812926,
+                "max": 0.09224846214056015,
+                "min": 0.01174428965896368
+              },
+              "executed_target_error_m": {
+                "count": 40,
+                "mean": 0.1277070415927911,
+                "median": 0.1323016706407834,
+                "p95": 0.15523015948161156,
+                "max": 0.15644850806928473,
+                "min": 0.09207719270950003
+              },
+              "raw_next_step_target_error_m": {
+                "count": 40,
+                "mean": 0.07310513329409786,
+                "median": 0.08137687016473437,
+                "p95": 0.10824521975990396,
+                "max": 0.13387427673768038,
+                "min": 0.013719243328797464
+              },
+              "executed_reference_speed_mps": {
+                "count": 40,
+                "mean": 0.22841762765310705,
+                "median": 0.22134970873594284,
+                "p95": 0.38517259955406186,
+                "max": 0.4395284354686737,
+                "min": 0.01591312699019909
+              },
+              "A_star_lookahead_endpoint_distance_m": {
+                "count": 40,
+                "mean": 4.616722357775775,
+                "median": 4.616645246388471,
+                "p95": 4.632455978481709,
+                "max": 4.6386285163955225,
+                "min": 4.599071608440495
+              },
+              "actual_route_vertex_distance_m": {
+                "count": 40,
+                "mean": 10.15936284841661,
+                "median": 10.159831515660228,
+                "p95": 10.181269029844648,
+                "max": 10.187397896099226,
+                "min": 10.135305128393973
+              },
+              "double_support_fraction_120Hz": 1.0,
+              "no_foot_support_fraction_120Hz": 0.0,
+              "minimum_root_point_to_any_AABB_distance_m": 1.5459521037138537,
+              "minimum_root_point_to_central_AABB_distance_m": 1.5459521037138537,
+              "saved_replans_in_segment": 3,
+              "raw_plan_half_second_displacement_m": {
+                "count": 3,
+                "mean": 0.12205644020937019,
+                "median": 0.12202780728608298,
+                "p95": 0.12664021330642966,
+                "max": 0.12715270286424596,
+                "min": 0.11698881047778167
+              },
+              "raw_plan_five_second_displacement_m": {
+                "count": 3,
+                "mean": 5.417471507430989,
+                "median": 5.383761404065614,
+                "p95": 5.6951719276241075,
+                "max": 5.729773096908385,
+                "min": 5.138880021318969
+              },
+              "raw_plan_half_second_progress_toward_lookahead_m": {
+                "count": 3,
+                "mean": 0.06760913740175369,
+                "median": 0.059611163523865945,
+                "p95": 0.09268936174293932,
+                "max": 0.09636471710061414,
+                "min": 0.04685153158078096
+              },
+              "raw_plan_five_second_progress_toward_lookahead_m": {
+                "count": 3,
+                "mean": 5.390524902854767,
+                "median": 5.356253467882937,
+                "p95": 5.645259822060298,
+                "max": 5.677371639191116,
+                "min": 5.137949601490247
+              },
+              "raw_plan_five_second_endpoint_residual_to_lookahead_m": {
+                "count": 3,
+                "mean": 0.9226564261775853,
+                "median": 0.9230367165884241,
+                "p95": 1.2737332434514688,
+                "max": 1.3126995242140294,
+                "min": 0.5322330377303022
+              },
+              "raw_plan_five_second_path_length_m": {
+                "count": 3,
+                "mean": 6.248559769604133,
+                "median": 6.258644125001179,
+                "p95": 6.672145227155217,
+                "max": 6.718089794061221,
+                "min": 5.76894538975
+              },
+              "adapted_reference_five_second_net_displacement_m": {
+                "count": 3,
+                "mean": 5.215057927900764,
+                "median": 5.226075317451391,
+                "p95": 5.246316827603671,
+                "max": 5.248565884287258,
+                "min": 5.170532581963643
+              }
+            }
+          }
+        ],
+        "requested_actor0_snapshots": [
+          {
+            "time_s": 90,
+            "source_frame": 2699,
+            "actor": 0,
+            "root_xy": [
+              14.277215957641602,
+              5.426959991455078
+            ],
+            "executed_target_xy": [
+              14.384936332702637,
+              5.388977527618408
+            ],
+            "raw_next_step_target_xy": [
+              14.36062240600586,
+              5.436814785003662
+            ],
+            "executed_reference_velocity_xy": [
+              -1.1759564876556396,
+              0.2837534248828888
+            ],
+            "A_star_lookahead_endpoint_xy": [
+              9.860785484313965,
+              5.5
+            ],
+            "actual_route_vertex_xy": [
+              6.0,
+              6.0
+            ],
+            "root_point_AABB_distances_m": [
+              4.581434666883692,
+              12.077215957641602,
+              7.522784042358397,
+              3.226959991455078,
+              16.37304000854492
+            ],
+            "double_support_fraction": 0.0
+          },
+          {
+            "time_s": 105,
+            "source_frame": 3149,
+            "actor": 0,
+            "root_xy": [
+              8.49500846862793,
+              12.512028694152832
+            ],
+            "executed_target_xy": [
+              8.473957061767578,
+              12.450490951538086
+            ],
+            "raw_next_step_target_xy": [
+              8.49831771850586,
+              12.460648536682129
+            ],
+            "executed_reference_velocity_xy": [
+              0.2817767560482025,
+              0.6494453549385071
+            ],
+            "A_star_lookahead_endpoint_xy": [
+              11.550395965576172,
+              15.0
+            ],
+            "actual_route_vertex_xy": [
+              18.0,
+              18.0
+            ],
+            "root_point_AABB_distances_m": [
+              1.5049915313720703,
+              6.29500846862793,
+              13.30499153137207,
+              10.312028694152833,
+              9.287971305847167
+            ],
+            "double_support_fraction": 0.0
+          },
+          {
+            "time_s": 120,
+            "source_frame": 3599,
+            "actor": 0,
+            "root_xy": [
+              18.324743270874023,
+              18.42008399963379
+            ],
+            "executed_target_xy": [
+              18.265121459960938,
+              18.418569564819336
+            ],
+            "raw_next_step_target_xy": [
+              18.24283790588379,
+              18.397476196289062
+            ],
+            "executed_reference_velocity_xy": [
+              0.05882086977362633,
+              0.3734825551509857
+            ],
+            "A_star_lookahead_endpoint_xy": [
+              13.285017013549805,
+              18.25
+            ],
+            "actual_route_vertex_xy": [
+              6.0,
+              18.0
+            ],
+            "root_point_AABB_distances_m": [
+              6.183894155205826,
+              16.12474327087402,
+              3.475256729125975,
+              16.220083999633786,
+              3.3799160003662094
+            ],
+            "double_support_fraction": 1.0
+          }
+        ],
+        "saved_plans": {
+          "path": "project:output/diffusion_amp/default_newDP_samples10_fixture200s_v1/reference_plans.npz",
+          "bytes": 5115721,
+          "sha256": "a4e737bd8ff26903ccfba728489b4394d19f720478db0763b96621409b664cf8"
+        }
+      },
+      "pooled_valid_idle_intervals": 4688,
+      "pooled_legal_intervals": 23993,
+      "pooled_idle_fraction": 0.1953903221773017,
+      "fall_events": [
+        {
+          "source_frame": 555,
+          "completed_control": 556,
+          "derived_time_s": 18.533333333333335,
+          "actor": 0,
+          "episode_id": 1
+        },
+        {
+          "source_frame": 2018,
+          "completed_control": 2019,
+          "derived_time_s": 67.3,
+          "actor": 3,
+          "episode_id": 1
+        },
+        {
+          "source_frame": 5773,
+          "completed_control": 5774,
+          "derived_time_s": 192.46666666666667,
+          "actor": 3,
+          "episode_id": 2
+        }
+      ],
+      "actors_with_falls": [
+        0,
+        3
+      ],
+      "GPU_elapsed_seconds": 787.2253166640003,
+      "CPU_raw_elapsed_seconds": 4.081449974997668,
+      "all_failed_contact_idle_reset_samples_retained": true
+    }
+  },
+  "causality_established": false,
+  "default_promotion": false,
+  "S10_native_condition_failed": true,
+  "style90_45_recomputed_for_this_summary": false,
+  "style_scores_used_as_filter": false,
+  "weights_read_or_models_loaded": false,
+  "GPU_used": false,
+  "SDK_started": false,
+  "sealed34_outputs_read": false,
+  "CPU_elapsed_seconds": 1.3042935529956594,
+  "limits": [
+    "Candidate count changes RNG consumption; S10 first candidate is not a bitwise paired S1 future.",
+    "Falls are events; actors_with_falls is a separate count. Derived control time is not native engine time.",
+    "Idle uses original same-episode root XY displacement speed<0.1m/s; only reset jumps excluded.",
+    "Pair-controls and actor-controls have different denominators; simultaneous pairs are retained.",
+    "The original raw pass establishes capture integrity, not physical success or paper superiority."
+  ]
+}

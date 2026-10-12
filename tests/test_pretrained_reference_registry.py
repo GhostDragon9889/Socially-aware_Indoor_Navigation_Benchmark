@@ -1,4 +1,4 @@
-"""The historical upstream pack is preserved and explicitly excluded from runnable releases."""
+"""Obsolete upstream model families are removed and still rejected before deserialization."""
 from __future__ import annotations
 
 import hashlib
@@ -31,27 +31,12 @@ def test_only_two_branch_specific_upstream_models_are_archived():
         assert archived_upstream_reference(root / "data/pretrained_models" / path) is None
 
 
-def test_archived_plaintext_sidecars_are_preserved_exactly():
+def test_removed_obsolete_models_have_no_remaining_payload_or_training_sidecars():
     root = repository_root()
     for row in load_upstream_reference_registry()["entries"]:
-        for item in row["files"]:
-            if not item["path"].endswith((".py", ".yaml")):
-                continue
-            value = (root / item["path"]).read_bytes()
-            assert len(value) == item["bytes"]
-            assert hashlib.sha256(value).hexdigest() == item["sha256"]
-
-
-@pytest.mark.needs_lfs
-def test_archived_binary_models_are_preserved_exactly():
-    root = repository_root()
-    for row in load_upstream_reference_registry()["entries"]:
-        for item in row["files"]:
-            if not item["path"].endswith((".ckpt", ".pt")):
-                continue
-            value = (root / item["path"]).read_bytes()
-            assert len(value) == item["bytes"]
-            assert hashlib.sha256(value).hexdigest() == item["sha256"]
+        assert row["removed"] is True
+        assert row["files"] == []
+        assert not (root / row["directory"]).exists()
 
 
 def test_reference_guard_precedes_pickle_loader(monkeypatch):

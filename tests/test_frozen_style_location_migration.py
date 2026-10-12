@@ -31,7 +31,7 @@ def test_real_manifest_retains_frozen_bytes_and_only_changes_checkout_spelling()
 @pytest.mark.parametrize("field,value", [
     ("bytes", True), ("bytes", 143513), ("sha256", "0" * 64),
     ("path", "data/diffusion_amp/amass_manifest.json"), ("path", 42),
-    ("path", "/project/EXP/SangforAndSaut/ProtoMotions/data/../amass_manifest.json"),
+    ("path", "project:data/../amass_manifest.json"),
 ])
 def test_invalid_or_changed_frozen_identity_is_rejected(field, value):
     identity = frozen_manifest_identity()
@@ -108,12 +108,12 @@ artifact = json.loads(metric.frozen.REFERENCE.read_text())
 assert admission["actual_array_hashes"] == artifact["actual_selected_array_sha256"]
 assert admission["parent_disjoint"]["original_source_intersection"] == 0
 assert metric.record(artifact_path(artifact["manifest"]["path"])) in identities
-# Execute the unchanged historical loader at its original path spelling too.
+# Execute the unchanged loader with the same resolved frozen resource.
 import importlib.util
 spec = importlib.util.spec_from_file_location("_original_frozen_tool", metric.frozen.TOOL)
 tool = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(tool)
-body, rotation, hashes, _ = tool.load_reference(artifact["manifest"]["path"], artifact["selection"])
+body, rotation, hashes, _ = tool.load_reference(artifact_path(artifact["manifest"]["path"]), artifact["selection"])
 assert hashes == artifact["actual_selected_array_sha256"]
 resets = np.zeros(body.shape[:2], dtype=bool)
 resets[0] = True
@@ -135,3 +135,25 @@ print("frozen arrays, all derived samples and centers preserved")
                             env={**os.environ, "CUDA_VISIBLE_DEVICES": ""}, capture_output=True, text=True)
     assert result.returncode == 0, result.stderr
     assert "frozen arrays, all derived samples and centers preserved" in result.stdout
+
+
+@pytest.mark.parametrize('mutation', ['metric', 'adapter', 'foreign_parent'])
+def test_style_resource_inverse_rejects_unregistered_changes(monkeypatch, mutation):
+    path = Path(metric.frozen.__file__).resolve()
+    historical = 'd3296011b0e08286ae109daea6a518c95f5f9fa9f24a474a20555cd002baa47c'
+    proof = migration.verify_reader(path, historical)
+    assert proof['whole_source_location_inverse']
+    assert proof['all_metric_function_bytes_unchanged']
+    original = Path.read_text
+    source = original(path)
+    if mutation == 'metric':
+        changed = source.replace('resets[0] = True', 'resets[0] = False', 1)
+    elif mutation == 'adapter':
+        changed = source.replace('artifact_path(artifact["manifest"]["path"])', 'Path(artifact["manifest"]["path"])', 1)
+    else:
+        changed = source
+        historical = '0' * 64
+    assert changed != source or mutation == 'foreign_parent'
+    monkeypatch.setattr(Path, 'read_text', lambda p, *a, **kw: changed if p == path else original(p, *a, **kw))
+    with pytest.raises(ValueError, match='Frozen style|Unregistered'):
+        migration.verify_reader(path, historical)

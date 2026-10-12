@@ -1,123 +1,42 @@
-# Socially-aware_Indoor_Navigation_Benchmark
+# Socially-aware Indoor Navigation Benchmark
 
-最新继续审查包含完整未筛选回归、256 actor 并行训练与 PhysX 退出崩溃修复，见 [验证与剩余边界](docs/VERIFICATION_REMAINING_20261011_ZH.md)。语句覆盖 64.37%，不代表所有功能或模型质量已验收。
+[English](README.en.md)
 
-**从 Git 克隆复现：** [完整步骤](CLONE_REPRODUCTION.md)（SDK 引导、资源恢复、固定 AMASS 重建、四场景评估和录制）。
+基于 TRACE 轨迹扩散、PACER/AMP 物理行人和 PPO 的室内社会导航研究代码。默认运行栈为 IsaacLab 3.0-EA / Isaac Sim 6.1。
 
-[简体中文](README.md) · [English](README.en.md) · [完整双语文档](docs/guides/README.md)
+## 快速开始
 
-## 安装与使用文档
-
-| 主题 | 中文 | English |
-| --- | --- | --- |
-| 依赖和兼容性 | [依赖](docs/guides/dependencies.zh-CN.md) | [Dependencies](docs/guides/dependencies.en.md) |
-| 安装与常见问题 | [安装](docs/guides/installation.zh-CN.md) | [Installation](docs/guides/installation.en.md) |
-| 权重、数据与场景配置 | [配置](docs/guides/configuration.zh-CN.md) | [Configuration](docs/guides/configuration.en.md) |
-| 微调、评估与录像 | [使用](docs/guides/usage.zh-CN.md) | [Usage](docs/guides/usage.en.md) |
-| 发布的权重、机器人与四场景 | [资源发布](ASSET_RELEASE.md) | [Asset release](ASSET_RELEASE.md#english-instructions) |
-| 实际资源和依赖审查 | [2026-10-10 全面清单](docs/RESOURCE_DEPENDENCY_MAP_20261010_ZH.md) | [Codebase map](docs/codebase/STACK.md) |
-
-默认迁移目标为 **Isaac Sim 6.1.0.0 / IsaacLab 3.0 EA**，使用 TRACE 轨迹扩散与 PACER/AMP 物理行人。新环境说明见 [运行环境](env/isaaclab3_ea_sim61/README.md)。
-核心实现使用 `src/` 布局，保留 ProtoMotions、CrowdSim 的导入名及原始项目署名。
-
-## 当前可用成果
-
-新 Sim6.1 runtime 的依赖、当前完整回归、真实 CUDA、AMASS AMP 训练 smoke、RTX三帧录制及四场景60秒物理结果已独立记录，见[迁移与测试报告](docs/ISAACLAB3_EA_SIM61_MIGRATION_20261011_ZH.md)。以下四段60秒成片仍属于历史Sim6.0环境。
-
-- 在本地真实 AMASS 动作上微调的 AMP 行人控制器，以及四场景的配置、路线与相机方案。
-- YOHO、NewMetro、SecondFloor、ThirdFloor 各一段 60 秒视频与对应的物理、姿态、速度、停滞和录制校验。
-- 物理过程的实际退出码、源文件快照、权重与资源校验值、完整视频解码校验。
-- 独立的 PointGoal PPO 基线，用于无需模拟器的导航实验。
-
-已完成结果、速度实测及覆盖范围见 [四场景说明](docs/FOUR_SCENE_SPEED_20261010_ZH.md) 和
-[最终交付索引](docs/four_scene_speed_final_delivery_20261010.json)。当前结果不代表论文完整协议的复现，
-也未验证达到原论文指标；机器人社交导航和全场景路线覆盖仍需独立实验。
-
-## 项目结构
-
-```text
-src/
-  social_navigation/  统一命令入口、项目定位
-  CrowdSim/           人群、轨迹扩散、AMP 接口、行人运行与评估
-  protomotions/       物理模拟后端、动作库、策略训练与推理
-  crowdsim_ppo/       独立的 PointGoal PPO 基线
-  deployment/         部署与动作处理
-configs/              实验、场景、相机与导航配置
-data/                 AMASS、模型权重、场景资源、导航地图
-resources/releases/   私有 LFS 权重、机器人、四场景及发布清单
-scripts/              训练、模拟、验证与录制的进程入口
-tools/                资产转换与动作重定向工具
-third_party/          上游参考仓库
-packages/             独立基线的安装配置
-env/                  IsaacLab 3 / Isaac Sim 6 环境配置
-tests/                跨模块与原生执行合同测试
-docs/                 复现说明、来源与实验记录
-output/               生成的训练、模拟与录制结果
-.vscode/              解释器、调试、任务与扩展配置
-```
-
-详细模块职责、目录映射及验证记录见 [项目结构](docs/PROJECT_STRUCTURE_ZH.md)。
-
-## GitHub 源码与资源
-
-上游完整文件树和原始 Git 历史已合并；文件映射、LFS 下载和本地历史说明见
-[上游合并记录](docs/UPSTREAM_MERGE_20261010_ZH.md)。
-
-公开源码仓库：[GhostDragon9889/Socially-aware_Indoor_Navigation_Benchmark](https://github.com/GhostDragon9889/Socially-aware_Indoor_Navigation_Benchmark)。外部资源仍按各自许可与下载权限获取。
-
-源码仓库上传范围、固定上游来源、资源准备和旧 Git 历史保留方式见
-[GitHub 源码说明](docs/GITHUB_SOURCE_ZH.md)。最新选用的行人权重、训练参数、机器人和四场景资源已整理为
-[私有 LFS 发布包](ASSET_RELEASE.md)；AMASS 原始动作、SMPL 参数、SDK 和视频独立准备。
-
-## 使用现有环境
-
-从项目根目录配置已有外部 SDK。项目直接使用 SDK 的 Python，附加包安装在项目 `.runtime/external_sdk_packages`，无需项目 `.venv`，也不向外部 SDK 安装本项目。
+已有 SDK：
 
 ```bash
-python3 scripts/bootstrap_reproduction.py configure --lab-root /project/EXP/IsaacLab
+python3 scripts/bootstrap_reproduction.py configure --lab-root ../IsaacLab
+```
+
+新安装：
+
+```bash
+python3 scripts/bootstrap_reproduction.py install
+```
+
+两个入口均通过 uv 管理所需包，项目运行使用所配置 SDK 的 Python：
+
+```bash
 python3 scripts/bootstrap_reproduction.py check
 python3 scripts/run_external_python.py -m social_navigation status
 python3 scripts/run_external_python.py -m social_navigation preflight --scene YOHO
-python3 scripts/run_external_python.py -m social_navigation simulate --scene YOHO --steps 60 --output output/sim61_smoke
 ```
 
-新机器可运行 `python3 scripts/bootstrap_reproduction.py install`，在项目 `.runtime/IsaacLab61` 完整安装固定 IsaacLab3EA/Sim6.1 SDK；随后使用相同的 `run_external_python.py` 入口。可用 `--python /absolute/path/to/python` 指定已安装 Lab 的 SDK 解释器，或配置好 Lab 的二进制 Sim `python.sh`。详见[外部 SDK 与可移植安装](docs/guides/external_sdk.zh-CN.md)。启动新安装的 Kit 前须阅读并接受 NVIDIA EULA。
+## 文档
 
-`preflight` 检查本地资源与原生场景配置；`simulate` 使用既有父进程启动器执行原生物理模拟，
-输出到自动生成的新目录。1800 个 30 Hz 控制步对应 60 秒模拟时间。
-原生任务须逐个运行，避免多个 Isaac 实例争用 GPU。
+- [安装与环境](docs/guides/installation.zh-CN.md)
+- [资源准备与克隆复现](CLONE_REPRODUCTION.md)
+- [运行与训练](docs/guides/usage.zh-CN.md)
+- [项目结构](docs/structure.md)
+- [验证状态与已知缺口](docs/validation.md)
 
-## 训练、评估与录制
+实现位于 `src/`，当前配置位于 `configs/`，入口位于 `scripts/`，测试位于 `tests/`。模型、数据集和 USD 属于资源；生成输出不进入源码仓库。未达到全功能、全源码覆盖或全部场景质量通过，详见验证状态。
 
-```bash
-python3 scripts/run_external_python.py -m social_navigation train-amp --help
-python3 scripts/run_external_python.py -m social_navigation evaluate-physics --help
-python3 scripts/run_external_python.py -m social_navigation evaluate-posture --help
-python3 scripts/run_external_python.py -m social_navigation evaluate-speed --help
-python3 scripts/run_external_python.py -m social_navigation evaluate-stasis --help
-python3 scripts/run_external_python.py -m social_navigation audit-speed --help
-python3 scripts/run_external_python.py -m social_navigation audit-feet --help
-python3 scripts/run_external_python.py -m social_navigation audit-camera --help
-python3 scripts/run_external_python.py -m social_navigation record --help
-```
+本项目使用 [ProtoMotions](https://github.com/NVlabs/ProtoMotions)、[TRACE](https://github.com/nv-tlabs/trace) 和 [PACER](https://github.com/nv-tlabs/pacer) 的代码与资源。许可及第三方说明见 [LICENSE.md](LICENSE.md) 和 `legal/`；SMPL/AMASS 必须遵守各自许可。
 
-这些命令转交原有已验证工具的参数，保留质量门槛、实际子进程退出码和资源记录。
-训练配方及录制来源见四场景说明；每次训练或录制应指定新的输出位置。
-
-## VS Code
-
-打开根目录的 `Socially-aware_Indoor_Navigation_Benchmark.code-workspace`。
-推荐扩展为 Python、Pylance、Python Debugger 与 Ruff；打开配置生成的 `.runtime/external_sdk.code-workspace`，使用绑定的外部 SDK 解释器。
-“任务”提供资源检查、原生模拟、CPU 迁移测试和工具帮助；“运行和调试”提供状态、资源检查与基线调试。
-
-## 上游与许可
-
-项目包含 [ProtoMotions](https://github.com/NVlabs/ProtoMotions)、
-[TRACE / Trace and Pace](https://github.com/nv-tlabs/trace)、PACER 及 NavIsaacLab 相关实现与本地适配。
-原始 ProtoMotions README 保存在 [参考文档](docs/reference/PROTOMOTIONS_README.md)。
-保留 [LICENSE.md](LICENSE.md) 与 `legal/` 及各第三方的许可。
-SMPL/SMPL-H、AMASS、权重和场景资产遵循各自许可，模型人体资产不随构建的 wheel/sdist 分发。
-
-## 上游 GPC 与 PEFT
-
-上游功能说明见 [GPC and PEFT guide](docs/source/user_guide/gpc.rst)。人体 MJCF 资产位于 `src/protomotions/data/assets/mjcf/`（兼容路径 `protomotions/data/assets/mjcf/`）；权重运行支持和历史版本限制见各模型卡。
+ProtoMotions references: [Pretrained models](docs/source/getting_started/pretrained_models.rst) · [GPC and PEFT guide](docs/source/user_guide/gpc.rst).
+Robot definitions and assets: `src/protomotions/data/assets/mjcf/`.

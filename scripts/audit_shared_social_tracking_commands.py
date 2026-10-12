@@ -30,7 +30,7 @@ def analyze(receipt_path):
         and physics["isolated_environments"] is True, "Require the original isolated120/30Hz tracking capture")
     producer = report["social_observation_producer"]["sources"]
     kernel.require(producer["task"]["sha256"] == TASK_SHA
-        and Path(producer["task"]["path"]) == ROOT / "docs/style_improvement_20261004/social_task_observation_staging_v1/social_task_observation.py",
+        and Path(producer["task"]["path"]) == ROOT / "resources/runtime_sources/style_improvement_20261004/social_task_observation_staging_v1/social_task_observation.py",
         "Require the original positive-future20 task prefix source")
     inputs = [identity(receipt_path), *measurements.values(), *sources, *producer.values()]
     sequences = []

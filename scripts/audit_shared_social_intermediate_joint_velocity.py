@@ -21,7 +21,7 @@ from scripts.diagnose_shared_social_training import identity  # noqa: E402
 RUN = ROOT / "output/diffusion_amp/shared_social_episode_reference_pilot2000_v1"
 XML = ROOT / "protomotions/data/assets/mjcf/smpl_humanoid.xml"
 OBSERVATIONS = ROOT / "CrowdSim/humanoid/amp/observations.py"
-OBSERVATIONS_SHA = "a64dc2eba5c132cf68a248f2324ea20446dd264a2ea8f9f139faae4738f9aeba"
+OBSERVATIONS_SHA = "000f3980a8f4d3c1fac929c57029dd05a9ce19b1d8ce82423dad273c9315e599"
 
 
 def main(argv=None):

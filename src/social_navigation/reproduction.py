@@ -92,7 +92,6 @@ def prepare_native_runtime(root: Path):
     No installed SDK file is changed. The full original manifest stays byte exact;
     SDK and repository locations are derived separately by the terminal adapter.
     """
-    from .sdk_paths import sim_root
     from importlib import metadata
     if metadata.version('isaacsim') == '6.1.0.0':
         from CrowdSim.humanoid.runtime.sdk61_lifecycle import SDK61Lifecycle
@@ -102,31 +101,4 @@ def prepare_native_runtime(root: Path):
                 'native_overlay_loaded': False, 'installed_SDK_changed': False,
                 'runtime_versions': report['evaluation_lifecycle']['runtime_versions'],
                 'physics_rerun': False}
-    bundle = root / 'env/isaaclab3_sim6/native_shutdown'
-    manifest_path = bundle / 'original_build_manifest.json'
-    manifest = json.loads(manifest_path.read_text())
-    destination = root / 'output/native_sdk_overlay/simulation_manager_shutdown_v1'
-    overlay = destination / 'isaacsim.core.simulation_manager'
-    installed = sim_root() / 'exts/isaacsim.core.simulation_manager'
-    copied = 0
-    expected_paths = set()
-    for row in manifest['copied_file_records']:
-        relative = Path(row['relative_path'])
-        if relative.is_absolute() or '..' in relative.parts:
-            raise ValueError('Native overlay manifest path escapes extension')
-        source = installed / relative
-        if not source.is_file() or sha256(source) != row['installed_source']['sha256']:
-            raise ValueError(f'Installed Sim 6.0 source/binary differs: {source}')
-        if relative.as_posix() == 'bin/libisaacsim.core.simulation_manager.plugin.so':
-            source = bundle / relative.name
-        target = overlay / relative
-        copied += int(_copy_exact(source, target, row['sha256']))
-        if target.is_symlink() or target.stat().st_nlink != 1:
-            raise ValueError('Native runtime inputs must be independent files')
-        target.chmod(0o444)
-        expected_paths.add(target.resolve())
-    if expected_paths != {p.resolve() for p in overlay.rglob('*') if p.is_file()}:
-        raise ValueError('Unexpected file in owned native runtime')
-    _copy_exact(manifest_path, destination / 'build_copy_manifest.json', sha256(manifest_path))
-    return {'status': 'native_runtime_prepared', 'files': len(expected_paths),
-            'new_files': copied, 'installed_SDK_changed': False, 'physics_rerun': False}
+    raise RuntimeError('Only Isaac Sim 6.1.0.0 is supported; configure a matching external SDK')

@@ -18,8 +18,8 @@ sys.path.insert(0, str(ROOT))
 from CrowdSim.humanoid.analysis.joint_velocity_consistency import require  # noqa: E402
 from scripts.diagnose_shared_social_training import identity  # noqa: E402
 
-VELOCITY = ROOT / "docs/style_improvement_20261008/shared_social_episode500_joint_velocity_CPU_v1/result.json"
-VELOCITY_SHA = "6478fa7a0615e54029b9fc09a00efb41469ba135cd233316cd607eadfe314251"
+VELOCITY = ROOT / "resources/runtime_sources/style_improvement_20261008/shared_social_episode500_joint_velocity_CPU_v1/result.json"
+VELOCITY_SHA = "1f94b5c9dd6748763a7f212e4950fd9089f1b0453f8650454794d451499c30dc"
 
 
 def main(argv=None):

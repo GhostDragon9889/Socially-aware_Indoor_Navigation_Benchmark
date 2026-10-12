@@ -278,10 +278,11 @@ def test_g1_deployment_docs_match_public_script_contract():
     guide = (
         REPO_ROOT / "docs/source/tutorials/workflows/g1_deployment.rst"
     ).read_text()
-    requirements = (REPO_ROOT / "requirements_mujoco.txt").read_text()
+    requirements = (REPO_ROOT / "env/isaaclab3_ea_sim61/requirements.overlay.lock").read_text()
 
     assert "--random-heading" not in guide
     assert "--explicit-pd" not in guide
-    assert "onnxruntime" in requirements
-    assert "pyyaml" in requirements.lower()
+    sdk_lock = (REPO_ROOT / "env/isaaclab3_ea_sim61/uv.lock").read_text()
+    assert 'name = "onnxruntime"' in sdk_lock
+    assert 'name = "pyyaml"' in sdk_lock
     assert "torch" in guide

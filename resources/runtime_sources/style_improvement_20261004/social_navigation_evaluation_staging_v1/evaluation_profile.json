@@ -1,0 +1,17 @@
+{
+  "schema": "local.neutral_smpl.social_navigation_evaluation_profile.v1",
+  "mode": "paper_method_reconstruction",
+  "training": {
+    "expert_dof_velocity_frame": "child_joint"
+  },
+  "policy_observations": {
+    "self": 357,
+    "task": 12308,
+    "grid_center": "root",
+    "grid_heading": "root",
+    "height_reference": "static_center_ground_z",
+    "include_ego": false
+  },
+  "scope": "evaluation_only; actual network configuration and moments come from the selected social checkpoint",
+  "terrain_sampler": "AMPWorld.height_at: static floor and explicit cuboid top heights; no dynamic actors in height channel"
+}

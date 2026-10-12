@@ -45,7 +45,7 @@ def native_grid(tmp_path):
 @pytest.mark.parametrize("mode,coupled", [("legacy_posterior", False), ("trace_clean", False),
     ("trace_clean_variance", False), ("trace_clean", True), ("trace_clean_variance", True)])
 def test_default_none_preserves_pre_callback_seeded_complete_output_bytewise(mode, coupled):
-    old = module_at(ROOT / "docs/style_improvement_20261002/native_grid_diffusion_guidance_v1/before/paper.py",
+    old = module_at(ROOT / "resources/runtime_sources/style_improvement_20261002/native_grid_diffusion_guidance_v1/before/paper.py",
         "CrowdSim.humanoid.diffusion.pre_scene_callback")
     planner, arguments = planner_inputs(2 if coupled else 1)
     before = old.PaperDiffusionPlanner(old.PaperDiffusionConfig(diffusion_steps=3))

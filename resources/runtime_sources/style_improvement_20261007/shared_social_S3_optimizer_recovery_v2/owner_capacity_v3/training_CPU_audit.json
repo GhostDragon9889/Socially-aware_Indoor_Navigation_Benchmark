@@ -1,0 +1,209 @@
+{
+  "schema": "shared_social.completed_optimizer_recovery_CPU_audit.v1",
+  "status": "passed",
+  "reader": {
+    "path": "project:scripts/audit_shared_social_recovery.py",
+    "bytes": 5020,
+    "sha256": "da6f4cdbb32c07e431a0b3f6fa87bb083cbb1548bcb611418c25eaa2f6fe5c10"
+  },
+  "checkpoint": {
+    "path": "project:output/diffusion_amp/shared_social_budget12500_recovery_training_v2/step_012500.pt",
+    "bytes": 651040366,
+    "sha256": "97ba4c6475817e1bbde4aa56377a45191058a0725cad48fcbf3a9b769accb675"
+  },
+  "rollout": {
+    "path": "project:output/diffusion_amp/shared_social_budget12500_recovery_training_v2/rollout_update_012500.pt",
+    "bytes": 1018179842,
+    "sha256": "22145c21031f8c33ec75f90ac2fc2fcce84de2e59d18bbed7a7de03efdfc47cd"
+  },
+  "updates": 12500,
+  "physical_transitions": 102400000,
+  "normalizer_counts": {
+    "self_normalizer": 102400000.0,
+    "task_normalizer": 102400000.0,
+    "amp_normalizer": 1536000000.0,
+    "value_normalizer": 102400000.0
+  },
+  "finite_tensors_checked": 202,
+  "expert_windows_drawn": 51200000,
+  "checkpoint_physical_resume_supported": false,
+  "CUDA_initialized": false,
+  "scope": "Completed-run counts, saved model/Adam/RMS/replay and final rollout consistency; no locomotion quality or paper equivalence claim. Actual process exit must be recorded separately.",
+  "retained_updates": 12000,
+  "actual_recovery_segment_updates": 500,
+  "actual_recovery_segment_transitions": 4096000,
+  "original_continuous_S3_run_completed": false,
+  "recovery": {
+    "schema": "shared_social.optimizer_recovery_segment.v1",
+    "binding": {
+      "registration": {
+        "path": "project:resources/runtime_sources/style_improvement_20261007/shared_social_S3_optimizer_recovery_v2/registration.json",
+        "bytes": 5801,
+        "sha256": "d350f5944c0ab3c8066669cb68ba06eef5d1a549c61021f4beb655e1898156b9"
+      },
+      "entry": {
+        "path": "project:scripts/recover_shared_social_training.py",
+        "bytes": 1448,
+        "sha256": "729e9074a8e467317e4c39eb29bd8788add656287fcb514cc159264a644b0de2"
+      },
+      "helper": {
+        "path": "project:CrowdSim/humanoid/runtime/social_training_recovery.py",
+        "bytes": 12564,
+        "sha256": "0dddc66d101dbf369375fa79e5cadacf116d667837ee370a827f4a7a43f627e4"
+      },
+      "checkpoint": {
+        "path": "project:output/diffusion_amp/shared_social_budget12500_v1/step_012000.pt",
+        "bytes": 651035630,
+        "sha256": "62872fc8376a848c46e02e9540467864a61835c930b9b67e9c695c0ff774a8b7"
+      },
+      "retained_metrics": {
+        "source": {
+          "path": "project:output/diffusion_amp/shared_social_budget12500_v1/metrics.jsonl",
+          "bytes": 40886054,
+          "sha256": "b4ed7117eac7c53eb66b943932dc788a0904998d28a3f882cba41b6fc1b20e2c"
+        },
+        "retained_updates": 12000,
+        "retained_physical_transitions": 98304000,
+        "prefix_bytes": 39390399,
+        "prefix_sha256": "c656d66e4b68ebcea6561802181f9a9328d53d0fd6388c57b8cf619ab494cbcb",
+        "source_logged_max_update": 12454,
+        "uncheckpointed_updates_not_inherited": 454
+      },
+      "canonical_binding": {
+        "entry": {
+          "path": "project:scripts/train_shared_social.py",
+          "bytes": 5005,
+          "sha256": "757c3a50dd4a41e567ed5d05d47a981a2b7d6afba06cf559d5e1c8a53ca330fb"
+        },
+        "parent": {
+          "path": "project:resources/runtime_sources/style_improvement_20261004/shared_social_contact_layout_revision_v6/train_shared_social.py",
+          "bytes": 31474,
+          "sha256": "9c595c095653b7f4a5b315ab02e33c9baad4644af5714e5f9ba015e46bd60520"
+        },
+        "strategy": "popart",
+        "migration": {
+          "strategy": "scalar_popart_output_preservation_v1",
+          "checkpoint_format": "local.neutral_smpl.social_CNN_PPO_AMP_training.popart.v1",
+          "parent_trainer": {
+            "path": "project:resources/runtime_sources/style_improvement_20261004/social_trainer_staging_v1/social_trainer.py",
+            "bytes": 24246,
+            "sha256": "6cb0d2d1bd7267b68cca92aa81d4ad30a808c4c6a52e7d4c808e6b00874ed936"
+          },
+          "derivation": {
+            "parent_sha256": "6cb0d2d1bd7267b68cca92aa81d4ad30a808c4c6a52e7d4c808e6b00874ed936",
+            "derived_sha256": "9c85596f67e4dcc16052fb28d6df70066f7c6cd570c1e9acc02afd1a99ec839f",
+            "exact_inverse": true,
+            "replacement_count": 6,
+            "numeric_change": "value RMS output preservation only",
+            "actor_encoder_reward_GAE_sampling_changed": false
+          },
+          "adapter": {
+            "path": "project:CrowdSim/humanoid/runtime/social_popart_training.py",
+            "bytes": 14843,
+            "sha256": "71c877adb72c2a30ccf7dc7a3bc1914ed06f3e7bae9b4c8e4b85ef7c9df9f5c0"
+          },
+          "helper": {
+            "path": "project:CrowdSim/humanoid/training/value_normalization.py",
+            "bytes": 3446,
+            "sha256": "e2c6aac084ce0ffd67774c3071824e6d30de7639ba92330a91b2fb089345adc5"
+          },
+          "epsilon": 1e-05,
+          "Adam_state_modified": false,
+          "baseline_weights_resumed": false,
+          "author_method_equivalence_claimed": false
+        }
+      },
+      "derivation": {
+        "original_sha256": "117dd76b4bf3b9cf9e15681ff21494df2dc5829ecea13335669f2fcb4c0f8822",
+        "derived_sha256": "a4724116a27d38d318fd77a75dad5e6c5a82fca0553f7ba69909c698100a4df2",
+        "replacement_count": 5,
+        "exact_inverse": true,
+        "World_reward_PD_reset_collector_expert_cleanup_math_changed": false
+      },
+      "stage": "training",
+      "configuration": {
+        "path": "project:resources/runtime_sources/style_improvement_20261007/shared_social_S3_optimizer_recovery_v2/training.json",
+        "bytes": 1118,
+        "sha256": "46e462340a5b0ae4fba2cd315a01c3dfd00dac57ad386d6c5a7e69917a652cf9"
+      },
+      "output": "project:output/diffusion_amp/shared_social_budget12500_recovery_training_v2"
+    },
+    "initial_update_count": 12000,
+    "initial_physical_transition_count": 98304000,
+    "model_both_Adam_four_RMS_replay_restored": true,
+    "physical_world_curriculum_history_restored": false,
+    "physical_world_restarted": true,
+    "curriculum_and_corpus_private_RNG_reinitialized_seed": 7,
+    "global_training_rng_restored_after_setup": true,
+    "continuous_original_S3_execution_claimed": false
+  },
+  "explicit_value_normalization": {
+    "strategy": "scalar_popart_output_preservation_v1",
+    "checkpoint_format": "local.neutral_smpl.social_CNN_PPO_AMP_training.popart.v1",
+    "parent_trainer": {
+      "path": "project:resources/runtime_sources/style_improvement_20261004/social_trainer_staging_v1/social_trainer.py",
+      "bytes": 24246,
+      "sha256": "6cb0d2d1bd7267b68cca92aa81d4ad30a808c4c6a52e7d4c808e6b00874ed936"
+    },
+    "derivation": {
+      "parent_sha256": "6cb0d2d1bd7267b68cca92aa81d4ad30a808c4c6a52e7d4c808e6b00874ed936",
+      "derived_sha256": "9c85596f67e4dcc16052fb28d6df70066f7c6cd570c1e9acc02afd1a99ec839f",
+      "exact_inverse": true,
+      "replacement_count": 6,
+      "numeric_change": "value RMS output preservation only",
+      "actor_encoder_reward_GAE_sampling_changed": false
+    },
+    "adapter": {
+      "path": "project:CrowdSim/humanoid/runtime/social_popart_training.py",
+      "bytes": 14843,
+      "sha256": "71c877adb72c2a30ccf7dc7a3bc1914ed06f3e7bae9b4c8e4b85ef7c9df9f5c0"
+    },
+    "helper": {
+      "path": "project:CrowdSim/humanoid/training/value_normalization.py",
+      "bytes": 3446,
+      "sha256": "e2c6aac084ce0ffd67774c3071824e6d30de7639ba92330a91b2fb089345adc5"
+    },
+    "epsilon": 1e-05,
+    "Adam_state_modified": false,
+    "baseline_weights_resumed": false,
+    "author_method_equivalence_claimed": false
+  },
+  "actual_terminal_value_adjustment": {
+    "strategy": "scalar_popart_output_preservation_v1",
+    "epsilon": 1e-05,
+    "old_count": 102391808.0,
+    "new_count": 102400000.0,
+    "old_mean": 56.109811669573,
+    "new_mean": 56.110715424575496,
+    "old_scale": 18.197275132003387,
+    "new_scale": 18.196987084040412,
+    "weight_ratio": 1.000015829431633,
+    "optimizer_state_modified": false,
+    "actor_encoder_modified": false,
+    "critic_forward_performed": false,
+    "physical_quality_verified": false
+  },
+  "auditor_source_derivation": {
+    "parent": {
+      "path": "project:scripts/audit_shared_social_training.py",
+      "bytes": 6351,
+      "sha256": "4facc6cb9bd960b7fb23ac29bd55035d829106f5548ce97ea3ff528c2e460fba"
+    },
+    "entry": {
+      "path": "project:scripts/audit_shared_social_recovery.py",
+      "bytes": 5020,
+      "sha256": "da6f4cdbb32c07e431a0b3f6fa87bb083cbb1548bcb611418c25eaa2f6fe5c10"
+    },
+    "derivation": {
+      "parent": {
+        "parent_sha256": "4facc6cb9bd960b7fb23ac29bd55035d829106f5548ce97ea3ff528c2e460fba",
+        "derived_sha256": "ba748c8c637f86c36c787b51a0016b492cb3b67a207f81046f1e276870c2489a",
+        "replacement_count": 3,
+        "exact_inverse": true
+      },
+      "exact_inverse": true,
+      "replacement_count": 6,
+      "derived_sha256": "8c138e5c0737fda7c684adb1b3b82ab6a0dd26857ae34859fa2c6248af6e5628"
+    }
+  }
+}

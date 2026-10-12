@@ -75,13 +75,10 @@ JAX/CUDA dependencies. Install it as follows:
 .. code-block:: bash
 
    # Create a new environment for PyRoki
-   conda create -n pyroki python=3.10
-   conda activate pyroki
    
    # Clone and install PyRoki
    git clone https://github.com/chungmin99/pyroki.git
    cd pyroki
-   pip install -e .
 
 For more details, see the `PyRoki GitHub repository <https://github.com/chungmin99/pyroki>`_.
 
@@ -110,15 +107,15 @@ Python interpreters:
 
    # Retarget every 50th motion to G1 (for quick testing)
    ./scripts/retarget_amass_to_robot.sh \
-       ~/miniconda3/envs/protomotions/bin/python \
-       ~/miniconda3/envs/pyroki/bin/python \
+       SDK_PYTHON \
+       SDK_PYTHON \
        /path/to/amass_train.pt \
        g1 50
    
    # Retarget all motions to H1_2
    ./scripts/retarget_amass_to_robot.sh \
-       ~/miniconda3/envs/protomotions/bin/python \
-       ~/miniconda3/envs/pyroki/bin/python \
+       SDK_PYTHON \
+       SDK_PYTHON \
        /path/to/amass_train.pt \
        h1_2 1
 
@@ -158,8 +155,8 @@ the dedicated script:
 .. code-block:: bash
 
    ./scripts/retarget_single_motion_to_robot.sh \
-       ~/miniconda3/envs/protomotions/bin/python \
-       ~/miniconda3/envs/pyroki/bin/python \
+       SDK_PYTHON \
+       SDK_PYTHON \
        /path/to/walk.motion \
        /path/to/output \
        g1
@@ -221,7 +218,6 @@ Activate the PyRoki environment (separate from ProtoMotions) and run batch retar
 
 .. code-block:: bash
 
-   conda activate pyroki  # Switch to PyRoki environment
    
    python pyroki/batch_retarget_to_g1_from_keypoints.py \
        --keypoints-folder-path /path/to/output/keypoints-for-retarget/ \

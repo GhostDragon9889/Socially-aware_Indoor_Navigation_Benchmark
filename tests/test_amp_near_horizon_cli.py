@@ -31,7 +31,7 @@ def evaluation(tmp_path, *flags):
 @pytest.mark.parametrize('flags', [(), ('--evaluate-steps', '10', '--resume', 'actor.pt'),
     ('--evaluate-steps', '10', '--resume', 'actor.pt', '--measure-ground-support')])
 def test_new_disabled_default_preserves_every_old_cli_field_exactly(tmp_path, flags):
-    source = ROOT/'docs/style_improvement_20261002/near_horizon_waypoint_before/CrowdSim/humanoid/application/configuration.py'
+    source = ROOT/'resources/runtime_sources/style_improvement_20261002/near_horizon_waypoint_before/CrowdSim/humanoid/application/configuration.py'
     spec = importlib.util.spec_from_file_location('CrowdSim.humanoid.application.near_before', source)
     old = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(old)

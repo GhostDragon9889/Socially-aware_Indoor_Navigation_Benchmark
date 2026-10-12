@@ -13,7 +13,7 @@ from CrowdSim.humanoid.training.reference import CausalReferenceAdapter, Referen
 
 
 ROOT = Path(__file__).resolve().parents[1]
-RUNTIME = ROOT / "docs/style_improvement_20261004/reachable_candidate_selection_staging_v1/selection_runtime.py"
+RUNTIME = ROOT / "resources/runtime_sources/style_improvement_20261004/reachable_candidate_selection_staging_v1/selection_runtime.py"
 spec = importlib.util.spec_from_file_location("test_common50_runtime", RUNTIME)
 runtime = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(runtime)

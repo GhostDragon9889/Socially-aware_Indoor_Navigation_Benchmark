@@ -1,0 +1,20 @@
+{
+  "sources": [
+    {
+      "run": "shared_obstacle_evaluation_1000",
+      "states": "output/diffusion_amp/shared_obstacle_evaluation_1000/physical_states.npz",
+      "sha256": "1c125211f95f0d56b60ee676d4195adc6538d6d6f7e6152540db41272ed14164"
+    },
+    {
+      "run": "shared_obstacle_corrected_endpoint_1000",
+      "states": "output/diffusion_amp/shared_obstacle_corrected_endpoint_1000/physical_states.npz",
+      "sha256": "386112f14b3bf117e3ea0dbb3cb57392ab485e7d4e156c9bcc2992b5374a886a"
+    },
+    {
+      "run": "shared_obstacle_corrected_timed_1000",
+      "states": "output/diffusion_amp/shared_obstacle_corrected_timed_1000/physical_states.npz",
+      "sha256": "a1d2dc6cd1aed882e6920f5196716f91716585e82d9e4f79a7cb13cbce51cff2"
+    }
+  ],
+  "qualification": "Measured pelvis positions only; geometry/contact proxies and success definitions are not author Table II metrics."
+}

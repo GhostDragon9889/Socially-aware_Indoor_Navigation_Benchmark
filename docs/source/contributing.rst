@@ -90,7 +90,7 @@ We use `pre-commit <https://pre-commit.com/>`_ to automatically format and lint 
 
 .. code-block:: bash
 
-   pip install pre-commit
+   uv tool install pre-commit
    pre-commit install
 
 This will run the following checks on every commit:

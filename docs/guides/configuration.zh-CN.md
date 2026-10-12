@@ -2,14 +2,14 @@
 
 [English](configuration.en.md) · [文档目录](README.md) · 更新：2026-10-10
 
-默认目标为 Lab3.0 EA/Sim6.1。先[配置外部 SDK 或在项目内完整安装](external_sdk.zh-CN.md)，项目直接使用该 SDK 的解释器，附加包保存在项目目录。历史结果与本轮实测范围见[核验报告](../EXTERNAL_SDK_VERIFICATION_20261011_ZH.md)。
+默认目标为 Lab3.0 EA/Sim6.1。先[配置外部 SDK 或在项目内完整安装](external_sdk.zh-CN.md)，项目直接使用该 SDK 的解释器，附加包保存在项目目录。历史结果与本轮实测范围见[核验报告](../validation.md)。
 
 ## 1. 运行目录和环境变量
 
 使用[安装指南](installation.zh-CN.md)中的固定环境，从源码根运行：
 
 ```bash
-cd /absolute/path/to/Socially-aware_Indoor_Navigation_Benchmark
+cd Socially-aware_Indoor_Navigation_Benchmark
 export NAV_ROOT="$PWD"
 export NAV_LAB_ROOT="$(python3 -c 'import json; print(json.load(open(".runtime/external_sdk.json"))["lab_root"])')"
 export ISAACLAB_ROOT="$NAV_LAB_ROOT"
@@ -36,7 +36,7 @@ export SOCIAL_NAVIGATION_ROOT="$NAV_ROOT"
 export PROTOMOTIONS_ASSET_ROOT="$NAV_ROOT/src/protomotions/data/assets"
 ```
 
-这两个变量不会自动重写 JSON/YAML 中的绝对资源路径；应逐项迁移配置。新机器无需构造 `/project/EXP/...` 旧目录。
+这两个变量不会自动重写 JSON/YAML 中的绝对资源路径；应逐项迁移配置。新机器无需构造 历史机器上的 旧目录。
 
 ## 2. 资源清单
 
@@ -50,12 +50,12 @@ export PROTOMOTIONS_ASSET_ROOT="$NAV_ROOT/src/protomotions/data/assets"
 | 固定 AMASS | `data/diffusion_amp/amass_style_2848/manifest_labeled_v7.json` 及对应 train bank | 训练 2,848、验证 22、测试 34 条选定片段 |
 | 通用 AMASS 库 | 相邻 `Assets/motion/` | 原始归档、逐动作转换与 train/test/validation MotionLib |
 | SMPL 与人体资产 | `src/protomotions/data/assets/`、录制器引用的人体模型参数 | 物理骨架、可视皮肤、人体参数是不同资源，按各自许可准备 |
-| 室内场景 | `/project/EXP/Sence/Sences/` 或本机对应的新位置 | USD 与所有材质/引用层应一起保留 |
+| 室内场景 | `data/scenes/` 或本机对应的新位置 | USD 与所有材质/引用层应一起保留 |
 | 原生地图证据 | scene 配置中的 `preflight`、`native_map`、`probe_script_snapshot` | 绑定场景、PhysX 查询、支持面和生成源码，属于外部运行产物 |
 
 原始四场景目录分别为 `Rest_Room_HongKong_YOHO`、`Rest_Room_HongKong_NewMetro`、`Rest_Room_Second_Floor`、`Rest_Room_Third_Floor`。CLI 名称分别为 `YOHO`、`NewMetro`、`SecondFloor`、`ThirdFloor`。
 
-本项目的[资源发布包](../../ASSET_RELEASE.md)已包含选定 TRACE/AMP/教师权重、训练参数与恢复状态、EVT 机器人、四场景及材料引用。它不包含原始 AMASS、SMPL 人体参数、SDK 或视频。发布包 467 条文件记录已核对，来源见[发布凭据](../ASSET_PUBLICATION_20261010.json)；旧 47 条资产清单是上游合并时的历史清单，详见[合并记录](../UPSTREAM_MERGE_20261010_ZH.md)。
+本项目的[资源发布包](../../ASSET_RELEASE.md)已包含选定 TRACE/AMP/教师权重、训练参数与恢复状态、EVT 机器人、四场景及材料引用。它不包含原始 AMASS、SMPL 人体参数、SDK 或视频。发布包 467 条文件记录已核对，来源见[发布凭据](../../ASSET_RELEASE.md)；旧 47 条资产清单是上游合并时的历史清单，详见[合并记录](../structure.md)。
 
 从仓库根恢复已发布资源：
 
@@ -65,17 +65,15 @@ python scripts/manage_release_assets.py verify
 python scripts/manage_release_assets.py install-models
 ```
 
-fetch 使用显式的自有私有 LFS 端点，需授权 GitHub 账号；默认 `.lfsconfig` 下载端点仍为 NVlabs 上游。install-models 恢复 7 项模型/配置/manifest，不恢复 AMASS 动作包或重写 native-map 证据。data/smpl 中三个 pkl 当前是外部 arena_assets 软链接；迁移需独立准备真实参数。发布 USD 依赖闭合已核验，搬迁后的地图准入和物理仍待新实验。当前实际依赖/资源与缺口见[全面清单](../RESOURCE_DEPENDENCY_MAP_20261010_ZH.md)。
+fetch 使用显式的自有私有 LFS 端点，需授权 GitHub 账号；默认 `.lfsconfig` 下载端点仍为 NVlabs 上游。install-models 恢复 7 项模型/配置/manifest，不恢复 AMASS 动作包或重写 native-map 证据。data/smpl 中三个 pkl 当前是外部 arena_assets 软链接；迁移需独立准备真实参数。发布 USD 依赖闭合已核验，搬迁后的地图准入和物理仍待新实验。当前实际依赖/资源与缺口见[全面清单](configuration.zh-CN.md)。
 
 ### 公开 PACER 下载
 
-使用独立下载环境；原始 Google Drive 下载可能受到网络和限流影响。
+使用已配置的 SDK 解释器；原始 Google Drive 下载可能受到网络和限流影响。
 
 ```bash
 cd "$NAV_ROOT"
-uv venv --python 3.12 .venv-download
-uv pip install --python .venv-download/bin/python gdown==6.2.0 requests
-.venv-download/bin/python scripts/fetch_pacer_reference.py --roles no_shape
+python3 scripts/run_external_python.py scripts/fetch_pacer_reference.py --roles no_shape
 ```
 
 TRACE 从固定[原始仓库](https://github.com/nv-tlabs/trace/tree/594b2af0824c5853e1a1884e167cd5ed097dd81c)的发布说明获取。PACER 下载结果和官方 ProtoMotions SMPL tracker 不能互相替换；用 profile 中的真实 SHA 核对模型。
@@ -99,7 +97,7 @@ Assets/motion/
   manifest_labeled_v7_train.pt
 ```
 
-只有准备新资源库时才执行以下流程；原始归档需要按 [AMASS 准备记录](../AMASS_PREPARATION_ZH.md)先解压到 `raw/`，脚本不会下载授权数据。准备脚本拒绝覆盖已存在的最终库。
+只有准备新资源库时才执行以下流程；原始归档需要按 [AMASS 准备记录](../../src/CrowdSim/humanoid/README.md)先解压到 `raw/`，脚本不会下载授权数据。准备脚本拒绝覆盖已存在的最终库。
 
 ```bash
 cd "$NAV_ROOT"

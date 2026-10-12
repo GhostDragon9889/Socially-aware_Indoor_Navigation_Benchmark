@@ -20,8 +20,8 @@ from scripts import verify_shared_social_evidence_admission as gate  # noqa: E40
 from scripts.diagnose_shared_social_training import identity  # noqa: E402
 from scripts.evaluate_shared_social_tracking import admit_training  # noqa: E402
 
-POSTS = {"S1": ROOT / "docs/style_improvement_20261005/shared_social_evaluation_v1/popart_post_training_execution.json",
-    "S2": ROOT / "docs/style_improvement_20261005/shared_social_full_epochs_v1/post_training_execution.json"}
+POSTS = {"S1": ROOT / "resources/runtime_sources/style_improvement_20261005/shared_social_evaluation_v1/popart_post_training_execution.json",
+    "S2": ROOT / "resources/runtime_sources/style_improvement_20261005/shared_social_full_epochs_v1/post_training_execution.json"}
 MANIFEST_SHA = "68d41be28908f28a09c47f7658af39d55fad01b32212bd7c0ced2b1e6b1489ca"
 BATCH = 128
 

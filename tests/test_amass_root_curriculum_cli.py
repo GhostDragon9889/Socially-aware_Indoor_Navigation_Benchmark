@@ -34,7 +34,7 @@ def test_every_canonical_training_field_equals_negative_baseline_and_expert_samp
 @pytest.mark.parametrize('flags', [(), ('--trajectory-source', 'pacer_curriculum', '--terrain-extent-m', '160', '--spawn-margin-m', '80'),
     ('--evaluate-steps', '10', '--resume', 'actor.pt', '--diffusion-guidance-mode', 'trace_clean')])
 def test_every_previous_default_cli_field_is_exactly_unchanged(tmp_path, flags):
-    source = ROOT/'docs/style_improvement_20261002/amass_root_curriculum_before/CrowdSim/humanoid/application/configuration.py'
+    source = ROOT/'resources/runtime_sources/style_improvement_20261002/amass_root_curriculum_before/CrowdSim/humanoid/application/configuration.py'
     spec = importlib.util.spec_from_file_location('CrowdSim.humanoid.application.amass_before', source)
     old = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(old)

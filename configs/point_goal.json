@@ -9,10 +9,20 @@
     "max_start_goal_distance": 8.0
   },
   "network": {
-    "hidden_dims": [128, 128],
-    "vector_hidden_dims": [128, 128],
-    "actor_hidden_dims": [128],
-    "critic_hidden_dims": [128]
+    "hidden_dims": [
+      128,
+      128
+    ],
+    "vector_hidden_dims": [
+      128,
+      128
+    ],
+    "actor_hidden_dims": [
+      128
+    ],
+    "critic_hidden_dims": [
+      128
+    ]
   },
   "algorithm": {
     "lr": 0.0003,
@@ -39,10 +49,46 @@
     "demote_success_rate": 0.45,
     "initial_stage": 0,
     "stages": {
-      "short_straight": {"distance": [2.0, 4.0], "heading_degrees": [0.0, 15.0]},
-      "short_turn": {"distance": [3.0, 5.0], "heading_degrees": [10.0, 45.0]},
-      "medium_turn": {"distance": [4.0, 7.0], "heading_degrees": [20.0, 75.0]},
-      "full": {"distance": [6.0, 8.0], "heading_degrees": [30.0, 120.0]}
+      "short_straight": {
+        "distance": [
+          2.0,
+          4.0
+        ],
+        "heading_degrees": [
+          0.0,
+          15.0
+        ]
+      },
+      "short_turn": {
+        "distance": [
+          3.0,
+          5.0
+        ],
+        "heading_degrees": [
+          10.0,
+          45.0
+        ]
+      },
+      "medium_turn": {
+        "distance": [
+          4.0,
+          7.0
+        ],
+        "heading_degrees": [
+          20.0,
+          75.0
+        ]
+      },
+      "full": {
+        "distance": [
+          6.0,
+          8.0
+        ],
+        "heading_degrees": [
+          30.0,
+          120.0
+        ]
+      }
     }
   }
 }

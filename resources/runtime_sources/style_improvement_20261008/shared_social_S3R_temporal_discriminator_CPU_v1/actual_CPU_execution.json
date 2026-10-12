@@ -1,0 +1,31 @@
+{
+  "schema": "shared_social.actual_temporal_discriminator_CPU_execution.v1",
+  "diagnostic_actual_exit_code": 0,
+  "diagnostic_terminal_tool_chunk": "365d2b",
+  "unit_tests": {
+    "tests": 6,
+    "subtests": 5,
+    "actual_exit_code": 0,
+    "terminal_tool_chunk": "9ac26b"
+  },
+  "ruff": {
+    "actual_exit_code": 0,
+    "tool_chunk": "b09193"
+  },
+  "result": {
+    "path": "project:resources/runtime_sources/style_improvement_20261008/shared_social_S3R_temporal_discriminator_CPU_v1/result.json",
+    "bytes": 8178,
+    "sha256": "1c62f80b53758ca003eec093c551ab7628f92dc00ecf5ce65187636952f761a3"
+  },
+  "all_saved_score_reductions_verified_exactly": true,
+  "scored_history_action_pairs": 73728,
+  "expert_distinct_training_motion_ids": 2184,
+  "Torch_version": "2.11.0+cu128",
+  "CUDA_initialized": false,
+  "SDK_started": false,
+  "heldout_style_quality_evaluation": false,
+  "original_reward_trace_reproduced": false,
+  "training_sources_modified": false,
+  "causal_training_failure_claimed": false,
+  "paper_effect_achieved": false
+}

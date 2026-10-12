@@ -42,5 +42,5 @@ def require_supported_checkpoint_config(path: str | Path, root: Path | None = No
         raise RuntimeError(
             f"Archived upstream reference cannot run with the current project: {path}. "
             f"{row['reason']} Use its original project/SDK revision, or explicitly "
-            "migrate and independently validate a new model release. The archived files are preserved."
+            "migrate and independently validate a new model release. Obsolete payloads have been removed from the current repository."
         )

@@ -17,7 +17,7 @@ from CrowdSim.humanoid.runtime.social_evaluation_lifecycle import record
 
 ROOT = repository_root(__file__)
 MANIFEST = ROOT / "configs/compatibility/grouped_social_sim61_sources.json"
-MANIFEST_SHA = "7b213a6a91c084b0ba0f35fb40823b85fab527343330acd04fc256ce50918baf"
+MANIFEST_SHA = "fba04eb31db592019432627fb63ff367be25be091bb22c3edf5c6759251ccb60"
 
 
 def manifest():
@@ -31,7 +31,7 @@ def manifest():
 
 def _path(value):
     path = Path(value)
-    if path.is_absolute():
+    if path.is_absolute() or str(value).startswith(("project:", "lab:", "sim:")):
         from social_navigation.artifact_identity import artifact_path
         from social_navigation.sdk_paths import relocate_sdk_path
         return artifact_path(relocate_sdk_path(path))
@@ -71,7 +71,7 @@ def pins_for(path, pins=None):
         tree = ast.parse(_path(spec["source"]["path"]).read_bytes())
         nodes = [node for node in tree.body if isinstance(node, ast.Assign)
                  and any(isinstance(t, ast.Name) and t.id == "PINS" for t in node.targets)]
-        scope = {"ROOT": ROOT, "STAGES": ROOT / "docs/style_improvement_20261004",
+        scope = {"ROOT": ROOT, "STAGES": ROOT / "resources/runtime_sources/style_improvement_20261004",
                  "LAB": Path(spec["lab"]), "API": Path(spec.get("api", "/unused")), "Path": Path}
         if len(nodes) != 1:
             raise ValueError("Require the sealed grouped PINS declaration")
@@ -155,7 +155,7 @@ def verify_sdk():
 
     method = Articulation.set_joint_position_target_index
     path = Path(method.__code__.co_filename).resolve()
-    expected = "/project/EXP/IsaacLab/source/isaaclab/isaaclab/assets/articulation/base_articulation.py"
+    expected = "lab:source/isaaclab/isaaclab/assets/articulation/base_articulation.py"
     identity = manifest()["dependencies"][str(_path(expected))]
     if path != _check(identity):
         raise ValueError("Grouped joint target writer belongs to another SDK source")
@@ -165,12 +165,12 @@ def adapt(module):
     path = Path(module.__file__).resolve()
     children = {
         "social_net_normal_sampler_staging_v1/net_normal_sampler.py":
-            "04d21596a8f1fd54d9d9a43977c8a76137840a574fb4f04a73ed4ce94beb5d09",
+            "52ea1901985c6152429d00c7dc6261c3371a672009acc4b578a57e5cc0385517",
         "nonfoot_net_normal_contact_staging_v1/nonfoot_contact.py":
-            "9fa82a7771a2c875e1cc41610b0203e8c3d235a9c50f7668f78665ae373a863a",
+            "a8c9231f4c1edc1805bf5d3cb75971ababaa47f21b90e1914f36ec416cc5c5c7",
     }
     for relative, digest in children.items():
-        if path == ROOT / "docs/style_improvement_20261004" / relative:
+        if path == ROOT / "resources/runtime_sources/style_improvement_20261004" / relative:
             original = path.read_bytes()
             if hashlib.sha256(original).hexdigest() != digest or path.stat().st_mode & 0o222:
                 raise ValueError("Grouped contact/sampler source changed")

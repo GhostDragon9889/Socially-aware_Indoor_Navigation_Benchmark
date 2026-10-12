@@ -1,9 +1,5 @@
 #!/usr/bin/env python3
-"""Apply or verify the repository's existing IsaacLab 3 / Sim 6 environment.
-
-The apply command requires the pinned IsaacLab checkout and an already installed
-Isaac Sim environment. It never launches Kit or installs a different Sim version.
-"""
+"""Install the pinned uv SDK in a new checkout, or verify its providers."""
 
 from __future__ import annotations
 
@@ -23,7 +19,7 @@ from importlib import metadata
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-PROFILE_DIR = REPO_ROOT / "env" / os.environ.get("SOCIAL_NAVIGATION_SDK_PROFILE", "isaaclab3_ea_sim61")
+PROFILE_DIR = REPO_ROOT / "env" / "isaaclab3_ea_sim61"
 PROFILE = json.loads((PROFILE_DIR / "profile.json").read_text())
 
 
@@ -124,13 +120,8 @@ def check_current() -> dict:
 
 
 def apply_profile(lab_root: Path, sync: bool, *, fresh: bool = False) -> None:
-    if PROFILE_DIR.name == "isaaclab3_sim6":
-        raise RuntimeError(
-            "The frozen Sim6.0 manifest references the historical project[isaaclab] "
-            "extra and must not be reapplied to migrated source. Reuse the matching "
-            "installed SDK with bootstrap_reproduction.py prepare-runtime --profile "
-            "isaaclab3_sim6; original manifest, lock and SDK files are preserved."
-        )
+    if (lab_root / ".venv/bin/python").is_file():
+        raise RuntimeError("Existing SDK preserved; use bootstrap_reproduction.py configure")
     require_checkout(lab_root)
     python = lab_root / ".venv" / "bin" / "python"
     if not fresh and (not python.is_file() or installed_sim(python) != PROFILE["isaacsim"]):
@@ -166,20 +157,20 @@ def apply_profile(lab_root: Path, sync: bool, *, fresh: bool = False) -> None:
 def main() -> None:
     global PROFILE_DIR, PROFILE
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--profile", choices=("isaaclab3_ea_sim61", "isaaclab3_sim6"),
+    parser.add_argument("--profile", choices=("isaaclab3_ea_sim61",),
                         default=os.environ.get("SOCIAL_NAVIGATION_SDK_PROFILE", "isaaclab3_ea_sim61"))
     commands = parser.add_subparsers(dest="command", required=True)
     commands.add_parser("check", help="Verify installed packages, USD hashes and file read/write")
-    apply = commands.add_parser("apply", help="Apply the recorded workspace manifest and lock")
+    apply = commands.add_parser("install", help="Install the pinned SDK with uv into a new checkout")
     apply.add_argument("--lab-root", type=Path, default=REPO_ROOT / ".runtime/IsaacLab61")
-    apply.add_argument("--sync", action="store_true", help="Synchronize existing environment and restore USD files")
+
     args = parser.parse_args()
     PROFILE_DIR = REPO_ROOT / "env" / args.profile
     PROFILE = json.loads((PROFILE_DIR / "profile.json").read_text())
     if args.command == "check":
         print(json.dumps(check_current(), ensure_ascii=False, indent=2))
     else:
-        apply_profile(args.lab_root.resolve(), args.sync)
+        apply_profile(args.lab_root.resolve(), sync=True, fresh=True)
 
 
 if __name__ == "__main__":

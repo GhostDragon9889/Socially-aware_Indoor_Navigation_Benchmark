@@ -20,8 +20,8 @@ from scripts.diagnose_shared_social_training import identity  # noqa: E402
 MANIFEST = ROOT / "data/diffusion_amp/amass_style_2848/manifest_labeled_v7.json"
 MANIFEST_SHA = "68d41be28908f28a09c47f7658af39d55fad01b32212bd7c0ced2b1e6b1489ca"
 BANK_SHA = "46e0241108e200409c08d1115a270205fe0b6ce827e366a06e8a09f6a2cc82c0"
-POSTS = {"S1": ROOT / "docs/style_improvement_20261005/shared_social_evaluation_v1/popart_post_training_execution.json",
-    "S2": ROOT / "docs/style_improvement_20261005/shared_social_full_epochs_v1/post_training_execution.json"}
+POSTS = {"S1": ROOT / "resources/runtime_sources/style_improvement_20261005/shared_social_evaluation_v1/popart_post_training_execution.json",
+    "S2": ROOT / "resources/runtime_sources/style_improvement_20261005/shared_social_full_epochs_v1/post_training_execution.json"}
 
 
 def concatenate(rows):

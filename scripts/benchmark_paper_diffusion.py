@@ -25,7 +25,7 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--checkpoint", type=Path, default=ROOT / "output/diffusion_amp/diffusion_training/step_1000.ckpt")
     parser.add_argument("--manifest", type=Path, default=ROOT / "data/diffusion_amp/orca_social_pilot_v1/manifest.json")
-    parser.add_argument("--output", type=Path, default=ROOT / "docs/diffusion_amp_20261001/trace_compiled_forward_benchmark.json")
+    parser.add_argument("--output", type=Path, default=ROOT / "resources/runtime_sources/diffusion_amp_20261001/trace_compiled_forward_benchmark.json")
     parser.add_argument("--device", default="cuda:0")
     parser.add_argument("--batch-sizes", type=int, nargs="+", default=[1, 8])
     parser.add_argument("--repeats", type=int, default=3)

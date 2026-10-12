@@ -1,0 +1,142 @@
+{
+  "schema": "shared_social.active_tool_exit_owner.v1",
+  "started_at_utc": "2026-10-05T12:20:00.885Z",
+  "training_session_id": 28927,
+  "run_directory": "project:output/diffusion_amp/shared_social_budget12500_v1",
+  "stage": "waiting_for_actual_training_exit",
+  "training_exit_observed": false,
+  "paper_effect_achieved": false,
+  "default_model_promoted": false,
+  "stages": [],
+  "bindings": {
+    "owner_source": {
+      "path": "project:resources/runtime_sources/style_improvement_20261005/shared_social_budget12500_v1/terminal_tool_owner.js",
+      "bytes": 12732,
+      "sha256": "e93799be375dcd52dae3c897b9e26fad448cb1e3136611e725ba7ee4c4744f9e"
+    },
+    "guarded_sources": [
+      {
+        "path": "project:scripts/run_shared_social_post_training.py",
+        "bytes": 9302,
+        "sha256": "2890d628361fbe1c548d822a82bbcbedde215f6395db44d7327a1903a7199cf8"
+      },
+      {
+        "path": "project:scripts/audit_shared_social_inference.py",
+        "bytes": 4662,
+        "sha256": "5f01bb007bfe28802ec282e7ad286809b605ef8a1e6102263a839d23dd28ce1b"
+      },
+      {
+        "path": "project:scripts/run_shared_social_evaluation.py",
+        "bytes": 6102,
+        "sha256": "ae2e78bca664eaac6ffe023159ea4d714ec6cc892065218506bbc19ecd1cebf2"
+      },
+      {
+        "path": "project:scripts/evaluate_shared_social_tracking.py",
+        "bytes": 18408,
+        "sha256": "6b4035149c3aea456d76b73a2b3fd10d7a16b8a215f76b916dd918282691a830"
+      },
+      {
+        "path": "project:scripts/evaluate_shared_social_style.py",
+        "bytes": 9281,
+        "sha256": "a9e2f3281f71bd2f335b2b416d5f678e45e7c2854674a6bb1f1d70fe0c639b9b"
+      },
+      {
+        "path": "project:scripts/evaluate_shared_social_navigation.py",
+        "bytes": 9638,
+        "sha256": "dedcca95820f10af810f23cc9686b0947be2ecdaae515f9628319b1c81483287"
+      },
+      {
+        "path": "project:scripts/audit_shared_social_navigation.py",
+        "bytes": 8822,
+        "sha256": "8fb54bbd2048eb755713b025d7f5331c6296520fa3870a5ea4fec4afe48d0414"
+      },
+      {
+        "path": "project:CrowdSim/humanoid/runtime/social_evaluation_lifecycle.py",
+        "bytes": 11248,
+        "sha256": "a2c6ed27c3485ebf10e8ab1a7faf2f92be0de8a8a113990ac24260532b5544a7"
+      },
+      {
+        "path": "project:CrowdSim/humanoid/runtime/social_navigation_lifecycle.py",
+        "bytes": 9313,
+        "sha256": "c92f9ddebab4ac03d070214a39a005ee1a5ad2c01b6e0e43396f9dc21007e732"
+      },
+      {
+        "path": "project:CrowdSim/humanoid/runtime/social_observation_producer.py",
+        "bytes": 3854,
+        "sha256": "ef794dfd0d3f350bbab23abb85cf5ec8cecbb95171ccaf4420134fd362c3bbb8"
+      },
+      {
+        "path": "project:CrowdSim/humanoid/runtime/social_popart_inference.py",
+        "bytes": 5008,
+        "sha256": "c0c77cd45a21467e83d949988f4f63318a23c5663d8e42a0e098195816d3cd73"
+      },
+      {
+        "path": "project:CrowdSim/humanoid/runtime/social_popart_training.py",
+        "bytes": 14843,
+        "sha256": "71c877adb72c2a30ccf7dc7a3bc1914ed06f3e7bae9b4c8e4b85ef7c9df9f5c0"
+      },
+      {
+        "path": "project:CrowdSim/humanoid/training/value_normalization.py",
+        "bytes": 3446,
+        "sha256": "e2c6aac084ce0ffd67774c3071824e6d30de7639ba92330a91b2fb089345adc5"
+      },
+      {
+        "path": "project:scripts/train_shared_social.py",
+        "bytes": 5005,
+        "sha256": "757c3a50dd4a41e567ed5d05d47a981a2b7d6afba06cf559d5e1c8a53ca330fb"
+      },
+      {
+        "path": "project:scripts/run_shared_social_budget_evaluation.py",
+        "bytes": 5052,
+        "sha256": "6fa571eaa503f1e9cd41965572fb3e2874fe542cece46d86a2df50f7557b4512"
+      },
+      {
+        "path": "project:scripts/audit_shared_social_popart.py",
+        "bytes": 4775,
+        "sha256": "a75e21686fa2d2efa78346dd507c7edc789224ca33c5c47cf4d4cbd431f2de9f"
+      },
+      {
+        "path": "project:scripts/seal_shared_social_training.py",
+        "bytes": 4553,
+        "sha256": "de2a76ebc8c4abdc38ebbea081f3f7523357461f7405c844912d38ac8d789eaf"
+      },
+      {
+        "path": "project:scripts/diagnose_shared_social_training.py",
+        "bytes": 8072,
+        "sha256": "dc85d0628b55fa53b3385c122c0bef237aed546eb7a4c5a3a256b7baf65581f4"
+      },
+      {
+        "path": "project:scripts/compare_shared_social_evidence.py",
+        "bytes": 14181,
+        "sha256": "b8428fecfe2a130d9c37a28465b5a478b35fdc3f5094fd87d4f13ebb188576af"
+      },
+      {
+        "path": "project:resources/runtime_sources/style_improvement_20261005/shared_social_budget12500_v1/training.json",
+        "bytes": 1119,
+        "sha256": "ff82e5e98b889b5dd4db6016a8dea6b3ba62b4f83e1d57c27440071dc590a1fa"
+      },
+      {
+        "path": "project:resources/runtime_sources/style_improvement_20261005/shared_social_budget12500_v1/evaluation_registration.json",
+        "bytes": 1694,
+        "sha256": "05ef39f63108c0282602da3392a5dc745f7763ba237ff8f599c308e0b9c4c23c"
+      },
+      {
+        "path": "project:resources/runtime_sources/style_improvement_20261005/shared_social_full_epochs_v1/post_training_execution.json",
+        "bytes": 2063,
+        "sha256": "019b4bd7e209c3069fe41326714da6723dd1a61e033e912aac70e341a9a872f1"
+      },
+      {
+        "path": "project:data/diffusion_amp/amass_style_2848/manifest_labeled_v7.json",
+        "bytes": 9507694,
+        "sha256": "68d41be28908f28a09c47f7658af39d55fad01b32212bd7c0ced2b1e6b1489ca"
+      }
+    ]
+  },
+  "updated_at_utc": "2026-10-07T12:39:40.507Z",
+  "latest_log_progress": {
+    "logged_updates": 12415,
+    "planned_updates": 12500,
+    "logged_physical_transitions": 101703680,
+    "status": "incomplete_execution_state_unknown"
+  }
+}

@@ -27,16 +27,19 @@ ENTRY_EDITS = {
 }
 # relative path, historical size/hash, current size/hash, migration scope
 DEPENDENCIES = {
-    "native_deployment": ("src/CrowdSim/humanoid/application/native_deployment.py", 5429,
+    "configuration": ("src/CrowdSim/humanoid/application/configuration.py", 29717,
+        "64dfa8f399fb4d7731ed24b66f8b5db1d96d9e879d0d72c0a03f4cd747912456", 29759,
+        "350bd38813a763e3436345d8004ccd8e8ba22f9952a3b9e6fb9261d045e03d98", "trajectory_source_checkpoint_admission"),
+    "native_deployment": ("src/CrowdSim/humanoid/application/native_deployment.py", 5610,
         "af708cc18873424ed57b497473f35d17cecc2c3910b15f4c67ef4d8cd5ab49f0", 5610,
         "a3a8097e5d63b03e5f96f24e6246c333b2103f3628c6209139e2aff2c564cd96", "explicit_artifact_location_admission"),
-    "native_provider": ("src/CrowdSim/humanoid/runtime/dynbench_scene.py", 46157,
+    "native_provider": ("src/CrowdSim/humanoid/runtime/dynbench_scene.py", 53151,
         "c49282b44d38e65b92cbf71fa1909c3e87f551e8494793aa31c5f68246ac7a73", 53151,
         "68bd2171ad9707c3f280c374d73538b8c532764a42e1f90335c6375090595d28", "explicit_snapshot_and_live_scene_ownership"),
-    "native_grid": ("src/CrowdSim/humanoid/runtime/native_grid_scene.py", 33100,
+    "native_grid": ("src/CrowdSim/humanoid/runtime/native_grid_scene.py", 41778,
         "d77e9b5702d47765e045a03f6e79f770c313dc8d4d0ad9e969aead81d40024f5", 41778,
         "b5563bd5a509cdb02ae33e57ad34ab7a0524825ad16e481ef631531d59308165", "sim61_collision_and_reset_runtime"),
-    "native_live": ("src/CrowdSim/humanoid/runtime/dynbench_live.py", 13041,
+    "native_live": ("src/CrowdSim/humanoid/runtime/dynbench_live.py", 13565,
         "3d9db0f3ee00dacb458950cdc8551887b599510c06a0cc93d4922c7738ead692", 13565,
         "4c7f5384658778623b96ceeca0c52cda938d57e644b8084f4461e21ebac42bca", "repository_location_live_identity_and_USD_point3f"),
     "deployment": ("src/CrowdSim/humanoid/application/deployment.py", 15526,
@@ -45,13 +48,13 @@ DEPENDENCIES = {
     "resources": ("src/CrowdSim/humanoid/application/resources.py", 15989,
         "3268a10882931cb5ad0e23506b71fd22fb21d975e9aba948e0a08fb427132a5b", 16019,
         "1a7e130ebcaff396c23238598f92e9407f5de37c0e214a63d4e235d800794bb5", "repository_location"),
-    "world": ("src/CrowdSim/humanoid/amp_world.py", 24834,
+    "world": ("src/CrowdSim/humanoid/amp_world.py", 30450,
         "1b63a4c8ac7d4bf2f9ed523edc97b41dca89888cdd6c7dcb2234826d240d7f83", 30450,
         "a114f1b0763b7a2307a3f7fdd9409c38b4385ed4db02a9fbf36a56854dee554a", "native_contact_and_reset_runtime"),
-    "observations": ("src/CrowdSim/humanoid/amp/observations.py", 10438,
+    "observations": ("src/CrowdSim/humanoid/amp/observations.py", 10586,
         "a64dc2eba5c132cf68a248f2324ea20446dd264a2ea8f9f139faae4738f9aeba", 10586,
         "000f3980a8f4d3c1fac929c57029dd05a9ce19b1d8ce82423dad273c9315e599", "scripted_observation_origins"),
-    "simulator": ("src/protomotions/simulator/isaaclab/simulator.py", 53687,
+    "simulator": ("src/protomotions/simulator/isaaclab/simulator.py", 55888,
         "207ff0cbfb65fd48092e73e36c97b2e1b8e2ab55cae79bc2e7edf562528e2ad5", 55888,
         "8cd33819027fb13b457be8ee725eae6bd6bd013036add6359b3fa734634345b1", "sim61_state_actuator_and_lifecycle_API"),
 }
@@ -93,6 +96,13 @@ def migrate_pins(module):
             raise ValueError("Registered evaluator dependency changed: " + role)
         proof = {"scope": scope, "historical": {"path": str(absolute), "bytes": old_size, "sha256": old_sha},
                  "current": actual}
+        if scope == "trajectory_source_checkpoint_admission":
+            restored = (ROOT / relative).read_text().replace(
+                'if args.trajectory_source == "diffusion" and not Path(args.diffusion_checkpoint).is_file():',
+                'if not Path(args.diffusion_checkpoint).is_file():', 1)
+            if len(restored.encode()) != old_size or hashlib.sha256(restored.encode()).hexdigest() != old_sha:
+                raise ValueError("Trajectory source checkpoint admission inverse differs")
+            proof["whole_source_admission_inverse"] = True
         if scope == "repository_location":
             restored = (ROOT / relative).read_text().replace("from protomotions.repository import repository_root\n\n", "")
             restored = restored.replace("repository_root(__file__)", "Path(__file__).resolve().parents[3]")
@@ -107,7 +117,7 @@ def migrate_pins(module):
                     raise ValueError("Resource resolver seam changed")
                 restored = restored.replace(current, original, 1)
                 proof["resource_resolver"] = record(ROOT / "src/social_navigation/resource_bindings.py")
-                if proof["resource_resolver"]["sha256"] != "ee711511624c6b5c399c5b2cb11ce4908a3522feb97c9d7ccff765fc47d12461":
+                if proof["resource_resolver"]["sha256"] != "6450324f301934225816920afbd45224374c808f493f57ccfab65666e351bde7":
                     raise ValueError("Resource resolver changed")
             if len(restored.encode()) != old_size or hashlib.sha256(restored.encode()).hexdigest() != old_sha:
                 raise ValueError("Repository-location inverse differs: " + role)
@@ -128,10 +138,10 @@ def verify_entry(path, historical_sha):
         raise ValueError("Unregistered evaluation entry migration")
     original = path.read_text()
     if relative == "scripts/evaluate_shared_social_tracking.py":
-        from CrowdSim.humanoid.application.historical_recovery import SNAPSHOTS
-        snapshot, _, digest = SNAPSHOTS[relative]
+        snapshot = "resources/runtime_sources/oracles/tracking_evaluation.py.txt"
+        digest = historical_sha
         archived = (ROOT / snapshot).read_text()
-        if (hashlib.sha256(original.encode()).hexdigest() != "9f5ddb9981aa39d67719cb3278c55de79b93ee537ac7d15b794629d061a62c58"
+        if (hashlib.sha256(original.encode()).hexdigest() != "ec5353ae63b7906a5651ca794ba6ee25e9c40cd056baad5eac396d991ae5f560"
                 or hashlib.sha256(archived.encode()).hexdigest() != digest or digest != historical_sha):
             raise ValueError("Registered tracking admission source changed")
         def unchanged_functions(source):

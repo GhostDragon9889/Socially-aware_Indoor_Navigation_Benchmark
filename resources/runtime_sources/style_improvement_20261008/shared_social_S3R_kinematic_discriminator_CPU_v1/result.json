@@ -1,0 +1,193 @@
+{
+  "schema": "shared_social.frozen_S3R_kinematic_discriminator_diagnostic.v1",
+  "status": "passed",
+  "recorded_at_utc": "2026-10-07T20:36:42.059439+00:00",
+  "sources": [
+    {
+      "path": "project:scripts/diagnose_shared_social_amp_kinematic.py",
+      "bytes": 8523,
+      "sha256": "fd7c3df446f8688c3909ea413b547736f3da18d69b843eaf5055a06ee16648b5"
+    },
+    {
+      "path": "project:CrowdSim/humanoid/analysis/amp_kinematic_controls.py",
+      "bytes": 5164,
+      "sha256": "bf5764c98ee6e13680e523254b44d1946588c006edd0e8a290ff14b9ba350352"
+    },
+    {
+      "path": "project:CrowdSim/humanoid/analysis/amp_temporal_diagnostic.py",
+      "bytes": 6315,
+      "sha256": "a226ea8d950efe03834dcb1a20d89fb447c1bd82f5a12da601aa98c17ced7ce1"
+    },
+    {
+      "path": "project:CrowdSim/humanoid/amp/observations.py",
+      "bytes": 10586,
+      "sha256": "000f3980a8f4d3c1fac929c57029dd05a9ce19b1d8ce82423dad273c9315e599"
+    },
+    {
+      "path": "project:CrowdSim/humanoid/training/trainer.py",
+      "bytes": 38177,
+      "sha256": "1e5444f62ccc5214e3f635850d4b9b018b457918259ffbb1e999a05148f4eee7"
+    },
+    {
+      "path": "project:protomotions/utils/rotations.py",
+      "bytes": 28136,
+      "sha256": "ef1475d33d6f941ccdea4a612477483db4fad8236ba7786fbe8bf91a65c1cef8"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "project:resources/runtime_sources/style_improvement_20261007/shared_social_S3_optimizer_recovery_v2/owner_capacity_v3/completion.json",
+      "bytes": 3988,
+      "sha256": "94baa15b32ee0e04ec956a0030d50c1f76800774e9d197b127e32a8443351a68"
+    },
+    {
+      "path": "project:output/diffusion_amp/shared_social_budget12500_recovery_training_v2/result.json",
+      "bytes": 192147,
+      "sha256": "87bf93cbe6c67a2d9e852cd7b8d9b095de525fe97019e6747fab4ec1427467bb"
+    },
+    {
+      "path": "project:resources/runtime_sources/style_improvement_20261007/shared_social_S3_optimizer_recovery_v2/owner_capacity_v3/training_CPU_audit.json",
+      "bytes": 9157,
+      "sha256": "2b57cc9bbf9dc6f62d0b003167b5a0ce52151904adc7d787dffc48b2d9a298b1"
+    },
+    {
+      "path": "project:resources/runtime_sources/style_improvement_20261007/shared_social_S3_optimizer_recovery_v2/owner_capacity_v3/external_verification.json",
+      "bytes": 6215,
+      "sha256": "1af79481f7fb7b2b79e46c631428cc0460f2220522e2c795bbdf623fabf89b31"
+    },
+    {
+      "path": "project:output/diffusion_amp/shared_social_budget12500_recovery_training_v2/step_012500.pt",
+      "bytes": 651040366,
+      "sha256": "97ba4c6475817e1bbde4aa56377a45191058a0725cad48fcbf3a9b769accb675"
+    },
+    {
+      "path": "project:output/diffusion_amp/shared_social_budget12500_recovery_training_v2/rollout_update_012500.pt",
+      "bytes": 1018179842,
+      "sha256": "22145c21031f8c33ec75f90ac2fc2fcce84de2e59d18bbed7a7de03efdfc47cd"
+    },
+    {
+      "path": "project:resources/runtime_sources/style_improvement_20261008/shared_social_S3R_temporal_discriminator_CPU_v1/result.json",
+      "bytes": 8178,
+      "sha256": "1c62f80b53758ca003eec093c551ab7628f92dc00ecf5ce65187636952f761a3"
+    },
+    {
+      "path": "project:resources/runtime_sources/style_improvement_20261008/shared_social_S3R_temporal_discriminator_CPU_v1/actual_CPU_execution.json",
+      "bytes": 1044,
+      "sha256": "6c6c0dccf21f73c333e1cb328d023bacd1d90b498d73b7f4a0fb6010e00ccbd2"
+    },
+    {
+      "path": "project:resources/runtime_sources/style_improvement_20261008/shared_social_S3R_temporal_discriminator_CPU_v1/scores.npz",
+      "bytes": 518661,
+      "sha256": "25c8ee3a36f00c71d41d9af87e35f196e48d57f176ba37d0bf033ab130000148"
+    }
+  ],
+  "scores": {
+    "path": "project:resources/runtime_sources/style_improvement_20261008/shared_social_S3R_kinematic_discriminator_CPU_v1/scores.npz",
+    "bytes": 340230,
+    "sha256": "b4fb7751fa183fafb59f6d11c86ac820c50f42bdd6b0662c06b95b0ae9881cae"
+  },
+  "summaries": {
+    "physical_policy": {
+      "identity": {
+        "rows": 8192,
+        "mean_logit": -1.748603203895982,
+        "mean_AMP_reward": 0.409292607293537,
+        "mean_paired_logit_delta": 0.0,
+        "fraction_reward_increased": 0.0
+      },
+      "repeat_current": {
+        "rows": 8192,
+        "mean_logit": 0.6870811159451478,
+        "mean_AMP_reward": 2.2040783081174595,
+        "mean_paired_logit_delta": 2.435684320193104,
+        "fraction_reward_increased": 0.9947509765625
+      },
+      "stationary_pose": {
+        "rows": 8192,
+        "mean_logit": 1.2909072029251547,
+        "mean_AMP_reward": 3.0743790843116585,
+        "mean_paired_logit_delta": 3.039510407252237,
+        "fraction_reward_increased": 0.9996337890625
+      },
+      "rigid_translation_pose": {
+        "rows": 8192,
+        "mean_logit": 1.2368295149390178,
+        "mean_AMP_reward": 2.9900792577973334,
+        "mean_paired_logit_delta": 2.9854327192151686,
+        "fraction_reward_increased": 0.9991455078125
+      }
+    },
+    "actual_AMASS_expert": {
+      "identity": {
+        "rows": 4096,
+        "mean_logit": 1.6209190842710086,
+        "mean_AMP_reward": 3.6133958997088484,
+        "mean_paired_logit_delta": 0.0,
+        "fraction_reward_increased": 0.0
+      },
+      "repeat_current": {
+        "rows": 4096,
+        "mean_logit": 1.743557478315779,
+        "mean_AMP_reward": 3.8177511031390168,
+        "mean_paired_logit_delta": 0.12263839405204635,
+        "fraction_reward_increased": 0.841796875
+      },
+      "stationary_pose": {
+        "rows": 4096,
+        "mean_logit": 1.8263638612115756,
+        "mean_AMP_reward": 3.95829719043104,
+        "mean_paired_logit_delta": 0.20544477690418717,
+        "fraction_reward_increased": 0.950439453125
+      },
+      "rigid_translation_pose": {
+        "rows": 4096,
+        "mean_logit": 1.8082682739768643,
+        "mean_AMP_reward": 3.927609039528761,
+        "mean_paired_logit_delta": 0.1873491896694759,
+        "fraction_reward_increased": 0.940185546875
+      }
+    }
+  },
+  "kinematic_oracle": {
+    "stationary_pose": {
+      "physical_pose_rows": 8192,
+      "encoded_history_rows": 81920,
+      "max_abs_encoder_minus_feature_control": 0.0,
+      "max_abs_outside_key_positions": 0.0,
+      "max_abs_CPU_encoder_vs_GPU_POST_current": 1.9073486328125e-06,
+      "translation_position_subtraction_can_round_float32": false,
+      "dynamic_feasibility_verified": false
+    },
+    "rigid_translation_pose": {
+      "physical_pose_rows": 8192,
+      "encoded_history_rows": 81920,
+      "max_abs_encoder_minus_feature_control": 3.4868717193603516e-06,
+      "max_abs_outside_key_positions": 0.0,
+      "max_abs_CPU_encoder_vs_GPU_POST_current": 1.9073486328125e-06,
+      "translation_position_subtraction_can_round_float32": true,
+      "dynamic_feasibility_verified": false
+    }
+  },
+  "original_identity_and_repeat_scores_match_previous_exactly": true,
+  "scored_history_action_pairs": 49152,
+  "physical_policy_windows": 8192,
+  "expert_windows": 4096,
+  "actual_expert_unique_motion_ids": 2184,
+  "scoring_phase": "post-update12500 checkpoint on that update's captured pre-update rollout/expert inputs",
+  "oracle_phase": "POST raw bodies; never used as scored PRE history",
+  "controls": {
+    "stationary_pose": "constant current pose; root linear/angular and selected DOF velocities zero",
+    "rigid_translation_pose": "constant current pose; root linear velocity kept, angular/DOF velocities zero"
+  },
+  "actions": "original actual applied physical69/expert proxy69 kept under every control",
+  "contacts_force_balance_or_dynamic_feasibility_verified": false,
+  "heldout_quality_evaluation": false,
+  "original_logged_AMP_reward_trace_reproduced": false,
+  "causal_training_failure_claimed": false,
+  "current_training_recipe_changed": false,
+  "Torch_version": "2.11.0+cu128",
+  "CUDA_initialized": false,
+  "SDK_started": false,
+  "paper_effect_achieved": false,
+  "default_model_promoted": false
+}

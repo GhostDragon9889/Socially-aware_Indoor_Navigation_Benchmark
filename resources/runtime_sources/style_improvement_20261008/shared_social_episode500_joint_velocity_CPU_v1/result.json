@@ -1,0 +1,175 @@
+{
+  "schema": "shared_social.actual_intermediate_joint_velocity_CPU_audit.v1",
+  "status": "passed_sameinstant_batch_coordinate_audit",
+  "created_at_utc": "2026-10-07T21:51:11.428818+00:00",
+  "selected_archive_update": 500,
+  "sources": [
+    {
+      "path": "project:scripts/audit_shared_social_intermediate_joint_velocity.py",
+      "bytes": 7882,
+      "sha256": "b228a87474376a956391635be04a103db6cc8b17f26b5b77e590cdb5b3c38e02"
+    },
+    {
+      "path": "project:CrowdSim/humanoid/analysis/joint_velocity_consistency.py",
+      "bytes": 2351,
+      "sha256": "0fd65e48ea1eb2783b795662d36c8873e5e7c81b4120d05e32b40ee9f4d2bb33"
+    },
+    {
+      "path": "project:scripts/diagnose_shared_social_task_context.py",
+      "bytes": 18613,
+      "sha256": "6220cced3874d64d89fea9396271fb18f4d98bbc7b70d74c040a795641849749"
+    },
+    {
+      "path": "project:CrowdSim/humanoid/amp/observations.py",
+      "bytes": 10586,
+      "sha256": "000f3980a8f4d3c1fac929c57029dd05a9ce19b1d8ce82423dad273c9315e599"
+    },
+    {
+      "path": "project:scripts/diagnose_shared_social_training.py",
+      "bytes": 8072,
+      "sha256": "dc85d0628b55fa53b3385c122c0bef237aed546eb7a4c5a3a256b7baf65581f4"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "project:output/diffusion_amp/shared_social_episode_reference_pilot2000_v1/rollout_update_000500.pt",
+      "bytes": 1018179778,
+      "sha256": "8454d9ad3d309e3a152590584a33b11525137680c5cd625e30589f0d421cb348"
+    },
+    {
+      "path": "project:protomotions/data/assets/mjcf/smpl_humanoid.xml",
+      "bytes": 23780,
+      "sha256": "58dc997c830b3ded2d2b4528797ed2768f9528b2f25aa008e541fe3a9083e7cc"
+    }
+  ],
+  "complete_closed_metric_prefix_updates": 501,
+  "phase_verification": {
+    "all_actor_controls": 8192,
+    "same_episode_PRE_previous_POST_exact_rows": 7840,
+    "first_control_unpaired_rows": 256,
+    "adjacent_reset_unpaired_rows": 96,
+    "PRE_self_AMP_root_velocity_exact_rows": 8192,
+    "controls": 32,
+    "actors": 256,
+    "POST_COMMON_native_root_velocity_exact_rows": 8192,
+    "POST_AMP_native_XY_speed_max_abs_error_m_s": 4.1346226042904277e-07,
+    "POST_AMP_native_XY_speed_tolerance_m_s": 1e-05,
+    "reset_actor_controls_retained": 96,
+    "any_metrics_rows_removed": false
+  },
+  "physical_actor_controls": 8192,
+  "body_order": [
+    "Pelvis",
+    "L_Hip",
+    "L_Knee",
+    "L_Ankle",
+    "L_Toe",
+    "R_Hip",
+    "R_Knee",
+    "R_Ankle",
+    "R_Toe",
+    "Torso",
+    "Spine",
+    "Chest",
+    "Neck",
+    "Head",
+    "L_Thorax",
+    "L_Shoulder",
+    "L_Elbow",
+    "L_Wrist",
+    "L_Hand",
+    "R_Thorax",
+    "R_Shoulder",
+    "R_Elbow",
+    "R_Wrist",
+    "R_Hand"
+  ],
+  "nonroot_parent_indices": [
+    0,
+    1,
+    2,
+    3,
+    0,
+    5,
+    6,
+    7,
+    0,
+    9,
+    10,
+    11,
+    12,
+    11,
+    14,
+    15,
+    16,
+    17,
+    11,
+    19,
+    20,
+    21,
+    22
+  ],
+  "sameinstant_all69_native_minus_child": {
+    "rms_rad_s": 3.072151677038918e-07,
+    "mean_abs_rad_s": 2.0021341323891222e-07,
+    "max_abs_rad_s": 6.2650461529756285e-06
+  },
+  "sameinstant_all69_native_minus_parent": {
+    "rms_rad_s": 0.5000130737991069,
+    "mean_abs_rad_s": 0.27421625368574665,
+    "max_abs_rad_s": 13.771402418929291
+  },
+  "sameinstant_AMP57_native_minus_child": {
+    "rms_rad_s": 3.286585270948137e-07,
+    "mean_abs_rad_s": 2.2204713243872403e-07,
+    "max_abs_rad_s": 6.2650461529756285e-06
+  },
+  "sameinstant_AMP57_native_minus_parent": {
+    "rms_rad_s": 0.549358475659555,
+    "mean_abs_rad_s": 0.32947679481071884,
+    "max_abs_rad_s": 13.771402418929291
+  },
+  "per_joint_child_max_abs_rad_s": {
+    "L_Hip": 2.8569819070511926e-06,
+    "L_Knee": 3.1674240021928313e-06,
+    "L_Ankle": 3.1528678796632903e-06,
+    "L_Toe": 4.538276126453411e-06,
+    "R_Hip": 3.694026403877615e-06,
+    "R_Knee": 6.2650461529756285e-06,
+    "R_Ankle": 2.7804323075031334e-06,
+    "R_Toe": 4.160923161578012e-06,
+    "Torso": 2.6162092119363933e-06,
+    "Spine": 2.1033324317798474e-06,
+    "Chest": 2.4349558307434904e-06,
+    "Neck": 2.420847907913526e-06,
+    "Head": 2.0215060150263753e-06,
+    "L_Thorax": 2.3949591776428747e-06,
+    "L_Shoulder": 4.563165845183903e-06,
+    "L_Elbow": 2.252489332832397e-06,
+    "L_Wrist": 3.242258680202781e-06,
+    "L_Hand": 2.5485858348162083e-06,
+    "R_Thorax": 2.3787766902927387e-06,
+    "R_Shoulder": 2.96601851168532e-06,
+    "R_Elbow": 3.631747212295977e-06,
+    "R_Wrist": 3.819317495157293e-06,
+    "R_Hand": 1.2325834140014535e-06
+  },
+  "POST_AMP57_equals_mapped_native_exactly": true,
+  "coordinate_tolerance_rad_s": 1e-05,
+  "calculation": "relative_world=omega_child_world-omega_parent_world; inverse current body XYZW rotation; no time differencing",
+  "scope": "This intermediate256-person batch and its captured timestamps/body order; not arbitrary assets, training completion, policy quality or a finite-difference accuracy claim.",
+  "all_failure_reset_controls_retained": true,
+  "NN_constructed": false,
+  "SDK_started": false,
+  "CUDA_initialized": false,
+  "training_restarted": false,
+  "training_completed_inferred": false,
+  "heldout_quality_evaluation": false,
+  "default_model_promoted": false,
+  "paper_effect_achieved": false,
+  "errors": {
+    "path": "project:resources/runtime_sources/style_improvement_20261008/shared_social_episode500_joint_velocity_CPU_v1/sameinstant_errors.npz",
+    "bytes": 7437989,
+    "sha256": "22d5eac23607c2415d83891330b2f23dba8cc103a0b7482ab2ec5d3661e4f4ac"
+  }
+}

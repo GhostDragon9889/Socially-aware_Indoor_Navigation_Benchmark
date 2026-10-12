@@ -30,7 +30,7 @@ recent SMPL model paper specified at <https://smpl.is.tue.mpg.de/>.
 - The existing `SMPL_NEUTRAL.pkl` and its original model license were not changed.
   The sample body's CC BY license does not relicense that parametric model.
 
-Conversion: `docs/resource_completion_20261001/install_meshcapade_smpl_uv.py`.
+Conversion: `resources/runtime_sources/resource_completion_20261001/install_meshcapade_smpl_uv.py`.
 Exact source sizes, SHA-256, Git blob SHA-1 and topology checks:
-`docs/resource_completion_20261001/smpl_uv_geometry_verification.json` and
+`resources/runtime_sources/resource_completion_20261001/smpl_uv_geometry_verification.json` and
 `smpl_texture_installation.json`.

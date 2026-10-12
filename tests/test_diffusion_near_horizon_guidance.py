@@ -21,7 +21,7 @@ TIMES = [.5*index for index in range(1, 11)]
 
 def before_module():
     name = 'CrowdSim.humanoid.diffusion.near_horizon_before'
-    source = ROOT/'docs/style_improvement_20261002/near_horizon_waypoint_before/CrowdSim/humanoid/diffusion/paper.py'
+    source = ROOT/'resources/runtime_sources/style_improvement_20261002/near_horizon_waypoint_before/CrowdSim/humanoid/diffusion/paper.py'
     spec = importlib.util.spec_from_file_location(name, source)
     module = importlib.util.module_from_spec(spec)
     sys.modules[name] = module

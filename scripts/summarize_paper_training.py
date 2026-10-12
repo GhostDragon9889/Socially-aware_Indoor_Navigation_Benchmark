@@ -289,7 +289,7 @@ def main(argv=None):
     parser.add_argument("--diffusion-result", type=Path, default=ROOT / "output/diffusion_amp/diffusion_training/training_result.json")
     parser.add_argument("--amp-metrics", type=Path, default=ROOT / "output/diffusion_amp/amp_training/metrics.jsonl")
     parser.add_argument("--amp-result", type=Path, default=ROOT / "output/diffusion_amp/amp_training/result.json")
-    parser.add_argument("--output-dir", type=Path, default=ROOT / "docs/diffusion_amp_20261001/training_analysis")
+    parser.add_argument("--output-dir", type=Path, default=ROOT / "resources/runtime_sources/diffusion_amp_20261001/training_analysis")
     args = parser.parse_args(argv)
     diffusion, diffusion_source = _json(args.diffusion_result)
     metrics, metrics_source = read_metrics(args.amp_metrics)

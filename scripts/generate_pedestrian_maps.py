@@ -15,6 +15,7 @@ import hashlib
 import json
 import math
 import os
+import tempfile
 from pathlib import Path
 import subprocess
 import sys
@@ -481,8 +482,8 @@ def parse_args():
     if args.ground_height is not None and not math.isfinite(args.ground_height):
         parser.error("Ground height must be finite")
     output = Path(args.output).resolve()
-    if not output.is_relative_to(ROOT) and not output.is_relative_to(Path("/tmp")):
-        parser.error("This offline preparation only writes within the workspace or /tmp")
+    if not output.is_relative_to(ROOT) and not output.is_relative_to(Path(tempfile.gettempdir())):
+        parser.error("This offline preparation only writes within the workspace or the system temporary directory")
     return args
 
 

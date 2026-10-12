@@ -41,7 +41,7 @@ def test_sim61_contact_source_cannot_satisfy_the_sealed_sim60_hash():
     _, expected = legacy.PINS[name]
     current = lab_root() / "source/isaaclab_physx/isaaclab_physx/sensors/contact_sensor/contact_sensor.py"
     assert hashlib.sha256(current.read_bytes()).hexdigest() != expected
-    previous = Path("/project/EXP/SangforAndSaut/IsaacLab-Protomotions/source/isaaclab_physx/isaaclab_physx/sensors/contact_sensor/contact_sensor.py")
+    previous = Path("lab:source/isaaclab_physx/isaaclab_physx/sensors/contact_sensor/contact_sensor.py")
     if previous.is_file():
         assert hashlib.sha256(previous.read_bytes()).hexdigest() == expected
 

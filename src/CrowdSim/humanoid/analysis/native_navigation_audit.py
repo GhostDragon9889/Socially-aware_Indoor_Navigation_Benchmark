@@ -20,9 +20,9 @@ ROOT = repository_root(__file__)
 EXECUTION_SCHEMA = "shared_social.actual_native_navigation_execution.v1"
 AUDIT_SCHEMA = "shared_social.native_scene_registered_controls_CPU_audit.v1"
 HIGH_LEVEL_SHA = "0324267aad60d8c2957ca763e8e62e849e1341aaba950c916e4f9ddd25705ea3"
-CURRENT_HIGH_LEVEL_SHA = "b9a2ae9fcab2bd7cbb67341b33bf0bdd780c67da19df89a3091d8003403ee46c"
+CURRENT_HIGH_LEVEL_SHA = "643e2427e47bfcc22d1af615bea5b6850417da3ef18da237eb66df536c67280d"
 ENTRY = ROOT / "scripts/evaluate_shared_social_native_paired.py"
-ENTRY_SHA = "fcec4cc935ccc57739335ff5d200832655314e9a69482e3bac798cf7016eb502"
+ENTRY_SHA = "1b77d62a561aef8f465e5a28dcb4e68e1d0625094c23022540f06f3ae66b2e9d"
 MANIFEST = ROOT / "data/diffusion_amp/amass_style_2848/manifest_labeled_v7.json"
 MANIFEST_SHA = "68d41be28908f28a09c47f7658af39d55fad01b32212bd7c0ced2b1e6b1489ca"
 
@@ -38,7 +38,7 @@ def source_bindings():
         raise ValueError("Original raw/contact/response CPU reader changed")
     sources["transitive"] = original.reader_dependencies()
     verifier = original.record(ROOT / "src/CrowdSim/humanoid/runtime/native_map_v9.py")
-    if verifier["sha256"] != "e942359bafc1476d21ed4d5e9cda58132d52b8119b4181b7d7f5bf92059b12ef":
+    if verifier["sha256"] != "62698293da341dd3eb6aaa1a024d0aab7b5fe35c13b7535518ef902eb8964292":
         raise ValueError("Standalone native USD verifier changed")
     sources["standalone_USD_verifier"] = verifier
     sources["initial"] = initial.source_bindings()

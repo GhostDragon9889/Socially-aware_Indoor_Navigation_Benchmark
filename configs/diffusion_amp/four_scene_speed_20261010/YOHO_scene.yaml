@@ -3,11 +3,11 @@
   "scene": "YOHO",
   "scene_physics_replication": false,
   "preflight": {
-    "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_YOHO_cell_v1/YOHO/preflight.json",
+    "path": "project:output/scene_maps/gait_YOHO_cell_v1/YOHO/preflight.json",
     "sha256": "9321eb92ff67ee59b1fc5b154e59bbbc7e7c42d9a934ab7fc36b6adfface5540"
   },
   "native_map": {
-    "path": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_YOHO_cell_v1/YOHO/result.json",
+    "path": "project:output/scene_maps/gait_YOHO_cell_v1/YOHO/result.json",
     "sha256": "39f91f6a27391007dad9f1fc46f79a4c884b0f52ce3c82d97cdd5813c1b3af0c"
   },
   "probe_script_snapshot": {

@@ -22,7 +22,7 @@ def main():
     a = p.parse_args()
     tracked = set(subprocess.check_output(['git','ls-files'],cwd=ROOT,text=True).splitlines())
     failures, files, aliases = [], [], []
-    directories = ('src','scripts','configs','env','data/scripts','examples')
+    directories = ('src','scripts','configs','env','data/scripts','examples','resources/runtime_sources')
     suffixes = ('.py','.json','.yaml','.yml','.toml','.lock','.kit')
     for rel in sorted(tracked):
         part = Path(rel)
@@ -67,8 +67,6 @@ def main():
         if rel in files:
             failures.append('Code/config differs from committed HEAD: '+rel)
     required = ['src/CrowdSim/humanoid/runtime/sealed/sdk6_terminal.py',
-        'env/isaaclab3_sim6/native_shutdown/libisaacsim.core.simulation_manager.plugin.so',
-        'env/isaaclab3_sim6/native_shutdown/original_build_manifest.json',
         'configs/reproduction/resource_bindings.json','resources/pedestrian_visuals/manifest.json']
     required += ['configs/reproduction/amass_containers/'+s+'.json' for s in ('train','validation','test')]
     for rel in required:

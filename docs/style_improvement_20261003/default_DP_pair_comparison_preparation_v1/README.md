@@ -1,7 +1,0 @@
-# 真实closed defaultDP pair记录比较
-
-薄CLI只消费实际closed GPU+CPU的独立raw audit与全部NPZ。OLD历史模式不读取NEW；完整OLD/NEW模式只有二者真实closed后才读数组，跌倒/接触/idle/reset均不滤。输出物理进展只复制原result/audit字段，无新运动学/风格数学。两run的physical/reference/ground全部字段记录dtype、shape、C-order bytes和hash；缺字段/异shape明确保留。
-
-历史selected input从已冻结ground_support_200s_actual_verification.json取，physical NPZ由artifacts.physical_states绑定；reference由已冻结backward_penalty_navigation_style_v1/comparison.json的stagnation.saved_plans绑定，不猜邻近run名称。当前OLD与历史只比physical/reference。如果逐数组exact，仅说明这些保存数组相同，不保证未来bitwisephysics/RNG。
-
-source-only准备不读capture，不载模型/SDK、不GPU；无新suite/owner，命令在commands.json。实际比较不以任何style分数筛选，NEW物理gate仍由原登记的完整6000零F/static/peer决定。

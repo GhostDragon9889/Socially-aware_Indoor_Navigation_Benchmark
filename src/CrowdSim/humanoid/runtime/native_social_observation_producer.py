@@ -13,8 +13,8 @@ from types import ModuleType
 from .social_evaluation_lifecycle import ROOT, record
 from . import social_observation_producer
 
-PARENT = ROOT / "docs/style_improvement_20261004/social_native_evaluation_staging_v1/native_producer.py"
-PARENT_SHA = "7d2a51563f59811a6c6d16d82f880e99accaffbfecc3074e44c48bad64666621"
+PARENT = ROOT / "resources/runtime_sources/style_improvement_20261004/social_native_evaluation_staging_v1/native_producer.py"
+PARENT_SHA = "e76deb05e0cc07af97c18a84307d454c92817538ddd2110fe8a77f8076459b4b"
 
 
 def derive_native_origin(source):

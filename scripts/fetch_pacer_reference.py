@@ -90,7 +90,7 @@ def main() -> int:
 
     repo = args.repo_root.absolute()
     root = repo / "data/pretrained_models/paper_references/pacer"
-    report_path = repo / "docs/resource_completion_20261001/pacer_download_manifest.json"
+    report_path = repo / "resources/runtime_sources/resource_completion_20261001/pacer_download_manifest.json"
     root.mkdir(parents=True, exist_ok=True)
     free_bytes = shutil.disk_usage(root).free
     if free_bytes < 2 * args.max_total_bytes + 256 * 1024**2:

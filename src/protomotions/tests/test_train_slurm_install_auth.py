@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: Copyright (c) 2025-2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
 # SPDX-License-Identifier: Apache-2.0
 
-"""Exercise generated installation gates using fake pip, without SLURM/Kit."""
+"""Exercise generated SDK binding gates using a fake bootstrap, without SLURM/Kit."""
 
 import os
 from pathlib import Path
@@ -60,22 +60,22 @@ def test_waiting_rank_has_bounded_failure_when_leader_never_starts(tmp_path):
     assert "Timed out" in result.stdout
 
 
-def test_full_generated_job_never_starts_training_after_failed_pip(tmp_path):
+def test_full_generated_job_never_starts_training_after_failed_sdk_binding(tmp_path):
     # The directory includes spaces to exercise the actual generated cd/log paths.
     exp = tmp_path / "experiment folder"
     exp.mkdir()
     executables = tmp_path / "bin"
     executables.mkdir()
-    fake_pip = executables / "pip"
-    fake_pip.write_text('#!/bin/bash\nif [ "$1" = uninstall ]; then exit 0; fi\nexit 42\n')
-    fake_pip.chmod(0o700)
+    fake_python3 = executables / "python3"
+    fake_python3.write_text('#!/bin/bash\n[ "$1" = scripts/bootstrap_reproduction.py ] || exit 99\n[ "$2" = configure ] || exit 98\n[ "$3" = --lab-root ] || exit 97\n[ "$4" = "fixture-sdk" ] || exit 96\nexit 42\n')
+    fake_python3.chmod(0o700)
     marker = tmp_path / "training-started"
     fake_python = executables / "fake-python"
     fake_python.write_text(f"#!/bin/bash\ntouch {shlex.quote(str(marker))}\n")
     fake_python.chmod(0o700)
     body = slurm.build_job_command(_args(), str(exp), shlex.quote(str(fake_python)))
     env = dict(os.environ)
-    env.update(PATH=f"{executables}:{env['PATH']}", PROTOMOTIONS_INSTALL_GATE_DIR=str(tmp_path / "gate"), SLURM_LOCALID="0")
+    env.update(PATH=f"{executables}:{env['PATH']}", PROTOMOTIONS_INSTALL_GATE_DIR=str(tmp_path / "gate"), SLURM_LOCALID="0", ISAACLAB_ROOT="fixture-sdk")
     result = subprocess.run(["bash", "-c", body], env=env, capture_output=True, text=True, timeout=15)
     assert result.returncode == 42, result.stderr
     assert not marker.exists()
@@ -109,7 +109,7 @@ def test_install_attempt_markers_do_not_reuse_a_previous_slurm_step(tmp_path):
     job = f"audit-{tmp_path.name}"
     env = dict(os.environ)
     env.pop("PROTOMOTIONS_INSTALL_GATE_DIR", None)
-    env.update(SLURM_JOB_ID=job, SLURM_RESTART_COUNT="0", SLURMD_NODENAME="test", SLURM_LOCALID="0")
+    env.update(SLURM_JOB_ID=job, SLURM_RESTART_COUNT="0", SLURMD_NODENAME="test", SLURM_LOCALID="0", ISAACLAB_ROOT="fixture-sdk")
     gates = []
     try:
         for step, install, expected in (("0", "true", 0), ("1", "exit 42", 42)):

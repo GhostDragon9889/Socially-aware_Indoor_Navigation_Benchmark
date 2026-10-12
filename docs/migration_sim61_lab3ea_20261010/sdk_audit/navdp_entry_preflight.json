@@ -1,5 +1,0 @@
-{
-  "status": "expected_preflight_rejection",
-  "error": "Missing optional NavDP baseline modules: casadi, pathfinding, pynput. Install compatible optional dependencies in the target SDK environment before launching this baseline. Do not install its archived Lab 2 / NumPy 1 requirements into the main runtime.",
-  "kit_import_attempts": []
-}

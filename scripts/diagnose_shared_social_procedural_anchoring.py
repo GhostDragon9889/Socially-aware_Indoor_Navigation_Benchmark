@@ -21,13 +21,13 @@ from scripts.diagnose_shared_social_training import identity  # noqa: E402
 from scripts.evaluate_shared_social_tracking import admit_training  # noqa: E402
 
 MANIFEST = ROOT / "data/diffusion_amp/amass_style_2848/manifest_labeled_v7.json"
-OWNER = ROOT / "docs/style_improvement_20261005/shared_social_budget12500_v1/terminal_owner_state.json"
-TRAINING = ROOT / "docs/style_improvement_20261005/shared_social_full_epochs_v1/pilot2000_execution.json"
+OWNER = ROOT / "resources/runtime_sources/style_improvement_20261005/shared_social_budget12500_v1/terminal_owner_state.json"
+TRAINING = ROOT / "resources/runtime_sources/style_improvement_20261005/shared_social_full_epochs_v1/pilot2000_execution.json"
 METHODS = ("actual_periodic_generator", "same_first_plan_periodic_restart", "same_first_plan_episode_clock")
 PINNED = {
     "CrowdSim/humanoid/training/trajectories.py": "81701988535cf847b8b86979a836ba37089e93553aa4e3fe5ecfc9529d62d2c9",
     "CrowdSim/humanoid/training/mixed_trajectories.py": "c79732a675ac737d4ce0aff0d2b76cfa30cebed2d9c115e1a35da39299694d67",
-    "docs/style_improvement_20261004/shared_group_world_owned_lifetime_revision_v2/shared_group_world.py": "e76182d2be5a3fa4dad19a04d71275d91929ce3ea2d63a1c23f081aa1a59880b"}
+    "resources/runtime_sources/style_improvement_20261004/shared_group_world_owned_lifetime_revision_v2/shared_group_world.py": "709e9fa0347f0860244e8edc78098ff83376b7e799093d37b4722e1362fdd96f"}
 
 
 def require(condition, message):

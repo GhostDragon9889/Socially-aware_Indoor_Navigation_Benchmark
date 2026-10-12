@@ -1,612 +1,612 @@
 {
   "schema": "shared_social.grouped_sources.sim61.v2",
   "modules": {
-    "docs/style_improvement_20261004/shared_social_contact_layout_revision_v6/train_shared_social.py": {
+    "resources/runtime_sources/style_improvement_20261004/shared_social_contact_layout_revision_v6/train_shared_social.py": {
       "source": {
-        "path": "docs/style_improvement_20261004/shared_social_contact_layout_revision_v6/train_shared_social.py",
-        "bytes": 31453,
-        "sha256": "6b64213aea03243bf841af0c8e1b5bb03f06700d030f6d8d16051d356bfb59c4"
+        "path": "resources/runtime_sources/style_improvement_20261004/shared_social_contact_layout_revision_v6/train_shared_social.py",
+        "bytes": 31516,
+        "sha256": "a96601ae3fa924706e49a2873203231f2f30806893d9c11d5e0846acc10617b5"
       },
-      "lab": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions",
-      "api": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/extscache/omni.physics.tensors-110.1.11+110.1.1.lx64.r.cp312.u7f4/omni/physics/tensors/api.py",
+      "lab": "lab:",
+      "api": "sim:extscache/omni.physics.tensors-110.1.11+110.1.1.lx64.r.cp312.u7f4/omni/physics/tensors/api.py",
       "pins": {
         "probe_setup": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/shared_social_contact_layout_revision_v6/probe_shared_world.py",
-          49730,
-          "68226208eaa633d315537ea891ee26ab56ec0b24a61df79d54fe8e0fc614e281"
+          "project:resources/runtime_sources/style_improvement_20261004/shared_social_contact_layout_revision_v6/probe_shared_world.py",
+          49793,
+          "fff0d8f0ee692e72a15837ee02d3b4af50213ed9dd288efea1a3a620c539c070"
         ],
         "terminal_cleanup": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/social_native_overlay_entry_revision_v10/smoke_group_physics.py",
-          67343,
-          "0e6b2ef97cc2f32612317df162ebba6107b1e276083f9912995badd5f416685e"
+          "project:resources/runtime_sources/style_improvement_20261004/social_native_overlay_entry_revision_v10/smoke_group_physics.py",
+          66700,
+          "270605992e4e600b84b43517efd6bbba82e67a5c449f7a55bfa5a5763269804e"
         ],
         "lifecycle_owner": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/social_actual_runtime_v1/group_physics_native_overlay_v18_actual_root_owner.json",
-          16714,
-          "ae304517dcea801b46d566eb60207f1684fcb227adafbd6f91496e7d681bfff2"
+          "project:resources/runtime_sources/style_improvement_20261004/social_actual_runtime_v1/group_physics_native_overlay_v18_actual_root_owner.json",
+          13111,
+          "5efe84e3391d52d82f8b14acdb4ff61fff3e75bac9a2e2daab83fe291c879434"
         ],
         "trainer": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/social_trainer_staging_v1/social_trainer.py",
-          24078,
-          "81a6319f2520b3be547f30454c88b088638d559d492bba52fe850d1c1d5ba96e"
+          "project:resources/runtime_sources/style_improvement_20261004/social_trainer_staging_v1/social_trainer.py",
+          24289,
+          "11d304d7002d31c96c2fcdf3766aa51616c84560e58bc11f7eeababb068c559b"
         ],
         "collector": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/social_world_lifetime_dependency_migration_v1/social_rollout_collector.py",
-          27268,
-          "4497ed99f0424a33148a31c137d2c7f705acd9a72f32b8eae6e66c833b321898"
+          "project:resources/runtime_sources/style_improvement_20261004/social_world_lifetime_dependency_migration_v1/social_rollout_collector.py",
+          27331,
+          "b207ab872683b023529785498f745c4149bd44b3c116c6fd15e5fbbd72d153be"
         ],
         "expert": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/social_world_lifetime_dependency_migration_v1/expert_batch.py",
-          15295,
-          "029697b3c44c2617515cb9239b2cf075fdd5d2bf62ee9a5161fbb744afd5f57f"
+          "project:resources/runtime_sources/style_improvement_20261004/social_world_lifetime_dependency_migration_v1/expert_batch.py",
+          15358,
+          "bced676ccaa7972cb646836da583ea3c41ce89dd06a967bb3d436c91854c90e5"
         ]
       }
     },
-    "docs/style_improvement_20261004/shared_social_contact_layout_revision_v6/probe_shared_world.py": {
+    "resources/runtime_sources/style_improvement_20261004/shared_social_contact_layout_revision_v6/probe_shared_world.py": {
       "source": {
-        "path": "docs/style_improvement_20261004/shared_social_contact_layout_revision_v6/probe_shared_world.py",
-        "bytes": 49730,
-        "sha256": "68226208eaa633d315537ea891ee26ab56ec0b24a61df79d54fe8e0fc614e281"
+        "path": "resources/runtime_sources/style_improvement_20261004/shared_social_contact_layout_revision_v6/probe_shared_world.py",
+        "bytes": 49793,
+        "sha256": "fff0d8f0ee692e72a15837ee02d3b4af50213ed9dd288efea1a3a620c539c070"
       },
-      "lab": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions",
-      "api": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/extscache/omni.physics.tensors-110.1.11+110.1.1.lx64.r.cp312.u7f4/omni/physics/tensors/api.py",
+      "lab": "lab:",
+      "api": "sim:extscache/omni.physics.tensors-110.1.11+110.1.1.lx64.r.cp312.u7f4/omni/physics/tensors/api.py",
       "pins": {
         "World": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/shared_group_world_owned_lifetime_revision_v2/shared_group_world.py",
-          39943,
-          "e76182d2be5a3fa4dad19a04d71275d91929ce3ea2d63a1c23f081aa1a59880b",
+          "project:resources/runtime_sources/style_improvement_20261004/shared_group_world_owned_lifetime_revision_v2/shared_group_world.py",
+          39960,
+          "d7400a48364b64971f4e2e942d87ebd9e108b5a8ff018e8a8f404b817bd02038",
           true
         ],
         "normal_factory": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/social_normal_force_empty_filter_revision_v3/normal_force_views.py",
-          17879,
-          "293de5948da4afc74e07fa2c5a178468537161ae01219ea250fa152f88eb90fe",
+          "project:resources/runtime_sources/style_improvement_20261004/social_normal_force_empty_filter_revision_v3/normal_force_views.py",
+          17897,
+          "73d38d6f16af322081ba669649ff19a065c59799a54e92bb0404497e80e2c502",
           true
         ],
         "terminal_cleanup": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/social_native_overlay_entry_revision_v10/smoke_group_physics.py",
-          67343,
-          "0e6b2ef97cc2f32612317df162ebba6107b1e276083f9912995badd5f416685e",
+          "project:resources/runtime_sources/style_improvement_20261004/social_native_overlay_entry_revision_v10/smoke_group_physics.py",
+          66700,
+          "270605992e4e600b84b43517efd6bbba82e67a5c449f7a55bfa5a5763269804e",
           true
         ],
         "lifecycle_owner": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/social_actual_runtime_v1/group_physics_native_overlay_v18_actual_root_owner.json",
-          16714,
-          "ae304517dcea801b46d566eb60207f1684fcb227adafbd6f91496e7d681bfff2",
+          "project:resources/runtime_sources/style_improvement_20261004/social_actual_runtime_v1/group_physics_native_overlay_v18_actual_root_owner.json",
+          13111,
+          "5efe84e3391d52d82f8b14acdb4ff61fff3e75bac9a2e2daab83fe291c879434",
           true
         ],
         "eight_actor_smoke": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/group_articulation_physics_smoke_staging_v1/smoke_group_physics.py",
-          21236,
-          "d000200abf55545d0583f896fcfe48f6ebba673afd78b8820782a6a25b6c063d",
+          "project:resources/runtime_sources/style_improvement_20261004/group_articulation_physics_smoke_staging_v1/smoke_group_physics.py",
+          21299,
+          "1f26a658bbbf2190782d626ab5a28d1ce1e830b1ff9b5baeecca4a27b0950eca",
           true
         ],
         "corpus": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/CrowdSim/humanoid/amass_corpus.py",
+          "project:CrowdSim/humanoid/amass_corpus.py",
           12126,
           "2d4e4f7549aa38f5fd6763de4d3924a9cdd969746682c649ab773f033d747cf7",
           false
         ],
         "bootstrap": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/protomotions/utils/simulator_imports.py",
+          "project:protomotions/utils/simulator_imports.py",
           3118,
           "7f236c0a5bd071996437ce1298c7911975a1527bea5a33bad61d68f7724918e8",
           false
         ],
         "scene_config": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/protomotions/simulator/isaaclab/utils/scene.py",
-          11303,
-          "b721a0e2d4f4b5529e191182a5bb152619dde65de36d400627c92ed95731d6f1",
+          "project:protomotions/simulator/isaaclab/utils/scene.py",
+          11546,
+          "3fcf83158b29c998971ee59f9e7370183fda9ad6f892a5d8ffc5d5bca79fff51",
           false
         ],
         "robot_config": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/protomotions/robot_configs/smpl.py",
+          "project:protomotions/robot_configs/smpl.py",
           4067,
           "505e6e909f5b36a93e5449c75ee10a87b11ce30a4f2052a965ac65d273ae7b2e",
           false
         ],
         "simulator_config": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/protomotions/simulator/isaaclab/config.py",
-          2589,
-          "f615a5f0a9e7e1457399b2dbdee2ba3fc77b545ff3d25e7427671a49bd21254d",
+          "project:protomotions/simulator/isaaclab/config.py",
+          2799,
+          "67682326c12f9fbc9887c4a87256bb36cac0e46ed77ac04bd3fb7320c3ac6db7",
           false
         ],
         "MJCF_converter": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/protomotions/simulator/isaaclab/utils/mjcf_to_usd.py",
-          14127,
-          "e8e383b425c3a40b277b4375e031235ef4a3d545d4c6a469ce8528c12e80cae2",
+          "project:protomotions/simulator/isaaclab/utils/mjcf_to_usd.py",
+          15556,
+          "e472e2397a26b20ae90700ab1e7a68dc4cbe4293c0fe90f4c3265c415f351f57",
           false
         ],
         "D6_workaround": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/protomotions/simulator/isaaclab/utils/mjcf_d6_workaround.py",
+          "project:protomotions/simulator/isaaclab/utils/mjcf_d6_workaround.py",
           10158,
           "9e1ee16aa5d3646e4eb4ba3e10060b7537063185fe9450a3612ed53d143ef371",
           false
         ]
       }
     },
-    "docs/style_improvement_20261004/shared_group_world_owned_lifetime_revision_v2/shared_group_world.py": {
+    "resources/runtime_sources/style_improvement_20261004/shared_group_world_owned_lifetime_revision_v2/shared_group_world.py": {
       "source": {
-        "path": "docs/style_improvement_20261004/shared_group_world_owned_lifetime_revision_v2/shared_group_world.py",
-        "bytes": 39943,
-        "sha256": "e76182d2be5a3fa4dad19a04d71275d91929ce3ea2d63a1c23f081aa1a59880b"
+        "path": "resources/runtime_sources/style_improvement_20261004/shared_group_world_owned_lifetime_revision_v2/shared_group_world.py",
+        "bytes": 39960,
+        "sha256": "d7400a48364b64971f4e2e942d87ebd9e108b5a8ff018e8a8f404b817bd02038"
       },
-      "lab": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/source",
-      "api": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/source/.venv/lib/python3.12/site-packages/isaacsim/extscache/omni.physics.tensors-110.1.11+110.1.1.lx64.r.cp312.u7f4/omni/physics/tensors/api.py",
+      "lab": "lab:source",
+      "api": "lab:source/.venv/lib/python3.12/site-packages/isaacsim/extscache/omni.physics.tensors-110.1.11+110.1.1.lx64.r.cp312.u7f4/omni/physics/tensors/api.py",
       "pins": {
         "factory": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/group_articulation_scene_staging_v1/group_scene.py",
+          "project:resources/runtime_sources/style_improvement_20261004/group_articulation_scene_staging_v1/group_scene.py",
           7213,
           "88e5a8d289a3a3d8329107faaca857f03cf38a5c640985af84b7b3658f6916b6",
           true
         ],
         "bridge": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/group_articulation_tensor_bridge_staging_v1/tensor_bridge.py",
+          "project:resources/runtime_sources/style_improvement_20261004/group_articulation_tensor_bridge_staging_v1/tensor_bridge.py",
           6035,
           "2f5dc721f739d26ace02cc0831864523e605587f7e960f0fd32b82326ec8c9ec",
           true
         ],
         "adapter": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/group_articulation_state_adapter_staging_v1/state_adapter.py",
-          12750,
-          "468a26311fcde8a92595fb03bf5d6294bb9a927910c805f24368f7068edc1e50",
+          "project:resources/runtime_sources/style_improvement_20261004/group_articulation_state_adapter_staging_v1/state_adapter.py",
+          12768,
+          "4b8104782825ddc3dac3dae7ff157bb6af58de8ca3d81152a8bf2042d00fdcbb",
           true
         ],
         "task": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/social_task_observation_staging_v1/social_task_observation.py",
+          "project:resources/runtime_sources/style_improvement_20261004/social_task_observation_staging_v1/social_task_observation.py",
           8512,
           "6975d95f369e2c00f1fa2ef34474e14164c36c82f70e4fb83a925335ee276ee1",
           true
         ],
         "group_reset": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/social_group_reset_staging_v1/group_reset.py",
+          "project:resources/runtime_sources/style_improvement_20261004/social_group_reset_staging_v1/group_reset.py",
           3244,
           "2340a7908454408b84366393a83762fc224d214b6673546a03ed1bade9fd3aa4",
           true
         ],
         "contact": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/nonfoot_net_normal_contact_staging_v1/nonfoot_contact.py",
-          4095,
-          "9fa82a7771a2c875e1cc41610b0203e8c3d235a9c50f7668f78665ae373a863a",
+          "project:resources/runtime_sources/style_improvement_20261004/nonfoot_net_normal_contact_staging_v1/nonfoot_contact.py",
+          4138,
+          "a8c9231f4c1edc1805bf5d3cb75971ababaa47f21b90e1914f36ec416cc5c5c7",
           true
         ],
         "sampler": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/social_net_normal_sampler_staging_v1/net_normal_sampler.py",
-          7398,
-          "04d21596a8f1fd54d9d9a43977c8a76137840a574fb4f04a73ed4ce94beb5d09",
+          "project:resources/runtime_sources/style_improvement_20261004/social_net_normal_sampler_staging_v1/net_normal_sampler.py",
+          7461,
+          "52ea1901985c6152429d00c7dc6261c3371a672009acc4b578a57e5cc0385517",
           true
         ],
         "raster": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/social_raster_torch_staging_v1/social_raster_torch.py",
+          "project:resources/runtime_sources/style_improvement_20261004/social_raster_torch_staging_v1/social_raster_torch.py",
           9125,
           "234e6366a00301998349dbc837fae5878cac4c506e29ad605ab8b2023a6c5dbe",
           true
         ],
         "observations": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/CrowdSim/humanoid/amp/observations.py",
-          10438,
-          "a64dc2eba5c132cf68a248f2324ea20446dd264a2ea8f9f139faae4738f9aeba",
+          "project:CrowdSim/humanoid/amp/observations.py",
+          10586,
+          "000f3980a8f4d3c1fac929c57029dd05a9ce19b1d8ce82423dad273c9315e599",
           false
         ],
         "rotations": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/protomotions/utils/rotations.py",
+          "project:protomotions/utils/rotations.py",
           28136,
           "ef1475d33d6f941ccdea4a612477483db4fad8236ba7786fbe8bf91a65c1cef8",
           false
         ],
         "controller": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/CrowdSim/humanoid/amp/controller.py",
-          10030,
-          "ca27410b6c50ab7b9cbaff0f360ec09206ecfd602b7a2c3968c3e5c6509b1d68",
+          "project:CrowdSim/humanoid/amp/controller.py",
+          11295,
+          "b1e56c6392e91e023af63437d74feb28d13a29099ad6708d4c742f08f737e3d2",
           false
         ],
         "mixed": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/CrowdSim/humanoid/training/mixed_trajectories.py",
+          "project:CrowdSim/humanoid/training/mixed_trajectories.py",
           22594,
           "c79732a675ac737d4ce0aff0d2b76cfa30cebed2d9c115e1a35da39299694d67",
           false
         ],
         "amass": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/CrowdSim/humanoid/training/amass_trajectories.py",
+          "project:CrowdSim/humanoid/training/amass_trajectories.py",
           21752,
           "ddca3403a59422045f051b5d9f653d6f411db1523840ed8bc021fc96ef82566e",
           false
         ],
         "procedural": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/CrowdSim/humanoid/training/trajectories.py",
+          "project:CrowdSim/humanoid/training/trajectories.py",
           14063,
           "81701988535cf847b8b86979a836ba37089e93553aa4e3fe5ecfc9529d62d2c9",
           false
         ],
         "SDK_scene": [
-          "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/source/isaaclab/isaaclab/scene/interactive_scene.py",
+          "lab:source/isaaclab/isaaclab/scene/interactive_scene.py",
           39939,
           "5d509530070ffb8f4616f769a6608299a386800d7e2582833181ba28dfee32d1",
           false
         ],
         "SDK_sim": [
-          "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/source/isaaclab/isaaclab/sim/simulation_context.py",
+          "lab:source/isaaclab/isaaclab/sim/simulation_context.py",
           42425,
           "8c5d73af45f82b0d5c36b05a1c293094319c5d17a75f75a2fe679c382334ea89",
           false
         ],
         "SDK_physx_manager": [
-          "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/source/isaaclab_physx/isaaclab_physx/physics/physx_manager.py",
+          "lab:source/isaaclab_physx/isaaclab_physx/physics/physx_manager.py",
           34974,
           "d83ef1b3a375dbbdbd538f7e5f552064ee57528ae7b35b9ba58719fd8a4cfda5",
           false
         ]
       }
     },
-    "docs/style_improvement_20261006/shared_social_episode_reference_runtime_preparation_v1/shared_group_world.py": {
+    "resources/runtime_sources/style_improvement_20261006/shared_social_episode_reference_runtime_preparation_v1/shared_group_world.py": {
       "source": {
-        "path": "docs/style_improvement_20261006/shared_social_episode_reference_runtime_preparation_v1/shared_group_world.py",
-        "bytes": 40596,
-        "sha256": "635bd6183404141502bca82f6e7e3143c223a75c64c5cd080a1b3eb89031b360"
+        "path": "resources/runtime_sources/style_improvement_20261006/shared_social_episode_reference_runtime_preparation_v1/shared_group_world.py",
+        "bytes": 40613,
+        "sha256": "1e2a86ced62e21c0ef3c447dad22ec72d2ead4104564c12a4be4b4636a6e58d5"
       },
-      "lab": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/source",
-      "api": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/source/.venv/lib/python3.12/site-packages/isaacsim/extscache/omni.physics.tensors-110.1.11+110.1.1.lx64.r.cp312.u7f4/omni/physics/tensors/api.py",
+      "lab": "lab:source",
+      "api": "lab:source/.venv/lib/python3.12/site-packages/isaacsim/extscache/omni.physics.tensors-110.1.11+110.1.1.lx64.r.cp312.u7f4/omni/physics/tensors/api.py",
       "pins": {
         "factory": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/group_articulation_scene_staging_v1/group_scene.py",
+          "project:resources/runtime_sources/style_improvement_20261004/group_articulation_scene_staging_v1/group_scene.py",
           7213,
           "88e5a8d289a3a3d8329107faaca857f03cf38a5c640985af84b7b3658f6916b6",
           true
         ],
         "bridge": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/group_articulation_tensor_bridge_staging_v1/tensor_bridge.py",
+          "project:resources/runtime_sources/style_improvement_20261004/group_articulation_tensor_bridge_staging_v1/tensor_bridge.py",
           6035,
           "2f5dc721f739d26ace02cc0831864523e605587f7e960f0fd32b82326ec8c9ec",
           true
         ],
         "adapter": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/group_articulation_state_adapter_staging_v1/state_adapter.py",
-          12750,
-          "468a26311fcde8a92595fb03bf5d6294bb9a927910c805f24368f7068edc1e50",
+          "project:resources/runtime_sources/style_improvement_20261004/group_articulation_state_adapter_staging_v1/state_adapter.py",
+          12768,
+          "4b8104782825ddc3dac3dae7ff157bb6af58de8ca3d81152a8bf2042d00fdcbb",
           true
         ],
         "task": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/social_task_observation_staging_v1/social_task_observation.py",
+          "project:resources/runtime_sources/style_improvement_20261004/social_task_observation_staging_v1/social_task_observation.py",
           8512,
           "6975d95f369e2c00f1fa2ef34474e14164c36c82f70e4fb83a925335ee276ee1",
           true
         ],
         "group_reset": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/social_group_reset_staging_v1/group_reset.py",
+          "project:resources/runtime_sources/style_improvement_20261004/social_group_reset_staging_v1/group_reset.py",
           3244,
           "2340a7908454408b84366393a83762fc224d214b6673546a03ed1bade9fd3aa4",
           true
         ],
         "contact": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/nonfoot_net_normal_contact_staging_v1/nonfoot_contact.py",
-          4095,
-          "9fa82a7771a2c875e1cc41610b0203e8c3d235a9c50f7668f78665ae373a863a",
+          "project:resources/runtime_sources/style_improvement_20261004/nonfoot_net_normal_contact_staging_v1/nonfoot_contact.py",
+          4138,
+          "a8c9231f4c1edc1805bf5d3cb75971ababaa47f21b90e1914f36ec416cc5c5c7",
           true
         ],
         "sampler": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/social_net_normal_sampler_staging_v1/net_normal_sampler.py",
-          7398,
-          "04d21596a8f1fd54d9d9a43977c8a76137840a574fb4f04a73ed4ce94beb5d09",
+          "project:resources/runtime_sources/style_improvement_20261004/social_net_normal_sampler_staging_v1/net_normal_sampler.py",
+          7461,
+          "52ea1901985c6152429d00c7dc6261c3371a672009acc4b578a57e5cc0385517",
           true
         ],
         "raster": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/social_raster_torch_staging_v1/social_raster_torch.py",
+          "project:resources/runtime_sources/style_improvement_20261004/social_raster_torch_staging_v1/social_raster_torch.py",
           9125,
           "234e6366a00301998349dbc837fae5878cac4c506e29ad605ab8b2023a6c5dbe",
           true
         ],
         "observations": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/CrowdSim/humanoid/amp/observations.py",
-          10438,
-          "a64dc2eba5c132cf68a248f2324ea20446dd264a2ea8f9f139faae4738f9aeba",
+          "project:CrowdSim/humanoid/amp/observations.py",
+          10586,
+          "000f3980a8f4d3c1fac929c57029dd05a9ce19b1d8ce82423dad273c9315e599",
           false
         ],
         "rotations": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/protomotions/utils/rotations.py",
+          "project:protomotions/utils/rotations.py",
           28136,
           "ef1475d33d6f941ccdea4a612477483db4fad8236ba7786fbe8bf91a65c1cef8",
           false
         ],
         "controller": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/CrowdSim/humanoid/amp/controller.py",
-          10030,
-          "ca27410b6c50ab7b9cbaff0f360ec09206ecfd602b7a2c3968c3e5c6509b1d68",
+          "project:CrowdSim/humanoid/amp/controller.py",
+          11295,
+          "b1e56c6392e91e023af63437d74feb28d13a29099ad6708d4c742f08f737e3d2",
           false
         ],
         "mixed": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/CrowdSim/humanoid/training/mixed_trajectories.py",
+          "project:CrowdSim/humanoid/training/mixed_trajectories.py",
           22594,
           "c79732a675ac737d4ce0aff0d2b76cfa30cebed2d9c115e1a35da39299694d67",
           false
         ],
         "amass": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/CrowdSim/humanoid/training/amass_trajectories.py",
+          "project:CrowdSim/humanoid/training/amass_trajectories.py",
           21752,
           "ddca3403a59422045f051b5d9f653d6f411db1523840ed8bc021fc96ef82566e",
           false
         ],
         "procedural": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/CrowdSim/humanoid/training/trajectories.py",
+          "project:CrowdSim/humanoid/training/trajectories.py",
           14063,
           "81701988535cf847b8b86979a836ba37089e93553aa4e3fe5ecfc9529d62d2c9",
           false
         ],
         "episode_mixed": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/CrowdSim/humanoid/training/episode_mixed_trajectories.py",
+          "project:CrowdSim/humanoid/training/episode_mixed_trajectories.py",
           12099,
           "61ec4446472800c4c6ed922194cb42f8d6988cabe732853d865f5386d4793e1a",
           false
         ],
         "episode_reference": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/CrowdSim/humanoid/training/episode_trajectories.py",
+          "project:CrowdSim/humanoid/training/episode_trajectories.py",
           6705,
           "f4283656f29a31547905ee640316aac63e7ba2cdbcd9321f1763475247a17576",
           false
         ],
         "SDK_scene": [
-          "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/source/isaaclab/isaaclab/scene/interactive_scene.py",
+          "lab:source/isaaclab/isaaclab/scene/interactive_scene.py",
           39939,
           "5d509530070ffb8f4616f769a6608299a386800d7e2582833181ba28dfee32d1",
           false
         ],
         "SDK_sim": [
-          "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/source/isaaclab/isaaclab/sim/simulation_context.py",
+          "lab:source/isaaclab/isaaclab/sim/simulation_context.py",
           42425,
           "8c5d73af45f82b0d5c36b05a1c293094319c5d17a75f75a2fe679c382334ea89",
           false
         ],
         "SDK_physx_manager": [
-          "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/source/isaaclab_physx/isaaclab_physx/physics/physx_manager.py",
+          "lab:source/isaaclab_physx/isaaclab_physx/physics/physx_manager.py",
           34974,
           "d83ef1b3a375dbbdbd538f7e5f552064ee57528ae7b35b9ba58719fd8a4cfda5",
           false
         ]
       }
     },
-    "docs/style_improvement_20261006/shared_social_minimum_future81_runtime_preparation_v1/shared_group_world.py": {
+    "resources/runtime_sources/style_improvement_20261006/shared_social_minimum_future81_runtime_preparation_v1/shared_group_world.py": {
       "source": {
-        "path": "docs/style_improvement_20261006/shared_social_minimum_future81_runtime_preparation_v1/shared_group_world.py",
-        "bytes": 40270,
-        "sha256": "c76c9a5ef77fb713ebb91ca8d05fe8ac199a17de5bd981dd00a8aed0be2b2801"
+        "path": "resources/runtime_sources/style_improvement_20261006/shared_social_minimum_future81_runtime_preparation_v1/shared_group_world.py",
+        "bytes": 40287,
+        "sha256": "7ab4133b89370690a135395843e92581e2838369992f21273bd9e0e1d0aef893"
       },
-      "lab": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/source",
-      "api": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/source/.venv/lib/python3.12/site-packages/isaacsim/extscache/omni.physics.tensors-110.1.11+110.1.1.lx64.r.cp312.u7f4/omni/physics/tensors/api.py",
+      "lab": "lab:source",
+      "api": "lab:source/.venv/lib/python3.12/site-packages/isaacsim/extscache/omni.physics.tensors-110.1.11+110.1.1.lx64.r.cp312.u7f4/omni/physics/tensors/api.py",
       "pins": {
         "factory": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/group_articulation_scene_staging_v1/group_scene.py",
+          "project:resources/runtime_sources/style_improvement_20261004/group_articulation_scene_staging_v1/group_scene.py",
           7213,
           "88e5a8d289a3a3d8329107faaca857f03cf38a5c640985af84b7b3658f6916b6",
           true
         ],
         "bridge": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/group_articulation_tensor_bridge_staging_v1/tensor_bridge.py",
+          "project:resources/runtime_sources/style_improvement_20261004/group_articulation_tensor_bridge_staging_v1/tensor_bridge.py",
           6035,
           "2f5dc721f739d26ace02cc0831864523e605587f7e960f0fd32b82326ec8c9ec",
           true
         ],
         "adapter": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/group_articulation_state_adapter_staging_v1/state_adapter.py",
-          12750,
-          "468a26311fcde8a92595fb03bf5d6294bb9a927910c805f24368f7068edc1e50",
+          "project:resources/runtime_sources/style_improvement_20261004/group_articulation_state_adapter_staging_v1/state_adapter.py",
+          12768,
+          "4b8104782825ddc3dac3dae7ff157bb6af58de8ca3d81152a8bf2042d00fdcbb",
           true
         ],
         "task": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/social_task_observation_staging_v1/social_task_observation.py",
+          "project:resources/runtime_sources/style_improvement_20261004/social_task_observation_staging_v1/social_task_observation.py",
           8512,
           "6975d95f369e2c00f1fa2ef34474e14164c36c82f70e4fb83a925335ee276ee1",
           true
         ],
         "group_reset": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/social_group_reset_staging_v1/group_reset.py",
+          "project:resources/runtime_sources/style_improvement_20261004/social_group_reset_staging_v1/group_reset.py",
           3244,
           "2340a7908454408b84366393a83762fc224d214b6673546a03ed1bade9fd3aa4",
           true
         ],
         "contact": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/nonfoot_net_normal_contact_staging_v1/nonfoot_contact.py",
-          4095,
-          "9fa82a7771a2c875e1cc41610b0203e8c3d235a9c50f7668f78665ae373a863a",
+          "project:resources/runtime_sources/style_improvement_20261004/nonfoot_net_normal_contact_staging_v1/nonfoot_contact.py",
+          4138,
+          "a8c9231f4c1edc1805bf5d3cb75971ababaa47f21b90e1914f36ec416cc5c5c7",
           true
         ],
         "sampler": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/social_net_normal_sampler_staging_v1/net_normal_sampler.py",
-          7398,
-          "04d21596a8f1fd54d9d9a43977c8a76137840a574fb4f04a73ed4ce94beb5d09",
+          "project:resources/runtime_sources/style_improvement_20261004/social_net_normal_sampler_staging_v1/net_normal_sampler.py",
+          7461,
+          "52ea1901985c6152429d00c7dc6261c3371a672009acc4b578a57e5cc0385517",
           true
         ],
         "raster": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/social_raster_torch_staging_v1/social_raster_torch.py",
+          "project:resources/runtime_sources/style_improvement_20261004/social_raster_torch_staging_v1/social_raster_torch.py",
           9125,
           "234e6366a00301998349dbc837fae5878cac4c506e29ad605ab8b2023a6c5dbe",
           true
         ],
         "observations": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/CrowdSim/humanoid/amp/observations.py",
-          10438,
-          "a64dc2eba5c132cf68a248f2324ea20446dd264a2ea8f9f139faae4738f9aeba",
+          "project:CrowdSim/humanoid/amp/observations.py",
+          10586,
+          "000f3980a8f4d3c1fac929c57029dd05a9ce19b1d8ce82423dad273c9315e599",
           false
         ],
         "rotations": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/protomotions/utils/rotations.py",
+          "project:protomotions/utils/rotations.py",
           28136,
           "ef1475d33d6f941ccdea4a612477483db4fad8236ba7786fbe8bf91a65c1cef8",
           false
         ],
         "controller": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/CrowdSim/humanoid/amp/controller.py",
-          10030,
-          "ca27410b6c50ab7b9cbaff0f360ec09206ecfd602b7a2c3968c3e5c6509b1d68",
+          "project:CrowdSim/humanoid/amp/controller.py",
+          11295,
+          "b1e56c6392e91e023af63437d74feb28d13a29099ad6708d4c742f08f737e3d2",
           false
         ],
         "mixed": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/CrowdSim/humanoid/training/mixed_trajectories.py",
+          "project:CrowdSim/humanoid/training/mixed_trajectories.py",
           22594,
           "c79732a675ac737d4ce0aff0d2b76cfa30cebed2d9c115e1a35da39299694d67",
           false
         ],
         "minimum_horizon": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/CrowdSim/humanoid/training/minimum_horizon_curriculum.py",
+          "project:CrowdSim/humanoid/training/minimum_horizon_curriculum.py",
           5042,
           "817ac3898d540cc18e0f6ab8dd0b50b8ae6ecd2bd8a0f350efbbebd847388ef0",
           false
         ],
         "amass": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/CrowdSim/humanoid/training/amass_trajectories.py",
+          "project:CrowdSim/humanoid/training/amass_trajectories.py",
           21752,
           "ddca3403a59422045f051b5d9f653d6f411db1523840ed8bc021fc96ef82566e",
           false
         ],
         "procedural": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/CrowdSim/humanoid/training/trajectories.py",
+          "project:CrowdSim/humanoid/training/trajectories.py",
           14063,
           "81701988535cf847b8b86979a836ba37089e93553aa4e3fe5ecfc9529d62d2c9",
           false
         ],
         "SDK_scene": [
-          "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/source/isaaclab/isaaclab/scene/interactive_scene.py",
+          "lab:source/isaaclab/isaaclab/scene/interactive_scene.py",
           39939,
           "5d509530070ffb8f4616f769a6608299a386800d7e2582833181ba28dfee32d1",
           false
         ],
         "SDK_sim": [
-          "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/source/isaaclab/isaaclab/sim/simulation_context.py",
+          "lab:source/isaaclab/isaaclab/sim/simulation_context.py",
           42425,
           "8c5d73af45f82b0d5c36b05a1c293094319c5d17a75f75a2fe679c382334ea89",
           false
         ],
         "SDK_physx_manager": [
-          "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/source/isaaclab_physx/isaaclab_physx/physics/physx_manager.py",
+          "lab:source/isaaclab_physx/isaaclab_physx/physics/physx_manager.py",
           34974,
           "d83ef1b3a375dbbdbd538f7e5f552064ee57528ae7b35b9ba58719fd8a4cfda5",
           false
         ]
       }
     },
-    "docs/style_improvement_20261004/social_normal_force_empty_filter_revision_v3/normal_force_views.py": {
+    "resources/runtime_sources/style_improvement_20261004/social_normal_force_empty_filter_revision_v3/normal_force_views.py": {
       "source": {
-        "path": "docs/style_improvement_20261004/social_normal_force_empty_filter_revision_v3/normal_force_views.py",
-        "bytes": 17879,
-        "sha256": "293de5948da4afc74e07fa2c5a178468537161ae01219ea250fa152f88eb90fe"
+        "path": "resources/runtime_sources/style_improvement_20261004/social_normal_force_empty_filter_revision_v3/normal_force_views.py",
+        "bytes": 17897,
+        "sha256": "73d38d6f16af322081ba669649ff19a065c59799a54e92bb0404497e80e2c502"
       },
-      "lab": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions",
-      "api": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/extscache/omni.physics.tensors-110.1.11+110.1.1.lx64.r.cp312.u7f4/omni/physics/tensors/api.py",
+      "lab": "lab:",
+      "api": "sim:extscache/omni.physics.tensors-110.1.11+110.1.1.lx64.r.cp312.u7f4/omni/physics/tensors/api.py",
       "pins": {
         "world": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/shared_group_world_owned_lifetime_revision_v2/shared_group_world.py",
-          39943,
-          "e76182d2be5a3fa4dad19a04d71275d91929ce3ea2d63a1c23f081aa1a59880b",
+          "project:resources/runtime_sources/style_improvement_20261004/shared_group_world_owned_lifetime_revision_v2/shared_group_world.py",
+          39960,
+          "d7400a48364b64971f4e2e942d87ebd9e108b5a8ff018e8a8f404b817bd02038",
           true
         ],
         "sampler": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/social_net_normal_sampler_staging_v1/net_normal_sampler.py",
-          7398,
-          "04d21596a8f1fd54d9d9a43977c8a76137840a574fb4f04a73ed4ce94beb5d09",
+          "project:resources/runtime_sources/style_improvement_20261004/social_net_normal_sampler_staging_v1/net_normal_sampler.py",
+          7461,
+          "52ea1901985c6152429d00c7dc6261c3371a672009acc4b578a57e5cc0385517",
           true
         ],
         "names": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/CrowdSim/humanoid/amp/observations.py",
-          10438,
-          "a64dc2eba5c132cf68a248f2324ea20446dd264a2ea8f9f139faae4738f9aeba",
+          "project:CrowdSim/humanoid/amp/observations.py",
+          10586,
+          "000f3980a8f4d3c1fac929c57029dd05a9ce19b1d8ce82423dad273c9315e599",
           false
         ],
         "ownership": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/CrowdSim/humanoid/physics_views.py",
+          "project:CrowdSim/humanoid/physics_views.py",
           1845,
           "1b13d982864a3a2dae6eaebccd15f7ecfdda666c1e1a8dbce4996786a59a0c21",
           false
         ],
         "tensor_API": [
-          "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/extscache/omni.physics.tensors-110.1.11+110.1.1.lx64.r.cp312.u7f4/omni/physics/tensors/api.py",
+          "sim:extscache/omni.physics.tensors-110.1.11+110.1.1.lx64.r.cp312.u7f4/omni/physics/tensors/api.py",
           382927,
           "b913fdb1a3c0cf04b62aa01d6ceaf7d96cfe577a510d0e02b71485018661c903",
           false
         ],
         "articulation": [
-          "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/source/isaaclab_physx/isaaclab_physx/assets/articulation/articulation.py",
+          "lab:source/isaaclab_physx/isaaclab_physx/assets/articulation/articulation.py",
           224858,
           "2cbd53ccbebb7a7b038bed2b612b65e41d6674a4791beec68d84336d7bd00a87",
           false
         ],
         "scene": [
-          "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/source/isaaclab/isaaclab/scene/interactive_scene.py",
+          "lab:source/isaaclab/isaaclab/scene/interactive_scene.py",
           39939,
           "5d509530070ffb8f4616f769a6608299a386800d7e2582833181ba28dfee32d1",
           false
         ],
         "sim": [
-          "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/source/isaaclab/isaaclab/sim/simulation_context.py",
+          "lab:source/isaaclab/isaaclab/sim/simulation_context.py",
           42425,
           "8c5d73af45f82b0d5c36b05a1c293094319c5d17a75f75a2fe679c382334ea89",
           false
         ],
         "manager": [
-          "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/source/isaaclab_physx/isaaclab_physx/physics/physx_manager.py",
+          "lab:source/isaaclab_physx/isaaclab_physx/physics/physx_manager.py",
           34974,
           "d83ef1b3a375dbbdbd538f7e5f552064ee57528ae7b35b9ba58719fd8a4cfda5",
           false
         ],
         "stage": [
-          "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/source/isaaclab/isaaclab/sim/utils/stage.py",
+          "lab:source/isaaclab/isaaclab/sim/utils/stage.py",
           20480,
           "7443a822773b7d8152757854c75cd8104f34d3fe68bb0c9da1d6e0bb56ba6f89",
           false
         ]
       }
     },
-    "docs/style_improvement_20261004/group_articulation_state_adapter_staging_v1/state_adapter.py": {
+    "resources/runtime_sources/style_improvement_20261004/group_articulation_state_adapter_staging_v1/state_adapter.py": {
       "source": {
-        "path": "docs/style_improvement_20261004/group_articulation_state_adapter_staging_v1/state_adapter.py",
-        "bytes": 12750,
-        "sha256": "468a26311fcde8a92595fb03bf5d6294bb9a927910c805f24368f7068edc1e50"
+        "path": "resources/runtime_sources/style_improvement_20261004/group_articulation_state_adapter_staging_v1/state_adapter.py",
+        "bytes": 12768,
+        "sha256": "4b8104782825ddc3dac3dae7ff157bb6af58de8ca3d81152a8bf2042d00fdcbb"
       },
-      "lab": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions",
-      "api": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/extscache/omni.physics.tensors-110.1.11+110.1.1.lx64.r.cp312.u7f4/omni/physics/tensors/api.py",
+      "lab": "lab:",
+      "api": "sim:extscache/omni.physics.tensors-110.1.11+110.1.1.lx64.r.cp312.u7f4/omni/physics/tensors/api.py",
       "pins": {
         "bridge": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/group_articulation_tensor_bridge_staging_v1/tensor_bridge.py",
+          "project:resources/runtime_sources/style_improvement_20261004/group_articulation_tensor_bridge_staging_v1/tensor_bridge.py",
           6035,
           "2f5dc721f739d26ace02cc0831864523e605587f7e960f0fd32b82326ec8c9ec"
         ],
         "state": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/protomotions/simulator/base_simulator/simulator_state.py",
+          "project:protomotions/simulator/base_simulator/simulator_state.py",
           34638,
           "31cf14fab319151602f43fcf6ad2751b71088cda3a3f4feefadfa61262102731"
         ],
         "rotations": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/protomotions/utils/rotations.py",
+          "project:protomotions/utils/rotations.py",
           28136,
           "ef1475d33d6f941ccdea4a612477483db4fad8236ba7786fbe8bf91a65c1cef8"
         ],
         "resolver": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/protomotions/simulator/isaaclab/utils/actuator_groups.py",
-          4511,
-          "fe1aeaca98a0548e3dd6847e3831b232689a41137a196db2fa65f68683bcdafa"
+          "project:protomotions/simulator/isaaclab/utils/actuator_groups.py",
+          5693,
+          "1de8f8483a407128d3bddf5df713919dbf62dad5513c55746ca9b5a2f752af3a"
         ],
         "SDK_writes": [
-          "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/source/isaaclab_physx/isaaclab_physx/assets/articulation/articulation.py",
+          "lab:source/isaaclab_physx/isaaclab_physx/assets/articulation/articulation.py",
           224858,
           "2cbd53ccbebb7a7b038bed2b612b65e41d6674a4791beec68d84336d7bd00a87"
         ],
         "SDK_data": [
-          "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/source/isaaclab_physx/isaaclab_physx/assets/articulation/articulation_data.py",
+          "lab:source/isaaclab_physx/isaaclab_physx/assets/articulation/articulation_data.py",
           95901,
           "6579e5b3efcd13d113cda141945cd055a4d0b86a069f0a80fc2c73c4cfe4163b"
         ]
       }
     },
-    "docs/style_improvement_20261004/social_world_lifetime_dependency_migration_v1/expert_batch.py": {
+    "resources/runtime_sources/style_improvement_20261004/social_world_lifetime_dependency_migration_v1/expert_batch.py": {
       "source": {
-        "path": "docs/style_improvement_20261004/social_world_lifetime_dependency_migration_v1/expert_batch.py",
-        "bytes": 15295,
-        "sha256": "029697b3c44c2617515cb9239b2cf075fdd5d2bf62ee9a5161fbb744afd5f57f"
+        "path": "resources/runtime_sources/style_improvement_20261004/social_world_lifetime_dependency_migration_v1/expert_batch.py",
+        "bytes": 15358,
+        "sha256": "bced676ccaa7972cb646836da583ea3c41ce89dd06a967bb3d436c91854c90e5"
       },
-      "lab": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions",
-      "api": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/extscache/omni.physics.tensors-110.1.11+110.1.1.lx64.r.cp312.u7f4/omni/physics/tensors/api.py",
+      "lab": "lab:",
+      "api": "sim:extscache/omni.physics.tensors-110.1.11+110.1.1.lx64.r.cp312.u7f4/omni/physics/tensors/api.py",
       "pins": {
         "world": [
-          "docs/style_improvement_20261004/shared_group_world_owned_lifetime_revision_v2/shared_group_world.py",
-          39943,
-          "e76182d2be5a3fa4dad19a04d71275d91929ce3ea2d63a1c23f081aa1a59880b"
+          "resources/runtime_sources/style_improvement_20261004/shared_group_world_owned_lifetime_revision_v2/shared_group_world.py",
+          39960,
+          "d7400a48364b64971f4e2e942d87ebd9e108b5a8ff018e8a8f404b817bd02038"
         ],
         "corpus": [
           "CrowdSim/humanoid/amass_corpus.py",
@@ -615,8 +615,8 @@
         ],
         "original_expert": [
           "CrowdSim/humanoid/amp_world.py",
-          24834,
-          "1b63a4c8ac7d4bf2f9ed523edc97b41dca89888cdd6c7dcb2234826d240d7f83"
+          30450,
+          "a114f1b0763b7a2307a3f7fdd9409c38b4385ed4db02a9fbf36a56854dee554a"
         ],
         "sampler": [
           "CrowdSim/humanoid/training/expert_sampling.py",
@@ -625,305 +625,305 @@
         ]
       }
     },
-    "docs/style_improvement_20261004/social_world_lifetime_dependency_migration_v1/social_rollout_collector.py": {
+    "resources/runtime_sources/style_improvement_20261004/social_world_lifetime_dependency_migration_v1/social_rollout_collector.py": {
       "source": {
-        "path": "docs/style_improvement_20261004/social_world_lifetime_dependency_migration_v1/social_rollout_collector.py",
-        "bytes": 27268,
-        "sha256": "4497ed99f0424a33148a31c137d2c7f705acd9a72f32b8eae6e66c833b321898"
+        "path": "resources/runtime_sources/style_improvement_20261004/social_world_lifetime_dependency_migration_v1/social_rollout_collector.py",
+        "bytes": 27331,
+        "sha256": "b207ab872683b023529785498f745c4149bd44b3c116c6fd15e5fbbd72d153be"
       },
-      "lab": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions",
-      "api": "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/extscache/omni.physics.tensors-110.1.11+110.1.1.lx64.r.cp312.u7f4/omni/physics/tensors/api.py",
+      "lab": "lab:",
+      "api": "sim:extscache/omni.physics.tensors-110.1.11+110.1.1.lx64.r.cp312.u7f4/omni/physics/tensors/api.py",
       "pins": {
         "world": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/shared_group_world_owned_lifetime_revision_v2/shared_group_world.py",
-          39943,
-          "e76182d2be5a3fa4dad19a04d71275d91929ce3ea2d63a1c23f081aa1a59880b",
+          "project:resources/runtime_sources/style_improvement_20261004/shared_group_world_owned_lifetime_revision_v2/shared_group_world.py",
+          39960,
+          "d7400a48364b64971f4e2e942d87ebd9e108b5a8ff018e8a8f404b817bd02038",
           true
         ],
         "trainer": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/social_trainer_staging_v1/social_trainer.py",
-          24078,
-          "81a6319f2520b3be547f30454c88b088638d559d492bba52fe850d1c1d5ba96e",
+          "project:resources/runtime_sources/style_improvement_20261004/social_trainer_staging_v1/social_trainer.py",
+          24289,
+          "11d304d7002d31c96c2fcdf3766aa51616c84560e58bc11f7eeababb068c559b",
           true
         ],
         "rewards": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/CrowdSim/humanoid/training/rewards.py",
+          "project:CrowdSim/humanoid/training/rewards.py",
           5491,
           "fc595dd9c1b2012aa76f37dcecd4ec5d7dad50fbd923840736a77c24622a6430",
           false
         ],
         "contracts": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/CrowdSim/humanoid/training/contracts.py",
+          "project:CrowdSim/humanoid/training/contracts.py",
           4545,
           "26c7379ba60842c67f062fa5c1a3459ddfb6e0843e1b4952e1d078aa6f78cdad",
           false
         ],
         "original_world": [
-          "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/CrowdSim/humanoid/amp_world.py",
-          24834,
-          "1b63a4c8ac7d4bf2f9ed523edc97b41dca89888cdd6c7dcb2234826d240d7f83",
+          "project:CrowdSim/humanoid/amp_world.py",
+          30450,
+          "a114f1b0763b7a2307a3f7fdd9409c38b4385ed4db02a9fbf36a56854dee554a",
           false
         ]
       }
     }
   },
   "dependencies": {
-    "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/shared_social_contact_layout_revision_v6/probe_shared_world.py": {
-      "path": "docs/style_improvement_20261004/shared_social_contact_layout_revision_v6/probe_shared_world.py",
-      "bytes": 49730,
-      "sha256": "68226208eaa633d315537ea891ee26ab56ec0b24a61df79d54fe8e0fc614e281"
+    "project:resources/runtime_sources/style_improvement_20261004/shared_social_contact_layout_revision_v6/probe_shared_world.py": {
+      "path": "resources/runtime_sources/style_improvement_20261004/shared_social_contact_layout_revision_v6/probe_shared_world.py",
+      "bytes": 49793,
+      "sha256": "fff0d8f0ee692e72a15837ee02d3b4af50213ed9dd288efea1a3a620c539c070"
     },
-    "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/social_native_overlay_entry_revision_v10/smoke_group_physics.py": {
+    "project:resources/runtime_sources/style_improvement_20261004/social_native_overlay_entry_revision_v10/smoke_group_physics.py": {
       "path": "src/CrowdSim/humanoid/runtime/grouped_sdk61_lifecycle.py",
       "bytes": 7543,
       "sha256": "e597fc13c5078a4b40bfc35fb894ceae1a398a07025cfd0e31187e517b42446e"
     },
-    "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/social_actual_runtime_v1/group_physics_native_overlay_v18_actual_root_owner.json": {
-      "path": "docs/style_improvement_20261004/social_actual_runtime_v1/group_physics_native_overlay_v18_actual_root_owner.json",
-      "bytes": 16714,
-      "sha256": "ae304517dcea801b46d566eb60207f1684fcb227adafbd6f91496e7d681bfff2"
+    "project:resources/runtime_sources/style_improvement_20261004/social_actual_runtime_v1/group_physics_native_overlay_v18_actual_root_owner.json": {
+      "path": "resources/runtime_sources/style_improvement_20261004/social_actual_runtime_v1/group_physics_native_overlay_v18_actual_root_owner.json",
+      "bytes": 13111,
+      "sha256": "5efe84e3391d52d82f8b14acdb4ff61fff3e75bac9a2e2daab83fe291c879434"
     },
-    "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/social_trainer_staging_v1/social_trainer.py": {
-      "path": "docs/style_improvement_20261004/social_trainer_staging_v1/social_trainer.py",
-      "bytes": 24078,
-      "sha256": "81a6319f2520b3be547f30454c88b088638d559d492bba52fe850d1c1d5ba96e"
+    "project:resources/runtime_sources/style_improvement_20261004/social_trainer_staging_v1/social_trainer.py": {
+      "path": "resources/runtime_sources/style_improvement_20261004/social_trainer_staging_v1/social_trainer.py",
+      "bytes": 24289,
+      "sha256": "11d304d7002d31c96c2fcdf3766aa51616c84560e58bc11f7eeababb068c559b"
     },
-    "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/social_world_lifetime_dependency_migration_v1/social_rollout_collector.py": {
-      "path": "docs/style_improvement_20261004/social_world_lifetime_dependency_migration_v1/social_rollout_collector.py",
-      "bytes": 27268,
-      "sha256": "4497ed99f0424a33148a31c137d2c7f705acd9a72f32b8eae6e66c833b321898"
+    "project:resources/runtime_sources/style_improvement_20261004/social_world_lifetime_dependency_migration_v1/social_rollout_collector.py": {
+      "path": "resources/runtime_sources/style_improvement_20261004/social_world_lifetime_dependency_migration_v1/social_rollout_collector.py",
+      "bytes": 27331,
+      "sha256": "b207ab872683b023529785498f745c4149bd44b3c116c6fd15e5fbbd72d153be"
     },
-    "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/social_world_lifetime_dependency_migration_v1/expert_batch.py": {
-      "path": "docs/style_improvement_20261004/social_world_lifetime_dependency_migration_v1/expert_batch.py",
-      "bytes": 15295,
-      "sha256": "029697b3c44c2617515cb9239b2cf075fdd5d2bf62ee9a5161fbb744afd5f57f"
+    "project:resources/runtime_sources/style_improvement_20261004/social_world_lifetime_dependency_migration_v1/expert_batch.py": {
+      "path": "resources/runtime_sources/style_improvement_20261004/social_world_lifetime_dependency_migration_v1/expert_batch.py",
+      "bytes": 15358,
+      "sha256": "bced676ccaa7972cb646836da583ea3c41ce89dd06a967bb3d436c91854c90e5"
     },
-    "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/shared_group_world_owned_lifetime_revision_v2/shared_group_world.py": {
-      "path": "docs/style_improvement_20261004/shared_group_world_owned_lifetime_revision_v2/shared_group_world.py",
-      "bytes": 39943,
-      "sha256": "e76182d2be5a3fa4dad19a04d71275d91929ce3ea2d63a1c23f081aa1a59880b"
+    "project:resources/runtime_sources/style_improvement_20261004/shared_group_world_owned_lifetime_revision_v2/shared_group_world.py": {
+      "path": "resources/runtime_sources/style_improvement_20261004/shared_group_world_owned_lifetime_revision_v2/shared_group_world.py",
+      "bytes": 39960,
+      "sha256": "d7400a48364b64971f4e2e942d87ebd9e108b5a8ff018e8a8f404b817bd02038"
     },
-    "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/social_normal_force_empty_filter_revision_v3/normal_force_views.py": {
-      "path": "docs/style_improvement_20261004/social_normal_force_empty_filter_revision_v3/normal_force_views.py",
-      "bytes": 17879,
-      "sha256": "293de5948da4afc74e07fa2c5a178468537161ae01219ea250fa152f88eb90fe"
+    "project:resources/runtime_sources/style_improvement_20261004/social_normal_force_empty_filter_revision_v3/normal_force_views.py": {
+      "path": "resources/runtime_sources/style_improvement_20261004/social_normal_force_empty_filter_revision_v3/normal_force_views.py",
+      "bytes": 17897,
+      "sha256": "73d38d6f16af322081ba669649ff19a065c59799a54e92bb0404497e80e2c502"
     },
-    "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/group_articulation_physics_smoke_staging_v1/smoke_group_physics.py": {
-      "path": "docs/style_improvement_20261004/group_articulation_physics_smoke_staging_v1/smoke_group_physics.py",
-      "bytes": 21236,
-      "sha256": "d000200abf55545d0583f896fcfe48f6ebba673afd78b8820782a6a25b6c063d"
+    "project:resources/runtime_sources/style_improvement_20261004/group_articulation_physics_smoke_staging_v1/smoke_group_physics.py": {
+      "path": "resources/runtime_sources/style_improvement_20261004/group_articulation_physics_smoke_staging_v1/smoke_group_physics.py",
+      "bytes": 21299,
+      "sha256": "1f26a658bbbf2190782d626ab5a28d1ce1e830b1ff9b5baeecca4a27b0950eca"
     },
-    "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/CrowdSim/humanoid/amass_corpus.py": {
+    "project:src/CrowdSim/humanoid/amass_corpus.py": {
       "path": "src/CrowdSim/humanoid/amass_corpus.py",
       "bytes": 12126,
       "sha256": "2d4e4f7549aa38f5fd6763de4d3924a9cdd969746682c649ab773f033d747cf7"
     },
-    "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/protomotions/utils/simulator_imports.py": {
+    "project:src/protomotions/utils/simulator_imports.py": {
       "path": "src/protomotions/utils/simulator_imports.py",
       "bytes": 3118,
       "sha256": "7f236c0a5bd071996437ce1298c7911975a1527bea5a33bad61d68f7724918e8"
     },
-    "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/protomotions/simulator/isaaclab/utils/scene.py": {
+    "project:src/protomotions/simulator/isaaclab/utils/scene.py": {
       "path": "src/protomotions/simulator/isaaclab/utils/scene.py",
       "bytes": 11546,
       "sha256": "3fcf83158b29c998971ee59f9e7370183fda9ad6f892a5d8ffc5d5bca79fff51"
     },
-    "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/protomotions/robot_configs/smpl.py": {
+    "project:src/protomotions/robot_configs/smpl.py": {
       "path": "src/protomotions/robot_configs/smpl.py",
       "bytes": 4067,
       "sha256": "505e6e909f5b36a93e5449c75ee10a87b11ce30a4f2052a965ac65d273ae7b2e"
     },
-    "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/protomotions/simulator/isaaclab/config.py": {
+    "project:src/protomotions/simulator/isaaclab/config.py": {
       "path": "src/protomotions/simulator/isaaclab/config.py",
       "bytes": 2799,
       "sha256": "67682326c12f9fbc9887c4a87256bb36cac0e46ed77ac04bd3fb7320c3ac6db7"
     },
-    "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/protomotions/simulator/isaaclab/utils/mjcf_to_usd.py": {
+    "project:src/protomotions/simulator/isaaclab/utils/mjcf_to_usd.py": {
       "path": "src/protomotions/simulator/isaaclab/utils/mjcf_to_usd.py",
       "bytes": 15556,
       "sha256": "e472e2397a26b20ae90700ab1e7a68dc4cbe4293c0fe90f4c3265c415f351f57"
     },
-    "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/protomotions/simulator/isaaclab/utils/mjcf_d6_workaround.py": {
+    "project:src/protomotions/simulator/isaaclab/utils/mjcf_d6_workaround.py": {
       "path": "src/protomotions/simulator/isaaclab/utils/mjcf_d6_workaround.py",
       "bytes": 10158,
       "sha256": "9e1ee16aa5d3646e4eb4ba3e10060b7537063185fe9450a3612ed53d143ef371"
     },
-    "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/group_articulation_scene_staging_v1/group_scene.py": {
-      "path": "docs/style_improvement_20261004/group_articulation_scene_staging_v1/group_scene.py",
+    "project:resources/runtime_sources/style_improvement_20261004/group_articulation_scene_staging_v1/group_scene.py": {
+      "path": "resources/runtime_sources/style_improvement_20261004/group_articulation_scene_staging_v1/group_scene.py",
       "bytes": 7213,
       "sha256": "88e5a8d289a3a3d8329107faaca857f03cf38a5c640985af84b7b3658f6916b6"
     },
-    "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/group_articulation_tensor_bridge_staging_v1/tensor_bridge.py": {
-      "path": "docs/style_improvement_20261004/group_articulation_tensor_bridge_staging_v1/tensor_bridge.py",
+    "project:resources/runtime_sources/style_improvement_20261004/group_articulation_tensor_bridge_staging_v1/tensor_bridge.py": {
+      "path": "resources/runtime_sources/style_improvement_20261004/group_articulation_tensor_bridge_staging_v1/tensor_bridge.py",
       "bytes": 6035,
       "sha256": "2f5dc721f739d26ace02cc0831864523e605587f7e960f0fd32b82326ec8c9ec"
     },
-    "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/group_articulation_state_adapter_staging_v1/state_adapter.py": {
-      "path": "docs/style_improvement_20261004/group_articulation_state_adapter_staging_v1/state_adapter.py",
-      "bytes": 12750,
-      "sha256": "468a26311fcde8a92595fb03bf5d6294bb9a927910c805f24368f7068edc1e50"
+    "project:resources/runtime_sources/style_improvement_20261004/group_articulation_state_adapter_staging_v1/state_adapter.py": {
+      "path": "resources/runtime_sources/style_improvement_20261004/group_articulation_state_adapter_staging_v1/state_adapter.py",
+      "bytes": 12768,
+      "sha256": "4b8104782825ddc3dac3dae7ff157bb6af58de8ca3d81152a8bf2042d00fdcbb"
     },
-    "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/social_task_observation_staging_v1/social_task_observation.py": {
-      "path": "docs/style_improvement_20261004/social_task_observation_staging_v1/social_task_observation.py",
+    "project:resources/runtime_sources/style_improvement_20261004/social_task_observation_staging_v1/social_task_observation.py": {
+      "path": "resources/runtime_sources/style_improvement_20261004/social_task_observation_staging_v1/social_task_observation.py",
       "bytes": 8512,
       "sha256": "6975d95f369e2c00f1fa2ef34474e14164c36c82f70e4fb83a925335ee276ee1"
     },
-    "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/social_group_reset_staging_v1/group_reset.py": {
-      "path": "docs/style_improvement_20261004/social_group_reset_staging_v1/group_reset.py",
+    "project:resources/runtime_sources/style_improvement_20261004/social_group_reset_staging_v1/group_reset.py": {
+      "path": "resources/runtime_sources/style_improvement_20261004/social_group_reset_staging_v1/group_reset.py",
       "bytes": 3244,
       "sha256": "2340a7908454408b84366393a83762fc224d214b6673546a03ed1bade9fd3aa4"
     },
-    "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/nonfoot_net_normal_contact_staging_v1/nonfoot_contact.py": {
-      "path": "docs/style_improvement_20261004/nonfoot_net_normal_contact_staging_v1/nonfoot_contact.py",
-      "bytes": 4095,
-      "sha256": "9fa82a7771a2c875e1cc41610b0203e8c3d235a9c50f7668f78665ae373a863a"
+    "project:resources/runtime_sources/style_improvement_20261004/nonfoot_net_normal_contact_staging_v1/nonfoot_contact.py": {
+      "path": "resources/runtime_sources/style_improvement_20261004/nonfoot_net_normal_contact_staging_v1/nonfoot_contact.py",
+      "bytes": 4138,
+      "sha256": "a8c9231f4c1edc1805bf5d3cb75971ababaa47f21b90e1914f36ec416cc5c5c7"
     },
-    "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/social_net_normal_sampler_staging_v1/net_normal_sampler.py": {
-      "path": "docs/style_improvement_20261004/social_net_normal_sampler_staging_v1/net_normal_sampler.py",
-      "bytes": 7398,
-      "sha256": "04d21596a8f1fd54d9d9a43977c8a76137840a574fb4f04a73ed4ce94beb5d09"
+    "project:resources/runtime_sources/style_improvement_20261004/social_net_normal_sampler_staging_v1/net_normal_sampler.py": {
+      "path": "resources/runtime_sources/style_improvement_20261004/social_net_normal_sampler_staging_v1/net_normal_sampler.py",
+      "bytes": 7461,
+      "sha256": "52ea1901985c6152429d00c7dc6261c3371a672009acc4b578a57e5cc0385517"
     },
-    "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/social_raster_torch_staging_v1/social_raster_torch.py": {
-      "path": "docs/style_improvement_20261004/social_raster_torch_staging_v1/social_raster_torch.py",
+    "project:resources/runtime_sources/style_improvement_20261004/social_raster_torch_staging_v1/social_raster_torch.py": {
+      "path": "resources/runtime_sources/style_improvement_20261004/social_raster_torch_staging_v1/social_raster_torch.py",
       "bytes": 9125,
       "sha256": "234e6366a00301998349dbc837fae5878cac4c506e29ad605ab8b2023a6c5dbe"
     },
-    "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/CrowdSim/humanoid/amp/observations.py": {
+    "project:src/CrowdSim/humanoid/amp/observations.py": {
       "path": "src/CrowdSim/humanoid/amp/observations.py",
       "bytes": 10586,
       "sha256": "000f3980a8f4d3c1fac929c57029dd05a9ce19b1d8ce82423dad273c9315e599"
     },
-    "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/protomotions/utils/rotations.py": {
+    "project:src/protomotions/utils/rotations.py": {
       "path": "src/protomotions/utils/rotations.py",
       "bytes": 28136,
       "sha256": "ef1475d33d6f941ccdea4a612477483db4fad8236ba7786fbe8bf91a65c1cef8"
     },
-    "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/CrowdSim/humanoid/amp/controller.py": {
+    "project:src/CrowdSim/humanoid/amp/controller.py": {
       "path": "src/CrowdSim/humanoid/amp/controller.py",
       "bytes": 11295,
       "sha256": "b1e56c6392e91e023af63437d74feb28d13a29099ad6708d4c742f08f737e3d2"
     },
-    "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/CrowdSim/humanoid/training/mixed_trajectories.py": {
+    "project:src/CrowdSim/humanoid/training/mixed_trajectories.py": {
       "path": "src/CrowdSim/humanoid/training/mixed_trajectories.py",
       "bytes": 22594,
       "sha256": "c79732a675ac737d4ce0aff0d2b76cfa30cebed2d9c115e1a35da39299694d67"
     },
-    "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/CrowdSim/humanoid/training/amass_trajectories.py": {
+    "project:src/CrowdSim/humanoid/training/amass_trajectories.py": {
       "path": "src/CrowdSim/humanoid/training/amass_trajectories.py",
       "bytes": 21752,
       "sha256": "ddca3403a59422045f051b5d9f653d6f411db1523840ed8bc021fc96ef82566e"
     },
-    "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/CrowdSim/humanoid/training/trajectories.py": {
+    "project:src/CrowdSim/humanoid/training/trajectories.py": {
       "path": "src/CrowdSim/humanoid/training/trajectories.py",
       "bytes": 14063,
       "sha256": "81701988535cf847b8b86979a836ba37089e93553aa4e3fe5ecfc9529d62d2c9"
     },
-    "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/source/isaaclab/isaaclab/scene/interactive_scene.py": {
-      "path": "/project/EXP/IsaacLab/source/isaaclab/isaaclab/scene/interactive_scene.py",
+    "lab:source/isaaclab/isaaclab/scene/interactive_scene.py": {
+      "path": "lab:source/isaaclab/isaaclab/scene/interactive_scene.py",
       "bytes": 42590,
       "sha256": "f78f2a7859beb3384da460bfaca7a6069647163680e53e6e8472cc258199d606"
     },
-    "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/source/isaaclab/isaaclab/sim/simulation_context.py": {
-      "path": "/project/EXP/IsaacLab/source/isaaclab/isaaclab/sim/simulation_context.py",
+    "lab:source/isaaclab/isaaclab/sim/simulation_context.py": {
+      "path": "lab:source/isaaclab/isaaclab/sim/simulation_context.py",
       "bytes": 51889,
       "sha256": "c3c17f084bc21ddfd80649f8179a6aa916d857a1dcaa1cc1c7f2b7c3945936b2"
     },
-    "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/source/isaaclab_physx/isaaclab_physx/physics/physx_manager.py": {
-      "path": "/project/EXP/IsaacLab/source/isaaclab_physx/isaaclab_physx/physics/physx_manager.py",
+    "lab:source/isaaclab_physx/isaaclab_physx/physics/physx_manager.py": {
+      "path": "lab:source/isaaclab_physx/isaaclab_physx/physics/physx_manager.py",
       "bytes": 43433,
       "sha256": "a20f98c841ea031329d0d083303e1fb4c84cb13a7ba3f4cc6bbeee028302bd35"
     },
-    "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/CrowdSim/humanoid/training/episode_mixed_trajectories.py": {
+    "project:src/CrowdSim/humanoid/training/episode_mixed_trajectories.py": {
       "path": "src/CrowdSim/humanoid/training/episode_mixed_trajectories.py",
       "bytes": 12099,
       "sha256": "61ec4446472800c4c6ed922194cb42f8d6988cabe732853d865f5386d4793e1a"
     },
-    "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/CrowdSim/humanoid/training/episode_trajectories.py": {
+    "project:src/CrowdSim/humanoid/training/episode_trajectories.py": {
       "path": "src/CrowdSim/humanoid/training/episode_trajectories.py",
       "bytes": 6705,
       "sha256": "f4283656f29a31547905ee640316aac63e7ba2cdbcd9321f1763475247a17576"
     },
-    "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261006/shared_social_episode_reference_runtime_preparation_v1/shared_group_world.py": {
-      "path": "docs/style_improvement_20261006/shared_social_episode_reference_runtime_preparation_v1/shared_group_world.py",
-      "bytes": 40596,
-      "sha256": "635bd6183404141502bca82f6e7e3143c223a75c64c5cd080a1b3eb89031b360"
+    "project:resources/runtime_sources/style_improvement_20261006/shared_social_episode_reference_runtime_preparation_v1/shared_group_world.py": {
+      "path": "resources/runtime_sources/style_improvement_20261006/shared_social_episode_reference_runtime_preparation_v1/shared_group_world.py",
+      "bytes": 40613,
+      "sha256": "1e2a86ced62e21c0ef3c447dad22ec72d2ead4104564c12a4be4b4636a6e58d5"
     },
-    "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/CrowdSim/humanoid/training/minimum_horizon_curriculum.py": {
+    "project:src/CrowdSim/humanoid/training/minimum_horizon_curriculum.py": {
       "path": "src/CrowdSim/humanoid/training/minimum_horizon_curriculum.py",
       "bytes": 5042,
       "sha256": "817ac3898d540cc18e0f6ab8dd0b50b8ae6ecd2bd8a0f350efbbebd847388ef0"
     },
-    "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261006/shared_social_minimum_future81_runtime_preparation_v1/shared_group_world.py": {
-      "path": "docs/style_improvement_20261006/shared_social_minimum_future81_runtime_preparation_v1/shared_group_world.py",
-      "bytes": 40270,
-      "sha256": "c76c9a5ef77fb713ebb91ca8d05fe8ac199a17de5bd981dd00a8aed0be2b2801"
+    "project:resources/runtime_sources/style_improvement_20261006/shared_social_minimum_future81_runtime_preparation_v1/shared_group_world.py": {
+      "path": "resources/runtime_sources/style_improvement_20261006/shared_social_minimum_future81_runtime_preparation_v1/shared_group_world.py",
+      "bytes": 40287,
+      "sha256": "7ab4133b89370690a135395843e92581e2838369992f21273bd9e0e1d0aef893"
     },
-    "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/CrowdSim/humanoid/physics_views.py": {
+    "project:src/CrowdSim/humanoid/physics_views.py": {
       "path": "src/CrowdSim/humanoid/physics_views.py",
       "bytes": 1845,
       "sha256": "1b13d982864a3a2dae6eaebccd15f7ecfdda666c1e1a8dbce4996786a59a0c21"
     },
-    "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/.venv/lib/python3.12/site-packages/isaacsim/extscache/omni.physics.tensors-110.1.11+110.1.1.lx64.r.cp312.u7f4/omni/physics/tensors/api.py": {
-      "path": "/project/EXP/IsaacLab/.venv/lib/python3.12/site-packages/isaacsim/extscache/omni.physics.tensors-110.3.2+110.3.0.lx64.r.cp312.u7f4/omni/physics/tensors/api.py",
+    "sim:extscache/omni.physics.tensors-110.1.11+110.1.1.lx64.r.cp312.u7f4/omni/physics/tensors/api.py": {
+      "path": "lab:.venv/lib/python3.12/site-packages/isaacsim/extscache/omni.physics.tensors-110.3.2+110.3.0.lx64.r.cp312.u7f4/omni/physics/tensors/api.py",
       "bytes": 383305,
       "sha256": "1ba654210857a63b98236512e5f225723c3eb1dee64e867eaa4fade0578ccb7b"
     },
-    "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/source/isaaclab_physx/isaaclab_physx/assets/articulation/articulation.py": {
-      "path": "/project/EXP/IsaacLab/source/isaaclab_physx/isaaclab_physx/assets/articulation/articulation.py",
+    "lab:source/isaaclab_physx/isaaclab_physx/assets/articulation/articulation.py": {
+      "path": "lab:source/isaaclab_physx/isaaclab_physx/assets/articulation/articulation.py",
       "bytes": 219091,
       "sha256": "5f3e151aa040a58c8821eb3789e1368f4232e84a1f49858097fe094b4e42fbc0"
     },
-    "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/source/isaaclab/isaaclab/sim/utils/stage.py": {
-      "path": "/project/EXP/IsaacLab/source/isaaclab/isaaclab/sim/utils/stage.py",
+    "lab:source/isaaclab/isaaclab/sim/utils/stage.py": {
+      "path": "lab:source/isaaclab/isaaclab/sim/utils/stage.py",
       "bytes": 22288,
       "sha256": "f63e426cf69f7240f09dea2578f4c25a796f7d4f221cfa2469f020120a0663be"
     },
-    "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/protomotions/simulator/base_simulator/simulator_state.py": {
+    "project:src/protomotions/simulator/base_simulator/simulator_state.py": {
       "path": "src/protomotions/simulator/base_simulator/simulator_state.py",
       "bytes": 34638,
       "sha256": "31cf14fab319151602f43fcf6ad2751b71088cda3a3f4feefadfa61262102731"
     },
-    "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/protomotions/simulator/isaaclab/utils/actuator_groups.py": {
+    "project:src/protomotions/simulator/isaaclab/utils/actuator_groups.py": {
       "path": "src/protomotions/simulator/isaaclab/utils/actuator_groups.py",
       "bytes": 5693,
       "sha256": "1de8f8483a407128d3bddf5df713919dbf62dad5513c55746ca9b5a2f752af3a"
     },
-    "/project/EXP/SangforAndSaut/IsaacLab-Protomotions/source/isaaclab_physx/isaaclab_physx/assets/articulation/articulation_data.py": {
-      "path": "/project/EXP/IsaacLab/source/isaaclab_physx/isaaclab_physx/assets/articulation/articulation_data.py",
+    "lab:source/isaaclab_physx/isaaclab_physx/assets/articulation/articulation_data.py": {
+      "path": "lab:source/isaaclab_physx/isaaclab_physx/assets/articulation/articulation_data.py",
       "bytes": 111298,
       "sha256": "9f25446dff165278af62147c50d5153cc1a1236ccc308cb83a316892cdeb54bf"
     },
-    "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/CrowdSim/humanoid/amp_world.py": {
+    "project:src/CrowdSim/humanoid/amp_world.py": {
       "path": "src/CrowdSim/humanoid/amp_world.py",
       "bytes": 30450,
       "sha256": "a114f1b0763b7a2307a3f7fdd9409c38b4385ed4db02a9fbf36a56854dee554a"
     },
-    "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/CrowdSim/humanoid/training/expert_sampling.py": {
+    "project:src/CrowdSim/humanoid/training/expert_sampling.py": {
       "path": "src/CrowdSim/humanoid/training/expert_sampling.py",
       "bytes": 32462,
       "sha256": "b16984a920f21ca92c3fe01976d9c0453a75bf54d3f46df369984ff27453f9cd"
     },
-    "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/CrowdSim/humanoid/training/rewards.py": {
+    "project:src/CrowdSim/humanoid/training/rewards.py": {
       "path": "src/CrowdSim/humanoid/training/rewards.py",
       "bytes": 5491,
       "sha256": "fc595dd9c1b2012aa76f37dcecd4ec5d7dad50fbd923840736a77c24622a6430"
     },
-    "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/CrowdSim/humanoid/training/contracts.py": {
+    "project:src/CrowdSim/humanoid/training/contracts.py": {
       "path": "src/CrowdSim/humanoid/training/contracts.py",
       "bytes": 4545,
       "sha256": "26c7379ba60842c67f062fa5c1a3459ddfb6e0843e1b4952e1d078aa6f78cdad"
     },
-    "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/CrowdSim/humanoid/runtime/sdk61_lifecycle.py": {
+    "project:src/CrowdSim/humanoid/runtime/sdk61_lifecycle.py": {
       "path": "src/CrowdSim/humanoid/runtime/sdk61_lifecycle.py",
       "bytes": 22539,
       "sha256": "b4f85259dd7a13164213fb2c28d2e0dc1d359a0dba645d6555541ac257f1e676"
     },
-    "/project/EXP/IsaacLab/source/isaaclab/isaaclab/assets/articulation/base_articulation.py": {
-      "path": "/project/EXP/IsaacLab/source/isaaclab/isaaclab/assets/articulation/base_articulation.py",
+    "lab:source/isaaclab/isaaclab/assets/articulation/base_articulation.py": {
+      "path": "lab:source/isaaclab/isaaclab/assets/articulation/base_articulation.py",
       "bytes": 151437,
       "sha256": "4c3fc707a91c155f9824333dbf530461e448302099e0e92ffaa08d2f7d6dec67"
     },
-    "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/src/protomotions/simulator/isaaclab/utils/runtime_compat.py": {
+    "project:src/protomotions/simulator/isaaclab/utils/runtime_compat.py": {
       "path": "src/protomotions/simulator/isaaclab/utils/runtime_compat.py",
       "bytes": 2793,
       "sha256": "3df68767c1001bfe696bace9636bda28bd326a3a1fe83736ce6d921b9a7ac164"
@@ -931,21 +931,21 @@
   },
   "world_choices": [
     [
-      "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261004/shared_group_world_owned_lifetime_revision_v2/shared_group_world.py",
-      39943,
-      "e76182d2be5a3fa4dad19a04d71275d91929ce3ea2d63a1c23f081aa1a59880b",
+      "project:resources/runtime_sources/style_improvement_20261004/shared_group_world_owned_lifetime_revision_v2/shared_group_world.py",
+      39960,
+      "d7400a48364b64971f4e2e942d87ebd9e108b5a8ff018e8a8f404b817bd02038",
       true
     ],
     [
-      "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261006/shared_social_episode_reference_runtime_preparation_v1/shared_group_world.py",
-      40596,
-      "635bd6183404141502bca82f6e7e3143c223a75c64c5cd080a1b3eb89031b360",
+      "project:resources/runtime_sources/style_improvement_20261006/shared_social_episode_reference_runtime_preparation_v1/shared_group_world.py",
+      40613,
+      "1e2a86ced62e21c0ef3c447dad22ec72d2ead4104564c12a4be4b4636a6e58d5",
       true
     ],
     [
-      "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/style_improvement_20261006/shared_social_minimum_future81_runtime_preparation_v1/shared_group_world.py",
-      40270,
-      "c76c9a5ef77fb713ebb91ca8d05fe8ac199a17de5bd981dd00a8aed0be2b2801",
+      "project:resources/runtime_sources/style_improvement_20261006/shared_social_minimum_future81_runtime_preparation_v1/shared_group_world.py",
+      40287,
+      "7ab4133b89370690a135395843e92581e2838369992f21273bd9e0e1d0aef893",
       true
     ]
   ]

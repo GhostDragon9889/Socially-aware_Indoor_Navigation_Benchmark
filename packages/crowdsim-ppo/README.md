@@ -1,17 +1,12 @@
-# Simulator-free CrowdSim PPO
+# PointGoal PPO package metadata
 
-This package provides the PointGoal PPO example from the NavIsaacLab reference.
-It uses NumPy and PyTorch and runs separately from the IsaacLab pedestrian simulator.
+The baseline implementation lives in `src/crowdsim_ppo` and is included in the root project. This metadata describes the minimal library distribution; benchmark runtime setup is documented in [the installation guide](../../docs/guides/installation.en.md).
 
-From the main repository:
+Configure the external SDK or install the pinned SDK through uv, then run from the repository root:
 
 ```bash
-python -m pip install -e ./packages/crowdsim-ppo
-crowdsim-ppo-train --device cpu --total-steps 4096 --output output/point_goal
-crowdsim-ppo-eval --device cpu --checkpoint output/point_goal/latest.pt --episodes 20
+python3 scripts/run_external_python.py -m social_navigation baseline-train --help
+python3 scripts/run_external_python.py -m social_navigation baseline-evaluate --help
 ```
 
-The commands locate the source checkout's `configs/point_goal.json`, or use the
-packaged default when installed from a wheel. Pass `--config PATH` to supply
-another configuration. The package includes no simulator assets or pretrained
-weights. For real SMPL pedestrians see the main repository's migration guide.
+Pass `--config` for a custom PointGoal configuration. This baseline uses tensor-based environments and does not start Isaac Sim.

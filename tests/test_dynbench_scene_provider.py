@@ -469,23 +469,3 @@ def test_fixed_SDK_xyzw_spawn_cannot_silently_treat_180degree_X_as_wxyz_identity
         scene._spawn("/__PaperDynBenchSceneProvider", None, orientation=(1., 0., 0., 0.))
     assert (stage.GetRootLayer().ExportToString(), stage.GetSessionLayer().ExportToString()) == before
     assert stage.GetEditTarget() == target
-
-
-@pytest.mark.parametrize("name", ["Office", "Warehouse", "Full_Warehouse", "Hospital"])
-@pytest.mark.needs_lfs
-def test_actual_local_preflight_stays_prepared_and_rejects_navigation(name):
-    path = ROOT / "docs/style_improvement_20261002/paper_scene_maps_reference_ground_preflight_v6" / name / "preflight.json"
-    if not path.is_file():
-        pytest.skip("Local SDK-free probe evidence is unavailable")
-    data = json.loads(path.read_text())
-    # Historical preflight is correctly unusable when the current probe bytes
-    # differ. This branch verifies refusal, never edits or updates its old SHA.
-    if file_record(data["script"]["path"]) != data["script"]:
-        with pytest.raises(ValueError, match="resource bytes changed"):
-            DynBenchSceneProvider.from_preflight(path, expected_sha256=file_record(path)["sha256"])
-        return
-    scene = DynBenchSceneProvider.from_preflight(path, expected_sha256=file_record(path)["sha256"])
-    assert scene.verify_sources() and scene.bounds_xy[0][0] < 0
-    assert not scene.describe()["native_resource_map_admitted"]
-    with pytest.raises(ValueError, match="native full-grid"):
-        scene.admit_native_map(path, expected_sha256=file_record(path)["sha256"])

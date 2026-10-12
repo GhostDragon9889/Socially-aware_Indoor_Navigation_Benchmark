@@ -207,7 +207,6 @@ required.
    git clone https://github.com/HansZ8/RoboJuDo.git
    cd RoboJuDo
    git checkout release   # contains the ProtoMotions tracker integration
-   pip install -e .
    git lfs pull           # download mesh assets
 
 **Run the BM tracker in MuJoCo simulation**:

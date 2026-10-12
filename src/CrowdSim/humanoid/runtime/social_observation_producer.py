@@ -14,8 +14,8 @@ from types import ModuleType
 
 from .social_evaluation_lifecycle import ROOT, record
 
-PARENT = ROOT / "docs/style_improvement_20261004/social_evaluation_observation_staging_v1/observation_producer.py"
-PARENT_SHA = "2379d65876775173fbdd111d846fd847beb6b30109ecb7e04aa30f7a569064f7"
+PARENT = ROOT / "resources/runtime_sources/style_improvement_20261004/social_evaluation_observation_staging_v1/observation_producer.py"
+PARENT_SHA = "e1c0eba40a895c4bcfe06c3fb1823ad961f29ca4e29cd922b34df021d715d4f0"
 
 
 def derive_origin_guard(source):

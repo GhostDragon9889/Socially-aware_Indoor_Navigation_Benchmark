@@ -1,20 +1,33 @@
-# Installation
+# Installation and runtime
 
-[中文](installation.zh-CN.md) · [Guide index](README.md)
+The project supports exactly two setup methods for IsaacLab 3.0-EA / Isaac Sim 6.1. Both run the project with the SDK Python 3.12.
 
-The default is **Lab3EA/Sim6.1**. Configure an external SDK with `python3 scripts/bootstrap_reproduction.py configure --lab-root /absolute/path/to/IsaacLab`, verify with `bootstrap_reproduction.py check`, and run scripts through `scripts/run_external_python.py`. A full local installation is available with `bootstrap_reproduction.py install`. See [setup](external_sdk.zh-CN.md) for resources and editor configuration.
+## Configure an external SDK
 
-AMASS and SMPL separately. `--profile isaaclab3_sim6` retains the historical Sim6.0 environment. Its recordings and metrics do not certify the new SDK. New recording runs still require scene quality gates and complete video decoding.
+```bash
+python3 scripts/bootstrap_reproduction.py configure --lab-root ../IsaacLab
+python3 scripts/bootstrap_reproduction.py check
+python3 scripts/run_external_python.py -m social_navigation status
+```
 
-Troubleshooting:
+Use `--python` for another matching SDK interpreter or binary Sim launcher. uv installs locked project additions under `.runtime/external_sdk_packages`; the external SDK is preserved. Use `--rebuild-addons` after changing the additions lock. Open `.runtime/external_sdk.code-workspace` for editor setup.
 
-- Unsatisfiable `pytetwild` platform branches: use the pinned SDK manifest/lock for Linux x86_64; avoid project `uv sync --all-extras`.
-- SDK/source/lock mismatch: reuse is rejected. Choose the matching SDK or create a new controlled environment in a separate checkout.
-- pytest discovers a system ROS plugin requiring `lark`: clear inherited `PYTHONPATH`; run CPU repository tests with `PYTEST_DISABLE_PLUGIN_AUTOLOAD=1`. This controls plugin discovery, not simulation dependencies.
-- USD provider overlap: run the read-only environment check. Do not co-install `usd-core` and `usd-exchange`.
+## Install the SDK with uv
 
-CPU source inspection: `python3 scripts/audit_checkout.py`. The independent PointGoal PPO code in `src/crowdsim_ppo/` does not establish realistic 3D pedestrian performance.
+```bash
+python3 scripts/bootstrap_reproduction.py install
+python3 scripts/bootstrap_reproduction.py check
+```
 
-The frozen `isaaclab3_sim6` manifest retains its original hashes and references the pre-migration project extra. Fresh installation or reapplication is rejected before SDK changes; only a matching already installed legacy SDK can be reused. An existing SDK is also preserved by the new-profile `install` action: use `prepare-runtime` for reuse.
+Git and uv are required on Linux x86_64. The installer uses the pinned Lab source commit and hash-checked manifest/lock in `env/isaaclab3_ea_sim61` to install Python, Lab and Sim under `.runtime/IsaacLab61`. `--lab-root` selects a new destination; an existing SDK must be reused with `configure`. Read and accept the [NVIDIA EULA](https://docs.isaacsim.omniverse.nvidia.com/6.1.0/installation/install_python.html#running-isaac-sim) before setting `OMNI_KIT_ACCEPT_EULA=YES` and launching Sim.
 
-Next: [dependencies](dependencies.en.md) · [configuration](configuration.en.md) · [usage](usage.en.md).
+## Resources and verification
+
+```bash
+python3 scripts/run_external_python.py scripts/manage_release_assets.py fetch
+python3 scripts/run_external_python.py scripts/manage_release_assets.py prepare --check-usd
+python3 scripts/run_external_python.py -m social_navigation preflight --scene YOHO
+python3 scripts/run_external_python.py scripts/run_project_tests.py --output-dir output/tests_new
+```
+
+Weights, USD scenes and licensed SMPL/AMASS data are separate resources. See [clone reproduction](../../CLONE_REPRODUCTION.en.md). Local resource locations belong in ignored configuration, not source code. Test skips remain visible; setup and short training checks do not establish full navigation quality. See [validation status](../validation.md). The detailed [Chinese setup guide](external_sdk.zh-CN.md) describes provider checks and recoverable publication.

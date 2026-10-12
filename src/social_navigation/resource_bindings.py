@@ -35,7 +35,14 @@ def _bindings(root: str):
 
 def resolve_path(value, *, root=None, relative_to=None):
     root = Path(root or repository_root()).resolve()
-    row = _bindings(str(root)).get(str(value))
+    from .sdk_paths import relocate_sdk_path
+    rows = _bindings(str(root))
+    row = rows.get(str(value))
+    if row is None:
+        normalized = relocate_sdk_path(value, root=root)
+        path = Path(normalized)
+        if path.is_absolute() and path.is_relative_to(root):
+            row = rows.get('project:' + path.relative_to(root).as_posix())
     if row is not None:
         # External licensed datasets may be mounted anywhere. This explicit
         # registry changes location only; the caller still checks bytes/SHA.
@@ -44,7 +51,7 @@ def resolve_path(value, *, root=None, relative_to=None):
         selected = registry.get(row.get("resource_id"), row["target"])
         path = Path(selected).expanduser()
         return (path if path.is_absolute() else root / path).resolve()
-    path = Path(value).expanduser()
+    path = Path(relocate_sdk_path(value, root=root)).expanduser()
     return (path if path.is_absolute() else Path(relative_to or root) / path).resolve()
 
 
@@ -53,7 +60,16 @@ def relocate_document(value, *, root=None):
     root = Path(root or repository_root()).resolve()
     rows = _bindings(str(root))
     if isinstance(value, str):
-        return str(resolve_path(value, root=root)) if value in rows else value
+        if value in rows or value.startswith(("project:", "lab:", "sim:")):
+            return str(resolve_path(value, root=root))
+        if Path(value).is_absolute():
+            from .sdk_paths import relocate_sdk_path
+            normalized = Path(relocate_sdk_path(value, root=root))
+            if normalized.is_absolute() and normalized.is_relative_to(root):
+                key = 'project:' + normalized.relative_to(root).as_posix()
+                if key in rows:
+                    return str(resolve_path(value, root=root))
+        return value
     if isinstance(value, list):
         return [relocate_document(item, root=root) for item in value]
     if isinstance(value, dict):

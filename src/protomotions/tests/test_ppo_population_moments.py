@@ -4,6 +4,8 @@
 """Exercise real core PPO updates with singleton rollout/minibatch moments."""
 
 from datetime import timedelta
+import faulthandler
+import time
 from types import SimpleNamespace
 
 import pytest
@@ -185,6 +187,8 @@ class _GlooFabric:
 
 
 def _distributed_ppo_worker(rank, rendezvous):
+    torch.set_num_threads(1)
+    faulthandler.dump_traceback_later(60, repeat=True)
     dist.init_process_group("gloo", init_method=f"file://{rendezvous}", rank=rank,
                             world_size=2, timeout=timedelta(seconds=30))
     try:
@@ -218,8 +222,23 @@ def _distributed_ppo_worker(rank, rendezvous):
         assert metrics["loss"] == 1.75
     finally:
         dist.destroy_process_group()
+        faulthandler.cancel_dump_traceback_later()
 
 
 @pytest.mark.skipif(not dist.is_gloo_available(), reason="needs CPU Gloo distributed backend")
 def test_real_cpu_distributed_ppo_updates_with_unequal_environment_counts(tmp_path):
-    mp.spawn(_distributed_ppo_worker, args=(str(tmp_path / "rendezvous"),), nprocs=2, join=True)
+    workers = mp.spawn(_distributed_ppo_worker, args=(str(tmp_path / "rendezvous"),), nprocs=2, join=False)
+    deadline = time.monotonic() + 90
+    try:
+        while not workers.join(timeout=1):
+            if time.monotonic() >= deadline:
+                pytest.fail("CPU distributed PPO workers did not exit within 90 seconds")
+    finally:
+        for process in workers.processes:
+            if process.is_alive():
+                process.terminate()
+        for process in workers.processes:
+            process.join(timeout=5)
+            if process.is_alive():
+                process.kill()
+                process.join(timeout=5)

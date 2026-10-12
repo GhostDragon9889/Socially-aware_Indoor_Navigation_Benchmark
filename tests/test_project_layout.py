@@ -40,7 +40,7 @@ def test_cli_runs_from_an_external_working_directory(tmp_path):
                             env=env, capture_output=True, text=True, check=True)
     record = json.loads(result.stdout)
     assert Path(record['root']) == ROOT
-    assert record['release_available']
+    assert record['release_available'] and Path(record['validation_status']).is_file()
     assert record['project'] == 'Socially-aware_Indoor_Navigation_Benchmark'
 
 

@@ -35,7 +35,7 @@ navigation:
   waypoint_tolerance: 0.35
   collision_distance: 0.6
   path:
-    seed: 7
+    seed: 42
     planning_step_size: 0.25
     planning_clearance: 0.35
     min_start_goal_distance: 5.0

@@ -1,0 +1,199 @@
+{
+  "schema": "shared_social.frozen_S3R_temporal_discriminator_diagnostic.v1",
+  "status": "passed",
+  "recorded_at_utc": "2026-10-07T20:13:41.243428+00:00",
+  "sources": [
+    {
+      "path": "project:scripts/diagnose_shared_social_amp_temporal.py",
+      "bytes": 5533,
+      "sha256": "8728d6e5444b37551df5bdb30720ea091c3550ee32bd5d50b9260d7bcf987501"
+    },
+    {
+      "path": "project:CrowdSim/humanoid/analysis/amp_temporal_diagnostic.py",
+      "bytes": 6315,
+      "sha256": "a226ea8d950efe03834dcb1a20d89fb447c1bd82f5a12da601aa98c17ced7ce1"
+    },
+    {
+      "path": "project:CrowdSim/humanoid/training/trainer.py",
+      "bytes": 38177,
+      "sha256": "1e5444f62ccc5214e3f635850d4b9b018b457918259ffbb1e999a05148f4eee7"
+    },
+    {
+      "path": "project:resources/runtime_sources/style_improvement_20261004/social_trainer_staging_v1/social_trainer.py",
+      "bytes": 24246,
+      "sha256": "6cb0d2d1bd7267b68cca92aa81d4ad30a808c4c6a52e7d4c808e6b00874ed936"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "project:resources/runtime_sources/style_improvement_20261007/shared_social_S3_optimizer_recovery_v2/owner_capacity_v3/completion.json",
+      "bytes": 3988,
+      "sha256": "94baa15b32ee0e04ec956a0030d50c1f76800774e9d197b127e32a8443351a68"
+    },
+    {
+      "path": "project:output/diffusion_amp/shared_social_budget12500_recovery_training_v2/result.json",
+      "bytes": 192147,
+      "sha256": "87bf93cbe6c67a2d9e852cd7b8d9b095de525fe97019e6747fab4ec1427467bb"
+    },
+    {
+      "path": "project:resources/runtime_sources/style_improvement_20261007/shared_social_S3_optimizer_recovery_v2/owner_capacity_v3/training_CPU_audit.json",
+      "bytes": 9157,
+      "sha256": "2b57cc9bbf9dc6f62d0b003167b5a0ce52151904adc7d787dffc48b2d9a298b1"
+    },
+    {
+      "path": "project:resources/runtime_sources/style_improvement_20261007/shared_social_S3_optimizer_recovery_v2/owner_capacity_v3/external_verification.json",
+      "bytes": 6215,
+      "sha256": "1af79481f7fb7b2b79e46c631428cc0460f2220522e2c795bbdf623fabf89b31"
+    },
+    {
+      "path": "project:output/diffusion_amp/shared_social_budget12500_recovery_training_v2/rollout_update_012500.pt",
+      "bytes": 1018179842,
+      "sha256": "22145c21031f8c33ec75f90ac2fc2fcce84de2e59d18bbed7a7de03efdfc47cd"
+    },
+    {
+      "path": "project:output/diffusion_amp/shared_social_budget12500_recovery_training_v2/step_012500.pt",
+      "bytes": 651040366,
+      "sha256": "97ba4c6475817e1bbde4aa56377a45191058a0725cad48fcbf3a9b769accb675"
+    }
+  ],
+  "scores": {
+    "path": "project:resources/runtime_sources/style_improvement_20261008/shared_social_S3R_temporal_discriminator_CPU_v1/scores.npz",
+    "bytes": 518661,
+    "sha256": "25c8ee3a36f00c71d41d9af87e35f196e48d57f176ba37d0bf033ab130000148"
+  },
+  "conditions": [
+    "identity",
+    "reverse_past_keep_current",
+    "permute_past_keep_current",
+    "repeat_current",
+    "cyclic_action_mismatch",
+    "zero_actions"
+  ],
+  "summaries": {
+    "physical_policy": {
+      "identity": {
+        "rows": 8192,
+        "mean_logit": -1.748603203895982,
+        "mean_expert_probability": 0.1660913356713536,
+        "mean_AMP_reward": 0.409292607293537,
+        "mean_paired_logit_delta": 0.0,
+        "mean_absolute_paired_logit_delta": 0.0,
+        "fraction_logit_above_zero": 0.04248046875
+      },
+      "reverse_past_keep_current": {
+        "rows": 8192,
+        "mean_logit": -1.2406507191144556,
+        "mean_expert_probability": 0.23737333356712043,
+        "mean_AMP_reward": 0.5945550693177211,
+        "mean_paired_logit_delta": 0.5079524846996719,
+        "mean_absolute_paired_logit_delta": 0.5109430089260059,
+        "fraction_logit_above_zero": 0.0709228515625
+      },
+      "permute_past_keep_current": {
+        "rows": 8192,
+        "mean_logit": -1.5268240584946398,
+        "mean_expert_probability": 0.19326596951987085,
+        "mean_AMP_reward": 0.4708549938422948,
+        "mean_paired_logit_delta": 0.2217791454086182,
+        "mean_absolute_paired_logit_delta": 0.24085191952781315,
+        "fraction_logit_above_zero": 0.044189453125
+      },
+      "repeat_current": {
+        "rows": 8192,
+        "mean_logit": 0.6870811159451478,
+        "mean_expert_probability": 0.6628174009711074,
+        "mean_AMP_reward": 2.2040783081174595,
+        "mean_paired_logit_delta": 2.435684320193104,
+        "mean_absolute_paired_logit_delta": 2.4363790655661433,
+        "fraction_logit_above_zero": 0.9921875
+      },
+      "cyclic_action_mismatch": {
+        "rows": 8192,
+        "mean_logit": -1.7484183987025972,
+        "mean_expert_probability": 0.16611016873639528,
+        "mean_AMP_reward": 0.40934224030843325,
+        "mean_paired_logit_delta": 0.00018480519338481827,
+        "mean_absolute_paired_logit_delta": 0.0004415034791236394,
+        "fraction_logit_above_zero": 0.0426025390625
+      },
+      "zero_actions": {
+        "rows": 8192,
+        "mean_logit": -1.7476985224302553,
+        "mean_expert_probability": 0.16618946176777172,
+        "mean_AMP_reward": 0.40952425295108696,
+        "mean_paired_logit_delta": 0.0009046814657267532,
+        "mean_absolute_paired_logit_delta": 0.0012470313149606227,
+        "fraction_logit_above_zero": 0.0426025390625
+      }
+    },
+    "actual_AMASS_expert": {
+      "identity": {
+        "rows": 4096,
+        "mean_logit": 1.6209190842710086,
+        "mean_expert_probability": 0.8313318395667011,
+        "mean_AMP_reward": 3.6133958997088484,
+        "mean_paired_logit_delta": 0.0,
+        "mean_absolute_paired_logit_delta": 0.0,
+        "fraction_logit_above_zero": 1.0
+      },
+      "reverse_past_keep_current": {
+        "rows": 4096,
+        "mean_logit": 1.552256407274399,
+        "mean_expert_probability": 0.8211328341712942,
+        "mean_AMP_reward": 3.501223446801305,
+        "mean_paired_logit_delta": -0.06866267699660966,
+        "mean_absolute_paired_logit_delta": 0.08232159731414868,
+        "fraction_logit_above_zero": 1.0
+      },
+      "permute_past_keep_current": {
+        "rows": 4096,
+        "mean_logit": 1.4379125256855332,
+        "mean_expert_probability": 0.8021695739153074,
+        "mean_AMP_reward": 3.3220051937678363,
+        "mean_paired_logit_delta": -0.1830065585891134,
+        "mean_absolute_paired_logit_delta": 0.18467757841426646,
+        "fraction_logit_above_zero": 0.998779296875
+      },
+      "repeat_current": {
+        "rows": 4096,
+        "mean_logit": 1.743557478315779,
+        "mean_expert_probability": 0.8481545654212823,
+        "mean_AMP_reward": 3.8177511031390168,
+        "mean_paired_logit_delta": 0.12263839405204635,
+        "mean_absolute_paired_logit_delta": 0.1395609277387848,
+        "fraction_logit_above_zero": 1.0
+      },
+      "cyclic_action_mismatch": {
+        "rows": 4096,
+        "mean_logit": 1.6205739108263515,
+        "mean_expert_probability": 0.8312865215120837,
+        "mean_AMP_reward": 3.6128148198476993,
+        "mean_paired_logit_delta": -0.00034517344465712085,
+        "mean_absolute_paired_logit_delta": 0.00041664481250336394,
+        "fraction_logit_above_zero": 1.0
+      },
+      "zero_actions": {
+        "rows": 4096,
+        "mean_logit": 1.6200908166720183,
+        "mean_expert_probability": 0.8312229636067059,
+        "mean_AMP_reward": 3.611999044485856,
+        "mean_paired_logit_delta": -0.000828267598990351,
+        "mean_absolute_paired_logit_delta": 0.0012057785934302956,
+        "fraction_logit_above_zero": 1.0
+      }
+    }
+  },
+  "history_order": "newest-first; current index0 remains fixed for past permutations",
+  "normalization": "saved per-frame shared195 RMS; original full flattened2019 discriminator",
+  "scoring_phase": "post-update12500 checkpoint on that update's captured pre-update rollout/expert inputs",
+  "original_logged_AMP_reward_trace_reproduced": false,
+  "actual_expert_unique_motion_ids": 2184,
+  "samples_are_training_inputs_not_heldout_quality_evaluation": true,
+  "causal_training_failure_claimed": false,
+  "model_RMS_or_original_metric_changed": false,
+  "Torch_version": "2.11.0+cu128",
+  "CUDA_initialized": false,
+  "SDK_started": false,
+  "paper_effect_achieved": false,
+  "default_model_promoted": false
+}

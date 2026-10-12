@@ -85,7 +85,7 @@ def fixture_v9(folder, modules):
     preflight=deepcopy(old._data)
     script=folder/"probe_v9.py"
     # v9 admission binds the frozen v9 producer, not the evolving live probe.
-    shutil.copyfile(WORKSPACE/"docs/style_improvement_20261002/native_map_clock_v9_proposal_v2/proposed/scripts/probe_paper_scene_maps.py",script)
+    shutil.copyfile(WORKSPACE/"resources/runtime_sources/style_improvement_20261002/native_map_clock_v9_proposal_v2/proposed/scripts/probe_paper_scene_maps.py",script)
     assert file_record(script)["sha256"]==verifier.PROBE_SHA256
     preflight["script"]=file_record(script)
     data["script"]=preflight["script"]

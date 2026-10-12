@@ -2,14 +2,14 @@
 
 [简体中文](configuration.zh-CN.md) · [Documentation index](README.md) · Updated: 2026-10-10
 
-The default targets Lab3.0 EA/Sim6.1. First configure an external SDK or install a complete SDK inside the checkout using the [installation guide](installation.en.md). Project launches use that SDK interpreter directly, with project additions in a separate package directory. See the [verification report (Chinese)](../EXTERNAL_SDK_VERIFICATION_20261011_ZH.md) for measured scope.
+The default targets Lab3.0 EA/Sim6.1. First configure an external SDK or install a complete SDK inside the checkout using the [installation guide](installation.en.md). Project launches use that SDK interpreter directly, with project additions in a separate package directory. See the [verification report (Chinese)](../validation.md) for measured scope.
 
 ## 1. Working directory and environment variables
 
 Use the pinned environment from [installation](installation.en.md), starting at the checkout root:
 
 ```bash
-cd /absolute/path/to/Socially-aware_Indoor_Navigation_Benchmark
+cd Socially-aware_Indoor_Navigation_Benchmark
 export NAV_ROOT="$PWD"
 export NAV_LAB_ROOT="$(python3 -c 'import json; print(json.load(open(".runtime/external_sdk.json"))["lab_root"])')"
 export ISAACLAB_ROOT="$NAV_LAB_ROOT"
@@ -36,7 +36,7 @@ export SOCIAL_NAVIGATION_ROOT="$NAV_ROOT"
 export PROTOMOTIONS_ASSET_ROOT="$NAV_ROOT/src/protomotions/data/assets"
 ```
 
-These variables do not rewrite absolute paths in JSON/YAML. Migrate those entries individually; a new machine does not need to recreate the old `/project/EXP/...` layout.
+These variables do not rewrite absolute paths in JSON/YAML. Migrate those entries individually; a new machine does not need to recreate the old 历史机器上的 layout.
 
 ## 2. Resource inventory
 
@@ -50,12 +50,12 @@ These variables do not rewrite absolute paths in JSON/YAML. Migrate those entrie
 | Fixed AMASS | `data/diffusion_amp/amass_style_2848/manifest_labeled_v7.json` and train bank | 2,848 training, 22 validation and 34 test segments |
 | General AMASS libraries | Adjacent `Assets/motion/` | Authorized archives, per-motion conversions and train/test/validation MotionLib |
 | SMPL/body assets | `src/protomotions/data/assets/` and body parameters referenced by rendering | Physics skeleton, visible skin and body parameters are distinct resources |
-| Indoor scenes | `/project/EXP/Sence/Sences/` or your new resource location | Preserve USD together with materials and referenced layers |
+| Indoor scenes | `data/scenes/` or your new resource location | Preserve USD together with materials and referenced layers |
 | Native map evidence | Scene `preflight`, `native_map`, `probe_script_snapshot` | External artifacts binding the scene, PhysX queries, support surface and generator source |
 
 Raw scene directory names are `Rest_Room_HongKong_YOHO`, `Rest_Room_HongKong_NewMetro`, `Rest_Room_Second_Floor`, and `Rest_Room_Third_Floor`. CLI names are `YOHO`, `NewMetro`, `SecondFloor`, and `ThirdFloor`.
 
-This project’s [asset release](../../ASSET_RELEASE.md#english-instructions) contains the selected TRACE/AMP/teacher weights, training parameters and resume checkpoints, EVT robot, four scenes and their material references. Raw AMASS, licensed SMPL parameters, SDKs and videos remain separate. The release’s 467 file records were verified; see the [publication receipt](../ASSET_PUBLICATION_20261010.json). The old 47-item asset ledger describes the earlier upstream merge; see the [merge record](../UPSTREAM_MERGE_20261010_ZH.md).
+This project’s [asset release](../../ASSET_RELEASE.md#english-instructions) contains the selected TRACE/AMP/teacher weights, training parameters and resume checkpoints, EVT robot, four scenes and their material references. Raw AMASS, licensed SMPL parameters, SDKs and videos remain separate. The release’s 467 file records were verified; see the [publication receipt](../../ASSET_RELEASE.md). The old 47-item asset ledger describes the earlier upstream merge; see the [merge record](../structure.md).
 
 Restore published resources from the checkout root:
 
@@ -65,7 +65,7 @@ python scripts/manage_release_assets.py verify
 python scripts/manage_release_assets.py install-models
 ```
 
-The fetch helper explicitly selects the private project LFS endpoint and requires an authorized GitHub account; the default `.lfsconfig` download endpoint remains NVlabs upstream. install-models restores seven model/config/manifest items, without motion banks or native-map migration. The three data/smpl pkl files are currently symlinks to external arena_assets; prepare their actual parameters separately on a new host. Published USD dependencies were verified, while relocated native-map admission and physics require new validation. See the [comprehensive local audit (Chinese)](../RESOURCE_DEPENDENCY_MAP_20261010_ZH.md).
+The fetch helper explicitly selects the private project LFS endpoint and requires an authorized GitHub account; the default `.lfsconfig` download endpoint remains NVlabs upstream. install-models restores seven model/config/manifest items, without motion banks or native-map migration. The three data/smpl pkl files are currently symlinks to external arena_assets; prepare their actual parameters separately on a new host. Published USD dependencies were verified, while relocated native-map admission and physics require new validation. See the [comprehensive local audit (Chinese)](configuration.en.md).
 
 ### Public PACER download
 
@@ -73,9 +73,7 @@ Use a separate download environment. Google Drive availability and limits may af
 
 ```bash
 cd "$NAV_ROOT"
-uv venv --python 3.12 .venv-download
-uv pip install --python .venv-download/bin/python gdown==6.2.0 requests
-.venv-download/bin/python scripts/fetch_pacer_reference.py --roles no_shape
+python3 scripts/run_external_python.py scripts/fetch_pacer_reference.py --roles no_shape
 ```
 
 Obtain TRACE through the release instructions in its [pinned original repository](https://github.com/nv-tlabs/trace/tree/594b2af0824c5853e1a1884e167cd5ed097dd81c). PACER files and ProtoMotions SMPL trackers are not interchangeable. Verify model identity against the profile's actual SHA.
@@ -99,7 +97,7 @@ Assets/motion/
   manifest_labeled_v7_train.pt
 ```
 
-Use the following only when creating new libraries. First extract authorized archives into `raw/` as described by the [AMASS preparation record](../AMASS_PREPARATION_ZH.md). Scripts do not download licensed data and refuse to overwrite final banks.
+Use the following only when creating new libraries. First extract authorized archives into `raw/` as described by the [AMASS preparation record](../../src/CrowdSim/humanoid/README.md). Scripts do not download licensed data and refuse to overwrite final banks.
 
 ```bash
 cd "$NAV_ROOT"

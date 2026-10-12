@@ -1,7 +1,0 @@
-# Native15 metric preparation v2
-
-This independent revision binds the actual `66f16e6…` native15 raw audit, `837fe71a…` reader revision freeze, exact representation adapter and outer registration. It retains the actual first CPU failure. The four tuple/list proof rows must have identical canonical values; compiled raw v1/v2/routes mathematics must remain unchanged. The original native metadata/source bridge still validates true state-prior provenance, production V11 and the actual closed native owner receipt before physical arrays or reference poses are processed.
-
-The two metric commands reuse the frozen v1 90D entry and 45D function adapter directly, with exact c274 reference and b25 saved centers. No fit occurs. Their outputs use the separate `state_prior_native_metrics_v2` directory. The comparison binds the completed old15 metrics to their original v1 catalog, 174-file runtime archive and saved capture; new15 binds production183 and the approved raw JSON representation revision. Every legal failed/contact/idle pose remains included. Original first-frame/reset-boundary exclusions and unsupported speed bins remain unchanged.
-
-All old preparation and actual results remain immutable. No GPU, Kit or model deserialization is performed; no 34-test outputs are read. Primary aggregates remain unchanged, common supported speed bins are reported separately, and default promotion remains false.

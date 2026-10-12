@@ -15,8 +15,8 @@ from .social_evaluation_lifecycle import ROOT, record
 from . import social_popart_training
 from . import popart_checkpoint_family, popart_reader_definitions
 
-PARENT = ROOT / "docs/style_improvement_20261004/social_checkpoint_inference_staging_v1/checkpoint_inference.py"
-PARENT_SHA = "cd227f5d2de81e21da560dba97a1d2f564e125beba9e73d739548c5c1800a352"
+PARENT = ROOT / "resources/runtime_sources/style_improvement_20261004/social_checkpoint_inference_staging_v1/checkpoint_inference.py"
+PARENT_SHA = "875d9fd21af190cd0405b90d214aad71d1dffcb4678661ce7e187e61c91dc954"
 
 
 def prepare_reader():

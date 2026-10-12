@@ -20,14 +20,14 @@ from CrowdSim.humanoid.runtime.social_evaluation_lifecycle import record  # noqa
 
 TOOL = ROOT / "scripts/evaluate_pedestrian_style.py"
 TOOL_SHA = "82ee083fd16d25ddc39a4c7541d884dfef13a34bb68abc99ba3d45195665f26f"
-REFERENCE = ROOT / "docs/style_improvement_20261002/backward_penalty_style_v1/heldout_reference.json"
-REFERENCE_SHA = "c274348fc2d58862fa47e7fdb00b136d71e806fc7ac9ef182e87c0f0249f0564"
-POSE_TOOL = ROOT / "docs/style_improvement_20261002/pose_diversity_candidate_v1/evaluate_pose_diversity.py"
-POSE_TOOL_SHA = "208ff775d765b7d046e7e7e8c331dbb2b8d3bfdc4c1567c1df499a584af30bfa"
+REFERENCE = ROOT / "resources/runtime_sources/style_improvement_20261002/backward_penalty_style_v1/heldout_reference.json"
+REFERENCE_SHA = "6e9ed2fa9949336acf2c7d01f0ede77f952832bbf770d1c1800c4864500c91c2"
+POSE_TOOL = ROOT / "resources/runtime_sources/style_improvement_20261002/pose_diversity_candidate_v1/evaluate_pose_diversity.py"
+POSE_TOOL_SHA = "ba3fa07097bd983090b7bea1fd59baa05292b9a80fe6e02cef6f7f3897d4a37d"
 BASIS = POSE_TOOL.parent / "actual_evaluation_v1/reference_basis.npz"
 BASIS_SHA = "b25dffa6612d6202b5faf534381c24a4558f347639b366214ec61f5a2478dcdb"
 BASIS_EVALUATION = BASIS.parent / "evaluation.json"
-BASIS_EVALUATION_SHA = "9478afe6b16540f7624867e1d736f30f78399c84177c12d6c9b616bc496c3780"
+BASIS_EVALUATION_SHA = "875f72ec99cb2ab8c3c5fd5f796495fe634b8837f25cee19f7ee104dd4cbf512"
 
 
 def training_manifest(runner):
@@ -64,7 +64,8 @@ def pose45(tool, runs):
     pose_tool = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(pose_tool)
     artifact = json.loads(REFERENCE.read_text())
-    body, rotation, hashes, _ = tool.load_reference(Path(artifact["manifest"]["path"]), artifact["selection"])
+    from social_navigation.artifact_identity import artifact_path
+    body, rotation, hashes, _ = tool.load_reference(artifact_path(artifact["manifest"]["path"]), artifact["selection"])
     if hashes != artifact["actual_selected_array_sha256"]:
         raise ValueError("Frozen actual reference arrays changed")
     resets = np.zeros(body.shape[:2], dtype=bool)

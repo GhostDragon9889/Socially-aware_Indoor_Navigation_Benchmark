@@ -22,7 +22,7 @@ RUNS = (
 
 
 def main():
-    out = ROOT / "docs/diffusion_amp_20261001/physical_evaluation_comparison"
+    out = ROOT / "resources/runtime_sources/diffusion_amp_20261001/physical_evaluation_comparison"
     out.mkdir(parents=True, exist_ok=True)
     figure, axes = plt.subplots(1, 3, figsize=(15, 5), constrained_layout=True)
     sources = []

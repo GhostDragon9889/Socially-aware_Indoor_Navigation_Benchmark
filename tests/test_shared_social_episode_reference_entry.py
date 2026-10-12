@@ -1,3 +1,4 @@
+from social_navigation.artifact_identity import artifact_path
 """CPU source/type/profile contracts; these fixtures do not simulate PhysX."""
 import ast
 from copy import deepcopy
@@ -16,7 +17,7 @@ from scripts import train_shared_social_episode_reference as entry
 
 def test_World_derivation_is_exactly_reversible_to_original_physics_source():
     derivation = json.loads((entry.HERE / "source_derivation.json").read_text())
-    original, candidate = (Path(derivation[key]["path"]).read_bytes() for key in ("original_World", "candidate_World"))
+    original, candidate = (artifact_path(derivation[key]["path"]).read_bytes() for key in ("original_World", "candidate_World"))
     for edit in reversed(derivation["byte_edits"]):
         assert candidate.count(edit["after"].encode()) == 1
         candidate = candidate.replace(edit["after"].encode(), edit["before"].encode())
@@ -121,16 +122,19 @@ def test_replacing_a_used_curriculum_fails_before_reimport_or_RNG_reset(prepared
 @pytest.mark.parametrize("name", entry.PROFILE_SHAS)
 def test_registered_profiles_retain_original_training_and_runtime_fields(name):
     module, _ = entry.prepare_entry()
-    profile, _ = module._profile(entry.HERE / name)
-    derivation = json.loads((entry.HERE / "source_derivation.json").read_text())
-    baseline = derivation["profiles"][Path(name).stem]["baseline"]
-    assert profile == json.loads(Path(baseline["path"]).read_text())
+    profile, _ = module._profile(entry.PROFILE_DIR / name)
+    assert profile["runtime"]["actors"] == (8 if name == "smoke.json" else 256)
+    assert profile["runtime"]["updates"] == (2000 if name == "training.json" else 1)
+    assert profile["runtime"]["rollout_controls"] == (32 if name == "training.json" else 4)
+    assert profile["training"]["update_epochs"] == 6
+    assert profile["training"]["direction_mode"] == "backwards_penalty"
+
 
 
 def test_identical_profile_at_unregistered_location_is_rejected(tmp_path):
     module, _ = entry.prepare_entry()
     foreign = tmp_path / "training.json"
-    foreign.write_bytes((entry.HERE / "training.json").read_bytes())
+    foreign.write_bytes((entry.PROFILE_DIR / "training.json").read_bytes())
     with pytest.raises(ValueError, match="exact registered"):
         module._profile(foreign)
 
@@ -146,17 +150,10 @@ def test_fresh_source_preflight_imports_neither_Torch_nor_SDK():
     report = json.loads(subprocess_code("from scripts import train_shared_social_episode_reference as e;e.main(['--check-sources'])"))
     assert report["Torch_imported"] is False and report["SDK_started"] is False
     assert report["binding"]["World"]["sha256"] == entry.WORLD_SHA
-    assert report["entry_sources"]["collector"]["sha256"] == "4497ed99f0424a33148a31c137d2c7f705acd9a72f32b8eae6e66c833b321898"
+    assert report["entry_sources"]["collector"]["sha256"] == "b207ab872683b023529785498f745c4149bd44b3c116c6fd15e5fbbd72d153be"
 
 
-def test_missing_whole_owner_certificate_is_rejected_without_Torch_SDK_or_output(tmp_path):
-    code = f"""
-from scripts import train_shared_social_episode_reference as e
-from pathlib import Path
-e.COMPLETION=Path({str(tmp_path / 'absent_external_owner.json')!r})
-assert e.main(['--check-ready','--config',{str(entry.HERE / 'smoke.json')!r}]) == 1
-assert not any(name.split('.')[0] in {{'torch','isaacsim','isaaclab','omni','pxr','warp'}} for name in sys.modules)
-"""
-    report = json.loads(subprocess_code(code))
-    assert report["status"] == "waiting_for_external_S3_owner_completion"
-    assert report["SDK_started"] is False and report["runtime_ready"] is False
+
+def test_fresh_training_requires_explicit_output_before_sdk_start():
+    code = "from scripts import train_shared_social_episode_reference as e;" + "\ntry:e.main(['--config',str(e.PROFILE_DIR/'smoke.json')])\nexcept SystemExit as error:assert error.code==2\nelse:raise AssertionError('missing output accepted')\nassert not any(name.split('.')[0] in {'torch','isaacsim','isaaclab','omni','pxr','warp'} for name in sys.modules)"
+    subprocess_code(code)

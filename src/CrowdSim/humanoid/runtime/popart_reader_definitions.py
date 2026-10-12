@@ -5,10 +5,10 @@ from types import ModuleType
 from . import social_popart_training as training
 from .social_evaluation_lifecycle import record
 
-ACTOR = training.ROOT / "docs/style_improvement_20261004/social_deployment_integration_v1/inference_adapter.py"
-ACTOR_SHA = "05261849db05c7c473c4a77ca9fd1e4c6930562a65bd46810849380484fbfc58"
-HELPER = training.ROOT / "docs/style_improvement_20261004/social_value_adapter_staging_v1/value_adapter.py"
-HELPER_SHA = "9875c58b90e23ab6613ee7298bb4a199295435ad7f540f5b760e524a8f3b4f76"
+ACTOR = training.ROOT / "resources/runtime_sources/style_improvement_20261004/social_deployment_integration_v1/inference_adapter.py"
+ACTOR_SHA = "b81f5c5670c7e3cb893dfc27b8632a211c82cdb4a39ff2ce88a2f2dcea90127e"
+HELPER = training.ROOT / "resources/runtime_sources/style_improvement_20261004/social_value_adapter_staging_v1/value_adapter.py"
+HELPER_SHA = "11d24ca5e598307e112d53fb3abd24c19141bdb359cdf8926629443598ca1304"
 
 
 def make_actor():

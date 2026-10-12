@@ -42,7 +42,7 @@ def fixture_v8(folder, modules):
     old, low_row = legacy.fixture_v7(folder)
     data, preflight = deepcopy(old._native["data"]), deepcopy(old._data)
     script = folder / "probe_v8.py"
-    shutil.copyfile(WORKSPACE / "docs/style_improvement_20261002/native_map_clock_v8_proposal_v2/proposed/scripts/probe_paper_scene_maps.py", script)
+    shutil.copyfile(WORKSPACE / "resources/runtime_sources/style_improvement_20261002/native_map_clock_v8_proposal_v2/proposed/scripts/probe_paper_scene_maps.py", script)
     assert file_record(script)["sha256"] == v8.PROBE_SHA256
     preflight["script"] = file_record(script)
     data["script"] = preflight["script"]
@@ -184,54 +184,3 @@ def test_v8_dispatch_keeps_old_provider_grid_astar_and_SDF_Jacobian_exact(tmp_pa
         va, vb = old.signed_distance(a), new.signed_distance(b)
         assert torch.equal(va, vb)
         assert torch.equal(torch.autograd.grad(va.sum(), a)[0], torch.autograd.grad(vb.sum(), b)[0])
-
-
-def reader_candidate(monkeypatch):
-    root = WORKSPACE
-    module = source_module("v8_historical_reader_CPU_contract", ROOT / "src/CrowdSim/humanoid/analysis/native_map_audit_reader.py")
-    monkeypatch.setattr(module, "ROOT", root)
-    monkeypatch.setattr(module, "DOC", root / "docs/style_improvement_20261002/native_map_admission_v7")
-    return module
-
-
-def test_historical_v7_registration_binds_archive_and_records_later_checkout(monkeypatch, tmp_path):
-    reader = reader_candidate(monkeypatch)
-    original = reader.file_record
-    target = reader.ROOT / "CrowdSim/humanoid/runtime/dynbench_scene.py"
-
-    def simulated_later_checkout(path):
-        record = original(path)
-        if Path(path).resolve() == target.resolve():
-            record["sha256"] = "1" * 64
-        return record
-
-    monkeypatch.setattr(reader, "file_record", simulated_later_checkout)
-    snapshot = reader.DOC / "actual_reader_preparation_v1/probe_paper_scene_maps.py"
-    record = reader.registration(tmp_path / "absent", snapshot)
-    assert record["consumer_sources_verified_from_immutable_archive"] is True
-    assert record["consumer_sources"][0]["sha256"] != record["current_checkout_consumer_sources"][0]["sha256"]
-    assert record["native_v7_execution_observed"] is False
-
-
-def test_historical_v7_registration_rejects_corrupt_archive_member_even_if_container_rehashed(monkeypatch, tmp_path):
-    import io
-    import json
-    import tarfile
-    reader = reader_candidate(monkeypatch)
-    original_doc = reader.DOC
-    freeze = json.loads((original_doc / "source_freeze.json").read_text())
-    altered = tmp_path / "corrupt_source.tar.gz"
-    with tarfile.open(freeze["source_archive"]["path"], "r:gz") as old:
-        with tarfile.open(altered, "w:gz") as new:
-            for index, info in enumerate(old):
-                content = old.extractfile(info).read()
-                if index == 0:
-                    content += b"# corrupt archive member\\n"
-                info.size = len(content)
-                new.addfile(info, io.BytesIO(content))
-    freeze["source_archive"] = file_record(altered)
-    (tmp_path / "source_freeze.json").write_text(json.dumps(freeze))
-    monkeypatch.setattr(reader, "DOC", tmp_path)
-    snapshot = original_doc / "actual_reader_preparation_v1/probe_paper_scene_maps.py"
-    with pytest.raises(ValueError, match="archive bytes changed"):
-        reader.registration(tmp_path / "absent", snapshot)

@@ -2,7 +2,7 @@
 
 [简体中文](usage.zh-CN.md) · [Documentation index](README.md) · Updated: 2026-10-10
 
-The default targets Lab3.0 EA/Sim6.1. First configure an external SDK or install a complete SDK inside the checkout using the [installation guide](installation.en.md). Project launches use that SDK interpreter directly, with project additions in a separate package directory. See the [verification report (Chinese)](../EXTERNAL_SDK_VERIFICATION_20261011_ZH.md) for measured scope.
+The default targets Lab3.0 EA/Sim6.1. First configure an external SDK or install a complete SDK inside the checkout using the [installation guide](installation.en.md). Project launches use that SDK interpreter directly, with project additions in a separate package directory. See the [verification report (Chinese)](../validation.md) for measured scope.
 
 ## 1. Method and modules
 
@@ -25,7 +25,7 @@ The NavIsaacLab five-state Diffusion/history-plus-action AMP reconstruction rema
 Complete [installation](installation.en.md) and [configuration](configuration.en.md) first.
 
 ```bash
-cd /absolute/path/to/Socially-aware_Indoor_Navigation_Benchmark
+cd Socially-aware_Indoor_Navigation_Benchmark
 export NAV_ROOT="$PWD"
 export NAV_LAB_ROOT="$(python3 -c 'import json; print(json.load(open(".runtime/external_sdk.json"))["lab_root"])')"
 export ISAACLAB_ROOT="$NAV_LAB_ROOT"
@@ -140,7 +140,7 @@ CUDA_VISIBLE_DEVICES= "$NAV_PY" -m social_navigation audit-feet \
 | Spatial stasis | Complete 5s root-position windows determine spatial confinement; longest stasis ≤10s |
 | Foot surface | Neutral SMPL skin relative to the declared support surface; not a contact-patch slip or friction measurement |
 
-Style MMD/frozen-cluster coverage is separate analysis. Passing speed/safety screens does not establish greater realism or superiority over the paper. The 22 validation clips have already informed selection; they are not fresh unseen tests. Keep the 34 test clips independent. Detailed local definitions are in the [four-scene results](../FOUR_SCENE_SPEED_20261010_ZH.md).
+Style MMD/frozen-cluster coverage is separate analysis. Passing speed/safety screens does not establish greater realism or superiority over the paper. The 22 validation clips have already informed selection; they are not fresh unseen tests. Keep the 34 test clips independent. Detailed local definitions are in the [four-scene results](../validation.md).
 
 ## 6. Cameras and 60-second video
 

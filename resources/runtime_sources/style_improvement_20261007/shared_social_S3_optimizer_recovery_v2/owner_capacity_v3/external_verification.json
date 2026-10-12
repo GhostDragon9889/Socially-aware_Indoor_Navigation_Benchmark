@@ -1,0 +1,221 @@
+{
+  "schema": "shared_social.completed_optimizer_recovery_external_verification.v1",
+  "status": "passed",
+  "verified_at_utc": "2026-10-07T15:48:17.735970+00:00",
+  "completion": {
+    "path": "project:resources/runtime_sources/style_improvement_20261007/shared_social_S3_optimizer_recovery_v2/owner_capacity_v3/completion.json",
+    "bytes": 3988,
+    "sha256": "94baa15b32ee0e04ec956a0030d50c1f76800774e9d197b127e32a8443351a68"
+  },
+  "result": {
+    "path": "project:output/diffusion_amp/shared_social_budget12500_recovery_training_v2/result.json",
+    "bytes": 192147,
+    "sha256": "87bf93cbe6c67a2d9e852cd7b8d9b095de525fe97019e6747fab4ec1427467bb"
+  },
+  "audit": {
+    "path": "project:resources/runtime_sources/style_improvement_20261007/shared_social_S3_optimizer_recovery_v2/owner_capacity_v3/training_CPU_audit.json",
+    "bytes": 9157,
+    "sha256": "2b57cc9bbf9dc6f62d0b003167b5a0ce52151904adc7d787dffc48b2d9a298b1"
+  },
+  "checkpoint": {
+    "path": "project:output/diffusion_amp/shared_social_budget12500_recovery_training_v2/step_012500.pt",
+    "bytes": 651040366,
+    "sha256": "97ba4c6475817e1bbde4aa56377a45191058a0725cad48fcbf3a9b769accb675"
+  },
+  "rollout": {
+    "path": "project:output/diffusion_amp/shared_social_budget12500_recovery_training_v2/rollout_update_012500.pt",
+    "bytes": 1018179842,
+    "sha256": "22145c21031f8c33ec75f90ac2fc2fcce84de2e59d18bbed7a7de03efdfc47cd"
+  },
+  "source_records_verified": 16,
+  "input_records_verified": 4,
+  "actual_training_child_exit_code": 0,
+  "actual_CPU_audit_child_exit_code": 0,
+  "child_exits_observed_by": "independent OS owner subprocess.Popen.wait",
+  "root_OS_owner_exit_code_claimed": false,
+  "training_exit_inferred_from_metrics_or_PID": false,
+  "retained_updates": 12000,
+  "actual_segment_updates": 500,
+  "effective_total_updates": 12500,
+  "actual_segment_transitions": 4096000,
+  "effective_training_transitions": 102400000,
+  "actual_segment_PPO_minibatches": 6000,
+  "actual_segment_D_minibatches": 1000,
+  "actual_segment_controls": 16000,
+  "actual_segment_physics_substeps": 64000,
+  "current_segment_expert_windows": 2048000,
+  "effective_total_expert_windows": 51200000,
+  "original_checkpoint_unchanged": {
+    "path": "project:output/diffusion_amp/shared_social_budget12500_v1/step_012000.pt",
+    "bytes": 651035630,
+    "sha256": "62872fc8376a848c46e02e9540467864a61835c930b9b67e9c695c0ff774a8b7"
+  },
+  "original_metrics_unchanged": {
+    "path": "project:output/diffusion_amp/shared_social_budget12500_v1/metrics.jsonl",
+    "bytes": 40886054,
+    "sha256": "b4ed7117eac7c53eb66b943932dc788a0904998d28a3f882cba41b6fc1b20e2c"
+  },
+  "fixed_AMASS_resources_rehashed": [
+    {
+      "path": "project:data/diffusion_amp/amass_style_2848/manifest_labeled_v7.json",
+      "bytes": 9507694,
+      "sha256": "68d41be28908f28a09c47f7658af39d55fad01b32212bd7c0ced2b1e6b1489ca"
+    },
+    {
+      "path": "project:data/diffusion_amp/amass_style_2848/manifest_labeled_v7_train.pt",
+      "bytes": 1155817682,
+      "sha256": "46e0241108e200409c08d1115a270205fe0b6ce827e366a06e8a09f6a2cc82c0"
+    }
+  ],
+  "output_inventory": [
+    {
+      "name": "metrics.jsonl",
+      "bytes": 1713068,
+      "readonly": true
+    },
+    {
+      "name": "resolved_configuration.json",
+      "bytes": 24878,
+      "readonly": true
+    },
+    {
+      "name": "result.json",
+      "bytes": 192147,
+      "readonly": true
+    },
+    {
+      "name": "retained_metrics_prefix.jsonl",
+      "bytes": 39390399,
+      "readonly": true
+    },
+    {
+      "name": "rollout_update_012125.pt",
+      "bytes": 1018179842,
+      "readonly": true
+    },
+    {
+      "name": "rollout_update_012250.pt",
+      "bytes": 1018179842,
+      "readonly": true
+    },
+    {
+      "name": "rollout_update_012375.pt",
+      "bytes": 1018179842,
+      "readonly": true
+    },
+    {
+      "name": "rollout_update_012500.pt",
+      "bytes": 1018179842,
+      "readonly": true
+    },
+    {
+      "name": "step_012025.pt",
+      "bytes": 651040366,
+      "readonly": true
+    },
+    {
+      "name": "step_012050.pt",
+      "bytes": 651040366,
+      "readonly": true
+    },
+    {
+      "name": "step_012075.pt",
+      "bytes": 651040366,
+      "readonly": true
+    },
+    {
+      "name": "step_012100.pt",
+      "bytes": 651040366,
+      "readonly": true
+    },
+    {
+      "name": "step_012125.pt",
+      "bytes": 651040366,
+      "readonly": true
+    },
+    {
+      "name": "step_012150.pt",
+      "bytes": 651040366,
+      "readonly": true
+    },
+    {
+      "name": "step_012175.pt",
+      "bytes": 651040366,
+      "readonly": true
+    },
+    {
+      "name": "step_012200.pt",
+      "bytes": 651040366,
+      "readonly": true
+    },
+    {
+      "name": "step_012225.pt",
+      "bytes": 651040366,
+      "readonly": true
+    },
+    {
+      "name": "step_012250.pt",
+      "bytes": 651040366,
+      "readonly": true
+    },
+    {
+      "name": "step_012275.pt",
+      "bytes": 651040366,
+      "readonly": true
+    },
+    {
+      "name": "step_012300.pt",
+      "bytes": 651040366,
+      "readonly": true
+    },
+    {
+      "name": "step_012325.pt",
+      "bytes": 651040366,
+      "readonly": true
+    },
+    {
+      "name": "step_012350.pt",
+      "bytes": 651040366,
+      "readonly": true
+    },
+    {
+      "name": "step_012375.pt",
+      "bytes": 651040366,
+      "readonly": true
+    },
+    {
+      "name": "step_012400.pt",
+      "bytes": 651040366,
+      "readonly": true
+    },
+    {
+      "name": "step_012425.pt",
+      "bytes": 651040366,
+      "readonly": true
+    },
+    {
+      "name": "step_012450.pt",
+      "bytes": 651040366,
+      "readonly": true
+    },
+    {
+      "name": "step_012475.pt",
+      "bytes": 651040366,
+      "readonly": true
+    },
+    {
+      "name": "step_012500.pt",
+      "bytes": 651040366,
+      "readonly": true
+    }
+  ],
+  "original_continuous_S3_completion_certificate_created": false,
+  "physical_world_curriculum_history_restored": false,
+  "physical_world_restarted": true,
+  "GPU_exclusivity_claimed": false,
+  "NN_or_SDK_started_by_verifier": false,
+  "Torch_imported_by_verifier": false,
+  "independent_model_quality_evaluation_executed": false,
+  "default_model_promoted": false,
+  "paper_effect_achieved": false
+}

@@ -21,11 +21,11 @@ from scripts import compare_shared_social_evidence as original  # noqa: E402
 FROZEN = {
     "scripts/evaluate_pedestrian_style.py": "82ee083fd16d25ddc39a4c7541d884dfef13a34bb68abc99ba3d45195665f26f",
     "CrowdSim/humanoid/style_evaluation.py": "b09fa58caaf877d89b69ca788538c2808e3a3d8d91410277ea07b5df3bcdaca2",
-    "scripts/evaluate_shared_social_style.py": "d3296011b0e08286ae109daea6a518c95f5f9fa9f24a474a20555cd002baa47c",
-    "docs/style_improvement_20261002/backward_penalty_style_v1/heldout_reference.json": "c274348fc2d58862fa47e7fdb00b136d71e806fc7ac9ef182e87c0f0249f0564",
-    "docs/style_improvement_20261002/pose_diversity_candidate_v1/evaluate_pose_diversity.py": "208ff775d765b7d046e7e7e8c331dbb2b8d3bfdc4c1567c1df499a584af30bfa",
-    "docs/style_improvement_20261002/pose_diversity_candidate_v1/actual_evaluation_v1/reference_basis.npz": "b25dffa6612d6202b5faf534381c24a4558f347639b366214ec61f5a2478dcdb",
-    "docs/style_improvement_20261002/pose_diversity_candidate_v1/actual_evaluation_v1/evaluation.json": "9478afe6b16540f7624867e1d736f30f78399c84177c12d6c9b616bc496c3780",
+    "scripts/evaluate_shared_social_style.py": "a9e2f3281f71bd2f335b2b416d5f678e45e7c2854674a6bb1f1d70fe0c639b9b",
+    "resources/runtime_sources/style_improvement_20261002/backward_penalty_style_v1/heldout_reference.json": "c274348fc2d58862fa47e7fdb00b136d71e806fc7ac9ef182e87c0f0249f0564",
+    "resources/runtime_sources/style_improvement_20261002/pose_diversity_candidate_v1/evaluate_pose_diversity.py": "bfedf488fefcfb31c3c95b2df4a20dbca4f22be7a5fbdbc58dc7ab59e1f23e04",
+    "resources/runtime_sources/style_improvement_20261002/pose_diversity_candidate_v1/actual_evaluation_v1/reference_basis.npz": "b25dffa6612d6202b5faf534381c24a4558f347639b366214ec61f5a2478dcdb",
+    "resources/runtime_sources/style_improvement_20261002/pose_diversity_candidate_v1/actual_evaluation_v1/evaluation.json": "9478afe6b16540f7624867e1d736f30f78399c84177c12d6c9b616bc496c3780",
 }
 TRACKING_STAGES = ("lifecycle_smoke", "full22", "style")
 POST_STAGES = ("actor_CPU_inference", "tracking_style", "navigation_smoke", "navigation200s", "navigation_CPU_array_audit")
@@ -132,10 +132,10 @@ def bundle_sources(bundle, measurements):
                frozen_source(bridge["implementation"], "scripts/evaluate_shared_social_style.py")]
     original.require(bridge["original_style_tool"] == s["sources"]["implementation"]
                      and bridge["reference"] == p["reference"], "Style bridge source/reference binding differs")
-    for key, relative in (("reference", "docs/style_improvement_20261002/backward_penalty_style_v1/heldout_reference.json"),
-                          ("basis", "docs/style_improvement_20261002/pose_diversity_candidate_v1/actual_evaluation_v1/reference_basis.npz"),
-                          ("original_basis_evaluation", "docs/style_improvement_20261002/pose_diversity_candidate_v1/actual_evaluation_v1/evaluation.json"),
-                          ("metric_implementation", "docs/style_improvement_20261002/pose_diversity_candidate_v1/evaluate_pose_diversity.py")):
+    for key, relative in (("reference", "resources/runtime_sources/style_improvement_20261002/backward_penalty_style_v1/heldout_reference.json"),
+                          ("basis", "resources/runtime_sources/style_improvement_20261002/pose_diversity_candidate_v1/actual_evaluation_v1/reference_basis.npz"),
+                          ("original_basis_evaluation", "resources/runtime_sources/style_improvement_20261002/pose_diversity_candidate_v1/actual_evaluation_v1/evaluation.json"),
+                          ("metric_implementation", "resources/runtime_sources/style_improvement_20261002/pose_diversity_candidate_v1/evaluate_pose_diversity.py")):
         sources.append(frozen_source(p[key], relative))
     original.require(s["reference"] == original.bound(p["reference"]), "Style and pose references differ")
     original.require(bridge["inputs"]["shared2000"] == run["sources"]["result"]

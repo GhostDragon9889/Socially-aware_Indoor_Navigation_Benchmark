@@ -7,7 +7,7 @@ import numpy as np
 import pytest
 
 
-SCRIPT = Path(__file__).resolve().parents[1] / "docs/amp_improvement_20261001/analyze_route_completion.py"
+SCRIPT = Path(__file__).resolve().parents[1] / "resources/runtime_sources/amp_improvement_20261001/analyze_route_completion.py"
 SPEC = importlib.util.spec_from_file_location("route_completion_analysis", SCRIPT)
 ANALYSIS = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(ANALYSIS)

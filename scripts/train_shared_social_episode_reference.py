@@ -3,7 +3,7 @@
 
 Reuses the original control, collector, expert and cleanup. Only a caller-owned
 probe namespace selects the separately derived World. No SDK class is patched.
-GPU execution requires externally observed completion of the entire S3 owner.
+Select the configured IsaacLab SDK interpreter for fresh training.
 """
 from __future__ import annotations
 
@@ -17,20 +17,17 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from scripts import train_shared_social as canonical  # noqa: E402
 
-HERE = ROOT / "docs/style_improvement_20261006/shared_social_episode_reference_runtime_preparation_v1"
+HERE = ROOT / "resources/runtime_sources/style_improvement_20261006/shared_social_episode_reference_runtime_preparation_v1"
 WORLD = HERE / "shared_group_world.py"
 CURRICULUM = ROOT / "src/CrowdSim/humanoid/training/episode_mixed_trajectories.py"
 REFERENCE = ROOT / "src/CrowdSim/humanoid/training/episode_trajectories.py"
 REFERENCE_SHA = "f4283656f29a31547905ee640316aac63e7ba2cdbcd9321f1763475247a17576"
-PARENT_WORLD_SHA = "e76182d2be5a3fa4dad19a04d71275d91929ce3ea2d63a1c23f081aa1a59880b"
-WORLD_SHA = "635bd6183404141502bca82f6e7e3143c223a75c64c5cd080a1b3eb89031b360"
+PARENT_WORLD_SHA = "d7400a48364b64971f4e2e942d87ebd9e108b5a8ff018e8a8f404b817bd02038"
+WORLD_SHA = "1e2a86ced62e21c0ef3c447dad22ec72d2ead4104564c12a4be4b4636a6e58d5"
 CURRICULUM_SHA = "61ec4446472800c4c6ed922194cb42f8d6988cabe732853d865f5386d4793e1a"
-CANONICAL_SHA = "bd751851ce348a7f73f2e52d2d1911076b29f56786be450a8c4fd262dc507a88"
-PROFILE_SHAS = {"smoke.json": "df9ba4aae81226a9daf9d89aa7b249e4841291b9fbd07212aeec89b77714d7d9",
-    "smoke256.json": "5c619d1bc0ac9f0cba3391eb45f0c77a3224de8523a29a76d418cea9baf65738",
-    "training.json": "0d00173b490d18f3c38f75934c6f73a16641b3cf6e7f64dac5bb543955cd4a7b"}
-COMPLETION = ROOT / "docs/style_improvement_20261005/shared_social_budget12500_v1/external_owner_completion.json"
-BRIDGE_SHA = "249e66e60d5378a4c52e00c35803501059ceb97c22bb03090e8add995aa0a7e6"
+CANONICAL_SHA = "870ef805934d9329fc9c3a7c183a345f64d11ac9e28dc33d4948cf6056c9760f"
+PROFILE_DIR = ROOT / "configs/training/social_amp"
+PROFILE_SHAS = {'smoke.json': '93dab725786d76ebb28848612d7f2292cc19f045c04fa606a3d035de7385044f', 'smoke256.json': 'f0dfbdf1e0f507fd21f1dd7bf7c24174aa903f05193091bde13db0154dd5a0bc', 'training.json': '0d00173b490d18f3c38f75934c6f73a16641b3cf6e7f64dac5bb543955cd4a7b'}
 
 
 def pinned(path, expected, *, readonly=False):
@@ -124,7 +121,7 @@ def prepare_entry():
 
     def profile(path):
         path = Path(path).resolve()
-        if path.parent != HERE or path.name not in PROFILE_SHAS:
+        if path.parent != PROFILE_DIR or path.name not in PROFILE_SHAS:
             raise ValueError("Choose an exact registered episode-reference smoke/smoke256/training profile")
         pinned(path, PROFILE_SHAS[path.name], readonly=True)
         return parent_profile(path)
@@ -139,7 +136,6 @@ def main(argv=None):
     checks = parser.add_mutually_exclusive_group()
     checks.add_argument("--check-sources", action="store_true")
     checks.add_argument("--check-profile", action="store_true")
-    checks.add_argument("--check-ready", action="store_true", help="Cold-read whole S3 owner completion without starting SDK")
     parser.add_argument("--config", type=Path)
     parser.add_argument("--output", type=Path)
     parser.add_argument("--device", choices=("cuda:0",), default="cuda:0")
@@ -155,23 +151,8 @@ def main(argv=None):
             "entry_sources": sources, "profile": profile_identity if args.config else None,
             "Torch_imported": "torch" in sys.modules, "SDK_started": False, "runtime_ready": False}))
         return 0
-    if args.output is None and not args.check_ready:
+    if args.output is None:
         parser.error("--output is required")
-    bridge_path = ROOT / "CrowdSim/humanoid/application/native_execution_bridge.py"
-    pinned(bridge_path, BRIDGE_SHA)
-    from CrowdSim.humanoid.application import native_execution_bridge as bridge
-    try:
-        completion = bridge.admit_S3_owner_completion(COMPLETION)
-    except FileNotFoundError as error:
-        if Path(error.filename) != COMPLETION:
-            raise
-        print(json.dumps({"status": "waiting_for_external_S3_owner_completion", "certificate": str(COMPLETION),
-            "Torch_imported": "torch" in sys.modules, "SDK_started": False, "runtime_ready": False}))
-        return 1
-    if args.check_ready:
-        print(json.dumps({"status": "episode_reference_serial_owner_admitted", "completion": completion,
-                          "Torch_imported": "torch" in sys.modules, "SDK_started": False}))
-        return 0
     saved = sys.argv
     try:
         sys.argv = [str(Path(__file__)), "--config", str(args.config), "--output", str(args.output), "--device", args.device]

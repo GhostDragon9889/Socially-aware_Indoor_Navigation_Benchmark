@@ -24,13 +24,13 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from scripts.diagnose_shared_social_expert_coverage import identity, require  # noqa: E402
 
-OVERLAY = ROOT / "docs/style_improvement_20261004/babel_train_semantics_v1/actual_train_semantic_overlay.json"
+OVERLAY = ROOT / "resources/runtime_sources/style_improvement_20261004/babel_train_semantics_v1/actual_train_semantic_overlay.json"
 OVERLAY_SHA = "09e16f40f6cefa283c6366589577ad0af1b2aa8123dc032af3f65893ab7889b1"
 RECEIPT = OVERLAY.parent / "actual_CPU_tool_receipt.json"
 HELPER = ROOT / "scripts/diagnose_shared_social_expert_coverage.py"
-HELPER_SHA = "53d6e82b41cb0f75c7683b83e42253e2fdd6d8da5f80e3d22b381179d2bdd514"
+HELPER_SHA = "e7a1742d68b7d27847643055aefa38e0426da292559693e55452ab4204768b9f"
 JOIN_SOURCE = OVERLAY.parent / "join_train_semantics.py"
-JOIN_SHA = "1f682f591db603bc48e632497f2d3ae9e3ed06b62655a0b81eec65874e56f279"
+JOIN_SHA = "d5f038ae70112d054eaf79c0c760bccd35c455a1f4f2f12a12ce922b7e7b4a17"
 
 
 def original_feature_key():

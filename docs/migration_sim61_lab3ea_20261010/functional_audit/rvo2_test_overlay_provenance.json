@@ -1,9 +1,0 @@
-{
-  "original_binary": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/data/tools/orca_generator/.venv/lib/python3.12/site-packages/rvo2.cpython-312-x86_64-linux-gnu.so",
-  "test_overlay_copy": "/home/lfm/Documents/ChatGPT/Social Navigation/migration_sim61_lab3ea_20261010/functional_audit/optional_rvo2/rvo2.cpython-312-x86_64-linux-gnu.so",
-  "sha256": "eaf15a44e6ae67eb5eba8228ddc150f5052480e5e8fc0bf172e929daf9ef850d",
-  "bytes": 1014304,
-  "source_commit": "c2c46ba8d59556aa10faf03479293236efea154d",
-  "trace_commit": "594b2af0824c5853e1a1884e167cd5ed097dd81c",
-  "scope": "Only binary copied; new runtime/SDK/locks untouched; this overlay is exclusively test PYTHONPATH."
-}

@@ -1,15 +1,0 @@
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0  0 18438    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0
-HTTP/1.1 200 OK
-x-amz-id-2: 3oFIKtrhEHgkJADbOkBmEFUW+O6yQlY+KtiM1wdZFbso9O7whTxEm0OwNOCYcNEE3JIZXEWljUc=
-x-amz-request-id: NVT9J9RA49K9RW5Q
-Date: Sun, 11 Oct 2026 11:47:42 GMT
-Last-Modified: Fri, 14 Aug 2026 02:21:43 GMT
-ETag: "33a689b5427e621c75574c0507d3ea90"
-x-amz-server-side-encryption: AES256
-Accept-Ranges: bytes
-Content-Type: binary/octet-stream
-Content-Length: 18438
-Server: AmazonS3
-

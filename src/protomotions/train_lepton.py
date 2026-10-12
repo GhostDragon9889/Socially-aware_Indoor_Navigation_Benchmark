@@ -97,7 +97,7 @@ SITE_DEFAULTS = {
     # Per-user snapshot base on the mounted cluster filesystem; "{user}" is
     # substituted with --user. Snapshots become <base_dir>/exp-<timestamp>.
     # Lives here (not hardcoded) so the shipped file carries no cluster path.
-    "base_dir": "/YOUR_MOUNT/users/{user}/exp",
+    "base_dir": "YOUR_EXPERIMENT_BASE/{user}/exp",
     # Managed Teleport cluster/proxy the dev pod is reachable through.
     "teleport_cluster": "YOUR_TELEPORT_CLUSTER",
     # Dev pod name used purely as the rsync gateway to AMLFS.
@@ -112,7 +112,7 @@ SITE_DEFAULTS = {
     # Python invocation inside each container.
     "python_executables": {
         "isaacgym": "python",
-        "isaaclab": "/workspace/isaaclab/isaaclab.sh -p",
+        "isaaclab": "python3 scripts/run_external_python.py",
         "newton": "python",
     },
 }

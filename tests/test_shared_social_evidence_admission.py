@@ -49,7 +49,7 @@ def source_fixture():
     frozen = {relative: {"path": str(admission.ROOT / relative), "bytes": 1, "sha256": sha}
               for relative, sha in admission.FROZEN.items()}
     ids = {key: file_record(key) for key in admission.MEASUREMENTS}
-    reference = frozen["docs/style_improvement_20261002/backward_penalty_style_v1/heldout_reference.json"]
+    reference = frozen["resources/runtime_sources/style_improvement_20261002/backward_penalty_style_v1/heldout_reference.json"]
     checkpoint = file_record("actor.pt")
     captures = [{**file_record("motion_%06d.npz" % index), "motion_id": index, "source_path": "source-%d" % index,
                  "metric_frames": 1, "fall_metric_frames_kept": 0} for index in range(22)]
@@ -63,9 +63,9 @@ def source_fixture():
                         "capture_sha256": row["sha256"], "fall_capture_frames": []} for row in captures]}
     reference_document = {"reference": "frozen"}
     p = {"reference": reference,
-         "basis": frozen["docs/style_improvement_20261002/pose_diversity_candidate_v1/actual_evaluation_v1/reference_basis.npz"],
-         "original_basis_evaluation": frozen["docs/style_improvement_20261002/pose_diversity_candidate_v1/actual_evaluation_v1/evaluation.json"],
-         "metric_implementation": frozen["docs/style_improvement_20261002/pose_diversity_candidate_v1/evaluate_pose_diversity.py"],
+         "basis": frozen["resources/runtime_sources/style_improvement_20261002/pose_diversity_candidate_v1/actual_evaluation_v1/reference_basis.npz"],
+         "original_basis_evaluation": frozen["resources/runtime_sources/style_improvement_20261002/pose_diversity_candidate_v1/actual_evaluation_v1/evaluation.json"],
+         "metric_implementation": frozen["resources/runtime_sources/style_improvement_20261002/pose_diversity_candidate_v1/evaluate_pose_diversity.py"],
          "runs": {"shared2000": {"source": ids["tracking"], "capture_validation": deepcopy(capture)}}}
     s = {"reference": reference_document, "frozen_pose45_result": ids["pose45"],
          "sources": {"implementation": frozen["scripts/evaluate_pedestrian_style.py"],

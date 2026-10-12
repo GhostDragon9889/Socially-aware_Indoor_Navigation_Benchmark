@@ -17,11 +17,13 @@ import re
 
 from .native_map_v7 import LAYOUT, _archive, _csr, _floor_evidence, _indices, _require
 
-PROBE_SHA256 = "20173101ada3e5137d962abcdea574497e9624be7659984caa9869e7932d537a"
+HISTORICAL_PROBE_SHA256 = "20173101ada3e5137d962abcdea574497e9624be7659984caa9869e7932d537a"
+# Portable producer differs only in configured SDK/project locations.
+PROBE_SHA256 = "7e49abc84ce44521187892d216a70f74115fad73f2e349bb7756de34be6d8428"
 
 
 def is_v8(data):
-    return data.get("script", {}).get("sha256") == PROBE_SHA256
+    return data.get("script", {}).get("sha256") in (PROBE_SHA256, HISTORICAL_PROBE_SHA256)
 
 
 def _session_range_evidence(provider, data):
@@ -227,7 +229,7 @@ def verify_v8(provider, data, *, admitted=False):
             "height_blocked_known5_cells": int(obstacle.sum()), "known_static_nonfloor_near_ground_blocked_known5_cells": int(low_obstacle.sum()),
             "source_bound_artifacts_checked": True, "fixed_native_layout": LAYOUT, "query_clock": deepcopy(before),
             "full_height_band_above_floor_m": list(HEIGHT_BAND), "new_physical_execution_verified": False,
-            "admission_protocol": "v8_exact_probe_SHA", "probe_sha256": PROBE_SHA256,
+            "admission_protocol": "v8_exact_probe_SHA", "probe_sha256": data["script"]["sha256"],
             "known5_API_complete": not len(missing), "missing_known5_API_count": len(missing),
             "known5_position_source": source, "derived_export_grid": deepcopy(crop),
             "runtime_time_range_override": deepcopy(data["runtime_time_range_override"])}

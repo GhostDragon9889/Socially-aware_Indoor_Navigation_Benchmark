@@ -32,7 +32,7 @@ def fixture_v7(folder, *, padding=(1, 1), missing=3):
     )
     data, preflight = deepcopy(old._native["data"]), deepcopy(old._data)
     script = folder / "probe.py"
-    shutil.copyfile(ROOT / "docs/style_improvement_20261002/native_map_admission_v7/actual_reader_preparation_v1/probe_paper_scene_maps.py", script)
+    shutil.copyfile(ROOT / "resources/runtime_sources/style_improvement_20261002/native_map_admission_v7/actual_reader_preparation_v1/probe_paper_scene_maps.py", script)
     assert file_record(script)["sha256"] == PROBE_SHA256
     preflight["script"] = file_record(script)
     preflight["flat_ground_collider_inventory"][1]["reason"] = (
@@ -411,7 +411,7 @@ def test_v7_rejects_source_crop_floor_unknown_or_CSR_corruption(tmp_path, corrup
 def _before_module(name, filename):
     path = (
         ROOT
-        / "docs/style_improvement_20261002/native_map_admission_v7/before/CrowdSim/humanoid/runtime"
+        / "resources/runtime_sources/style_improvement_20261002/native_map_admission_v7/before/CrowdSim/humanoid/runtime"
         / filename
     )
     spec = importlib.util.spec_from_file_location(

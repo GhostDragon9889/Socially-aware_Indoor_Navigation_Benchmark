@@ -24,7 +24,7 @@ import numpy as np
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / "data/diffusion_amp/amass_style_2848/manifest_labeled_v7.json"
 MANIFEST_SHA = "68d41be28908f28a09c47f7658af39d55fad01b32212bd7c0ced2b1e6b1489ca"
-OVERLAY = ROOT / "docs/style_improvement_20261004/babel_train_semantics_v1/actual_train_semantic_overlay.json"
+OVERLAY = ROOT / "resources/runtime_sources/style_improvement_20261004/babel_train_semantics_v1/actual_train_semantic_overlay.json"
 OVERLAY_SHA = "09e16f40f6cefa283c6366589577ad0af1b2aa8123dc032af3f65893ab7889b1"
 CLASSIFIER = ROOT / "CrowdSim/humanoid/training/expert_sampling.py"
 CLASSIFIER_SHA = "b16984a920f21ca92c3fe01976d9c0453a75bf54d3f46df369984ff27453f9cd"

@@ -68,7 +68,7 @@ def test_count_derivation_is_bound_and_reversible():
 
 
 def test_native_driver_changes_planner_only_and_keeps_control_capture_calls():
-    staged = ROOT / "docs/style_improvement_20261004/social_native_evaluation_staging_v1/evaluate_native_social.py"
+    staged = ROOT / "resources/runtime_sources/style_improvement_20261004/social_native_evaluation_staging_v1/evaluate_native_social.py"
     spec = importlib.util.spec_from_file_location("native_source_derivation_fixture", staged)
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)

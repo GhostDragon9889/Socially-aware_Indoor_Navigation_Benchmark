@@ -149,7 +149,7 @@ def test_terminal_registration_preserves_frozen_manifest_and_proves_inverse():
     before = grouped.MANIFEST.read_bytes()
     current = grouped.manifest()
     original = json.loads(before)
-    assert original['dependencies'][str(migration.LIFECYCLE)]['sha256'] == migration.HISTORICAL_SHA
+    assert original['dependencies']['project:' + str(migration.LIFECYCLE.relative_to(grouped.ROOT))]['sha256'] == migration.HISTORICAL_SHA
     assert current['terminal_cache_migration']['whole_source_inverse_verified']
     assert not current['terminal_cache_migration']['physical_execution_verified']
     assert grouped.MANIFEST.read_bytes() == before

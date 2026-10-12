@@ -18,7 +18,7 @@ from .social_navigation_lifecycle import FourActorNavigationLifecycle
 from . import native_social_observation_producer
 
 PARENT = ROOT / "CrowdSim/humanoid/runtime/social_navigation_lifecycle.py"
-PARENT_SHA = "7e4c681cf9e854465868086493cec44576e2de0969c97874d46fe27291679ee6"
+PARENT_SHA = "beb3973d1899a9b5b53ffbebc806097e10d198418f9c6bbc111ffd49f6225319"
 NATIVE_PINS = {
     "CrowdSim.humanoid.runtime.dynbench_scene": ("CrowdSim/humanoid/runtime/dynbench_scene.py", "fd8f3cb6e84776af6b6bc7f6e5d527b24284dad2086ca23dc5c89d4f8ebe3870"),
     "CrowdSim.humanoid.runtime.native_grid_scene": ("CrowdSim/humanoid/runtime/native_grid_scene.py", "3fe1090b9c1e457c4c7ca00d4dbc3c07d7ab48ef1a5d1973ed8ae9d4f520881a"),

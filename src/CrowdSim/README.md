@@ -5,7 +5,7 @@ CrowdSim robot-navigation PPO expert.
 
 The current integration targets the pinned IsaacLab 3.0 EA / Isaac Sim 6.1 SDK.
 Configure it using the [external SDK guide](../../docs/guides/external_sdk.zh-CN.md).
-See the [verification report](../../docs/EXTERNAL_SDK_VERIFICATION_20261011_ZH.md)
+See the [verification report](../../docs/validation.md)
 for actual checks and compatibility limits.
 
 ## Main entry points

@@ -16,7 +16,7 @@ from scripts import evaluate_shared_social_native_seeded as entry
 ROOT, original, initial = frozen.ROOT, frozen.original, frozen.initial
 MANIFEST, MANIFEST_SHA = frozen.MANIFEST, frozen.MANIFEST_SHA
 ENTRY = ROOT / "scripts/evaluate_shared_social_native_seeded.py"
-ENTRY_SHA = "6a318599242ae701ad54ffb59f5229ecfcd07c893e70ea42961540ed80858367"
+ENTRY_SHA = "5deb5a0bcd56608218c1665c464a0f7acc0df781825a74bb0d1cad6054c7f3d1"
 FROZEN = ROOT / "CrowdSim/humanoid/analysis/native_navigation_audit.py"
 FROZEN_SHA = "f80f005bb2796bf37168281f243ab462ee207223609b735656a41b7febe9fe8b"
 EXECUTION_SCHEMA = "shared_social.actual_native_seeded_navigation_execution.v1"

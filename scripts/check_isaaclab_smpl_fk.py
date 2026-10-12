@@ -20,7 +20,7 @@ if str(PROJECT_ROOT) not in sys.path:
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--config', default='CrowdSim/config/pedestrian.yaml')
-    parser.add_argument('--output', default='docs/completion_20261001/isaaclab_smpl_fk.json')
+    parser.add_argument('--output', default='resources/runtime_sources/completion_20261001/isaaclab_smpl_fk.json')
     args = parser.parse_args()
     output = Path(args.output)
     output.parent.mkdir(parents=True, exist_ok=True)

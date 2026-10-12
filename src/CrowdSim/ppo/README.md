@@ -21,7 +21,7 @@ PointGoal 局部导航，并作为 NavDP、FLUX、CFM 等生成式策略的数�
 激活能够运行本项目 Isaac Sim、IsaacLab 和 ProtoMotions 的环境：
 
 ```bash
-conda activate env_isaaclab
+python3 scripts/bootstrap_reproduction.py check
 cd /path/to/NavIsaacLab2.0
 ```
 

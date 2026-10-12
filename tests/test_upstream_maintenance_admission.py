@@ -59,7 +59,7 @@ def test_actual_head_and_index_verify_historical_merge_and_four_registered_paths
 
 
 @pytest.mark.parametrize('staged', [False, True])
-@pytest.mark.parametrize('path', ['.dockerignore', 'README.md'])
+@pytest.mark.parametrize('path', ['.gitignore', 'README.md'])
 def test_unregistered_changes_fail_in_both_selected_git_states(repository, staged, path):
     stage_blob(repository, path, b'Unregistered content\n')
     if not staged:
@@ -123,11 +123,11 @@ def test_policy_must_prove_each_complete_maintenance_chain(repository, defect):
 
 
 def test_mode_changes_and_deletions_are_not_accepted(repository):
-    original = verifier.git_entries(repository)['.dockerignore']
+    original = verifier.git_entries(repository)['.gitignore']
     git(repository, 'update-index', '--cacheinfo', '100755,' + original[1] + ',.dockerignore')
     with pytest.raises(RuntimeError, match='differs from registered'):
         verifier.verify(repository, staged=True)
-    git(repository, 'update-index', '--force-remove', '.dockerignore')
+    git(repository, 'update-index', '--force-remove', '.gitignore')
     with pytest.raises(RuntimeError, match='missing or differs'):
         verifier.verify(repository, staged=True)
 
@@ -144,8 +144,45 @@ def test_worktree_files_cannot_override_selected_content_or_lfs_policy(repositor
 
 
 def test_unresolved_index_conflict_is_rejected(repository):
-    mode, blob = verifier.git_entries(repository)['.dockerignore']
-    git(repository, 'update-index', '--force-remove', '.dockerignore')
+    mode, blob = verifier.git_entries(repository)['.gitignore']
+    git(repository, 'update-index', '--force-remove', '.gitignore')
     git(repository, 'update-index', '--index-info', data=(mode + ' ' + blob + ' 1\t.dockerignore\n').encode())
     with pytest.raises(RuntimeError, match='Unresolved merge conflict'):
         verifier.verify(repository, staged=True)
+
+
+def test_committed_registered_deletion_preserves_original_catalog_admission(repository):
+    target = 'docs/source/contributing.rst'
+    before = verifier.git_entries(repository)[target]
+    git(repository, 'update-index', '--force-remove', target)
+    commit_index(repository)
+    commit = git(repository, 'rev-parse', 'HEAD').decode().strip()
+    path = repository / verifier.MAINTENANCE
+    policy = json.loads(path.read_text())
+    row = next((row for row in policy['files'] if row['target_path'] == target), None)
+    if row is None:
+        row = {'target_path': target, 'reason': 'Remove the retired environment installer.', 'updates': []}
+        policy['files'].append(row)
+    row['updates'].append({'commit': commit, 'before': {'mode': before[0], 'git_blob': before[1]}, 'after': None})
+    path.write_text(json.dumps(policy))
+    assert verifier.verify(repository)['failures'] == 0
+    assert verifier.verify(repository, staged=True)['failures'] == 0
+
+
+def test_declared_deletion_must_be_proved_by_its_commit(repository):
+    target = 'docs/source/contributing.rst'
+    before = verifier.git_entries(repository)[target]
+    # Commit an unrelated change; the supposedly deleted file still exists.
+    stage_blob(repository, 'unrelated.txt', b'unrelated\n')
+    commit_index(repository)
+    path = repository / verifier.MAINTENANCE
+    policy = json.loads(path.read_text())
+    row = next((row for row in policy['files'] if row['target_path'] == target), None)
+    if row is None:
+        row = {'target_path': target, 'reason': 'Invalid deletion claim.', 'updates': []}
+        policy['files'].append(row)
+    row['updates'].append({'commit': git(repository, 'rev-parse', 'HEAD').decode().strip(),
+                          'before': {'mode': before[0], 'git_blob': before[1]}, 'after': None})
+    path.write_text(json.dumps(policy))
+    with pytest.raises(RuntimeError, match='does not prove'):
+        verifier.verify(repository)

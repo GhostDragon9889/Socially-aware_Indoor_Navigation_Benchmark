@@ -17,14 +17,14 @@ from CrowdSim.humanoid.runtime.social_evaluation_lifecycle import record
 from scripts import train_shared_social_episode_reference as candidate
 
 ROOT = candidate.ROOT
-HERE = ROOT / "docs/style_improvement_20261004/social_world_lifetime_dependency_migration_v1"
+HERE = ROOT / "resources/runtime_sources/style_improvement_20261004/social_world_lifetime_dependency_migration_v1"
 PINS = {
     "expert": (HERE / "expert_batch.py", 15295,
-               "029697b3c44c2617515cb9239b2cf075fdd5d2bf62ee9a5161fbb744afd5f57f"),
+               "57c720f0b2302804b0479d53d5185406a8759deb65b9c0b1c32bc4eec34826fd"),
     "collector": (HERE / "social_rollout_collector.py", 27268,
-                  "4497ed99f0424a33148a31c137d2c7f705acd9a72f32b8eae6e66c833b321898"),
+                  "6ec9b85585487dc78080253b049de426d2181fc4b38f21080ba3f4deeb530edb"),
 }
-OLD_WORLD = ROOT / "docs/style_improvement_20261004/shared_group_world_owned_lifetime_revision_v2/shared_group_world.py"
+OLD_WORLD = ROOT / "resources/runtime_sources/style_improvement_20261004/shared_group_world_owned_lifetime_revision_v2/shared_group_world.py"
 METHOD_PINS = {
     "prepare_control": "0506a5e39ce2ea249af26ab8d98ffaeff652721e04253889197cfc3296c22c16",
     "step": "57fb3d8c04b43d3b54a67f923ea38bb8364127f4d7c5e0fa0c9bf9bb950f8c8b",
@@ -46,14 +46,14 @@ def _assignment(path, name):
                   and any(isinstance(target, ast.Name) and target.id == name for target in node.targets)]
     if len(statements) != 1:
         raise ValueError("Require one exact source declaration: " + name)
-    namespace = {"ROOT": ROOT, "STAGES": ROOT / "docs/style_improvement_20261004"}
+    namespace = {"ROOT": ROOT, "STAGES": ROOT / "resources/runtime_sources/style_improvement_20261004"}
     exec(compile(ast.Module(body=statements, type_ignores=[]), str(path), "exec"), namespace)
     return namespace[name]
 
 
 def describe():
-    old = _source(OLD_WORLD, 39943, candidate.PARENT_WORLD_SHA)
-    world = _source(candidate.WORLD, 40596, candidate.WORLD_SHA)
+    old = _source(OLD_WORLD, 39960, candidate.PARENT_WORLD_SHA)
+    world = _source(candidate.WORLD, 40613, candidate.WORLD_SHA)
     consumers = {key: _source(*pin) for key, pin in PINS.items()}
     klass = next(node for node in ast.parse(candidate.WORLD.read_bytes()).body
                  if isinstance(node, ast.ClassDef) and node.name == "SharedGroupWorld")
@@ -81,10 +81,10 @@ def adapt(loaded, key):
         if loaded._DEPS is not None or loaded.WORLD_METHOD_AST_PINS != METHOD_PINS:
             raise ValueError("Adapt the unused collector before dependency admission/construction")
         method = loaded.SocialRolloutCollector.__init__
-        world_pin = (candidate.WORLD, 40596, candidate.WORLD_SHA, True)
+        world_pin = (candidate.WORLD, 40613, candidate.WORLD_SHA, True)
     else:
         method = loaded.SocialAMASSExpert.__init__
-        world_pin = (str(candidate.WORLD.relative_to(ROOT)), 40596, candidate.WORLD_SHA)
+        world_pin = (str(candidate.WORLD.relative_to(ROOT)), 40613, candidate.WORLD_SHA)
     if method.__globals__ is not loaded.__dict__:
         raise ValueError("Require the actual original consumer class namespace")
     loaded.PINS = {**expected, "world": world_pin}

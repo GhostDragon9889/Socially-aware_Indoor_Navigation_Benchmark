@@ -118,8 +118,8 @@ def test_published_checkout_prefix_relocates_without_hiding_changed_bytes(tmp_pa
     assert artifact_path('/foreign/x.py',root=tmp_path) == Path('/foreign/x.py')
 
 
-def test_nested_clone_relocation_is_idempotent():
-    root = Path(PUBLISHED_PROJECT)/'output/clone workspace 中文'
+def test_nested_clone_relocation_is_idempotent(tmp_path):
+    root = tmp_path/'output/clone workspace 中文'
     path = root/'src/CrowdSim/a.py'
     assert artifact_path(path,root=root) == path
     assert artifact_path(artifact_path(path,root=root),root=root) == path

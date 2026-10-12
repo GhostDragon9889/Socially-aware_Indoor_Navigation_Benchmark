@@ -1,9 +1,0 @@
-{
-  "status": "passed",
-  "scene": "NewMetro",
-  "actor_count": 4,
-  "source_bound_native_map": true,
-  "route_configuration_verified": true,
-  "sdk_started": false,
-  "live_physx_execution_verified": false
-}

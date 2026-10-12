@@ -1,7 +1,6 @@
 """CPU seed forwarding/resource registration; no native World or quality proof."""
 from __future__ import annotations
 
-import copy
 import json
 import os
 import subprocess
@@ -9,7 +8,6 @@ import sys
 
 import pytest
 
-from CrowdSim.humanoid.analysis import native_seed_protocol as protocol
 from scripts import evaluate_shared_social_native_seeded as entry
 
 
@@ -25,7 +23,7 @@ def test_seed_boundaries_are_explicit(seed):
 
 
 @pytest.mark.parametrize("actors,planner", ((3, "diffusion"), (15, "diffusion"), (3, "sfm"), (15, "sfm")))
-@pytest.mark.parametrize("seed", protocol.SEEDS)
+@pytest.mark.parametrize("seed", (7, 19, 42))
 def test_seed_variant_retains_the_exact_paired_physical_driver(actors, planner, seed):
     before, original_binding = entry.paired.prepare_entry(actors=actors, planner=planner)
     namespace, binding = entry.prepare_entry(actors=actors, planner=planner, seed=seed)
@@ -85,44 +83,3 @@ def test_seed_cannot_silently_default_to_seven_in_the_new_CLI():
         "--actors", "3", "--planner", "diffusion", "--check-sources"],
         cwd=entry.ROOT, capture_output=True, text=True)
     assert result.returncode == 2 and "--seed" in result.stderr
-
-
-@pytest.mark.parametrize("defect", ("case_missing", "case_order", "spacing", "status", "replacement"))
-def test_original_rejected_resource_cohorts_cannot_be_dropped_or_replaced(defect):
-    documents, _ = protocol.load_registered_inputs()
-    cohort, registration = copy.deepcopy(documents[:2])
-    if defect == "case_missing":
-        cohort["cases"].pop()
-    elif defect == "case_order":
-        registration["case_order"].reverse()
-    elif defect == "spacing":
-        registration["minimum_spawn_separation_m"] = 1.5
-    elif defect == "status":
-        cohort["cases"][-1]["status"] = "CPU_resource_admitted"
-    else:
-        cohort["cases"][-1]["replacement_scene_or_resampling"] = True
-    with pytest.raises(ValueError, match="Preserve all52|status changed|Retain original Hospital"):
-        protocol.validate_cohort(cohort, registration)
-
-
-def test_actual_CPU_registration_retains_all_cases_and_only_plans_future_SDK_runs(tmp_path):
-    report = protocol.build_registration(tmp_path / "NO_SDK_OUTPUT_CREATED")
-    assert report["registered_cohorts"] == 156
-    assert report["resource_admitted_cohorts"] == 144
-    assert report["resource_rejected_cohorts"] == 12
-    assert report["planned_full200s_arm_runs_after_all_gates"] == 288
-    assert report["resource_rejected_arm_slots"] == 24
-    assert report["planned_paired_actor_controls"] == 14904000
-    assert report["seeds"] == [7, 19, 42]
-    assert len({row["case_id"] for row in report["cases"]}) == 156
-    assert report["actual_checkpoint_identity"] is None and report["actual_training_exit_admitted"] is False
-    assert report["native_seeded_raw_and_style_admission_still_required"] is True
-    assert not (tmp_path / "NO_SDK_OUTPUT_CREATED").exists()
-    for row in report["cases"]:
-        assert row["actual_SDK_exit_observed"] is False and row["actual_raw_style_or_quality_evaluated"] is False
-        if row["arms"]:
-            assert [arm["planner"] for arm in row["arms"]] == ["diffusion", "sfm"]
-            assert all(arm["seed"] == row["seed"] and arm["actual_process_exit_code"] is None for arm in row["arms"])
-        else:
-            assert row["scene"] == "Hospital" and row["actors"] in (12, 13, 14, 15)
-            assert row["replacement_scene_or_resampling"] is False

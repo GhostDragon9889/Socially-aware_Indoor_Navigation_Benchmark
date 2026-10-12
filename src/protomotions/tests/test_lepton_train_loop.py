@@ -11,7 +11,7 @@ here without a GPU, a cluster, or `lep`, using fake child processes and a fake
   * LEPTON_LOOP_SOURCE_ONLY  -- `source` the script to get its functions only,
                                 so the watchdog / kill_tree run against fake
                                 children.
-  * LEPTON_LOOP_SKIP_SETUP   -- run the whole loop but skip the pip install +
+  * LEPTON_LOOP_SKIP_SETUP   -- run the whole loop but skip SDK binding and
                                 IsaacLab warmup, so a fake python drives it.
 
 The watchdog poll interval (STALL_POLL_SEC) and no-growth limit (STALL_QUIET_LIMIT

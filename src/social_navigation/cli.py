@@ -27,7 +27,7 @@ TOOLS = {
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest='command', required=True)
-    sub.add_parser('status', help='Show project locations and the latest completed release')
+    sub.add_parser('status', help='Show project locations and current validation status')
     for command in ('preflight', 'simulate'):
         item = sub.add_parser(command, help='Resource-only preflight' if command == 'preflight' else 'Owned native physical execution')
         item.add_argument('--scene', choices=SCENES, default='YOHO')
@@ -45,10 +45,10 @@ def main(argv=None):
     if args.command == 'status':
         if forwarded:
             parser.error('status takes no additional arguments')
-        release = root / 'docs/four_scene_speed_final_delivery_20261010.json'
+        release = root / 'docs/validation.md'
         print(json.dumps({'project': 'Socially-aware_Indoor_Navigation_Benchmark',
                           'root': str(root), 'source_root': str(root / 'src'),
-                          'python': sys.executable, 'latest_completed_release': str(release),
+                          'python': sys.executable, 'validation_status': str(release),
                           'release_available': release.is_file()}, ensure_ascii=False, indent=2))
         return 0
     if args.command in ('preflight', 'simulate'):

@@ -36,13 +36,13 @@
     {
       "source": "/home/lfm/Documents/ChatGPT/Social Navigation/hf_publish_20261010/model_bundle/configs/diffusion_amp/four_scene_speed_20261010/NewMetro_profile.json",
       "target": "resources/releases/pedestrians_20261010/configs/original/NewMetro_profile.json",
-      "sha256": "c81ceb72d359f4a1b6af51d43de66714d33cb24999f557ebc839a008046da20a",
+      "sha256": "0e60ffaaffdebd63a5c4887d7aac6cd225af35b4519adee65c53ef7065c2e429",
       "bytes": 3020
     },
     {
       "source": "/home/lfm/Documents/ChatGPT/Social Navigation/hf_publish_20261010/model_bundle/configs/diffusion_amp/four_scene_speed_20261010/NewMetro_scene.yaml",
       "target": "resources/releases/pedestrians_20261010/configs/original/NewMetro_scene.yaml",
-      "sha256": "5a93d922a9bf9457208d009f14e34b4e6fb1e09611967340e6cb5d69b7d1220e",
+      "sha256": "5cae79b2d3eb29b7f7ec9d423a4bd3932dfae99a13c0663359214ed4d83dba02",
       "bytes": 11303
     },
     {
@@ -54,13 +54,13 @@
     {
       "source": "/home/lfm/Documents/ChatGPT/Social Navigation/hf_publish_20261010/model_bundle/configs/diffusion_amp/four_scene_speed_20261010/SecondFloor_profile.json",
       "target": "resources/releases/pedestrians_20261010/configs/original/SecondFloor_profile.json",
-      "sha256": "6f8b33f4a7ea45a612a059ffc814fcb04c279643d403c9983a812114ffc2aee6",
+      "sha256": "cb21f76ca18112283173487546f42c23c2b44d40455e83cb2fd8130ba2f50581",
       "bytes": 3017
     },
     {
       "source": "/home/lfm/Documents/ChatGPT/Social Navigation/hf_publish_20261010/model_bundle/configs/diffusion_amp/four_scene_speed_20261010/SecondFloor_scene.yaml",
       "target": "resources/releases/pedestrians_20261010/configs/original/SecondFloor_scene.yaml",
-      "sha256": "b0b56d2a1a89320858b219c9451fe8e6d771201b7de2ffb8f2d62c09f9d96da6",
+      "sha256": "2a86e9b717b1d19fd208005d2f4c7cd698b9e79ffb504bcf601406efbb208d5f",
       "bytes": 1518
     },
     {
@@ -72,13 +72,13 @@
     {
       "source": "/home/lfm/Documents/ChatGPT/Social Navigation/hf_publish_20261010/model_bundle/configs/diffusion_amp/four_scene_speed_20261010/ThirdFloor_profile.json",
       "target": "resources/releases/pedestrians_20261010/configs/original/ThirdFloor_profile.json",
-      "sha256": "0ddb3ad3d9727b8b6f58c5568774ab9b7b422d67331a91996c7da24ec33f01bb",
+      "sha256": "6cc1a1e8df2bd5423237ee9577e750dc3c9c20e2509f818e13e756f2759d9e4f",
       "bytes": 3013
     },
     {
       "source": "/home/lfm/Documents/ChatGPT/Social Navigation/hf_publish_20261010/model_bundle/configs/diffusion_amp/four_scene_speed_20261010/ThirdFloor_scene.yaml",
       "target": "resources/releases/pedestrians_20261010/configs/original/ThirdFloor_scene.yaml",
-      "sha256": "a378c35c5f594a848e8316bb87399466952604725155dab17ce899a77333b80a",
+      "sha256": "6ec555a04d96fa65a98ed1a7379aca203569225e32133c3e5fc854c6c4d6962d",
       "bytes": 1509
     },
     {
@@ -90,13 +90,13 @@
     {
       "source": "/home/lfm/Documents/ChatGPT/Social Navigation/hf_publish_20261010/model_bundle/configs/diffusion_amp/four_scene_speed_20261010/YOHO_profile.json",
       "target": "resources/releases/pedestrians_20261010/configs/original/YOHO_profile.json",
-      "sha256": "472e2d27a36439855befaae2d381426ea941b4505f64fd576032a6cecc5e6dde",
+      "sha256": "8727f318a6b841399f4a9c9fb0d23011183151f8ab04ca76bee3d53908ff5901",
       "bytes": 3014
     },
     {
       "source": "/home/lfm/Documents/ChatGPT/Social Navigation/hf_publish_20261010/model_bundle/configs/diffusion_amp/four_scene_speed_20261010/YOHO_scene.yaml",
       "target": "resources/releases/pedestrians_20261010/configs/original/YOHO_scene.yaml",
-      "sha256": "b4f7d5513d91c597fc347078940f4d77d8f3ea43904d505582f35944a2a6bc84",
+      "sha256": "34e4c71e5e2c0eb9f58ed0cac865c5ab93eb26023d3a1e298bef27ff198bcc15",
       "bytes": 9296
     },
     {
@@ -582,1191 +582,596 @@
       "resource_id": "amass_validation"
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/data/diffusion_amp/amass_style_2848/manifest_labeled_v7_train.pt",
+      "source": "project:data/diffusion_amp/amass_style_2848/manifest_labeled_v7_train.pt",
       "target": "data/datasets/amass/manifest_labeled_v7_train.pt",
       "sha256": "46e0241108e200409c08d1115a270205fe0b6ce827e366a06e8a09f6a2cc82c0",
       "bytes": 1155817682,
       "resource_id": "amass_train"
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/docs/four_scene_speed_final_delivery_20261010.json",
+      "source": "project:docs/four_scene_speed_final_delivery_20261010.json",
       "target": "resources/releases/pedestrians_20261010/evidence/four_scene_speed_final_delivery_20261010.json",
-      "sha256": "f2d7cf12ace5887ea230d8fabe96b79f6ebab372034c35b0b9c3249e1e291a72",
+      "sha256": "dbfab05690bf9c35fa35409dda55c5b28b8d4dc91a8e8bdd66d6b09a1d1188ba",
       "bytes": 3227
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/docs/four_scene_speed_release_index_20261010.json",
+      "source": "project:docs/four_scene_speed_release_index_20261010.json",
       "target": "resources/releases/pedestrians_20261010/evidence/four_scene_speed_release_index_20261010.json",
       "sha256": "99aa80af842a091a6d74503e7d966ba64c1ff895922d41b0b1b4b359fb67e0cb",
       "bytes": 36215
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_NewMetro_cell_v1/NewMetro/actual_query_clock_initial.json",
+      "source": "project:output/scene_maps/gait_NewMetro_cell_v1/NewMetro/actual_query_clock_initial.json",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_NewMetro_cell_v1/NewMetro/actual_query_clock_initial.json",
       "sha256": "cc91c4c48dde02c248eba1c49ce1f93493383a685f1e42c5cae0fe6616e71a95",
       "bytes": 160
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_NewMetro_cell_v1/NewMetro/fixed_world_point_comparison.json",
+      "source": "project:output/scene_maps/gait_NewMetro_cell_v1/NewMetro/fixed_world_point_comparison.json",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_NewMetro_cell_v1/NewMetro/fixed_world_point_comparison.json",
       "sha256": "94bef0a1f807f9967239a9708f47ade7466427771f1510051b33b5dd9615c666",
       "bytes": 56163
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_NewMetro_cell_v1/NewMetro/floor_overlay_recipe.json",
+      "source": "project:output/scene_maps/gait_NewMetro_cell_v1/NewMetro/floor_overlay_recipe.json",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_NewMetro_cell_v1/NewMetro/floor_overlay_recipe.json",
       "sha256": "e6b8401709b67bc800de3eba7c9c8bcccfa70bcfeaf336e2e13ae6e51c1c2e15",
       "bytes": 6583181
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_NewMetro_cell_v1/NewMetro/floor_support_rays.npz",
+      "source": "project:output/scene_maps/gait_NewMetro_cell_v1/NewMetro/floor_support_rays.npz",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_NewMetro_cell_v1/NewMetro/floor_support_rays.npz",
       "sha256": "df9e49414f7906e78adba6628661990a111b1685f17344fb03a2c31514b3954c",
       "bytes": 293514
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_NewMetro_cell_v1/NewMetro/full_height_band_queries.npz",
+      "source": "project:output/scene_maps/gait_NewMetro_cell_v1/NewMetro/full_height_band_queries.npz",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_NewMetro_cell_v1/NewMetro/full_height_band_queries.npz",
       "sha256": "8cfa0ff06b3ce2d48f39edb2aaa5dbbe4f0ab5487360c6d27436a4c00fd6e3ca",
       "bytes": 69087
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_NewMetro_cell_v1/NewMetro/full_height_band_query_clock.json",
+      "source": "project:output/scene_maps/gait_NewMetro_cell_v1/NewMetro/full_height_band_query_clock.json",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_NewMetro_cell_v1/NewMetro/full_height_band_query_clock.json",
       "sha256": "3999a685865282f57d90f8800c4768ec1f5d645b284df247041f7d43dca9098a",
       "bytes": 221
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_NewMetro_cell_v1/NewMetro/height_band_refined.png",
+      "source": "project:output/scene_maps/gait_NewMetro_cell_v1/NewMetro/height_band_refined.png",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_NewMetro_cell_v1/NewMetro/height_band_refined.png",
       "sha256": "ab4603b4e4ccef9142fa699bc4c8dd85e3a629076867690766b2912d25889bab",
       "bytes": 855
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_NewMetro_cell_v1/NewMetro/native_cell_grid.npz",
+      "source": "project:output/scene_maps/gait_NewMetro_cell_v1/NewMetro/native_cell_grid.npz",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_NewMetro_cell_v1/NewMetro/native_cell_grid.npz",
       "sha256": "a19fb2519c530af6d97f1388f2b9726d864df8afd334c6937a0e94fa2c997fdf",
       "bytes": 269797
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_NewMetro_cell_v1/NewMetro/native_cell_grid_clock.json",
+      "source": "project:output/scene_maps/gait_NewMetro_cell_v1/NewMetro/native_cell_grid_clock.json",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_NewMetro_cell_v1/NewMetro/native_cell_grid_clock.json",
       "sha256": "3999a685865282f57d90f8800c4768ec1f5d645b284df247041f7d43dca9098a",
       "bytes": 221
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_NewMetro_cell_v1/NewMetro/native_collider_coverage.json",
+      "source": "project:output/scene_maps/gait_NewMetro_cell_v1/NewMetro/native_collider_coverage.json",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_NewMetro_cell_v1/NewMetro/native_collider_coverage.json",
       "sha256": "6690f74fc4d311d3dd582342d3951755f3fba8a6d4535f7737665f14cd0fa244",
       "bytes": 1282479
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_NewMetro_cell_v1/NewMetro/native_reconstructed.png",
+      "source": "project:output/scene_maps/gait_NewMetro_cell_v1/NewMetro/native_reconstructed.png",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_NewMetro_cell_v1/NewMetro/native_reconstructed.png",
       "sha256": "acff5818a5983b850fd4adfff464391a57ad3b378b3dc9c9acff6aa355f41dc8",
       "bytes": 860
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_NewMetro_cell_v1/NewMetro/occupancy.png",
+      "source": "project:output/scene_maps/gait_NewMetro_cell_v1/NewMetro/occupancy.png",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_NewMetro_cell_v1/NewMetro/occupancy.png",
       "sha256": "fb0ba6b14d5dbcf0af2708bc0ba08115ed883d1e6bdec5e7d2cdd969ef717ff2",
       "bytes": 989
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_NewMetro_cell_v1/NewMetro/occupancy.yaml",
+      "source": "project:output/scene_maps/gait_NewMetro_cell_v1/NewMetro/occupancy.yaml",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_NewMetro_cell_v1/NewMetro/occupancy.yaml",
       "sha256": "aeb58648755b7c0e62daeea6241b75411fff1bacd49bd02f37adc9488410a74c",
       "bytes": 115
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_NewMetro_cell_v1/NewMetro/preflight.json",
+      "source": "project:output/scene_maps/gait_NewMetro_cell_v1/NewMetro/preflight.json",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_NewMetro_cell_v1/NewMetro/preflight.json",
       "sha256": "5c41bb6923563b2cff652f5f7d1b410d876bcfb2056d676c3f8deac4d3496a3c",
       "bytes": 2905463
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_NewMetro_cell_v1/NewMetro/reference_ground_overlay.usda",
+      "source": "project:output/scene_maps/gait_NewMetro_cell_v1/NewMetro/reference_ground_overlay.usda",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_NewMetro_cell_v1/NewMetro/reference_ground_overlay.usda",
       "sha256": "166ba677147570970d82c9987b48ce8416aadf8dc60185888168a7c434275940",
       "bytes": 15160
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_NewMetro_cell_v1/NewMetro/reference_ground_recipe.json",
+      "source": "project:output/scene_maps/gait_NewMetro_cell_v1/NewMetro/reference_ground_recipe.json",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_NewMetro_cell_v1/NewMetro/reference_ground_recipe.json",
       "sha256": "1dde25e68f0bee34c5d97fc842719eeed2f01fac6f26d408de9ea1c011f95d7e",
       "bytes": 1281575
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_NewMetro_cell_v1/NewMetro/result.json",
+      "source": "project:output/scene_maps/gait_NewMetro_cell_v1/NewMetro/result.json",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_NewMetro_cell_v1/NewMetro/result.json",
       "sha256": "be3eb091b94a5bba4737b4c75419ef060c6691ccbb17cc652ab195a9d1aab7fc",
       "bytes": 633467
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_NewMetro_cell_v1/NewMetro/runtime_root.usda",
+      "source": "project:output/scene_maps/gait_NewMetro_cell_v1/NewMetro/runtime_root.usda",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_NewMetro_cell_v1/NewMetro/runtime_root.usda",
       "sha256": "4407b74ab89bb8422a8788c9b24172be9e16f878e6ce846a63b965d1cb2176f3",
       "bytes": 336
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_NewMetro_cell_v1/NewMetro/runtime_session.usda",
+      "source": "project:output/scene_maps/gait_NewMetro_cell_v1/NewMetro/runtime_session.usda",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_NewMetro_cell_v1/NewMetro/runtime_session.usda",
       "sha256": "086dc1b50086c5f80f79908832aa0f38f187f13c37c17762059a926aeadcf2ca",
       "bytes": 17299
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/actual_query_clock_initial.json",
+      "source": "project:output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/actual_query_clock_initial.json",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_SecondFloor_cell_v1/SecondFloor/actual_query_clock_initial.json",
       "sha256": "cc91c4c48dde02c248eba1c49ce1f93493383a685f1e42c5cae0fe6616e71a95",
       "bytes": 160
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/fixed_world_point_comparison.json",
+      "source": "project:output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/fixed_world_point_comparison.json",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_SecondFloor_cell_v1/SecondFloor/fixed_world_point_comparison.json",
       "sha256": "d5e89b9cd7912c724a5056af365b2b861522bc9c4086d74059c782519cde7120",
       "bytes": 49917
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/floor_overlay_recipe.json",
+      "source": "project:output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/floor_overlay_recipe.json",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_SecondFloor_cell_v1/SecondFloor/floor_overlay_recipe.json",
       "sha256": "e706b389f6c0c8ac97081679f44073ff14c2ab86559ef4b94b7fa266dbcd89a2",
       "bytes": 824804
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/floor_support_rays.npz",
+      "source": "project:output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/floor_support_rays.npz",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_SecondFloor_cell_v1/SecondFloor/floor_support_rays.npz",
       "sha256": "362ef2b7da37fcbcbf8cdea3c6029415a02da5b3a453dc7fcadae54889215d3e",
       "bytes": 120242
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/full_height_band_queries.npz",
+      "source": "project:output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/full_height_band_queries.npz",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_SecondFloor_cell_v1/SecondFloor/full_height_band_queries.npz",
       "sha256": "692af17154507b07231c695d32a1aa1060ca4b9d2d4040f647cc27fa125b6c1d",
       "bytes": 36030
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/full_height_band_query_clock.json",
+      "source": "project:output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/full_height_band_query_clock.json",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_SecondFloor_cell_v1/SecondFloor/full_height_band_query_clock.json",
       "sha256": "3999a685865282f57d90f8800c4768ec1f5d645b284df247041f7d43dca9098a",
       "bytes": 221
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/height_band_refined.png",
+      "source": "project:output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/height_band_refined.png",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_SecondFloor_cell_v1/SecondFloor/height_band_refined.png",
       "sha256": "6699a17395885868413d0e1401940cb9ab48e086d29b3d3caf2fcb4fcca9568a",
       "bytes": 455
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/native_cell_grid.npz",
+      "source": "project:output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/native_cell_grid.npz",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_SecondFloor_cell_v1/SecondFloor/native_cell_grid.npz",
       "sha256": "8042bb210465dcf73020f569abb76221098ddb3a2aacf5f657b24eff036706f6",
       "bytes": 73844
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/native_cell_grid_clock.json",
+      "source": "project:output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/native_cell_grid_clock.json",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_SecondFloor_cell_v1/SecondFloor/native_cell_grid_clock.json",
       "sha256": "3999a685865282f57d90f8800c4768ec1f5d645b284df247041f7d43dca9098a",
       "bytes": 221
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/native_collider_coverage.json",
+      "source": "project:output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/native_collider_coverage.json",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_SecondFloor_cell_v1/SecondFloor/native_collider_coverage.json",
       "sha256": "5f6eb1a5c320e8413d6b9785863697b2e42b31d949680eeb77b2ff5391825ce4",
       "bytes": 286866
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/native_reconstructed.png",
+      "source": "project:output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/native_reconstructed.png",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_SecondFloor_cell_v1/SecondFloor/native_reconstructed.png",
       "sha256": "6699a17395885868413d0e1401940cb9ab48e086d29b3d3caf2fcb4fcca9568a",
       "bytes": 455
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/occupancy.png",
+      "source": "project:output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/occupancy.png",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_SecondFloor_cell_v1/SecondFloor/occupancy.png",
       "sha256": "c025068f6330b1b02e0dfd93c6992616fc6c9cc82d9f3dec95470dec92f404a4",
       "bytes": 499
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/occupancy.yaml",
+      "source": "project:output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/occupancy.yaml",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_SecondFloor_cell_v1/SecondFloor/occupancy.yaml",
       "sha256": "1598a8c206304e7ae77f8a8a40cefb15c38e0572a0246d5b84669ee23e3ef6f1",
       "bytes": 114
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/preflight.json",
+      "source": "project:output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/preflight.json",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_SecondFloor_cell_v1/SecondFloor/preflight.json",
       "sha256": "5a1ad2fc1490663723af6a34b55568ac4d21d8f3f2cc60ff02c634bce8305e44",
       "bytes": 353383
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/reference_ground_overlay.usda",
+      "source": "project:output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/reference_ground_overlay.usda",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_SecondFloor_cell_v1/SecondFloor/reference_ground_overlay.usda",
       "sha256": "5479325b12b35079c59697592054bc6d5c953a5f1b4a703e9c5a96976c4d7014",
       "bytes": 4336
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/reference_ground_recipe.json",
+      "source": "project:output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/reference_ground_recipe.json",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_SecondFloor_cell_v1/SecondFloor/reference_ground_recipe.json",
       "sha256": "de21ea080e6bd55463c518c15db361bb4b72a8ad821d2507296ee4f9a4f95786",
       "bytes": 137868
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/result.json",
+      "source": "project:output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/result.json",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_SecondFloor_cell_v1/SecondFloor/result.json",
       "sha256": "eefb098caf3b13b09c7e5e9eedb26a19f8c6b9de43fe8875c7fdcafcee963a84",
       "bytes": 185472
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/runtime_root.usda",
+      "source": "project:output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/runtime_root.usda",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_SecondFloor_cell_v1/SecondFloor/runtime_root.usda",
       "sha256": "c5a7ab1a601efda0de1f9b6bae538b2686dec0cc9b1ed9abae6b890d3e12f2a5",
       "bytes": 342
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/runtime_session.usda",
+      "source": "project:output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/runtime_session.usda",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_SecondFloor_cell_v1/SecondFloor/runtime_session.usda",
       "sha256": "94f9e6132daddaf4b2b22c151b591702082478c86a9921ca4db12a01e45f6e22",
       "bytes": 6475
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/actual_query_clock_initial.json",
+      "source": "project:output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/actual_query_clock_initial.json",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_ThirdFloor_cell_v1/ThirdFloor/actual_query_clock_initial.json",
       "sha256": "cc91c4c48dde02c248eba1c49ce1f93493383a685f1e42c5cae0fe6616e71a95",
       "bytes": 160
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/fixed_world_point_comparison.json",
+      "source": "project:output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/fixed_world_point_comparison.json",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_ThirdFloor_cell_v1/ThirdFloor/fixed_world_point_comparison.json",
       "sha256": "ec855e0edf6b6b45760e70bfe2efff97625bef8dcb20cb12e046077e75161468",
       "bytes": 52714
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/floor_overlay_recipe.json",
+      "source": "project:output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/floor_overlay_recipe.json",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_ThirdFloor_cell_v1/ThirdFloor/floor_overlay_recipe.json",
       "sha256": "ac8256b59a5ac47e9ff42fdc65960c3d95d1989b6f0d8e8e2491381cdf33d330",
       "bytes": 87261
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/floor_support_rays.npz",
+      "source": "project:output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/floor_support_rays.npz",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_ThirdFloor_cell_v1/ThirdFloor/floor_support_rays.npz",
       "sha256": "bcef51e004d0c1f7a11c0aa166b0b0d65b8f954ee5eca8060154ecf70bc59298",
       "bytes": 50579
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/full_height_band_queries.npz",
+      "source": "project:output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/full_height_band_queries.npz",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_ThirdFloor_cell_v1/ThirdFloor/full_height_band_queries.npz",
       "sha256": "c015bc87dd3b455212d9e946e59704947c98666d189be872d44f9f9ea55af0e2",
       "bytes": 15792
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/full_height_band_query_clock.json",
+      "source": "project:output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/full_height_band_query_clock.json",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_ThirdFloor_cell_v1/ThirdFloor/full_height_band_query_clock.json",
       "sha256": "3999a685865282f57d90f8800c4768ec1f5d645b284df247041f7d43dca9098a",
       "bytes": 221
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/height_band_refined.png",
+      "source": "project:output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/height_band_refined.png",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_ThirdFloor_cell_v1/ThirdFloor/height_band_refined.png",
       "sha256": "c821f808ac4fcb1135a75b9ab58943681dbcbd226aefc8a79b675457d4758fdd",
       "bytes": 261
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/native_cell_grid.npz",
+      "source": "project:output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/native_cell_grid.npz",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_ThirdFloor_cell_v1/ThirdFloor/native_cell_grid.npz",
       "sha256": "8a754cba2fdb461f0f812a91882a777d94028ca248e1d03bc81e7e079b458229",
       "bytes": 34391
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/native_cell_grid_clock.json",
+      "source": "project:output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/native_cell_grid_clock.json",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_ThirdFloor_cell_v1/ThirdFloor/native_cell_grid_clock.json",
       "sha256": "3999a685865282f57d90f8800c4768ec1f5d645b284df247041f7d43dca9098a",
       "bytes": 221
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/native_collider_coverage.json",
+      "source": "project:output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/native_collider_coverage.json",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_ThirdFloor_cell_v1/ThirdFloor/native_collider_coverage.json",
       "sha256": "14398991cc939e420aee96e1841113e61d7233c5baf405ebbde849dc4ab24c41",
       "bytes": 36576
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/native_reconstructed.png",
+      "source": "project:output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/native_reconstructed.png",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_ThirdFloor_cell_v1/ThirdFloor/native_reconstructed.png",
       "sha256": "c821f808ac4fcb1135a75b9ab58943681dbcbd226aefc8a79b675457d4758fdd",
       "bytes": 261
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/occupancy.png",
+      "source": "project:output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/occupancy.png",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_ThirdFloor_cell_v1/ThirdFloor/occupancy.png",
       "sha256": "0ce18394ccc8e0a5e0587038cef7b9434305b9486b9998278120c6164f5a4ff8",
       "bytes": 299
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/occupancy.yaml",
+      "source": "project:output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/occupancy.yaml",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_ThirdFloor_cell_v1/ThirdFloor/occupancy.yaml",
       "sha256": "c48fb4da2554b545d48399a186bbda85a17ed23de275dcf13c671ecc191b004a",
       "bytes": 114
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/preflight.json",
+      "source": "project:output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/preflight.json",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_ThirdFloor_cell_v1/ThirdFloor/preflight.json",
       "sha256": "f1a44952538ac078004a56faf393fd05f4c0f9c179dc30b0ed1ebe80897964a0",
       "bytes": 192996
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/reference_ground_overlay.usda",
+      "source": "project:output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/reference_ground_overlay.usda",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_ThirdFloor_cell_v1/ThirdFloor/reference_ground_overlay.usda",
       "sha256": "c6e88750aba718e3ee0eca55d05a1ba60976447e88c314572732aed13e82a7a2",
       "bytes": 1316
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/reference_ground_recipe.json",
+      "source": "project:output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/reference_ground_recipe.json",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_ThirdFloor_cell_v1/ThirdFloor/reference_ground_recipe.json",
       "sha256": "be3a4d083a5d11d79cc03ed13368ee4eef2a9b3aeb2a2305fa6c3ece855bfbe6",
       "bytes": 72491
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/result.json",
+      "source": "project:output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/result.json",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_ThirdFloor_cell_v1/ThirdFloor/result.json",
       "sha256": "d6a2acab9e3e24dde60fbfed5638c3e9b807699bf0f4efea3cdcd9b03c8df478",
       "bytes": 56714
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/runtime_root.usda",
+      "source": "project:output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/runtime_root.usda",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_ThirdFloor_cell_v1/ThirdFloor/runtime_root.usda",
       "sha256": "1304c3dabc0f3b7b1ad92c7f1257c6ae7b144d46e935d06f86cc6df3c2fea1e9",
       "bytes": 340
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/runtime_session.usda",
+      "source": "project:output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/runtime_session.usda",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_ThirdFloor_cell_v1/ThirdFloor/runtime_session.usda",
       "sha256": "17999d8a86cb3c4d68a28123806126d5f95f360673a23c75431fbf5ce03ab775",
       "bytes": 3455
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_YOHO_cell_v1/YOHO/actual_query_clock_initial.json",
+      "source": "project:output/scene_maps/gait_YOHO_cell_v1/YOHO/actual_query_clock_initial.json",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_YOHO_cell_v1/YOHO/actual_query_clock_initial.json",
       "sha256": "cc91c4c48dde02c248eba1c49ce1f93493383a685f1e42c5cae0fe6616e71a95",
       "bytes": 160
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_YOHO_cell_v1/YOHO/fixed_world_point_comparison.json",
+      "source": "project:output/scene_maps/gait_YOHO_cell_v1/YOHO/fixed_world_point_comparison.json",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_YOHO_cell_v1/YOHO/fixed_world_point_comparison.json",
       "sha256": "ac6740742a0391cb84d5040ede4a52865e090b46a7f4c4b9873caf0c2d20e779",
       "bytes": 47883
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_YOHO_cell_v1/YOHO/floor_overlay_recipe.json",
+      "source": "project:output/scene_maps/gait_YOHO_cell_v1/YOHO/floor_overlay_recipe.json",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_YOHO_cell_v1/YOHO/floor_overlay_recipe.json",
       "sha256": "d35f8b5f3768a36a75a827a35e38b0f1f0c733389845088b2c07308c4a1a6760",
       "bytes": 63252
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_YOHO_cell_v1/YOHO/floor_support_rays.npz",
+      "source": "project:output/scene_maps/gait_YOHO_cell_v1/YOHO/floor_support_rays.npz",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_YOHO_cell_v1/YOHO/floor_support_rays.npz",
       "sha256": "e3bdeb104f17c761cbd5f2607476eeefed4adc142f80f25d5fbcfa7b4f66d11c",
       "bytes": 711356
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_YOHO_cell_v1/YOHO/full_height_band_queries.npz",
+      "source": "project:output/scene_maps/gait_YOHO_cell_v1/YOHO/full_height_band_queries.npz",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_YOHO_cell_v1/YOHO/full_height_band_queries.npz",
       "sha256": "bc2d7ce78af64eba4417882194e9b7be4c3a4c7fe0cf6bc3f4ed9227f82c922a",
       "bytes": 198704
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_YOHO_cell_v1/YOHO/full_height_band_query_clock.json",
+      "source": "project:output/scene_maps/gait_YOHO_cell_v1/YOHO/full_height_band_query_clock.json",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_YOHO_cell_v1/YOHO/full_height_band_query_clock.json",
       "sha256": "3999a685865282f57d90f8800c4768ec1f5d645b284df247041f7d43dca9098a",
       "bytes": 221
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_YOHO_cell_v1/YOHO/height_band_refined.png",
+      "source": "project:output/scene_maps/gait_YOHO_cell_v1/YOHO/height_band_refined.png",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_YOHO_cell_v1/YOHO/height_band_refined.png",
       "sha256": "a6de11f9490d50a225af30fd5268923e3308f7782925cb9d02d14876fbf52da5",
       "bytes": 1667
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_YOHO_cell_v1/YOHO/native_cell_grid.npz",
+      "source": "project:output/scene_maps/gait_YOHO_cell_v1/YOHO/native_cell_grid.npz",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_YOHO_cell_v1/YOHO/native_cell_grid.npz",
       "sha256": "ebe375c65e019c30df20ec8ae9660d609b2688ccf0d6b5335b7f054e28f1b148",
       "bytes": 321552
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_YOHO_cell_v1/YOHO/native_cell_grid_clock.json",
+      "source": "project:output/scene_maps/gait_YOHO_cell_v1/YOHO/native_cell_grid_clock.json",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_YOHO_cell_v1/YOHO/native_cell_grid_clock.json",
       "sha256": "3999a685865282f57d90f8800c4768ec1f5d645b284df247041f7d43dca9098a",
       "bytes": 221
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_YOHO_cell_v1/YOHO/native_collider_coverage.json",
+      "source": "project:output/scene_maps/gait_YOHO_cell_v1/YOHO/native_collider_coverage.json",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_YOHO_cell_v1/YOHO/native_collider_coverage.json",
       "sha256": "7fbf9c019f2f57a3e32fa3daf993757fe5270a83c2fdc937b259b35d8596acf2",
       "bytes": 812346
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_YOHO_cell_v1/YOHO/native_reconstructed.png",
+      "source": "project:output/scene_maps/gait_YOHO_cell_v1/YOHO/native_reconstructed.png",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_YOHO_cell_v1/YOHO/native_reconstructed.png",
       "sha256": "fc9b0da2885c4d162a61f60347c0a17ea7437df23abba5408e360bc9052ee08b",
       "bytes": 1670
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_YOHO_cell_v1/YOHO/occupancy.png",
+      "source": "project:output/scene_maps/gait_YOHO_cell_v1/YOHO/occupancy.png",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_YOHO_cell_v1/YOHO/occupancy.png",
       "sha256": "8eab70bc7fd84891cc24e971d4516d9492ea0304bdb00bfee80d46cd91eeb71a",
       "bytes": 1786
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_YOHO_cell_v1/YOHO/occupancy.yaml",
+      "source": "project:output/scene_maps/gait_YOHO_cell_v1/YOHO/occupancy.yaml",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_YOHO_cell_v1/YOHO/occupancy.yaml",
       "sha256": "891b2742fb99bbc570d5c051561f00baca26ec856c9f81f34cab7e65eef5f408",
       "bytes": 114
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_YOHO_cell_v1/YOHO/preflight.json",
+      "source": "project:output/scene_maps/gait_YOHO_cell_v1/YOHO/preflight.json",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_YOHO_cell_v1/YOHO/preflight.json",
       "sha256": "9321eb92ff67ee59b1fc5b154e59bbbc7e7c42d9a934ab7fc36b6adfface5540",
       "bytes": 9135763
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_YOHO_cell_v1/YOHO/reference_ground_overlay.usda",
+      "source": "project:output/scene_maps/gait_YOHO_cell_v1/YOHO/reference_ground_overlay.usda",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_YOHO_cell_v1/YOHO/reference_ground_overlay.usda",
       "sha256": "ef4abcab483b42b7eddf9c9ac0135a03b484e1543946b09f63d7c5e60ae24f09",
       "bytes": 1852
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_YOHO_cell_v1/YOHO/reference_ground_recipe.json",
+      "source": "project:output/scene_maps/gait_YOHO_cell_v1/YOHO/reference_ground_recipe.json",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_YOHO_cell_v1/YOHO/reference_ground_recipe.json",
       "sha256": "236174cc5a8bd21910bfce7541dc2aa703cf6bdf6a2ad823a201d1d90b97be59",
       "bytes": 4339376
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_YOHO_cell_v1/YOHO/result.json",
+      "source": "project:output/scene_maps/gait_YOHO_cell_v1/YOHO/result.json",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_YOHO_cell_v1/YOHO/result.json",
       "sha256": "39f91f6a27391007dad9f1fc46f79a4c884b0f52ce3c82d97cdd5813c1b3af0c",
       "bytes": 265690
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_YOHO_cell_v1/YOHO/runtime_root.usda",
+      "source": "project:output/scene_maps/gait_YOHO_cell_v1/YOHO/runtime_root.usda",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_YOHO_cell_v1/YOHO/runtime_root.usda",
       "sha256": "e5d5d86389df9eedd0d98b7a9c7cac514e75213adfa4e214d34c6e7eec7f4d8e",
       "bytes": 328
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_YOHO_cell_v1/YOHO/runtime_session.usda",
+      "source": "project:output/scene_maps/gait_YOHO_cell_v1/YOHO/runtime_session.usda",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_YOHO_cell_v1/YOHO/runtime_session.usda",
       "sha256": "37966e2c9df0eae01efb346265c807f395af51e8f9266075a67f72c5de4ebba6",
       "bytes": 3991
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_four_projection_v2/NewMetro/composition.json",
+      "source": "project:output/scene_maps/gait_four_projection_v2/NewMetro/composition.json",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_four_projection_v2/NewMetro/composition.json",
       "sha256": "39efc33fc3c98229865fd78b5a45cc6949fd95a29f4e60a5405cf4d73dd9925e",
       "bytes": 1257
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_four_projection_v2/NewMetro/occupancy.png",
+      "source": "project:output/scene_maps/gait_four_projection_v2/NewMetro/occupancy.png",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_four_projection_v2/NewMetro/occupancy.png",
       "sha256": "f5455426f46d2feffe5e8f31ddf45a172d078d8768042c8c2a35a51eb01112c4",
       "bytes": 863
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_four_projection_v2/NewMetro/occupancy.yaml",
+      "source": "project:output/scene_maps/gait_four_projection_v2/NewMetro/occupancy.yaml",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_four_projection_v2/NewMetro/occupancy.yaml",
       "sha256": "a15f8f7b0937284af02f3c57b0fb3875ff7b75f772ffb10b4199a8458486d7b8",
       "bytes": 117
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_four_projection_v2/NewMetro/projection_preview.png",
+      "source": "project:output/scene_maps/gait_four_projection_v2/NewMetro/projection_preview.png",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_four_projection_v2/NewMetro/projection_preview.png",
       "sha256": "f5455426f46d2feffe5e8f31ddf45a172d078d8768042c8c2a35a51eb01112c4",
       "bytes": 863
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_four_projection_v2/NewMetro/provenance.json",
+      "source": "project:output/scene_maps/gait_four_projection_v2/NewMetro/provenance.json",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_four_projection_v2/NewMetro/provenance.json",
       "sha256": "8dcfd054eb374be8ed80b71f4248a80318813dbdf68d4a6ab55a05ad7c7998e4",
       "bytes": 666868
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_four_projection_v2/YOHO/composition.json",
+      "source": "project:output/scene_maps/gait_four_projection_v2/YOHO/composition.json",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_four_projection_v2/YOHO/composition.json",
       "sha256": "00aecead9c469c0136bd5ce848b8081bc397ca4a16577118d1d7ce17ff2abf47",
       "bytes": 1237
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_four_projection_v2/YOHO/occupancy.png",
+      "source": "project:output/scene_maps/gait_four_projection_v2/YOHO/occupancy.png",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_four_projection_v2/YOHO/occupancy.png",
       "sha256": "410978704a88ea6edd98289a11240dc89dba109d4c2506fa6c4afd2a876a9b0c",
       "bytes": 1702
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_four_projection_v2/YOHO/occupancy.yaml",
+      "source": "project:output/scene_maps/gait_four_projection_v2/YOHO/occupancy.yaml",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_four_projection_v2/YOHO/occupancy.yaml",
       "sha256": "a01c312ff05709fdf0bb401691101dac9e4bbfe2939b79ce031b5050a15983b5",
       "bytes": 116
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_four_projection_v2/YOHO/projection_preview.png",
+      "source": "project:output/scene_maps/gait_four_projection_v2/YOHO/projection_preview.png",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_four_projection_v2/YOHO/projection_preview.png",
       "sha256": "410978704a88ea6edd98289a11240dc89dba109d4c2506fa6c4afd2a876a9b0c",
       "bytes": 1702
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_four_projection_v2/YOHO/provenance.json",
+      "source": "project:output/scene_maps/gait_four_projection_v2/YOHO/provenance.json",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_four_projection_v2/YOHO/provenance.json",
       "sha256": "03845c1749c4a19890c5863e1396cdfd934962346a73b4bd4f637857e3b08280",
       "bytes": 2483381
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_second_projection_v4/SecondFloor/composition.json",
+      "source": "project:output/scene_maps/gait_second_projection_v4/SecondFloor/composition.json",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_second_projection_v4/SecondFloor/composition.json",
       "sha256": "b9865a82478e5c15705b7e246ba4b1fb25310dabfba0da43c8c7051984fe1043",
       "bytes": 1291
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_second_projection_v4/SecondFloor/occupancy.png",
+      "source": "project:output/scene_maps/gait_second_projection_v4/SecondFloor/occupancy.png",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_second_projection_v4/SecondFloor/occupancy.png",
       "sha256": "4a32dd9a5accedc6e9930eff4090cf15f60c61dd7e73fe2b0dc30abe91b131a7",
       "bytes": 465
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_second_projection_v4/SecondFloor/occupancy.yaml",
+      "source": "project:output/scene_maps/gait_second_projection_v4/SecondFloor/occupancy.yaml",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_second_projection_v4/SecondFloor/occupancy.yaml",
       "sha256": "7580c23690b7d960e1d7402c9aed0e611f436ee64013b36b1fcef6152fda9d84",
       "bytes": 116
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_second_projection_v4/SecondFloor/projection_preview.png",
+      "source": "project:output/scene_maps/gait_second_projection_v4/SecondFloor/projection_preview.png",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_second_projection_v4/SecondFloor/projection_preview.png",
       "sha256": "4a32dd9a5accedc6e9930eff4090cf15f60c61dd7e73fe2b0dc30abe91b131a7",
       "bytes": 465
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_second_projection_v4/SecondFloor/provenance.json",
+      "source": "project:output/scene_maps/gait_second_projection_v4/SecondFloor/provenance.json",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_second_projection_v4/SecondFloor/provenance.json",
       "sha256": "283909c5d5da396316e4deaf3099adbb2e38cf16a59716e08d09c854ad3ba518",
       "bytes": 464729
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_third_projection_v3/ThirdFloor/composition.json",
+      "source": "project:output/scene_maps/gait_third_projection_v3/ThirdFloor/composition.json",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_third_projection_v3/ThirdFloor/composition.json",
       "sha256": "51cd8f5370ec7e7c05deb41ffc85c08cb7f38aeeae6d871933e224e97a89563e",
       "bytes": 1267
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_third_projection_v3/ThirdFloor/occupancy.png",
+      "source": "project:output/scene_maps/gait_third_projection_v3/ThirdFloor/occupancy.png",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_third_projection_v3/ThirdFloor/occupancy.png",
       "sha256": "9b9639674580592130417020b3c446ad9286dd4159641eeb661a84fb27ae0a8e",
       "bytes": 301
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_third_projection_v3/ThirdFloor/occupancy.yaml",
+      "source": "project:output/scene_maps/gait_third_projection_v3/ThirdFloor/occupancy.yaml",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_third_projection_v3/ThirdFloor/occupancy.yaml",
       "sha256": "1b3a538b49ae872ab019d83293956f12d971a7f9d12cb8e99174f4764d77315d",
       "bytes": 116
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_third_projection_v3/ThirdFloor/projection_preview.png",
+      "source": "project:output/scene_maps/gait_third_projection_v3/ThirdFloor/projection_preview.png",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_third_projection_v3/ThirdFloor/projection_preview.png",
       "sha256": "9b9639674580592130417020b3c446ad9286dd4159641eeb661a84fb27ae0a8e",
       "bytes": 301
     },
     {
-      "source": "/project/EXP/SangforAndSaut/ProtoMotions/output/scene_maps/gait_third_projection_v3/ThirdFloor/provenance.json",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_third_projection_v3/ThirdFloor/provenance.json",
-      "sha256": "0ad66ae8e1fc403f6f6ded51a08e380acf186c82e7721573229bbd6283da9bb4",
-      "bytes": 140044
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/data/diffusion_amp/amass_style_2848/manifest_labeled_v7_train.pt",
-      "target": "data/datasets/amass/manifest_labeled_v7_train.pt",
-      "sha256": "46e0241108e200409c08d1115a270205fe0b6ce827e366a06e8a09f6a2cc82c0",
-      "bytes": 1155817682,
-      "resource_id": "amass_train"
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/four_scene_speed_final_delivery_20261010.json",
-      "target": "resources/releases/pedestrians_20261010/evidence/four_scene_speed_final_delivery_20261010.json",
-      "sha256": "f2d7cf12ace5887ea230d8fabe96b79f6ebab372034c35b0b9c3249e1e291a72",
-      "bytes": 3227
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/docs/four_scene_speed_release_index_20261010.json",
-      "target": "resources/releases/pedestrians_20261010/evidence/four_scene_speed_release_index_20261010.json",
-      "sha256": "99aa80af842a091a6d74503e7d966ba64c1ff895922d41b0b1b4b359fb67e0cb",
-      "bytes": 36215
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_NewMetro_cell_v1/NewMetro/actual_query_clock_initial.json",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_NewMetro_cell_v1/NewMetro/actual_query_clock_initial.json",
-      "sha256": "cc91c4c48dde02c248eba1c49ce1f93493383a685f1e42c5cae0fe6616e71a95",
-      "bytes": 160
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_NewMetro_cell_v1/NewMetro/fixed_world_point_comparison.json",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_NewMetro_cell_v1/NewMetro/fixed_world_point_comparison.json",
-      "sha256": "94bef0a1f807f9967239a9708f47ade7466427771f1510051b33b5dd9615c666",
-      "bytes": 56163
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_NewMetro_cell_v1/NewMetro/floor_overlay_recipe.json",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_NewMetro_cell_v1/NewMetro/floor_overlay_recipe.json",
-      "sha256": "e6b8401709b67bc800de3eba7c9c8bcccfa70bcfeaf336e2e13ae6e51c1c2e15",
-      "bytes": 6583181
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_NewMetro_cell_v1/NewMetro/floor_support_rays.npz",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_NewMetro_cell_v1/NewMetro/floor_support_rays.npz",
-      "sha256": "df9e49414f7906e78adba6628661990a111b1685f17344fb03a2c31514b3954c",
-      "bytes": 293514
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_NewMetro_cell_v1/NewMetro/full_height_band_queries.npz",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_NewMetro_cell_v1/NewMetro/full_height_band_queries.npz",
-      "sha256": "8cfa0ff06b3ce2d48f39edb2aaa5dbbe4f0ab5487360c6d27436a4c00fd6e3ca",
-      "bytes": 69087
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_NewMetro_cell_v1/NewMetro/full_height_band_query_clock.json",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_NewMetro_cell_v1/NewMetro/full_height_band_query_clock.json",
-      "sha256": "3999a685865282f57d90f8800c4768ec1f5d645b284df247041f7d43dca9098a",
-      "bytes": 221
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_NewMetro_cell_v1/NewMetro/height_band_refined.png",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_NewMetro_cell_v1/NewMetro/height_band_refined.png",
-      "sha256": "ab4603b4e4ccef9142fa699bc4c8dd85e3a629076867690766b2912d25889bab",
-      "bytes": 855
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_NewMetro_cell_v1/NewMetro/native_cell_grid.npz",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_NewMetro_cell_v1/NewMetro/native_cell_grid.npz",
-      "sha256": "a19fb2519c530af6d97f1388f2b9726d864df8afd334c6937a0e94fa2c997fdf",
-      "bytes": 269797
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_NewMetro_cell_v1/NewMetro/native_cell_grid_clock.json",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_NewMetro_cell_v1/NewMetro/native_cell_grid_clock.json",
-      "sha256": "3999a685865282f57d90f8800c4768ec1f5d645b284df247041f7d43dca9098a",
-      "bytes": 221
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_NewMetro_cell_v1/NewMetro/native_collider_coverage.json",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_NewMetro_cell_v1/NewMetro/native_collider_coverage.json",
-      "sha256": "6690f74fc4d311d3dd582342d3951755f3fba8a6d4535f7737665f14cd0fa244",
-      "bytes": 1282479
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_NewMetro_cell_v1/NewMetro/native_reconstructed.png",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_NewMetro_cell_v1/NewMetro/native_reconstructed.png",
-      "sha256": "acff5818a5983b850fd4adfff464391a57ad3b378b3dc9c9acff6aa355f41dc8",
-      "bytes": 860
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_NewMetro_cell_v1/NewMetro/occupancy.png",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_NewMetro_cell_v1/NewMetro/occupancy.png",
-      "sha256": "fb0ba6b14d5dbcf0af2708bc0ba08115ed883d1e6bdec5e7d2cdd969ef717ff2",
-      "bytes": 989
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_NewMetro_cell_v1/NewMetro/occupancy.yaml",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_NewMetro_cell_v1/NewMetro/occupancy.yaml",
-      "sha256": "aeb58648755b7c0e62daeea6241b75411fff1bacd49bd02f37adc9488410a74c",
-      "bytes": 115
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_NewMetro_cell_v1/NewMetro/preflight.json",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_NewMetro_cell_v1/NewMetro/preflight.json",
-      "sha256": "5c41bb6923563b2cff652f5f7d1b410d876bcfb2056d676c3f8deac4d3496a3c",
-      "bytes": 2905463
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_NewMetro_cell_v1/NewMetro/reference_ground_overlay.usda",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_NewMetro_cell_v1/NewMetro/reference_ground_overlay.usda",
-      "sha256": "166ba677147570970d82c9987b48ce8416aadf8dc60185888168a7c434275940",
-      "bytes": 15160
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_NewMetro_cell_v1/NewMetro/reference_ground_recipe.json",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_NewMetro_cell_v1/NewMetro/reference_ground_recipe.json",
-      "sha256": "1dde25e68f0bee34c5d97fc842719eeed2f01fac6f26d408de9ea1c011f95d7e",
-      "bytes": 1281575
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_NewMetro_cell_v1/NewMetro/result.json",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_NewMetro_cell_v1/NewMetro/result.json",
-      "sha256": "be3eb091b94a5bba4737b4c75419ef060c6691ccbb17cc652ab195a9d1aab7fc",
-      "bytes": 633467
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_NewMetro_cell_v1/NewMetro/runtime_root.usda",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_NewMetro_cell_v1/NewMetro/runtime_root.usda",
-      "sha256": "4407b74ab89bb8422a8788c9b24172be9e16f878e6ce846a63b965d1cb2176f3",
-      "bytes": 336
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_NewMetro_cell_v1/NewMetro/runtime_session.usda",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_NewMetro_cell_v1/NewMetro/runtime_session.usda",
-      "sha256": "086dc1b50086c5f80f79908832aa0f38f187f13c37c17762059a926aeadcf2ca",
-      "bytes": 17299
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/actual_query_clock_initial.json",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_SecondFloor_cell_v1/SecondFloor/actual_query_clock_initial.json",
-      "sha256": "cc91c4c48dde02c248eba1c49ce1f93493383a685f1e42c5cae0fe6616e71a95",
-      "bytes": 160
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/fixed_world_point_comparison.json",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_SecondFloor_cell_v1/SecondFloor/fixed_world_point_comparison.json",
-      "sha256": "d5e89b9cd7912c724a5056af365b2b861522bc9c4086d74059c782519cde7120",
-      "bytes": 49917
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/floor_overlay_recipe.json",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_SecondFloor_cell_v1/SecondFloor/floor_overlay_recipe.json",
-      "sha256": "e706b389f6c0c8ac97081679f44073ff14c2ab86559ef4b94b7fa266dbcd89a2",
-      "bytes": 824804
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/floor_support_rays.npz",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_SecondFloor_cell_v1/SecondFloor/floor_support_rays.npz",
-      "sha256": "362ef2b7da37fcbcbf8cdea3c6029415a02da5b3a453dc7fcadae54889215d3e",
-      "bytes": 120242
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/full_height_band_queries.npz",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_SecondFloor_cell_v1/SecondFloor/full_height_band_queries.npz",
-      "sha256": "692af17154507b07231c695d32a1aa1060ca4b9d2d4040f647cc27fa125b6c1d",
-      "bytes": 36030
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/full_height_band_query_clock.json",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_SecondFloor_cell_v1/SecondFloor/full_height_band_query_clock.json",
-      "sha256": "3999a685865282f57d90f8800c4768ec1f5d645b284df247041f7d43dca9098a",
-      "bytes": 221
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/height_band_refined.png",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_SecondFloor_cell_v1/SecondFloor/height_band_refined.png",
-      "sha256": "6699a17395885868413d0e1401940cb9ab48e086d29b3d3caf2fcb4fcca9568a",
-      "bytes": 455
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/native_cell_grid.npz",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_SecondFloor_cell_v1/SecondFloor/native_cell_grid.npz",
-      "sha256": "8042bb210465dcf73020f569abb76221098ddb3a2aacf5f657b24eff036706f6",
-      "bytes": 73844
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/native_cell_grid_clock.json",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_SecondFloor_cell_v1/SecondFloor/native_cell_grid_clock.json",
-      "sha256": "3999a685865282f57d90f8800c4768ec1f5d645b284df247041f7d43dca9098a",
-      "bytes": 221
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/native_collider_coverage.json",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_SecondFloor_cell_v1/SecondFloor/native_collider_coverage.json",
-      "sha256": "5f6eb1a5c320e8413d6b9785863697b2e42b31d949680eeb77b2ff5391825ce4",
-      "bytes": 286866
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/native_reconstructed.png",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_SecondFloor_cell_v1/SecondFloor/native_reconstructed.png",
-      "sha256": "6699a17395885868413d0e1401940cb9ab48e086d29b3d3caf2fcb4fcca9568a",
-      "bytes": 455
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/occupancy.png",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_SecondFloor_cell_v1/SecondFloor/occupancy.png",
-      "sha256": "c025068f6330b1b02e0dfd93c6992616fc6c9cc82d9f3dec95470dec92f404a4",
-      "bytes": 499
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/occupancy.yaml",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_SecondFloor_cell_v1/SecondFloor/occupancy.yaml",
-      "sha256": "1598a8c206304e7ae77f8a8a40cefb15c38e0572a0246d5b84669ee23e3ef6f1",
-      "bytes": 114
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/preflight.json",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_SecondFloor_cell_v1/SecondFloor/preflight.json",
-      "sha256": "5a1ad2fc1490663723af6a34b55568ac4d21d8f3f2cc60ff02c634bce8305e44",
-      "bytes": 353383
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/reference_ground_overlay.usda",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_SecondFloor_cell_v1/SecondFloor/reference_ground_overlay.usda",
-      "sha256": "5479325b12b35079c59697592054bc6d5c953a5f1b4a703e9c5a96976c4d7014",
-      "bytes": 4336
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/reference_ground_recipe.json",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_SecondFloor_cell_v1/SecondFloor/reference_ground_recipe.json",
-      "sha256": "de21ea080e6bd55463c518c15db361bb4b72a8ad821d2507296ee4f9a4f95786",
-      "bytes": 137868
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/result.json",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_SecondFloor_cell_v1/SecondFloor/result.json",
-      "sha256": "eefb098caf3b13b09c7e5e9eedb26a19f8c6b9de43fe8875c7fdcafcee963a84",
-      "bytes": 185472
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/runtime_root.usda",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_SecondFloor_cell_v1/SecondFloor/runtime_root.usda",
-      "sha256": "c5a7ab1a601efda0de1f9b6bae538b2686dec0cc9b1ed9abae6b890d3e12f2a5",
-      "bytes": 342
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_SecondFloor_cell_v1/SecondFloor/runtime_session.usda",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_SecondFloor_cell_v1/SecondFloor/runtime_session.usda",
-      "sha256": "94f9e6132daddaf4b2b22c151b591702082478c86a9921ca4db12a01e45f6e22",
-      "bytes": 6475
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/actual_query_clock_initial.json",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_ThirdFloor_cell_v1/ThirdFloor/actual_query_clock_initial.json",
-      "sha256": "cc91c4c48dde02c248eba1c49ce1f93493383a685f1e42c5cae0fe6616e71a95",
-      "bytes": 160
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/fixed_world_point_comparison.json",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_ThirdFloor_cell_v1/ThirdFloor/fixed_world_point_comparison.json",
-      "sha256": "ec855e0edf6b6b45760e70bfe2efff97625bef8dcb20cb12e046077e75161468",
-      "bytes": 52714
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/floor_overlay_recipe.json",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_ThirdFloor_cell_v1/ThirdFloor/floor_overlay_recipe.json",
-      "sha256": "ac8256b59a5ac47e9ff42fdc65960c3d95d1989b6f0d8e8e2491381cdf33d330",
-      "bytes": 87261
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/floor_support_rays.npz",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_ThirdFloor_cell_v1/ThirdFloor/floor_support_rays.npz",
-      "sha256": "bcef51e004d0c1f7a11c0aa166b0b0d65b8f954ee5eca8060154ecf70bc59298",
-      "bytes": 50579
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/full_height_band_queries.npz",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_ThirdFloor_cell_v1/ThirdFloor/full_height_band_queries.npz",
-      "sha256": "c015bc87dd3b455212d9e946e59704947c98666d189be872d44f9f9ea55af0e2",
-      "bytes": 15792
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/full_height_band_query_clock.json",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_ThirdFloor_cell_v1/ThirdFloor/full_height_band_query_clock.json",
-      "sha256": "3999a685865282f57d90f8800c4768ec1f5d645b284df247041f7d43dca9098a",
-      "bytes": 221
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/height_band_refined.png",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_ThirdFloor_cell_v1/ThirdFloor/height_band_refined.png",
-      "sha256": "c821f808ac4fcb1135a75b9ab58943681dbcbd226aefc8a79b675457d4758fdd",
-      "bytes": 261
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/native_cell_grid.npz",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_ThirdFloor_cell_v1/ThirdFloor/native_cell_grid.npz",
-      "sha256": "8a754cba2fdb461f0f812a91882a777d94028ca248e1d03bc81e7e079b458229",
-      "bytes": 34391
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/native_cell_grid_clock.json",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_ThirdFloor_cell_v1/ThirdFloor/native_cell_grid_clock.json",
-      "sha256": "3999a685865282f57d90f8800c4768ec1f5d645b284df247041f7d43dca9098a",
-      "bytes": 221
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/native_collider_coverage.json",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_ThirdFloor_cell_v1/ThirdFloor/native_collider_coverage.json",
-      "sha256": "14398991cc939e420aee96e1841113e61d7233c5baf405ebbde849dc4ab24c41",
-      "bytes": 36576
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/native_reconstructed.png",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_ThirdFloor_cell_v1/ThirdFloor/native_reconstructed.png",
-      "sha256": "c821f808ac4fcb1135a75b9ab58943681dbcbd226aefc8a79b675457d4758fdd",
-      "bytes": 261
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/occupancy.png",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_ThirdFloor_cell_v1/ThirdFloor/occupancy.png",
-      "sha256": "0ce18394ccc8e0a5e0587038cef7b9434305b9486b9998278120c6164f5a4ff8",
-      "bytes": 299
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/occupancy.yaml",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_ThirdFloor_cell_v1/ThirdFloor/occupancy.yaml",
-      "sha256": "c48fb4da2554b545d48399a186bbda85a17ed23de275dcf13c671ecc191b004a",
-      "bytes": 114
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/preflight.json",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_ThirdFloor_cell_v1/ThirdFloor/preflight.json",
-      "sha256": "f1a44952538ac078004a56faf393fd05f4c0f9c179dc30b0ed1ebe80897964a0",
-      "bytes": 192996
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/reference_ground_overlay.usda",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_ThirdFloor_cell_v1/ThirdFloor/reference_ground_overlay.usda",
-      "sha256": "c6e88750aba718e3ee0eca55d05a1ba60976447e88c314572732aed13e82a7a2",
-      "bytes": 1316
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/reference_ground_recipe.json",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_ThirdFloor_cell_v1/ThirdFloor/reference_ground_recipe.json",
-      "sha256": "be3a4d083a5d11d79cc03ed13368ee4eef2a9b3aeb2a2305fa6c3ece855bfbe6",
-      "bytes": 72491
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/result.json",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_ThirdFloor_cell_v1/ThirdFloor/result.json",
-      "sha256": "d6a2acab9e3e24dde60fbfed5638c3e9b807699bf0f4efea3cdcd9b03c8df478",
-      "bytes": 56714
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/runtime_root.usda",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_ThirdFloor_cell_v1/ThirdFloor/runtime_root.usda",
-      "sha256": "1304c3dabc0f3b7b1ad92c7f1257c6ae7b144d46e935d06f86cc6df3c2fea1e9",
-      "bytes": 340
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_ThirdFloor_cell_v1/ThirdFloor/runtime_session.usda",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_ThirdFloor_cell_v1/ThirdFloor/runtime_session.usda",
-      "sha256": "17999d8a86cb3c4d68a28123806126d5f95f360673a23c75431fbf5ce03ab775",
-      "bytes": 3455
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_YOHO_cell_v1/YOHO/actual_query_clock_initial.json",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_YOHO_cell_v1/YOHO/actual_query_clock_initial.json",
-      "sha256": "cc91c4c48dde02c248eba1c49ce1f93493383a685f1e42c5cae0fe6616e71a95",
-      "bytes": 160
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_YOHO_cell_v1/YOHO/fixed_world_point_comparison.json",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_YOHO_cell_v1/YOHO/fixed_world_point_comparison.json",
-      "sha256": "ac6740742a0391cb84d5040ede4a52865e090b46a7f4c4b9873caf0c2d20e779",
-      "bytes": 47883
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_YOHO_cell_v1/YOHO/floor_overlay_recipe.json",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_YOHO_cell_v1/YOHO/floor_overlay_recipe.json",
-      "sha256": "d35f8b5f3768a36a75a827a35e38b0f1f0c733389845088b2c07308c4a1a6760",
-      "bytes": 63252
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_YOHO_cell_v1/YOHO/floor_support_rays.npz",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_YOHO_cell_v1/YOHO/floor_support_rays.npz",
-      "sha256": "e3bdeb104f17c761cbd5f2607476eeefed4adc142f80f25d5fbcfa7b4f66d11c",
-      "bytes": 711356
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_YOHO_cell_v1/YOHO/full_height_band_queries.npz",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_YOHO_cell_v1/YOHO/full_height_band_queries.npz",
-      "sha256": "bc2d7ce78af64eba4417882194e9b7be4c3a4c7fe0cf6bc3f4ed9227f82c922a",
-      "bytes": 198704
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_YOHO_cell_v1/YOHO/full_height_band_query_clock.json",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_YOHO_cell_v1/YOHO/full_height_band_query_clock.json",
-      "sha256": "3999a685865282f57d90f8800c4768ec1f5d645b284df247041f7d43dca9098a",
-      "bytes": 221
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_YOHO_cell_v1/YOHO/height_band_refined.png",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_YOHO_cell_v1/YOHO/height_band_refined.png",
-      "sha256": "a6de11f9490d50a225af30fd5268923e3308f7782925cb9d02d14876fbf52da5",
-      "bytes": 1667
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_YOHO_cell_v1/YOHO/native_cell_grid.npz",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_YOHO_cell_v1/YOHO/native_cell_grid.npz",
-      "sha256": "ebe375c65e019c30df20ec8ae9660d609b2688ccf0d6b5335b7f054e28f1b148",
-      "bytes": 321552
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_YOHO_cell_v1/YOHO/native_cell_grid_clock.json",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_YOHO_cell_v1/YOHO/native_cell_grid_clock.json",
-      "sha256": "3999a685865282f57d90f8800c4768ec1f5d645b284df247041f7d43dca9098a",
-      "bytes": 221
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_YOHO_cell_v1/YOHO/native_collider_coverage.json",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_YOHO_cell_v1/YOHO/native_collider_coverage.json",
-      "sha256": "7fbf9c019f2f57a3e32fa3daf993757fe5270a83c2fdc937b259b35d8596acf2",
-      "bytes": 812346
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_YOHO_cell_v1/YOHO/native_reconstructed.png",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_YOHO_cell_v1/YOHO/native_reconstructed.png",
-      "sha256": "fc9b0da2885c4d162a61f60347c0a17ea7437df23abba5408e360bc9052ee08b",
-      "bytes": 1670
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_YOHO_cell_v1/YOHO/occupancy.png",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_YOHO_cell_v1/YOHO/occupancy.png",
-      "sha256": "8eab70bc7fd84891cc24e971d4516d9492ea0304bdb00bfee80d46cd91eeb71a",
-      "bytes": 1786
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_YOHO_cell_v1/YOHO/occupancy.yaml",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_YOHO_cell_v1/YOHO/occupancy.yaml",
-      "sha256": "891b2742fb99bbc570d5c051561f00baca26ec856c9f81f34cab7e65eef5f408",
-      "bytes": 114
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_YOHO_cell_v1/YOHO/preflight.json",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_YOHO_cell_v1/YOHO/preflight.json",
-      "sha256": "9321eb92ff67ee59b1fc5b154e59bbbc7e7c42d9a934ab7fc36b6adfface5540",
-      "bytes": 9135763
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_YOHO_cell_v1/YOHO/reference_ground_overlay.usda",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_YOHO_cell_v1/YOHO/reference_ground_overlay.usda",
-      "sha256": "ef4abcab483b42b7eddf9c9ac0135a03b484e1543946b09f63d7c5e60ae24f09",
-      "bytes": 1852
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_YOHO_cell_v1/YOHO/reference_ground_recipe.json",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_YOHO_cell_v1/YOHO/reference_ground_recipe.json",
-      "sha256": "236174cc5a8bd21910bfce7541dc2aa703cf6bdf6a2ad823a201d1d90b97be59",
-      "bytes": 4339376
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_YOHO_cell_v1/YOHO/result.json",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_YOHO_cell_v1/YOHO/result.json",
-      "sha256": "39f91f6a27391007dad9f1fc46f79a4c884b0f52ce3c82d97cdd5813c1b3af0c",
-      "bytes": 265690
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_YOHO_cell_v1/YOHO/runtime_root.usda",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_YOHO_cell_v1/YOHO/runtime_root.usda",
-      "sha256": "e5d5d86389df9eedd0d98b7a9c7cac514e75213adfa4e214d34c6e7eec7f4d8e",
-      "bytes": 328
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_YOHO_cell_v1/YOHO/runtime_session.usda",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_YOHO_cell_v1/YOHO/runtime_session.usda",
-      "sha256": "37966e2c9df0eae01efb346265c807f395af51e8f9266075a67f72c5de4ebba6",
-      "bytes": 3991
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_four_projection_v2/NewMetro/composition.json",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_four_projection_v2/NewMetro/composition.json",
-      "sha256": "39efc33fc3c98229865fd78b5a45cc6949fd95a29f4e60a5405cf4d73dd9925e",
-      "bytes": 1257
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_four_projection_v2/NewMetro/occupancy.png",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_four_projection_v2/NewMetro/occupancy.png",
-      "sha256": "f5455426f46d2feffe5e8f31ddf45a172d078d8768042c8c2a35a51eb01112c4",
-      "bytes": 863
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_four_projection_v2/NewMetro/occupancy.yaml",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_four_projection_v2/NewMetro/occupancy.yaml",
-      "sha256": "a15f8f7b0937284af02f3c57b0fb3875ff7b75f772ffb10b4199a8458486d7b8",
-      "bytes": 117
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_four_projection_v2/NewMetro/projection_preview.png",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_four_projection_v2/NewMetro/projection_preview.png",
-      "sha256": "f5455426f46d2feffe5e8f31ddf45a172d078d8768042c8c2a35a51eb01112c4",
-      "bytes": 863
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_four_projection_v2/NewMetro/provenance.json",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_four_projection_v2/NewMetro/provenance.json",
-      "sha256": "8dcfd054eb374be8ed80b71f4248a80318813dbdf68d4a6ab55a05ad7c7998e4",
-      "bytes": 666868
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_four_projection_v2/YOHO/composition.json",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_four_projection_v2/YOHO/composition.json",
-      "sha256": "00aecead9c469c0136bd5ce848b8081bc397ca4a16577118d1d7ce17ff2abf47",
-      "bytes": 1237
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_four_projection_v2/YOHO/occupancy.png",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_four_projection_v2/YOHO/occupancy.png",
-      "sha256": "410978704a88ea6edd98289a11240dc89dba109d4c2506fa6c4afd2a876a9b0c",
-      "bytes": 1702
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_four_projection_v2/YOHO/occupancy.yaml",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_four_projection_v2/YOHO/occupancy.yaml",
-      "sha256": "a01c312ff05709fdf0bb401691101dac9e4bbfe2939b79ce031b5050a15983b5",
-      "bytes": 116
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_four_projection_v2/YOHO/projection_preview.png",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_four_projection_v2/YOHO/projection_preview.png",
-      "sha256": "410978704a88ea6edd98289a11240dc89dba109d4c2506fa6c4afd2a876a9b0c",
-      "bytes": 1702
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_four_projection_v2/YOHO/provenance.json",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_four_projection_v2/YOHO/provenance.json",
-      "sha256": "03845c1749c4a19890c5863e1396cdfd934962346a73b4bd4f637857e3b08280",
-      "bytes": 2483381
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_second_projection_v4/SecondFloor/composition.json",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_second_projection_v4/SecondFloor/composition.json",
-      "sha256": "b9865a82478e5c15705b7e246ba4b1fb25310dabfba0da43c8c7051984fe1043",
-      "bytes": 1291
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_second_projection_v4/SecondFloor/occupancy.png",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_second_projection_v4/SecondFloor/occupancy.png",
-      "sha256": "4a32dd9a5accedc6e9930eff4090cf15f60c61dd7e73fe2b0dc30abe91b131a7",
-      "bytes": 465
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_second_projection_v4/SecondFloor/occupancy.yaml",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_second_projection_v4/SecondFloor/occupancy.yaml",
-      "sha256": "7580c23690b7d960e1d7402c9aed0e611f436ee64013b36b1fcef6152fda9d84",
-      "bytes": 116
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_second_projection_v4/SecondFloor/projection_preview.png",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_second_projection_v4/SecondFloor/projection_preview.png",
-      "sha256": "4a32dd9a5accedc6e9930eff4090cf15f60c61dd7e73fe2b0dc30abe91b131a7",
-      "bytes": 465
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_second_projection_v4/SecondFloor/provenance.json",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_second_projection_v4/SecondFloor/provenance.json",
-      "sha256": "283909c5d5da396316e4deaf3099adbb2e38cf16a59716e08d09c854ad3ba518",
-      "bytes": 464729
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_third_projection_v3/ThirdFloor/composition.json",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_third_projection_v3/ThirdFloor/composition.json",
-      "sha256": "51cd8f5370ec7e7c05deb41ffc85c08cb7f38aeeae6d871933e224e97a89563e",
-      "bytes": 1267
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_third_projection_v3/ThirdFloor/occupancy.png",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_third_projection_v3/ThirdFloor/occupancy.png",
-      "sha256": "9b9639674580592130417020b3c446ad9286dd4159641eeb661a84fb27ae0a8e",
-      "bytes": 301
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_third_projection_v3/ThirdFloor/occupancy.yaml",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_third_projection_v3/ThirdFloor/occupancy.yaml",
-      "sha256": "1b3a538b49ae872ab019d83293956f12d971a7f9d12cb8e99174f4764d77315d",
-      "bytes": 116
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_third_projection_v3/ThirdFloor/projection_preview.png",
-      "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_third_projection_v3/ThirdFloor/projection_preview.png",
-      "sha256": "9b9639674580592130417020b3c446ad9286dd4159641eeb661a84fb27ae0a8e",
-      "bytes": 301
-    },
-    {
-      "source": "/project/EXP/SangforAndSaut/Socially-aware_Indoor_Navigation_Benchmark/output/scene_maps/gait_third_projection_v3/ThirdFloor/provenance.json",
+      "source": "project:output/scene_maps/gait_third_projection_v3/ThirdFloor/provenance.json",
       "target": "resources/releases/pedestrians_20261010/evidence/native_maps/gait_third_projection_v3/ThirdFloor/provenance.json",
       "sha256": "0ad66ae8e1fc403f6f6ded51a08e380acf186c82e7721573229bbd6283da9bb4",
       "bytes": 140044

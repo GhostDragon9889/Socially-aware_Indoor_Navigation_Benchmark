@@ -1,6 +1,0 @@
-usage: bootstrap_reproduction.py [-h]
-                                 [--profile {isaaclab3_ea_sim61,isaaclab3_sim6}]
-                                 [--lab-root LAB_ROOT] [--python PYTHON]
-                                 [--rebuild-addons]
-                                 {install,configure,check,prepare-frozen,prepare-native,prepare-runtime}
-bootstrap_reproduction.py: error: Selected SDK interpreter is too old; use the SDK Python3.12

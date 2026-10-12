@@ -1,0 +1,131 @@
+{
+  "source": "https://github.com/nv-tlabs/pacer/blob/baeb6241f03fc9d78370a64e3c2dcef9d830d97f/download_data.sh",
+  "commit": "baeb6241f03fc9d78370a64e3c2dcef9d830d97f",
+  "date": "2026-10-01",
+  "license": "CC-BY-NC-SA-4.0 (official repository); original data/model rights also apply",
+  "license_url": "https://github.com/nv-tlabs/pacer/blob/baeb6241f03fc9d78370a64e3c2dcef9d830d97f/LICENSE",
+  "authentication": "anonymous; use_cookies=False; Session.trust_env=False",
+  "gdown": "6.2.0",
+  "upstream_checksums_published": false,
+  "max_file_bytes": 157286400,
+  "max_total_bytes": 786432000,
+  "free_bytes_preflight": 882922438656,
+  "runtime_integration": false,
+  "artifacts": {
+    "no_shape": {
+      "id": "1srmXSH8c-4Recy1g4jgWCNzZhDQ7mWfH",
+      "source_url": "https://drive.google.com/uc?id=1srmXSH8c-4Recy1g4jgWCNzZhDQ7mWfH",
+      "staging_output": "/tmp/navisaaclab-pacer-Humanoid.pth.part",
+      "attempt": 1,
+      "status": "verified_existing",
+      "server_expected_bytes": 119755239,
+      "original_filename": "Humanoid.pth",
+      "partials": [],
+      "file": {
+        "path": "project:data/pretrained_models/paper_references/pacer/output/release/pacer_no_shape/Humanoid.pth",
+        "bytes": 119755239,
+        "sha256": "bc0cb89b4d7ceaeb198339c34f3d736eb7449e7e479a7ee0f80d32563737d615",
+        "head_hex": "504b0304000008080000000000000000",
+        "zip_crc_valid": true,
+        "deserialized": false
+      }
+    },
+    "standing_neutral": {
+      "id": "1rmxR4I2_bHazkaTujV48R1xZSVaK5tjb",
+      "source_url": "https://drive.google.com/uc?id=1rmxR4I2_bHazkaTujV48R1xZSVaK5tjb",
+      "staging_output": "project:data/pretrained_models/paper_references/pacer/.downloads/standing_neutral.download",
+      "attempt": 1,
+      "status": "verified_existing",
+      "server_expected_bytes": 2161089,
+      "original_filename": "amass_isaac_standing_upright_slim.pkl",
+      "file": {
+        "path": "project:data/pretrained_models/paper_references/pacer/sample_data/amass_isaac_standing_upright_slim.pkl",
+        "bytes": 2161089,
+        "sha256": "d052005f97db9e372aa9ffeb8c63804b0b5d08e89e0fc59f43b16b5a5bf2cd6d",
+        "head_hex": "800495d3000000000000007d948c0873",
+        "zip_crc_valid": null,
+        "deserialized": false
+      },
+      "partials": []
+    },
+    "main": {
+      "id": "1CF8mA9L3cAAOdDk6qtwDnAOTrQI8mien",
+      "source_url": "https://drive.google.com/uc?id=1CF8mA9L3cAAOdDk6qtwDnAOTrQI8mien",
+      "staging_output": "project:data/pretrained_models/paper_references/pacer/.downloads/main.download",
+      "attempt": 1,
+      "status": "verified_existing",
+      "server_expected_bytes": 121648127,
+      "original_filename": "Humanoid.pth",
+      "file": {
+        "path": "project:data/pretrained_models/paper_references/pacer/output/release/pacer/Humanoid.pth",
+        "bytes": 121648127,
+        "sha256": "76c3b2807f9557ca1a74f2bf34c0271cb25dc8ec703ec3861a2cf295936f2a79",
+        "head_hex": "504b0304000008080000000000000000",
+        "zip_crc_valid": true,
+        "deserialized": false
+      },
+      "partials": []
+    },
+    "filtered_shapes": {
+      "id": "12xDUruRQHMMeuYhFh9ON3AVzXPyMOShT",
+      "source_url": "https://drive.google.com/uc?id=12xDUruRQHMMeuYhFh9ON3AVzXPyMOShT",
+      "staging_output": "project:data/pretrained_models/paper_references/pacer/.downloads/filtered_shapes.download",
+      "attempt": 1,
+      "status": "verified_existing",
+      "server_expected_bytes": 69402,
+      "original_filename": "amass_isaac_gender_betas_unique.pkl",
+      "file": {
+        "path": "project:data/pretrained_models/paper_references/pacer/sample_data/amass_isaac_gender_betas_unique.pkl",
+        "bytes": 69402,
+        "sha256": "9c289a027f74348599ad4ec75cf7d6a802a065d85e245cb7f4fd03088d95d20f",
+        "head_hex": "80035d710028636a6f626c69622e6e75",
+        "zip_crc_valid": null,
+        "deserialized": false
+      },
+      "partials": []
+    },
+    "amass_occlusion": {
+      "id": "1rUSjVUYE8bIPZOyhbdQrKZ9-otE3fHpr",
+      "source_url": "https://drive.google.com/uc?id=1rUSjVUYE8bIPZOyhbdQrKZ9-otE3fHpr",
+      "staging_output": "project:data/pretrained_models/paper_references/pacer/.downloads/amass_occlusion.download",
+      "attempt": 1,
+      "status": "verified_existing",
+      "server_expected_bytes": 2733463,
+      "original_filename": "amass_copycat_occlusion_v2.pkl",
+      "file": {
+        "path": "project:data/pretrained_models/paper_references/pacer/sample_data/amass_copycat_occlusion_v2.pkl",
+        "bytes": 2733463,
+        "sha256": "44ccf2dd0dc70327f3be91a0fd5bf4a4998a230ded5b318e01013e8dda597033",
+        "head_hex": "800363636f6c6c656374696f6e730a64",
+        "zip_crc_valid": null,
+        "deserialized": false
+      },
+      "partials": []
+    }
+  },
+  "elapsed_seconds": 0.249,
+  "status": "complete",
+  "cumulative_download_seconds": 590.085,
+  "requested_roles": [
+    "no_shape",
+    "standing_neutral",
+    "main",
+    "filtered_shapes",
+    "amass_occlusion"
+  ],
+  "license_and_attribution": [
+    {
+      "path": "data/pretrained_models/paper_references/pacer/LICENSE",
+      "bytes": 310,
+      "sha256": "929c79bfc054f37aef5f8644dce5558a99e11781b619cee5f38f4e81287fd200"
+    },
+    {
+      "path": "data/pretrained_models/paper_references/pacer/RESOURCE_PROVENANCE.md",
+      "bytes": 1433,
+      "sha256": "c4f20a08924c19f6d6e313793d5c78758e6b72033a624b1a2135df6e122454a9"
+    }
+  ],
+  "total_verified_artifact_bytes": 246367320,
+  "verified_artifact_count": 5,
+  "all_five_official_requested_resources_complete": true
+}

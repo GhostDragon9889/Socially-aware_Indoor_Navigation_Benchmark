@@ -1,0 +1,25 @@
+{
+  "schema": "shared_social.current_world_derivation.v1",
+  "original_World": {
+    "path": "project:resources/runtime_sources/style_improvement_20261004/shared_group_world_owned_lifetime_revision_v2/shared_group_world.py",
+    "bytes": 39960,
+    "sha256": "d7400a48364b64971f4e2e942d87ebd9e108b5a8ff018e8a8f404b817bd02038"
+  },
+  "candidate_World": {
+    "path": "project:resources/runtime_sources/style_improvement_20261006/shared_social_episode_reference_runtime_preparation_v1/shared_group_world.py",
+    "bytes": 40613,
+    "sha256": "1e2a86ced62e21c0ef3c447dad22ec72d2ead4104564c12a4be4b4636a6e58d5"
+  },
+  "byte_edits": [
+    {
+      "before": "    \"procedural\": (ROOT / \"CrowdSim/humanoid/training/trajectories.py\", 14063, '81701988535cf847b8b86979a836ba37089e93553aa4e3fe5ecfc9529d62d2c9', False),\n    \"SDK_scene\": (LAB / \"isaaclab/isaaclab/scene/interactive_scene.py\", 39939, \"5d509530070ffb8f4616f769a6608299a386800d7e2582833181ba28dfee32d1\", False),\n",
+      "after": "    \"procedural\": (ROOT / \"CrowdSim/humanoid/training/trajectories.py\", 14063, '81701988535cf847b8b86979a836ba37089e93553aa4e3fe5ecfc9529d62d2c9', False),\n    \"episode_mixed\": (ROOT / \"CrowdSim/humanoid/training/episode_mixed_trajectories.py\", 12099, '61ec4446472800c4c6ed922194cb42f8d6988cabe732853d865f5386d4793e1a', False),\n    \"episode_reference\": (ROOT / \"CrowdSim/humanoid/training/episode_trajectories.py\", 6705, 'f4283656f29a31547905ee640316aac63e7ba2cdbcd9321f1763475247a17576', False),\n    \"SDK_scene\": (LAB / \"isaaclab/isaaclab/scene/interactive_scene.py\", 39939, \"5d509530070ffb8f4616f769a6608299a386800d7e2582833181ba28dfee32d1\", False),\n"
+    },
+    {
+      "before": "            if (type(curriculum) is not getattr(curriculum_module, \"MixedTrajectoryCurriculum\", None) or origin != PINS[\"mixed\"][0]\n                    or curriculum.num_envs != self.num_envs or curriculum.device != self.device):\n                raise ValueError(\"Caller-prepared original fixed-half mixed curriculum required\")\n",
+      "after": "            if (type(curriculum) is not getattr(curriculum_module, \"EpisodeAnchoredMixedCurriculum\", None) or origin != PINS[\"episode_mixed\"][0]\n                    or curriculum.num_envs != self.num_envs or curriculum.device != self.device\n                    or curriculum.episode_controls != episode_steps\n                    or curriculum.config[\"real_reset_future_frames\"] != 31 or curriculum.amass.config[\"future_frames\"] != 31\n                    or curriculum.episode_reference.episode_controls != (episode_steps + 2) // 3 * 3):\n                raise ValueError(\"Caller-prepared episode-bound fixed-half mixed curriculum required\")\n"
+    }
+  ],
+  "whole_byte_inverse_verified": true,
+  "purpose": "Fresh variant source derivation; no historical execution certificate"
+}

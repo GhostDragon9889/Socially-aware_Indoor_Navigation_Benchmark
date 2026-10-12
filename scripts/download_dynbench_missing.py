@@ -12,6 +12,7 @@ import datetime
 import hashlib
 import json
 import os
+import tempfile
 from pathlib import Path
 import re
 import subprocess
@@ -288,8 +289,8 @@ def main():
     parser.add_argument("--max-files", type=int, default=256)
     args = parser.parse_args()
     output = Path(args.output).resolve()
-    if not output.is_relative_to(ROOT) and not output.is_relative_to(Path("/tmp")):
-        parser.error("Only workspace or /tmp output is permitted")
+    if not output.is_relative_to(ROOT) and not output.is_relative_to(Path(tempfile.gettempdir())):
+        parser.error("Only workspace or the system temporary directory is permitted")
     if min(args.timeout, args.max_file_bytes, args.max_total_bytes, args.max_files) < 1:
         parser.error("Transport and dependency bounds must be positive")
     if not Path(args.request).is_file():

@@ -125,13 +125,15 @@ def maintenance_expectations(root, catalog, policy, tree):
                     'Unexpected maintenance update fields')
             commit = object_id(update['commit'])
             require(commit != previous_commit, 'Repeated maintenance commit')
-            before, after = identity(update['before']), identity(update['after'])
+            before = None if update['before'] is None else identity(update['before'])
+            after = None if update['after'] is None else identity(update['after'])
             require(before == expected[target] and before != after, 'Broken maintenance identity chain: ' + target)
             ancestor(root, previous_commit, commit + '^')
             ancestor(root, commit, 'HEAD')
             require(tree(commit + '^').get(target) == before and tree(commit).get(target) == after,
                     'Maintenance commit/mode/blob does not prove the declared change: ' + target)
             if 'upstream_origin' in update:
+                require(after is not None, 'A deletion cannot claim an upstream replacement origin')
                 origin = update['upstream_origin']
                 require(set(origin) == {'commit', 'path', 'lfs_oid', 'lfs_bytes'}, 'Unexpected upstream origin fields')
                 source_commit, source_path = object_id(origin['commit']), relative_path(origin['path'])

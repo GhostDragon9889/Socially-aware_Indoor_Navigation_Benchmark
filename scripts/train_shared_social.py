@@ -18,8 +18,8 @@ from CrowdSim.humanoid.runtime.social_evaluation_lifecycle import record  # noqa
 from CrowdSim.humanoid.runtime import social_popart_training  # noqa: E402
 from CrowdSim.humanoid.runtime import grouped_source_migration  # noqa: E402
 
-PARENT = ROOT / "docs/style_improvement_20261004/shared_social_contact_layout_revision_v6/train_shared_social.py"
-PARENT_SHA = "6b64213aea03243bf841af0c8e1b5bb03f06700d030f6d8d16051d356bfb59c4"
+PARENT = ROOT / "resources/runtime_sources/style_improvement_20261004/shared_social_contact_layout_revision_v6/train_shared_social.py"
+PARENT_SHA = "a96601ae3fa924706e49a2873203231f2f30806893d9c11d5e0846acc10617b5"
 
 
 def prepare_entry(strategy):

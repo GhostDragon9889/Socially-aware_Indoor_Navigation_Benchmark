@@ -24,7 +24,7 @@
   "manifest_sha256": "2780d507882950e64ca8f972fcad4c19e74b9681af1d830e0b34fa09e79e116b",
   "lock_sha256": "97f918117aa15e9574b4cc716c264cf2907271b9b3aef01f2949f4bc04595bdc",
   "native_overlay": "not_used_on_sim61",
-  "runtime_strategy": "project-owned dependency overlay with installed SDK .pth, no binary provider duplication",
+  "runtime_strategy": "SDK interpreter with locked project additions; external binding or pinned uv SDK installation",
   "sources": {
     "lab_docs": "https://isaac-sim.github.io/IsaacLab/v3.0.0-EA/index.html",
     "lab_repository": "https://github.com/isaac-sim/IsaacLab"

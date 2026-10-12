@@ -20,7 +20,7 @@ from .relocated_terminal import derive_relocated_checkout, overlay_kit_arguments
 
 ROOT = repository_root(__file__)
 TERMINAL = Path(__file__).parent / "sealed/sdk6_terminal.py"
-TERMINAL_SHA = "0e6b2ef97cc2f32612317df162ebba6107b1e276083f9912995badd5f416685e"
+TERMINAL_SHA = "f687673fe1da1cdce3d0da3b239881ecb42e643ea133c10fd4a3dfd7e6928b8f"
 
 
 def record(path):

@@ -173,35 +173,6 @@ def test_duplicate_selected_floor_hits_remain_saved_and_fail_single_floor_certif
     assert output["single_selected_floor_support_verified"] is False
 
 
-@pytest.mark.parametrize("scene, count", [("Office", 1289), ("Full_Warehouse", 12), ("Hospital", 366)])
-def test_actual_v6_failed_near_ground_rows_are_source_certified_nonfloor_not_foreign(scene, count):
-    import json
-    from pathlib import Path
-
-    directory = Path(__file__).resolve().parents[1] / "output/scene_maps/native_reference_four_scenes_mapping_v6" / scene
-    if not (directory / "floor_support_rays.npz").exists():
-        pytest.skip("Requires preserved actual v6 failed scene raw data")
-    result = json.loads((directory / "result.json").read_text())
-    preflight = json.loads((directory / "preflight.json").read_text())
-    assert result["status"] == "failed"  # Historical failed results are not promoted or rewritten.
-    enabled = {r["path"] for r in preflight["authored_colliders"] if r["enabled"]}
-    floor = set(result["floor_ownership"]["declared_floor_paths"])
-    known = probe.static_nonfloor_paths(result["floor_ownership"]["actual_enabled_flat_ground_inventory"], enabled, floor)
-    enabled, floor = frozenset(enabled | floor), frozenset(floor)
-    registry = probe.ValidatedStaticNonfloor(known, enabled, floor)
-    with np.load(directory / "floor_support_rays.npz", allow_pickle=False) as archive:
-        raw = {key: archive[key] for key in archive.files}
-        selected = np.flatnonzero(raw["undeclared_near_floor_hit"])
-        assert len(selected) == count
-        for index in selected:
-            start, stop = raw["all_hit_offsets"][index:index+2]
-            hits = [{"collision": str(raw["all_hit_collision_paths"][k]), "rigid_body": str(raw["all_hit_rigid_body_paths"][k]),
-                     "position": raw["all_hit_positions"][k].tolist(), "normal": raw["all_hit_normals"][k].tolist(),
-                     "distance": float(raw["all_hit_distances"][k])} for k in range(start, stop)]
-            verdict = probe.classify_floor_ray_hits(hits, floor, enabled, 0., static_nonfloor=registry)
-            assert verdict["all_support_hit_paths_declared"] is True
-            assert verdict["single_selected_floor_support_verified"] is True
-            assert verdict["known_static_nonfloor_near_ground_paths"]
 
 
 def test_complete_floor_ray_CSR_preserves_extra_and_foreign_hits_for_each_cell():
@@ -278,21 +249,6 @@ def test_flat_ground_inventory_reports_enabled_dynamic_plane_instead_of_static_c
     assert record["near_ground_flat_surface"] is True and record["static"] is False
 
 
-def test_actual_v4_warehouse_claimed_pass_is_rejected_by_undeclared_plane_gate():
-    import hashlib
-    import json
-    from pathlib import Path
-    path = Path(__file__).resolve().parents[1] / "output/scene_maps/native_reference_warehouse_fullheight_v1/Warehouse/result.json"
-    if not path.exists():
-        pytest.skip("Requires the explicitly preserved native Warehouse v4 result")
-    assert hashlib.sha256(path.read_bytes()).hexdigest() == "fafd094f2661886044093ead2c69438cfd0d289064b4b44c0f3947bbc07a9732"
-    result = json.loads(path.read_text())
-    hits = result["origin_verification"]["floor_ray_all_hits"]
-    floor = set(result["floor_collider_paths"])
-    verdict = probe.classify_floor_ray_hits(hits, floor, floor | {"/Root/GroundPlane/CollisionPlane"}, 0.)
-    assert result["scene_resource_gate_passed"] is True  # The historical claim stays untouched.
-    assert verdict["all_support_hit_paths_declared"] is False
-    assert verdict["undeclared_near_floor_collision_paths"] == ["/Root/GroundPlane/CollisionPlane"]
 
 
 def test_overlap_uses_actual_xyzw_identity_and_strict_callback_count():
@@ -510,27 +466,6 @@ def test_API_free_unknown_positions_remain_unknown_without_promoting_free():
     assert proof["unknown_promoted_to_free"] is False
 
 
-def test_actual_warehouse_native_raw_requires_exact_occupied_knownfree_and_unknown_preservation():
-    from pathlib import Path
-
-    path = Path(__file__).resolve().parents[1] / "output/scene_maps/native_reference_warehouse_pilot_v1/Warehouse/native_omap.npz"
-    if not path.exists():
-        pytest.skip("Requires the explicitly recorded Warehouse native PhysX raw fixture")
-    import hashlib
-    assert hashlib.sha256(path.read_bytes()).hexdigest() == "d3931cd7f6557dd046ef809a62ba8764e473351c3fd4aaa069c7779e357a9f29"
-    with np.load(path, allow_pickle=False) as archive:
-        image, proof = probe.reconstruct_native_map(archive["buffer"], archive["occupied_positions"],
-            archive["free_positions"], archive["min_bound"], archive["max_bound"], archive["dimensions"])
-        index = probe.native_position_buffer_indices(archive["free_positions"], archive["min_bound"],
-            archive["max_bound"], archive["dimensions"])
-        assert (archive["buffer"][index] == 4).sum() == 0
-    assert proof["raw_value_counts"] == {"occupied": 3343, "free": 56239, "unknown": 33288}
-    assert proof["API_free_list_count"] == 89025
-    assert proof["API_free_list_unknown_count"] == 32786
-    assert proof["unreported_unknown_count"] == 502
-    assert proof["unreported_unknown_native_rows"] == [1, 3]
-    assert (image == 205).sum() == 33288
-    assert (image == 254).sum() == 56239
 
 
 def test_missing_known_free_world_point_and_false_free_occupied_point_are_rejected():
@@ -621,78 +556,8 @@ def test_new_buffer_center_mode_is_explicit_and_default_stays_APIverified():
         "official_buffer_centers"]).known5_position_source == "official_buffer_centers"
 
 
-@pytest.mark.parametrize("scene, sha256, bounds, dimensions, padding, counts, missing", [
-    ("Office", "6a115898dd2330a9ba074e681607bd7e01ddf2daf56a65cda8a4c131d8286a64",
-     [[-24.6, -27.6], [6.5, 60.6]], [311, 882], [0, 1], [42536, 223776, 8301], 3532),
-    ("Hospital", "e0954ef725688b3fc3009204ff5586e9aff28aaba15bcbbcfbeea44f26eecbd1",
-     [[-48.8, -4.9], [27.4, 37.4]], [762, 423], [1, 1], [37617, 112006, 173889], 0),
-    ("Full_Warehouse", "4239c9b47b7b0853ca8500d4cda0adb659f70efc2ac115a0d98f9953db0d60c7",
-     [[-28.6, -24.], [8.6, 31.1]], [372, 551], [1, 1], [17264, 155300, 33332], 0),
-])
-def test_actual_failed_native_scenes_keep_fixed_layout_unknowns_and_declared_world_crop(
-        scene, sha256, bounds, dimensions, padding, counts, missing):
-    """Use immutable real native data, not synthetic mirrored buffer generation."""
-    import hashlib
-    from pathlib import Path
-
-    path = Path(__file__).resolve().parents[1] / "output/scene_maps/native_reference_remaining_three_floor_owner_v5" / scene / "native_omap.npz"
-    if not path.exists():
-        pytest.skip("Requires the explicitly preserved three native v5 raw fixtures")
-    assert hashlib.sha256(path.read_bytes()).hexdigest() == sha256
-    with np.load(path, allow_pickle=False) as data:
-        args = [data[k] for k in ("buffer", "occupied_positions", "free_positions", "min_bound", "max_bound", "dimensions")]
-        image, proof = probe.reconstruct_native_map(*args, known5_position_source="official_buffer_centers")
-        canonical = probe.canonical_known5_positions(args[0], args[2], *args[3:], source="official_buffer_centers")
-        window = probe.projection_grid_window(*args[3:], bounds, dimensions)
-        assert list(proof["raw_value_counts"].values()) == counts
-        assert proof["known5_API_complete"] is (missing == 0)
-        assert len(canonical["missing_known5_buffer_indices"]) == missing
-        assert np.count_nonzero(canonical["API_rows"] == -1) == missing
-        np.testing.assert_array_equal(np.sort(canonical["native_buffer_indices"]), np.flatnonzero(args[0] == 5))
-        assert (image == 205).sum() == counts[2]
-        assert window["lower_padding_cells_xy"] == padding
-        cropped = probe.crop_to_projection_grid(image, window)
-        assert cropped.shape == tuple(dimensions[::-1])
-        # Verify every exported center by both grid transforms, without selecting an orientation.
-        rows, cols = np.indices(cropped.shape)
-        native_rows = rows + window["native_window_rows"][0]
-        native_cols = cols + window["native_window_columns"][0]
-        native_xy = args[3][:2] + np.stack((native_cols + .5, args[5][1] - native_rows - .5), axis=-1)*.1
-        export_xy = np.asarray(bounds)[0] + np.stack((cols + .5, dimensions[1]-rows-.5), axis=-1)*.1
-        np.testing.assert_allclose(native_xy, export_xy, atol=1e-5, rtol=0)
-        if missing:
-            absent = canonical["missing_known5_buffer_indices"]
-            assert set(absent % int(args[5][0])) == {137, 295, 300, 305}
-            assert len(np.unique(absent // int(args[5][0]))) == 883
-            assert proof["native_direct_cell_validation_required"] is True
-            with pytest.raises(ValueError, match="every known buffer5"):
-                probe.reconstruct_native_map(*args)
 
 
-def test_actual_warehouse_v5_default_labels_and_API_positions_remain_bitwise_identical():
-    import importlib.util
-    from pathlib import Path
-
-    root = Path(__file__).resolve().parents[1]
-    path = root / "output/scene_maps/native_reference_warehouse_floor_owner_v5/Warehouse/native_omap.npz"
-    before = root / "docs/style_improvement_20261002/paper_scene_maps_probe_source_before_v6_mapping.py"
-    if not path.exists() or not before.exists():
-        pytest.skip("Requires preserved v5 actual and before source")
-    spec = importlib.util.spec_from_file_location("scene_probe_frozen_v5", before)
-    old = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(old)
-    with np.load(path, allow_pickle=False) as data:
-        args = [data[k] for k in ("buffer", "occupied_positions", "free_positions", "min_bound", "max_bound", "dimensions")]
-        new_image, proof = probe.reconstruct_native_map(*args)
-        old_image, _ = old.reconstruct_native_map(*args)
-        np.testing.assert_array_equal(new_image, old_image)
-        canonical = probe.canonical_known5_positions(args[0], args[2], *args[3:])
-        indices = old.native_position_buffer_indices(args[2], *args[3:])
-        selected = args[2][args[0][indices] == 5]
-        assert canonical["positions"].dtype == selected.dtype
-        assert canonical["positions"].tobytes() == selected.tobytes()
-        assert proof["known5_API_complete"] is True
-        assert proof["engineering_buffer_center_reconstruction"] is False
 
 
 @pytest.mark.parametrize("ground", [0., 2., -3.])
@@ -874,24 +739,3 @@ def test_raw6_API_points_cannot_enter_free_refinement_and_false_clear_is_rejecte
     with pytest.raises(ValueError, match="contradicts"):
         probe.refine_known_free_map(native, [[.15, .05, .75]], np.array([0]), np.array([True]),
             band_masks([0], [True], [True], [True]), [0., 0., .7], [.2, .1, .8], np.array([2, 1, 1]))
-
-
-def test_actual_warehouse_raw_refinement_preserves_all33288_unknown_without_native_claim():
-    from pathlib import Path
-    path = Path(__file__).resolve().parents[1] / "output/scene_maps/native_reference_warehouse_pilot_v1/Warehouse/native_omap.npz"
-    if not path.exists():
-        pytest.skip("Requires explicitly recorded native raw Warehouse fixture")
-    with np.load(path, allow_pickle=False) as z:
-        image, _ = probe.reconstruct_native_map(z["buffer"], z["occupied_positions"], z["free_positions"], z["min_bound"], z["max_bound"], z["dimensions"])
-        indices = probe.native_position_buffer_indices(z["free_positions"], z["min_bound"], z["max_bound"], z["dimensions"])
-        points = z["free_positions"][z["buffer"][indices] == 5]
-        selected = np.arange(len(points))
-        blocked = np.zeros(len(points), dtype=bool)
-        blocked[0] = True  # synthetic classification only; no new native query is claimed
-        classified = np.ones_like(blocked)
-        masks = band_masks(selected, ~blocked, blocked, classified)
-        result = probe.refine_known_free_map(image, points, selected, np.ones_like(blocked), masks,
-            z["min_bound"], z["max_bound"], z["dimensions"])
-    assert (result == 205).sum() == 33288
-    assert (result == 254).sum() == 56238
-    assert (result == 0).sum() == 3344

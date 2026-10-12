@@ -28,12 +28,12 @@ from CrowdSim.humanoid.runtime.social_evaluation_lifecycle import record  # noqa
 AUDIT = ROOT / "scripts/audit_shared_social_navigation.py"
 AUDIT_SHA = "8fb54bbd2048eb755713b025d7f5331c6296520fa3870a5ea4fec4afe48d0414"
 LOCOMOTION = ROOT / "scripts/diagnose_shared_social_locomotion.py"
-LOCOMOTION_SHA = "2c975fe2b5bbe82435ff29dee2ed9aefe219f91270b168f698eb9eebf8a745be"
+LOCOMOTION_SHA = "1f0c2d07d494f1da18e98f3fd7a895938980485195257f9132cb7708253e6fac"
 DEPENDENCIES = (
     ("CrowdSim/humanoid/analysis/support_phases.py", "d27928fc366edb32d0b06eaafcb83820ce214fb42dfc12f401f8eec6dc67dbe7"),
     ("scripts/compare_shared_social_evidence.py", "76e589b05101480ac21ae229e7c8ecdefde049073670deaddb88a4306ed77a35"),
     ("CrowdSim/humanoid/foot_support.py", "8c9cb88ddcbe55599ebe79abf80ea7a77a85eedfaa17324b937a862b284267e8"),
-    ("CrowdSim/humanoid/runtime/social_evaluation_lifecycle.py", "be868487365352f092128b7a1054ba814a1912e37a1bb211db7219abe2e3654a"),
+    ("CrowdSim/humanoid/runtime/social_evaluation_lifecycle.py", "991b6107f113d961e9b2cccca1efdb8bbc9d1d484188c1b3b716e4cb11e3e15e"),
     ("CrowdSim/humanoid/analysis/paired_initial.py", "3395ebc1e4de385788fec738f49994af2887bb1b0af998363608c8625e17022d"),
 )
 COUNTS = {"analyze": {6000: 13, 6001: 2, 24000: 1, 24001: 1}, "targets_from_saved_plans": {6000: 4}}

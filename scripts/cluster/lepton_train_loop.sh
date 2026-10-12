@@ -17,8 +17,8 @@
 # first run starts fresh, later runs auto-resume.
 #
 # Positional args (main path):
-#   1  PYTHON      interpreter invocation, e.g. "/workspace/isaaclab/isaaclab.sh -p"
-#   2  SIMULATOR   isaacgym|isaaclab|newton (selects install path + IsaacLab warmup)
+#   1  PYTHON      interpreter invocation, e.g. "python3 scripts/run_external_python.py"
+#   2  SIMULATOR   simulator backend (SDK binding; IsaacLab warmup when selected)
 #   3  EXP_NAME    experiment name; checkpoints live at results/<EXP_NAME>/last.ckpt
 #   4  EXP_FOLDER  code snapshot on AMLFS; cwd for training, holds results/
 #   5  MAX_RUNS    crash-restart cap (loop iterations)
@@ -37,7 +37,7 @@
 #   LEPTON_LOOP_SOURCE_ONLY  when set, `source` this file to get the functions
 #                            below (kill_tree/run_with_stall_watchdog/...) WITHOUT
 #                            running any of the main install+train path.
-#   LEPTON_LOOP_SKIP_SETUP   skip the per-container install + IsaacLab warmup, so
+#   LEPTON_LOOP_SKIP_SETUP   skip SDK binding and IsaacLab warmup, so
 #                            the loop itself can be exercised with a fake python.
 #   STALL_POLL_SEC (60)      watchdog poll interval; sub-second in tests.
 #   STALL_QUIET_LIMIT        watchdog no-growth polls before killing (default:
@@ -216,41 +216,17 @@ echo "[lepton-loop] durable log: ${LOGFILE}"
 echo "[lepton-loop] python=${PYTHON} simulator=${SIMULATOR} max_runs=${MAX_RUNS}" \
     "no_progress_limit=${NO_PROGRESS_LIMIT} stall_timeout_min=${STALL_TIMEOUT_MIN}"
 
-# --- one-time per-container setup -------------------------------------------
-# Import the staged snapshot as an editable install; runtime deps already live in
-# the image (--no-deps). IsaacLab's bare python/pip are not runnable, so pip must
-# go through the isaaclab.sh wrapper -- a plain `pip install` there exits 127.
-# Skipped under LEPTON_LOOP_SKIP_SETUP so a test can drive the loop with a fake
-# python that needs no install.
+# --- bind the externally provisioned SDK ------------------------------------
+export PYTHONUNBUFFERED=1
 if [ -z "${LEPTON_LOOP_SKIP_SETUP:-}" ]; then
-    export PYTHONUNBUFFERED=1
-    echo "[lepton-loop] installing protomotions from the snapshot..."
+    python3 scripts/bootstrap_reproduction.py configure \
+        --lab-root "${ISAACLAB_ROOT:?Set ISAACLAB_ROOT to the mounted SDK}" || exit 1
     if [ "$SIMULATOR" = "isaaclab" ]; then
-        /workspace/isaaclab/isaaclab.sh -p -m pip uninstall -y protomotions || true
-        /workspace/isaaclab/isaaclab.sh -p -m pip install -e . --no-deps || {
-            echo "[lepton-loop] protomotions install failed" >&2; exit 1; }
-        # NB: do NOT `pip install --upgrade wandb` here. The image's wandb already
-        # satisfies protomotions' pin (<0.24); upgrading pulls wandb 0.29 (violates the
-        # pin) and drags click to 8.5, which conflicts with isaacsim-kernel's click==8.1.7.
-    else
-        pip uninstall -y protomotions 2>/dev/null || true
-        pip install -e . --no-dependencies || {
-            echo "[lepton-loop] protomotions install failed" >&2; exit 1; }
-    fi
-
-    # IsaacLab lazily bootstraps a shared pip env the first time AppLauncher starts.
-    # Warm it once here so the Fabric-spawned worker ranks (multi-GPU) do not race on
-    # it. A single process runs this loop per node, so no rank coordination is needed
-    # -- unlike the SLURM path, where srun launches one task per GPU.
-    if [ "$SIMULATOR" = "isaaclab" ]; then
-        echo "[lepton-loop] warming IsaacLab AppLauncher..."
-        /workspace/isaaclab/isaaclab.sh -p -c \
-            "from isaaclab.app import AppLauncher; app = AppLauncher({'headless': True}).app; app.close()" || {
-            echo "[lepton-loop] IsaacLab warmup failed" >&2; exit 1; }
+        python3 scripts/run_external_python.py -c \
+            "from isaaclab.app import AppLauncher; app = AppLauncher({'headless': True}).app; app.close()" || exit 1
     fi
 else
-    echo "[lepton-loop] LEPTON_LOOP_SKIP_SETUP set -- skipping install + warmup (test)."
-    export PYTHONUNBUFFERED=1
+    echo "[lepton-loop] LEPTON_LOOP_SKIP_SETUP set -- skipping SDK binding (test)."
 fi
 
 # --- distributed rendezvous (multi-node) ------------------------------------

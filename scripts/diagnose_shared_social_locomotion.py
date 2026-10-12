@@ -25,10 +25,10 @@ from CrowdSim.humanoid.analysis.support_phases import support_phases  # noqa: E4
 from scripts.compare_shared_social_evidence import bound, record, require  # noqa: E402
 
 HELPERS = (
-    ("docs/style_improvement_20261004/actual_tracking_contact_CPU_v1/diagnose_tracking_contact.py",
-     "33dd5405f491955aff3e0dc561e0f6d627a16bd4b033b4a55530191b536f5a32"),
-    ("docs/style_improvement_20261004/reference_response_CPU_v1/diagnose_response.py",
-     "adfc47d93b4cf69a63f90032a5f0a952ef98ce8e9d72f5b7a36071da4638f46d"),
+    ("resources/runtime_sources/style_improvement_20261004/actual_tracking_contact_CPU_v1/diagnose_tracking_contact.py",
+     "feddba4fa4a526c2c7295c485f4ba513180c77369e2bd43a2ceec5f0c32896b0"),
+    ("resources/runtime_sources/style_improvement_20261004/reference_response_CPU_v1/diagnose_response.py",
+     "180b8a54f9ef1291111389c2ab751718bbca0c37f954a70653f384491a8585ec"),
 )
 FORBIDDEN = {"torch", "isaacsim", "isaaclab", "omni", "pxr", "warp"}
 STATE_FIELDS = ("root_pos", "root_rot", "target_xy", "raw_target_xy", "reference_target_velocity_xy",

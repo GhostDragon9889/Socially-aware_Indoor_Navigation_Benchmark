@@ -11,7 +11,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SFM_DERIVER = ROOT / "scripts/evaluate_shared_social_sfm.py"
-SFM_DERIVER_SHA = "9a375da2698327b28df480e6128d8741d92800bde596f16ef7543a21d5c658de"
+SFM_DERIVER_SHA = "df5111e8c7d1cb39f821cc679f0251123ff1d9e20afe6752aa027117dd5ba239"
 
 
 def derive_native_sfm_driver(original, base_derive):

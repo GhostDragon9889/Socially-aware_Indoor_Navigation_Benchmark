@@ -2,7 +2,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "项目状态",
+      "name": "\u9879\u76ee\u72b6\u6001",
       "type": "debugpy",
       "request": "launch",
       "args": [
@@ -21,7 +21,7 @@
       "program": "${workspaceFolder}/scripts/run_external_python.py"
     },
     {
-      "name": "场景资源检查",
+      "name": "\u573a\u666f\u8d44\u6e90\u68c0\u67e5",
       "type": "debugpy",
       "request": "launch",
       "args": [
@@ -42,7 +42,7 @@
       "program": "${workspaceFolder}/scripts/run_external_python.py"
     },
     {
-      "name": "PointGoal PPO 参数",
+      "name": "PointGoal PPO \u53c2\u6570",
       "type": "debugpy",
       "request": "launch",
       "args": [
@@ -66,7 +66,7 @@
     {
       "id": "scene",
       "type": "pickString",
-      "description": "选择场景",
+      "description": "\u9009\u62e9\u573a\u666f",
       "options": [
         "YOHO",
         "NewMetro",

@@ -103,7 +103,7 @@ def main(argv=None):
     from CrowdSim.humanoid.runtime.social_evaluation_lifecycle import record
 
     module, binding = entry.prepare_entry()
-    profile = json.loads((entry.HERE / ("smoke.json" if args.actors == 8 else "smoke256.json")).read_text())
+    profile = json.loads((entry.PROFILE_DIR / ("smoke.json" if args.actors == 8 else "smoke256.json")).read_text())
     profile["runtime"].update(rollout_controls=args.controls, episode_controls=args.controls)
     profile["runtime"]["archive_controls_before_reset"] = args.controls == 4
     output = args.output.resolve()
@@ -116,7 +116,7 @@ def main(argv=None):
     profile_path.chmod(0o444)
     profile_record = record(profile_path)
     parent_load, parent_run = module._load, module._run
-    expected_profile, _ = module._profile(entry.HERE / ("smoke.json" if args.actors == 8 else "smoke256.json"))
+    expected_profile, _ = module._profile(entry.PROFILE_DIR / ("smoke.json" if args.actors == 8 else "smoke256.json"))
     if expected_profile["runtime"]["actors"] != args.actors:
         raise ValueError("Validation actors disagree with the registered baseline")
     validation_report = {}

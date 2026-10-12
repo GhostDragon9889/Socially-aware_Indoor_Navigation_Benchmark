@@ -17,7 +17,7 @@ from CrowdSim.humanoid.application.configuration import parse_amp_args
 from CrowdSim.humanoid.ground_support_archive import GroundSupportArchive, write_interrupted_ground_support
 
 ROOT = Path(__file__).resolve().parents[1]
-BEFORE = ROOT / "docs/style_improvement_20261002/ground_support_integration_before"
+BEFORE = ROOT / "resources/runtime_sources/style_improvement_20261002/ground_support_integration_before"
 
 
 def argv(tmp_path, *flags):

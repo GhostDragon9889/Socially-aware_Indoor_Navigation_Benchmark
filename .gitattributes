@@ -14,15 +14,9 @@
 *.usd -text
 
 # Preserve exact verification receipt bytes, including CSV line endings.
-/docs/verification_remaining_20261011/artifacts/** -text
-/docs/verification_remaining_20261011/artifacts/*.csv whitespace=cr-at-eol
-/docs/external_sdk_verification_20261011/artifacts/** -text
-/docs/external_sdk_continuation_20261011/artifacts/** -text
-/docs/external_sdk_continuation_20261011/artifacts/**/*.log whitespace=-blank-at-eol
 
 # Frozen patch context and captured test output retain their original bytes.
 /configs/compatibility/reference_patches/*.patch whitespace=-blank-at-eol
-/docs/migration_sim61_lab3ea_20261010/functional_audit/current_n4_fixed.xml whitespace=-blank-at-eol
 
 # Public upstream resources; download and push endpoints are set in .lfsconfig.
 /data/motion_for_trackers/crouch_soma23.pt filter=lfs diff=lfs merge=lfs -text
@@ -199,8 +193,10 @@
 /resources/releases/pedestrians_20261010/**/*.usda filter=lfs diff=lfs merge=lfs -text
 
 # Byte-bound native/runtime sources and private CC BY visual resources.
-/env/isaaclab3_sim6/native_shutdown/** -text
 /src/CrowdSim/humanoid/runtime/sealed/sdk6_terminal.py -text
 /resources/pedestrian_visuals/** -text
 /resources/pedestrian_visuals/*.npz -filter -diff -merge -text
 /resources/pedestrian_visuals/textures/*.png -filter -diff -merge -text
+
+# Required runtime sources and authenticated metric fixtures.
+/resources/runtime_sources/** -text

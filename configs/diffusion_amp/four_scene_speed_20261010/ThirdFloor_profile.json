@@ -10,7 +10,7 @@
       "sha256": "35a5fb329e72c5b2988e90ab58fb443b72303feb0558b4d954b8fb3aecbe3fbd"
     },
     "amp_checkpoint": {
-      "path": "/project/EXP/SangforAndSaut/ProtoMotions/data/pretrained_models/local_amass_finetune/walking_turn_20261009/Humanoid_AMASS.pth",
+      "path": "project:data/pretrained_models/local_amass_finetune/walking_turn_20261009/Humanoid_AMASS.pth",
       "sha256": "0cd961343d9828f95b0fcd6ed38ca8fb391140115c1a8fe808ff4ec1884434a8"
     },
     "amass_manifest": {

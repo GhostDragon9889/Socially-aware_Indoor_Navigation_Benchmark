@@ -8,5 +8,5 @@
 | `crowdsim_ppo` | 不依赖模拟器的 PointGoal PPO |
 | `deployment` | 运动处理与部署 |
 
-安装主项目使用根目录 `pyproject.toml`；仅安装最小基线使用 `packages/crowdsim-ppo`。
-目录布局见根目录 README 和 `docs/PROJECT_STRUCTURE_ZH.md`。
+运行环境只通过外部 SDK 配置或 uv 安装，见 `docs/guides/installation.zh-CN.md`。根目录 `pyproject.toml` 描述 Python 包。
+目录布局见根目录 README 和 `docs/structure.md`。

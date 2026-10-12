@@ -12,14 +12,16 @@ from social_navigation.resource_bindings import read_json as read_resource_json,
 import math
 from pathlib import Path
 
-PROBE_SHA256 = "a538bf92ffb64b536a7005329f38c080bd1b8818114df58d9880d5506f0665d5"
+HISTORICAL_PROBE_SHA256 = "a538bf92ffb64b536a7005329f38c080bd1b8818114df58d9880d5506f0665d5"
+# Portable producer differs only in configured SDK/project locations.
+PROBE_SHA256 = "b47133b1d46a5c797116e6c38247f7c11f0df3535785e469fb24cd35771f5e69"
 LAYOUT = "row-major x-fastest; row0=minY, column0=maxX"
 NONFLOOR_REASONS = ("Floor mesh is not thin and near selected floor height",
                     "Plane is not horizontal at the selected ground height")
 
 
 def is_v7(data):
-    return data.get("script", {}).get("sha256") == PROBE_SHA256
+    return data.get("script", {}).get("sha256") in (PROBE_SHA256, HISTORICAL_PROBE_SHA256)
 
 
 def _require(condition, message):
@@ -301,6 +303,6 @@ def verify_v7(provider, data, *, admitted=False):
             "height_blocked_known5_cells": int(obstacle.sum()), "known_static_nonfloor_near_ground_blocked_known5_cells": int(low_obstacle.sum()),
             "source_bound_artifacts_checked": True, "fixed_native_layout": LAYOUT, "query_clock": deepcopy(before),
             "full_height_band_above_floor_m": list(HEIGHT_BAND), "new_physical_execution_verified": False,
-            "admission_protocol": "v7_exact_probe_SHA", "probe_sha256": PROBE_SHA256,
+            "admission_protocol": "v7_exact_probe_SHA", "probe_sha256": data["script"]["sha256"],
             "known5_API_complete": not len(missing), "missing_known5_API_count": len(missing),
             "known5_position_source": source, "derived_export_grid": deepcopy(crop)}

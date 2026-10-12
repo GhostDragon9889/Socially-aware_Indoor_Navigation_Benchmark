@@ -13,14 +13,14 @@ from types import ModuleType
 
 from .social_evaluation_lifecycle import ROOT, record
 
-TRAINER = ROOT / "docs/style_improvement_20261004/social_trainer_staging_v1/social_trainer.py"
-TRAINER_SHA = "81a6319f2520b3be547f30454c88b088638d559d492bba52fe850d1c1d5ba96e"
+TRAINER = ROOT / "resources/runtime_sources/style_improvement_20261004/social_trainer_staging_v1/social_trainer.py"
+TRAINER_SHA = "11d304d7002d31c96c2fcdf3766aa51616c84560e58bc11f7eeababb068c559b"
 HELPER = ROOT / "CrowdSim/humanoid/training/value_normalization.py"
 LEGACY_FORMAT = "local.neutral_smpl.social_CNN_PPO_AMP_training.popart.v1"
 FORMAT = "local.neutral_smpl.social_CNN_PPO_AMP_training.popart.sim61.v2"
-HISTORICAL_ADAPTER = ROOT / "docs/style_improvement_20261006/shared_social_native_seeded_preparation_v1/source_snapshot_v1/CrowdSim/humanoid/runtime/social_popart_training.py"
-HISTORICAL_ADAPTER_SHA = "66f8d37bd6e515f577c306f009d268111c860d847268626fdf01db0826152493"
-NUMERICAL_PARENT = ROOT / "docs/style_improvement_20261003/staged_action_state_prior_v1/proposal/CrowdSim/humanoid/training/trainer.py"
+HISTORICAL_ADAPTER = ROOT / "resources/runtime_sources/style_improvement_20261006/shared_social_native_seeded_preparation_v1/source_snapshot_v1/CrowdSim/humanoid/runtime/social_popart_training.py"
+HISTORICAL_ADAPTER_SHA = "71b69626220a1677db800b7a7a4889c5b7063b59bce7eff1e22d9fbf6cd15c1c"
+NUMERICAL_PARENT = ROOT / "resources/runtime_sources/style_improvement_20261003/staged_action_state_prior_v1/proposal/CrowdSim/humanoid/training/trainer.py"
 NUMERICAL_PARENT_SHA = "707f355acbd8b5d33aa40c3299a2540610ea695ae4bb9705ede3498e27224f9d"
 CURRENT_SOURCES = {
     "CrowdSim/humanoid/training/trainer.py": "1e5444f62ccc5214e3f635850d4b9b018b457918259ffbb1e999a05148f4eee7",
@@ -193,7 +193,7 @@ def load_staged(name, relative, expected_sha):
         row = record(ROOT / "CrowdSim/humanoid/amp/observations.py")
         if row["sha256"] != CURRENT_SOURCES["CrowdSim/humanoid/amp/observations.py"]:
             raise ValueError("Social symmetry observation dependency changed")
-        before = '10438, "a64dc2eba5c132cf68a248f2324ea20446dd264a2ea8f9f139faae4738f9aeba"'
+        before = '10586, "a64dc2eba5c132cf68a248f2324ea20446dd264a2ea8f9f139faae4738f9aeba"'
         after = str(row["bytes"]) + ', "' + row["sha256"] + '"'
         if source.count(before) != 1:
             raise ValueError("Ambiguous Social symmetry source selector")

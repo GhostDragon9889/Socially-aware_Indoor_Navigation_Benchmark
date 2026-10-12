@@ -22,8 +22,8 @@ from CrowdSim.humanoid.runtime import social_observation_producer  # noqa: E402
 from CrowdSim.humanoid.runtime import social_popart_inference  # noqa: E402
 from scripts.evaluate_shared_social_tracking import admit_training  # noqa: E402
 
-PARENT = ROOT / "docs/style_improvement_20261004/social_navigation_evaluation_staging_v1/evaluate_four_actor_social.py"
-PARENT_SHA = "c31c87391ab62c2c33369fc437c6b8967546987a505e885b7954ba9349107d8e"
+PARENT = ROOT / "resources/runtime_sources/style_improvement_20261004/social_navigation_evaluation_staging_v1/evaluate_four_actor_social.py"
+PARENT_SHA = "f2b29bc47c4b508ecf41604a892f0b7325c365b92e3f3b3539b1442c57caf111"
 
 
 def derive_entry(original):

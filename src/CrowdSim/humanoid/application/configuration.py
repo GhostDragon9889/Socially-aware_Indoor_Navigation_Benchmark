@@ -215,7 +215,7 @@ def parse_amp_args(argv=None):
         parser.error("Learning rate must be finite and positive")
     if any(value is not None and value < 1 for value in (args.epochs, args.minibatch_size)):
         parser.error("Epoch and minibatch overrides must be positive")
-    if not Path(args.diffusion_checkpoint).is_file():
+    if args.trajectory_source == "diffusion" and not Path(args.diffusion_checkpoint).is_file():
         parser.error("Train the five-state diffusion model before starting AMP")
     output = Path(args.output)
     if args.evaluate_steps and any((output/name).exists() for name in ("result.json", "physical_states.npz", "frames")):

@@ -22,9 +22,9 @@ from scripts import evaluate_shared_social_navigation as canonical  # noqa: E402
 from scripts.evaluate_shared_social_tracking import admit_training  # noqa: E402
 from scripts.native_shared_social_derivation import derive_native_sfm_driver  # noqa: E402
 
-NATIVE_PARENT = ROOT / "docs/style_improvement_20261004/social_native_evaluation_staging_v1/evaluate_native_social.py"
-NATIVE_PARENT_SHA = "be9f4126dd9ff26ce6f1f5ebc7ab0da99e012dd2cb9298a34eb326bf7ec25e6d"
-CANONICAL_SHA = "b6a40262c061e4b8b53efac8015a2d48f4eae0ea341c305f33de0aec29b5e200"
+NATIVE_PARENT = ROOT / "resources/runtime_sources/style_improvement_20261004/social_native_evaluation_staging_v1/evaluate_native_social.py"
+NATIVE_PARENT_SHA = "4090ef7f37b46b853fbb066c4e0486ccc1a3a9f50eceaf69c614bcc435ad473b"
+CANONICAL_SHA = "0e21b47d7d983851f1cf39349e3cb44476fec7381a476fa48df98f29f088d097"
 
 
 def prepare_entry(*, actors, planner):

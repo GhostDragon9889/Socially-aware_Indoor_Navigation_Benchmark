@@ -1,0 +1,95 @@
+{
+  "schema": "shared_social.durable_recovery_owner_state.v1",
+  "status": "completed_training_and_CPU_audit",
+  "owner_pid": 54570,
+  "started_at_utc": "2026-10-07T13:50:40.876633+00:00",
+  "plan": {
+    "path": "project:resources/runtime_sources/style_improvement_20261007/shared_social_S3_optimizer_recovery_v2/owner_capacity_v3/owner_plan.json",
+    "bytes": 6304,
+    "sha256": "316b2df086a17a7d3f841d209b6c9e96ffbf1bc6ec5ef3a3e920008dc19293db"
+  },
+  "steps": [
+    {
+      "name": "training",
+      "command": [
+        "lab:.venv/bin/python",
+        "project:scripts/recover_shared_social_training.py",
+        "--registration",
+        "project:resources/runtime_sources/style_improvement_20261007/shared_social_S3_optimizer_recovery_v2/registration.json",
+        "--stage",
+        "training"
+      ],
+      "started_at_utc": "2026-10-07T13:50:40.999086+00:00",
+      "status": "passed",
+      "pid": 54575,
+      "actual_exit_code": 0,
+      "finished_at_utc": "2026-10-07T15:46:08.473523+00:00",
+      "log": {
+        "path": "project:resources/runtime_sources/style_improvement_20261007/shared_social_S3_optimizer_recovery_v2/owner_capacity_v3/training_GPU.log",
+        "bytes": 116429,
+        "sha256": "f4cbf1e6c1fa6d447db0ecf779d69ecd2929e4e1f91a6ba85d39035f4c31ba66"
+      },
+      "exit_observation": "subprocess.Popen.wait"
+    },
+    {
+      "name": "terminal_CPU_audit",
+      "command": [
+        "lab:.venv/bin/python",
+        "project:scripts/audit_shared_social_recovery.py",
+        "project:output/diffusion_amp/shared_social_budget12500_recovery_training_v2",
+        "--output",
+        "project:resources/runtime_sources/style_improvement_20261007/shared_social_S3_optimizer_recovery_v2/owner_capacity_v3/training_CPU_audit.json"
+      ],
+      "started_at_utc": "2026-10-07T15:46:08.541053+00:00",
+      "status": "passed",
+      "pid": 204422,
+      "actual_exit_code": 0,
+      "finished_at_utc": "2026-10-07T15:46:12.301561+00:00",
+      "log": {
+        "path": "project:resources/runtime_sources/style_improvement_20261007/shared_social_S3_optimizer_recovery_v2/owner_capacity_v3/training_CPU_audit.log",
+        "bytes": 8370,
+        "sha256": "56e45638648f6c849e9f1d6f2bf7abc53a878d74adf82b808e6ebc1c13f11b61"
+      },
+      "exit_observation": "subprocess.Popen.wait"
+    }
+  ],
+  "original_continuous_S3_run_completed": false,
+  "paper_effect_achieved": false,
+  "default_model_promoted": false,
+  "GPU_capacity_observation": {
+    "observed_at_utc": "2026-10-07T13:50:40.914935+00:00",
+    "free_memory_MiB": 10573,
+    "existing_compute_processes": [
+      "52593, /project/isaacsim/isaac-sim-standalone-6.1.0-linux-x86_64/kit/python/bin/python3, 2258 MiB"
+    ],
+    "policy": {
+      "minimum_free_memory_MiB": 10240,
+      "preserve_existing_processes": true
+    },
+    "existing_processes_terminated": false
+  },
+  "updated_at_utc": "2026-10-07T15:46:12.304103+00:00",
+  "training_result": {
+    "path": "project:output/diffusion_amp/shared_social_budget12500_recovery_training_v2/result.json",
+    "bytes": 192147,
+    "sha256": "87bf93cbe6c67a2d9e852cd7b8d9b095de525fe97019e6747fab4ec1427467bb"
+  },
+  "audit": {
+    "path": "project:resources/runtime_sources/style_improvement_20261007/shared_social_S3_optimizer_recovery_v2/owner_capacity_v3/training_CPU_audit.json",
+    "bytes": 9157,
+    "sha256": "2b57cc9bbf9dc6f62d0b003167b5a0ce52151904adc7d787dffc48b2d9a298b1"
+  },
+  "checkpoint": {
+    "path": "project:output/diffusion_amp/shared_social_budget12500_recovery_training_v2/step_012500.pt",
+    "bytes": 651040366,
+    "sha256": "97ba4c6475817e1bbde4aa56377a45191058a0725cad48fcbf3a9b769accb675"
+  },
+  "retained_updates": 12000,
+  "actual_segment_updates": 500,
+  "effective_total_updates": 12500,
+  "actual_segment_transitions": 4096000,
+  "effective_training_transitions": 102400000,
+  "physical_world_restarted": true,
+  "actual_child_exit_codes_observed": true,
+  "finished_at_utc": "2026-10-07T15:46:12.304097+00:00"
+}

@@ -1,8 +1,0 @@
-# Static DynBench Full_Warehouse scene for CrowdSim data collection.
-prim_path: /World/Scene
-z_offset: 0.0
-scene_usd: ../Assets/DynBench/isaacsim_scene/Full_Warehouse/full_warehouse.usd
-scene_map: ../Assets/DynBench/isaacsim_scene/Full_Warehouse/map/occupancy.yaml
-static_obstacles: true
-remove_prims: []
-objects: {}

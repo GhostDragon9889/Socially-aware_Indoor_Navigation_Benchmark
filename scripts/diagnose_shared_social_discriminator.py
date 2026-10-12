@@ -23,7 +23,7 @@ SCOPE = ("Terminal D offline rescoring/input sensitivity only; not original-time
 SUPPORT = {
     "scripts/evaluate_shared_social_tracking.py": "ff866433ce91feb2a006a137ed437ae7bab92b8b6b0c9daaf09f244521b3767c",
     "scripts/diagnose_shared_social_training.py": "dc85d0628b55fa53b3385c122c0bef237aed546eb7a4c5a3a256b7baf65581f4",
-    "CrowdSim/humanoid/runtime/social_popart_inference.py": "d3b5724567acea05dcca7557133b73361553085ef4ebb61c3dfdda72c5ec1344",
+    "CrowdSim/humanoid/runtime/social_popart_inference.py": "39a5c09c39902c276f1af4a03d2f3e1de62aa17d0b823e5eb73dd1462db07385",
 }
 
 
@@ -42,7 +42,7 @@ def prepare_sources():
             verify_entry(ROOT / relative, expected)
             digest = expected
         if digest != expected and relative == "CrowdSim/humanoid/runtime/social_popart_inference.py":
-            require(digest == "1e92e8c3144da0c335bbdd3703888cebcdbca12e880b9bb4b54b08c501522d61", "Registered strict Pop-Art reader changed")
+            require(digest == "1b40cfe449b1adda7fc78769e445845747ecdbaede81b8ee09feb07adae7b250", "Registered strict Pop-Art reader changed")
             digest = expected
         require(digest == expected, "Reviewed diagnostic support changed: " + relative)
     from scripts.diagnose_shared_social_training import identity
@@ -203,8 +203,6 @@ def normalize_features(history, actions, normalizer, config):
 
 def admit_inputs(receipt_path, stack):
     from social_navigation.artifact_identity import artifact_path, same_artifact
-    from CrowdSim.humanoid.application.historical_recovery import source_record
-    from CrowdSim.humanoid.runtime.social_popart_training import LEGACY_FORMAT
     receipt_path = artifact_path(receipt_path)
     identity, admit_training, reader, binding = prepare_sources()
     receipt = json.loads(receipt_path.read_text())
@@ -219,8 +217,8 @@ def admit_inputs(receipt_path, stack):
     require(admission["value_normalization"] == "popart", "Explicit original Pop-Art format required")
     result = json.loads(artifact_path(admission["result"]["path"]).read_text())
     audit = json.loads(artifact_path(admission["audit"]["path"]).read_text())
-    historical = admission["numeric_migration"]["checkpoint_format"] == LEGACY_FORMAT
-    source_identity = source_record if historical else lambda path: identity(artifact_path(path))
+    def source_identity(path):
+        return identity(artifact_path(path))
     require(same_artifact(audit["reader"], source_identity(ROOT / "scripts/audit_shared_social_popart.py")),
             "Original full CPU audit source changed")
     source_rows = reader._sources()

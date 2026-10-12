@@ -19,11 +19,13 @@
 set -euo pipefail
 
 # ── 配置 (可通过环境变量覆盖) ──────────────────────────────
-CONDA_ENV="${CONDA_ENV:-env_isaaclab}"
 NUM_ENVS="${NUM_ENVS:-20}"
 HEADLESS="${HEADLESS:-1}"
-CUDA_DEVICE="${CUDA_DEVICE:-1}"              # 放 GPU1 避免抢显存
-GPU_PREFIX="CUDA_VISIBLE_DEVICES=${CUDA_DEVICE}"
+CUDA_DEVICE="${CUDA_DEVICE:-0}"
+PREF_SCRIPT_DIR="$(cd -P -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+PREF_REPO_ROOT="$(cd -- "$PREF_SCRIPT_DIR/../../.." && pwd)"
+cd -- "$PREF_REPO_ROOT"
+run_sdk() { env CUDA_VISIBLE_DEVICES="$CUDA_DEVICE" python3 scripts/run_external_python.py "$@"; }
 
 # --- PPO 训练参数 ---
 TOTAL_STEPS="${TOTAL_STEPS:-1000000}"
@@ -63,13 +65,9 @@ fail() { echo -e "\033[1;31m[FAIL]\033[0m $*"; exit 1; }
 
 # ── 环境检查 ────────────────────────────────────────────────
 check_env() {
-    log "检查 conda 环境 ..."
-    # conda activate 仅在交互式 shell 中可用；非交互脚本需先 source 初始化脚本
-    # shellcheck source=/dev/null
-    source "$(conda info --base)/etc/profile.d/conda.sh" \
-        || fail "找不到 conda 初始化脚本（conda info --base 是否正常？）"
-    conda activate "$CONDA_ENV" || fail "conda 环境 $CONDA_ENV 不存在"
-    python -c "import torch; print(f'  PyTorch {torch.__version__}, CUDA available: {torch.cuda.is_available()}')"
+    log "检查已配置 SDK 环境 ..."
+    python3 scripts/bootstrap_reproduction.py check || fail "请先 configure 或 install SDK"
+    run_sdk -c "import torch; print(f'  PyTorch {torch.__version__}, CUDA available: {torch.cuda.is_available()}')"
 }
 
 # ── 阶段 1: 训练原始 PPO 策略 ──────────────────────────────
@@ -79,7 +77,7 @@ stage_train() {
     log "========================================"
     log "参数: envs=$NUM_ENVS  steps=$TOTAL_STEPS  rollout=$ROLLOUT_STEPS"
 
-    $GPU_PREFIX python CrowdSim/ppo/train_ppo.py \
+    run_sdk CrowdSim/ppo/train_ppo.py \
         --num-envs "$NUM_ENVS" $HEADLESS_FLAG \
         --total-steps "$TOTAL_STEPS" \
         --rollout-steps "$ROLLOUT_STEPS" \
@@ -104,7 +102,7 @@ stage_collect() {
     sed "s|policy_checkpoint:.*|policy_checkpoint: $BASE_POLICY|" \
         CrowdSim/config/env.yaml > "$TMP_ENV_CFG"
 
-    $GPU_PREFIX python CrowdSim/pref/pref_collect.py \
+    run_sdk CrowdSim/pref/pref_collect.py \
         --env-config "$TMP_ENV_CFG" \
         --num-envs "$NUM_ENVS" $HEADLESS_FLAG \
         --num-episodes "$NUM_EPISODES" \
@@ -126,7 +124,7 @@ stage_reward() {
     BUFFER_FILE=$(ls -t output/pref_data/buffer_*.pkl 2>/dev/null | head -1)
     [ -z "$BUFFER_FILE" ] && fail "找不到偏好 buffer，先执行阶段 2"
 
-    python CrowdSim/pref/pref_train_reward.py \
+    run_sdk CrowdSim/pref/pref_train_reward.py \
         --buffer "$BUFFER_FILE" \
         --batch-size "$BATCH_SIZE" \
         --epochs "$REWARD_EPOCHS" \
@@ -148,7 +146,7 @@ stage_finetune() {
     REWARD_CKPT=$(ls -t output/reward_models/best_*.pt 2>/dev/null | head -1)
     [ -z "$REWARD_CKPT" ] && fail "找不到 reward model，先执行阶段 3"
 
-    $GPU_PREFIX python CrowdSim/ppo/train_ppo_finetune.py \
+    run_sdk CrowdSim/ppo/train_ppo_finetune.py \
         --resume "$BASE_POLICY" \
         --reward-ckpt "$REWARD_CKPT" \
         --num-envs "$NUM_ENVS" $HEADLESS_FLAG \

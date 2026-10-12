@@ -1,9 +1,0 @@
-# Native checkpoint producer metadata ABI 修正
-
-冻结v1 bbc与原main d707/三份raw数学不改。只读185/V12 producer deployment.py identities[role]确认deployment_entry.base_checkpoint只发布path与sha；v1新helper误要求bytes会在未来实际entry失败，问题在实际native消费前已发现。
-
-本薄revision真实执行原v1 main的registration/audit函数，替换唯一个metadata helper入口。修正只有：helper HERE指回immutable v1 core资源目录，base_checkpoint匹配producer path/sha两字段。真实sealedcheckpoint完整bytes/SHA/readonly/nlink仍由原实际artifact/terminal验证，不由entry提供，未补造producer字段。逆向两处metadata后helper全文bytes与AST精确等于冻结v1 helper。原raw/core math、source185/profile6d76、JSON tuple/list修正、root closure和4/15 cases均保持。
-
-实际register4/15 source-only均closed0，不重跑旧suite、不读未来model/capture、不GPU。未来命令必须用commands_CPU_native_raw_v2.json并由root保存真实v2 invocation闭合CPU receipt。报告execution_reader仍原v1 main（确实执行），execution_entry为本revision实际CLI、metadata_admission_helper为实际新helper、revision_registration与immutable_raw_math_core_freeze明确保存；不能声称仅执行了旧entry。source_admission同样保存实际helper/entry record。
-
-准备status prepared_not_executed，未来checkpointSHA null，未占actualraw报告。原v1准备冻结及错误ABI记录保存。一次独立最小peer审源码身份修正及既有source/math证明，默认不promotion。
