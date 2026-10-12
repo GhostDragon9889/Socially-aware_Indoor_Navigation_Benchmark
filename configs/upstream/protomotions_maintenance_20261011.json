@@ -4,6 +4,20 @@
   "merge_commit": "23ccdddee7f1d72c08b59f7985a13a1a79084cbe",
   "files": [
     {
+      "target_path": ".dockerignore",
+      "reason": "Retire the unsupported installer/requirements path; the maintained project uses configured external IsaacLab/Isaac Sim or the pinned uv SDK profile.",
+      "updates": [
+        {
+          "commit": "8b6b9ad7c73fc5c664f4a8642b81b68bc63a530f",
+          "before": {
+            "mode": "100644",
+            "git_blob": "53a3bde0214e44bf3d7fc4fb210b4ada7298273e"
+          },
+          "after": null
+        }
+      ]
+    },
+    {
       "target_path": ".gitattributes",
       "reason": "Register source layout, retained byte-bound fixtures and associated regression changes for the repository cleanup. See docs/structure.md and docs/validation.md.",
       "updates": [
@@ -76,6 +90,23 @@
       ]
     },
     {
+      "target_path": ".github/workflows/public-ci.yml",
+      "reason": "Explicit IsaacLab 3 EA / Isaac Sim 6.1 migration and associated regression, packaging or documentation maintenance; verified by the committed blob chain and docs/validation.md.",
+      "updates": [
+        {
+          "commit": "3c6192c430b5deb8c3c209f1dd59bf56810cb604",
+          "before": {
+            "mode": "100644",
+            "git_blob": "5b09e5341971ea358890797adb11624bcdaf5e92"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "3806e379b35909e7b2bfba914aaa6b383ccadcc2"
+          }
+        }
+      ]
+    },
+    {
       "target_path": ".gitignore",
       "reason": "Allow the explicit asset release and visual resources while ignoring managed SDK installations.",
       "updates": [
@@ -104,102 +135,18 @@
       ]
     },
     {
-      "target_path": "README.md",
-      "reason": "Maintain the two supported SDK setup routes and the cleaned source/resource structure; preserve current training/evaluation and license boundaries. See docs/structure.md and docs/validation.md.",
+      "target_path": ".pre-commit-config.yaml",
+      "reason": "Register source layout, retained byte-bound fixtures and associated regression changes for the repository cleanup. See docs/structure.md and docs/validation.md.",
       "updates": [
-        {
-          "commit": "f8b41c0c12a74323c4a150bf6649b6207906f870",
-          "before": {
-            "mode": "100644",
-            "git_blob": "0bf0eb66f43835028884914b9b6b2866200772e6"
-          },
-          "after": {
-            "mode": "100644",
-            "git_blob": "8e66fed98672504377a01351b75cd162662dfa33"
-          }
-        },
-        {
-          "commit": "cb5738b825030c14c148ac88888f4bc883532bd0",
-          "before": {
-            "mode": "100644",
-            "git_blob": "8e66fed98672504377a01351b75cd162662dfa33"
-          },
-          "after": {
-            "mode": "100644",
-            "git_blob": "364e76c9677b365854b1b334d0060f8a5faa850a"
-          }
-        },
-        {
-          "commit": "3c6192c430b5deb8c3c209f1dd59bf56810cb604",
-          "before": {
-            "mode": "100644",
-            "git_blob": "364e76c9677b365854b1b334d0060f8a5faa850a"
-          },
-          "after": {
-            "mode": "100644",
-            "git_blob": "292b70eb03c35c72378e28ca1dfefaecd091b831"
-          }
-        },
-        {
-          "commit": "5b7cdc13f5acbfbc6e3683ed00170097f632dedb",
-          "before": {
-            "mode": "100644",
-            "git_blob": "292b70eb03c35c72378e28ca1dfefaecd091b831"
-          },
-          "after": {
-            "mode": "100644",
-            "git_blob": "79a917f5cb346558617d0a0e89e806cdd182d0eb"
-          }
-        },
         {
           "commit": "8b6b9ad7c73fc5c664f4a8642b81b68bc63a530f",
           "before": {
             "mode": "100644",
-            "git_blob": "79a917f5cb346558617d0a0e89e806cdd182d0eb"
+            "git_blob": "585b196a9892dbaebc95b22783abeea48b2e743d"
           },
           "after": {
             "mode": "100644",
-            "git_blob": "7f37b2490e06c7c7468f8e68208514acd3bc94a8"
-          }
-        }
-      ]
-    },
-    {
-      "target_path": "src/protomotions/data/assets/usd/terrain_material.usda",
-      "reason": "Replace the merged material with the recoverable payload from an earlier upstream revision; this is not byte-identical restoration of the merged upstream material.",
-      "updates": [
-        {
-          "commit": "bb48a0b79d5b73cde6c3ba85163737e1fec8a194",
-          "before": {
-            "mode": "100644",
-            "git_blob": "6a10c3fcad2f4390a4bd5d5863aea339615ccf1d"
-          },
-          "after": {
-            "mode": "100644",
-            "git_blob": "4c71a8a5d457aace7716c315c6ca9e6f2d00d801"
-          },
-          "upstream_origin": {
-            "commit": "57f98a963ef1c7c4327745b097a3028920adcd19",
-            "path": "protomotions/data/assets/usd/terrain_material.usda",
-            "lfs_oid": "d27ccb8396709d22dcbcf9cc3c430a9df61d6c34e0caf2a9f8fc2fd1f1f7cadf",
-            "lfs_bytes": 5908
-          }
-        }
-      ]
-    },
-    {
-      "target_path": ".github/workflows/public-ci.yml",
-      "reason": "Explicit IsaacLab 3 EA / Isaac Sim 6.1 migration and associated regression, packaging or documentation maintenance; verified by the committed blob chain and docs/validation.md.",
-      "updates": [
-        {
-          "commit": "3c6192c430b5deb8c3c209f1dd59bf56810cb604",
-          "before": {
-            "mode": "100644",
-            "git_blob": "5b09e5341971ea358890797adb11624bcdaf5e92"
-          },
-          "after": {
-            "mode": "100644",
-            "git_blob": "3806e379b35909e7b2bfba914aaa6b383ccadcc2"
+            "git_blob": "5cedf257bdeaf4c2c21996d3c335044ce103957d"
           }
         }
       ]
@@ -283,6 +230,95 @@
       ]
     },
     {
+      "target_path": "README.md",
+      "reason": "Maintain the two supported SDK setup routes and the cleaned source/resource structure; preserve current training/evaluation and license boundaries. See docs/structure.md and docs/validation.md.",
+      "updates": [
+        {
+          "commit": "f8b41c0c12a74323c4a150bf6649b6207906f870",
+          "before": {
+            "mode": "100644",
+            "git_blob": "0bf0eb66f43835028884914b9b6b2866200772e6"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "8e66fed98672504377a01351b75cd162662dfa33"
+          }
+        },
+        {
+          "commit": "cb5738b825030c14c148ac88888f4bc883532bd0",
+          "before": {
+            "mode": "100644",
+            "git_blob": "8e66fed98672504377a01351b75cd162662dfa33"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "364e76c9677b365854b1b334d0060f8a5faa850a"
+          }
+        },
+        {
+          "commit": "3c6192c430b5deb8c3c209f1dd59bf56810cb604",
+          "before": {
+            "mode": "100644",
+            "git_blob": "364e76c9677b365854b1b334d0060f8a5faa850a"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "292b70eb03c35c72378e28ca1dfefaecd091b831"
+          }
+        },
+        {
+          "commit": "5b7cdc13f5acbfbc6e3683ed00170097f632dedb",
+          "before": {
+            "mode": "100644",
+            "git_blob": "292b70eb03c35c72378e28ca1dfefaecd091b831"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "79a917f5cb346558617d0a0e89e806cdd182d0eb"
+          }
+        },
+        {
+          "commit": "8b6b9ad7c73fc5c664f4a8642b81b68bc63a530f",
+          "before": {
+            "mode": "100644",
+            "git_blob": "79a917f5cb346558617d0a0e89e806cdd182d0eb"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "7f37b2490e06c7c7468f8e68208514acd3bc94a8"
+          }
+        },
+        {
+          "commit": "4c47f6e67cafdb21a36c23e18bb73345baec55e5",
+          "before": {
+            "mode": "100644",
+            "git_blob": "7f37b2490e06c7c7468f8e68208514acd3bc94a8"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "70ff52d7dc269d6e245aa39211d6d4ed9091e47b"
+          }
+        }
+      ]
+    },
+    {
+      "target_path": "data/scripts/convert_amass_to_proto.py",
+      "reason": "Derive temporary conversion locations from the caller/platform rather than a hardcoded workstation path.",
+      "updates": [
+        {
+          "commit": "8b6b9ad7c73fc5c664f4a8642b81b68bc63a530f",
+          "before": {
+            "mode": "100644",
+            "git_blob": "70ad68e86cb3c8026504673040897e8315745450"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "b60b7a2bd5e6c8c9c7b18cfd274bbe73c7fccdaf"
+          }
+        }
+      ]
+    },
+    {
       "target_path": "docs/source/conf.py",
       "reason": "Explicit IsaacLab 3 EA / Isaac Sim 6.1 migration and associated regression, packaging or documentation maintenance; verified by the committed blob chain and docs/validation.md.",
       "updates": [
@@ -295,6 +331,34 @@
           "after": {
             "mode": "100644",
             "git_blob": "f5a269a82c5796dd3b897e73b879009fa148499f"
+          }
+        },
+        {
+          "commit": "4c47f6e67cafdb21a36c23e18bb73345baec55e5",
+          "before": {
+            "mode": "100644",
+            "git_blob": "f5a269a82c5796dd3b897e73b879009fa148499f"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "4a885ffef84309e7943828ddfcd47518d110d762"
+          }
+        }
+      ]
+    },
+    {
+      "target_path": "docs/source/contributing.rst",
+      "reason": "Maintain the two supported SDK setup routes and the cleaned source/resource structure; preserve current training/evaluation and license boundaries. See docs/structure.md and docs/validation.md.",
+      "updates": [
+        {
+          "commit": "8b6b9ad7c73fc5c664f4a8642b81b68bc63a530f",
+          "before": {
+            "mode": "100644",
+            "git_blob": "a2a6b76764da882041daaf9e1bf92d19212c6b76"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "e1305f82fcc82ce63217b3a27873114416ee83f0"
           }
         }
       ]
@@ -328,6 +392,23 @@
       ]
     },
     {
+      "target_path": "docs/source/getting_started/phuma_preparation.rst",
+      "reason": "Maintain the two supported SDK setup routes and the cleaned source/resource structure; preserve current training/evaluation and license boundaries. See docs/structure.md and docs/validation.md.",
+      "updates": [
+        {
+          "commit": "8b6b9ad7c73fc5c664f4a8642b81b68bc63a530f",
+          "before": {
+            "mode": "100644",
+            "git_blob": "cca1c6bfe5b985e9db287efeed3ab900edccc795"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "532425551c09ecdb107eb531765a971131695a47"
+          }
+        }
+      ]
+    },
+    {
       "target_path": "docs/source/index.rst",
       "reason": "Explicit IsaacLab 3 EA / Isaac Sim 6.1 migration and associated regression, packaging or documentation maintenance; verified by the committed blob chain and docs/validation.md.",
       "updates": [
@@ -340,6 +421,40 @@
           "after": {
             "mode": "100644",
             "git_blob": "bdd319cd45ab42f86888f12f1ecbf4f54cce9a0e"
+          }
+        }
+      ]
+    },
+    {
+      "target_path": "docs/source/tutorials/workflows/g1_deployment.rst",
+      "reason": "Maintain the two supported SDK setup routes and the cleaned source/resource structure; preserve current training/evaluation and license boundaries. See docs/structure.md and docs/validation.md.",
+      "updates": [
+        {
+          "commit": "8b6b9ad7c73fc5c664f4a8642b81b68bc63a530f",
+          "before": {
+            "mode": "100644",
+            "git_blob": "319fcea01c3594b1798a4ddb2e368fb8871ef47e"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "b606513a965ecde98932db29544a0db64833d1fd"
+          }
+        }
+      ]
+    },
+    {
+      "target_path": "docs/source/tutorials/workflows/retargeting_pyroki.rst",
+      "reason": "Maintain the two supported SDK setup routes and the cleaned source/resource structure; preserve current training/evaluation and license boundaries. See docs/structure.md and docs/validation.md.",
+      "updates": [
+        {
+          "commit": "8b6b9ad7c73fc5c664f4a8642b81b68bc63a530f",
+          "before": {
+            "mode": "100644",
+            "git_blob": "b184dcf462f85fe37e987eeed654208e06b9a558"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "0dd06f5e458a22a1e2c733dbf242426fc2d5b0f2"
           }
         }
       ]
@@ -435,6 +550,34 @@
       ]
     },
     {
+      "target_path": "requirements_genesis.txt",
+      "reason": "Retire the unsupported installer/requirements path; the maintained project uses configured external IsaacLab/Isaac Sim or the pinned uv SDK profile.",
+      "updates": [
+        {
+          "commit": "8b6b9ad7c73fc5c664f4a8642b81b68bc63a530f",
+          "before": {
+            "mode": "100644",
+            "git_blob": "97b091aa547e98ed7b733e641739c9f57661fa00"
+          },
+          "after": null
+        }
+      ]
+    },
+    {
+      "target_path": "requirements_isaacgym.txt",
+      "reason": "Retire the unsupported installer/requirements path; the maintained project uses configured external IsaacLab/Isaac Sim or the pinned uv SDK profile.",
+      "updates": [
+        {
+          "commit": "8b6b9ad7c73fc5c664f4a8642b81b68bc63a530f",
+          "before": {
+            "mode": "100644",
+            "git_blob": "1e4d5f56549043599e9bd7deac24039b5b8e90df"
+          },
+          "after": null
+        }
+      ]
+    },
+    {
       "target_path": "requirements_isaaclab.txt",
       "reason": "Retire the unsupported installer/requirements path; the maintained project uses configured external IsaacLab/Isaac Sim or the pinned uv SDK profile.",
       "updates": [
@@ -456,6 +599,51 @@
             "git_blob": "3c8328a5ec5e7a1c7fae5ea37169577a71c6a4fe"
           },
           "after": null
+        }
+      ]
+    },
+    {
+      "target_path": "requirements_mujoco.txt",
+      "reason": "Retire the unsupported installer/requirements path; the maintained project uses configured external IsaacLab/Isaac Sim or the pinned uv SDK profile.",
+      "updates": [
+        {
+          "commit": "8b6b9ad7c73fc5c664f4a8642b81b68bc63a530f",
+          "before": {
+            "mode": "100644",
+            "git_blob": "6eaa8f7bcf49b431dbf714e589c8105dc1294f14"
+          },
+          "after": null
+        }
+      ]
+    },
+    {
+      "target_path": "requirements_newton.txt",
+      "reason": "Retire the unsupported installer/requirements path; the maintained project uses configured external IsaacLab/Isaac Sim or the pinned uv SDK profile.",
+      "updates": [
+        {
+          "commit": "8b6b9ad7c73fc5c664f4a8642b81b68bc63a530f",
+          "before": {
+            "mode": "100644",
+            "git_blob": "82685c453c70725354e6f2efcf7a9f374591132f"
+          },
+          "after": null
+        }
+      ]
+    },
+    {
+      "target_path": "scripts/cluster/lepton_train_loop.sh",
+      "reason": "Run cluster jobs through the configured SDK interpreter and portable site configuration; verify retry/watchdog behavior without historical machine defaults.",
+      "updates": [
+        {
+          "commit": "8b6b9ad7c73fc5c664f4a8642b81b68bc63a530f",
+          "before": {
+            "mode": "100755",
+            "git_blob": "aee3b027bb265083edf116b49457f274e0d81c72"
+          },
+          "after": {
+            "mode": "100755",
+            "git_blob": "fdedb27e2dcf452b2198085db69d4497ab5078d3"
+          }
         }
       ]
     },
@@ -523,6 +711,29 @@
           "after": {
             "mode": "100644",
             "git_blob": "b8735a4d24a3e84c2fcbb5c7c45c0e113d69f759"
+          }
+        }
+      ]
+    },
+    {
+      "target_path": "src/protomotions/data/assets/usd/terrain_material.usda",
+      "reason": "Replace the merged material with the recoverable payload from an earlier upstream revision; this is not byte-identical restoration of the merged upstream material.",
+      "updates": [
+        {
+          "commit": "bb48a0b79d5b73cde6c3ba85163737e1fec8a194",
+          "before": {
+            "mode": "100644",
+            "git_blob": "6a10c3fcad2f4390a4bd5d5863aea339615ccf1d"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "4c71a8a5d457aace7716c315c6ca9e6f2d00d801"
+          },
+          "upstream_origin": {
+            "commit": "57f98a963ef1c7c4327745b097a3028920adcd19",
+            "path": "protomotions/data/assets/usd/terrain_material.usda",
+            "lfs_oid": "d27ccb8396709d22dcbcf9cc3c430a9df61d6c34e0caf2a9f8fc2fd1f1f7cadf",
+            "lfs_bytes": 5908
           }
         }
       ]
@@ -749,6 +960,23 @@
       ]
     },
     {
+      "target_path": "src/protomotions/tests/test_installation_docs.py",
+      "reason": "Register source layout, retained byte-bound fixtures and associated regression changes for the repository cleanup. See docs/structure.md and docs/validation.md.",
+      "updates": [
+        {
+          "commit": "8b6b9ad7c73fc5c664f4a8642b81b68bc63a530f",
+          "before": {
+            "mode": "100644",
+            "git_blob": "39463d4335f34394976211c874f82aa3f4892db8"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "87bd6d1f637a826857734cabb1568650882f5b98"
+          }
+        }
+      ]
+    },
+    {
       "target_path": "src/protomotions/tests/test_isaaclab_mjcf_usd.py",
       "reason": "Register source layout, retained byte-bound fixtures and associated regression changes for the repository cleanup. See docs/structure.md and docs/validation.md.",
       "updates": [
@@ -772,6 +1000,23 @@
           "after": {
             "mode": "100644",
             "git_blob": "e8699dd22e158f2a50267997098ad093ef6679f4"
+          }
+        }
+      ]
+    },
+    {
+      "target_path": "src/protomotions/tests/test_lepton_train_loop.py",
+      "reason": "Run cluster jobs through the configured SDK interpreter and portable site configuration; verify retry/watchdog behavior without historical machine defaults.",
+      "updates": [
+        {
+          "commit": "8b6b9ad7c73fc5c664f4a8642b81b68bc63a530f",
+          "before": {
+            "mode": "100644",
+            "git_blob": "fd0bf3b6d4f6f8ee23d80825dd38c5b560918421"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "23b93b46ecf8f6ebbda0fe262398c90dc4c891dc"
           }
         }
       ]
@@ -822,6 +1067,23 @@
       ]
     },
     {
+      "target_path": "src/protomotions/tests/test_train_slurm_startup_retry.py",
+      "reason": "Run cluster jobs through the configured SDK interpreter and portable site configuration; verify retry/watchdog behavior without historical machine defaults.",
+      "updates": [
+        {
+          "commit": "8b6b9ad7c73fc5c664f4a8642b81b68bc63a530f",
+          "before": {
+            "mode": "100644",
+            "git_blob": "0bf72f06c5e87b4fee13221c15f679141d99d146"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "ceb4bff8e4261d334ee167c57c076d0473b6813e"
+          }
+        }
+      ]
+    },
+    {
       "target_path": "src/protomotions/tests/test_training_utils.py",
       "reason": "Explicit IsaacLab 3 EA / Isaac Sim 6.1 migration and associated regression, packaging or documentation maintenance; verified by the committed blob chain and docs/validation.md.",
       "updates": [
@@ -851,201 +1113,6 @@
           "after": {
             "mode": "100644",
             "git_blob": "662b514940b506066ff348f88da42b8007d02f75"
-          }
-        }
-      ]
-    },
-    {
-      "target_path": "src/protomotions/utils/config_utils.py",
-      "reason": "Register source layout, retained byte-bound fixtures and associated regression changes for the repository cleanup. See docs/structure.md and docs/validation.md.",
-      "updates": [
-        {
-          "commit": "3c6192c430b5deb8c3c209f1dd59bf56810cb604",
-          "before": {
-            "mode": "100644",
-            "git_blob": "4bd9991c32024d18b8bd8bbe69499898b90f7f41"
-          },
-          "after": {
-            "mode": "100644",
-            "git_blob": "0dd1bd4abd0402742548123845904125da204325"
-          }
-        },
-        {
-          "commit": "8b6b9ad7c73fc5c664f4a8642b81b68bc63a530f",
-          "before": {
-            "mode": "100644",
-            "git_blob": "0dd1bd4abd0402742548123845904125da204325"
-          },
-          "after": {
-            "mode": "100644",
-            "git_blob": "b84ddbec16e21d8461c433c99f5cf377ae94cf57"
-          }
-        }
-      ]
-    },
-    {
-      "target_path": ".dockerignore",
-      "reason": "Retire the unsupported installer/requirements path; the maintained project uses configured external IsaacLab/Isaac Sim or the pinned uv SDK profile.",
-      "updates": [
-        {
-          "commit": "8b6b9ad7c73fc5c664f4a8642b81b68bc63a530f",
-          "before": {
-            "mode": "100644",
-            "git_blob": "53a3bde0214e44bf3d7fc4fb210b4ada7298273e"
-          },
-          "after": null
-        }
-      ]
-    },
-    {
-      "target_path": ".pre-commit-config.yaml",
-      "reason": "Register source layout, retained byte-bound fixtures and associated regression changes for the repository cleanup. See docs/structure.md and docs/validation.md.",
-      "updates": [
-        {
-          "commit": "8b6b9ad7c73fc5c664f4a8642b81b68bc63a530f",
-          "before": {
-            "mode": "100644",
-            "git_blob": "585b196a9892dbaebc95b22783abeea48b2e743d"
-          },
-          "after": {
-            "mode": "100644",
-            "git_blob": "5cedf257bdeaf4c2c21996d3c335044ce103957d"
-          }
-        }
-      ]
-    },
-    {
-      "target_path": "data/scripts/convert_amass_to_proto.py",
-      "reason": "Derive temporary conversion locations from the caller/platform rather than a hardcoded workstation path.",
-      "updates": [
-        {
-          "commit": "8b6b9ad7c73fc5c664f4a8642b81b68bc63a530f",
-          "before": {
-            "mode": "100644",
-            "git_blob": "70ad68e86cb3c8026504673040897e8315745450"
-          },
-          "after": {
-            "mode": "100644",
-            "git_blob": "b60b7a2bd5e6c8c9c7b18cfd274bbe73c7fccdaf"
-          }
-        }
-      ]
-    },
-    {
-      "target_path": "docs/source/contributing.rst",
-      "reason": "Maintain the two supported SDK setup routes and the cleaned source/resource structure; preserve current training/evaluation and license boundaries. See docs/structure.md and docs/validation.md.",
-      "updates": [
-        {
-          "commit": "8b6b9ad7c73fc5c664f4a8642b81b68bc63a530f",
-          "before": {
-            "mode": "100644",
-            "git_blob": "a2a6b76764da882041daaf9e1bf92d19212c6b76"
-          },
-          "after": {
-            "mode": "100644",
-            "git_blob": "e1305f82fcc82ce63217b3a27873114416ee83f0"
-          }
-        }
-      ]
-    },
-    {
-      "target_path": "docs/source/getting_started/phuma_preparation.rst",
-      "reason": "Maintain the two supported SDK setup routes and the cleaned source/resource structure; preserve current training/evaluation and license boundaries. See docs/structure.md and docs/validation.md.",
-      "updates": [
-        {
-          "commit": "8b6b9ad7c73fc5c664f4a8642b81b68bc63a530f",
-          "before": {
-            "mode": "100644",
-            "git_blob": "cca1c6bfe5b985e9db287efeed3ab900edccc795"
-          },
-          "after": {
-            "mode": "100644",
-            "git_blob": "532425551c09ecdb107eb531765a971131695a47"
-          }
-        }
-      ]
-    },
-    {
-      "target_path": "docs/source/tutorials/workflows/g1_deployment.rst",
-      "reason": "Maintain the two supported SDK setup routes and the cleaned source/resource structure; preserve current training/evaluation and license boundaries. See docs/structure.md and docs/validation.md.",
-      "updates": [
-        {
-          "commit": "8b6b9ad7c73fc5c664f4a8642b81b68bc63a530f",
-          "before": {
-            "mode": "100644",
-            "git_blob": "319fcea01c3594b1798a4ddb2e368fb8871ef47e"
-          },
-          "after": {
-            "mode": "100644",
-            "git_blob": "b606513a965ecde98932db29544a0db64833d1fd"
-          }
-        }
-      ]
-    },
-    {
-      "target_path": "docs/source/tutorials/workflows/retargeting_pyroki.rst",
-      "reason": "Maintain the two supported SDK setup routes and the cleaned source/resource structure; preserve current training/evaluation and license boundaries. See docs/structure.md and docs/validation.md.",
-      "updates": [
-        {
-          "commit": "8b6b9ad7c73fc5c664f4a8642b81b68bc63a530f",
-          "before": {
-            "mode": "100644",
-            "git_blob": "b184dcf462f85fe37e987eeed654208e06b9a558"
-          },
-          "after": {
-            "mode": "100644",
-            "git_blob": "0dd06f5e458a22a1e2c733dbf242426fc2d5b0f2"
-          }
-        }
-      ]
-    },
-    {
-      "target_path": "src/protomotions/tests/test_installation_docs.py",
-      "reason": "Register source layout, retained byte-bound fixtures and associated regression changes for the repository cleanup. See docs/structure.md and docs/validation.md.",
-      "updates": [
-        {
-          "commit": "8b6b9ad7c73fc5c664f4a8642b81b68bc63a530f",
-          "before": {
-            "mode": "100644",
-            "git_blob": "39463d4335f34394976211c874f82aa3f4892db8"
-          },
-          "after": {
-            "mode": "100644",
-            "git_blob": "87bd6d1f637a826857734cabb1568650882f5b98"
-          }
-        }
-      ]
-    },
-    {
-      "target_path": "src/protomotions/tests/test_lepton_train_loop.py",
-      "reason": "Run cluster jobs through the configured SDK interpreter and portable site configuration; verify retry/watchdog behavior without historical machine defaults.",
-      "updates": [
-        {
-          "commit": "8b6b9ad7c73fc5c664f4a8642b81b68bc63a530f",
-          "before": {
-            "mode": "100644",
-            "git_blob": "fd0bf3b6d4f6f8ee23d80825dd38c5b560918421"
-          },
-          "after": {
-            "mode": "100644",
-            "git_blob": "23b93b46ecf8f6ebbda0fe262398c90dc4c891dc"
-          }
-        }
-      ]
-    },
-    {
-      "target_path": "src/protomotions/tests/test_train_slurm_startup_retry.py",
-      "reason": "Run cluster jobs through the configured SDK interpreter and portable site configuration; verify retry/watchdog behavior without historical machine defaults.",
-      "updates": [
-        {
-          "commit": "8b6b9ad7c73fc5c664f4a8642b81b68bc63a530f",
-          "before": {
-            "mode": "100644",
-            "git_blob": "0bf72f06c5e87b4fee13221c15f679141d99d146"
-          },
-          "after": {
-            "mode": "100644",
-            "git_blob": "ceb4bff8e4261d334ee167c57c076d0473b6813e"
           }
         }
       ]
@@ -1085,74 +1152,29 @@
       ]
     },
     {
-      "target_path": "requirements_genesis.txt",
-      "reason": "Retire the unsupported installer/requirements path; the maintained project uses configured external IsaacLab/Isaac Sim or the pinned uv SDK profile.",
+      "target_path": "src/protomotions/utils/config_utils.py",
+      "reason": "Register source layout, retained byte-bound fixtures and associated regression changes for the repository cleanup. See docs/structure.md and docs/validation.md.",
       "updates": [
         {
-          "commit": "8b6b9ad7c73fc5c664f4a8642b81b68bc63a530f",
+          "commit": "3c6192c430b5deb8c3c209f1dd59bf56810cb604",
           "before": {
             "mode": "100644",
-            "git_blob": "97b091aa547e98ed7b733e641739c9f57661fa00"
-          },
-          "after": null
-        }
-      ]
-    },
-    {
-      "target_path": "requirements_isaacgym.txt",
-      "reason": "Retire the unsupported installer/requirements path; the maintained project uses configured external IsaacLab/Isaac Sim or the pinned uv SDK profile.",
-      "updates": [
-        {
-          "commit": "8b6b9ad7c73fc5c664f4a8642b81b68bc63a530f",
-          "before": {
-            "mode": "100644",
-            "git_blob": "1e4d5f56549043599e9bd7deac24039b5b8e90df"
-          },
-          "after": null
-        }
-      ]
-    },
-    {
-      "target_path": "requirements_mujoco.txt",
-      "reason": "Retire the unsupported installer/requirements path; the maintained project uses configured external IsaacLab/Isaac Sim or the pinned uv SDK profile.",
-      "updates": [
-        {
-          "commit": "8b6b9ad7c73fc5c664f4a8642b81b68bc63a530f",
-          "before": {
-            "mode": "100644",
-            "git_blob": "6eaa8f7bcf49b431dbf714e589c8105dc1294f14"
-          },
-          "after": null
-        }
-      ]
-    },
-    {
-      "target_path": "requirements_newton.txt",
-      "reason": "Retire the unsupported installer/requirements path; the maintained project uses configured external IsaacLab/Isaac Sim or the pinned uv SDK profile.",
-      "updates": [
-        {
-          "commit": "8b6b9ad7c73fc5c664f4a8642b81b68bc63a530f",
-          "before": {
-            "mode": "100644",
-            "git_blob": "82685c453c70725354e6f2efcf7a9f374591132f"
-          },
-          "after": null
-        }
-      ]
-    },
-    {
-      "target_path": "scripts/cluster/lepton_train_loop.sh",
-      "reason": "Run cluster jobs through the configured SDK interpreter and portable site configuration; verify retry/watchdog behavior without historical machine defaults.",
-      "updates": [
-        {
-          "commit": "8b6b9ad7c73fc5c664f4a8642b81b68bc63a530f",
-          "before": {
-            "mode": "100755",
-            "git_blob": "aee3b027bb265083edf116b49457f274e0d81c72"
+            "git_blob": "4bd9991c32024d18b8bd8bbe69499898b90f7f41"
           },
           "after": {
-            "mode": "100755",
-            "git_blob": "fdedb27e2dcf452b2198085db69d4497ab5078d3"
+            "mode": "100644",
+            "git_blob": "0dd1bd4abd0402742548123845904125da204325"
+          }
+        },
+        {
+          "commit": "8b6b9ad7c73fc5c664f4a8642b81b68bc63a530f",
+          "before": {
+            "mode": "100644",
+            "git_blob": "0dd1bd4abd0402742548123845904125da204325"
+          },
+          "after": {
+            "mode": "100644",
+            "git_blob": "b84ddbec16e21d8461c433c99f5cf377ae94cf57"
           }
         }
       ]
