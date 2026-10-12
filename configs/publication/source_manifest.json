@@ -4720,8 +4720,8 @@
     {
       "path": "src/CrowdSim/nav_manager.py",
       "mode": "100644",
-      "bytes": 135003,
-      "sha256": "96341e2194dc811fe08c438ab3f16a342d6ced58ddeb9911eca53bc04889998b"
+      "bytes": 133175,
+      "sha256": "9bbfa7cf01baabc07598519af7e2bc5b5d7ec52d34ab9cf882583a6d263b44b8"
     },
     {
       "path": "src/CrowdSim/ppo/README.md",
@@ -5146,8 +5146,8 @@
     {
       "path": "src/CrowdSim/world/map.py",
       "mode": "100644",
-      "bytes": 30729,
-      "sha256": "7fbd29b8f49bd41abe62dd96161d01d6e16757a4506da1a4f0e2deb888a271dd"
+      "bytes": 32958,
+      "sha256": "eff1d3ae15c26dda402fcbb47c99215cc32f4342b08f83a42cd40c21cb94fa2c"
     },
     {
       "path": "src/CrowdSim/world/nav_init.py",
@@ -7868,6 +7868,12 @@
       "sha256": "7b94597e05f0f3cb39c1242274108a7acb9ce03fff2b23df7fc8bb9992d74650"
     },
     {
+      "path": "tests/navigation_harness.py",
+      "mode": "100644",
+      "bytes": 4899,
+      "sha256": "20c97c6ed980da82be6c8810bb1398681ada66b78dff3bdf811d7a64ffc9f798"
+    },
+    {
       "path": "tests/runner_branch_contract.py",
       "mode": "100644",
       "bytes": 1513,
@@ -8426,10 +8432,28 @@
       "sha256": "be9cd53ebae60ea2821a9fa42446a15e166713f1ff255000ed587d491333a0a1"
     },
     {
+      "path": "tests/test_navigation_manager_flow.py",
+      "mode": "100644",
+      "bytes": 8228,
+      "sha256": "07d2a9c69d381437e3bf85d30ef0fb04ff3190296b93a140f0e9aa568dcb4fb3"
+    },
+    {
+      "path": "tests/test_navigation_observation_channels.py",
+      "mode": "100644",
+      "bytes": 6643,
+      "sha256": "8f95592ff2b3d2d48b462ba60446c73c7084bfccb22b49c2ad7503e7b29fe143"
+    },
+    {
       "path": "tests/test_navigation_rendering.py",
       "mode": "100644",
       "bytes": 10900,
       "sha256": "f1ba1a8967b240d473ce60c7b14ac6363a6425619d8ffebfb1abaa25816ef29d"
+    },
+    {
+      "path": "tests/test_navigation_scene_obstacles.py",
+      "mode": "100644",
+      "bytes": 6680,
+      "sha256": "e5423a0afb5b7afa1f9f9d8a999838ac1893190d48f599bcf0f4e2808da4e9d4"
     },
     {
       "path": "tests/test_near_horizon_waypoint_weights.py",
@@ -9080,6 +9104,6 @@
       "sha256": "e0522d022dfb0a8469c74d304a511b2c18e359ef83a8b0b6df85bbd6567b1993"
     }
   ],
-  "total_files": 1511,
-  "total_bytes": 22418100
+  "total_files": 1515,
+  "total_bytes": 22444951
 }

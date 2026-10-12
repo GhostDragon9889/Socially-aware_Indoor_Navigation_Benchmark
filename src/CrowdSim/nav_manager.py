@@ -130,14 +130,14 @@ class CrowdNavigationManager:
             )
         if not 0.0 <= config.humanoid_velocity_smoothing <= 1.0:
             raise ValueError("humanoid_velocity_smoothing must be in [0, 1]")
-        if config.humanoid_max_acceleration <= 0.0:
-            raise ValueError("humanoid_max_acceleration must be positive")
-        if config.humanoid_max_yaw_rate <= 0.0:
-            raise ValueError("humanoid_max_yaw_rate must be positive")
-        if config.humanoid_prediction_horizon <= 0.0:
-            raise ValueError("humanoid_prediction_horizon must be positive")
-        if config.humanoid_ttc_threshold <= 0.0:
-            raise ValueError("humanoid_ttc_threshold must be positive")
+        for name in (
+            "humanoid_max_acceleration", "humanoid_max_yaw_rate",
+            "humanoid_prediction_horizon", "humanoid_ttc_threshold",
+            "rl_goal_observation_max_distance",
+        ):
+            value = getattr(config, name)
+            if not math.isfinite(value) or value <= 0.0:
+                raise ValueError(f"{name} must be positive and finite")
         target_height = getattr(config, "humanoid_pelvis_height_above_ground", None)
         if target_height is not None and (
             not math.isfinite(target_height) or target_height <= 0.0
@@ -151,8 +151,6 @@ class CrowdNavigationManager:
                 "Robot initial heading offsets must satisfy "
                 "0 <= min <= max <= 180 degrees"
             )
-        if config.rl_goal_observation_max_distance <= 0.0:
-            raise ValueError("Robot goal observation max distance must be positive")
         self.goal_curriculum = PPOGoalCurriculum(
             config, config.rl_goal_curriculum
         )
@@ -228,9 +226,6 @@ class CrowdNavigationManager:
         self.trajectory_log_path = self._open_trajectory_log()
 
         self.sfm_controller = self._make_sfm_controller(config.agent_radius)
-
-        if config.scene_objects:
-            self._paint_scene_objects_to_map(config.scene_objects)
 
         # Cached free pixel for parking frozen filler slots (envs beyond the
         # active humanoid/robot count).  Sampled once after scene objects are
@@ -1173,6 +1168,10 @@ class CrowdNavigationManager:
 
     def set_robot_rl_actions(self, actions):
         values = actions.detach().cpu().numpy() if hasattr(actions, 'detach') else np.asarray(actions, dtype=np.float32)
+        if values.shape != (self.config.num_robots, 2):
+            raise ValueError(f"Expected ({self.config.num_robots}, 2) actions, got {values.shape}")
+        if not np.isfinite(values).all():
+            raise ValueError("Robot action values must be finite")
         # Clip once here before touching drive or storage so that
         # drive._actions, _robot_rl_actions, rewards, and buffers all see
         # the same values — no silent secondary clip downstream.
@@ -1415,6 +1414,9 @@ class CrowdNavigationManager:
                 self.env._crowdsim_desired_root_xy[agent_id] = new_xy
             self.env.respawn_root_offset[agent_id, :2] = new_xy
         self.task.refresh_visualization_markers()
+        if self._trajectory_log_file is not None:
+            self._pending_path_updates.append(self._navigation_path_record(agent_id))
+            self._path_log_dirty = True
 
     def _replan_agent_from_xy(self, agent_id: int, start_xy: np.ndarray) -> None:
         # Preserve the previously validated route if a replacement cannot be
@@ -1663,6 +1665,7 @@ class CrowdNavigationManager:
             "reward_progress": zero_float,
             "reward_velocity_direction": zero_float,
             "reward_proximity": zero_float,
+            "reward_static_proximity": zero_float,
             "reward_smoothness": zero_float,
             "reward_angular_velocity": zero_float,
             "reward_angular_change": zero_float,
@@ -2536,42 +2539,7 @@ class CrowdNavigationManager:
                      and depth (the ``z`` and ``h`` components are ignored here).
                      Example: ``{0: [1.0, 2.0, 0.0, 0.8, 1.2, 1.5], ...}``
         """
-        import cv2
-        for _k, v in objects.items():
-            cx, cy = float(v[0]), float(v[1])
-            hw, hd = float(v[3]) / 2, float(v[4]) / 2
-            obj_type = v[6] if len(v) > 6 else "box"
-            # Object centre in pixel coordinates (world_to_pixel returns [py, px])
-            pc = self.world_to_pixel(np.array([cx, cy]))
-            py_c, px_c = int(pc[0]), int(pc[1])
-            res = float(self.config.map_resolution)
-
-            if obj_type == "cylinder":
-                # Cylinder footprint: a filled circle of radius = max(hw, hd).
-                # The old code painted it as an axis-aligned box AABB, which
-                # over-inflated the four corners — the policy was penalised /
-                # A* detoured around free space next to the cylinder's sides.
-                r_px = max(1, int(round(max(hw, hd) / res)))
-                cv2.circle(self.obstacle_map, (px_c, py_c), r_px, 1, -1)
-                # free_mask is bool; cv2.circle needs uint8 — use a persistent
-                # view so the modification is in-place (astype creates a copy).
-                free_u8 = self.free_mask.view(np.uint8)
-                cv2.circle(free_u8, (px_c, py_c), r_px, 0, -1)
-            else:
-                # Box footprint: axis-aligned bounding box (unchanged behaviour).
-                corners = [
-                    (cx - hw, cy - hd),
-                    (cx + hw, cy - hd),
-                    (cx + hw, cy + hd),
-                    (cx - hw, cy + hd),
-                ]
-                px_corners = [self.world_to_pixel(np.array([x, y])) for x, y in corners]
-                ys = sorted(p[0] for p in px_corners)
-                xs = sorted(p[1] for p in px_corners)
-                y_min, y_max = max(0, ys[0]), min(self.height - 1, ys[-1])
-                x_min, x_max = max(0, xs[0]), min(self.width - 1, xs[-1])
-                self.obstacle_map[y_min:y_max + 1, x_min:x_max + 1] = 1
-                self.free_mask[y_min:y_max + 1, x_min:x_max + 1] = 0
+        self.task.paint_scene_objects(objects)
         # Rebuild SFM controller with updated distance transform
         self.sfm_controller = self._make_sfm_controller(self.config.agent_radius)
         # H2+H12: rebuild A* planner's dilated map so new obstacles are respected

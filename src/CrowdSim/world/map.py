@@ -35,6 +35,7 @@ class NavigationTask:
             self.free_mask = np.ones_like(self.free_mask, dtype=bool)
             self.obstacle_map = np.zeros_like(self.obstacle_map, dtype=np.uint8)
         self.height, self.width = self.free_mask.shape
+        self.paint_scene_objects(config.scene_objects)
         self.planner = Path_Planner(
             self.obstacle_map,
             map_resolution=float(config.map_resolution),
@@ -81,6 +82,28 @@ class NavigationTask:
     @property
     def is_fixed_scenario(self) -> bool:
         return str(self.config.scenario.get("type", "random")).lower() == "bidirectional_flow"
+
+    def paint_scene_objects(self, objects: dict) -> None:
+        """Apply world-space footprints before planning or sampling any routes."""
+        for values in objects.values():
+            cx, cy = float(values[0]), float(values[1])
+            hw, hd = float(values[3]) / 2, float(values[4]) / 2
+            obj_type = values[6] if len(values) > 6 else "box"
+            py_c, px_c = self.world_to_pixel(np.array([cx, cy]))
+            if obj_type == "cylinder":
+                r_px = max(1, int(round(max(hw, hd) / self.config.map_resolution)))
+                cv2.circle(self.obstacle_map, (int(px_c), int(py_c)), r_px, 1, -1)
+                # A uint8 view writes the bool free mask in place.
+                cv2.circle(self.free_mask.view(np.uint8), (int(px_c), int(py_c)), r_px, 0, -1)
+            else:
+                corners = [(cx - hw, cy - hd), (cx + hw, cy - hd),
+                           (cx + hw, cy + hd), (cx - hw, cy + hd)]
+                pixels = [self.world_to_pixel(np.array(corner)) for corner in corners]
+                ys, xs = sorted(p[0] for p in pixels), sorted(p[1] for p in pixels)
+                y_min, y_max = max(0, ys[0]), min(self.height - 1, ys[-1])
+                x_min, x_max = max(0, xs[0]), min(self.width - 1, xs[-1])
+                self.obstacle_map[y_min:y_max + 1, x_min:x_max + 1] = 1
+                self.free_mask[y_min:y_max + 1, x_min:x_max + 1] = False
 
     def fixed_agent_route(
         self, agent_id: int
@@ -241,6 +264,16 @@ class NavigationTask:
             if invalid:
                 raise ValueError(
                     f"bidirectional_flow {label} points for agents {invalid} are not traversable; "
+                    "adjust points A/B/C/D or lane_offset"
+                )
+        for label, route_starts in (("initial", starts_px), ("reset", reset_starts_px)):
+            invalid = [
+                index for index, (start, goal) in enumerate(zip(route_starts, goals_px, strict=True))
+                if not self.planner._edge_is_free(start, goal)
+            ]
+            if invalid:
+                raise ValueError(
+                    f"bidirectional_flow {label} routes for agents {invalid} cross obstacles; "
                     "adjust points A/B/C/D or lane_offset"
                 )
         paths = [
@@ -436,6 +469,8 @@ class NavigationTask:
     def _refresh_free_pixels_cache(self) -> None:
         """Rebuild the free-pixel cache after the map changes (e.g. scene objects added)."""
         self._free_pixels_cache = self._build_free_pixels_cache()
+        self.component_labels, self.component_sizes = self._label_planner_free_space()
+        self.planner._astar_path_cache.clear()
         self._component_pixel_cache.clear()   # component cache may also be stale
 
     def _sample_free_pixel(self) -> np.ndarray | None:
@@ -447,6 +482,8 @@ class NavigationTask:
 
     def _is_white_traversable(self, pixel_yx: np.ndarray) -> bool:
         pixel = tuple(int(value) for value in pixel_yx)
+        if not (0 <= pixel[0] < self.height and 0 <= pixel[1] < self.width):
+            return False
         return bool(self.free_mask[pixel] and self.planner_free_mask[pixel])
 
     def _label_planner_free_space(self) -> tuple[np.ndarray, np.ndarray]:
