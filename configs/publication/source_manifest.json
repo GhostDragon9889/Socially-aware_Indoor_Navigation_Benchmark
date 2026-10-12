@@ -856,8 +856,8 @@
     {
       "path": "configs/upstream/protomotions_maintenance_20261011.json",
       "mode": "100644",
-      "bytes": 29076,
-      "sha256": "4e5e022eb56612870bd82ccc76d95cdabeeb88ad8270b407490463c204b0f01c"
+      "bytes": 42208,
+      "sha256": "2d75dab41022a7df846b03da637c4b910f698cb28077a10ba4d5f1220bc69713"
     },
     {
       "path": "configs/upstream/protomotions_merge_20261010.json",
@@ -8943,5 +8943,5 @@
     }
   ],
   "total_files": 1488,
-  "total_bytes": 22256657
+  "total_bytes": 22269789
 }
