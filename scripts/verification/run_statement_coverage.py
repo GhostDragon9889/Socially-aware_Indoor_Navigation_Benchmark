@@ -48,6 +48,7 @@ def _instrumentation(
     config = output / "coverage.ini"
     config.write_text(
         "[run]\nbranch = true\nparallel = true\n"
+        "plugins = social_navigation.coverage_sources\n"
         "concurrency = multiprocessing,thread\nsigterm = true\npatch = _exit,execv\n"
         "data_file = "
         + str(data_dir / ".coverage")
@@ -66,6 +67,13 @@ def _instrumentation(
         + str(root)
         + "/*/tests/*\n"
         + "\n[report]\nexclude_lines =\npartial_branches =\n"
+        + "\n[social_navigation.coverage_sources]\nroot = "
+        + str(root)
+        + "\nbaseline = "
+        + str(output / "source_before.json")
+        + "\nproof_dir = "
+        + str(output / "virtual_frame_proofs")
+        + "\n"
     )
     environment = dict(
         os.environ,

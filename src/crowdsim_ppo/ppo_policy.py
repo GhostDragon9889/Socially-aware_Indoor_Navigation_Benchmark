@@ -752,13 +752,19 @@ class RobotRolloutBuffer:
         if self.has_neighbors:
             if neighbors is not None:
                 self.neighbors[self.step].copy_(neighbors)
+            else:
+                self.neighbors[self.step].zero_()
             if neighbor_mask is not None:
                 self.neighbor_mask[self.step].copy_(neighbor_mask)
+            else:
+                self.neighbor_mask[self.step].zero_()
         if self.has_depth:
             if depth is not None:
                 self.depth[self.step].copy_(depth)
             else:
-                # Buffer slot keeps its zero-initialised value.
+                # reset() reuses storage; explicitly clear a missing channel
+                # so an earlier rollout cannot become the new observation.
+                self.depth[self.step].zero_()
                 # Warn once so that silent fallback is visible in logs.
                 if not getattr(self, "_warned_null_depth", False):
                     import logging
@@ -771,8 +777,8 @@ class RobotRolloutBuffer:
         if self.has_map:
             if map_patch is not None:
                 self.map[self.step].copy_(map_patch)
-            # else: keep zero-initialised slot (map is always available when
-            # enabled, so None here is unexpected — silent zero fill is fine).
+            else:
+                self.map[self.step].zero_()
         self.raw_actions[self.step].copy_(raw_actions)
         self.log_probs[self.step].copy_(log_probs)
         self.rewards[self.step].copy_(rewards)

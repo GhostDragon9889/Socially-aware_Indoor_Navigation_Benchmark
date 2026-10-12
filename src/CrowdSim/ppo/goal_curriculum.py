@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from collections import deque
 from dataclasses import dataclass
+import math
 from typing import Any
 
 import numpy as np
@@ -103,7 +104,11 @@ class GoalCurriculumSpec:
                 ("distance", stage.distance),
                 ("heading_degrees", stage.heading_degrees),
             ):
-                if bounds[0] < 0.0 or bounds[0] > bounds[1]:
+                if (
+                    not all(math.isfinite(value) for value in bounds)
+                    or bounds[0] < 0.0
+                    or bounds[0] > bounds[1]
+                ):
                     raise ValueError(
                         f"Invalid curriculum stage {stage.name}.{field}: {bounds}"
                     )
@@ -204,9 +209,17 @@ class PPOGoalCurriculum:
         stage_index = int(state.get("stage_index", self.spec.initial_stage))
         if not 0 <= stage_index < len(self.spec.stages):
             raise ValueError(f"Invalid saved curriculum stage: {stage_index}")
+        outcomes = [float(value) for value in state.get("outcomes", [])]
+        completed = int(state.get("completed_episodes", 0))
+        since_update = int(state.get("episodes_since_update", 0))
+        if any(not math.isfinite(value) or value not in (0.0, 1.0) for value in outcomes):
+            raise ValueError("Saved curriculum outcomes must be finite binary successes")
+        if completed < 0 or since_update < 0:
+            raise ValueError("Saved curriculum episode counts must be nonnegative")
+        # Validate the complete resume payload before changing active ranges.
         self.stage_index = stage_index
         self.outcomes.clear()
-        self.outcomes.extend(float(value) for value in state.get("outcomes", []))
-        self.completed_episodes = int(state.get("completed_episodes", 0))
-        self._episodes_since_update = int(state.get("episodes_since_update", 0))
+        self.outcomes.extend(outcomes)
+        self.completed_episodes = completed
+        self._episodes_since_update = since_update
         self._apply_stage()

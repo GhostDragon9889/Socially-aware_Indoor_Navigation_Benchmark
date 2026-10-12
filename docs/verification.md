@@ -24,7 +24,9 @@ python3 scripts/run_external_python.py scripts/verification/run_statement_covera
 
 按本次明确的验收要求，示例传入 `--ignore-isaacgym`。该选项仅豁免 `src/protomotions/simulator/isaacgym/` 的独立源码与旧后端硬件测试，完整源身份和豁免理由仍记录在 `excluded_files`；不豁免共用代码、IsaacLab 或其他功能。默认不传该选项时仍统计全部后端。执行后更改豁免范围会导致范围稳定性检查失败。
 
-动态生成代码的虚拟文件名独立列在 `virtual_code`，不会推测映射到原文件来增加覆盖率。`coverage.json` 包含逐文件源身份、已执行语句、缺失语句、零命中文件和门禁状态；分支执行数据单独采集。语句覆盖率仅证明语句被执行，不证明全部语义、物理质量或训练收敛。
+动态代码归属使用 [coverage 文件跟踪插件接口](https://coverage.readthedocs.io/en/7.15.2/api_plugin.html)。原文件必须先通过执行前清单中的字节数和 SHA256 核验；虚拟执行帧的代码对象还必须与原文件重新编译的代码对象完全一致，只忽略文件名本身。字节码、常量、名称、限定名称、标志、异常表、行号表和原始行号都参与比对。只有符合这项证明的实际执行行才归属原文件；改变函数或偏移行号的代码仍独立列在 `virtual_code`。不能仅凭虚拟文件名推测原文件。
+
+每个进程的成功归属证明保存在 `virtual_frame_proofs/`，包含源文件 SHA256、代码对象 SHA256、限定名称和首行位置。直接执行和通过证明的虚拟执行使用同一跟踪身份，避免合并数据时产生插件身份冲突。`coverage.json` 包含逐文件源身份、已执行语句、缺失语句、零命中文件和门禁状态；分支执行数据单独采集。语句覆盖率仅证明语句被执行，不证明全部语义、物理质量或训练收敛。
 
 已固定的 uv SDK 包含 coverage。启动钩子及 coverage 包的只读链接只写入本次输出目录，不向外部 SDK 安装 `.pth` 文件。子进程退出必须保存执行数据，机制参见 [coverage 官方进程说明](https://coverage.readthedocs.io/en/7.15.2/subprocess.html)。
 

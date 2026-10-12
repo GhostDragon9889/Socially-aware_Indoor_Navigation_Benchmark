@@ -519,6 +519,10 @@ def render_static_grid(
     map_path_str: str, origin: tuple, resolution: float,
     stride: int, cols: int, output_path: Path,
 ) -> None:
+    if stride <= 0 or cols <= 0:
+        raise ValueError("Static grid stride and cols must be positive")
+    if not frames:
+        raise ValueError("No renderable episodes: at least two frames per episode are required")
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
@@ -549,6 +553,8 @@ def render_static_grid(
         episodes.append({"pos": ep_pos, "goal": ep_goal, "reached": ep_reached, "idx": ep})
 
     n_eps = len(episodes)
+    if not n_eps:
+        raise ValueError("No renderable episodes: at least two frames per episode are required")
     n_reached = sum(1 for e in episodes if e["reached"])
     n_cols = min(cols, n_eps)
     n_rows = max(1, int(np.ceil(n_eps / n_cols)))
@@ -625,9 +631,11 @@ def render_static_grid(
         fontsize=13, fontweight="bold", y=1.01,
     )
     fig.tight_layout(rect=[0, 0, 1, 0.97])
-    output_path.parent.mkdir(parents=True, exist_ok=True)
-    fig.savefig(output_path, dpi=150, bbox_inches="tight")
-    plt.close(fig)
+    try:
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+        fig.savefig(output_path, dpi=150, bbox_inches="tight")
+    finally:
+        plt.close(fig)
     print(f"Saved to {output_path}")
 
 

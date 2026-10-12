@@ -1990,14 +1990,14 @@
     {
       "path": "docs/validation.md",
       "mode": "100644",
-      "bytes": 6202,
-      "sha256": "df0760b99433f566be213ee2469f524d82a7818c738f1eb663a95d3f113e3754"
+      "bytes": 8121,
+      "sha256": "1a4d8c481ce15f4aa148f7b2de2a8fece2503545ee91551ebdbfab86a3a442f5"
     },
     {
       "path": "docs/verification.md",
       "mode": "100644",
-      "bytes": 3993,
-      "sha256": "573e4443ab3238e62bec164fec7050c6be062e52baec369cd8af26cd8a25bb9f"
+      "bytes": 4742,
+      "sha256": "838b6ea047cc3d6a627ef607165b2662a0469869f86377ca601b96e4a0843a4b"
     },
     {
       "path": "env/isaaclab3_ea_sim61/README.md",
@@ -3730,8 +3730,8 @@
     {
       "path": "scripts/verification/run_statement_coverage.py",
       "mode": "100644",
-      "bytes": 7032,
-      "sha256": "d83b0b0fca79f8c260cec693cea1f8652da5c02b8a8b122cf17b6f7af7ded65b"
+      "bytes": 7329,
+      "sha256": "d2679b7afae974c9304fb2fd42792df6cdf3140770c48ee33a096115f29cf91b"
     },
     {
       "path": "scripts/verify_pretrained_models.py",
@@ -4744,14 +4744,14 @@
     {
       "path": "src/CrowdSim/ppo/goal_curriculum.py",
       "mode": "100644",
-      "bytes": 8736,
-      "sha256": "2c005c07f668bc50e4c00b6455e6ce2e2e88f2afd0fb7fddefd29f30a19a7796"
+      "bytes": 9366,
+      "sha256": "3e6f3cf1322fe7d5eb6063b12d8e7114ce3f7f4c6cc64b936f09a1ba0a71b2ac"
     },
     {
       "path": "src/CrowdSim/ppo/ppo_policy.py",
       "mode": "100644",
-      "bytes": 50392,
-      "sha256": "5d4e6357e4187b2e69257e0f7d207bc0b448a95736f69144e1611e6746f73541"
+      "bytes": 50570,
+      "sha256": "cc6e046a8ec0df120a468907df311d47f0b9f73efe7c6f8aaa4df378c0eb2b3a"
     },
     {
       "path": "src/CrowdSim/ppo/reward_model_ppo.py",
@@ -5056,8 +5056,8 @@
     {
       "path": "src/CrowdSim/tools/render_navigation_fast.py",
       "mode": "100644",
-      "bytes": 46395,
-      "sha256": "211d5ed9256256349e73e8b965dccb2f4e9c58903c26fe30f24c8837ecd451c0"
+      "bytes": 46766,
+      "sha256": "c39d8ba7a7873a86566fb5bae2cec85048a517c011c12d83223bcf86201a1edf"
     },
     {
       "path": "src/CrowdSim/tools/smpl_mesh_visualizer.py",
@@ -5200,8 +5200,8 @@
     {
       "path": "src/crowdsim_ppo/goal_curriculum.py",
       "mode": "100644",
-      "bytes": 8736,
-      "sha256": "2c005c07f668bc50e4c00b6455e6ce2e2e88f2afd0fb7fddefd29f30a19a7796"
+      "bytes": 9366,
+      "sha256": "3e6f3cf1322fe7d5eb6063b12d8e7114ce3f7f4c6cc64b936f09a1ba0a71b2ac"
     },
     {
       "path": "src/crowdsim_ppo/pipeline.py",
@@ -5218,8 +5218,8 @@
     {
       "path": "src/crowdsim_ppo/ppo_policy.py",
       "mode": "100644",
-      "bytes": 50374,
-      "sha256": "a5d9a71aa075a4325ee6eec6b0a67a4c61fc2bda5b2c29ecb3f65ff538562856"
+      "bytes": 50552,
+      "sha256": "082ba2c86dfb111b0f5dbd9443314b18de93a0e625bdc7e65d492019d6272922"
     },
     {
       "path": "src/crowdsim_ppo/train.py",
@@ -7790,6 +7790,12 @@
       "sha256": "0316c4cf8cb0082afd29318092c261170b2bf78c5a0d19662165070570894a8b"
     },
     {
+      "path": "src/social_navigation/coverage_sources.py",
+      "mode": "100644",
+      "bytes": 5344,
+      "sha256": "2ab361af4a7772b2c76402b1f8ce1e5b016e9f94ef6bfd765b3dbc0cb14871d3"
+    },
+    {
       "path": "src/social_navigation/external_runtime.py",
       "mode": "100644",
       "bytes": 16011,
@@ -8006,6 +8012,12 @@
       "sha256": "4efdea2ef54a24f79e1d14a3ed8b2a225189910bd80588f085a4a0f21374d04f"
     },
     {
+      "path": "tests/test_bootstrap_cli_contracts.py",
+      "mode": "100644",
+      "bytes": 8751,
+      "sha256": "70e17776f442a3816675eb5a869d5b6d7de349e80457593d8c6f9bff4731f11f"
+    },
+    {
       "path": "tests/test_bounded_guidance_gradient.py",
       "mode": "100644",
       "bytes": 1461,
@@ -8046,6 +8058,12 @@
       "mode": "100644",
       "bytes": 1713,
       "sha256": "7f4a64047b77872badb7a31b48c115b15628ccb9ef5791bf4d5fb47560695e92"
+    },
+    {
+      "path": "tests/test_coverage_sources.py",
+      "mode": "100644",
+      "bytes": 9710,
+      "sha256": "ceadb93e091e6f08993131b0bffb1b534621575ac754dab4c09718fc916be88a"
     },
     {
       "path": "tests/test_cpu_dependency_migration.py",
@@ -8214,6 +8232,12 @@
       "mode": "100644",
       "bytes": 3414,
       "sha256": "2e920a157aad9796285132afb952d852a54c9042dfd1457a2400e92c7c031b85"
+    },
+    {
+      "path": "tests/test_goal_curriculum_contracts.py",
+      "mode": "100644",
+      "bytes": 4490,
+      "sha256": "7942ab3e8b84c85788521b6e7e18e947981152ab1c8e9c7609401ba8f469f22a"
     },
     {
       "path": "tests/test_grouped_sim61_migration.py",
@@ -8402,6 +8426,12 @@
       "sha256": "be9cd53ebae60ea2821a9fa42446a15e166713f1ff255000ed587d491333a0a1"
     },
     {
+      "path": "tests/test_navigation_rendering.py",
+      "mode": "100644",
+      "bytes": 10900,
+      "sha256": "f1ba1a8967b240d473ce60c7b14ac6363a6425619d8ffebfb1abaa25816ef29d"
+    },
+    {
       "path": "tests/test_near_horizon_waypoint_weights.py",
       "mode": "100644",
       "bytes": 2752,
@@ -8564,6 +8594,12 @@
       "sha256": "528db1cc9309d34d2bb8bbac1166854a3cda24c67da34e4820ac886945fde8fd"
     },
     {
+      "path": "tests/test_point_goal_cli.py",
+      "mode": "100644",
+      "bytes": 3111,
+      "sha256": "774394a5979d71b7f3b08e614ef0b306e3a0be7fbfe12c77c657106bb144a4f0"
+    },
+    {
       "path": "tests/test_point_goal_env.py",
       "mode": "100644",
       "bytes": 2100,
@@ -8596,14 +8632,26 @@
     {
       "path": "tests/test_portable_usd_pairing.py",
       "mode": "100644",
-      "bytes": 2201,
-      "sha256": "ea62415fe3b7a86528777161c2c170e596912beb4c470d586afd665cb7eb14b7"
+      "bytes": 7511,
+      "sha256": "7c814185f83d60192a21adc7662815315e8687f31f7a0ef549a9df566b594d6f"
+    },
+    {
+      "path": "tests/test_ppo_buffer_reuse.py",
+      "mode": "100644",
+      "bytes": 1282,
+      "sha256": "5648815fc6857882c8f8e8d1fa2c90daa9ec84b81bd2d9bbc7b8e8c8fd1c8c0c"
     },
     {
       "path": "tests/test_ppo_finite_and_resume.py",
       "mode": "100644",
       "bytes": 7830,
       "sha256": "ef133a94b4782d00c4444624fe8c4c1f7354c0aca12e106663a47a87500a5c81"
+    },
+    {
+      "path": "tests/test_ppo_policy_contracts.py",
+      "mode": "100644",
+      "bytes": 7629,
+      "sha256": "a30262b7de0d0989d063e187cb13f288677e96f7c13d23e0ffafbc4cd768d06c"
     },
     {
       "path": "tests/test_ppo_singleton.py",
@@ -8680,8 +8728,8 @@
     {
       "path": "tests/test_release_asset_failure_paths.py",
       "mode": "100644",
-      "bytes": 14585,
-      "sha256": "bbe5aa1864414652be64085578d6faa01af8de6649beea6271420d4576dddb3d"
+      "bytes": 16387,
+      "sha256": "8676c68de49426f0535eb21f692d3a7d2b656666fe5409d75d4009135949b76e"
     },
     {
       "path": "tests/test_relocated_terminal.py",
@@ -8700,6 +8748,12 @@
       "mode": "100644",
       "bytes": 6183,
       "sha256": "b0009d3389d6df400c7b4703f8503f3f8ee4ebd2cdd335872dc4b53cdf097ba4"
+    },
+    {
+      "path": "tests/test_runtime_environment_contracts.py",
+      "mode": "100644",
+      "bytes": 8828,
+      "sha256": "bc1e856f132c46cfa9c977eb364c571ea5777d648b4dcd9517526868d615a5f9"
     },
     {
       "path": "tests/test_runtime_environment_overlay.py",
@@ -9026,6 +9080,6 @@
       "sha256": "e0522d022dfb0a8469c74d304a511b2c18e359ef83a8b0b6df85bbd6567b1993"
     }
   ],
-  "total_files": 1502,
-  "total_bytes": 22345991
+  "total_files": 1511,
+  "total_bytes": 22418100
 }

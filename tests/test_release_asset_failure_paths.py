@@ -4,6 +4,8 @@ import gzip
 import hashlib
 import json
 from pathlib import Path
+import subprocess
+import sys
 
 import pytest
 
@@ -379,3 +381,53 @@ def test_corrupt_copy_is_never_published_and_existing_link_is_preserved(
     with pytest.raises(ValueError, match="resource link"):
         resource_copy.copy_exact(source, target, release.sha256(source))
     assert target.is_symlink() and source.read_bytes() == b"verified"
+
+
+@pytest.mark.parametrize(
+    "action", ["verify", "install-models", "prepare", "catalog", "fetch"]
+)
+def test_public_release_cli_dispatches_and_preserves_resources(
+    bundle, monkeypatch, capsys, action
+):
+    root, folder, _, usd = bundle
+    catalog = {"fixture": "catalog UTF-8 路径"}
+    (folder / "catalog.json").write_text(json.dumps(catalog, ensure_ascii=False) + "\n")
+    if action == "prepare":
+        bind_restorations(root, folder, usd)
+    fetched = []
+    monkeypatch.setattr(
+        release, "fetch", lambda root, remote: fetched.append((root, remote))
+    )
+    assert release.main([action, "--remote", "fixture"], default_root=root) == 0
+    result = json.loads(capsys.readouterr().out)
+    if action == "catalog":
+        assert result == catalog
+    else:
+        assert result["status"] == "verified" and result["files"] == 2
+    if action in ("install-models", "prepare"):
+        assert result["installation"]["new_files"] == 1
+        assert (root / "data/pretrained_models/fixture.bin").read_bytes() == (
+            folder / "weight.bin"
+        ).read_bytes()
+    if action == "prepare":
+        assert result["preparation"]["new_files"] == 2
+        assert (root / "data/scene.usda").read_bytes() == usd
+    assert fetched == ([(root, "fixture")] if action == "fetch" else [])
+
+
+def test_release_module_entry_point_verifies_selected_checkout(bundle):
+    root, _, _, _ = bundle
+    child = subprocess.run(
+        [
+            sys.executable,
+            "-m",
+            "social_navigation.asset_release",
+            "verify",
+            "--root",
+            str(root),
+        ],
+        check=True,
+        text=True,
+        capture_output=True,
+    )
+    assert json.loads(child.stdout)["original_usd_snapshots_verified"] == 1
