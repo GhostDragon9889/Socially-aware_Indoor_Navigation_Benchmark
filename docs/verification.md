@@ -52,3 +52,27 @@ python3 scripts/run_external_python.py scripts/maintenance/clean_project_cache.p
 在训练、仿真、安装及测试进程结束后执行。清理器只选择已知可重建目录，并在删除前复核项目根标记、目录身份和白名单；不跟随软链接。它保留模型、数据集、USD、SDK 扩展 `extscache`、活动项目依赖和 Git LFS 对象。旧依赖备份只有在有效活动依赖绑定存在时才可清理。`.git/lfs/cache` 与 `.git/lfs/tmp` 属于临时缓存；对象库不会被该命令修剪。
 
 当前通过项、真实物理测试及未验证范围统一记录在[验证状态](validation.md)。不得将跳过项、失败记录、资源预检或短程训练计为全功能通过。
+
+## 导航与诊断契约
+
+下面的测试直接执行 A*、SFM、导航观测、奖励及重置代码；仿真写入接口由内存传输层替代，因此不属于新一轮 PhysX 验收。封存探针按原文件加载并复核 SHA256，执行地图坐标、地面归属、查询时钟与真实 OpenUSD 图层操作：
+
+```bash
+python3 scripts/run_external_python.py -m pytest -p no:cacheprovider -q \
+  tests/test_navigation_manager_flow.py tests/test_navigation_observation_channels.py \
+  tests/test_navigation_scene_obstacles.py tests/test_social_force_field_of_view.py \
+  tests/test_social_force_diagnostics.py tests/test_frozen_probe_contracts.py \
+  tests/test_navigation_rendering.py tests/test_repository_audit.py
+```
+
+封存 v6 探针没有后续版本的单一地面支撑证书；其契约测试记录原始版本限制，不将它用于当前场景认证，也不修改封存字节。
+
+SFM 手动入口使用当前控制器与地图接口，可以生成 CPU 数值诊断图：
+
+```bash
+python3 scripts/run_external_python.py -m CrowdSim.world.sfm \
+  --map src/CrowdSim/maps/World0.png --headless --steps 200 \
+  --output output/sfm_diagnostic.png
+```
+
+输出明确记录 `physics_executed=false`。离线导航 MP4 优先使用 OpenCV；SDK 的 OpenCV 缺少编码器时使用已有 MoviePy/imageio 的 [FFmpeg 流式接口](https://github.com/imageio/imageio-ffmpeg#api)。回归会实际编码并解码视频，核对帧数、尺寸与图像变化；H.264 输出尺寸向上取偶数。离线视频通过不等于四场景实时相机全部通过。

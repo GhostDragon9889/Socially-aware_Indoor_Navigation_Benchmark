@@ -1990,14 +1990,14 @@
     {
       "path": "docs/validation.md",
       "mode": "100644",
-      "bytes": 8121,
-      "sha256": "1a4d8c481ce15f4aa148f7b2de2a8fece2503545ee91551ebdbfab86a3a442f5"
+      "bytes": 10936,
+      "sha256": "e20d6fb46e9a2d0079832a96c7b65dc993bfdcb3dd0f388dbe6df124639ef556"
     },
     {
       "path": "docs/verification.md",
       "mode": "100644",
-      "bytes": 4742,
-      "sha256": "838b6ea047cc3d6a627ef607165b2662a0469869f86377ca601b96e4a0843a4b"
+      "bytes": 6311,
+      "sha256": "3ab931c1c0689f138aef72124ca86124b24a16a54f92c9782e3ddab9898262d0"
     },
     {
       "path": "env/isaaclab3_ea_sim61/README.md",
@@ -8228,6 +8228,12 @@
       "sha256": "999305a01c0585e166c34d003ebe7aea94ae7b444340cf86c2721f32f2bb0ee4"
     },
     {
+      "path": "tests/test_frozen_probe_contracts.py",
+      "mode": "100644",
+      "bytes": 9899,
+      "sha256": "d52c55bd0f4092c0bb970a53c2bcca72cb3a938575f1fd0115651d67657b8451"
+    },
+    {
       "path": "tests/test_frozen_style_location_migration.py",
       "mode": "100644",
       "bytes": 7537,
@@ -8762,6 +8768,12 @@
       "sha256": "5337d592cd74c9c82d88446b11b722f07d9dfbeb69c6ed05109d298691f1ba74"
     },
     {
+      "path": "tests/test_repository_audit.py",
+      "mode": "100644",
+      "bytes": 6260,
+      "sha256": "10df5ddfb4d12b7227b72a07f0cc98dfbdba902301732c3f472473c16e4bc275"
+    },
+    {
       "path": "tests/test_robot_sensor_encoders.py",
       "mode": "100644",
       "bytes": 4562,
@@ -9116,6 +9128,6 @@
       "sha256": "e0522d022dfb0a8469c74d304a511b2c18e359ef83a8b0b6df85bbd6567b1993"
     }
   ],
-  "total_files": 1517,
-  "total_bytes": 22465506
+  "total_files": 1519,
+  "total_bytes": 22486049
 }
