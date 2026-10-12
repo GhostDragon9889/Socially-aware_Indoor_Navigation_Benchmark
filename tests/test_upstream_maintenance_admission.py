@@ -87,7 +87,11 @@ def test_modified_original_catalog_cannot_redefine_its_own_inventory(repository,
 def test_policy_must_prove_each_complete_maintenance_chain(repository, defect):
     path = repository / verifier.MAINTENANCE
     policy = json.loads(path.read_text())
-    row, first = policy['files'][0], policy['files'][0]['updates'][0]
+    # Select a real multi-step modification chain. Policy order may begin with
+    # a deletion tombstone, whose single update has no 'after' object.
+    row = next(item for item in policy['files']
+               if len(item['updates']) > 1 and item['updates'][0]['after'] is not None)
+    first = row['updates'][0]
     if defect == 'duplicate':
         policy['files'].append(deepcopy(row))
     elif defect == 'unknown_path':

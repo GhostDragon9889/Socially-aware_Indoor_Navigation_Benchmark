@@ -8956,8 +8956,8 @@
     {
       "path": "tests/test_upstream_maintenance_admission.py",
       "mode": "100644",
-      "bytes": 8923,
-      "sha256": "737791a622d4205b27598a494512d5731bdfeebb94cf3cd97f45acd1a156899e"
+      "bytes": 9169,
+      "sha256": "c6e7fa66fe9d303e15298d4feeb25c23ce71f9e13983558fa5c95c37c2cbf5fb"
     },
     {
       "path": "tests/test_usd_spawn_edit_context.py",
@@ -9027,5 +9027,5 @@
     }
   ],
   "total_files": 1502,
-  "total_bytes": 22345745
+  "total_bytes": 22345991
 }
