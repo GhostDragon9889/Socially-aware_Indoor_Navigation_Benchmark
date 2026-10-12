@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import ast
 import importlib.util
+import os
 from pathlib import Path
 from types import SimpleNamespace
 
@@ -52,8 +53,8 @@ def test_warp_torch_zero_copy_and_torch_identity():
 
 
 @pytest.mark.parametrize("sdk_root", [
-    "/project/EXP/IsaacLab",
-    "/project/EXP/SangforAndSaut/IsaacLab-Protomotions",
+    Path(os.environ.get("ISAACLAB_ROOT", ROOT.parent.parent / "IsaacLab")),
+    Path(os.environ.get("SOCIAL_NAVIGATION_REFERENCE_LAB_ROOT", ROOT.parent / "IsaacLab-Protomotions")),
 ])
 def test_actual_sdk_proxy_array_explicit_view(sdk_root):
     path = Path(sdk_root) / "source/isaaclab/isaaclab/utils/warp/proxy_array.py"

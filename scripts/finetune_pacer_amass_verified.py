@@ -26,7 +26,6 @@ parser.add_argument("--temporal-gait-prior", type=Path)
 parser.add_argument('--parent-checkpoint', type=Path)
 parser.add_argument("--task-horizons-s",type=float,nargs="+",default=[4.5])
 args = parser.parse_args()
-import sys
 sys.path.insert(0,str(ROOT))
 from CrowdSim.humanoid.training.task_horizon import horizon_frame_offsets
 horizon_frame_offsets(args.num_envs,args.task_horizons_s)

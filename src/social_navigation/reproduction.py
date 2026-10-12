@@ -8,6 +8,7 @@ import shutil
 import stat
 
 from .asset_release import contained_file, sha256
+from .resource_copy import copy_exact as _copy_exact
 
 
 def prepare_frozen_inputs(root: Path):
@@ -29,20 +30,6 @@ def prepare_frozen_inputs(root: Path):
         path.chmod(stat.S_IMODE(mode) & ~0o222)
     return {'status': 'frozen_input_permissions_prepared', 'files': len(checked),
             'content_rewritten': False, 'physics_tested': False}
-
-
-def _copy_exact(source, target, expected):
-    if target.exists():
-        if not target.is_file() or sha256(target) != expected:
-            raise ValueError(f'Existing resource differs; retained: {target}')
-        return False
-    if sha256(source) != expected:
-        raise ValueError(f'Resource source differs: {source}')
-    target.parent.mkdir(parents=True, exist_ok=True)
-    shutil.copyfile(source, target)
-    if sha256(target) != expected:
-        raise ValueError(f'Copy checksum failed: {target}')
-    return True
 
 
 def prepare_resources(root: Path, release: Path):

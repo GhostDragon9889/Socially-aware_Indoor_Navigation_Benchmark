@@ -79,7 +79,7 @@ def test_unloaded_binding_requires_no_native_import(monkeypatch):
     assert report['physx_replicator_terminal_cache']['binding_loaded'] is False
 
 
-def test_cache_release_occurs_after_native_views_and_before_app_close(owned, monkeypatch):
+def test_cache_release_occurs_after_native_views_and_before_app_close(owned, monkeypatch):  # noqa: F811 - imported pytest fixture
     calls = []
 
     def release(report):
@@ -95,7 +95,7 @@ def test_cache_release_occurs_after_native_views_and_before_app_close(owned, mon
     assert owned.simulator._sdk61_close_report['cleanup_succeeded']
 
 
-def test_common_lifecycle_releases_cache_even_without_production_adapter(runtime, monkeypatch):
+def test_common_lifecycle_releases_cache_even_without_production_adapter(runtime, monkeypatch):  # noqa: F811 - imported pytest fixture
     from test_sdk61_lifecycle import make_world
     runtime.Context.current = runtime.Sim()
     world = make_world(runtime)[0]
@@ -113,7 +113,7 @@ def test_common_lifecycle_releases_cache_even_without_production_adapter(runtime
     assert runtime.report['cleanup_succeeded']
 
 
-def test_cache_rejection_preserves_failure_and_still_attempts_full_app_close(runtime, monkeypatch):
+def test_cache_rejection_preserves_failure_and_still_attempts_full_app_close(runtime, monkeypatch):  # noqa: F811 - imported pytest fixture
     from test_sdk61_lifecycle import make_world
 
     def release(report):
@@ -128,7 +128,7 @@ def test_cache_rejection_preserves_failure_and_still_attempts_full_app_close(run
     assert runtime.events[-1][1]['exit_code'] == 1
 
 
-def test_failed_context_clear_never_releases_terminal_cache(runtime, monkeypatch):
+def test_failed_context_clear_never_releases_terminal_cache(runtime, monkeypatch):  # noqa: F811 - imported pytest fixture
     from test_sdk61_lifecycle import make_world
     runtime.Context.current = runtime.Sim()
     monkeypatch.setattr(runtime.Context, 'clear_instance', lambda: None)

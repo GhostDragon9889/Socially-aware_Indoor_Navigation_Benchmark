@@ -197,4 +197,4 @@ PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 "$NAV_PY" -m pytest \
 "$NAV_PY" scripts/verify_upstream_integration.py
 ```
 
-Existing 2026-10-10 results include four local scene videos and bounded metrics. They do not establish the authors' complete eight-scene protocol, arbitrary crowd/seed generalization or better-than-paper performance. Source status, successful exit, full-frame quality, recording checks and human realism evaluation are different evidence. This documentation update checks commands/configuration/dependencies; it does not retrain or record new videos.
+See [verification and maintenance](../verification.md) for full CPU/CUDA regression, strict statement coverage and cache cleanup, and [validation status](../validation.md) for current results. Historical videos and training outputs do not count as current passing evidence. Source identity, successful exit, physical quality, recording checks and human realism evaluation are verified separately.

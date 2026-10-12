@@ -6,18 +6,13 @@ import gzip
 import hashlib
 import json
 from pathlib import Path
-import shutil
 import subprocess
 
+from .resource_copy import copy_exact, sha256
 
 RELEASE_PATH = Path('resources/releases/pedestrians_20261010')
 LFS_URL = 'https://github.com/GhostDragon9889/Socially-aware_Indoor_Navigation_Benchmark.git/info/lfs'
 BUILTIN_MDL = {'OmniPBR.mdl', 'OmniGlass.mdl', 'OmniSurface.mdl'}
-
-
-def sha256(path: Path) -> str:
-    with path.open('rb') as stream:
-        return hashlib.file_digest(stream, 'sha256').hexdigest()
 
 
 def contained_file(root: Path, relative: str) -> Path:
@@ -102,7 +97,10 @@ def fetch(root: Path, remote: str | None = None) -> None:
 def install_models(root: Path, release: Path) -> dict:
     manifest = json.loads((release / 'manifest.json').read_text())
     rows = [row for row in manifest['files'] if 'install_path' in row]
+    if len({row['install_path'] for row in rows}) != len(rows):
+        raise ValueError('Duplicate model installation destinations')
     targets = []
+    destinations = set()
     for row in rows:
         relative = Path(row['install_path'])
         if relative.is_absolute() or '..' in relative.parts or relative.parts[:1] != ('data',):
@@ -110,17 +108,18 @@ def install_models(root: Path, release: Path) -> dict:
         target = (root / relative).resolve()
         if not target.is_relative_to(root.resolve()):
             raise ValueError(f'Install path escapes checkout: {relative}')
+        if target in destinations:
+            raise ValueError('Duplicate model installation destinations after path resolution')
+        destinations.add(target)
         if target.exists() and (not target.is_file() or sha256(target) != row['sha256']):
             raise ValueError(f'Existing resource differs; retained without overwrite: {target}')
-        targets.append((row, target))
+        source = contained_file(release, row['path'])
+        if source.stat().st_size != row['bytes'] or sha256(source) != row['sha256']:
+            raise ValueError(f'Model source differs: {source}')
+        targets.append((row, source, target))
     copied = 0
-    for row, target in targets:
-        if not target.exists():
-            target.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copyfile(contained_file(release, row['path']), target)
-            copied += 1
-        if sha256(target) != row['sha256']:
-            raise ValueError(f'Installed model differs: {target}')
+    for row, source, target in targets:
+        copied += int(copy_exact(source, target, row['sha256']))
     return {'status': 'models_installed', 'resources': len(rows), 'new_files': copied,
             'amass_motion_data_included': False, 'native_map_paths_migrated': False}
 

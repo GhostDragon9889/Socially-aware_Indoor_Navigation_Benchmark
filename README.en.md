@@ -26,7 +26,7 @@ python3 scripts/run_external_python.py -m social_navigation status
 python3 scripts/run_external_python.py -m social_navigation preflight --scene YOHO
 ```
 
-See [installation](docs/guides/installation.en.md), [resource preparation](CLONE_REPRODUCTION.en.md), [usage](docs/guides/usage.en.md), [layout](docs/structure.md) and [validation limits](docs/validation.md). Code belongs in `src`, maintained configuration in `configs`, entry points in `scripts`, and regression tests in `tests`. Downloaded resources and generated results are separate from source.
+See [installation](docs/guides/installation.en.md), [resource preparation](CLONE_REPRODUCTION.en.md), [usage](docs/guides/usage.en.md), [layout](docs/structure.md), [verification and cache maintenance](docs/verification.md) and [validation limits](docs/validation.md). Code belongs in `src`, maintained configuration in `configs`, entry points in `scripts`, and regression tests in `tests`. Downloaded resources and generated results are separate from source.
 
 The implementation builds on [ProtoMotions](https://github.com/NVlabs/ProtoMotions), [TRACE](https://github.com/nv-tlabs/trace) and [PACER](https://github.com/nv-tlabs/pacer). See [LICENSE.md](LICENSE.md) and `legal/`. SMPL/AMASS have separate licensing terms. Full code coverage, long-term policy convergence and every scene's physical quality have not been established.
 

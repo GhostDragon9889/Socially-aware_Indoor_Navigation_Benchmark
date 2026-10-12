@@ -90,7 +90,7 @@ def test_cleanup_accepts_missing_optional_owners(close_env):
 
 
 @pytest.mark.parametrize('failure_stage', ['component', 'ui', 'both'])
-def test_cleanup_failures_reach_real_sdk_lifecycle_without_retaining_native_frames(close_env, owned, failure_stage):
+def test_cleanup_failures_reach_real_sdk_lifecycle_without_retaining_native_frames(close_env, owned, failure_stage):  # noqa: F811 - imported pytest fixture
     events = []
 
     def cleanup(name):

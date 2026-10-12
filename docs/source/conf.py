@@ -81,9 +81,6 @@ autosummary_generate = True
 # This allows Sphinx to parse docstrings without requiring GPU/simulation libraries
 
 # Set environment variables before imports to avoid initialization issues
-import sys  # noqa: E402
-import os  # noqa: E402
-
 # Prevent MuJoCo initialization issues
 os.environ["MUJOCO_GL"] = "osmesa"
 os.environ["PYOPENGL_PLATFORM"] = "osmesa"

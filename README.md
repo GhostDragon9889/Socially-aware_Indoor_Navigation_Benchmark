@@ -33,6 +33,7 @@ python3 scripts/run_external_python.py -m social_navigation preflight --scene YO
 - [运行与训练](docs/guides/usage.zh-CN.md)
 - [项目结构](docs/structure.md)
 - [验证状态与已知缺口](docs/validation.md)
+- [全量验证与缓存维护](docs/verification.md)
 
 实现位于 `src/`，当前配置位于 `configs/`，入口位于 `scripts/`，测试位于 `tests/`。模型、数据集和 USD 属于资源；生成输出不进入源码仓库。未达到全功能、全源码覆盖或全部场景质量通过，详见验证状态。
 

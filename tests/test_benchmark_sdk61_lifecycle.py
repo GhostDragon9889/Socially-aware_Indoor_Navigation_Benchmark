@@ -16,7 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 @pytest.mark.parametrize("failure_stage", [None, "config", "construct", "initialize", "step", "cleanup", "frame"])
-def test_benchmark_releases_complete_and_partial_sdk_owners(runtime, monkeypatch, tmp_path, failure_stage):
+def test_benchmark_releases_complete_and_partial_sdk_owners(runtime, monkeypatch, tmp_path, failure_stage):  # noqa: F811 - imported pytest fixture
     from CrowdSim.humanoid.runtime import sdk61_lifecycle, trace_pace_scope
     monkeypatch.setattr(sdk61_lifecycle, "uses_sim61", lambda: True)
     monkeypatch.setattr(sdk61_lifecycle, "SDK61Lifecycle", runtime.module.SDK61Lifecycle)

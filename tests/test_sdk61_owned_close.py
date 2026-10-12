@@ -11,7 +11,7 @@ from protomotions.simulator.isaaclab.utils import sdk61_owned_close as close_mod
 
 
 @pytest.fixture
-def owned(runtime, monkeypatch):
+def owned(runtime, monkeypatch):  # noqa: F811 - imported pytest fixture
     from CrowdSim.humanoid.runtime import sdk61_lifecycle
     monkeypatch.setattr(sdk61_lifecycle, "SDK61Lifecycle", runtime.module.SDK61Lifecycle)
     monkeypatch.delitem(sys.modules, "omni.replicator.core", raising=False)

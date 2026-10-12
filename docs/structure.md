@@ -7,6 +7,8 @@ The layout separates implementation, maintained configuration, entry points, tes
 | `src/` | Canonical Python packages |
 | `configs/` | Current scene, training and integrity configurations |
 | `scripts/` | Setup, data preparation, training and evaluation entry points |
+| `scripts/verification/` | Statement inventory, source stability and strict coverage execution |
+| `scripts/maintenance/` | Explicit, bounded cache cleanup |
 | `tests/` | Runtime contracts and regression tests |
 | `env/isaaclab3_ea_sim61/` | The single pinned uv SDK profile |
 | `docs/` | Maintained usage and API documentation |
@@ -22,3 +24,5 @@ Maintained executable code uses project-relative paths or `project:`, `lab:` and
 Fresh shared Social AMP recipes live in `configs/training/social_amp/`. Fixed S3/episode owner replay, old four-scene archive replay, and past state-action checkpoint/evaluation receipts are retired. Their specialized replay tests are retired with those tools; PPO, AMP, reset/velocity, source integrity, native-map geometry and metric mathematics tests remain.
 
 The original numerical fixtures in `resources/runtime_sources` are excluded from automatic source formatting/header insertion. Their explicit hash checks and mathematical equivalence tests remain active.
+
+New verification and maintenance commands use thin entry points in these subdirectories and reusable implementations in `src/social_navigation`. Existing source-bound training/scene entry points retain their admitted paths. See [verification and cache maintenance](verification.md).
