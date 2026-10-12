@@ -312,3 +312,252 @@ def test_published_renderer_cli_creates_images(recording, tmp_path, mode):
     assert str(output) in child.stdout
     with Image.open(output) as image:
         assert image.format == ("GIF" if mode == "video" else "PNG")
+
+
+def test_mp4_video_can_be_decoded_in_the_selected_sdk(recording, tmp_path):
+    import imageio_ffmpeg
+
+    _, metadata, path_data, frames = recording
+    output = tmp_path / "actual.mp4"
+    render.render_video(
+        render.make_canvas(path_data, metadata, 96),
+        metadata,
+        path_data,
+        frames,
+        output,
+        5.0,
+        10,
+        0.5,
+        2,
+        2,
+        1,
+        False,
+        True,
+        False,
+        False,
+    )
+    reader = imageio_ffmpeg.read_frames(str(output))
+    description = next(reader)
+    decoded = list(reader)
+    assert description["size"] == (48, 48) and description["fps"] == 5.0
+    assert len(decoded) == 6 and len(decoded[0]) == 48 * 48 * 3
+    assert decoded[0] != decoded[-1]
+
+
+def test_static_cli_uses_current_directory_for_relative_map(
+    recording, monkeypatch, tmp_path
+):
+    path, metadata, path_data, frames = recording
+    metadata["map_path"] = path_data["map_path"] = "map.png"
+    path.write_text("\n".join(json.dumps(row) for row in [metadata, *frames]) + "\n")
+    path.with_name("paths_latest.json").write_text(json.dumps(path_data))
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        [
+            "renderer",
+            path.name,
+            "--static",
+            "--cars",
+            "0",
+            "--stride",
+            "1",
+            "--output",
+            "relative.png",
+        ],
+    )
+    original = render.render_static_grid
+    received = []
+
+    def checked_static(*args):
+        received.append(args[3])
+        assert args[3] == str(tmp_path / "map.png")
+        original(*args)
+
+    monkeypatch.setattr(render, "render_static_grid", checked_static)
+    render.main()
+    assert len(received) == 1
+    with Image.open(tmp_path / "relative.png") as result:
+        assert result.format == "PNG"
+
+
+@pytest.mark.parametrize("selection", ["tail", "max"])
+def test_cli_stride_preserves_updates_and_render_window_initial_path(
+    recording, monkeypatch, tmp_path, selection
+):
+    path, _, _, _ = recording
+    output = tmp_path / "selected.gif"
+    monkeypatch.chdir(tmp_path)
+    args = [
+        "renderer",
+        path.name,
+        "--stride",
+        "2",
+        "--tail-frames",
+        "2" if selection == "tail" else "0",
+        "--max-frames",
+        "2",
+        "--output",
+        output.name,
+    ]
+    monkeypatch.setattr(sys, "argv", args)
+    original = render.render_video
+
+    def checked_video(**kwargs):
+        assert [frame["step"] for frame in kwargs["frames"]] == (
+            [2, 4] if selection == "tail" else [0, 2]
+        )
+        if selection == "tail":
+            assert kwargs["initial_path_records"][1]["goal_xy"] == [9.0, 8.0]
+        else:
+            assert kwargs["frames"][0]["path_updates"][0]["goal_xy"] == [9.0, 8.0]
+        original(**kwargs)
+
+    monkeypatch.setattr(render, "render_video", checked_video)
+    render.main()
+    with Image.open(output) as result:
+        assert result.format == "GIF" and result.n_frames == 2
+
+
+@pytest.mark.parametrize("fault", ["empty", "missing_car"])
+def test_cli_reports_invalid_recording_and_static_selection(
+    recording, monkeypatch, tmp_path, fault
+):
+    path, metadata, _, _ = recording
+    if fault == "empty":
+        path.write_text(json.dumps(metadata) + "\n")
+    monkeypatch.setattr(
+        sys,
+        "argv",
+        ["renderer", str(path), "--static", "--output", str(tmp_path / "never.png")],
+    )
+    with pytest.raises(
+        RuntimeError if fault == "empty" else SystemExit,
+        match="No trajectory frames" if fault == "empty" else "requires --cars",
+    ):
+        render.main()
+    assert not (tmp_path / "never.png").exists()
+
+
+def test_relative_canvas_centered_origin_and_missing_background_still_render(
+    recording, monkeypatch, tmp_path
+):
+    _, metadata, path_data, frames = recording
+    monkeypatch.chdir(tmp_path)
+    path_data["map_path"] = metadata["map_path"] = "map.png"
+    path_data.pop("map_origin_xy")
+    metadata.pop("map_origin_xy")
+    canvas = render.make_canvas(path_data, metadata, 0)
+    assert canvas.origin_xy == (-6.3500000000000005, -6.3500000000000005)
+    output = tmp_path / "without-background.png"
+    render.render_static_grid(
+        frames[:2], metadata, 0, "absent.png", (0, 0), 0.1, 1, 1, output
+    )
+    with Image.open(output) as result:
+        assert result.format == "PNG"
+
+
+def test_video_missing_reached_uses_position_boundaries_and_initial_path(
+    recording, tmp_path
+):
+    _, metadata, path_data, frames = recording
+    for frame in frames:
+        frame.pop("reached")
+    output = tmp_path / "without-reached.gif"
+    render.render_video(
+        render.make_canvas(path_data, metadata, 0),
+        metadata,
+        path_data,
+        frames,
+        output,
+        5.0,
+        10,
+        1.0,
+        2,
+        2,
+        1,
+        False,
+        True,
+        False,
+        False,
+        initial_path_records=path_data["agents"],
+    )
+    with Image.open(output) as result:
+        assert result.n_frames == len(frames)
+
+
+def test_opencv_available_path_receives_resized_bgr_and_releases_writer(
+    monkeypatch, tmp_path
+):
+    import cv2
+
+    class AvailableWriter:
+        def __init__(self):
+            self.frames, self.released = [], False
+
+        def isOpened(self):
+            return True
+
+        def write(self, frame):
+            self.frames.append(frame.copy())
+
+        def release(self):
+            self.released = True
+
+    sink = AvailableWriter()
+    monkeypatch.setattr(cv2, "VideoWriter", lambda *args: sink)
+    writer = render._make_video_writer(tmp_path / "memory.mp4", (8, 8), 5, 0.5)
+    writer.write(Image.new("RGB", (8, 8), "red"))
+    writer.close()
+    assert sink.released and sink.frames[0].shape == (4, 4, 3)
+    np.testing.assert_array_equal(sink.frames[0][0, 0], [0, 0, 255])
+
+
+def test_ffmpeg_odd_dimensions_are_even_and_empty_encoder_output_is_rejected(tmp_path):
+    import imageio_ffmpeg
+
+    output = tmp_path / "odd.mp4"
+    writer = render._FfmpegVideoWriter(output, (17, 19), 5, 1)
+    writer.write(Image.new("RGBA", (17, 19), "blue"))
+    writer.close()
+    reader = imageio_ffmpeg.read_frames(str(output))
+    assert next(reader)["size"] == (18, 20)
+    assert len(list(reader)) == 1
+    bad = render._FfmpegVideoWriter(tmp_path / "missing/output.mp4", (8, 8), 5, 1)
+    bad.write(Image.new("RGB", (8, 8)))
+    with pytest.raises(RuntimeError, match="did not produce a video"):
+        bad.close()
+
+
+def test_missing_system_font_uses_the_embedded_font(monkeypatch):
+    original = render.ImageFont.truetype
+
+    def unavailable_system_font(font, *args, **kwargs):
+        if font == "DejaVuSans.ttf":
+            raise OSError("System font is unavailable")
+        return original(font, *args, **kwargs)
+
+    monkeypatch.setattr(render.ImageFont, "truetype", unavailable_system_font)
+    font = render._load_font()
+    assert font.getbbox("navigation")[2] > 0
+
+
+def test_training_gif_handles_missing_reached_and_initial_robot_path(recording):
+    path, metadata, _, frames = recording
+    for frame in frames:
+        frame.pop("reached")
+    path.write_text("\n".join(json.dumps(row) for row in [metadata, *frames]) + "\n")
+    payload = render.render_nav_gif_bytes(
+        np.zeros((128, 128), dtype=np.uint8),
+        0.1,
+        (0.0, 0.0),
+        1,
+        1,
+        [np.empty((0, 2)), np.empty((0, 2))],
+        np.array([[2.0, 1.0], [3.0, 2.0]]),
+        path,
+        n_frames=6,
+    )
+    with Image.open(io.BytesIO(payload)) as image:
+        assert image.size == (128, 128) and image.n_frames == 6

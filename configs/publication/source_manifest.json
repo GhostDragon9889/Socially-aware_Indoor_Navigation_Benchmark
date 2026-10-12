@@ -5056,8 +5056,8 @@
     {
       "path": "src/CrowdSim/tools/render_navigation_fast.py",
       "mode": "100644",
-      "bytes": 46766,
-      "sha256": "c39d8ba7a7873a86566fb5bae2cec85048a517c011c12d83223bcf86201a1edf"
+      "bytes": 48099,
+      "sha256": "32561f13e81b700fb453dffade107aac6bf3822c734f7e69bd9b06f33b7f76f0"
     },
     {
       "path": "src/CrowdSim/tools/smpl_mesh_visualizer.py",
@@ -8446,8 +8446,8 @@
     {
       "path": "tests/test_navigation_rendering.py",
       "mode": "100644",
-      "bytes": 10900,
-      "sha256": "f1ba1a8967b240d473ce60c7b14ac6363a6425619d8ffebfb1abaa25816ef29d"
+      "bytes": 18515,
+      "sha256": "b8437b87ff7990cdd1f4c596ffd140d67ba28a39c520c1f79827162919bbe9db"
     },
     {
       "path": "tests/test_navigation_scene_obstacles.py",
@@ -9105,5 +9105,5 @@
     }
   ],
   "total_files": 1515,
-  "total_bytes": 22444951
+  "total_bytes": 22453899
 }

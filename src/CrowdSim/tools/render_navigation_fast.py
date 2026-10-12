@@ -698,7 +698,7 @@ def main() -> None:
         resolution = float(path_data.get("map_resolution", metadata.get("map_resolution", 0.05)))
         map_path = str(path_data.get("map_path", metadata.get("map_path", "")))
         if not Path(map_path).is_absolute():
-            map_path = str(traj_path.parent.parent.parent / map_path)
+            map_path = str(Path.cwd() / map_path)
         render_static_grid(
             frames, metadata, car_id, map_path,
             (float(origin[0]), float(origin[1])), resolution,
@@ -758,6 +758,7 @@ class _OpenCvVideoWriter:
         fourcc = cv2.VideoWriter_fourcc(*"mp4v")
         self.writer = cv2.VideoWriter(str(path), fourcc, float(fps), self.output_size)
         if not self.writer.isOpened():
+            self.writer.release()
             raise RuntimeError(f"Failed to open video writer: {path}")
 
     def write(self, image: Image.Image) -> None:
@@ -768,6 +769,35 @@ class _OpenCvVideoWriter:
 
     def close(self) -> None:
         self.writer.release()
+
+
+class _FfmpegVideoWriter:
+    """Stream frames using MoviePy's existing FFmpeg provider when Kit lacks codecs."""
+
+    def __init__(self, path: Path, size: tuple[int, int], fps: float, scale: float):
+        import imageio_ffmpeg
+
+        self.path = path
+        # H.264's widely supported yuv420p format requires even dimensions.
+        self.output_size = tuple(max(2, 2 * math.ceil(value * scale / 2)) for value in size)
+        self.frames_written = 0
+        self.writer = imageio_ffmpeg.write_frames(
+            str(path), self.output_size, fps=float(fps), codec="libx264",
+            macro_block_size=1, pix_fmt_out="yuv420p",
+        )
+        self.writer.send(None)
+
+    def write(self, image: Image.Image) -> None:
+        image = image.convert("RGB")
+        if image.size != self.output_size:
+            image = image.resize(self.output_size, Image.Resampling.BILINEAR)
+        self.writer.send(np.asarray(image, dtype=np.uint8).tobytes())
+        self.frames_written += 1
+
+    def close(self) -> None:
+        self.writer.close()
+        if self.frames_written and (not self.path.is_file() or self.path.stat().st_size == 0):
+            raise RuntimeError(f"FFmpeg did not produce a video: {self.path}")
 
 
 class _GifWriter:
@@ -808,7 +838,10 @@ class _GifWriter:
 def _make_video_writer(path: Path, size, fps, scale):
     if path.suffix.lower() == ".gif":
         return _GifWriter(path, size, fps, scale)
-    return _OpenCvVideoWriter(path, size, fps, scale)
+    try:
+        return _OpenCvVideoWriter(path, size, fps, scale)
+    except RuntimeError:
+        return _FfmpegVideoWriter(path, size, fps, scale)
 
 
 def _draw_status_text(draw, font, frame_idx, num_frames, frame, show_legend, yaw_sources):
