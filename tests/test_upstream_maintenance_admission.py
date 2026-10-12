@@ -124,7 +124,7 @@ def test_policy_must_prove_each_complete_maintenance_chain(repository, defect):
 
 def test_mode_changes_and_deletions_are_not_accepted(repository):
     original = verifier.git_entries(repository)['.gitignore']
-    git(repository, 'update-index', '--cacheinfo', '100755,' + original[1] + ',.dockerignore')
+    git(repository, 'update-index', '--cacheinfo', '100755,' + original[1] + ',.gitignore')
     with pytest.raises(RuntimeError, match='differs from registered'):
         verifier.verify(repository, staged=True)
     git(repository, 'update-index', '--force-remove', '.gitignore')
@@ -146,7 +146,7 @@ def test_worktree_files_cannot_override_selected_content_or_lfs_policy(repositor
 def test_unresolved_index_conflict_is_rejected(repository):
     mode, blob = verifier.git_entries(repository)['.gitignore']
     git(repository, 'update-index', '--force-remove', '.gitignore')
-    git(repository, 'update-index', '--index-info', data=(mode + ' ' + blob + ' 1\t.dockerignore\n').encode())
+    git(repository, 'update-index', '--index-info', data=(mode + ' ' + blob + ' 1\t.gitignore\n').encode())
     with pytest.raises(RuntimeError, match='Unresolved merge conflict'):
         verifier.verify(repository, staged=True)
 
